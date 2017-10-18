@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1508322908 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1508322392 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.c
+	"symtable.h"
+	<string.h>
+	<malloc.h>
+
+1508322373 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.h
+
