@@ -3,10 +3,51 @@
 	<stdio.h>
 	<stdlib.h>
 
-1508322392 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.c
-	"symtable.h"
+1508328837 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.c
 	<string.h>
 	<malloc.h>
+	"symtable.h"
 
 1508322373 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.h
+
+1508329353 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
+	"parser.h"
+
+1508315890 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.h
+
+1511023227 source:d:\google drive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../parser/parser.h"
+	"../scanner/scanner.h"
+	"parser.h"
+	"scanner.h"
+
+1511023209 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.h
+
+1511021897 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.h
+	"token.h"
+	"input.h"
+
+1511021098 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\scanner\token.h
+
+1511023220 source:d:\google drive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
+	"parser.h"
+	"parser_errors.h"
+	"../scanner/scanner.h"
+	"../scanner/input.h"
+	"scanner.h"
+	"input.h"
+
+1511021537 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\parser\parser_errors.h
+
+1511018692 source:d:\google drive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.c
+	<string.h>
+	<malloc.h>
+	"symtable.h"
+
+1511020588 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.h
+
+1511021870 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\scanner\input.h
+	<stdio.h>
 

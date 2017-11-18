@@ -45,6 +45,9 @@
 		<Unit filename="main/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="parser/parser.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="parser/parser.h" />
 		<Unit filename="parser/symtable.c">
 			<Option compilerVar="CC" />
