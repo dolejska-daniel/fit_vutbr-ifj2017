@@ -2,7 +2,8 @@
  * Tento soubor obsahuje deklarace funkcí využité při implementaci
  * tabulky symbolů pomocí tabulky s rozptýlenými položkami.
  *
- * @author Daniel Dolejška
+ * @author Daniel Dolejška (xdolej08)
+ * @project IFJcode17Parser
  */
 
 #ifndef _symtable_h
@@ -18,7 +19,7 @@ typedef enum E_SymbolType {
 	DT_INTEGER,	///< Proměnná datového typu integer
 	FUNCTION,	///< Funkce
 	SUB_ST,		///< Podřízená tabulka symbolů
-} SymbolType;
+} SymbolType; ///< Typ symbolu
 
 typedef struct S_Symbol
     Symbol,
@@ -28,7 +29,7 @@ struct S_Symbol {
 	SymbolPtr	next;	///< Ukazatel na další prvek se stejným otiskem (synonymum)
 	char 		*key;	///< Název/Identifikátor symbolu
 	void		*value;	///< Ukazatel na další informace o symbolu
-};
+}; ///< Struktura symbolu
 
 typedef struct S_SymbolTable
     SymbolTable,
@@ -36,7 +37,7 @@ typedef struct S_SymbolTable
 struct S_SymbolTable {
 	unsigned	size;		///< Velikost tabulky symbolů
 	Symbol	    **array;	///< Pole ukazatelů na jednotlivé symboly
-};
+}; ///< Struktura tabulky symbolů
 
 
 //==================================================================d=d=

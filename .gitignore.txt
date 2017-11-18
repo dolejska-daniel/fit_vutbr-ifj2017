@@ -1,2 +1,3 @@
 /build/bin/Debug
 /build/obj/Debug
+*.save-failed
