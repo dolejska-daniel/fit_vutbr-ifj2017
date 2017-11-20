@@ -6,11 +6,10 @@
  * @project IFJcode17Parser
  */
 
-#include "token.h"
-#include "input.h"
+#include <stdio.h>
 
-#ifndef _scanner_h
-#define _scanner_h
+#ifndef _input_h
+#define _input_h
 
 #ifdef DEBUG
 #define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
@@ -22,10 +21,12 @@
 //  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR
 //======================================================================
 
-typedef enum E_AutomataState {
-	BEGIN,
-	//  TODO: Další stavy automatu pro lexikální analýzu
-} AutomataState; ///< Stavy automatu
+typedef struct S_Input
+    Input,
+   *InputPtr;
+struct S_Input {
+    FILE    *source;
+}; ///< Struktura se vstupními daty
 
 
 //==================================================================d=d=
@@ -33,16 +34,21 @@ typedef enum E_AutomataState {
 //======================================================================
 
 /**
- * Hlavní funkce ovládající lexikální analyzátor.
+ * Funkce pro vytvoření struktury vstupních dat.
  *
- * Pokud nebude token z nějakého důvodu získán, v parametru token vrací
- * hodnotu NULL a dále vrací adekvátní stavový kód.
+ * @param[in,out]	FILE    *source Ukazatel na resource vstupních dat
  *
- * @param[in,out]   InputPtr    input           Ukazatel na strukturu se vstupními daty
- * @param[out]      TokenPtr    *token          Ukazatel na získaný token
- *
- * @retval int  Kód se kterým bylo získávání nového tokenu ukončeno
+ * @retval InputPtr Ukazatel na nově vytvořenou strukturu
  */
-int Scanner_GetToken(InputPtr input, TokenPtr *token);
+InputPtr Input_create(FILE *source);
+
+/**
+ * Funkce pro zrušení struktury vstupních dat.
+ *
+ * @param[in,out]	InputPtr    *i  Ukazatel na existující strukturu
+ *
+ * @retval void
+ */
+void Input_destroy(InputPtr i);
 
 #endif

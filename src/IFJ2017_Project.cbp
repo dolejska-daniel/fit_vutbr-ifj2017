@@ -7,21 +7,32 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="../bin/Debug/IFJ2017_Project" prefix_auto="1" extension_auto="1" />
-				<Option object_output="../obj/Debug/" />
+				<Option output="../build/bin/Debug/IFJ2017_Project" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../build/obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-pedantic" />
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
+					<Add option="-std=c99" />
 					<Add option="-g" />
+					<Add option="-DDEBUG" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="../bin/Release/IFJ2017_Project" prefix_auto="1" extension_auto="1" />
-				<Option object_output="../obj/Release/" />
+				<Option output="../build/bin/Release/IFJ2017_Project" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../build/obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-O2" />
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add option="-pedantic" />
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
+					<Add option="-std=c99" />
+					<Add option="-Werror" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -31,9 +42,22 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="main.c">
+		<Unit filename="generator/generator.h" />
+		<Unit filename="main/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="parser/parser.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parser/parser.h" />
+		<Unit filename="parser/parser_errors.h" />
+		<Unit filename="parser/symtable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parser/symtable.h" />
+		<Unit filename="scanner/input.h" />
+		<Unit filename="scanner/scanner.h" />
+		<Unit filename="scanner/token.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
