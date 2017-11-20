@@ -1,15 +1,13 @@
 /**
  * Tento soubor obsahuje deklarace funkcí využité při implementaci
- * lexikálního analyzátoru (scanner).
+ * generátoru cílového kódu (generator).
  *
  * @author Daniel Dolejška (xdolej08)
  * @project IFJcode17Parser
  */
 
-#include <stdio.h>
-
-#ifndef _input_h
-#define _input_h
+#ifndef _generator_h
+#define _generator_h
 
 #ifdef DEBUG
 #define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
@@ -21,34 +19,25 @@
 //  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR
 //======================================================================
 
-typedef struct S_Input
-    Input,
-   *InputPtr;
-struct S_Input {
-    FILE    *source;
-}; ///< Struktura se vstupními daty
+typedef enum E_InstructionType {
+    IF,
+    LOOP,
+} InstructionType;
 
+typedef struct S_InstructionID
+    InstructionID,
+    *InstructionIDPtr;
+struct S_InstructionID {
+    InstructionType type;
+    unsigned        ID;
+};
 
 //==================================================================d=d=
 //  DEKLARACE FUNKCÍ
 //======================================================================
 
-/**
- * Funkce pro vytvoření struktury vstupních dat.
- *
- * @param[in,out]	FILE    *source Ukazatel na resource vstupních dat
- *
- * @retval InputPtr Ukazatel na nově vytvořenou strukturu
- */
-InputPtr Input_create(FILE *source);
+InstructionIDPtr InstructionID_create(InstructionType type, unsigned ID);
 
-/**
- * Funkce pro zrušení struktury vstupních dat.
- *
- * @param[in,out]	InputPtr    *i  Ukazatel na existující strukturu
- *
- * @retval void
- */
-void Input_destroy(InputPtr i);
+void InstructionID_destroy(InstructionIDPtr i);
 
 #endif

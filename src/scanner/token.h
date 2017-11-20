@@ -9,13 +9,43 @@
 #ifndef _token_h
 #define _token_h
 
+#ifdef DEBUG
+#define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
+#else
+#define DEBUG_PRINT(...) do{ } while ( 0 )
+#endif
+
 //==================================================================d=d=
 //  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR
 //======================================================================
 
 typedef enum E_TokenType {
-    KEYWORD,
-	//	TODO: Typy tokenů, vyblité scannerem
+    //  Keywords begin
+    AS, ASC, DECLARE, DIM, DO, DOUBLE, ELSE, END, CHR, FUNCTION, IF,
+    INPUT, INTEGER, LENGTH, LOOP, PRINT, RETURN, SCOPE, STRING, SUBSTR,
+    THEN, WHILE, AND, BOOLEAN, CONTINUE, ELSEIF, EXIT, FALSE, FOR, NEXT,
+    NOT, OR, SHARED, STATIC, TRUE,
+    //  Keywords end
+    IDENTIFIER,         ///< variable_name
+    CONSTANT_INTEGER,   ///< 25
+    CONSTANT_DOUBLE,    ///< 0.25
+    CONSTANT_STRING,    ///< "string"
+    CONSTANT_BOOLEAN,   ///< true, false
+    COMMA,              ///< ,
+    SEMICOLON,          ///< ;
+    OPEN_BRACKET,       ///< (
+    CLOSE_BRACKET,      ///< )
+    EQ,                 ///< =
+    GT,                 ///< >
+    LT,                 ///< <
+    MINUS,              ///< -
+    PLUS,               ///< +
+    SLASH,              ///< /
+    STAR,               ///< *
+    LINE_END,           ///< EOL
+    FILE_END,           ///< EOF
+    INVALID,            ///< Chyba scanneru
+	//	TODO: Další typy tokenů, vyblité scannerem
 } TokenType; ///< Typy tokenů
 
 typedef struct S_Token

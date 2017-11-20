@@ -1,7 +1,15 @@
 # depslib dependency file v1.0
-1508322908 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
+1511184645 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
 	<stdio.h>
 	<stdlib.h>
+	"../parser/parser.h"
+	"../parser/parser_errors.h"
+	"../scanner/scanner.h"
+	"../scanner/input.h"
+	"parser.h"
+	"parser_errors.h"
+	"scanner.h"
+	"input.h"
 
 1508328837 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.c
 	<string.h>
@@ -10,10 +18,13 @@
 
 1508322373 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.h
 
-1508329353 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
+1511111544 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
 	"parser.h"
+	"parser_errors.h"
 
-1508315890 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.h
+1511184387 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.h
+	"../scanner/input.h"
+	"input.h"
 
 1511023227 source:d:\google drive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
 	<stdio.h>
@@ -50,4 +61,15 @@
 
 1511021870 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\scanner\input.h
 	<stdio.h>
+
+1511111629 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.h
+	"token.h"
+	"input.h"
+
+1511181158 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\token.h
+
+1511111624 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\input.h
+	<stdio.h>
+
+1511184614 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser_errors.h
 

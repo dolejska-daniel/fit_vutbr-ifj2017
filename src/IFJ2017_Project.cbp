@@ -42,6 +42,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="generator/generator.h" />
 		<Unit filename="main/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -49,10 +50,12 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="parser/parser.h" />
+		<Unit filename="parser/parser_errors.h" />
 		<Unit filename="parser/symtable.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="parser/symtable.h" />
+		<Unit filename="scanner/input.h" />
 		<Unit filename="scanner/scanner.h" />
 		<Unit filename="scanner/token.h" />
 		<Extensions>

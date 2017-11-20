@@ -11,16 +11,6 @@
 #ifndef _parser_c
 #define _parser_c
 
-#ifdef DEBUG
-#include "../scanner/scanner.h"
-#include "../scanner/input.h"
-#define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
-#else
-#include "scanner.h"
-#include "input.h"
-#define DEBUG_PRINT(...) do{ } while ( 0 )
-#endif
-
 //==================================================================d=d=
 //  DEKLARACE A DEFINICE ENUMERÁTORÙ A STRUKTUR
 //======================================================================
@@ -33,11 +23,11 @@
 /**
  * Hlavní funkce ovládající pøekladaè.
  *
- * @param
+ * @param[in,out]   InputPtr    input   Ukazatel na strukturu se vstupními daty
  *
  * @retval	int	Návratový kód popisující situaci (chyba, úspìch, ...)
  */
-int Parser_ParseCode()
+int Parser_ParseCode(InputPtr input)
 {
 
 }
