@@ -9,6 +9,14 @@
 #ifndef _parser_h
 #define _parser_h
 
+#ifdef DEBUG
+#include "../scanner/input.h"
+#define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
+#else
+#include "input.h"
+#define DEBUG_PRINT(...) do{ } while ( 0 )
+#endif
+
 //==================================================================d=d=
 //  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR
 //======================================================================
@@ -31,10 +39,10 @@ const char *KEYWORDS[] = {
 /**
  * Hlavní funkce ovládající překladač.
  *
- * @param
+ * @param[in,out]   InputPtr    input   Ukazatel na strukturu se vstupními daty
  *
  * @retval	int	Návratový kód popisující situaci (chyba, úspěch, ...)
  */
-int Parser_ParseCode();
+int Parser_ParseCode(InputPtr input);
 
 #endif
