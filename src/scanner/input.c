@@ -1,17 +1,20 @@
 /**
- * Tento soubor obsahuje implementaci syntaktického analyzátoru (parser).
+ * Tento soubor obsahuje implementaci funkcÃ­ pro prÃ¡ci se strukturou
+ * vstupnÃ­ch dat.
  *
- * @author Daniel Dolejška (xdolej08)
+ * @author Daniel DolejÅ¡ka (xdolej08)
  * @date 21.11.2017
  * @project IFJcode17Parser
- * @subject Formální jazyky a pøekladaèe (IFJ) - FIT VUT v Brnì
+ * @subject FormÃ¡lnÃ­ jazyky a pÅ™ekladaÄe (IFJ) - FIT VUT v BrnÄ›
  */
 
-#include "parser.h"
-#include "../support/error_codes.h"
+#include <stdio.h>
+#include <malloc.h>
 
-#ifndef _parser_c
-#define _parser_c
+#include "input.h"
+
+#ifndef _input_c
+#define _input_c
 
 #ifdef DEBUG_PRINT_ENABLED
 #define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
@@ -32,24 +35,37 @@
 #endif
 
 //==================================================================d=d=
-//  DEKLARACE A DEFINICE ENUMERÁTORÙ A STRUKTUR
+//  DEKLARACE A DEFINICE ENUMERÃTORÅ® A STRUKTUR
 //======================================================================
 
 
 //==================================================================d=d=
-//  DEKLARACE FUNKCÍ
+//  DEKLARACE FUNKCÃ
 //======================================================================
 
 /**
- * Hlavní funkce ovládající pøekladaè.
+ * Funkce pro vytvoÅ™enÃ­ struktury vstupnÃ­ch dat.
  *
- * @param[in,out]   InputPtr    input   Ukazatel na strukturu se vstupními daty
+ * @param[in,out]	FILE    *source Ukazatel na resource vstupnÃ­ch dat
  *
- * @retval	int	Návratovı kód popisující situaci (chyba, úspìch, ...)
+ * @retval InputPtr Ukazatel na novÄ› vytvoÅ™enou strukturu
  */
-int Parser_ParseCode(InputPtr input)
+InputPtr Input_create(FILE *source)
 {
-    return INTERNAL_ERROR;
+    InputPtr input = (InputPtr) malloc(sizeof(Input));
+    input->source = source;
+    return input;
+}
+
+/**
+ * Funkce pro zruÅ¡enÃ­ struktury vstupnÃ­ch dat.
+ *
+ * @param[in,out]	InputPtr    *i  Ukazatel na existujÃ­cÃ­ strukturu
+ */
+void Input_destroy(InputPtr *i)
+{
+    free(i);
+    *i = NULL;
 }
 
 #endif

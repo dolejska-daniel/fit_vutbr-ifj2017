@@ -9,12 +9,10 @@
 #ifndef _parser_h
 #define _parser_h
 
-#ifdef DEBUG
+#ifdef DEBUG_INCLUDE
 #include "../scanner/input.h"
-#define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
 #else
 #include "input.h"
-#define DEBUG_PRINT(...) do{ } while ( 0 )
 #endif
 
 //==================================================================d=d=

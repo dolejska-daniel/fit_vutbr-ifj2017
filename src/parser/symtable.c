@@ -3,7 +3,9 @@
  * s rozptýlenými položkami.
  *
  * @author Daniel Dolejška (xdolej08)
+ * @date 21.11.2017
  * @project IFJcode17Parser
+ * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
 #include <string.h>
@@ -13,6 +15,25 @@
 
 #ifndef _symtable_c
 #define _symtable_c
+
+#ifdef DEBUG_PRINT_ENABLED
+#define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
+#else
+#define DEBUG_PRINT(...) do{ } while ( 0 )
+#endif
+
+#ifdef DEBUG_LOG_ENABLED
+#define DEBUG_LOG(...) do{ fprintf( stderr, "[%s]     %s\n", __VA_ARGS__ ); } while( 0 )
+#else
+#define DEBUG_LOG(...) do{ } while ( 0 )
+#endif
+
+#ifdef DEBUG_ERR_ENABLED
+#define DEBUG_ERR(...) do{ fprintf( stderr, "[%s] ERR %s\n", __VA_ARGS__ ); } while( 0 )
+#else
+#define DEBUG_ERR(...) do{ } while ( 0 )
+#endif
+
 #define SYMBOL_TABLE_SIZE 100
 
 //==================================================================d=d=
@@ -46,18 +67,19 @@ SymbolTablePtr SymbolTable_create()
 /**
  * Funkce pro zrušení existující tabulky symbolů.
  *
- * @param[in,out]	SymbolTable	*st	Ukazatel na existující tabulku symbolù
+ * @param[in,out]	SymbolTablePtr  *st	Ukazatel na existující tabulku symbolù
  *
  * @retval	void
  */
 void SymbolTable_destroy(SymbolTablePtr *st)
 {
+    SymbolTablePtr table = *st;
     //  TODO: Uvolnění položek
 
     //  Uvolnění paměti pro pole symbolů
-	free(st->array);
+	free(table->array);
 	//  Uvolnění pamìti pro tabulku
-	free(st);
+	free(table);
 
 	*st = NULL;
 }
@@ -205,15 +227,16 @@ SymbolPtr Symbol_create(char *key, SymbolType type, SymbolLocation location, voi
  *
  * @retval	void
  */
-void Symbol_destroy(SymbolPtr s)
+void Symbol_destroy(SymbolPtr *s)
 {
-    if (s == NULL)
+    if (*s == NULL)
         return;
 
-    if (s->value != NULL)
-        free(s->value);
+    if ((*s)->value != NULL)
+        free((*s)->value);
 
-    free(s);
+    free(*s);
+    *s = NULL;
 }
 
 
