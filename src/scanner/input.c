@@ -52,19 +52,28 @@
  */
 InputPtr Input_create(FILE *source)
 {
-    InputPtr input = (InputPtr) malloc(sizeof(Input));
-    input->source = source;
-    return input;
+    InputPtr i = (InputPtr) malloc(sizeof(Input));
+    if (i == NULL)
+    {
+        DEBUG_ERR("input", "failed to mallocate Input");
+        return NULL;
+    }
+
+    i->source    = source;
+    i->line      = 1;
+    i->character = 0;
+
+    return i;
 }
 
 /**
  * Funkce pro zrušení struktury vstupních dat.
  *
- * @param[in,out]	InputPtr    *i  Ukazatel na existující strukturu
+ * @param[in,out]	InputPtr    *i  Ukazatel na ukazatel na existující strukturu
  */
 void Input_destroy(InputPtr *i)
 {
-    free(i);
+    free(*i);
     *i = NULL;
 }
 

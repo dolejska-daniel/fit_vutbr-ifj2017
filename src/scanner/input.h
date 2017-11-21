@@ -25,7 +25,9 @@ typedef struct S_Input
     Input,
    *InputPtr;
 struct S_Input {
-    FILE    *source;
+    FILE        *source;    ///< Datový vstup
+    unsigned    line;       ///< Číslo aktuálního řádku
+    unsigned    character;  ///< Číslo aktuálního znaku
 }; ///< Struktura se vstupními daty
 
 
@@ -45,7 +47,7 @@ InputPtr Input_create(FILE *source);
 /**
  * Funkce pro zrušení struktury vstupních dat.
  *
- * @param[in,out]	InputPtr    *i  Ukazatel na existující strukturu
+ * @param[in,out]	InputPtr    *i  Ukazatel na ukazatel na existující strukturu
  */
 void Input_destroy(InputPtr *i);
 
