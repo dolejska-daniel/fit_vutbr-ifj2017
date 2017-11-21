@@ -3,16 +3,16 @@
  * a práci s tokeny v lexikálním analyzátoru (scanneru).
  *
  * @author Daniel Dolejška (xdolej08)
+ * @date 21.11.2017
  * @project IFJcode17Parser
+ * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
 #ifndef _token_h
 #define _token_h
 
-#ifdef DEBUG
-#define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
+#ifdef DEBUG_INCLUDE
 #else
-#define DEBUG_PRINT(...) do{ } while ( 0 )
 #endif
 
 //==================================================================d=d=
