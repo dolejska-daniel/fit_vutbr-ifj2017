@@ -59,7 +59,9 @@ InputPtr Input_create(FILE *source)
         return NULL;
     }
 
-    i->source = source;
+    i->source    = source;
+    i->line      = 1;
+    i->character = 0;
 
     return i;
 }

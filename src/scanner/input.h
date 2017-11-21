@@ -25,7 +25,9 @@ typedef struct S_Input
     Input,
    *InputPtr;
 struct S_Input {
-    FILE    *source;
+    FILE        *source;    ///< Datový vstup
+    unsigned    line;       ///< Číslo aktuálního řádku
+    unsigned    character;  ///< Číslo aktuálního znaku
 }; ///< Struktura se vstupními daty
 
 
