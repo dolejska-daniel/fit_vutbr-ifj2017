@@ -1,9 +1,11 @@
 /**
- * Tento soubor obsahuje deklarace funkcí využité při implementaci
- * lexikálního analyzátoru (scanner).
+ * Tento soubor obsahuje deklarace funkcí využité při práci
+ * se strukturou vstupních dat.
  *
  * @author Daniel Dolejška (xdolej08)
+ * @date 21.11.2017
  * @project IFJcode17Parser
+ * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
 #include <stdio.h>
@@ -11,10 +13,8 @@
 #ifndef _input_h
 #define _input_h
 
-#ifdef DEBUG
-#define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
+#ifdef DEBUG_INCLUDE
 #else
-#define DEBUG_PRINT(...) do{ } while ( 0 )
 #endif
 
 //==================================================================d=d=
@@ -46,9 +46,7 @@ InputPtr Input_create(FILE *source);
  * Funkce pro zrušení struktury vstupních dat.
  *
  * @param[in,out]	InputPtr    *i  Ukazatel na existující strukturu
- *
- * @retval void
  */
-void Input_destroy(InputPtr i);
+void Input_destroy(InputPtr *i);
 
 #endif

@@ -11,10 +11,8 @@
 #ifndef _symtable_h
 #define _symtable_h
 
-#ifdef DEBUG
-#define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
+#ifdef DEBUG_INCLUDE
 #else
-#define DEBUG_PRINT(...) do{ } while ( 0 )
 #endif
 
 //==================================================================d=d=
@@ -22,19 +20,19 @@
 //======================================================================
 
 typedef enum E_SymbolType {
-	DT_BOOLEAN, ///< Proměnná datového typu boolean
-	DT_STRING,  ///< Proměnná datového typu string
-	DT_DOUBLE,	///< Proměnná datového typu double
-	DT_INTEGER, ///< Proměnná datového typu integer
-	FUNCTION,   ///< Funkce
-	SUB_ST,		///< Podřízená tabulka symbolů
+	ST_BOOLEAN,     ///< Proměnná datového typu boolean
+	ST_STRING,      ///< Proměnná datového typu string
+	ST_DOUBLE,	    ///< Proměnná datového typu double
+	ST_INTEGER,     ///< Proměnná datového typu integer
+	ST_NONE,        ///< NULL
+	ST_FUNCTION,    ///< Funkce
 } SymbolType; ///< Typ symbolu
 
 typedef enum E_SymbolLocation {
-    GLOBAL,     ///< Globální rámec
-    LOCAL,      ///< Lokální rámec
-    TEMPORARY,  ///< Dočasný rámec
-    CONSTANT,   ///< Konstanta
+    GLOBAL_FRAME,       ///< Globální rámec
+    LOCAL_FRAME,        ///< Lokální rámec
+    TEMPORARY_FRAME,    ///< Dočasný rámec
+    CONSTANT,           ///< Konstanta
 } SymbolLocation; ///< Umístění symbolu
 
 typedef struct S_Symbol
@@ -61,7 +59,8 @@ typedef struct S_SymbolInfo_Function
    *SymbolInfo_FunctionPtr;
 struct S_SymbolInfo_Function {
     SymbolInfo_Function_Parameter   **params; ///< Pole parametrů funkce
-    bool isDefined; ///< Označuje zda je funkce definována
+    SymbolType  returnDataType; ///< Datový typ návratové hodnoty
+    bool        isDefined;      ///< Označuje zda je funkce definována
 };
 
 typedef struct S_SymbolTable
@@ -87,11 +86,9 @@ SymbolTablePtr SymbolTable_create();
 /**
  * Funkce pro zrušení existující tabulky symbolů.
  *
- * @param[in,out]	SymbolTable	*st	Ukazatel na existující tabulku symbolů
- *
- * @retval	void
+ * @param[in,out]	SymbolTablePtr	*st	Ukazatel na existující tabulku symbolů
  */
-void SymbolTable_destroy(SymbolTable *st);
+void SymbolTable_destroy(SymbolTablePtr *st);
 
 /**
  * Funkce pro výpočet klíče na základě jména položky.
@@ -131,8 +128,6 @@ SymbolPtr SymbolTable_insert(SymbolTable *st, char *key, SymbolType type, Symbol
  *
  * @param[in,out]	SymbolTable	*st		Ukazatel na existující tabulku symbolů
  * @param[in]		char		*key	Identifikátor položky
- *
- * @retval	void
  */
 void SymbolTable_delete(SymbolTable *st, char *key);
 
@@ -152,9 +147,15 @@ SymbolPtr Symbol_create(char *key, SymbolType type, SymbolLocation location, voi
  * Funkce odstraní položku dle daného ukazatele.
  *
  * @param[in,out]	SymbolPtr	*s		Ukazatel na existující tabulku symbolů
- *
- * @retval	void
  */
-void Symbol_destroy(SymbolPtr s);
+void Symbol_destroy(SymbolPtr *s);
+
+SymbolInfo_FunctionPtr SymbolInfo_Function_create();
+
+void SymbolInfo_Function_destroy(SymbolInfo_FunctionPtr *s);
+
+SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create();
+
+void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s);
 
 #endif
