@@ -28,7 +28,10 @@ typedef enum E_TokenType {
     //  Keywords end
     IDENTIFIER,         ///< variable_name
     CONSTANT_INTEGER,   ///< 25
-    CONSTANT_DOUBLE,    ///< 0.25
+    CONSTANT_BINARY,    ///< &B1011101000101
+    CONSTANT_OCTAL,     ///< &O7346104612315
+    CONSTANT_HEXA,      ///< &H1AB2F8D9CEE20
+    CONSTANT_DOUBLE,    ///< 0.25, 0.25e-2
     CONSTANT_STRING,    ///< "string"
     CONSTANT_BOOLEAN,   ///< true, false
     COMMA,              ///< ,
@@ -52,8 +55,8 @@ typedef struct S_Token
     Token,
    *TokenPtr;
 struct S_Token {
-	TokenType	type;
-	char		*attr;
+	TokenType	type;   ///< Typ daného tokenu
+	char		*attr;  ///< Vlastnost tokenu, další informace dle typu
 	//	TODO: Další vlastnosti, které token musí mít
 }; ///< Struktura tokenu
 
@@ -67,16 +70,16 @@ struct S_Token {
  *
  * @param[in]   TokenType   type    Typ vytvářeného tokenu
  * @param[in]   char        *attr   Vlastnost tokenu
+ *
+ * @retval  TokenPtr    Ukazatel na nově vytvořenou strukturu
  */
 TokenPtr Token_create(TokenType type, char *attr);
 
 /**
  * Funkce pro zrušení struktury tokenu.
  *
- * @param[in,out]   TokenPtr    t   Ukazatel na existující strukturu tokenu
+ * @param[in,out]   TokenPtr    *t   Ukazatel na ukazatel na existující strukturu tokenu
  */
-void Token_destroy(TokenPtr t);
-
-//	TODO: Deklarovat další funkce používané s tokeny, jestli jsou nějaké
+void Token_destroy(TokenPtr *t);
 
 #endif
