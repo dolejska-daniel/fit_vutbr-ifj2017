@@ -7,8 +7,8 @@
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
-#ifndef _parser_errors_h
-#define _parser_errors_h
+#ifndef _error_codes_h
+#define _error_codes_h
 
 #ifdef DEBUG_INCLUDE
 #else

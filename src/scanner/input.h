@@ -45,7 +45,7 @@ InputPtr Input_create(FILE *source);
 /**
  * Funkce pro zrušení struktury vstupních dat.
  *
- * @param[in,out]	InputPtr    *i  Ukazatel na existující strukturu
+ * @param[in,out]	InputPtr    *i  Ukazatel na ukazatel na existující strukturu
  */
 void Input_destroy(InputPtr *i);
 
