@@ -1,0 +1,95 @@
+\hypertarget{input_8h}{}\section{Dokumentace souboru input.\+h}
+\label{input_8h}\index{input.\+h@{input.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\subsection*{Datové struktry}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_s___input}{S\+\_\+\+Input}
+\begin{DoxyCompactList}\small\item\em Struktura se vstupními daty. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Definice typů}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_s___input}{S\+\_\+\+Input} \hyperlink{input_8h_ac37eb78a0154f7a01ba7b34f0633f110}{Input}
+\item 
+typedef struct \hyperlink{struct_s___input}{S\+\_\+\+Input} $\ast$ \hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}
+\end{DoxyCompactItemize}
+\subsection*{Funkce}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} \hyperlink{input_8h_a1cb962feaf54a270796937fa2e7ddc29}{Input\+\_\+create} (F\+I\+LE $\ast$source)
+\item 
+void \hyperlink{input_8h_aca62169299e1eb4ff4735b2e57bee308}{Input\+\_\+destroy} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} $\ast$i)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentace definic typů}
+\mbox{\Hypertarget{input_8h_ac37eb78a0154f7a01ba7b34f0633f110}\label{input_8h_ac37eb78a0154f7a01ba7b34f0633f110}} 
+\index{input.\+h@{input.\+h}!Input@{Input}}
+\index{Input@{Input}!input.\+h@{input.\+h}}
+\subsubsection{\texorpdfstring{Input}{Input}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_s___input}{S\+\_\+\+Input} \hyperlink{input_8h_ac37eb78a0154f7a01ba7b34f0633f110}{Input}}
+
+Tento soubor obsahuje deklarace funkcí využité při práci se strukturou vstupních dat.
+
+\begin{DoxyAuthor}{Autor}
+Daniel Dolejška (xdolej08) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Datum}
+21.\+11.\+2017  I\+F\+Jcode17\+Parser  Formální jazyky a překladače (I\+FJ) -\/ F\+IT V\+UT v Brně 
+\end{DoxyDate}
+
+
+Definice je uvedena na řádku 24 v souboru input.\+h.
+
+\mbox{\Hypertarget{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}\label{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}} 
+\index{input.\+h@{input.\+h}!Input\+Ptr@{Input\+Ptr}}
+\index{Input\+Ptr@{Input\+Ptr}!input.\+h@{input.\+h}}
+\subsubsection{\texorpdfstring{Input\+Ptr}{InputPtr}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_s___input}{S\+\_\+\+Input} $\ast$ \hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}
+
+
+
+Definice je uvedena na řádku 24 v souboru input.\+h.
+
+
+
+\subsection{Dokumentace funkcí}
+\mbox{\Hypertarget{input_8h_a1cb962feaf54a270796937fa2e7ddc29}\label{input_8h_a1cb962feaf54a270796937fa2e7ddc29}} 
+\index{input.\+h@{input.\+h}!Input\+\_\+create@{Input\+\_\+create}}
+\index{Input\+\_\+create@{Input\+\_\+create}!input.\+h@{input.\+h}}
+\subsubsection{\texorpdfstring{Input\+\_\+create()}{Input\_create()}}
+{\footnotesize\ttfamily \hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} Input\+\_\+create (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{source }\end{DoxyParamCaption})}
+
+Funkce pro vytvoření struktury vstupních dat.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em F\+I\+LE} & $\ast$source Ukazatel na resource vstupních dat\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Input\+Ptr} & Ukazatel na nově vytvořenou strukturu \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 53 v souboru input.\+c.
+
+\mbox{\Hypertarget{input_8h_aca62169299e1eb4ff4735b2e57bee308}\label{input_8h_aca62169299e1eb4ff4735b2e57bee308}} 
+\index{input.\+h@{input.\+h}!Input\+\_\+destroy@{Input\+\_\+destroy}}
+\index{Input\+\_\+destroy@{Input\+\_\+destroy}!input.\+h@{input.\+h}}
+\subsubsection{\texorpdfstring{Input\+\_\+destroy()}{Input\_destroy()}}
+{\footnotesize\ttfamily void Input\+\_\+destroy (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} $\ast$}]{i }\end{DoxyParamCaption})}
+
+Funkce pro zrušení struktury vstupních dat.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Input\+Ptr} & $\ast$i Ukazatel na ukazatel na existující strukturu \\
+\hline
+\end{DoxyParams}
+
+
+Definice je uvedena na řádku 72 v souboru input.\+c.
+
