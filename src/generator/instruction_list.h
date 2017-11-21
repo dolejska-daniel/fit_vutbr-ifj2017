@@ -151,7 +151,7 @@ void InstructionList_deleteLast(InstructionListPtr l);
 void InstructionList_deleteActive(InstructionListPtr l);
 
 /**
- * Získá obsah (samotnou instrukci - textový řetězec) aktivní instrukce
+ * Získá obsah (samotnou instrukci - textový řetězec) první instrukce
  * v seznamu a tu pak odstraní.
  *
  * @param[in,out]   InstructionListPtr  l   Ukazatel řídící strukturu seznamu
