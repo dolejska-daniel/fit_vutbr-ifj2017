@@ -18,12 +18,15 @@
 #else
 #endif
 
+
+
 //==================================================================d=d=
 //  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR
 //======================================================================
 
 typedef enum E_AutomataState {
 	BEGIN,
+
 	//  TODO: Další stavy automatu pro lexikální analýzu
 } AutomataState; ///< Stavy automatu
 
