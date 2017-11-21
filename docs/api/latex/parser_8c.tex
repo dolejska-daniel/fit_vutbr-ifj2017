@@ -1,0 +1,96 @@
+\hypertarget{parser_8c}{}\section{Dokumentace souboru parser.\+c}
+\label{parser_8c}\index{parser.\+c@{parser.\+c}}
+{\ttfamily \#include \char`\"{}parser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../support/error\+\_\+codes.\+h\char`\"{}}\newline
+\subsection*{Definice maker}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{parser_8c_a4ad76274f6ed2f72240bc29742204e3b}{\+\_\+parser\+\_\+c}
+\item 
+\#define \hyperlink{parser_8c_a88edd2aa4feabff4af21a997d5d8aa23}{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}(...)~do\{ \} while ( 0 )
+\item 
+\#define \hyperlink{parser_8c_a21a2c7330a04ac78200a986f66609369}{D\+E\+B\+U\+G\+\_\+\+L\+OG}(...)~do\{ \} while ( 0 )
+\item 
+\#define \hyperlink{parser_8c_a08a35dd0a07f5240134eba4e97fcdd48}{D\+E\+B\+U\+G\+\_\+\+E\+RR}(...)~do\{ \} while ( 0 )
+\end{DoxyCompactItemize}
+\subsection*{Funkce}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{parser_8c_ac7d82b8747d87da4a81bd510955857a5}{Parser\+\_\+\+Parse\+Code} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentace k definicÃ­m maker}
+\mbox{\Hypertarget{parser_8c_a4ad76274f6ed2f72240bc29742204e3b}\label{parser_8c_a4ad76274f6ed2f72240bc29742204e3b}} 
+\index{parser.\+c@{parser.\+c}!\+\_\+parser\+\_\+c@{\+\_\+parser\+\_\+c}}
+\index{\+\_\+parser\+\_\+c@{\+\_\+parser\+\_\+c}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+parser\+\_\+c}{\_parser\_c}}
+{\footnotesize\ttfamily \#define \+\_\+parser\+\_\+c}
+
+Tento soubor obsahuje implementaci syntaktického analyzátoru (parser).
+
+\begin{DoxyAuthor}{Autor}
+Daniel Dolejška (xdolej08) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Datum}
+21.\+11.\+2017  I\+F\+Jcode17\+Parser  Formální jazyky a pøekladaèe (I\+FJ) -\/ F\+IT V\+UT v Brnì 
+\end{DoxyDate}
+
+
+Definice je uvedena na Å™Ã¡dku 14 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8c_a08a35dd0a07f5240134eba4e97fcdd48}\label{parser_8c_a08a35dd0a07f5240134eba4e97fcdd48}} 
+\index{parser.\+c@{parser.\+c}!D\+E\+B\+U\+G\+\_\+\+E\+RR@{D\+E\+B\+U\+G\+\_\+\+E\+RR}}
+\index{D\+E\+B\+U\+G\+\_\+\+E\+RR@{D\+E\+B\+U\+G\+\_\+\+E\+RR}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+E\+RR}{DEBUG\_ERR}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+E\+RR(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na Å™Ã¡dku 31 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8c_a21a2c7330a04ac78200a986f66609369}\label{parser_8c_a21a2c7330a04ac78200a986f66609369}} 
+\index{parser.\+c@{parser.\+c}!D\+E\+B\+U\+G\+\_\+\+L\+OG@{D\+E\+B\+U\+G\+\_\+\+L\+OG}}
+\index{D\+E\+B\+U\+G\+\_\+\+L\+OG@{D\+E\+B\+U\+G\+\_\+\+L\+OG}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+L\+OG}{DEBUG\_LOG}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+L\+OG(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na Å™Ã¡dku 25 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8c_a88edd2aa4feabff4af21a997d5d8aa23}\label{parser_8c_a88edd2aa4feabff4af21a997d5d8aa23}} 
+\index{parser.\+c@{parser.\+c}!D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}}
+\index{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}{DEBUG\_PRINT}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na Å™Ã¡dku 19 v souboru parser.\+c.
+
+
+
+\subsection{Dokumentace funkcÃ­}
+\mbox{\Hypertarget{parser_8c_ac7d82b8747d87da4a81bd510955857a5}\label{parser_8c_ac7d82b8747d87da4a81bd510955857a5}} 
+\index{parser.\+c@{parser.\+c}!Parser\+\_\+\+Parse\+Code@{Parser\+\_\+\+Parse\+Code}}
+\index{Parser\+\_\+\+Parse\+Code@{Parser\+\_\+\+Parse\+Code}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Code()}{Parser\_ParseCode()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Code (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input }\end{DoxyParamCaption})}
+
+Hlavní funkce ovládající pøekladaè.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Input\+Ptr} & input Ukazatel na strukturu se vstupními daty\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{VracenÃ© hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspìch, ...) \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na Å™Ã¡dku 50 v souboru parser.\+c.
+

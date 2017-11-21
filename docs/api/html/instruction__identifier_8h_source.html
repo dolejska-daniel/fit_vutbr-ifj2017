@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IFJ2017_Project: Zdrojový soubor instruction_identifier.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IFJ2017_Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Hledat');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('instruction__identifier_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">instruction_identifier.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="instruction__identifier_8h.html">Zobrazit dokumentaci tohoto souboru.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef _generator_h</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define _generator_h</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#else</span></div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="instruction__identifier_8h.html#a88edd2aa4feabff4af21a997d5d8aa23">   15</a></span>&#160;<span class="preprocessor">#define DEBUG_PRINT(...) do{ } while ( 0 )</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//==================================================================d=d=</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//======================================================================</span></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="instruction__identifier_8h.html#a6b5c522fa38957cf7865565ce4c98bd3">   22</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="instruction__identifier_8h.html#a6b5c522fa38957cf7865565ce4c98bd3">E_InstructionType</a> {</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="instruction__identifier_8h.html#a6b5c522fa38957cf7865565ce4c98bd3a252802eda493fb6b4a279c4452acb547">   23</a></span>&#160;    <a class="code" href="instruction__identifier_8h.html#a6b5c522fa38957cf7865565ce4c98bd3a252802eda493fb6b4a279c4452acb547">IF</a>,</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="instruction__identifier_8h.html#a6b5c522fa38957cf7865565ce4c98bd3a61f7f1587bd5fe978d9ff3ece8d0624c">   24</a></span>&#160;    <a class="code" href="instruction__identifier_8h.html#a6b5c522fa38957cf7865565ce4c98bd3a61f7f1587bd5fe978d9ff3ece8d0624c">LOOP</a>,</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;} <a class="code" href="instruction__identifier_8h.html#a0fd169cab2a2c0d1bcd094d69ccc98e7">InstructionType</a>;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="instruction__identifier_8h.html#a00f517d173480b31c5082b756127684c">   27</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_s___instruction_i_d.html">S_InstructionID</a></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="struct_s___instruction_i_d.html">InstructionID</a>,</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    *<a class="code" href="instruction__identifier_8h.html#a00f517d173480b31c5082b756127684c">InstructionIDPtr</a>;</div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="struct_s___instruction_i_d.html">   30</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_s___instruction_i_d.html">S_InstructionID</a> {</div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="struct_s___instruction_i_d.html#a6cfbeb01a949b4fcaa6d6c8265b174be">   31</a></span>&#160;    <a class="code" href="instruction__identifier_8h.html#a0fd169cab2a2c0d1bcd094d69ccc98e7">InstructionType</a> <a class="code" href="struct_s___instruction_i_d.html#a6cfbeb01a949b4fcaa6d6c8265b174be">type</a>;</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="struct_s___instruction_i_d.html#ac6aae43c72cdc2c322ef01d6621a805b">   32</a></span>&#160;    <span class="keywordtype">unsigned</span>        <a class="code" href="struct_s___instruction_i_d.html#ac6aae43c72cdc2c322ef01d6621a805b">ID</a>;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//==================================================================d=d=</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//  DEKLARACE FUNKCÍ</span></div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//======================================================================</span></div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;InstructionIDPtr <a class="code" href="instruction__identifier_8h.html#a8c4af779f24724e510e7141128b045d8">InstructionID_create</a>(<a class="code" href="instruction__identifier_8h.html#a0fd169cab2a2c0d1bcd094d69ccc98e7">InstructionType</a> <a class="code" href="struct_s___instruction_i_d.html#a6cfbeb01a949b4fcaa6d6c8265b174be">type</a>, <span class="keywordtype">unsigned</span> <a class="code" href="struct_s___instruction_i_d.html#ac6aae43c72cdc2c322ef01d6621a805b">ID</a>);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instruction__identifier_8h.html#a9972a9ff262c074708ab617b8b14d752">InstructionID_destroy</a>(InstructionIDPtr i);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="instruction__identifier_8h_html_a6b5c522fa38957cf7865565ce4c98bd3a252802eda493fb6b4a279c4452acb547"><div class="ttname"><a href="instruction__identifier_8h.html#a6b5c522fa38957cf7865565ce4c98bd3a252802eda493fb6b4a279c4452acb547">IF</a></div><div class="ttdef"><b>Definition:</b> <a href="instruction__identifier_8h_source.html#l00023">instruction_identifier.h:23</a></div></div>
+<div class="ttc" id="struct_s___instruction_i_d_html_ac6aae43c72cdc2c322ef01d6621a805b"><div class="ttname"><a href="struct_s___instruction_i_d.html#ac6aae43c72cdc2c322ef01d6621a805b">S_InstructionID::ID</a></div><div class="ttdeci">unsigned ID</div><div class="ttdef"><b>Definition:</b> <a href="instruction__identifier_8h_source.html#l00032">instruction_identifier.h:32</a></div></div>
+<div class="ttc" id="instruction__identifier_8h_html_a0fd169cab2a2c0d1bcd094d69ccc98e7"><div class="ttname"><a href="instruction__identifier_8h.html#a0fd169cab2a2c0d1bcd094d69ccc98e7">InstructionType</a></div><div class="ttdeci">enum E_InstructionType InstructionType</div></div>
+<div class="ttc" id="instruction__identifier_8h_html_a9972a9ff262c074708ab617b8b14d752"><div class="ttname"><a href="instruction__identifier_8h.html#a9972a9ff262c074708ab617b8b14d752">InstructionID_destroy</a></div><div class="ttdeci">void InstructionID_destroy(InstructionIDPtr i)</div></div>
+<div class="ttc" id="instruction__identifier_8h_html_a6b5c522fa38957cf7865565ce4c98bd3"><div class="ttname"><a href="instruction__identifier_8h.html#a6b5c522fa38957cf7865565ce4c98bd3">E_InstructionType</a></div><div class="ttdeci">E_InstructionType</div><div class="ttdef"><b>Definition:</b> <a href="instruction__identifier_8h_source.html#l00022">instruction_identifier.h:22</a></div></div>
+<div class="ttc" id="instruction__identifier_8h_html_a00f517d173480b31c5082b756127684c"><div class="ttname"><a href="instruction__identifier_8h.html#a00f517d173480b31c5082b756127684c">InstructionIDPtr</a></div><div class="ttdeci">struct S_InstructionID * InstructionIDPtr</div><div class="ttdef"><b>Definition:</b> <a href="instruction__identifier_8h_source.html#l00027">instruction_identifier.h:27</a></div></div>
+<div class="ttc" id="struct_s___instruction_i_d_html"><div class="ttname"><a href="struct_s___instruction_i_d.html">S_InstructionID</a></div><div class="ttdef"><b>Definition:</b> <a href="instruction__identifier_8h_source.html#l00030">instruction_identifier.h:30</a></div></div>
+<div class="ttc" id="instruction__identifier_8h_html_a6b5c522fa38957cf7865565ce4c98bd3a61f7f1587bd5fe978d9ff3ece8d0624c"><div class="ttname"><a href="instruction__identifier_8h.html#a6b5c522fa38957cf7865565ce4c98bd3a61f7f1587bd5fe978d9ff3ece8d0624c">LOOP</a></div><div class="ttdef"><b>Definition:</b> <a href="instruction__identifier_8h_source.html#l00024">instruction_identifier.h:24</a></div></div>
+<div class="ttc" id="struct_s___instruction_i_d_html_a6cfbeb01a949b4fcaa6d6c8265b174be"><div class="ttname"><a href="struct_s___instruction_i_d.html#a6cfbeb01a949b4fcaa6d6c8265b174be">S_InstructionID::type</a></div><div class="ttdeci">InstructionType type</div><div class="ttdef"><b>Definition:</b> <a href="instruction__identifier_8h_source.html#l00031">instruction_identifier.h:31</a></div></div>
+<div class="ttc" id="instruction__identifier_8h_html_a8c4af779f24724e510e7141128b045d8"><div class="ttname"><a href="instruction__identifier_8h.html#a8c4af779f24724e510e7141128b045d8">InstructionID_create</a></div><div class="ttdeci">InstructionIDPtr InstructionID_create(InstructionType type, unsigned ID)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_a5a88cd2797f7c0f81e2cc5851d8e2e2.html">generator</a></li><li class="navelem"><a class="el" href="instruction__identifier_8h.html">instruction_identifier.h</a></li>
+    <li class="footer">Generováno út 21. lis 2017 14.25:03 pro projekt IFJ2017_Project programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

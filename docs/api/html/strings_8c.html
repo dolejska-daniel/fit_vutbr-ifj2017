@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IFJ2017_Project: Dokumentace souboru strings.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IFJ2017_Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Hledat');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('strings_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definice maker</a> &#124;
+<a href="#func-members">Funkce</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentace souboru strings.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;malloc.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="strings_8h_source.html">strings.h</a>&quot;</code><br />
+</div>
+<p><a href="strings_8c_source.html">Zobrazit zdrojový text tohoto souboru.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definice maker</h2></td></tr>
+<tr class="memitem:abfdc996846ff4859efbfa42dab928bc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8c.html#abfdc996846ff4859efbfa42dab928bc0">_strings_c</a></td></tr>
+<tr class="separator:abfdc996846ff4859efbfa42dab928bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88edd2aa4feabff4af21a997d5d8aa23"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8c.html#a88edd2aa4feabff4af21a997d5d8aa23">DEBUG_PRINT</a>(...)&#160;&#160;&#160;do{ } while ( 0 )</td></tr>
+<tr class="separator:a88edd2aa4feabff4af21a997d5d8aa23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21a2c7330a04ac78200a986f66609369"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8c.html#a21a2c7330a04ac78200a986f66609369">DEBUG_LOG</a>(...)&#160;&#160;&#160;do{ } while ( 0 )</td></tr>
+<tr class="separator:a21a2c7330a04ac78200a986f66609369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a35dd0a07f5240134eba4e97fcdd48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8c.html#a08a35dd0a07f5240134eba4e97fcdd48">DEBUG_ERR</a>(...)&#160;&#160;&#160;do{ } while ( 0 )</td></tr>
+<tr class="separator:a08a35dd0a07f5240134eba4e97fcdd48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkce</h2></td></tr>
+<tr class="memitem:a155cbdf36641713b4bdf863f2d093d2c"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8c.html#a155cbdf36641713b4bdf863f2d093d2c">String_create</a> (const char *str)</td></tr>
+<tr class="separator:a155cbdf36641713b4bdf863f2d093d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3177e1f5b52c4699265cb0c62ef10079"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8c.html#a3177e1f5b52c4699265cb0c62ef10079">String_concat</a> (char *str1, char *str2, const char *strBetween)</td></tr>
+<tr class="separator:a3177e1f5b52c4699265cb0c62ef10079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a706733ea6d6421b76d78c05205f80464"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8c.html#a706733ea6d6421b76d78c05205f80464">String_printf</a> (char *subject, char *arg1, char *arg2, char *arg3, char *arg4)</td></tr>
+<tr class="separator:a706733ea6d6421b76d78c05205f80464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcee70e56d5436855170e425ffbd65a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8c.html#afcee70e56d5436855170e425ffbd65a8">String_destroy</a> (char **s)</td></tr>
+<tr class="separator:afcee70e56d5436855170e425ffbd65a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Dokumentace k definicím maker</h2>
+<a id="abfdc996846ff4859efbfa42dab928bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfdc996846ff4859efbfa42dab928bc0">&#9670;&nbsp;</a></span>_strings_c</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _strings_c</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tento soubor obsahuje deklarace funkcí využité při implementaci pomocných funkcí pro práci s textovými řetězci.</p>
+<dl class="section author"><dt>Autor</dt><dd>Daniel Dolejška (xdolej08) </dd></dl>
+<dl class="section date"><dt>Datum</dt><dd>21.11.2017  IFJcode17Parser  Formální jazyky a překladače (IFJ) - FIT VUT v Brně </dd></dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00017">17</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+
+</div>
+</div>
+<a id="a08a35dd0a07f5240134eba4e97fcdd48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08a35dd0a07f5240134eba4e97fcdd48">&#9670;&nbsp;</a></span>DEBUG_ERR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_ERR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;do{ } while ( 0 )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00034">34</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+
+</div>
+</div>
+<a id="a21a2c7330a04ac78200a986f66609369"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21a2c7330a04ac78200a986f66609369">&#9670;&nbsp;</a></span>DEBUG_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_LOG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;do{ } while ( 0 )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00028">28</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+
+</div>
+</div>
+<a id="a88edd2aa4feabff4af21a997d5d8aa23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88edd2aa4feabff4af21a997d5d8aa23">&#9670;&nbsp;</a></span>DEBUG_PRINT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_PRINT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;do{ } while ( 0 )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00022">22</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentace funkcí</h2>
+<a id="a3177e1f5b52c4699265cb0c62ef10079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3177e1f5b52c4699265cb0c62ef10079">&#9670;&nbsp;</a></span>String_concat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* String_concat </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>strBetween</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Spojí dva textové řetězce do jednoho. Výsledný řetězec je nutné později uvolnit!</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*str1 Vstupní textový řetězec 1 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*str2 Vstupní textový řetězec 2 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">const</td><td>char *strBetween Lepidlo, řetězec, který bude vložen mezi spojené textové řetězce</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Vracené hodnoty</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">char*</td><td>Výsledný konkatenovaný textový řetězec </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00071">71</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+
+</div>
+</div>
+<a id="a155cbdf36641713b4bdf863f2d093d2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a155cbdf36641713b4bdf863f2d093d2c">&#9670;&nbsp;</a></span>String_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* String_create </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Alokuje textový řetězec. Výsledný řetězec je nutné později uvolnit!</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">const</td><td>char *str Řetězec</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Vracené hodnoty</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">char*</td><td>Alokovaný textový řetězec </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00054">54</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+
+</div>
+</div>
+<a id="afcee70e56d5436855170e425ffbd65a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcee70e56d5436855170e425ffbd65a8">&#9670;&nbsp;</a></span>String_destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void String_destroy </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Uvolní alokovaný textový řetězec.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">char</td><td>**s Ukazatel na textový řetězec k uvolnění </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00117">117</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+
+</div>
+</div>
+<a id="a706733ea6d6421b76d78c05205f80464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a706733ea6d6421b76d78c05205f80464">&#9670;&nbsp;</a></span>String_printf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* String_printf </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>subject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>arg2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>arg3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>arg4</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>"printf do stringu". Možnost uložit výstup printf do textového řetězce. Výsledný řetězec je nutné později uvolnit!</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*subject Hlavní textový řetězec pro printf </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*arg1 Vedlejší textový řetězec, slouží k nahrazení proměnných v hlavním řetězci </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*arg2 Vedlejší textový řetězec, slouží k nahrazení proměnných v hlavním řetězci </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*arg3 Vedlejší textový řetězec, slouží k nahrazení proměnných v hlavním řetězci </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*arg4 Vedlejší textový řetězec, slouží k nahrazení proměnných v hlavním řetězci</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Vracené hodnoty</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">char*</td><td>Výsledný textový řetězec </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00101">101</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5815af820a9cc9481f1d0990a0d60286.html">support</a></li><li class="navelem"><a class="el" href="strings_8c.html">strings.c</a></li>
+    <li class="footer">Generováno út 21. lis 2017 14.25:03 pro projekt IFJ2017_Project programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>
