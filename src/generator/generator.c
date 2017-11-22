@@ -169,17 +169,110 @@ int Instruction_function_call(InstructionListPtr l, SymbolPtr symbol);
  */
 int Instruction_function_call_addParameter(InstructionListPtr l, SymbolPtr symbol);
 
-int Instruction_move(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
+int Instruction_move(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
+{
+    if (variable->location == CONSTANT) {
+        DEBUG_ERR("generator", "first operand cannot be constant");
+        return INTERNAL_ERROR;
+    }
+    char *s_var;
+    Instruction_getsymbol(variable, &s_var);
 
-int Instruction_createframe(InstructionListPtr l);
+    char *s_symbol;
+    Instruction_getsymbol(symbol, &s_symbol);
 
-int Instruction_pushframe(InstructionListPtr l);
+    char *instruction = String_printf("MOVE %s %s", s_var, s_symbol, NULL, NULL);
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
 
-int Instruction_popframe(InstructionListPtr l);
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
 
-int Instruction_defvar(InstructionListPtr l, SymbolPtr symbol);
+int Instruction_createframe(InstructionListPtr l)
+{
+    char *instruction = String_create("CREATEFRAME");
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
 
-int Instruction_call(InstructionListPtr l, SymbolPtr symbol);
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
+
+int Instruction_pushframe(InstructionListPtr l)
+{
+    char *instruction = String_create("PUSHFRAME");
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
+
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
+int Instruction_popframe(InstructionListPtr l)
+{
+    char *instruction = String_create("POPFRAME");
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
+
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
+
+int Instruction_defvar(InstructionListPtr l, SymbolPtr symbol)
+{
+    char *s_symbol;
+    Instruction_getsymbol(symbol, &s_symbol);
+
+    char *instruction = String_concat("DEFVAR", s_symbol, " ");
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
+
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
+
+int Instruction_call(InstructionListPtr l, SymbolPtr symbol); /// Dodělat
+
 
 int Instruction_return(InstructionListPtr l)
 {
@@ -214,7 +307,7 @@ int Instruction_return(InstructionListPtr l)
  * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
  */
 int Instruction_variable_declare(InstructionListPtr l, SymbolPtr symbol);
-
+//TODO:
 /**
  * Zapíše instrukce pro definici proměnné.
  *
@@ -225,15 +318,57 @@ int Instruction_variable_declare(InstructionListPtr l, SymbolPtr symbol);
  * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
  */
 int Instruction_variable_assign(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
-
+//TODO:
 
 //-------------------------------------------------d-d-
 //  Instructions: Stack
 //-----------------------------------------------------
 
-int Instruction_stack_push(InstructionListPtr l, SymbolPtr symbol);
+int Instruction_stack_push(InstructionListPtr l, SymbolPtr symbol)
+{
+    char *s_symbol;
+    Instruction_getsymbol(symbol, &s_symbol);
 
-int Instruction_stack_pop(InstructionListPtr l, SymbolPtr symbol);
+    char *instruction = String_concat("PUSHS", s_symbol, " ");
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
+
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
+
+int Instruction_stack_pop(InstructionListPtr l, SymbolPtr symbol)
+{
+    if (symbol->location == CONSTANT) {
+        DEBUG_ERR("generator", "first operand cannot be constant");
+        return INTERNAL_ERROR;
+    }
+    char *s_symbol;
+    Instruction_getsymbol(symbol, &s_symbol);
+
+    char *instruction = String_concat("POPS", s_symbol, " ");
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
+
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
 
 int Instruction_stack_clear(InstructionListPtr l)
 {
@@ -269,7 +404,36 @@ int Instruction_stack_clear(InstructionListPtr l)
  *
  * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
  */
-int Instruction_add(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2);
+int Instruction_add(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
+{
+    if (variable->location == CONSTANT) {
+        DEBUG_ERR("generator", "first operand cannot be constant");
+        return INTERNAL_ERROR;
+    }
+    char *s_var;
+    Instruction_getsymbol(variable, &s_var);
+
+    char *s_symbol1;
+    Instruction_getsymbol(symbol1, &s_symbol1);
+
+    char *s_symbol2;
+    Instruction_getsymbol(symbol2, &s_symbol2);
+
+    char *instruction = String_printf("ADD %s %s %s", s_var, s_symbol1, s_symbol2, NULL);
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
+
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
 
 /**
  * Zapíše instrukce pro rozdíl proměnných/konstant.
@@ -282,7 +446,36 @@ int Instruction_add(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1,
  *
  * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
  */
-int Instruction_sub(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2);
+int Instruction_sub(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
+{
+    if (variable->location == CONSTANT) {
+        DEBUG_ERR("generator", "first operand cannot be constant");
+        return INTERNAL_ERROR;
+    }
+    char *s_var;
+    Instruction_getsymbol(variable, &s_var);
+
+    char *s_symbol1;
+    Instruction_getsymbol(symbol1, &s_symbol1);
+
+    char *s_symbol2;
+    Instruction_getsymbol(symbol2, &s_symbol2);
+
+    char *instruction = String_printf("SUB %s %s %s", s_var, s_symbol1, s_symbol2, NULL);
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
+
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
 
 /**
  * Zapíše instrukce pro dělení proměnných/konstant.
@@ -295,7 +488,36 @@ int Instruction_sub(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1,
  *
  * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
  */
-int Instruction_div(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2);
+int Instruction_div(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
+{
+    if (variable->location == CONSTANT) {
+        DEBUG_ERR("generator", "first operand cannot be constant");
+        return INTERNAL_ERROR;
+    }
+    char *s_var;
+    Instruction_getsymbol(variable, &s_var);
+
+    char *s_symbol1;
+    Instruction_getsymbol(symbol1, &s_symbol1);
+
+    char *s_symbol2;
+    Instruction_getsymbol(symbol2, &s_symbol2);
+
+    char *instruction = String_printf("DIV %s %s %s", s_var, s_symbol1, s_symbol2, NULL);
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
+
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
 
 /**
  * Zapíše instrukce pro násobení proměnných/konstant.
@@ -308,8 +530,36 @@ int Instruction_div(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1,
  *
  * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
  */
-int Instruction_mul(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2);
+int Instruction_mul(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
+{
+    if (variable->location == CONSTANT) {
+        DEBUG_ERR("generator", "first operand cannot be constant");
+        return INTERNAL_ERROR;
+    }
+    char *s_var;
+    Instruction_getsymbol(variable, &s_var);
 
+    char *s_symbol1;
+    Instruction_getsymbol(symbol1, &s_symbol1);
+
+    char *s_symbol2;
+    Instruction_getsymbol(symbol2, &s_symbol2);
+
+    char *instruction = String_printf("MUL %s %s %s", s_var, s_symbol1, s_symbol2, NULL);
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
+
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
 
 //-------------------------------------------------d-d-
 //  Instructions: Math for stack
@@ -420,8 +670,74 @@ int Instruction_mul_stack(InstructionListPtr l)
 //-----------------------------------------------------
 
 int Instruction_logic_eq(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
+{
+    if (variable->location == CONSTANT) {
+        DEBUG_ERR("generator", "first operand cannot be constant");
+        return INTERNAL_ERROR;
+    }
+    /*if (symbol1->type != symbol2->type) {
+        DEBUG_ERR("generator", "second and third operand have to be same type");
+        return SEMANTICAL_DATATYPE_ERROR;
+    }*/
+    char *s_var;
+    Instruction_getsymbol(variable, &s_var);
+
+    char *s_symbol1;
+    Instruction_getsymbol(symbol1, &s_symbol1);
+
+    char *s_symbol2;
+    Instruction_getsymbol(symbol2, &s_symbol2);
+
+    char *instruction = String_printf("EQ %s %s %s", s_var, s_symbol1, s_symbol2, NULL);
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
+
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
 
 int Instruction_logic_lt(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
+{
+    if (variable->location == CONSTANT) {
+        DEBUG_ERR("generator", "first operand cannot be constant");
+        return INTERNAL_ERROR;
+    }
+    /*if (symbol1->type != symbol2->type) {
+        DEBUG_ERR("generator", "second and third operand have to be same type");
+        return SEMANTICAL_DATATYPE_ERROR;
+    }*/
+    char *s_var;
+    Instruction_getsymbol(variable, &s_var);
+
+    char *s_symbol1;
+    Instruction_getsymbol(symbol1, &s_symbol1);
+
+    char *s_symbol2;
+    Instruction_getsymbol(symbol2, &s_symbol2);
+
+    char *instruction = String_printf("LT %s %s %s", s_var, s_symbol1, s_symbol2, NULL);
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
+
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
 
 int Instruction_logic_gt(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
 {
@@ -520,7 +836,7 @@ int Instruction_logic_or(InstructionListPtr l, SymbolPtr variable, SymbolPtr sym
     return NO_ERROR;
 }
 
-int Instruction_logic_not(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1)
+int Instruction_logic_not(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 {
     if (variable->location == CONSTANT) {
         DEBUG_ERR("generator", "first operand cannot be constant");
@@ -1022,7 +1338,7 @@ int Instruction_write(InstructionListPtr l, SymbolPtr symbol)
 //  Instructions: Strings
 //-----------------------------------------------------
 
-int Instruction_concat(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2);
+int Instruction_concat(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     if (variable->location == CONSTANT) {
         DEBUG_ERR("generator", "first operand cannot be constant");
