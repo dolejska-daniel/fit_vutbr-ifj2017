@@ -305,3 +305,11 @@
 	"strings.h"
 	"error_codes.h"
 
+1511282194 source:c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\scanner\input.c
+	<stdio.h>
+	<malloc.h>
+	"input.h"
+
+1511282194 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\scanner\input.h
+	<stdio.h>
+

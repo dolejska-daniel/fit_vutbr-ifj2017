@@ -16,7 +16,10 @@
 #else
 #include "error_codes.h"
 #include "error_codes.h"
-#endif
+#endif // DEBUG_INCLUDE
+
+
+
 
 #include "input.h"
 #include "scanner.h"
@@ -284,11 +287,11 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                ungetc(ch, input->source);
                 //Porovnavani retezce, zda se nejedna o keyword
                 if(strcmp(final_string, "as") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(AS, NULL);
+                    *token = Token_create(AS, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -297,8 +300,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "asc") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(ASC, NULL);
+                    *token = Token_create(ASC, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -307,8 +309,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "declare") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(DECLARE, NULL);
+                    *token = Token_create(DECLARE, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -317,8 +318,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "dim") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(DIM, NULL);
+                    *token = Token_create(DIM, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -327,8 +327,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "do") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(DO, NULL);
+                    *token = Token_create(DO, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -337,8 +336,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "double") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(DOUBLE, NULL);
+                    *token = Token_create(DOUBLE, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -347,8 +345,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "else") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(ELSE, NULL);
+                    *token = Token_create(ELSE, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -357,8 +354,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "end") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(END, NULL);
+                    *token = Token_create(END, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -367,8 +363,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "chr") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(CHR, NULL);
+                    *token = Token_create(CHR, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -377,8 +372,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "function") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(FUNCTION, NULL);
+                    *token = Token_create(FUNCTION, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -387,8 +381,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "if") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(IF, NULL);
+                    *token = Token_create(IF, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -397,8 +390,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "input") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(INPUT, NULL);
+                    *token = Token_create(INPUT, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -407,8 +399,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "integer") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(INTEGER, NULL);
+                    *token = Token_create(INTEGER, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -417,8 +408,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "length") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(LENGTH, NULL);
+                    *token = Token_create(LENGTH, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -427,8 +417,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "loop") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(LOOP, NULL);
+                    *token = Token_create(LOOP, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -437,8 +426,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "print") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(PRINT, NULL);
+                    *token = Token_create(PRINT, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -447,8 +435,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "return") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(RETURN, NULL);
+                    *token = Token_create(RETURN, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -457,8 +444,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "scope") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(SCOPE, NULL);
+                    *token = Token_create(SCOPE, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -467,8 +453,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "string") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(STRING, NULL);
+                    *token = Token_create(STRING, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -477,8 +462,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "substr") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(SUBSTR, NULL);
+                    *token = Token_create(SUBSTR, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -487,8 +471,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "then") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(THEN, NULL);
+                    *token = Token_create(THEN, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -497,8 +480,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "while") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(WHILE, NULL);
+                    *token = Token_create(WHILE, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -507,8 +489,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "and") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(AND, NULL);
+                    *token = Token_create(AND, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -517,8 +498,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "boolean") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(BOOLEAN, NULL);
+                    *token = Token_create(BOOLEAN, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -527,8 +507,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "continue") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(CONTINUE, NULL);
+                    *token = Token_create(CONTINUE, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -537,8 +516,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "elseif") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(ELSEIF, NULL);
+                    *token = Token_create(ELSEIF, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -547,8 +525,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "exit") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(EXIT, NULL);
+                    *token = Token_create(EXIT, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -557,8 +534,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "false") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(FALSE, NULL);
+                    *token = Token_create(FALSE, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -567,8 +543,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "for") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(FOR, NULL);
+                    *token = Token_create(FOR, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -577,8 +552,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "next") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(NEXT, NULL);
+                    *token = Token_create(NEXT, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -587,8 +561,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "not") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(NOT, NULL);
+                    *token = Token_create(NOT, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -597,8 +570,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "or") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(OR, NULL);
+                    *token = Token_create(OR, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -607,8 +579,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "shared") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(SHARED, NULL);
+                    *token = Token_create(SHARED, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -617,8 +588,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "static") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(STATIC, NULL);
+                    *token = Token_create(STATIC, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -627,8 +597,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 else if(strcmp(final_string, "true") == 0)
                 {
-                    String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    *token = Token_create(TRUE, NULL);
+                    *token = Token_create(TRUE, final_string);
                     if(*token == NULL)
                     {
                         return INTERNAL_ERROR;
@@ -656,6 +625,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                ungetc(ch, input->source);
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
                 char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected character \" ", ch, input->line, input->character, NULL);
                 *token = Token_create(INVALID, reason);
@@ -763,6 +733,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             {
                 if(esc1 == '0' && esc2 == '0' && ch == '0')
                 {
+                    ungetc(ch, input->source);
                     String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
                     char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <1,5>", ch, input->line, input->character, NULL);
                     *token = Token_create(INVALID, reason);
@@ -780,6 +751,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                first_number == '0';
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
                 char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,5>", ch, input->line, input->character, NULL);
                 *token = Token_create(INVALID, reason);
@@ -792,7 +764,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             break;
 
         case STATE_STRING:
-            *token = Token_create(STRING, final_string);
+            *token = Token_create(CONSTANT_STRING, final_string);
             if(*token == NULL)
             {
                 return INTERNAL_ERROR;
@@ -848,7 +820,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else if(ch == 'e' || ch == 'E')
             {
-                if(strcmp(final_string,"") == 0)
+                if(first_number == '0')
                 {
                     String_addChar(&final_string, '0');
                 }
@@ -857,11 +829,12 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
-                if(strcmp(final_string,"") == 0)
+                ungetc(ch, input->source);
+                if(first_number == '0')
                 {
                     String_addChar(&final_string, '0');
                 }
-                *token = Token_create(INTEGER, final_string);
+                *token = Token_create(CONSTANT_INTEGER, final_string);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
@@ -902,7 +875,8 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
-                *token = Token_create(DOUBLE, final_string);
+                ungetc(ch, input->source);
+                *token = Token_create(CONSTANT_DOUBLE, final_string);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
@@ -981,11 +955,12 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                ungetc(ch, input->source);
                 if(first_exp_number == '0')
                 {
                     String_addChar(&final_string, '0');
                 }
-                *token = Token_create(INTEGER, final_string);
+                *token = Token_create(CONSTANT_DOUBLE, final_string);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
@@ -996,12 +971,189 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         // Cases for INTEGER AND DOUBLE end
         // Cases for DIV/BLOCK COMMENT begin
         case STATE_DIV:
+            if(ch == '\'')
+            {
+                state = STATE_INC_BLOCK_COMMENT;
+            }
+            else
+            {
+                String_addChar(&final_string, ch);
+                *token = Token_create(STAR, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
 
+            break;
+        case STATE_INC_BLOCK_COMMENT:
+            if(ch == '\'')
+            {
+                state = STATE_INC_BLOCK_COMMENT_APOS;
+            }
+            else if(ch == EOF)
+            {
+                *token = Token_create(FILE_END, NULL);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            break;
+
+        case STATE_INC_BLOCK_COMMENT_APOS:
+            if(ch == '//')
+            {
+                state = STATE_BEGIN;
+            }
+            else if(ch == EOF)
+            {
+                *token = Token_create(FILE_END, NULL);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
             break;
         // Cases for DIV/BLOCK COMMENT end
-        case STATE_INC_AMPERSAND:
 
+        // Cases for extended number input begin
+        case STATE_INC_AMPERSAND:
+            if(ch == 'B')
+            {
+                state = STATE_INC_B;
+            }
+            else if(ch == 'O')
+            {
+                state = STATE_INC_O;
+            }
+            else if(ch == 'H')
+            {
+                state = STATE_INC_H;
+            }
+            else
+            {
+                String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: B, O or H", ch, input->line, input->character, NULL);
+                *token = Token_create(INVALID, reason);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return LEXICAL_ERROR;
+            }
             break;
+
+        case STATE_INC_B:
+            if(ch == '1' || ch == '0')
+            {
+                state = STATE_BIN;
+                String_addChar(&final_string, ch);
+            }
+            else
+            {
+                String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: 1 or 0", ch, input->line, input->character, NULL);
+                *token = Token_create(INVALID, reason);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return LEXICAL_ERROR;
+            }
+            break;
+
+        case STATE_INC_O:
+            if(ch >= '0' || ch <= '7')
+            {
+                state = STATE_OCT;
+                String_addChar(&final_string, ch);
+            }
+            else
+            {
+                String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,7>", ch, input->line, input->character, NULL);
+                *token = Token_create(INVALID, reason);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return LEXICAL_ERROR;
+            }
+            break;
+
+        case STATE_INC_H:
+            if(isalnum(ch))
+            {
+                state = STATE_HEX;
+                String_addChar(&final_string, ch);
+            }
+            else
+            {
+                String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: alphanumeric", ch, input->line, input->character, NULL);
+                *token = Token_create(INVALID, reason);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return LEXICAL_ERROR;
+            }
+            break;
+        case STATE_BIN:
+            if(ch == '1' || ch == '0')
+            {
+                String_addChar(&final_string, ch);
+            }
+            else
+            {
+                ungetc(ch, input->source);
+                *token = Token_create(CONSTANT_BINARY, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            break;
+
+        case STATE_OCT:
+            if(ch >= '0' || ch <= '7')
+            {
+                String_addChar(&final_string, ch);
+            }
+            else
+            {
+                ungetc(ch, input->source);
+                *token = Token_create(CONSTANT_OCTAL, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            break;
+
+        case STATE_HEX:
+            if(isalnum(ch))
+            {
+                String_addChar(&final_string, ch);
+            }
+            else
+            {
+                ungetc(ch, input->source);
+                *token = Token_create(CONSTANT_HEXA, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            break;
+        // Cases for extended number input begin
         }
 
     }
