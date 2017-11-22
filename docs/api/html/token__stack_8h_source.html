@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IFJ2017_Project: Zdrojový soubor token_stack.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IFJ2017_Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Hledat');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('token__stack_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">token_stack.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="token__stack_8h.html">Zobrazit dokumentaci tohoto souboru.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;malloc.h&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef _token_stack_h</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define _token_stack_h</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifdef DEBUG_INCLUDE</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;../scanner/token.h&quot;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#else</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="token_8h.html">token.h</a>&quot;</span></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="token__stack_8h.html#a3c32d1802e649600f32177ff081a6e00">   23</a></span>&#160;<span class="preprocessor">#define TOKEN_STACK_SIZE 50</span></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//==================================================================d=d=</span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">//  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//======================================================================</span></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="token__stack_8h.html#a61a9c41c76dece4e5904bd5acaf8e132">   29</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_s___token_stack.html">S_TokenStack</a></div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="struct_s___token_stack.html">TokenStack</a>,</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    *<a class="code" href="token__stack_8h.html#a61a9c41c76dece4e5904bd5acaf8e132">TokenStackPtr</a>;</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="struct_s___token_stack.html">   32</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_s___token_stack.html">S_TokenStack</a> {</div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="struct_s___token_stack.html#a873aa0c39fe43dcba06cdd8f8f118820">   33</a></span>&#160;    <a class="code" href="struct_s___token.html">TokenPtr</a> <a class="code" href="struct_s___token_stack.html#a873aa0c39fe43dcba06cdd8f8f118820">array</a>[<a class="code" href="token__stack_8h.html#a3c32d1802e649600f32177ff081a6e00">TOKEN_STACK_SIZE</a>];</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="struct_s___token_stack.html#a750b5d744c39a06bfb13e6eb010e35d0">   34</a></span>&#160;    <span class="keywordtype">int</span>      <a class="code" href="struct_s___token_stack.html#a750b5d744c39a06bfb13e6eb010e35d0">index</a>;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">//==================================================================d=d=</span></div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">//  DEKLARACE FUNKCÍ</span></div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//======================================================================</span></div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;TokenStackPtr <a class="code" href="token__stack_8h.html#ada90a2b4d5e7892947d724f588897c02">TokenStack_create</a>();</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="token__stack_8h.html#aa1c6e99a8972378d428a525cb45c4bf5">TokenStack_destroy</a>(TokenStackPtr *s);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">int</span> <a class="code" href="token__stack_8h.html#a2ae003be7214265d878a3798e6b9957f">TokenStack_push</a>(TokenStackPtr s, <a class="code" href="struct_s___token.html">TokenPtr</a> token);</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">int</span> <a class="code" href="token__stack_8h.html#ab30d49f8cae91d383e588ca883b7d5b0">TokenStack_pop</a>(TokenStackPtr s);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="struct_s___token.html">TokenPtr</a> <a class="code" href="token__stack_8h.html#a35dfce999d04898671ece8542fa7a9ad">TokenStack_top</a>(TokenStackPtr s);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="token__stack_8h.html#a7f2b90e3fbdd9d054904f59e7e081884">TokenStack_isEmpty</a>(TokenStackPtr s);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="token__stack_8h.html#a55f36a14327f2d669b85039a25bfceac">TokenStack_isFull</a>(TokenStackPtr s);</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="token__stack_8h_html_ada90a2b4d5e7892947d724f588897c02"><div class="ttname"><a href="token__stack_8h.html#ada90a2b4d5e7892947d724f588897c02">TokenStack_create</a></div><div class="ttdeci">TokenStackPtr TokenStack_create()</div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8c_source.html#l00053">token_stack.c:53</a></div></div>
+<div class="ttc" id="token__stack_8h_html_a55f36a14327f2d669b85039a25bfceac"><div class="ttname"><a href="token__stack_8h.html#a55f36a14327f2d669b85039a25bfceac">TokenStack_isFull</a></div><div class="ttdeci">bool TokenStack_isFull(TokenStackPtr s)</div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8c_source.html#l00107">token_stack.c:107</a></div></div>
+<div class="ttc" id="token__stack_8h_html_a61a9c41c76dece4e5904bd5acaf8e132"><div class="ttname"><a href="token__stack_8h.html#a61a9c41c76dece4e5904bd5acaf8e132">TokenStackPtr</a></div><div class="ttdeci">struct S_TokenStack * TokenStackPtr</div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8h_source.html#l00029">token_stack.h:29</a></div></div>
+<div class="ttc" id="struct_s___token_stack_html_a750b5d744c39a06bfb13e6eb010e35d0"><div class="ttname"><a href="struct_s___token_stack.html#a750b5d744c39a06bfb13e6eb010e35d0">S_TokenStack::index</a></div><div class="ttdeci">int index</div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8h_source.html#l00034">token_stack.h:34</a></div></div>
+<div class="ttc" id="struct_s___token_stack_html_a873aa0c39fe43dcba06cdd8f8f118820"><div class="ttname"><a href="struct_s___token_stack.html#a873aa0c39fe43dcba06cdd8f8f118820">S_TokenStack::array</a></div><div class="ttdeci">TokenPtr array[TOKEN_STACK_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8h_source.html#l00033">token_stack.h:33</a></div></div>
+<div class="ttc" id="token__stack_8h_html_a7f2b90e3fbdd9d054904f59e7e081884"><div class="ttname"><a href="token__stack_8h.html#a7f2b90e3fbdd9d054904f59e7e081884">TokenStack_isEmpty</a></div><div class="ttdeci">bool TokenStack_isEmpty(TokenStackPtr s)</div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8c_source.html#l00102">token_stack.c:102</a></div></div>
+<div class="ttc" id="token__stack_8h_html_aa1c6e99a8972378d428a525cb45c4bf5"><div class="ttname"><a href="token__stack_8h.html#aa1c6e99a8972378d428a525cb45c4bf5">TokenStack_destroy</a></div><div class="ttdeci">void TokenStack_destroy(TokenStackPtr *s)</div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8c_source.html#l00067">token_stack.c:67</a></div></div>
+<div class="ttc" id="token__stack_8h_html_a3c32d1802e649600f32177ff081a6e00"><div class="ttname"><a href="token__stack_8h.html#a3c32d1802e649600f32177ff081a6e00">TOKEN_STACK_SIZE</a></div><div class="ttdeci">#define TOKEN_STACK_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8h_source.html#l00023">token_stack.h:23</a></div></div>
+<div class="ttc" id="token__stack_8h_html_a35dfce999d04898671ece8542fa7a9ad"><div class="ttname"><a href="token__stack_8h.html#a35dfce999d04898671ece8542fa7a9ad">TokenStack_top</a></div><div class="ttdeci">TokenPtr TokenStack_top(TokenStackPtr s)</div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8c_source.html#l00097">token_stack.c:97</a></div></div>
+<div class="ttc" id="struct_s___token_html"><div class="ttname"><a href="struct_s___token.html">S_Token</a></div><div class="ttdoc">Struktura tokenu. </div><div class="ttdef"><b>Definition:</b> <a href="token_8h_source.html#l00058">token.h:58</a></div></div>
+<div class="ttc" id="token__stack_8h_html_a2ae003be7214265d878a3798e6b9957f"><div class="ttname"><a href="token__stack_8h.html#a2ae003be7214265d878a3798e6b9957f">TokenStack_push</a></div><div class="ttdeci">int TokenStack_push(TokenStackPtr s, TokenPtr token)</div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8c_source.html#l00073">token_stack.c:73</a></div></div>
+<div class="ttc" id="struct_s___token_stack_html"><div class="ttname"><a href="struct_s___token_stack.html">S_TokenStack</a></div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8h_source.html#l00032">token_stack.h:32</a></div></div>
+<div class="ttc" id="token__stack_8h_html_ab30d49f8cae91d383e588ca883b7d5b0"><div class="ttname"><a href="token__stack_8h.html#ab30d49f8cae91d383e588ca883b7d5b0">TokenStack_pop</a></div><div class="ttdeci">int TokenStack_pop(TokenStackPtr s)</div><div class="ttdef"><b>Definition:</b> <a href="token__stack_8c_source.html#l00085">token_stack.c:85</a></div></div>
+<div class="ttc" id="token_8h_html"><div class="ttname"><a href="token_8h.html">token.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5815af820a9cc9481f1d0990a0d60286.html">support</a></li><li class="navelem"><a class="el" href="token__stack_8h.html">token_stack.h</a></li>
+    <li class="footer">Generováno st 22. lis 2017 15.38:10 pro projekt IFJ2017_Project programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

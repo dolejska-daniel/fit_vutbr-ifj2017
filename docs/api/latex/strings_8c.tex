@@ -1,0 +1,204 @@
+\hypertarget{strings_8c}{}\section{Dokumentace souboru strings.\+c}
+\label{strings_8c}\index{strings.\+c@{strings.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$malloc.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}error\+\_\+codes.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}strings.\+h\char`\"{}}\newline
+\subsection*{Definice maker}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{strings_8c_abfdc996846ff4859efbfa42dab928bc0}{\+\_\+strings\+\_\+c}
+\item 
+\#define \hyperlink{strings_8c_a88edd2aa4feabff4af21a997d5d8aa23}{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}(...)~do\{ \} while ( 0 )
+\item 
+\#define \hyperlink{strings_8c_a21a2c7330a04ac78200a986f66609369}{D\+E\+B\+U\+G\+\_\+\+L\+OG}(...)~do\{ \} while ( 0 )
+\item 
+\#define \hyperlink{strings_8c_a08a35dd0a07f5240134eba4e97fcdd48}{D\+E\+B\+U\+G\+\_\+\+E\+RR}(...)~do\{ \} while ( 0 )
+\end{DoxyCompactItemize}
+\subsection*{Funkce}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{strings_8c_a155cbdf36641713b4bdf863f2d093d2c}{String\+\_\+create} (const char $\ast$str)
+\item 
+int \hyperlink{strings_8c_adfb7fc11baf2407d62deda6daeeae4a8}{String\+\_\+add\+Char} (char $\ast$$\ast$string, char ch)
+\item 
+char $\ast$ \hyperlink{strings_8c_a3177e1f5b52c4699265cb0c62ef10079}{String\+\_\+concat} (char $\ast$str1, char $\ast$str2, const char $\ast$str\+Between)
+\item 
+char $\ast$ \hyperlink{strings_8c_a706733ea6d6421b76d78c05205f80464}{String\+\_\+printf} (char $\ast$subject, char $\ast$arg1, char $\ast$arg2, char $\ast$arg3, char $\ast$arg4)
+\item 
+void \hyperlink{strings_8c_afcee70e56d5436855170e425ffbd65a8}{String\+\_\+destroy} (char $\ast$$\ast$s)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentace k definicím maker}
+\mbox{\Hypertarget{strings_8c_abfdc996846ff4859efbfa42dab928bc0}\label{strings_8c_abfdc996846ff4859efbfa42dab928bc0}} 
+\index{strings.\+c@{strings.\+c}!\+\_\+strings\+\_\+c@{\+\_\+strings\+\_\+c}}
+\index{\+\_\+strings\+\_\+c@{\+\_\+strings\+\_\+c}!strings.\+c@{strings.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+strings\+\_\+c}{\_strings\_c}}
+{\footnotesize\ttfamily \#define \+\_\+strings\+\_\+c}
+
+Tento soubor obsahuje deklarace funkcí využité při implementaci pomocných funkcí pro práci s textovými řetězci.
+
+\begin{DoxyAuthor}{Autor}
+Daniel Dolejška (xdolej08) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Datum}
+21.\+11.\+2017  I\+F\+Jcode17\+Parser  Formální jazyky a překladače (I\+FJ) -\/ F\+IT V\+UT v Brně 
+\end{DoxyDate}
+
+
+Definice je uvedena na řádku 20 v souboru strings.\+c.
+
+\mbox{\Hypertarget{strings_8c_a08a35dd0a07f5240134eba4e97fcdd48}\label{strings_8c_a08a35dd0a07f5240134eba4e97fcdd48}} 
+\index{strings.\+c@{strings.\+c}!D\+E\+B\+U\+G\+\_\+\+E\+RR@{D\+E\+B\+U\+G\+\_\+\+E\+RR}}
+\index{D\+E\+B\+U\+G\+\_\+\+E\+RR@{D\+E\+B\+U\+G\+\_\+\+E\+RR}!strings.\+c@{strings.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+E\+RR}{DEBUG\_ERR}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+E\+RR(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na řádku 37 v souboru strings.\+c.
+
+\mbox{\Hypertarget{strings_8c_a21a2c7330a04ac78200a986f66609369}\label{strings_8c_a21a2c7330a04ac78200a986f66609369}} 
+\index{strings.\+c@{strings.\+c}!D\+E\+B\+U\+G\+\_\+\+L\+OG@{D\+E\+B\+U\+G\+\_\+\+L\+OG}}
+\index{D\+E\+B\+U\+G\+\_\+\+L\+OG@{D\+E\+B\+U\+G\+\_\+\+L\+OG}!strings.\+c@{strings.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+L\+OG}{DEBUG\_LOG}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+L\+OG(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na řádku 31 v souboru strings.\+c.
+
+\mbox{\Hypertarget{strings_8c_a88edd2aa4feabff4af21a997d5d8aa23}\label{strings_8c_a88edd2aa4feabff4af21a997d5d8aa23}} 
+\index{strings.\+c@{strings.\+c}!D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}}
+\index{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}!strings.\+c@{strings.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}{DEBUG\_PRINT}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na řádku 25 v souboru strings.\+c.
+
+
+
+\subsection{Dokumentace funkcí}
+\mbox{\Hypertarget{strings_8c_adfb7fc11baf2407d62deda6daeeae4a8}\label{strings_8c_adfb7fc11baf2407d62deda6daeeae4a8}} 
+\index{strings.\+c@{strings.\+c}!String\+\_\+add\+Char@{String\+\_\+add\+Char}}
+\index{String\+\_\+add\+Char@{String\+\_\+add\+Char}!strings.\+c@{strings.\+c}}
+\subsubsection{\texorpdfstring{String\+\_\+add\+Char()}{String\_addChar()}}
+{\footnotesize\ttfamily int String\+\_\+add\+Char (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{string,  }\item[{char}]{ch }\end{DoxyParamCaption})}
+
+K textovému řetězci přidá znak. Funkce předpokládá, že vstupní řetězec ke konkatenaci je alokovaný -\/ provádí realokaci.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em char} & $\ast$$\ast$string Textový řetězec ke konkatenaci \\
+\hline
+\mbox{\tt in}  & {\em char} & ch Znak ke konkatenaci\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 84 v souboru strings.\+c.
+
+\mbox{\Hypertarget{strings_8c_a3177e1f5b52c4699265cb0c62ef10079}\label{strings_8c_a3177e1f5b52c4699265cb0c62ef10079}} 
+\index{strings.\+c@{strings.\+c}!String\+\_\+concat@{String\+\_\+concat}}
+\index{String\+\_\+concat@{String\+\_\+concat}!strings.\+c@{strings.\+c}}
+\subsubsection{\texorpdfstring{String\+\_\+concat()}{String\_concat()}}
+{\footnotesize\ttfamily char$\ast$ String\+\_\+concat (\begin{DoxyParamCaption}\item[{char $\ast$}]{str1,  }\item[{char $\ast$}]{str2,  }\item[{const char $\ast$}]{str\+Between }\end{DoxyParamCaption})}
+
+Spojí dva textové řetězce do jednoho. Výsledný řetězec je nutné později uvolnit!
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in}  & {\em char} & $\ast$str1 Vstupní textový řetězec 1 \\
+\hline
+\mbox{\tt in}  & {\em char} & $\ast$str2 Vstupní textový řetězec 2 \\
+\hline
+\mbox{\tt in}  & {\em const} & char $\ast$str\+Between Lepidlo, řetězec, který bude vložen mezi spojené textové řetězce\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em char$\ast$} & Výsledný konkatenovaný textový řetězec \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 117 v souboru strings.\+c.
+
+\mbox{\Hypertarget{strings_8c_a155cbdf36641713b4bdf863f2d093d2c}\label{strings_8c_a155cbdf36641713b4bdf863f2d093d2c}} 
+\index{strings.\+c@{strings.\+c}!String\+\_\+create@{String\+\_\+create}}
+\index{String\+\_\+create@{String\+\_\+create}!strings.\+c@{strings.\+c}}
+\subsubsection{\texorpdfstring{String\+\_\+create()}{String\_create()}}
+{\footnotesize\ttfamily char$\ast$ String\+\_\+create (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+Alokuje textový řetězec. Výsledný řetězec je nutné později uvolnit!
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in}  & {\em const} & char $\ast$str Řetězec\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em char$\ast$} & Alokovaný textový řetězec \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 57 v souboru strings.\+c.
+
+\mbox{\Hypertarget{strings_8c_afcee70e56d5436855170e425ffbd65a8}\label{strings_8c_afcee70e56d5436855170e425ffbd65a8}} 
+\index{strings.\+c@{strings.\+c}!String\+\_\+destroy@{String\+\_\+destroy}}
+\index{String\+\_\+destroy@{String\+\_\+destroy}!strings.\+c@{strings.\+c}}
+\subsubsection{\texorpdfstring{String\+\_\+destroy()}{String\_destroy()}}
+{\footnotesize\ttfamily void String\+\_\+destroy (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{s }\end{DoxyParamCaption})}
+
+Uvolní alokovaný textový řetězec.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em char} & $\ast$$\ast$s Ukazatel na textový řetězec k uvolnění \\
+\hline
+\end{DoxyParams}
+
+
+Definice je uvedena na řádku 163 v souboru strings.\+c.
+
+\mbox{\Hypertarget{strings_8c_a706733ea6d6421b76d78c05205f80464}\label{strings_8c_a706733ea6d6421b76d78c05205f80464}} 
+\index{strings.\+c@{strings.\+c}!String\+\_\+printf@{String\+\_\+printf}}
+\index{String\+\_\+printf@{String\+\_\+printf}!strings.\+c@{strings.\+c}}
+\subsubsection{\texorpdfstring{String\+\_\+printf()}{String\_printf()}}
+{\footnotesize\ttfamily char$\ast$ String\+\_\+printf (\begin{DoxyParamCaption}\item[{char $\ast$}]{subject,  }\item[{char $\ast$}]{arg1,  }\item[{char $\ast$}]{arg2,  }\item[{char $\ast$}]{arg3,  }\item[{char $\ast$}]{arg4 }\end{DoxyParamCaption})}
+
+\char`\"{}printf do stringu\char`\"{}. Možnost uložit výstup printf do textového řetězce. Výsledný řetězec je nutné později uvolnit!
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in}  & {\em char} & $\ast$subject Hlavní textový řetězec pro printf \\
+\hline
+\mbox{\tt in}  & {\em char} & $\ast$arg1 Vedlejší textový řetězec, slouží k nahrazení proměnných v hlavním řetězci \\
+\hline
+\mbox{\tt in}  & {\em char} & $\ast$arg2 Vedlejší textový řetězec, slouží k nahrazení proměnných v hlavním řetězci \\
+\hline
+\mbox{\tt in}  & {\em char} & $\ast$arg3 Vedlejší textový řetězec, slouží k nahrazení proměnných v hlavním řetězci \\
+\hline
+\mbox{\tt in}  & {\em char} & $\ast$arg4 Vedlejší textový řetězec, slouží k nahrazení proměnných v hlavním řetězci\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em char$\ast$} & Výsledný textový řetězec \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 147 v souboru strings.\+c.
+
