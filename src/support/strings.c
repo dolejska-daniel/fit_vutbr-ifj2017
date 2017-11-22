@@ -8,6 +8,7 @@
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
+#include <stdio.h>
 #include <string.h>
 #include <malloc.h>
 
@@ -77,8 +78,10 @@ char *String_create(const char *str)
  *
  * @param[in,out]   char    **string    Textový řetězec ke konkatenaci
  * @param[in]       char    ch          Znak ke konkatenaci
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
  */
-void String_addChar(char **string, char ch)
+int String_addChar(char **string, char ch)
 {
     char *output;
     if (*string == NULL)
@@ -93,7 +96,7 @@ void String_addChar(char **string, char ch)
 
     if (length)
         strcpy(output, *string);
-    String_destroy(*string);
+    String_destroy(string);
 
     output[length] = ch;
     output[length + 1] = '\0';

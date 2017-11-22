@@ -45,7 +45,7 @@ char *String_create(const char *str);
  * @param[in,out]   char    **string    Textový řetězec ke konkatenaci
  * @param[in]       char    ch          Znak ke konkatenaci
  */
-void String_addChar(char **string, char ch);
+int String_addChar(char **string, char ch);
 
 /**
  * Spojí dva textové řetězce do jednoho.
