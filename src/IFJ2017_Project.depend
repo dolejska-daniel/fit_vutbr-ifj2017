@@ -314,6 +314,7 @@
 	"strings.h"
 	"error_codes.h"
 
+<<<<<<< HEAD
 1511367405 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix2instructions.c
 	<stdio.h>
 	"postfix2instructions.h"
@@ -379,4 +380,13 @@
 	"error_codes.h"
 	"../scanner/token.h"
 	"token.h"
+=======
+1511282194 source:c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\scanner\input.c
+	<stdio.h>
+	<malloc.h>
+	"input.h"
+
+1511282194 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\scanner\input.h
+	<stdio.h>
+>>>>>>> dolejska/pu
 
