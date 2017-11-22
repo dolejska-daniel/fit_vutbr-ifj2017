@@ -28,9 +28,9 @@ typedef enum E_TokenType {
     //  Keywords end
     IDENTIFIER,         ///< variable_name
     CONSTANT_INTEGER,   ///< 25
-    CONSTANT_BINARY,    ///< &B1011101000101
-    CONSTANT_OCTAL,     ///< &O7346104612315
-    CONSTANT_HEXA,      ///< &H1AB2F8D9CEE20
+    CONSTANT_BINARY,    ///< 1011101000101
+    CONSTANT_OCTAL,     ///< 7346104612315
+    CONSTANT_HEXA,      ///< FA12F8D9C5E20
     CONSTANT_DOUBLE,    ///< 0.25, 0.25e-2
     CONSTANT_STRING,    ///< "string"
     CONSTANT_BOOLEAN,   ///< true, false
@@ -40,11 +40,20 @@ typedef enum E_TokenType {
     CLOSE_BRACKET,      ///< )
     EQ,                 ///< =
     GT,                 ///< >
+    GTEQ,               ///< >=
     LT,                 ///< <
-    MINUS,              ///< -
-    PLUS,               ///< +
+    LTEQ,               ///< <=
+    LTGT,               ///< <>
+    MINUS,              ///< &#45;
+    MINUSEQ,            ///< &#45;=
+    PLUS,               ///< &#43;
+    PLUSEQ,             ///< &#43;=
     SLASH,              ///< /
-    STAR,               ///< *
+    SLASHEQ,            ///< /=
+    BACK_SLASH,         ///< &#92;
+    BACK_SLASHEQ,       ///< &#92;=
+    STAR,               ///< &#42;
+    STAREQ,             ///< &#42;=
     LINE_END,           ///< EOL
     FILE_END,           ///< EOF
     INVALID,            ///< Chyba scanneru
