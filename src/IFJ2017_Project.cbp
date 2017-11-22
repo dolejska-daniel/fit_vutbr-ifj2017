@@ -11,6 +11,7 @@
 				<Option object_output="../build/obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="&lt; ../tests/inputs/debug" />
 				<Compiler>
 					<Add option="-pedantic" />
 					<Add option="-Wextra" />
@@ -19,6 +20,9 @@
 					<Add option="-g" />
 					<Add option="-DDEBUG_INCLUDE" />
 					<Add option="-DDEBUG_PRINT_ENABLED" />
+					<Add option="-DDEBUG_LOG_ENABLED" />
+					<Add option="-DDEBUG_ERR_ENABLED" />
+					<Add option="-DDEBUG_VERBOSE" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -45,15 +49,21 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="generator/generator.h" />
+		<Unit filename="generator/instruction_list.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="generator/instruction_list.h" />
 		<Unit filename="main/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="parser/nesting_list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parser/nesting_list.h" />
 		<Unit filename="parser/parser.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="parser/parser.h" />
-		<Unit filename="parser/parser_errors.h" />
 		<Unit filename="parser/symtable.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -63,16 +73,49 @@
 		</Unit>
 		<Unit filename="scanner/input.h" />
 		<Unit filename="scanner/scanner.h" />
+		<Unit filename="scanner/token.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="scanner/token.h" />
+		<Unit filename="support/char_stack.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="support/char_stack.h" />
+		<Unit filename="support/error_codes.h" />
+		<Unit filename="support/infix2postfix.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="support/infix2postfix.h" />
+		<Unit filename="support/postfix_list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="support/postfix_list.h" />
 		<Unit filename="support/strings.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="support/strings.h" />
+		<Unit filename="support/symbol_stack.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="support/symbol_stack.h" />
+		<Unit filename="support/token_stack.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="support/token_stack.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
 			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="2" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
