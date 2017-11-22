@@ -19,6 +19,8 @@
 					<Add option="-g" />
 					<Add option="-DDEBUG_INCLUDE" />
 					<Add option="-DDEBUG_PRINT_ENABLED" />
+					<Add option="-DDEBUG_LOG_ENABLED" />
+					<Add option="-DDEBUG_ERR_ENABLED" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -44,7 +46,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="generator/generator.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="generator/generator.h" />
+		<Unit filename="generator/instruction_list.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="generator/instruction_list.h" />
 		<Unit filename="main/main.c">
 			<Option compilerVar="CC" />
@@ -64,6 +72,7 @@
 		<Unit filename="scanner/input.h" />
 		<Unit filename="scanner/scanner.h" />
 		<Unit filename="scanner/token.h" />
+		<Unit filename="support/error_codes.h" />
 		<Unit filename="support/strings.c">
 			<Option compilerVar="CC" />
 		</Unit>

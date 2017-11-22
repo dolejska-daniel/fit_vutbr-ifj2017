@@ -17,6 +17,7 @@
 #include "../scanner/input.h"
 #include "../support/strings.h"
 #include "../support/error_codes.h"
+#include "../generator/instruction_list.h"
 #else
 #include "generator.h"
 #include "parser.h"
@@ -24,6 +25,7 @@
 #include "scanner.h"
 #include "input.h"
 #include "strings.h"
+#include "instruction_list.h"
 #endif
 
 #ifdef DEBUG_PRINT_ENABLED
@@ -47,7 +49,6 @@
 //==================================================================d=d=
 //  DEKLARACE FUNKCÍ
 //======================================================================
-
 /**
  * Hlavní funkce ovládající pøekladaè.
  *
@@ -58,7 +59,17 @@
 int main(int argc, char **argv)
 {
     DEBUG_LOG("main", "Starting program");
+    InstructionListPtr List;
 
+    DEBUG_LOG("main", "Creating list:");
+    List = InstructionList_create();
+
+    DEBUG_LOG("main", "Creating symbol:");
+    SymbolPtr s1 = Symbol_create("var", ST_STRING, GLOBAL_FRAME, "variable");
+    SymbolPtr s2 = Symbol_create("pom", ST_STRING, LOCAL_FRAME, "pomocna");
+    int i = Instruction_jumpifneq(List, "navesti", s1, s2);
+    InstructionList_destroy(&List);
+    return i;
     //  Inicializace potøebných promìnných
     DEBUG_LOG("main", "Initializing variables");
 

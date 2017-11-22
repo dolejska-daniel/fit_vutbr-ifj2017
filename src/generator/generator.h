@@ -3,6 +3,7 @@
  * generátoru cílového kódu (generator).
  *
  * @author Daniel Dolejška (xdolej08)
+ * @author Lukáš Kulda (xkulda01)
  * @date 21.11.2017
  * @project IFJcode17Parser
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
@@ -33,6 +34,8 @@
 //-------------------------------------------------d-d-
 //  Instructions: Functions
 //-----------------------------------------------------
+
+int Instruction_getsymbol(SymbolPtr symbol, char **output);
 
 /**
  * Zapíše instrukce značící začátek funkce. Po této funkci budou
@@ -269,7 +272,7 @@ int Instruction_logic_and(InstructionListPtr l, SymbolPtr variable, SymbolPtr sy
 
 int Instruction_logic_or(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2);
 
-int Instruction_logic_not(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2);
+int Instruction_logic_not(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1);
 
 
 //-------------------------------------------------d-d-
@@ -293,21 +296,17 @@ int Instruction_logic_not_stack(InstructionListPtr l);
 //  Instructions: Conversions
 //-----------------------------------------------------
 
-int Instruction_stri2int(InstructionListPtr l);
+int Instruction_stri2int(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2);
 
-int Instruction_int2float(InstructionListPtr l, SymbolPtr symbol);
+int Instruction_int2char(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
 
-int Instruction_int2float(InstructionListPtr l, SymbolPtr symbol);
+int Instruction_float2int(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
 
-int Instruction_float2int(InstructionListPtr l, SymbolPtr symbol);
+int Instruction_float2r2eint(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
 
-int Instruction_float2r2eint(InstructionListPtr l, SymbolPtr symbol);
-
-int Instruction_float2r2oint(InstructionListPtr l, SymbolPtr symbol);
+int Instruction_float2r2oint(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
 
 int Instruction_stri2int_stack(InstructionListPtr l);
-
-int Instruction_int2float_stack(InstructionListPtr l);
 
 int Instruction_int2float_stack(InstructionListPtr l);
 
