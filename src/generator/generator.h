@@ -308,11 +308,7 @@ int Instruction_logic_not_stack(InstructionListPtr l);
 
 int Instruction_stri2int(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2);
 
-<<<<<<< HEAD
-int Instruction_int2char(InstructionListPtr l, SymbolPtr symbol);
-=======
 int Instruction_int2char(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
->>>>>>> dolejska/lk
 
 int Instruction_float2int(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
 

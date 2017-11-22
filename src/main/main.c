@@ -26,11 +26,8 @@
 #include "scanner.h"
 #include "input.h"
 #include "strings.h"
-<<<<<<< HEAD
 #include "error_codes.h"
-=======
 #include "instruction_list.h"
->>>>>>> dolejska/lk
 #endif
 
 #ifdef DEBUG_PRINT_ENABLED
@@ -64,26 +61,9 @@ char *error_description;
  */
 int main(/*int argc, char **argv*/)
 {
-    DEBUG_LOG("main", "Starting program");
-    InstructionListPtr List;
-
-    DEBUG_LOG("main", "Creating list:");
-    List = InstructionList_create();
-
-<<<<<<< HEAD
-
     //-------------------------------------------------d-d-
     //  Inicializace potÅ™ebnÃ½ch promÄ›nnÃ½ch
     //-----------------------------------------------------
-=======
-    DEBUG_LOG("main", "Creating symbol:");
-    SymbolPtr s1 = Symbol_create("var", ST_STRING, GLOBAL_FRAME, "variable");
-    SymbolPtr s2 = Symbol_create("pom", ST_STRING, LOCAL_FRAME, "pomocna");
-    int i = Instruction_jumpifneq(List, "navesti", s1, s2);
-    InstructionList_destroy(&List);
-    return i;
-    //  Inicializace potøebných promìnných
->>>>>>> dolejska/lk
     DEBUG_LOG("main", "Initializing variables");
 
     int result = NO_ERROR;
