@@ -289,13 +289,13 @@ void InstructionList_deleteActive(InstructionListPtr l)
         if (l->active == l->last) { // Aktivní je zároveň poslední
             l->last = l->last->prev;
         }
-        if (l->active->next != NULL)
+        if (l->active->next != NULL) // Aktivní má následující
         {
-            l->active->next->prev = l->active->prev;
+            l->active->next->prev = l->active->prev; // Předchozí ukazatel následujícího aktivního bude ukazovat na předchozí aktivního
         }
-        if (l->active->prev != NULL)
+        if (l->active->prev != NULL) // Aktivní má předchozí
         {
-            l->active->prev->next = l->active->next;
+            l->active->prev->next = l->active->next; // Následující ukazatel předchozího aktivního bude ukazovat na následující aktivního
         }
 
         free(destroyed); // Uvolnění

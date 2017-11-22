@@ -8,6 +8,7 @@
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
+#include <stdio.h>
 #include <string.h>
 #include <malloc.h>
 
@@ -15,6 +16,12 @@
 
 #ifndef _symtable_c
 #define _symtable_c
+
+#ifdef DEBUG_INCLUDE
+#include "../support/error_codes.h"
+#else
+#include "error_codes.h"
+#endif
 
 #ifdef DEBUG_PRINT_ENABLED
 #define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )
@@ -46,9 +53,9 @@
 //======================================================================
 
 /**
- * Funkce vytvářející a inicializující tabulku symbolù.
+ * Funkce vytvářející a inicializující tabulku symbolů.
  *
- * @retval	SymbolTablePtr	Ukazatel na novì vytvoøenou tabulku symbolù
+ * @retval	SymbolTablePtr	Ukazatel na nově vytvořenou tabulku symbolů
  */
 SymbolTablePtr SymbolTable_create()
 {
@@ -58,6 +65,7 @@ SymbolTablePtr SymbolTable_create()
 	st->size  = SYMBOL_TABLE_SIZE;
 	st->array = (SymbolPtr *) malloc(sizeof(Symbol) * st->size);
 
+	//  Inicializace položek
 	for (unsigned i = 0; i < st->size; i++)
         st->array[i] = NULL;
 
@@ -67,9 +75,7 @@ SymbolTablePtr SymbolTable_create()
 /**
  * Funkce pro zrušení existující tabulky symbolů.
  *
- * @param[in,out]	SymbolTablePtr  *st	Ukazatel na existující tabulku symbolù
- *
- * @retval	void
+ * @param[in,out]	SymbolTablePtr  *st	Ukazatel na existující tabulku symbolů
  */
 void SymbolTable_destroy(SymbolTablePtr *st)
 {
@@ -87,12 +93,12 @@ void SymbolTable_destroy(SymbolTablePtr *st)
 /**
  * Funkce pro výpočet klíče na základě jména položky.
  *
- * @param[in,out]	SymbolTable	*st		Ukazatel na existující tabulku symbolù
- * @param[in]		char		*key	Identifikátor položky
+ * @param[in,out]	SymbolTablePtr  st		Ukazatel na existující tabulku symbolů
+ * @param[in]		char		    *key    Identifikátor položky
  *
  * @retval	unsigned	Vypočtený otisk (index) položky s daným identifikátorem
  */
-unsigned SymbolTable_hash(SymbolTable *st, char *key)
+unsigned SymbolTable_hash(SymbolTablePtr st, char *key)
 {
 	unsigned hash = 0;
 	unsigned i	  = 0;
@@ -105,20 +111,20 @@ unsigned SymbolTable_hash(SymbolTable *st, char *key)
 /**
  * Funkce získá hledanou položku ze seznamu s daným identifikátorem.
  *
- * @param[in,out]	SymbolTable	*st		Ukazatel na existující tabulku symbolù
+ * @param[in,out]	SymbolTable	*st		Ukazatel na existující tabulku symbolů
  * @param[in]		char		*key	Identifikátor položky
  *
  * @retval	SymbolPtr|NULL	Ukazatel na vyhledanou položku v tabulce
  */
 SymbolPtr SymbolTable_get(SymbolTable *st, char *key)
 {
-	//	Výpoèet hashe
+	//	Výpočet hashe
 	unsigned hash = SymbolTable_hash(st, key);
-	//	Získání prvotního symbolu z tabulky
+	//	Získání prvního symbolu z tabulky
 	SymbolPtr symbol = st->array[hash];
 
 	//	Dokud symbol není NULL, nebo není nalezen symbol s požadovaným jménem,
-	//	pokraèuje se ve vyhledávání na daném hashi
+	//	pokračuje se ve vyhledávání na daném hashi
 	while (symbol != NULL && strcmp(symbol->key, key) != 0)
 		symbol = symbol->next;
 
@@ -130,50 +136,67 @@ SymbolPtr SymbolTable_get(SymbolTable *st, char *key)
 }
 
 /**
- * Funkce vloží novou položku do dané tabulky s daným klíèem a hodnotou.
+ * Funkce vloží novou položku do dané tabulky s daným klíčem a hodnotou.
  *
  * @param[in,out]	SymbolTable	    *st		    Ukazatel na existující tabulku symbolů
  * @param[in]		char		    *key	    Identifikátor položky
  * @param[in]		SymbolType	    type	    Typ symbolu
  * @param[in]	    SymbolLocation	location	Umístění symbolu
  * @param[in]		void		    *value	    Hodnota položky
+ * @param[out]		SymbolPtr	    *symbol     Ukazatel na nově vytvořený symbol
  *
- * @retval	SymbolPtr	Ukazatel na nově vytvořenou položku tabulky
+ * @retval	int Kód se kterým bylo vložení symbolu ukončeno
  */
-SymbolPtr SymbolTable_insert(SymbolTable *st, char *key, SymbolType type, SymbolLocation location, void *value)
+int SymbolTable_insert(SymbolTable *st, char *key, SymbolType type, SymbolLocation location, void *value, SymbolPtr *symbol)
 {
-	//	Vytvoření struktury
-	SymbolPtr s = Symbol_create(key, type, location, value);
+	//  Vyhledání sybolu na základě klíče
+	SymbolPtr s = SymbolTable_get(st, key);
+	if (s == NULL)
+    {
+        //  Symbol s daným klíčem byl v tabulce již nalezen
+        DEBUG_ERR("symtable-insert", "Symbol already exists");
+        return SEMANTICAL_DEFINITION_ERROR;
+    }
+    else
+    {
+        //	Vytvoření struktury
+        SymbolPtr new_symbol = Symbol_create(key, type, location, value);
+        if (new_symbol == NULL)
+        {
+            DEBUG_ERR("symtable-insert", "failed to mallocate Symbol");
+            return INTERNAL_ERROR;
+        }
 
-    unsigned hash = SymbolTable_hash(st, key);
-	SymbolPtr first = st->array[hash];
-	s->next = first;
-    st->array[hash] = s;
+        //  Uložení nové struktury do tabulky
+        unsigned hash = SymbolTable_hash(st, key);
+        SymbolPtr first = st->array[hash];
+        new_symbol->next = first;
+        st->array[hash] = new_symbol;
 
-	return s;
+        *symbol = new_symbol;
+        return NO_ERROR;
+    }
 }
 
 /**
  * Funkce odstraní položku s daným jménem z tabulky.
  *
- * @param[in,out]	SymbolTable	*st		Ukazatel na existující tabulku symbolù
+ * @param[in,out]	SymbolTable	*st		Ukazatel na existující tabulku symbolů
  * @param[in]		char		*key	Identifikátor položky
- *
- * @retval	void
  */
 void SymbolTable_delete(SymbolTable *st, char *key)
 {
-	//	Výpoèet hashe
+	//	Výpočet hashe
 	unsigned hash = SymbolTable_hash(st, key);
 	//	Získání prvotního symbolu z tabulky
 	SymbolPtr symbol = st->array[hash];
 	SymbolPtr prev   = NULL;
 
 	//	Dokud symbol není NULL, nebo není nalezen symbol s požadovaným jménem,
-	//	pokraèuje se ve vyhledávání na daném hashi
+	//	pokračuje se ve vyhledávání na daném hashi
 	while (symbol != NULL && strcmp(symbol->key, key) != 0)
     {
-        //  Uložení pøedcházející položky, kvùli možné nutnosti navazovat ukazatele
+        //  Uložení předcházející položky, kvůli možné nutnosti navazovat ukazatele
         prev   = symbol;
         symbol = symbol->next;
     }
@@ -193,7 +216,7 @@ void SymbolTable_delete(SymbolTable *st, char *key)
             prev->next = symbol->next;
         }
 
-        Symbol_destroy(symbol);
+        Symbol_destroy(&symbol);
     }
 }
 
@@ -205,17 +228,24 @@ void SymbolTable_delete(SymbolTable *st, char *key)
  * @param[in]	SymbolLocation	location	Umístění symbolu
  * @param[in]	void		    *value	    Hodnota položky
  *
- * @retval	SymbolPtr   Ukazatel na novì vytvoøenou položku
+ * @retval	SymbolPtr|NULL   Ukazatel na nově vytvořenou položku
  */
 SymbolPtr Symbol_create(char *key, SymbolType type, SymbolLocation location, void *value)
 {
-    //	Vytvoøení struktury
+    //	Vytvoření struktury
 	SymbolPtr s = (SymbolPtr) malloc(sizeof(Symbol));
+	if (s == NULL)
+    {
+        DEBUG_ERR("symtable", "failed to mallocate Symbol");
+        return NULL;
+    }
+
 	//	Inicializace struktury
-	s->next  = NULL;
-	s->key   = key;
-	s->type  = type;
-	s->value = value;
+	s->next     = NULL;
+	s->key      = key;
+	s->type     = type;
+	s->location = location;
+	s->value    = value;
 
 	return s;
 }
@@ -223,19 +253,18 @@ SymbolPtr Symbol_create(char *key, SymbolType type, SymbolLocation location, voi
 /**
  * Funkce odstraní položku dle daného ukazatele.
  *
- * @param[in,out]	SymbolPtr	*s		Ukazatel na existující tabulku symbolù
- *
- * @retval	void
+ * @param[in,out]	SymbolPtr	*s	Ukazatel na existující symbol
  */
 void Symbol_destroy(SymbolPtr *s)
 {
-    if (*s == NULL)
+    SymbolPtr symbol = *s;
+    if (symbol == NULL)
         return;
 
-    if ((*s)->value != NULL)
-        free((*s)->value);
+    if (symbol->value != NULL)
+        free(symbol->value);
 
-    free(*s);
+    free(symbol);
     *s = NULL;
 }
 

@@ -94,6 +94,8 @@ $(document).ready(function(){initNavTree('strings_8h.html','');});
 Funkce</h2></td></tr>
 <tr class="memitem:a155cbdf36641713b4bdf863f2d093d2c"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8h.html#a155cbdf36641713b4bdf863f2d093d2c">String_create</a> (const char *str)</td></tr>
 <tr class="separator:a155cbdf36641713b4bdf863f2d093d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfb7fc11baf2407d62deda6daeeae4a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8h.html#adfb7fc11baf2407d62deda6daeeae4a8">String_addChar</a> (char **string, char ch)</td></tr>
+<tr class="separator:adfb7fc11baf2407d62deda6daeeae4a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3177e1f5b52c4699265cb0c62ef10079"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8h.html#a3177e1f5b52c4699265cb0c62ef10079">String_concat</a> (char *str1, char *str2, const char *strBetween)</td></tr>
 <tr class="separator:a3177e1f5b52c4699265cb0c62ef10079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a706733ea6d6421b76d78c05205f80464"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings_8h.html#a706733ea6d6421b76d78c05205f80464">String_printf</a> (char *subject, char *arg1, char *arg2, char *arg3, char *arg4)</td></tr>
@@ -102,6 +104,58 @@ Funkce</h2></td></tr>
 <tr class="separator:afcee70e56d5436855170e425ffbd65a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Dokumentace funkcí</h2>
+<a id="adfb7fc11baf2407d62deda6daeeae4a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfb7fc11baf2407d62deda6daeeae4a8">&#9670;&nbsp;</a></span>String_addChar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int String_addChar </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>string</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>K textovému řetězci přidá znak. Funkce předpokládá, že vstupní řetězec ke konkatenaci je alokovaný - provádí realokaci.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">char</td><td>**string Textový řetězec ke konkatenaci </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>ch Znak ke konkatenaci</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>K textovému řetězci přidá znak. Funkce předpokládá, že vstupní řetězec ke konkatenaci je alokovaný - provádí realokaci.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">char</td><td>**string Textový řetězec ke konkatenaci </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>ch Znak ke konkatenaci</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Vracené hodnoty</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">int</td><td>Návratový kód popisující situaci (chyba, úspěch, ...) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00084">84</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+
+</div>
+</div>
 <a id="a3177e1f5b52c4699265cb0c62ef10079"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3177e1f5b52c4699265cb0c62ef10079">&#9670;&nbsp;</a></span>String_concat()</h2>
 
@@ -149,7 +203,7 @@ Funkce</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00071">71</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00117">117</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
 
 </div>
 </div>
@@ -197,7 +251,7 @@ Funkce</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00054">54</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00057">57</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
 
 </div>
 </div>
@@ -224,7 +278,7 @@ Funkce</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00117">117</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00163">163</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
 
 </div>
 </div>
@@ -289,7 +343,7 @@ Funkce</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00101">101</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="strings_8c_source.html#l00147">147</a> v souboru <a class="el" href="strings_8c_source.html">strings.c</a>.</p>
 
 </div>
 </div>
@@ -299,7 +353,7 @@ Funkce</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5815af820a9cc9481f1d0990a0d60286.html">support</a></li><li class="navelem"><a class="el" href="strings_8h.html">strings.h</a></li>
-    <li class="footer">Generováno út 21. lis 2017 14.25:03 pro projekt IFJ2017_Project programem
+    <li class="footer">Generováno st 22. lis 2017 15.38:10 pro projekt IFJ2017_Project programem
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

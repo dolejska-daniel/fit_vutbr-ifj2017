@@ -39,5 +39,5 @@ var symtable_8h =
     [ "SymbolTable_destroy", "symtable_8h.html#a56bbef8bb278ea61e6f775382c2b016c", null ],
     [ "SymbolTable_get", "symtable_8h.html#ac8e713799be71031a3c093f040458e5e", null ],
     [ "SymbolTable_hash", "symtable_8h.html#a9d29d1595ae15033e260b84a5d6c062a", null ],
-    [ "SymbolTable_insert", "symtable_8h.html#a21e186fb7964320425f5ad95a0c867d2", null ]
+    [ "SymbolTable_insert", "symtable_8h.html#abb44f7195685408edd74cb4661e8eace", null ]
 ];

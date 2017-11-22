@@ -81,13 +81,19 @@ $(document).ready(function(){initNavTree('parser_8c.html','');});
 <div class="header">
   <div class="summary">
 <a href="#define-members">Definice maker</a> &#124;
-<a href="#func-members">Funkce</a>  </div>
+<a href="#func-members">Funkce</a> &#124;
+<a href="#var-members">Proměnné</a>  </div>
   <div class="headertitle">
 <div class="title">Dokumentace souboru parser.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="parser_8h_source.html">parser.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="error__codes_8h_source.html">../support/error_codes.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="parser_8h_source.html">parser.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="nesting__list_8h_source.html">nesting_list.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="token_8h_source.html">token.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="strings_8h_source.html">strings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="error__codes_8h_source.html">error_codes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="infix2postfix_8h_source.html">infix2postfix.h</a>&quot;</code><br />
 </div>
 <p><a href="parser_8c_source.html">Zobrazit zdrojový text tohoto souboru.</a></p>
 <table class="memberdecls">
@@ -104,8 +110,53 @@ Definice maker</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funkce</h2></td></tr>
-<tr class="memitem:ac7d82b8747d87da4a81bd510955857a5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#ac7d82b8747d87da4a81bd510955857a5">Parser_ParseCode</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input)</td></tr>
-<tr class="separator:ac7d82b8747d87da4a81bd510955857a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fdf6f5594856d4de80509314dbe63ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a4fdf6f5594856d4de80509314dbe63ba">Parser_ParseInitial</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable)</td></tr>
+<tr class="separator:a4fdf6f5594856d4de80509314dbe63ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa819fe1f4476140bff5598f49beda91b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#aa819fe1f4476140bff5598f49beda91b">Parser_ParseNestedCode</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable, <a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a> nlist, <a class="el" href="token_8h.html#aa80161bf9be61c651bc95eafc643d9a5">TokenPtr</a> *last_token)</td></tr>
+<tr class="separator:aa819fe1f4476140bff5598f49beda91b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a363d935d0bb3b84f937bd8294e8e0fe7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a363d935d0bb3b84f937bd8294e8e0fe7">Parser_ParseFunctionDeclaration</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable, <a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a> nlist)</td></tr>
+<tr class="separator:a363d935d0bb3b84f937bd8294e8e0fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c9ba149cf8afd9838beea84e9bf976f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a2c9ba149cf8afd9838beea84e9bf976f">Parser_ParseFunctionDefinition</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable, <a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a> nlist)</td></tr>
+<tr class="separator:a2c9ba149cf8afd9838beea84e9bf976f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a563a2adbf33761866d49a0a27d058812"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a563a2adbf33761866d49a0a27d058812">Parser_ParseVariableDeclaration</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable, <a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a> nlist)</td></tr>
+<tr class="separator:a563a2adbf33761866d49a0a27d058812"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac236875b63916820afaf7b10b9fa2a46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#ac236875b63916820afaf7b10b9fa2a46">Parser_ParseVariableDefinition</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable, <a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a> nlist)</td></tr>
+<tr class="separator:ac236875b63916820afaf7b10b9fa2a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ab47606d5e7156800f31ff159d9ef2f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a8ab47606d5e7156800f31ff159d9ef2f">Parser_ParseCondition</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable, <a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a> nlist)</td></tr>
+<tr class="separator:a8ab47606d5e7156800f31ff159d9ef2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932eb7740df0ff40d8c29781dc939b66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a932eb7740df0ff40d8c29781dc939b66">Parser_ParseLoop_Do</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable, <a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a> nlist)</td></tr>
+<tr class="separator:a932eb7740df0ff40d8c29781dc939b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c051cd7167a122504784e5ce9718190"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a4c051cd7167a122504784e5ce9718190">Parser_ParseLoop_For</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable, <a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a> nlist)</td></tr>
+<tr class="separator:a4c051cd7167a122504784e5ce9718190"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09bcec9e48cf8a783bd5cc1b67a17571"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a09bcec9e48cf8a783bd5cc1b67a17571">Parser_ParseStatement_Print</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable)</td></tr>
+<tr class="separator:a09bcec9e48cf8a783bd5cc1b67a17571"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af32e90800a4afddf9237898310a3ed14"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#af32e90800a4afddf9237898310a3ed14">Parser_ParseStatement_Input</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable)</td></tr>
+<tr class="separator:af32e90800a4afddf9237898310a3ed14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c930ac65a86807c6cab983d4815013e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a6c930ac65a86807c6cab983d4815013e">Parser_ParseStatement_Continue</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable)</td></tr>
+<tr class="separator:a6c930ac65a86807c6cab983d4815013e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c8274dcbe55942e5465e88324f916d3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a4c8274dcbe55942e5465e88324f916d3">Parser_ParseStatement_Exit</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable)</td></tr>
+<tr class="separator:a4c8274dcbe55942e5465e88324f916d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233b8d19faee26dd30383e986fff594b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a233b8d19faee26dd30383e986fff594b">Parser_ParseStatement_Return</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable)</td></tr>
+<tr class="separator:a233b8d19faee26dd30383e986fff594b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa89705f74a93b64e70b89e555eeebe0f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#aa89705f74a93b64e70b89e555eeebe0f">Parser_ParseBuiltinFunction_Asc</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable)</td></tr>
+<tr class="separator:aa89705f74a93b64e70b89e555eeebe0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecc2457ccfc0be47a337a3193b274a4c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#aecc2457ccfc0be47a337a3193b274a4c">Parser_ParseBuiltinFunction_Chr</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable)</td></tr>
+<tr class="separator:aecc2457ccfc0be47a337a3193b274a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b527654dbb787995868dbce12636226"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a3b527654dbb787995868dbce12636226">Parser_ParseBuiltinFunction_Length</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable)</td></tr>
+<tr class="separator:a3b527654dbb787995868dbce12636226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97d45187ad1eb3b5ee932f36960fa242"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a97d45187ad1eb3b5ee932f36960fa242">Parser_ParseBuiltinFunction_Substr</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable)</td></tr>
+<tr class="separator:a97d45187ad1eb3b5ee932f36960fa242"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630a1807eed8899c2edd6f61ee86fd7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a630a1807eed8899c2edd6f61ee86fd7d">Parser_ParseScope</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable, <a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a> nlist)</td></tr>
+<tr class="separator:a630a1807eed8899c2edd6f61ee86fd7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bf5db5a0aba8be0380132e24f494312"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a7bf5db5a0aba8be0380132e24f494312">Parser_ParseExpression</a> (<a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input, <a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a> ilist, <a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> symtable)</td></tr>
+<tr class="separator:a7bf5db5a0aba8be0380132e24f494312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35b36666cdd31934a9d0edc2a2f03560"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a35b36666cdd31934a9d0edc2a2f03560">Parser_setError_statement</a> (char *content, char *instruction, <a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a> input)</td></tr>
+<tr class="separator:a35b36666cdd31934a9d0edc2a2f03560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Proměnné</h2></td></tr>
+<tr class="memitem:a0cb199d2be0143c7885e99eac82b3079"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#a0cb199d2be0143c7885e99eac82b3079">error_description</a></td></tr>
+<tr class="separator:a0cb199d2be0143c7885e99eac82b3079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Dokumentace k definicím maker</h2>
 <a id="a4ad76274f6ed2f72240bc29742204e3b"></a>
@@ -119,11 +170,11 @@ Funkce</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Tento soubor obsahuje implementaci syntaktick�ho analyz�toru (parser).</p>
-<dl class="section author"><dt>Autor</dt><dd>Daniel Dolej�ka (xdolej08) </dd></dl>
-<dl class="section date"><dt>Datum</dt><dd>21.11.2017  IFJcode17Parser  Form�ln� jazyky a p�eklada�e (IFJ) - FIT VUT v Brn� </dd></dl>
+<p>Tento soubor obsahuje implementaci syntaktického analyzátoru (parser).</p>
+<dl class="section author"><dt>Autor</dt><dd>Daniel Dolejška (xdolej08) </dd></dl>
+<dl class="section date"><dt>Datum</dt><dd>21.11.2017  IFJcode17Parser  Formální jazyky a překladače (IFJ) - FIT VUT v Brně </dd></dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00014">14</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00016">16</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
 
 </div>
 </div>
@@ -143,7 +194,7 @@ Funkce</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00031">31</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00045">45</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
 
 </div>
 </div>
@@ -163,7 +214,7 @@ Funkce</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00025">25</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00039">39</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
 
 </div>
 </div>
@@ -183,41 +234,873 @@ Funkce</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00019">19</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00033">33</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Dokumentace funkcí</h2>
-<a id="ac7d82b8747d87da4a81bd510955857a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7d82b8747d87da4a81bd510955857a5">&#9670;&nbsp;</a></span>Parser_ParseCode()</h2>
+<a id="aa89705f74a93b64e70b89e555eeebe0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa89705f74a93b64e70b89e555eeebe0f">&#9670;&nbsp;</a></span>Parser_ParseBuiltinFunction_Asc()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Parser_ParseCode </td>
+          <td class="memname">int Parser_ParseBuiltinFunction_Asc </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Hlavn� funkce ovl�daj�c� p�eklada�.</p>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00730">730</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="aecc2457ccfc0be47a337a3193b274a4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecc2457ccfc0be47a337a3193b274a4c">&#9670;&nbsp;</a></span>Parser_ParseBuiltinFunction_Chr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseBuiltinFunction_Chr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00738">738</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a3b527654dbb787995868dbce12636226"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b527654dbb787995868dbce12636226">&#9670;&nbsp;</a></span>Parser_ParseBuiltinFunction_Length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseBuiltinFunction_Length </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00746">746</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a97d45187ad1eb3b5ee932f36960fa242"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97d45187ad1eb3b5ee932f36960fa242">&#9670;&nbsp;</a></span>Parser_ParseBuiltinFunction_Substr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseBuiltinFunction_Substr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00754">754</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a8ab47606d5e7156800f31ff159d9ef2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ab47606d5e7156800f31ff159d9ef2f">&#9670;&nbsp;</a></span>Parser_ParseCondition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseCondition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a>&#160;</td>
+          <td class="paramname"><em>nlist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00654">654</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a7bf5db5a0aba8be0380132e24f494312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bf5db5a0aba8be0380132e24f494312">&#9670;&nbsp;</a></span>Parser_ParseExpression()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseExpression </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00777">777</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a363d935d0bb3b84f937bd8294e8e0fe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a363d935d0bb3b84f937bd8294e8e0fe7">&#9670;&nbsp;</a></span>Parser_ParseFunctionDeclaration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseFunctionDeclaration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a>&#160;</td>
+          <td class="paramname"><em>nlist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00566">566</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a2c9ba149cf8afd9838beea84e9bf976f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c9ba149cf8afd9838beea84e9bf976f">&#9670;&nbsp;</a></span>Parser_ParseFunctionDefinition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseFunctionDefinition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a>&#160;</td>
+          <td class="paramname"><em>nlist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00574">574</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a4fdf6f5594856d4de80509314dbe63ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fdf6f5594856d4de80509314dbe63ba">&#9670;&nbsp;</a></span>Parser_ParseInitial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseInitial </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Hlavní funkce ovládající překladač.</p>
 <dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">InputPtr</td><td>input Ukazatel na strukturu se vstupn�mi daty</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">InputPtr</td><td>input Ukazatel na strukturu se vstupními daty </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">InstructionListPtr</td><td>ilist Ukazatel na strukturu s instrukcemi </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">SymbolTablePtr</td><td>symtable Ukazatel na strukturu se symboly</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="retval"><dt>Vracené hodnoty</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">int</td><td>N�vratov� k�d popisuj�c� situaci (chyba, �sp�ch, ...) </td></tr>
+    <tr><td class="paramname">int</td><td>Návratový kód popisující situaci (chyba, úspěch, ...) </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00050">50</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00068">68</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a932eb7740df0ff40d8c29781dc939b66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a932eb7740df0ff40d8c29781dc939b66">&#9670;&nbsp;</a></span>Parser_ParseLoop_Do()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseLoop_Do </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a>&#160;</td>
+          <td class="paramname"><em>nlist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00671">671</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a4c051cd7167a122504784e5ce9718190"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c051cd7167a122504784e5ce9718190">&#9670;&nbsp;</a></span>Parser_ParseLoop_For()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseLoop_For </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a>&#160;</td>
+          <td class="paramname"><em>nlist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00681">681</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="aa819fe1f4476140bff5598f49beda91b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa819fe1f4476140bff5598f49beda91b">&#9670;&nbsp;</a></span>Parser_ParseNestedCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseNestedCode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a>&#160;</td>
+          <td class="paramname"><em>nlist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="token_8h.html#aa80161bf9be61c651bc95eafc643d9a5">TokenPtr</a> *&#160;</td>
+          <td class="paramname"><em>last_token</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sekundární funkce pro zpracování zanořeného kódu (rekurzivní zanořování).</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">InputPtr</td><td>input Ukazatel na strukturu se vstupními daty </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">InstructionListPtr</td><td>ilist Ukazatel na strukturu s instrukcemi </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">SymbolTablePtr</td><td>symtable Ukazatel na strukturu se symboly </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">NestingListPtr</td><td>nlist Ukazatel na strukturu s úrovněmi zanořování </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">TokenPtr</td><td>*last_token Ukazatel na poslední přijatý token funkcí</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Vracené hodnoty</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">int</td><td>Návratový kód popisující situaci (chyba, úspěch, ...) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00217">217</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a630a1807eed8899c2edd6f61ee86fd7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630a1807eed8899c2edd6f61ee86fd7d">&#9670;&nbsp;</a></span>Parser_ParseScope()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseScope </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a>&#160;</td>
+          <td class="paramname"><em>nlist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00767">767</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a6c930ac65a86807c6cab983d4815013e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c930ac65a86807c6cab983d4815013e">&#9670;&nbsp;</a></span>Parser_ParseStatement_Continue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseStatement_Continue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00707">707</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a4c8274dcbe55942e5465e88324f916d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c8274dcbe55942e5465e88324f916d3">&#9670;&nbsp;</a></span>Parser_ParseStatement_Exit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseStatement_Exit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00712">712</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="af32e90800a4afddf9237898310a3ed14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af32e90800a4afddf9237898310a3ed14">&#9670;&nbsp;</a></span>Parser_ParseStatement_Input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseStatement_Input </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00699">699</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a09bcec9e48cf8a783bd5cc1b67a17571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09bcec9e48cf8a783bd5cc1b67a17571">&#9670;&nbsp;</a></span>Parser_ParseStatement_Print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseStatement_Print </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00691">691</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a233b8d19faee26dd30383e986fff594b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a233b8d19faee26dd30383e986fff594b">&#9670;&nbsp;</a></span>Parser_ParseStatement_Return()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseStatement_Return </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00717">717</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a563a2adbf33761866d49a0a27d058812"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a563a2adbf33761866d49a0a27d058812">&#9670;&nbsp;</a></span>Parser_ParseVariableDeclaration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseVariableDeclaration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a>&#160;</td>
+          <td class="paramname"><em>nlist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00633">633</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="ac236875b63916820afaf7b10b9fa2a46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac236875b63916820afaf7b10b9fa2a46">&#9670;&nbsp;</a></span>Parser_ParseVariableDefinition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_ParseVariableDefinition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="instruction__list_8h.html#a3b9ba10c654c008ba5d15051cc19ec62">InstructionListPtr</a>&#160;</td>
+          <td class="paramname"><em>ilist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>symtable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9">NestingListPtr</a>&#160;</td>
+          <td class="paramname"><em>nlist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00641">641</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<a id="a35b36666cdd31934a9d0edc2a2f03560"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b36666cdd31934a9d0edc2a2f03560">&#9670;&nbsp;</a></span>Parser_setError_statement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser_setError_statement </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>content</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>instruction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="input_8h.html#a6943812b6796d0f8dfbc655140c5e6bc">InputPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="parser_8c_source.html#l00782">782</a> v souboru <a class="el" href="parser_8c_source.html">parser.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentace proměnných</h2>
+<a id="a0cb199d2be0143c7885e99eac82b3079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cb199d2be0143c7885e99eac82b3079">&#9670;&nbsp;</a></span>error_description</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* error_description</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="main_8c_source.html#l00049">49</a> v souboru <a class="el" href="main_8c_source.html">main.c</a>.</p>
 
 </div>
 </div>
@@ -227,7 +1110,7 @@ Funkce</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_572890c148f68441e050f6560d78312b.html">parser</a></li><li class="navelem"><a class="el" href="parser_8c.html">parser.c</a></li>
-    <li class="footer">Generováno út 21. lis 2017 14.25:03 pro projekt IFJ2017_Project programem
+    <li class="footer">Generováno st 22. lis 2017 15.38:10 pro projekt IFJ2017_Project programem
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

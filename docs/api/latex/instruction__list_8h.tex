@@ -116,6 +116,10 @@ Naalokuje a inicializuje řídící strukturu Instruction\+List.
 {\em Instruction\+List\+Ptr} & Ukazatel na nově vytvořenou strukturu \\
 \hline
 \end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 56 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_a3bd0c0cf55f5e6f00c64ef9fb8eb280b}\label{instruction__list_8h_a3bd0c0cf55f5e6f00c64ef9fb8eb280b}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+delete\+Active@{Instruction\+List\+\_\+delete\+Active}}
 \index{Instruction\+List\+\_\+delete\+Active@{Instruction\+List\+\_\+delete\+Active}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
@@ -126,9 +130,20 @@ Zruší a uvolní aktivní instrukci v seznamu.
 
 
 \begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+Zruší a uvolní aktivní instrukci v seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
 \mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel řídící strukturu seznamu \\
 \hline
 \end{DoxyParams}
+
+
+Definice je uvedena na řádku 281 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_ac8d8ac2500633b356d13263313ac6196}\label{instruction__list_8h_ac8d8ac2500633b356d13263313ac6196}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+delete\+First@{Instruction\+List\+\_\+delete\+First}}
 \index{Instruction\+List\+\_\+delete\+First@{Instruction\+List\+\_\+delete\+First}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
@@ -139,9 +154,20 @@ Zruší a uvolní první instrukci v seznamu.
 
 
 \begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+Zruší a uvolní první instrukci v seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
 \mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel řídící strukturu seznamu \\
 \hline
 \end{DoxyParams}
+
+
+Definice je uvedena na řádku 233 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_a8a6acece4eb4e9171ae68fa89d0e41c5}\label{instruction__list_8h_a8a6acece4eb4e9171ae68fa89d0e41c5}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+delete\+Last@{Instruction\+List\+\_\+delete\+Last}}
 \index{Instruction\+List\+\_\+delete\+Last@{Instruction\+List\+\_\+delete\+Last}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
@@ -152,9 +178,20 @@ Zruší a uvolní poslední instrukci v seznamu.
 
 
 \begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+Zruší a uvolní poslední instrukci v seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
 \mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel řídící strukturu seznamu \\
 \hline
 \end{DoxyParams}
+
+
+Definice je uvedena na řádku 257 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_ac391458a21c4657a8aae1fedec00e118}\label{instruction__list_8h_ac391458a21c4657a8aae1fedec00e118}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+destroy@{Instruction\+List\+\_\+destroy}}
 \index{Instruction\+List\+\_\+destroy@{Instruction\+List\+\_\+destroy}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
@@ -168,6 +205,10 @@ Zruší a uvolní řídící strukturu Instruction\+List. Pokud je neprázdná (
 \mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & $\ast$l Ukazatel na strukturu k zrušení \\
 \hline
 \end{DoxyParams}
+
+
+Definice je uvedena na řádku 76 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_a9a01a34cfbcae06369410f5c2ad2cb25}\label{instruction__list_8h_a9a01a34cfbcae06369410f5c2ad2cb25}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+first@{Instruction\+List\+\_\+first}}
 \index{Instruction\+List\+\_\+first@{Instruction\+List\+\_\+first}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
@@ -178,15 +219,38 @@ Nastaví první instrukci na aktivní.
 
 
 \begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+Nastaví první instrukci na aktivní.
+
+
+\begin{DoxyParams}[1]{Parametry}
 \mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel řídící strukturu seznamu \\
 \hline
 \end{DoxyParams}
+
+
+Definice je uvedena na řádku 156 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_a819265277a8253e0a5e39b327f5b7381}\label{instruction__list_8h_a819265277a8253e0a5e39b327f5b7381}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+get\+Active@{Instruction\+List\+\_\+get\+Active}}
 \index{Instruction\+List\+\_\+get\+Active@{Instruction\+List\+\_\+get\+Active}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
 \subsubsection{\texorpdfstring{Instruction\+List\+\_\+get\+Active()}{InstructionList\_getActive()}}
 {\footnotesize\ttfamily char$\ast$ Instruction\+List\+\_\+get\+Active (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
 
+Získá obsah (samotnou instrukci -\/ textový řetězec) aktivní instrukce v seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em char$\ast$} & Obsah instrukce\\
+\hline
+\end{DoxyRetVals}
 Získá obsah (samotnou instrukci -\/ textový řetězec) aktivní instrukce v seznamu.
 
 
@@ -199,12 +263,28 @@ Získá obsah (samotnou instrukci -\/ textový řetězec) aktivní instrukce v s
 {\em char$\ast$} & Obsah instrukce \\
 \hline
 \end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 218 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_ad7cd770810514ebd25c8619379cfae6d}\label{instruction__list_8h_ad7cd770810514ebd25c8619379cfae6d}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+get\+First@{Instruction\+List\+\_\+get\+First}}
 \index{Instruction\+List\+\_\+get\+First@{Instruction\+List\+\_\+get\+First}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
 \subsubsection{\texorpdfstring{Instruction\+List\+\_\+get\+First()}{InstructionList\_getFirst()}}
 {\footnotesize\ttfamily char$\ast$ Instruction\+List\+\_\+get\+First (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
 
+Získá obsah (samotnou instrukci -\/ textový řetězec) první instrukce v seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em char$\ast$} & Obsah instrukce\\
+\hline
+\end{DoxyRetVals}
 Získá obsah (samotnou instrukci -\/ textový řetězec) první instrukce v seznamu.
 
 
@@ -217,25 +297,52 @@ Získá obsah (samotnou instrukci -\/ textový řetězec) první instrukce v sez
 {\em char$\ast$} & Obsah instrukce \\
 \hline
 \end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 192 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_a14bec31483e5d60329154ac0a229caf6}\label{instruction__list_8h_a14bec31483e5d60329154ac0a229caf6}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+get\+First\+And\+Delete@{Instruction\+List\+\_\+get\+First\+And\+Delete}}
 \index{Instruction\+List\+\_\+get\+First\+And\+Delete@{Instruction\+List\+\_\+get\+First\+And\+Delete}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
 \subsubsection{\texorpdfstring{Instruction\+List\+\_\+get\+First\+And\+Delete()}{InstructionList\_getFirstAndDelete()}}
 {\footnotesize\ttfamily char$\ast$ Instruction\+List\+\_\+get\+First\+And\+Delete (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
 
-Získá obsah (samotnou instrukci -\/ textový řetězec) aktivní instrukce v seznamu a tu pak odstraní.
+Získá obsah (samotnou instrukci -\/ textový řetězec) první instrukce v seznamu a tu pak odstraní.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+Získá obsah (samotnou instrukci -\/ textový řetězec) první instrukce v seznamu a tu pak odstraní.
 
 
 \begin{DoxyParams}[1]{Parametry}
 \mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel řídící strukturu seznamu \\
 \hline
 \end{DoxyParams}
+
+
+Definice je uvedena na řádku 312 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_a6a11f8399659e94d392d5332fbfb1a91}\label{instruction__list_8h_a6a11f8399659e94d392d5332fbfb1a91}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+get\+Last@{Instruction\+List\+\_\+get\+Last}}
 \index{Instruction\+List\+\_\+get\+Last@{Instruction\+List\+\_\+get\+Last}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
 \subsubsection{\texorpdfstring{Instruction\+List\+\_\+get\+Last()}{InstructionList\_getLast()}}
 {\footnotesize\ttfamily char$\ast$ Instruction\+List\+\_\+get\+Last (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
 
+Získá obsah (samotnou instrukci -\/ textový řetězec) poslední instrukce v seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em char$\ast$} & Obsah instrukce\\
+\hline
+\end{DoxyRetVals}
 Získá obsah (samotnou instrukci -\/ textový řetězec) poslední instrukce v seznamu.
 
 
@@ -248,12 +355,30 @@ Získá obsah (samotnou instrukci -\/ textový řetězec) poslední instrukce v 
 {\em char$\ast$} & Obsah instrukce \\
 \hline
 \end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 205 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_ae8f44b987de8d9d1ca790bb283eb6735}\label{instruction__list_8h_ae8f44b987de8d9d1ca790bb283eb6735}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+insert\+First@{Instruction\+List\+\_\+insert\+First}}
 \index{Instruction\+List\+\_\+insert\+First@{Instruction\+List\+\_\+insert\+First}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
 \subsubsection{\texorpdfstring{Instruction\+List\+\_\+insert\+First()}{InstructionList\_insertFirst()}}
 {\footnotesize\ttfamily \hyperlink{instruction__list_8h_aaaf9f8ee3d7203e01ba5c651c5ee8a99}{Instruction\+Ptr} Instruction\+List\+\_\+insert\+First (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{char $\ast$}]{content }\end{DoxyParamCaption})}
 
+Vloží novou instrukci na začátek seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\mbox{\tt in}  & {\em char} & $\ast$content Samotný obsah instrukce -\/ textový řetězec\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Instruction\+Ptr} & Ukazatel na nově vytvořenou strukturu\\
+\hline
+\end{DoxyRetVals}
 Vloží novou instrukci na začátek seznamu.
 
 
@@ -268,12 +393,30 @@ Vloží novou instrukci na začátek seznamu.
 {\em Instruction\+Ptr} & Ukazatel na nově vytvořenou strukturu \\
 \hline
 \end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 101 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_a7f2a22c27e751a9cfb1270a771e6749e}\label{instruction__list_8h_a7f2a22c27e751a9cfb1270a771e6749e}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+insert\+Last@{Instruction\+List\+\_\+insert\+Last}}
 \index{Instruction\+List\+\_\+insert\+Last@{Instruction\+List\+\_\+insert\+Last}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
 \subsubsection{\texorpdfstring{Instruction\+List\+\_\+insert\+Last()}{InstructionList\_insertLast()}}
 {\footnotesize\ttfamily \hyperlink{instruction__list_8h_aaaf9f8ee3d7203e01ba5c651c5ee8a99}{Instruction\+Ptr} Instruction\+List\+\_\+insert\+Last (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{char $\ast$}]{content }\end{DoxyParamCaption})}
 
+Vloží novou instrukci na konec seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\mbox{\tt in}  & {\em char} & $\ast$content Samotný obsah instrukce -\/ textový řetězec\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Instruction\+Ptr} & Ukazatel na nově vytvořenou strukturu\\
+\hline
+\end{DoxyRetVals}
 Vloží novou instrukci na konec seznamu.
 
 
@@ -288,6 +431,10 @@ Vloží novou instrukci na konec seznamu.
 {\em Instruction\+Ptr} & Ukazatel na nově vytvořenou strukturu \\
 \hline
 \end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 130 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_a750204fa80e417d6e322da756c70388b}\label{instruction__list_8h_a750204fa80e417d6e322da756c70388b}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+last@{Instruction\+List\+\_\+last}}
 \index{Instruction\+List\+\_\+last@{Instruction\+List\+\_\+last}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
@@ -298,9 +445,20 @@ Nastaví poslední instrukci na aktivní.
 
 
 \begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+Nastaví poslední instrukci na aktivní.
+
+
+\begin{DoxyParams}[1]{Parametry}
 \mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel řídící strukturu seznamu \\
 \hline
 \end{DoxyParams}
+
+
+Definice je uvedena na řádku 166 v souboru instruction\+\_\+list.\+c.
+
 \mbox{\Hypertarget{instruction__list_8h_a5b796daabf590012af147d5cfb71d953}\label{instruction__list_8h_a5b796daabf590012af147d5cfb71d953}} 
 \index{instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}!Instruction\+List\+\_\+next@{Instruction\+List\+\_\+next}}
 \index{Instruction\+List\+\_\+next@{Instruction\+List\+\_\+next}!instruction\+\_\+list.\+h@{instruction\+\_\+list.\+h}}
@@ -311,6 +469,17 @@ Nastaví následující instrukci na aktivní. Pokud žádná instrukce není ak
 
 
 \begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+Nastaví následující instrukci na aktivní. Pokud žádná instrukce není aktivní, neděje se nic.
+
+
+\begin{DoxyParams}[1]{Parametry}
 \mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & l Ukazatel řídící strukturu seznamu \\
 \hline
 \end{DoxyParams}
+
+
+Definice je uvedena na řádku 177 v souboru instruction\+\_\+list.\+c.
+

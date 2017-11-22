@@ -20,39 +20,39 @@
 //======================================================================
 
 typedef enum E_SymbolType {
-	ST_BOOLEAN,     ///< Proměnná datového typu boolean
-	ST_STRING,      ///< Proměnná datového typu string
-	ST_DOUBLE,	    ///< Proměnná datového typu double
-	ST_INTEGER,     ///< Proměnná datového typu integer
-	ST_NONE,        ///< NULL
-	ST_FUNCTION,    ///< Funkce
+	ST_BOOLEAN,  ///< Proměnná datového typu boolean
+	ST_STRING,   ///< Proměnná datového typu string
+	ST_DOUBLE,	 ///< Proměnná datového typu double
+	ST_INTEGER,  ///< Proměnná datového typu integer
+	ST_NONE,     ///< NULL
+	ST_FUNCTION, ///< Funkce
 } SymbolType; ///< Typ symbolu
 
 typedef enum E_SymbolLocation {
-    GLOBAL_FRAME,       ///< Globální rámec
-    LOCAL_FRAME,        ///< Lokální rámec
-    TEMPORARY_FRAME,    ///< Dočasný rámec
-    CONSTANT,           ///< Konstanta
+    GLOBAL_FRAME,    ///< Globální rámec
+    LOCAL_FRAME,     ///< Lokální rámec
+    TEMPORARY_FRAME, ///< Dočasný rámec
+    CONSTANT,        ///< Konstanta
 } SymbolLocation; ///< Umístění symbolu
 
 typedef struct S_Symbol
     Symbol,
    *SymbolPtr;
 struct S_Symbol {
-	SymbolType 	    type;	    ///< Typ symbolu
-    SymbolLocation  location;   ///< Umístění symbolu
-	SymbolPtr	    next;	    ///< Ukazatel na další prvek se stejným otiskem (synonymum)
-	char 		    *key;	    ///< Název/Identifikátor symbolu
-	void		    *value;	    ///< Ukazatel na další informace o symbolu
+	SymbolType 	    type;	  ///< Typ symbolu
+    SymbolLocation  location; ///< Umístění symbolu
+	SymbolPtr	    next;	  ///< Ukazatel na další prvek se stejným otiskem (synonymum)
+	char 		    *key;	  ///< Název/Identifikátor symbolu
+	void		    *value;	  ///< Ukazatel na další informace o symbolu
 }; ///< Struktura symbolu
 
 typedef struct S_SymbolInfo_Function_Parameter
     SymbolInfo_Function_Parameter,
    *SymbolInfo_Function_ParameterPtr;
 struct S_SymbolInfo_Function_Parameter {
-    SymbolType  dataType;   ///< Datový typ parametru funkce
-    char        *name;      ///< Název parametru (proměnné)
-};
+    SymbolType  dataType; ///< Datový typ parametru funkce
+    char        *name;    ///< Název parametru (proměnné)
+}; ///< Struktura pro uložení vlastností parametru funkce
 
 typedef struct S_SymbolInfo_Function
     SymbolInfo_Function,
@@ -61,14 +61,14 @@ struct S_SymbolInfo_Function {
     SymbolInfo_Function_Parameter   **params; ///< Pole parametrů funkce
     SymbolType  returnDataType; ///< Datový typ návratové hodnoty
     bool        isDefined;      ///< Označuje zda je funkce definována
-};
+}; ///< Struktura pro uložení vlastností funkce
 
 typedef struct S_SymbolTable
     SymbolTable,
    *SymbolTablePtr;
 struct S_SymbolTable {
-	Symbol	    **array;	///< Pole ukazatelů na jednotlivé symboly
-	unsigned	size;		///< Velikost tabulky symbolů
+	Symbol	    **array; ///< Pole ukazatelů na jednotlivé symboly
+	unsigned	size;	 ///< Velikost tabulky symbolů
 }; ///< Struktura tabulky symbolů
 
 
@@ -93,12 +93,12 @@ void SymbolTable_destroy(SymbolTablePtr *st);
 /**
  * Funkce pro výpočet klíče na základě jména položky.
  *
- * @param[in,out]	SymbolTable	*st		Ukazatel na existující tabulku symbolů
- * @param[in]		char		*key	Identifikátor položky
+ * @param[in,out]	SymbolTablePtr  st		Ukazatel na existující tabulku symbolů
+ * @param[in]		char		    *key	Identifikátor položky
  *
  * @retval	unsigned	Vypočtený otisk (index) položky s daným identifikátorem
  */
-unsigned SymbolTable_hash(SymbolTable *st, char *key);
+unsigned SymbolTable_hash(SymbolTablePtr st, char *key);
 
 /**
  * Funkce získá hledanou položku ze seznamu s daným identifikátorem.
@@ -118,10 +118,11 @@ SymbolPtr SymbolTable_get(SymbolTable *st, char *key);
  * @param[in]		SymbolType	    type	    Typ symbolu
  * @param[in]	    SymbolLocation	location	Umístění symbolu
  * @param[in]		void		    *value	    Hodnota položky
+ * @param[out]		SymbolPtr	    *symbol     Ukazatel na nově vytvořený symbol
  *
- * @retval	SymbolPtr	Ukazatel na nově vytvoření položku tabulky
+ * @retval	int Kód se kterým bylo vložení symbolu ukončeno
  */
-SymbolPtr SymbolTable_insert(SymbolTable *st, char *key, SymbolType type, SymbolLocation location, void *value);
+int SymbolTable_insert(SymbolTable *st, char *key, SymbolType type, SymbolLocation location, void *value, SymbolPtr *symbol);
 
 /**
  * Funkce odstraní položku s daným jménem z tabulky.

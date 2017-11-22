@@ -13,7 +13,8 @@ var NAVTREE =
       [ "Seznam souborů", "files.html", "files" ],
       [ "Globální symboly", "globals.html", [
         [ "Vše", "globals.html", "globals_dup" ],
-        [ "Funkce", "globals_func.html", null ],
+        [ "Funkce", "globals_func.html", "globals_func" ],
+        [ "Proměnné", "globals_vars.html", null ],
         [ "Definice typů", "globals_type.html", null ],
         [ "Výčty", "globals_enum.html", null ],
         [ "Hodnoty výčtu", "globals_eval.html", null ],
@@ -26,7 +27,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"token_8c.html#a6a159eb83636705297cab4f7e55f6e93"
+"nesting__list_8c_source.html",
+"symtable_8c.html#a88edd2aa4feabff4af21a997d5d8aa23"
 ];
 
 var SYNCONMSG = 'zakázat synchronizaci panelů';
