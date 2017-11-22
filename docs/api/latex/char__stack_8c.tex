@@ -1,0 +1,171 @@
+\hypertarget{char__stack_8c}{}\section{Dokumentace souboru char\+\_\+stack.\+c}
+\label{char__stack_8c}\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$malloc.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}char\+\_\+stack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}error\+\_\+codes.\+h\char`\"{}}\newline
+\subsection*{Definice maker}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{char__stack_8c_af5afebc8d9c7feda755b26e147f6a594}{\+\_\+char\+\_\+stack\+\_\+c}
+\item 
+\#define \hyperlink{char__stack_8c_a88edd2aa4feabff4af21a997d5d8aa23}{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}(...)~do\{ \} while ( 0 )
+\item 
+\#define \hyperlink{char__stack_8c_a21a2c7330a04ac78200a986f66609369}{D\+E\+B\+U\+G\+\_\+\+L\+OG}(...)~do\{ \} while ( 0 )
+\item 
+\#define \hyperlink{char__stack_8c_a08a35dd0a07f5240134eba4e97fcdd48}{D\+E\+B\+U\+G\+\_\+\+E\+RR}(...)~do\{ \} while ( 0 )
+\item 
+\#define \hyperlink{char__stack_8c_a05cefbca68a3cd08af874e4c218984cb}{C\+H\+A\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}~50
+\end{DoxyCompactItemize}
+\subsection*{Funkce}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr} \hyperlink{char__stack_8c_a2e1fa5fcce05b0218bdf892381b1c817}{Char\+Stack\+\_\+create} ()
+\item 
+void \hyperlink{char__stack_8c_a31042149ea6ac1f986663e225898bca5}{Char\+Stack\+\_\+destroy} (\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr} $\ast$s)
+\item 
+int \hyperlink{char__stack_8c_a4a40d981784e3937069bbe09360e5dd3}{Char\+Stack\+\_\+push} (\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr} s, char ch)
+\item 
+int \hyperlink{char__stack_8c_a30d25e74684a07a3ea96caa2b89eb057}{Char\+Stack\+\_\+pop} (\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr} s)
+\item 
+char \hyperlink{char__stack_8c_acc4060bb85f3a5a414a9d6e15f946dc9}{Char\+Stack\+\_\+top} (\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr} s)
+\item 
+bool \hyperlink{char__stack_8c_a498f49f245a005963c4c96a26864ef51}{Char\+Stack\+\_\+is\+Empty} (\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr} s)
+\item 
+bool \hyperlink{char__stack_8c_a3137245d918d5efc873d93c4cb16bcc5}{Char\+Stack\+\_\+is\+Full} (\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr} s)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentace k definicím maker}
+\mbox{\Hypertarget{char__stack_8c_af5afebc8d9c7feda755b26e147f6a594}\label{char__stack_8c_af5afebc8d9c7feda755b26e147f6a594}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!\+\_\+char\+\_\+stack\+\_\+c@{\+\_\+char\+\_\+stack\+\_\+c}}
+\index{\+\_\+char\+\_\+stack\+\_\+c@{\+\_\+char\+\_\+stack\+\_\+c}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+char\+\_\+stack\+\_\+c}{\_char\_stack\_c}}
+{\footnotesize\ttfamily \#define \+\_\+char\+\_\+stack\+\_\+c}
+
+Tento soubor obsahuje implementaci stacku charů.
+
+\begin{DoxyAuthor}{Autor}
+Daniel Dolejška (xdolej08) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Datum}
+21.\+11.\+2017  I\+F\+Jcode17\+Parser  Formální jazyky a překladače (I\+FJ) -\/ F\+IT V\+UT v Brně 
+\end{DoxyDate}
+
+
+Definice je uvedena na řádku 18 v souboru char\+\_\+stack.\+c.
+
+\mbox{\Hypertarget{char__stack_8c_a05cefbca68a3cd08af874e4c218984cb}\label{char__stack_8c_a05cefbca68a3cd08af874e4c218984cb}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!C\+H\+A\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE@{C\+H\+A\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}}
+\index{C\+H\+A\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE@{C\+H\+A\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{C\+H\+A\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}{CHAR\_STACK\_SIZE}}
+{\footnotesize\ttfamily \#define C\+H\+A\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE~50}
+
+
+
+Definice je uvedena na řádku 42 v souboru char\+\_\+stack.\+c.
+
+\mbox{\Hypertarget{char__stack_8c_a08a35dd0a07f5240134eba4e97fcdd48}\label{char__stack_8c_a08a35dd0a07f5240134eba4e97fcdd48}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!D\+E\+B\+U\+G\+\_\+\+E\+RR@{D\+E\+B\+U\+G\+\_\+\+E\+RR}}
+\index{D\+E\+B\+U\+G\+\_\+\+E\+RR@{D\+E\+B\+U\+G\+\_\+\+E\+RR}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+E\+RR}{DEBUG\_ERR}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+E\+RR(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na řádku 39 v souboru char\+\_\+stack.\+c.
+
+\mbox{\Hypertarget{char__stack_8c_a21a2c7330a04ac78200a986f66609369}\label{char__stack_8c_a21a2c7330a04ac78200a986f66609369}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!D\+E\+B\+U\+G\+\_\+\+L\+OG@{D\+E\+B\+U\+G\+\_\+\+L\+OG}}
+\index{D\+E\+B\+U\+G\+\_\+\+L\+OG@{D\+E\+B\+U\+G\+\_\+\+L\+OG}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+L\+OG}{DEBUG\_LOG}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+L\+OG(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na řádku 33 v souboru char\+\_\+stack.\+c.
+
+\mbox{\Hypertarget{char__stack_8c_a88edd2aa4feabff4af21a997d5d8aa23}\label{char__stack_8c_a88edd2aa4feabff4af21a997d5d8aa23}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}}
+\index{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}{DEBUG\_PRINT}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na řádku 27 v souboru char\+\_\+stack.\+c.
+
+
+
+\subsection{Dokumentace funkcí}
+\mbox{\Hypertarget{char__stack_8c_a2e1fa5fcce05b0218bdf892381b1c817}\label{char__stack_8c_a2e1fa5fcce05b0218bdf892381b1c817}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!Char\+Stack\+\_\+create@{Char\+Stack\+\_\+create}}
+\index{Char\+Stack\+\_\+create@{Char\+Stack\+\_\+create}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{Char\+Stack\+\_\+create()}{CharStack\_create()}}
+{\footnotesize\ttfamily \hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr} Char\+Stack\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 53 v souboru char\+\_\+stack.\+c.
+
+\mbox{\Hypertarget{char__stack_8c_a31042149ea6ac1f986663e225898bca5}\label{char__stack_8c_a31042149ea6ac1f986663e225898bca5}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!Char\+Stack\+\_\+destroy@{Char\+Stack\+\_\+destroy}}
+\index{Char\+Stack\+\_\+destroy@{Char\+Stack\+\_\+destroy}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{Char\+Stack\+\_\+destroy()}{CharStack\_destroy()}}
+{\footnotesize\ttfamily void Char\+Stack\+\_\+destroy (\begin{DoxyParamCaption}\item[{\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr} $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 67 v souboru char\+\_\+stack.\+c.
+
+\mbox{\Hypertarget{char__stack_8c_a498f49f245a005963c4c96a26864ef51}\label{char__stack_8c_a498f49f245a005963c4c96a26864ef51}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!Char\+Stack\+\_\+is\+Empty@{Char\+Stack\+\_\+is\+Empty}}
+\index{Char\+Stack\+\_\+is\+Empty@{Char\+Stack\+\_\+is\+Empty}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{Char\+Stack\+\_\+is\+Empty()}{CharStack\_isEmpty()}}
+{\footnotesize\ttfamily bool Char\+Stack\+\_\+is\+Empty (\begin{DoxyParamCaption}\item[{\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr}}]{s }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 102 v souboru char\+\_\+stack.\+c.
+
+\mbox{\Hypertarget{char__stack_8c_a3137245d918d5efc873d93c4cb16bcc5}\label{char__stack_8c_a3137245d918d5efc873d93c4cb16bcc5}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!Char\+Stack\+\_\+is\+Full@{Char\+Stack\+\_\+is\+Full}}
+\index{Char\+Stack\+\_\+is\+Full@{Char\+Stack\+\_\+is\+Full}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{Char\+Stack\+\_\+is\+Full()}{CharStack\_isFull()}}
+{\footnotesize\ttfamily bool Char\+Stack\+\_\+is\+Full (\begin{DoxyParamCaption}\item[{\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr}}]{s }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 107 v souboru char\+\_\+stack.\+c.
+
+\mbox{\Hypertarget{char__stack_8c_a30d25e74684a07a3ea96caa2b89eb057}\label{char__stack_8c_a30d25e74684a07a3ea96caa2b89eb057}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!Char\+Stack\+\_\+pop@{Char\+Stack\+\_\+pop}}
+\index{Char\+Stack\+\_\+pop@{Char\+Stack\+\_\+pop}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{Char\+Stack\+\_\+pop()}{CharStack\_pop()}}
+{\footnotesize\ttfamily int Char\+Stack\+\_\+pop (\begin{DoxyParamCaption}\item[{\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr}}]{s }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 85 v souboru char\+\_\+stack.\+c.
+
+\mbox{\Hypertarget{char__stack_8c_a4a40d981784e3937069bbe09360e5dd3}\label{char__stack_8c_a4a40d981784e3937069bbe09360e5dd3}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!Char\+Stack\+\_\+push@{Char\+Stack\+\_\+push}}
+\index{Char\+Stack\+\_\+push@{Char\+Stack\+\_\+push}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{Char\+Stack\+\_\+push()}{CharStack\_push()}}
+{\footnotesize\ttfamily int Char\+Stack\+\_\+push (\begin{DoxyParamCaption}\item[{\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr}}]{s,  }\item[{char}]{ch }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 73 v souboru char\+\_\+stack.\+c.
+
+\mbox{\Hypertarget{char__stack_8c_acc4060bb85f3a5a414a9d6e15f946dc9}\label{char__stack_8c_acc4060bb85f3a5a414a9d6e15f946dc9}} 
+\index{char\+\_\+stack.\+c@{char\+\_\+stack.\+c}!Char\+Stack\+\_\+top@{Char\+Stack\+\_\+top}}
+\index{Char\+Stack\+\_\+top@{Char\+Stack\+\_\+top}!char\+\_\+stack.\+c@{char\+\_\+stack.\+c}}
+\subsubsection{\texorpdfstring{Char\+Stack\+\_\+top()}{CharStack\_top()}}
+{\footnotesize\ttfamily char Char\+Stack\+\_\+top (\begin{DoxyParamCaption}\item[{\hyperlink{char__stack_8h_a80627093f6bdae4bb353d72214527008}{Char\+Stack\+Ptr}}]{s }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 97 v souboru char\+\_\+stack.\+c.
+

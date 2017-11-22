@@ -1,0 +1,328 @@
+\hypertarget{parser_8h}{}\section{Dokumentace souboru parser.\+h}
+\label{parser_8h}\index{parser.\+h@{parser.\+h}}
+{\ttfamily \#include \char`\"{}symtable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}nesting\+\_\+list.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}input.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}token.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instruction\+\_\+list.\+h\char`\"{}}\newline
+\subsection*{Funkce}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{parser_8h_a4fdf6f5594856d4de80509314dbe63ba}{Parser\+\_\+\+Parse\+Initial} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable)
+\item 
+int \hyperlink{parser_8h_aa819fe1f4476140bff5598f49beda91b}{Parser\+\_\+\+Parse\+Nested\+Code} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable, \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} nlist, \hyperlink{token_8h_aa80161bf9be61c651bc95eafc643d9a5}{Token\+Ptr} $\ast$last\+\_\+token)
+\item 
+int \hyperlink{parser_8h_a363d935d0bb3b84f937bd8294e8e0fe7}{Parser\+\_\+\+Parse\+Function\+Declaration} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable, \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} nlist)
+\item 
+int \hyperlink{parser_8h_a2c9ba149cf8afd9838beea84e9bf976f}{Parser\+\_\+\+Parse\+Function\+Definition} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable, \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} nlist)
+\item 
+int \hyperlink{parser_8h_a563a2adbf33761866d49a0a27d058812}{Parser\+\_\+\+Parse\+Variable\+Declaration} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable, \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} nlist)
+\item 
+int \hyperlink{parser_8h_ac236875b63916820afaf7b10b9fa2a46}{Parser\+\_\+\+Parse\+Variable\+Definition} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable, \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} nlist)
+\item 
+int \hyperlink{parser_8h_a8ab47606d5e7156800f31ff159d9ef2f}{Parser\+\_\+\+Parse\+Condition} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable, \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} nlist)
+\item 
+int \hyperlink{parser_8h_a932eb7740df0ff40d8c29781dc939b66}{Parser\+\_\+\+Parse\+Loop\+\_\+\+Do} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable, \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} nlist)
+\item 
+int \hyperlink{parser_8h_a4c051cd7167a122504784e5ce9718190}{Parser\+\_\+\+Parse\+Loop\+\_\+\+For} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable, \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} nlist)
+\item 
+int \hyperlink{parser_8h_a09bcec9e48cf8a783bd5cc1b67a17571}{Parser\+\_\+\+Parse\+Statement\+\_\+\+Print} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable)
+\item 
+int \hyperlink{parser_8h_af32e90800a4afddf9237898310a3ed14}{Parser\+\_\+\+Parse\+Statement\+\_\+\+Input} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable)
+\item 
+int \hyperlink{parser_8h_a6c930ac65a86807c6cab983d4815013e}{Parser\+\_\+\+Parse\+Statement\+\_\+\+Continue} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable)
+\item 
+int \hyperlink{parser_8h_a4c8274dcbe55942e5465e88324f916d3}{Parser\+\_\+\+Parse\+Statement\+\_\+\+Exit} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable)
+\item 
+int \hyperlink{parser_8h_a233b8d19faee26dd30383e986fff594b}{Parser\+\_\+\+Parse\+Statement\+\_\+\+Return} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable)
+\item 
+int \hyperlink{parser_8h_aa89705f74a93b64e70b89e555eeebe0f}{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Asc} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable)
+\item 
+int \hyperlink{parser_8h_aecc2457ccfc0be47a337a3193b274a4c}{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Chr} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable)
+\item 
+int \hyperlink{parser_8h_a3b527654dbb787995868dbce12636226}{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Length} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable)
+\item 
+int \hyperlink{parser_8h_a97d45187ad1eb3b5ee932f36960fa242}{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Substr} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable)
+\item 
+int \hyperlink{parser_8h_a630a1807eed8899c2edd6f61ee86fd7d}{Parser\+\_\+\+Parse\+Scope} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable, \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} nlist)
+\item 
+int \hyperlink{parser_8h_a7bf5db5a0aba8be0380132e24f494312}{Parser\+\_\+\+Parse\+Expression} (\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input, \hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr} symtable)
+\item 
+int \hyperlink{parser_8h_a624c2e96de6b7315a66acb1777a7e1ac}{Parser\+\_\+set\+Error\+\_\+allocation} (char $\ast$structure)
+\item 
+int \hyperlink{parser_8h_a35b36666cdd31934a9d0edc2a2f03560}{Parser\+\_\+set\+Error\+\_\+statement} (char $\ast$content, char $\ast$instruction, \hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr} input)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentace funkcí}
+\mbox{\Hypertarget{parser_8h_aa89705f74a93b64e70b89e555eeebe0f}\label{parser_8h_aa89705f74a93b64e70b89e555eeebe0f}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Asc@{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Asc}}
+\index{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Asc@{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Asc}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Asc()}{Parser\_ParseBuiltinFunction\_Asc()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Asc (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 730 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_aecc2457ccfc0be47a337a3193b274a4c}\label{parser_8h_aecc2457ccfc0be47a337a3193b274a4c}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Chr@{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Chr}}
+\index{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Chr@{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Chr}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Chr()}{Parser\_ParseBuiltinFunction\_Chr()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Chr (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 738 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a3b527654dbb787995868dbce12636226}\label{parser_8h_a3b527654dbb787995868dbce12636226}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Length@{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Length}}
+\index{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Length@{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Length}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Length()}{Parser\_ParseBuiltinFunction\_Length()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Length (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 746 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a97d45187ad1eb3b5ee932f36960fa242}\label{parser_8h_a97d45187ad1eb3b5ee932f36960fa242}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Substr@{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Substr}}
+\index{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Substr@{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Substr}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Substr()}{Parser\_ParseBuiltinFunction\_Substr()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Builtin\+Function\+\_\+\+Substr (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 754 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a8ab47606d5e7156800f31ff159d9ef2f}\label{parser_8h_a8ab47606d5e7156800f31ff159d9ef2f}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Condition@{Parser\+\_\+\+Parse\+Condition}}
+\index{Parser\+\_\+\+Parse\+Condition@{Parser\+\_\+\+Parse\+Condition}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Condition()}{Parser\_ParseCondition()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Condition (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable,  }\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{nlist }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 654 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a7bf5db5a0aba8be0380132e24f494312}\label{parser_8h_a7bf5db5a0aba8be0380132e24f494312}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Expression@{Parser\+\_\+\+Parse\+Expression}}
+\index{Parser\+\_\+\+Parse\+Expression@{Parser\+\_\+\+Parse\+Expression}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Expression()}{Parser\_ParseExpression()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Expression (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 777 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a363d935d0bb3b84f937bd8294e8e0fe7}\label{parser_8h_a363d935d0bb3b84f937bd8294e8e0fe7}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Function\+Declaration@{Parser\+\_\+\+Parse\+Function\+Declaration}}
+\index{Parser\+\_\+\+Parse\+Function\+Declaration@{Parser\+\_\+\+Parse\+Function\+Declaration}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Function\+Declaration()}{Parser\_ParseFunctionDeclaration()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Function\+Declaration (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable,  }\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{nlist }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 566 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a2c9ba149cf8afd9838beea84e9bf976f}\label{parser_8h_a2c9ba149cf8afd9838beea84e9bf976f}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Function\+Definition@{Parser\+\_\+\+Parse\+Function\+Definition}}
+\index{Parser\+\_\+\+Parse\+Function\+Definition@{Parser\+\_\+\+Parse\+Function\+Definition}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Function\+Definition()}{Parser\_ParseFunctionDefinition()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Function\+Definition (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable,  }\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{nlist }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 574 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a4fdf6f5594856d4de80509314dbe63ba}\label{parser_8h_a4fdf6f5594856d4de80509314dbe63ba}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Initial@{Parser\+\_\+\+Parse\+Initial}}
+\index{Parser\+\_\+\+Parse\+Initial@{Parser\+\_\+\+Parse\+Initial}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Initial()}{Parser\_ParseInitial()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Initial (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable }\end{DoxyParamCaption})}
+
+Tento soubor obsahuje deklarace funkcí využité při implementaci syntaktického analyzátoru (parseru).
+
+\begin{DoxyAuthor}{Autor}
+Daniel Dolejška (xdolej08)  I\+F\+Jcode17\+Parser Hlavní funkce ovládající překladač.
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Input\+Ptr} & input Ukazatel na strukturu se vstupními daty \\
+\hline
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & ilist Ukazatel na strukturu s instrukcemi \\
+\hline
+\mbox{\tt in,out}  & {\em Symbol\+Table\+Ptr} & symtable Ukazatel na strukturu se symboly\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...)\\
+\hline
+\end{DoxyRetVals}
+Hlavní funkce ovládající překladač.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Input\+Ptr} & input Ukazatel na strukturu se vstupními daty \\
+\hline
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & ilist Ukazatel na strukturu s instrukcemi \\
+\hline
+\mbox{\tt in,out}  & {\em Symbol\+Table\+Ptr} & symtable Ukazatel na strukturu se symboly\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 68 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a932eb7740df0ff40d8c29781dc939b66}\label{parser_8h_a932eb7740df0ff40d8c29781dc939b66}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Loop\+\_\+\+Do@{Parser\+\_\+\+Parse\+Loop\+\_\+\+Do}}
+\index{Parser\+\_\+\+Parse\+Loop\+\_\+\+Do@{Parser\+\_\+\+Parse\+Loop\+\_\+\+Do}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Loop\+\_\+\+Do()}{Parser\_ParseLoop\_Do()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Loop\+\_\+\+Do (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable,  }\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{nlist }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 671 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a4c051cd7167a122504784e5ce9718190}\label{parser_8h_a4c051cd7167a122504784e5ce9718190}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Loop\+\_\+\+For@{Parser\+\_\+\+Parse\+Loop\+\_\+\+For}}
+\index{Parser\+\_\+\+Parse\+Loop\+\_\+\+For@{Parser\+\_\+\+Parse\+Loop\+\_\+\+For}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Loop\+\_\+\+For()}{Parser\_ParseLoop\_For()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Loop\+\_\+\+For (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable,  }\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{nlist }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 681 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_aa819fe1f4476140bff5598f49beda91b}\label{parser_8h_aa819fe1f4476140bff5598f49beda91b}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Nested\+Code@{Parser\+\_\+\+Parse\+Nested\+Code}}
+\index{Parser\+\_\+\+Parse\+Nested\+Code@{Parser\+\_\+\+Parse\+Nested\+Code}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Nested\+Code()}{Parser\_ParseNestedCode()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Nested\+Code (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable,  }\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{nlist,  }\item[{\hyperlink{token_8h_aa80161bf9be61c651bc95eafc643d9a5}{Token\+Ptr} $\ast$}]{last\+\_\+token }\end{DoxyParamCaption})}
+
+Sekundární funkce pro zpracování zanořeného kódu (rekurzivní zanořování).
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Input\+Ptr} & input Ukazatel na strukturu se vstupními daty \\
+\hline
+\mbox{\tt in,out}  & {\em Instruction\+List\+Ptr} & ilist Ukazatel na strukturu s instrukcemi \\
+\hline
+\mbox{\tt in,out}  & {\em Symbol\+Table\+Ptr} & symtable Ukazatel na strukturu se symboly \\
+\hline
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & nlist Ukazatel na strukturu s úrovněmi zanořování \\
+\hline
+\mbox{\tt in,out}  & {\em Token\+Ptr} & $\ast$last\+\_\+token Ukazatel na poslední přijatý token funkcí\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 217 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a630a1807eed8899c2edd6f61ee86fd7d}\label{parser_8h_a630a1807eed8899c2edd6f61ee86fd7d}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Scope@{Parser\+\_\+\+Parse\+Scope}}
+\index{Parser\+\_\+\+Parse\+Scope@{Parser\+\_\+\+Parse\+Scope}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Scope()}{Parser\_ParseScope()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Scope (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable,  }\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{nlist }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 767 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a6c930ac65a86807c6cab983d4815013e}\label{parser_8h_a6c930ac65a86807c6cab983d4815013e}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Statement\+\_\+\+Continue@{Parser\+\_\+\+Parse\+Statement\+\_\+\+Continue}}
+\index{Parser\+\_\+\+Parse\+Statement\+\_\+\+Continue@{Parser\+\_\+\+Parse\+Statement\+\_\+\+Continue}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Statement\+\_\+\+Continue()}{Parser\_ParseStatement\_Continue()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Statement\+\_\+\+Continue (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 707 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a4c8274dcbe55942e5465e88324f916d3}\label{parser_8h_a4c8274dcbe55942e5465e88324f916d3}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Statement\+\_\+\+Exit@{Parser\+\_\+\+Parse\+Statement\+\_\+\+Exit}}
+\index{Parser\+\_\+\+Parse\+Statement\+\_\+\+Exit@{Parser\+\_\+\+Parse\+Statement\+\_\+\+Exit}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Statement\+\_\+\+Exit()}{Parser\_ParseStatement\_Exit()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Statement\+\_\+\+Exit (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 712 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_af32e90800a4afddf9237898310a3ed14}\label{parser_8h_af32e90800a4afddf9237898310a3ed14}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Statement\+\_\+\+Input@{Parser\+\_\+\+Parse\+Statement\+\_\+\+Input}}
+\index{Parser\+\_\+\+Parse\+Statement\+\_\+\+Input@{Parser\+\_\+\+Parse\+Statement\+\_\+\+Input}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Statement\+\_\+\+Input()}{Parser\_ParseStatement\_Input()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Statement\+\_\+\+Input (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 699 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a09bcec9e48cf8a783bd5cc1b67a17571}\label{parser_8h_a09bcec9e48cf8a783bd5cc1b67a17571}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Statement\+\_\+\+Print@{Parser\+\_\+\+Parse\+Statement\+\_\+\+Print}}
+\index{Parser\+\_\+\+Parse\+Statement\+\_\+\+Print@{Parser\+\_\+\+Parse\+Statement\+\_\+\+Print}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Statement\+\_\+\+Print()}{Parser\_ParseStatement\_Print()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Statement\+\_\+\+Print (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 691 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a233b8d19faee26dd30383e986fff594b}\label{parser_8h_a233b8d19faee26dd30383e986fff594b}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Statement\+\_\+\+Return@{Parser\+\_\+\+Parse\+Statement\+\_\+\+Return}}
+\index{Parser\+\_\+\+Parse\+Statement\+\_\+\+Return@{Parser\+\_\+\+Parse\+Statement\+\_\+\+Return}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Statement\+\_\+\+Return()}{Parser\_ParseStatement\_Return()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Statement\+\_\+\+Return (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 717 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a563a2adbf33761866d49a0a27d058812}\label{parser_8h_a563a2adbf33761866d49a0a27d058812}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Variable\+Declaration@{Parser\+\_\+\+Parse\+Variable\+Declaration}}
+\index{Parser\+\_\+\+Parse\+Variable\+Declaration@{Parser\+\_\+\+Parse\+Variable\+Declaration}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Variable\+Declaration()}{Parser\_ParseVariableDeclaration()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Variable\+Declaration (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable,  }\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{nlist }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 633 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_ac236875b63916820afaf7b10b9fa2a46}\label{parser_8h_ac236875b63916820afaf7b10b9fa2a46}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+\+Parse\+Variable\+Definition@{Parser\+\_\+\+Parse\+Variable\+Definition}}
+\index{Parser\+\_\+\+Parse\+Variable\+Definition@{Parser\+\_\+\+Parse\+Variable\+Definition}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+\+Parse\+Variable\+Definition()}{Parser\_ParseVariableDefinition()}}
+{\footnotesize\ttfamily int Parser\+\_\+\+Parse\+Variable\+Definition (\begin{DoxyParamCaption}\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input,  }\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{symtable_8h_a95850dbddb205e2c23a0c3b0cedf41f7}{Symbol\+Table\+Ptr}}]{symtable,  }\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{nlist }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 641 v souboru parser.\+c.
+
+\mbox{\Hypertarget{parser_8h_a624c2e96de6b7315a66acb1777a7e1ac}\label{parser_8h_a624c2e96de6b7315a66acb1777a7e1ac}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+set\+Error\+\_\+allocation@{Parser\+\_\+set\+Error\+\_\+allocation}}
+\index{Parser\+\_\+set\+Error\+\_\+allocation@{Parser\+\_\+set\+Error\+\_\+allocation}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+set\+Error\+\_\+allocation()}{Parser\_setError\_allocation()}}
+{\footnotesize\ttfamily int Parser\+\_\+set\+Error\+\_\+allocation (\begin{DoxyParamCaption}\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{parser_8h_a35b36666cdd31934a9d0edc2a2f03560}\label{parser_8h_a35b36666cdd31934a9d0edc2a2f03560}} 
+\index{parser.\+h@{parser.\+h}!Parser\+\_\+set\+Error\+\_\+statement@{Parser\+\_\+set\+Error\+\_\+statement}}
+\index{Parser\+\_\+set\+Error\+\_\+statement@{Parser\+\_\+set\+Error\+\_\+statement}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{Parser\+\_\+set\+Error\+\_\+statement()}{Parser\_setError\_statement()}}
+{\footnotesize\ttfamily int Parser\+\_\+set\+Error\+\_\+statement (\begin{DoxyParamCaption}\item[{char $\ast$}]{content,  }\item[{char $\ast$}]{instruction,  }\item[{\hyperlink{input_8h_a6943812b6796d0f8dfbc655140c5e6bc}{Input\+Ptr}}]{input }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 782 v souboru parser.\+c.
+

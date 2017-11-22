@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IFJ2017_Project: Zdrojový soubor token.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IFJ2017_Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Hledat');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('token_8c_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">token.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="token_8c.html">Zobrazit dokumentaci tohoto souboru.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;malloc.h&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="token_8h.html">token.h</a>&quot;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#ifndef _token_c</span></div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="token_8c.html#a6a159eb83636705297cab4f7e55f6e93">   17</a></span>&#160;<span class="preprocessor">#define _token_c</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifdef DEBUG_INCLUDE</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#else</span></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifdef DEBUG_PRINT_ENABLED</span></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( 0 )</span></div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#else</span></div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="token_8c.html#a88edd2aa4feabff4af21a997d5d8aa23">   26</a></span>&#160;<span class="preprocessor">#define DEBUG_PRINT(...) do{ } while ( 0 )</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifdef DEBUG_LOG_ENABLED</span></div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define DEBUG_LOG(...) do{ fprintf( stderr, &quot;[%s]     %s\n&quot;, __VA_ARGS__ ); } while( 0 )</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#else</span></div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="token_8c.html#a21a2c7330a04ac78200a986f66609369">   32</a></span>&#160;<span class="preprocessor">#define DEBUG_LOG(...) do{ } while ( 0 )</span></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#ifdef DEBUG_ERR_ENABLED</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#define DEBUG_ERR(...) do{ fprintf( stderr, &quot;[%s] ERR %s\n&quot;, __VA_ARGS__ ); } while( 0 )</span></div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#else</span></div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="token_8c.html#a08a35dd0a07f5240134eba4e97fcdd48">   38</a></span>&#160;<span class="preprocessor">#define DEBUG_ERR(...) do{ } while ( 0 )</span></div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">//==================================================================d=d=</span></div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">//  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR</span></div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">//======================================================================</span></div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//==================================================================d=d=</span></div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">//  DEKLARACE FUNKCÍ</span></div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">//======================================================================</span></div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="token_8h.html#aa282ca8374956f07eef81924803d68d4">   58</a></span>&#160;<a class="code" href="struct_s___token.html">TokenPtr</a> <a class="code" href="token_8c.html#aa282ca8374956f07eef81924803d68d4">Token_create</a>(<a class="code" href="token_8h.html#af940495a1407c2a014c0aed83c75ff20">TokenType</a> type, <span class="keywordtype">char</span> *attr)</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="struct_s___token.html">TokenPtr</a> t = (<a class="code" href="token_8h.html#aa80161bf9be61c651bc95eafc643d9a5">TokenPtr</a>) malloc(<span class="keyword">sizeof</span>(<a class="code" href="struct_s___token.html">Token</a>));</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span> (t == NULL)</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="token_8c.html#a08a35dd0a07f5240134eba4e97fcdd48">DEBUG_ERR</a>(<span class="stringliteral">&quot;token&quot;</span>, <span class="stringliteral">&quot;failed to mallocate Token&quot;</span>);</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> NULL;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    t-&gt;<a class="code" href="struct_s___token.html#a6e2d2148929ac137f2e2ef4091a4dc69">type</a> = type;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    t-&gt;<a class="code" href="struct_s___token.html#a128b80cc9c353ac261c3b7eee3139b68">attr</a> = attr;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> t;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="token_8h.html#a37efe742c4c74710827e381b6df6b85b">   78</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="token_8c.html#a37efe742c4c74710827e381b6df6b85b">Token_destroy</a>(<a class="code" href="struct_s___token.html">TokenPtr</a> *t)</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    free(*t);</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    *t = NULL;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="struct_s___token_html_a128b80cc9c353ac261c3b7eee3139b68"><div class="ttname"><a href="struct_s___token.html#a128b80cc9c353ac261c3b7eee3139b68">S_Token::attr</a></div><div class="ttdeci">char * attr</div><div class="ttdoc">Vlastnost tokenu, další informace dle typu. </div><div class="ttdef"><b>Definition:</b> <a href="token_8h_source.html#l00060">token.h:60</a></div></div>
+<div class="ttc" id="token_8c_html_a37efe742c4c74710827e381b6df6b85b"><div class="ttname"><a href="token_8c.html#a37efe742c4c74710827e381b6df6b85b">Token_destroy</a></div><div class="ttdeci">void Token_destroy(TokenPtr *t)</div><div class="ttdef"><b>Definition:</b> <a href="token_8c_source.html#l00078">token.c:78</a></div></div>
+<div class="ttc" id="struct_s___token_html"><div class="ttname"><a href="struct_s___token.html">S_Token</a></div><div class="ttdoc">Struktura tokenu. </div><div class="ttdef"><b>Definition:</b> <a href="token_8h_source.html#l00058">token.h:58</a></div></div>
+<div class="ttc" id="token_8c_html_a08a35dd0a07f5240134eba4e97fcdd48"><div class="ttname"><a href="token_8c.html#a08a35dd0a07f5240134eba4e97fcdd48">DEBUG_ERR</a></div><div class="ttdeci">#define DEBUG_ERR(...)</div><div class="ttdef"><b>Definition:</b> <a href="token_8c_source.html#l00038">token.c:38</a></div></div>
+<div class="ttc" id="token_8c_html_aa282ca8374956f07eef81924803d68d4"><div class="ttname"><a href="token_8c.html#aa282ca8374956f07eef81924803d68d4">Token_create</a></div><div class="ttdeci">TokenPtr Token_create(TokenType type, char *attr)</div><div class="ttdef"><b>Definition:</b> <a href="token_8c_source.html#l00058">token.c:58</a></div></div>
+<div class="ttc" id="token_8h_html_af940495a1407c2a014c0aed83c75ff20"><div class="ttname"><a href="token_8h.html#af940495a1407c2a014c0aed83c75ff20">TokenType</a></div><div class="ttdeci">enum E_TokenType TokenType</div><div class="ttdoc">Typy tokenů </div></div>
+<div class="ttc" id="token_8h_html_aa80161bf9be61c651bc95eafc643d9a5"><div class="ttname"><a href="token_8h.html#aa80161bf9be61c651bc95eafc643d9a5">TokenPtr</a></div><div class="ttdeci">struct S_Token * TokenPtr</div><div class="ttdef"><b>Definition:</b> <a href="token_8h_source.html#l00055">token.h:55</a></div></div>
+<div class="ttc" id="struct_s___token_html_a6e2d2148929ac137f2e2ef4091a4dc69"><div class="ttname"><a href="struct_s___token.html#a6e2d2148929ac137f2e2ef4091a4dc69">S_Token::type</a></div><div class="ttdeci">TokenType type</div><div class="ttdoc">Typ daného tokenu. </div><div class="ttdef"><b>Definition:</b> <a href="token_8h_source.html#l00059">token.h:59</a></div></div>
+<div class="ttc" id="token_8h_html"><div class="ttname"><a href="token_8h.html">token.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_02b1a89c2d2186e4810ecb7fecaa3754.html">scanner</a></li><li class="navelem"><a class="el" href="token_8c.html">token.c</a></li>
+    <li class="footer">Generováno st 22. lis 2017 15.38:10 pro projekt IFJ2017_Project programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>
