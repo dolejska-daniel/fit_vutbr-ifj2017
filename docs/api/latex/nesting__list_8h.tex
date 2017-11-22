@@ -1,0 +1,586 @@
+\hypertarget{nesting__list_8h}{}\section{Dokumentace souboru nesting\+\_\+list.\+h}
+\label{nesting__list_8h}\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\subsection*{Datové struktry}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_s___nesting_level}{S\+\_\+\+Nesting\+Level}
+\begin{DoxyCompactList}\small\item\em Struktura daného zanoření \end{DoxyCompactList}\item 
+struct \hyperlink{struct_s___nesting_list}{S\+\_\+\+Nesting\+List}
+\begin{DoxyCompactList}\small\item\em Struktura pro ukládání ůrovní zanoření ve vstupním kódu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Definice maker}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{nesting__list_8h_a88edd2aa4feabff4af21a997d5d8aa23}{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}(...)~do\{ \} while ( 0 )
+\item 
+\#define \hyperlink{nesting__list_8h_a21a2c7330a04ac78200a986f66609369}{D\+E\+B\+U\+G\+\_\+\+L\+OG}(...)~do\{ \} while ( 0 )
+\item 
+\#define \hyperlink{nesting__list_8h_a08a35dd0a07f5240134eba4e97fcdd48}{D\+E\+B\+U\+G\+\_\+\+E\+RR}(...)~do\{ \} while ( 0 )
+\end{DoxyCompactItemize}
+\subsection*{Definice typů}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2d}{E\+\_\+\+Nesting\+Type} \hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type}
+\begin{DoxyCompactList}\small\item\em Typ zanoření instrukcí \end{DoxyCompactList}\item 
+typedef struct \hyperlink{struct_s___nesting_level}{S\+\_\+\+Nesting\+Level} \hyperlink{nesting__list_8h_a79dcd2e6d263932d1b7b0f2928050552}{Nesting\+Level}
+\item 
+typedef struct \hyperlink{struct_s___nesting_level}{S\+\_\+\+Nesting\+Level} $\ast$ \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr}
+\item 
+typedef struct \hyperlink{struct_s___nesting_list}{S\+\_\+\+Nesting\+List} \hyperlink{nesting__list_8h_a3068ea85790d73a2dd5a635c239d8a9a}{Nesting\+List}
+\item 
+typedef struct \hyperlink{struct_s___nesting_list}{S\+\_\+\+Nesting\+List} $\ast$ \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}
+\end{DoxyCompactItemize}
+\subsection*{Výčty}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2d}{E\+\_\+\+Nesting\+Type} \{ \newline
+\hyperlink{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2dab0b68317346409591039eba17664d2ed}{N\+E\+S\+T\+I\+N\+G\+\_\+\+N\+O\+NE}, 
+\hyperlink{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2dab23c4ec0b53afcd19e4014b2a250b670}{N\+E\+S\+T\+I\+N\+G\+\_\+\+S\+C\+O\+PE}, 
+\hyperlink{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2daf5f3998aa73e5ca0ebc01db712207454}{N\+E\+S\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+ON}, 
+\hyperlink{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2daccb6a2c0549c07d462210428e96e68bf}{N\+E\+S\+T\+I\+N\+G\+\_\+\+L\+O\+OP}, 
+\newline
+\hyperlink{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2dadbdfdf700aa3e5ccbc53a0faf310c615}{N\+E\+S\+T\+I\+N\+G\+\_\+\+C\+O\+N\+D\+I\+T\+I\+ON}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funkce}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} \hyperlink{nesting__list_8h_abc667f04ed72dfdedf53a3993ee85a6e}{Nesting\+List\+\_\+create} ()
+\item 
+void \hyperlink{nesting__list_8h_aa5eab3c78bc8c0c4560d1d34b809e1d7}{Nesting\+List\+\_\+destroy} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} $\ast$l)
+\item 
+\hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} \hyperlink{nesting__list_8h_aa3e6804cd264bcc0cfcde78723f72b0a}{Nesting\+List\+\_\+insert\+First} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} l, \hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type} type)
+\item 
+\hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} \hyperlink{nesting__list_8h_a183c477f2dc27f3275425b3ce0d16d3e}{Nesting\+List\+\_\+insert\+Last} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} l, \hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type} type)
+\item 
+\hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} \hyperlink{nesting__list_8h_a4061683acbaf033e2c0228a6fa1288f5}{Nesting\+List\+\_\+first} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} l)
+\item 
+\hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} \hyperlink{nesting__list_8h_a2bce9f2ea237a317b56e5dc710762554}{Nesting\+List\+\_\+last} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} l)
+\item 
+\hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} \hyperlink{nesting__list_8h_a3e222effdbeedf6f46364157fa60318f}{Nesting\+List\+\_\+active} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} l)
+\item 
+void \hyperlink{nesting__list_8h_a07742226887d799704a3267040d319bf}{Nesting\+List\+\_\+delete} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} l, \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} level)
+\item 
+void \hyperlink{nesting__list_8h_ae36b86c414713e67a78f692ecfb0d50a}{Nesting\+List\+\_\+delete\+First} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} l)
+\item 
+void \hyperlink{nesting__list_8h_a5dc230c091ad80e85010c775484f1a07}{Nesting\+List\+\_\+delete\+Last} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} l)
+\item 
+\hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} \hyperlink{nesting__list_8h_a2b43714603d23adcee3551ba096261af}{Nesting\+Level\+\_\+create} (\hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type} type)
+\item 
+void \hyperlink{nesting__list_8h_a6aca9d20b76d4434f894bee31b7461fe}{Nesting\+Level\+\_\+destroy} ()
+\item 
+\hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} \hyperlink{nesting__list_8h_a6250c3e5e03d60f8651a9e9c8eb3a736}{Nesting\+List\+\_\+is\+Nested\+In} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} l, \hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type} type)
+\item 
+\hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} \hyperlink{nesting__list_8h_af3978cc69225d6c03260e57b624bf0cb}{Nesting\+List\+\_\+new\+Level} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} l, \hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type} type)
+\item 
+\hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} \hyperlink{nesting__list_8h_a29d39c2ab1f5935ce4605a697c7a3da5}{Nesting\+List\+\_\+leave\+Current\+Level} (\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} l)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentace k definicím maker}
+\mbox{\Hypertarget{nesting__list_8h_a08a35dd0a07f5240134eba4e97fcdd48}\label{nesting__list_8h_a08a35dd0a07f5240134eba4e97fcdd48}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!D\+E\+B\+U\+G\+\_\+\+E\+RR@{D\+E\+B\+U\+G\+\_\+\+E\+RR}}
+\index{D\+E\+B\+U\+G\+\_\+\+E\+RR@{D\+E\+B\+U\+G\+\_\+\+E\+RR}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+E\+RR}{DEBUG\_ERR}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+E\+RR(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na řádku 31 v souboru nesting\+\_\+list.\+h.
+
+\mbox{\Hypertarget{nesting__list_8h_a21a2c7330a04ac78200a986f66609369}\label{nesting__list_8h_a21a2c7330a04ac78200a986f66609369}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!D\+E\+B\+U\+G\+\_\+\+L\+OG@{D\+E\+B\+U\+G\+\_\+\+L\+OG}}
+\index{D\+E\+B\+U\+G\+\_\+\+L\+OG@{D\+E\+B\+U\+G\+\_\+\+L\+OG}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+L\+OG}{DEBUG\_LOG}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+L\+OG(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na řádku 25 v souboru nesting\+\_\+list.\+h.
+
+\mbox{\Hypertarget{nesting__list_8h_a88edd2aa4feabff4af21a997d5d8aa23}\label{nesting__list_8h_a88edd2aa4feabff4af21a997d5d8aa23}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}}
+\index{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}{DEBUG\_PRINT}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+Tento soubor obsahuje implementaci \char`\"{}zanořovacího seznamu\char`\"{} pomocí dvousměrně vázaného seznamu.
+
+\begin{DoxyAuthor}{Autor}
+Daniel Dolejška (xdolej08) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Datum}
+21.\+11.\+2017  I\+F\+Jcode17\+Parser  Formální jazyky a překladače (I\+FJ) -\/ F\+IT V\+UT v Brně 
+\end{DoxyDate}
+
+
+Definice je uvedena na řádku 19 v souboru nesting\+\_\+list.\+h.
+
+
+
+\subsection{Dokumentace definic typů}
+\mbox{\Hypertarget{nesting__list_8h_a79dcd2e6d263932d1b7b0f2928050552}\label{nesting__list_8h_a79dcd2e6d263932d1b7b0f2928050552}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+Level@{Nesting\+Level}}
+\index{Nesting\+Level@{Nesting\+Level}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+Level}{NestingLevel}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_s___nesting_level}{S\+\_\+\+Nesting\+Level} \hyperlink{nesting__list_8h_a79dcd2e6d263932d1b7b0f2928050552}{Nesting\+Level}}
+
+
+
+Definice je uvedena na řádku 47 v souboru nesting\+\_\+list.\+h.
+
+\mbox{\Hypertarget{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}\label{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+Level\+Ptr@{Nesting\+Level\+Ptr}}
+\index{Nesting\+Level\+Ptr@{Nesting\+Level\+Ptr}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+Level\+Ptr}{NestingLevelPtr}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_s___nesting_level}{S\+\_\+\+Nesting\+Level} $\ast$ \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr}}
+
+
+
+Definice je uvedena na řádku 47 v souboru nesting\+\_\+list.\+h.
+
+\mbox{\Hypertarget{nesting__list_8h_a3068ea85790d73a2dd5a635c239d8a9a}\label{nesting__list_8h_a3068ea85790d73a2dd5a635c239d8a9a}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List@{Nesting\+List}}
+\index{Nesting\+List@{Nesting\+List}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List}{NestingList}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_s___nesting_list}{S\+\_\+\+Nesting\+List} \hyperlink{nesting__list_8h_a3068ea85790d73a2dd5a635c239d8a9a}{Nesting\+List}}
+
+
+
+Definice je uvedena na řádku 56 v souboru nesting\+\_\+list.\+h.
+
+\mbox{\Hypertarget{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}\label{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+Ptr@{Nesting\+List\+Ptr}}
+\index{Nesting\+List\+Ptr@{Nesting\+List\+Ptr}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+Ptr}{NestingListPtr}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_s___nesting_list}{S\+\_\+\+Nesting\+List} $\ast$ \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}
+
+
+
+Definice je uvedena na řádku 56 v souboru nesting\+\_\+list.\+h.
+
+\mbox{\Hypertarget{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}\label{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+Type@{Nesting\+Type}}
+\index{Nesting\+Type@{Nesting\+Type}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+Type}{NestingType}}
+{\footnotesize\ttfamily typedef enum \hyperlink{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2d}{E\+\_\+\+Nesting\+Type}  \hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type}}
+
+
+
+Typ zanoření instrukcí 
+
+
+
+\subsection{Dokumentace výčtových typů}
+\mbox{\Hypertarget{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2d}\label{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2d}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!E\+\_\+\+Nesting\+Type@{E\+\_\+\+Nesting\+Type}}
+\index{E\+\_\+\+Nesting\+Type@{E\+\_\+\+Nesting\+Type}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{E\+\_\+\+Nesting\+Type}{E\_NestingType}}
+{\footnotesize\ttfamily enum \hyperlink{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2d}{E\+\_\+\+Nesting\+Type}}
+
+\begin{DoxyEnumFields}{Hodnoty výčtu}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+E\+S\+T\+I\+N\+G\+\_\+\+N\+O\+NE@{N\+E\+S\+T\+I\+N\+G\+\_\+\+N\+O\+NE}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!N\+E\+S\+T\+I\+N\+G\+\_\+\+N\+O\+NE@{N\+E\+S\+T\+I\+N\+G\+\_\+\+N\+O\+NE}}}\mbox{\Hypertarget{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2dab0b68317346409591039eba17664d2ed}\label{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2dab0b68317346409591039eba17664d2ed}} 
+N\+E\+S\+T\+I\+N\+G\+\_\+\+N\+O\+NE&Žádné zanoření -\/ nejvyšší úroveň \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+E\+S\+T\+I\+N\+G\+\_\+\+S\+C\+O\+PE@{N\+E\+S\+T\+I\+N\+G\+\_\+\+S\+C\+O\+PE}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!N\+E\+S\+T\+I\+N\+G\+\_\+\+S\+C\+O\+PE@{N\+E\+S\+T\+I\+N\+G\+\_\+\+S\+C\+O\+PE}}}\mbox{\Hypertarget{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2dab23c4ec0b53afcd19e4014b2a250b670}\label{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2dab23c4ec0b53afcd19e4014b2a250b670}} 
+N\+E\+S\+T\+I\+N\+G\+\_\+\+S\+C\+O\+PE&Instrukce v hlavním programu. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+E\+S\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+ON@{N\+E\+S\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+ON}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!N\+E\+S\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+ON@{N\+E\+S\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+ON}}}\mbox{\Hypertarget{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2daf5f3998aa73e5ca0ebc01db712207454}\label{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2daf5f3998aa73e5ca0ebc01db712207454}} 
+N\+E\+S\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+ON&Zanoření instrukcí ve funkci. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+E\+S\+T\+I\+N\+G\+\_\+\+L\+O\+OP@{N\+E\+S\+T\+I\+N\+G\+\_\+\+L\+O\+OP}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!N\+E\+S\+T\+I\+N\+G\+\_\+\+L\+O\+OP@{N\+E\+S\+T\+I\+N\+G\+\_\+\+L\+O\+OP}}}\mbox{\Hypertarget{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2daccb6a2c0549c07d462210428e96e68bf}\label{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2daccb6a2c0549c07d462210428e96e68bf}} 
+N\+E\+S\+T\+I\+N\+G\+\_\+\+L\+O\+OP&Zanoření instrukcí v cyklu. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+E\+S\+T\+I\+N\+G\+\_\+\+C\+O\+N\+D\+I\+T\+I\+ON@{N\+E\+S\+T\+I\+N\+G\+\_\+\+C\+O\+N\+D\+I\+T\+I\+ON}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!N\+E\+S\+T\+I\+N\+G\+\_\+\+C\+O\+N\+D\+I\+T\+I\+ON@{N\+E\+S\+T\+I\+N\+G\+\_\+\+C\+O\+N\+D\+I\+T\+I\+ON}}}\mbox{\Hypertarget{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2dadbdfdf700aa3e5ccbc53a0faf310c615}\label{nesting__list_8h_a427577dd90421dcb15793fc9a63c2e2dadbdfdf700aa3e5ccbc53a0faf310c615}} 
+N\+E\+S\+T\+I\+N\+G\+\_\+\+C\+O\+N\+D\+I\+T\+I\+ON&Zanoření instrukcí v I\+Fu. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definice je uvedena na řádku 38 v souboru nesting\+\_\+list.\+h.
+
+
+
+\subsection{Dokumentace funkcí}
+\mbox{\Hypertarget{nesting__list_8h_a2b43714603d23adcee3551ba096261af}\label{nesting__list_8h_a2b43714603d23adcee3551ba096261af}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+Level\+\_\+create@{Nesting\+Level\+\_\+create}}
+\index{Nesting\+Level\+\_\+create@{Nesting\+Level\+\_\+create}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+Level\+\_\+create()}{NestingLevel\_create()}}
+{\footnotesize\ttfamily \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} Nesting\+Level\+\_\+create (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type}}]{type }\end{DoxyParamCaption})}
+
+Funkce vytvoří (alokuje) novou úroveň seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in}  & {\em Nesting\+Type} & type Typ zanoření úrovně\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr} & Ukazatel na nově vytvořenou strukturu \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 266 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_a6aca9d20b76d4434f894bee31b7461fe}\label{nesting__list_8h_a6aca9d20b76d4434f894bee31b7461fe}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+Level\+\_\+destroy@{Nesting\+Level\+\_\+destroy}}
+\index{Nesting\+Level\+\_\+destroy@{Nesting\+Level\+\_\+destroy}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+Level\+\_\+destroy()}{NestingLevel\_destroy()}}
+{\footnotesize\ttfamily void Nesting\+Level\+\_\+destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Funkce zruší (uvolní) existující úroveň seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+Level\+Ptr} & $\ast$l Ukazatel na existující strukturu úrovně seznamu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{nesting__list_8h_a3e222effdbeedf6f46364157fa60318f}\label{nesting__list_8h_a3e222effdbeedf6f46364157fa60318f}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+active@{Nesting\+List\+\_\+active}}
+\index{Nesting\+List\+\_\+active@{Nesting\+List\+\_\+active}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+active()}{NestingList\_active()}}
+{\footnotesize\ttfamily \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} Nesting\+List\+\_\+active (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Vrátí ukazatel na právě aktivní úroveň seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr} & Ukazatel na právě aktivní strukturu\\
+\hline
+\end{DoxyRetVals}
+Vrátí ukazatel na právě aktivní úroveň seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr$\vert$\+N\+U\+LL} & Ukazatel na právě aktivní strukturu \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 174 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_abc667f04ed72dfdedf53a3993ee85a6e}\label{nesting__list_8h_abc667f04ed72dfdedf53a3993ee85a6e}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+create@{Nesting\+List\+\_\+create}}
+\index{Nesting\+List\+\_\+create@{Nesting\+List\+\_\+create}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+create()}{NestingList\_create()}}
+{\footnotesize\ttfamily \hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} Nesting\+List\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Funkce vytvoří (alokuje) novou řídící strukturu pro Nesting\+List.
+
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+List\+Ptr} & Ukazatel na nově vytvořenou strukturu \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 54 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_a07742226887d799704a3267040d319bf}\label{nesting__list_8h_a07742226887d799704a3267040d319bf}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+delete@{Nesting\+List\+\_\+delete}}
+\index{Nesting\+List\+\_\+delete@{Nesting\+List\+\_\+delete}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+delete()}{NestingList\_delete()}}
+{\footnotesize\ttfamily void Nesting\+List\+\_\+delete (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{l,  }\item[{\hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr}}]{level }\end{DoxyParamCaption})}
+
+Zruší a uvolní úroveň v seznamu na základě ukazatele na danou úroveň.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\mbox{\tt in,out}  & {\em Nesting\+Level\+Ptr} & level Ukazatel na strukturu úrovně v seznamu \\
+\hline
+\end{DoxyParams}
+
+
+Definice je uvedena na řádku 186 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_ae36b86c414713e67a78f692ecfb0d50a}\label{nesting__list_8h_ae36b86c414713e67a78f692ecfb0d50a}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+delete\+First@{Nesting\+List\+\_\+delete\+First}}
+\index{Nesting\+List\+\_\+delete\+First@{Nesting\+List\+\_\+delete\+First}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+delete\+First()}{NestingList\_deleteFirst()}}
+{\footnotesize\ttfamily void Nesting\+List\+\_\+delete\+First (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Zruší a uvolní první úroveň v seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\end{DoxyParams}
+
+
+Definice je uvedena na řádku 239 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_a5dc230c091ad80e85010c775484f1a07}\label{nesting__list_8h_a5dc230c091ad80e85010c775484f1a07}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+delete\+Last@{Nesting\+List\+\_\+delete\+Last}}
+\index{Nesting\+List\+\_\+delete\+Last@{Nesting\+List\+\_\+delete\+Last}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+delete\+Last()}{NestingList\_deleteLast()}}
+{\footnotesize\ttfamily void Nesting\+List\+\_\+delete\+Last (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Zruší a uvolní poslední úroveň v seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\end{DoxyParams}
+
+
+Definice je uvedena na řádku 249 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_aa5eab3c78bc8c0c4560d1d34b809e1d7}\label{nesting__list_8h_aa5eab3c78bc8c0c4560d1d34b809e1d7}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+destroy@{Nesting\+List\+\_\+destroy}}
+\index{Nesting\+List\+\_\+destroy@{Nesting\+List\+\_\+destroy}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+destroy()}{NestingList\_destroy()}}
+{\footnotesize\ttfamily void Nesting\+List\+\_\+destroy (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr} $\ast$}]{l }\end{DoxyParamCaption})}
+
+Funkce zruší a uvolní existující řídící strukturu pro Nesting\+List. Pokud je neprázdná (obsahuje neuvolněné prvky) jsou tyto prvky zrušeny a uvolněny.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na existující řídící strukturu seznamu \\
+\hline
+\end{DoxyParams}
+
+
+Definice je uvedena na řádku 77 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_a4061683acbaf033e2c0228a6fa1288f5}\label{nesting__list_8h_a4061683acbaf033e2c0228a6fa1288f5}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+first@{Nesting\+List\+\_\+first}}
+\index{Nesting\+List\+\_\+first@{Nesting\+List\+\_\+first}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+first()}{NestingList\_first()}}
+{\footnotesize\ttfamily \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} Nesting\+List\+\_\+first (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Nastaví první úroveň na aktivní.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr} & Ukazatel na právě aktivní strukturu\\
+\hline
+\end{DoxyRetVals}
+Nastaví první úroveň na aktivní.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr$\vert$\+N\+U\+LL} & Ukazatel na právě aktivní strukturu \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 148 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_aa3e6804cd264bcc0cfcde78723f72b0a}\label{nesting__list_8h_aa3e6804cd264bcc0cfcde78723f72b0a}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+insert\+First@{Nesting\+List\+\_\+insert\+First}}
+\index{Nesting\+List\+\_\+insert\+First@{Nesting\+List\+\_\+insert\+First}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+insert\+First()}{NestingList\_insertFirst()}}
+{\footnotesize\ttfamily \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} Nesting\+List\+\_\+insert\+First (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{l,  }\item[{\hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type}}]{type }\end{DoxyParamCaption})}
+
+Vloží novou úroveň na začátek seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\mbox{\tt in}  & {\em Nesting\+Type} & type Samotný obsah úrovně -\/ typ zanoření\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr} & Ukazatel na nově vytvořenou strukturu \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 95 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_a183c477f2dc27f3275425b3ce0d16d3e}\label{nesting__list_8h_a183c477f2dc27f3275425b3ce0d16d3e}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+insert\+Last@{Nesting\+List\+\_\+insert\+Last}}
+\index{Nesting\+List\+\_\+insert\+Last@{Nesting\+List\+\_\+insert\+Last}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+insert\+Last()}{NestingList\_insertLast()}}
+{\footnotesize\ttfamily \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} Nesting\+List\+\_\+insert\+Last (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{l,  }\item[{\hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type}}]{type }\end{DoxyParamCaption})}
+
+Vloží novou úroveň na konec seznamu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\mbox{\tt in}  & {\em Nesting\+Type} & type Samotný obsah úrovně -\/ typ zanoření\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr} & Ukazatel na nově vytvořenou strukturu \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 122 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_a6250c3e5e03d60f8651a9e9c8eb3a736}\label{nesting__list_8h_a6250c3e5e03d60f8651a9e9c8eb3a736}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+is\+Nested\+In@{Nesting\+List\+\_\+is\+Nested\+In}}
+\index{Nesting\+List\+\_\+is\+Nested\+In@{Nesting\+List\+\_\+is\+Nested\+In}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+is\+Nested\+In()}{NestingList\_isNestedIn()}}
+{\footnotesize\ttfamily \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} Nesting\+List\+\_\+is\+Nested\+In (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{l,  }\item[{\hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type}}]{type }\end{DoxyParamCaption})}
+
+Prohledá předcházející úrovně seznamu a zjistí, zda se zde nachází alespoň jedna úroveň s daným typem.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\mbox{\tt in}  & {\em Nesting\+Type} & type Samotný obsah úrovně -\/ typ zanoření\\
+\hline
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+Prohledá předcházející úrovně seznamu a zjistí, zda se zde nachází alespoň jedna úroveň s daným typem.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\mbox{\tt in}  & {\em Nesting\+Type} & type Samotný obsah úrovně -\/ typ zanoření\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr$\vert$\+N\+U\+LL} & Ukazatel na nejbližší vyhledanou úroveň s daným typem \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 307 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_a2bce9f2ea237a317b56e5dc710762554}\label{nesting__list_8h_a2bce9f2ea237a317b56e5dc710762554}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+last@{Nesting\+List\+\_\+last}}
+\index{Nesting\+List\+\_\+last@{Nesting\+List\+\_\+last}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+last()}{NestingList\_last()}}
+{\footnotesize\ttfamily \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} Nesting\+List\+\_\+last (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Nastaví poslední úroveň na aktivní.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr} & Ukazatel na právě aktivní strukturu\\
+\hline
+\end{DoxyRetVals}
+Nastaví poslední úroveň na aktivní.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr$\vert$\+N\+U\+LL} & Ukazatel na právě aktivní strukturu \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 161 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_a29d39c2ab1f5935ce4605a697c7a3da5}\label{nesting__list_8h_a29d39c2ab1f5935ce4605a697c7a3da5}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+leave\+Current\+Level@{Nesting\+List\+\_\+leave\+Current\+Level}}
+\index{Nesting\+List\+\_\+leave\+Current\+Level@{Nesting\+List\+\_\+leave\+Current\+Level}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+leave\+Current\+Level()}{NestingList\_leaveCurrentLevel()}}
+{\footnotesize\ttfamily \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} Nesting\+List\+\_\+leave\+Current\+Level (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Odstraní poslední úroveň v seznamu a nastaví aktivitu na předcházející úroveň.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\mbox{\tt in}  & {\em Nesting\+Type} & type Samotný obsah úrovně -\/ typ zanoření\\
+\hline
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+Odstraní poslední úroveň v seznamu a nastaví aktivitu na předcházející úroveň.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\mbox{\tt in}  & {\em Nesting\+Type} & type Samotný obsah úrovně -\/ typ zanoření\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr$\vert$\+N\+U\+LL} & Ukazatel na právě aktivní úroveň v seznamu \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 353 v souboru nesting\+\_\+list.\+c.
+
+\mbox{\Hypertarget{nesting__list_8h_af3978cc69225d6c03260e57b624bf0cb}\label{nesting__list_8h_af3978cc69225d6c03260e57b624bf0cb}} 
+\index{nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}!Nesting\+List\+\_\+new\+Level@{Nesting\+List\+\_\+new\+Level}}
+\index{Nesting\+List\+\_\+new\+Level@{Nesting\+List\+\_\+new\+Level}!nesting\+\_\+list.\+h@{nesting\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{Nesting\+List\+\_\+new\+Level()}{NestingList\_newLevel()}}
+{\footnotesize\ttfamily \hyperlink{nesting__list_8h_aea99292989d40bb6f97ba07eb2c820a6}{Nesting\+Level\+Ptr} Nesting\+List\+\_\+new\+Level (\begin{DoxyParamCaption}\item[{\hyperlink{nesting__list_8h_a94514b70b344fe14477174fdfc7653c9}{Nesting\+List\+Ptr}}]{l,  }\item[{\hyperlink{nesting__list_8h_ae3be7fd101359a3813b67cf856c7c2d8}{Nesting\+Type}}]{type }\end{DoxyParamCaption})}
+
+Vytvoří novou úroveň v seznamu (automaticky jako poslední) a nastaví ji jako aktivní.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\mbox{\tt in}  & {\em Nesting\+Type} & type Samotný obsah úrovně -\/ typ zanoření\\
+\hline
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu\\
+\hline
+\end{DoxyParams}
+Vytvoří novou úroveň v seznamu (automaticky jako poslední) a nastaví ji jako aktivní.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Nesting\+List\+Ptr} & l Ukazatel na řídící strukturu seznamu \\
+\hline
+\mbox{\tt in}  & {\em Nesting\+Type} & type Samotný obsah úrovně -\/ typ zanoření\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em Nesting\+Level\+Ptr$\vert$\+N\+U\+LL} & Ukazatel na právě aktivní úroveň v seznamu \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 338 v souboru nesting\+\_\+list.\+c.
+

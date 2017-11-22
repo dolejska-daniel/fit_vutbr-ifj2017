@@ -7,6 +7,8 @@
 \item 
 char $\ast$ \hyperlink{strings_8h_a155cbdf36641713b4bdf863f2d093d2c}{String\+\_\+create} (const char $\ast$str)
 \item 
+int \hyperlink{strings_8h_adfb7fc11baf2407d62deda6daeeae4a8}{String\+\_\+add\+Char} (char $\ast$$\ast$string, char ch)
+\item 
 char $\ast$ \hyperlink{strings_8h_a3177e1f5b52c4699265cb0c62ef10079}{String\+\_\+concat} (char $\ast$str1, char $\ast$str2, const char $\ast$str\+Between)
 \item 
 char $\ast$ \hyperlink{strings_8h_a706733ea6d6421b76d78c05205f80464}{String\+\_\+printf} (char $\ast$subject, char $\ast$arg1, char $\ast$arg2, char $\ast$arg3, char $\ast$arg4)
@@ -16,6 +18,39 @@ void \hyperlink{strings_8h_afcee70e56d5436855170e425ffbd65a8}{String\+\_\+destro
 
 
 \subsection{Dokumentace funkcí}
+\mbox{\Hypertarget{strings_8h_adfb7fc11baf2407d62deda6daeeae4a8}\label{strings_8h_adfb7fc11baf2407d62deda6daeeae4a8}} 
+\index{strings.\+h@{strings.\+h}!String\+\_\+add\+Char@{String\+\_\+add\+Char}}
+\index{String\+\_\+add\+Char@{String\+\_\+add\+Char}!strings.\+h@{strings.\+h}}
+\subsubsection{\texorpdfstring{String\+\_\+add\+Char()}{String\_addChar()}}
+{\footnotesize\ttfamily int String\+\_\+add\+Char (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{string,  }\item[{char}]{ch }\end{DoxyParamCaption})}
+
+K textovému řetězci přidá znak. Funkce předpokládá, že vstupní řetězec ke konkatenaci je alokovaný -\/ provádí realokaci.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em char} & $\ast$$\ast$string Textový řetězec ke konkatenaci \\
+\hline
+\mbox{\tt in}  & {\em char} & ch Znak ke konkatenaci\\
+\hline
+\end{DoxyParams}
+K textovému řetězci přidá znak. Funkce předpokládá, že vstupní řetězec ke konkatenaci je alokovaný -\/ provádí realokaci.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em char} & $\ast$$\ast$string Textový řetězec ke konkatenaci \\
+\hline
+\mbox{\tt in}  & {\em char} & ch Znak ke konkatenaci\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 84 v souboru strings.\+c.
+
 \mbox{\Hypertarget{strings_8h_a3177e1f5b52c4699265cb0c62ef10079}\label{strings_8h_a3177e1f5b52c4699265cb0c62ef10079}} 
 \index{strings.\+h@{strings.\+h}!String\+\_\+concat@{String\+\_\+concat}}
 \index{String\+\_\+concat@{String\+\_\+concat}!strings.\+h@{strings.\+h}}
@@ -40,7 +75,7 @@ Spojí dva textové řetězce do jednoho. Výsledný řetězec je nutné pozděj
 \end{DoxyRetVals}
 
 
-Definice je uvedena na řádku 71 v souboru strings.\+c.
+Definice je uvedena na řádku 117 v souboru strings.\+c.
 
 \mbox{\Hypertarget{strings_8h_a155cbdf36641713b4bdf863f2d093d2c}\label{strings_8h_a155cbdf36641713b4bdf863f2d093d2c}} 
 \index{strings.\+h@{strings.\+h}!String\+\_\+create@{String\+\_\+create}}
@@ -80,7 +115,7 @@ Alokuje textový řetězec. Výsledný řetězec je nutné později uvolnit!
 \end{DoxyRetVals}
 
 
-Definice je uvedena na řádku 54 v souboru strings.\+c.
+Definice je uvedena na řádku 57 v souboru strings.\+c.
 
 \mbox{\Hypertarget{strings_8h_afcee70e56d5436855170e425ffbd65a8}\label{strings_8h_afcee70e56d5436855170e425ffbd65a8}} 
 \index{strings.\+h@{strings.\+h}!String\+\_\+destroy@{String\+\_\+destroy}}
@@ -97,7 +132,7 @@ Uvolní alokovaný textový řetězec.
 \end{DoxyParams}
 
 
-Definice je uvedena na řádku 117 v souboru strings.\+c.
+Definice je uvedena na řádku 163 v souboru strings.\+c.
 
 \mbox{\Hypertarget{strings_8h_a706733ea6d6421b76d78c05205f80464}\label{strings_8h_a706733ea6d6421b76d78c05205f80464}} 
 \index{strings.\+h@{strings.\+h}!String\+\_\+printf@{String\+\_\+printf}}
@@ -127,5 +162,5 @@ Definice je uvedena na řádku 117 v souboru strings.\+c.
 \end{DoxyRetVals}
 
 
-Definice je uvedena na řádku 101 v souboru strings.\+c.
+Definice je uvedena na řádku 147 v souboru strings.\+c.
 

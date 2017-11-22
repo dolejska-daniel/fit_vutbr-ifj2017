@@ -1,7 +1,9 @@
 \hypertarget{strings_8c}{}\section{Dokumentace souboru strings.\+c}
 \label{strings_8c}\index{strings.\+c@{strings.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$malloc.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}error\+\_\+codes.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}strings.\+h\char`\"{}}\newline
 \subsection*{Definice maker}
 \begin{DoxyCompactItemize}
@@ -18,6 +20,8 @@
 \begin{DoxyCompactItemize}
 \item 
 char $\ast$ \hyperlink{strings_8c_a155cbdf36641713b4bdf863f2d093d2c}{String\+\_\+create} (const char $\ast$str)
+\item 
+int \hyperlink{strings_8c_adfb7fc11baf2407d62deda6daeeae4a8}{String\+\_\+add\+Char} (char $\ast$$\ast$string, char ch)
 \item 
 char $\ast$ \hyperlink{strings_8c_a3177e1f5b52c4699265cb0c62ef10079}{String\+\_\+concat} (char $\ast$str1, char $\ast$str2, const char $\ast$str\+Between)
 \item 
@@ -44,7 +48,7 @@ Daniel Dolejška (xdolej08)
 \end{DoxyDate}
 
 
-Definice je uvedena na řádku 17 v souboru strings.\+c.
+Definice je uvedena na řádku 20 v souboru strings.\+c.
 
 \mbox{\Hypertarget{strings_8c_a08a35dd0a07f5240134eba4e97fcdd48}\label{strings_8c_a08a35dd0a07f5240134eba4e97fcdd48}} 
 \index{strings.\+c@{strings.\+c}!D\+E\+B\+U\+G\+\_\+\+E\+RR@{D\+E\+B\+U\+G\+\_\+\+E\+RR}}
@@ -54,7 +58,7 @@ Definice je uvedena na řádku 17 v souboru strings.\+c.
 
 
 
-Definice je uvedena na řádku 34 v souboru strings.\+c.
+Definice je uvedena na řádku 37 v souboru strings.\+c.
 
 \mbox{\Hypertarget{strings_8c_a21a2c7330a04ac78200a986f66609369}\label{strings_8c_a21a2c7330a04ac78200a986f66609369}} 
 \index{strings.\+c@{strings.\+c}!D\+E\+B\+U\+G\+\_\+\+L\+OG@{D\+E\+B\+U\+G\+\_\+\+L\+OG}}
@@ -64,7 +68,7 @@ Definice je uvedena na řádku 34 v souboru strings.\+c.
 
 
 
-Definice je uvedena na řádku 28 v souboru strings.\+c.
+Definice je uvedena na řádku 31 v souboru strings.\+c.
 
 \mbox{\Hypertarget{strings_8c_a88edd2aa4feabff4af21a997d5d8aa23}\label{strings_8c_a88edd2aa4feabff4af21a997d5d8aa23}} 
 \index{strings.\+c@{strings.\+c}!D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}}
@@ -74,11 +78,35 @@ Definice je uvedena na řádku 28 v souboru strings.\+c.
 
 
 
-Definice je uvedena na řádku 22 v souboru strings.\+c.
+Definice je uvedena na řádku 25 v souboru strings.\+c.
 
 
 
 \subsection{Dokumentace funkcí}
+\mbox{\Hypertarget{strings_8c_adfb7fc11baf2407d62deda6daeeae4a8}\label{strings_8c_adfb7fc11baf2407d62deda6daeeae4a8}} 
+\index{strings.\+c@{strings.\+c}!String\+\_\+add\+Char@{String\+\_\+add\+Char}}
+\index{String\+\_\+add\+Char@{String\+\_\+add\+Char}!strings.\+c@{strings.\+c}}
+\subsubsection{\texorpdfstring{String\+\_\+add\+Char()}{String\_addChar()}}
+{\footnotesize\ttfamily int String\+\_\+add\+Char (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{string,  }\item[{char}]{ch }\end{DoxyParamCaption})}
+
+K textovému řetězci přidá znak. Funkce předpokládá, že vstupní řetězec ke konkatenaci je alokovaný -\/ provádí realokaci.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em char} & $\ast$$\ast$string Textový řetězec ke konkatenaci \\
+\hline
+\mbox{\tt in}  & {\em char} & ch Znak ke konkatenaci\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+
+
+Definice je uvedena na řádku 84 v souboru strings.\+c.
+
 \mbox{\Hypertarget{strings_8c_a3177e1f5b52c4699265cb0c62ef10079}\label{strings_8c_a3177e1f5b52c4699265cb0c62ef10079}} 
 \index{strings.\+c@{strings.\+c}!String\+\_\+concat@{String\+\_\+concat}}
 \index{String\+\_\+concat@{String\+\_\+concat}!strings.\+c@{strings.\+c}}
@@ -103,7 +131,7 @@ Spojí dva textové řetězce do jednoho. Výsledný řetězec je nutné pozděj
 \end{DoxyRetVals}
 
 
-Definice je uvedena na řádku 71 v souboru strings.\+c.
+Definice je uvedena na řádku 117 v souboru strings.\+c.
 
 \mbox{\Hypertarget{strings_8c_a155cbdf36641713b4bdf863f2d093d2c}\label{strings_8c_a155cbdf36641713b4bdf863f2d093d2c}} 
 \index{strings.\+c@{strings.\+c}!String\+\_\+create@{String\+\_\+create}}
@@ -125,7 +153,7 @@ Alokuje textový řetězec. Výsledný řetězec je nutné později uvolnit!
 \end{DoxyRetVals}
 
 
-Definice je uvedena na řádku 54 v souboru strings.\+c.
+Definice je uvedena na řádku 57 v souboru strings.\+c.
 
 \mbox{\Hypertarget{strings_8c_afcee70e56d5436855170e425ffbd65a8}\label{strings_8c_afcee70e56d5436855170e425ffbd65a8}} 
 \index{strings.\+c@{strings.\+c}!String\+\_\+destroy@{String\+\_\+destroy}}
@@ -142,7 +170,7 @@ Uvolní alokovaný textový řetězec.
 \end{DoxyParams}
 
 
-Definice je uvedena na řádku 117 v souboru strings.\+c.
+Definice je uvedena na řádku 163 v souboru strings.\+c.
 
 \mbox{\Hypertarget{strings_8c_a706733ea6d6421b76d78c05205f80464}\label{strings_8c_a706733ea6d6421b76d78c05205f80464}} 
 \index{strings.\+c@{strings.\+c}!String\+\_\+printf@{String\+\_\+printf}}
@@ -172,5 +200,5 @@ Definice je uvedena na řádku 117 v souboru strings.\+c.
 \end{DoxyRetVals}
 
 
-Definice je uvedena na řádku 101 v souboru strings.\+c.
+Definice je uvedena na řádku 147 v souboru strings.\+c.
 
