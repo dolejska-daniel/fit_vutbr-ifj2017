@@ -235,7 +235,7 @@
 	"strings.h"
 	"instruction_list.h"
 
-1511359323 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\generator\generator.h
+1511370378 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\generator\generator.h
 	"instruction_list.h"
 	"../parser/symtable.h"
 	"../scanner/token.h"
@@ -287,7 +287,7 @@
 	<stdio.h>
 	"strings.h"
 
-1511359718 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\generator\generator.c
+1511374236 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\generator\generator.c
 	"instruction_list.h"
 	<stdio.h>
 	"../parser/symtable.h"
