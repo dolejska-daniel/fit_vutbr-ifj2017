@@ -62,6 +62,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="scanner/input.h" />
+		<Unit filename="scanner/scanner.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="scanner/scanner.h" />
 		<Unit filename="scanner/token.h" />
 		<Unit filename="support/strings.c">
