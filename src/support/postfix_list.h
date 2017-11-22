@@ -69,8 +69,6 @@ PostfixListItemPtr PostfixList_get(PostfixListPtr l);
 
 PostfixListItemPtr PostfixList_getNext(PostfixListPtr l);
 
-void PostfixList_delete(PostfixListPtr l);
-
 void PostfixList_deleteFirst(PostfixListPtr l);
 
 

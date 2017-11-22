@@ -101,16 +101,17 @@ int main(/*int argc, char **argv*/)
     if (parser_result != 0)
     {
         DEBUG_PRINT("[%s] ERR Parser returned error code %i\n", "main", parser_result);
-        DEBUG_PRINT("[%s] ERR \tMessage: %s", "main", error_description);
+        DEBUG_PRINT("[%s]   | Message: %s\n", "main", error_description);
 
         String_destroy(&error_description);
+        Instruction_outputAll(ilist);
         //  TODO: Output errors
         //  TODO: Cleanup & exit
     }
     else
     {
         DEBUG_LOG("main", "Outputting instructions");
-        //Instruction_outputAll(ilist);
+        Instruction_outputAll(ilist);
     }
     result = parser_result;
 

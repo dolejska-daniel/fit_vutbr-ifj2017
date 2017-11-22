@@ -120,8 +120,8 @@ int Parser_ParseScope(InputPtr input, InstructionListPtr ilist, SymbolTablePtr s
 
 int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable);
 
-int Parser_setError_allocation(char *structure);
+int Parser_setError_allocation();
 
-int Parser_setError_statement(char *content, char *instruction, InputPtr input);
+int Parser_setError_statement(char *instruction, InputPtr input);
 
 #endif
