@@ -11,6 +11,8 @@
 #include <string.h>
 #include <malloc.h>
 
+#include "error_codes.h"
+
 #include "strings.h"
 
 #ifndef _strings_c
@@ -53,9 +55,50 @@
  */
 char *String_create(const char *str)
 {
-    char *output = malloc(sizeof(char) * (strlen(str) + 1));
-    strcpy(output, str);
+    char *output = malloc(sizeof(char) * ((str ? strlen(str) : 0) + 1));
+    if (output == NULL)
+    {
+        DEBUG_ERR("string-create", "failed to mallocate string");
+        return NULL;
+    }
+
+    if (str)
+        strcpy(output, str);
+    else
+        output[0] = '\0';
+
     return output;
+}
+
+/**
+ * K textovému řetězci přidá znak.
+ * Funkce předpokládá, že vstupní řetězec ke konkatenaci je
+ * alokovaný - provádí realokaci.
+ *
+ * @param[in,out]   char    **string    Textový řetězec ke konkatenaci
+ * @param[in]       char    ch          Znak ke konkatenaci
+ */
+void String_addChar(char **string, char ch)
+{
+    char *output;
+    if (*string == NULL)
+        return;
+
+    unsigned length = strlen(*string);
+    output = malloc(sizeof(char) * (length + 2));
+    if (*string == NULL)
+    {
+        return INTERNAL_ERROR;
+    }
+
+    if (length)
+        strcpy(output, *string);
+    String_destroy(*string);
+
+    output[length] = ch;
+    output[length + 1] = '\0';
+
+    *string = output;
 }
 
 /**
