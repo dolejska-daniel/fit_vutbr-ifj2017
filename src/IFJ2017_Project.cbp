@@ -22,7 +22,10 @@
 					<Add option="-DDEBUG_PRINT_ENABLED" />
 					<Add option="-DDEBUG_LOG_ENABLED" />
 					<Add option="-DDEBUG_ERR_ENABLED" />
+<<<<<<< HEAD
 					<Add option="-DDEBUG_VERBOSE" />
+=======
+>>>>>>> dolejska/lk
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -48,6 +51,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="generator/generator.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="generator/generator.h" />
 		<Unit filename="generator/instruction_list.c">
 			<Option compilerVar="CC" />
@@ -77,6 +83,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="scanner/token.h" />
+<<<<<<< HEAD
 		<Unit filename="support/char_stack.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -90,6 +97,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="support/postfix_list.h" />
+=======
+		<Unit filename="support/error_codes.h" />
+>>>>>>> dolejska/lk
 		<Unit filename="support/strings.c">
 			<Option compilerVar="CC" />
 		</Unit>

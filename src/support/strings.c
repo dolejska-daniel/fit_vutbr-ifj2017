@@ -12,7 +12,9 @@
 #include <string.h>
 #include <malloc.h>
 
+
 #include "error_codes.h"
+#include <stdio.h>
 
 #include "strings.h"
 

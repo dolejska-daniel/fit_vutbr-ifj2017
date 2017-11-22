@@ -2,9 +2,20 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="scanner\scanner.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1348" topLine="11" />
+=======
+	<File name="scanner\input.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="356" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="generator\generator.c" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1401" topLine="33" />
+>>>>>>> dolejska/lk
 		</Cursor>
 	</File>
 	<File name="scanner\token.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -12,6 +23,7 @@
 			<Cursor1 position="0" topLine="49" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="generator\generator.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="15439" topLine="358" />
@@ -50,10 +62,21 @@
 	<File name="support\error_codes.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="548" topLine="0" />
+=======
+	<File name="support\strings.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="412" topLine="92" />
 		</Cursor>
 	</File>
-	<File name="generator\instruction_list.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="support\error_codes.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+			<Cursor1 position="271" topLine="0" />
+>>>>>>> dolejska/lk
+		</Cursor>
+	</File>
+	<File name="generator\instruction_list.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="942" topLine="14" />
 		</Cursor>
 	</File>
@@ -85,6 +108,44 @@
 	<File name="scanner\token.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="328" topLine="0" />
+=======
+			<Cursor1 position="4907" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="generator\instruction_list.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1040" topLine="288" />
+		</Cursor>
+	</File>
+	<File name="support\strings.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="761" topLine="41" />
+		</Cursor>
+	</File>
+	<File name="main\main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1384" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="parser\parser.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="854" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="parser\parser.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="260" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="parser\symtable.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="904" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="parser\symtable.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1197" topLine="18" />
+>>>>>>> dolejska/lk
 		</Cursor>
 	</File>
 	<File name="parser\symtable.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -92,6 +153,7 @@
 			<Cursor1 position="1028" topLine="27" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="support\postfix_list.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="391" topLine="0" />
@@ -125,16 +187,30 @@
 	<File name="main\main.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2614" topLine="85" />
+=======
+	<File name="scanner\scanner.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="751" topLine="8" />
+>>>>>>> dolejska/lk
 		</Cursor>
 	</File>
-	<File name="parser\parser.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="scanner\token.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="2034" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="support\infix2postfix.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="295" topLine="0" />
+=======
+			<Cursor1 position="368" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="generator\generator.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="745" topLine="0" />
+>>>>>>> dolejska/lk
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
