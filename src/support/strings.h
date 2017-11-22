@@ -38,6 +38,16 @@
 char *String_create(const char *str);
 
 /**
+ * K textovému řetězci přidá znak.
+ * Funkce předpokládá, že vstupní řetězec ke konkatenaci je
+ * alokovaný - provádí realokaci.
+ *
+ * @param[in,out]   char    **string    Textový řetězec ke konkatenaci
+ * @param[in]       char    ch          Znak ke konkatenaci
+ */
+void String_addChar(char **string, char ch);
+
+/**
  * Spojí dva textové řetězce do jednoho.
  * Výsledný řetězec je nutné později uvolnit!
  *
