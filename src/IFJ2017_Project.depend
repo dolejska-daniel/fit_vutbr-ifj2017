@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1511441303 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
+1511443554 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
 	<stdio.h>
 	<stdlib.h>
 	"../generator/generator.h"
@@ -30,7 +30,7 @@
 1511433310 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.h
 	<stdbool.h>
 
-1511443440 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
+1511445071 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
 	<stdio.h>
 	<stdbool.h>
 	"parser.h"
@@ -133,7 +133,7 @@
 	<string.h>
 	<malloc.h>
 
-1511374037 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\strings.c
+1511444618 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\strings.c
 	<stdio.h>
 	<string.h>
 	<malloc.h>
@@ -159,12 +159,12 @@
 1511335454 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\nesting_list.h
 	<stdio.h>
 
-1511443323 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\nesting_list.c
+1511444615 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\nesting_list.c
 	<stdio.h>
 	<malloc.h>
 	"nesting_list.h"
 
-1511360585 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\char_stack.c
+1511444316 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\char_stack.c
 	<stdio.h>
 	<stdbool.h>
 	<malloc.h>
@@ -175,7 +175,7 @@
 	<stdbool.h>
 	<malloc.h>
 
-1511368033 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\infix2postfix.c
+1511444494 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\infix2postfix.c
 	<stdio.h>
 	<stdbool.h>
 	"infix2postfix.h"
@@ -183,7 +183,7 @@
 	"token_stack.h"
 	"error_codes.h"
 
-1511361168 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\infix2postfix.h
+1511444505 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\infix2postfix.h
 	"token_stack.h"
 	"postfix_list.h"
 
@@ -227,7 +227,7 @@
 	"../scanner/token.h"
 	"token.h"
 
-1511360626 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\token_stack.c
+1511444611 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\token_stack.c
 	<stdio.h>
 	<stdbool.h>
 	<malloc.h>
@@ -324,7 +324,7 @@
 
 1511345379 D
 
-1511367405 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix2instructions.c
+1511444613 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix2instructions.c
 	<stdio.h>
 	"postfix2instructions.h"
 	"postfix_list.h"
@@ -340,7 +340,7 @@
 	"../generator/instruction_list.h"
 	"instruction_list.h"
 
-1511442064 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.c
+1511444615 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.c
 	<stdio.h>
 	<ctype.h>
 	<string.h>
@@ -354,7 +354,7 @@
 	"scanner.h"
 	"token.h"
 
-1511377079 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\generator.c
+1511444727 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\generator.c
 	"instruction_list.h"
 	<stdio.h>
 	"../parser/symtable.h"

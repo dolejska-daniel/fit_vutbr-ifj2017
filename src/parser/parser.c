@@ -1350,6 +1350,7 @@ int Parser_getToken(char *source, InputPtr input, NestingLevelPtr nlevel, TokenT
         //  Má se kontrolovat typ tokenu a token jsme buď nedostali, nebo daný typ nesouhlasí
 
         DEBUG_ERR(source, "this type of token was not expected!");
+        DEBUG_PRINT("\texpected: %i (%s)\n\tgot: %i (%s)\n", expected_type, TokenType_toString(expected_type), t->type, TokenType_toString(t->type));
         #ifdef DEBUG_VERBOSE
         Token_debugPrint(t);
         #endif

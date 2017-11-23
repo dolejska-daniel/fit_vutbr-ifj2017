@@ -47,6 +47,8 @@
 
 extern char *last_line;
 
+bool charReturned = false;
+
 //==================================================================d=d=
 //  DEKLARACE FUNKCÍ
 //======================================================================
@@ -90,8 +92,6 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
     //pomocne promenne pro vynechavani nul na zacatku cisla
     char first_number;
     char first_exp_number;
-
-    bool charReturned = false;
 
     while(1)
     {

@@ -147,7 +147,6 @@ program_exit:
     {
         //  Došlo k ukončení s chybami
         fprintf(stderr, "\nAn error occured during program execution!\n==========================================\n\nYou will find more detailed information below.\n\n");
-        fprintf(stderr, "%p\n", last_line);
         if (last_line != NULL && strlen(last_line) > 0)
         {
             //  Máme k dispozici obsah posledního řádku
