@@ -178,7 +178,7 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
                 //  Hlavní tělo programu
                 #ifdef DEBUG_VERBOSE
                 DEBUG_PRINT("\ttype-str: SCOPE\n");
-                DEBUG_LOG("parser-init", "calling Parser_ParseFunctionDefinition");
+                DEBUG_LOG("parser-init", "calling Parser_ParseScope");
                 #endif
                 parser_result = Parser_ParseScope(input, ilist, symtable, nlist);
                 if (parser_result != NO_ERROR)
@@ -215,7 +215,7 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
                 //  Token není nic, co bychom očekáváli
                 //  jedná se tedy o syntaktickou chybu
                 DEBUG_ERR("parser-init", "this type of token was not expected!");
-                DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token ? token->type : -1, NULL ? token->attr : NULL);
+                DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token ? token->type : -1, token ? token->attr : NULL);
 
                 if (token == NULL)
                 {

@@ -662,12 +662,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             {
                 if(ch == ' ') //nahrazeni mezery
                 {
-                    final_string = String_concat(final_string, "\032", NULL);
-                }
-                else if(isupper(ch))
-                {
-                    ch = ch + 32;
-                    String_addChar(&final_string, ch);
+                    final_string = String_concat(final_string, "\\032", NULL);
                 }
                 else
                 {

@@ -30,7 +30,7 @@
 1511338387 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.h
 	<stdbool.h>
 
-1511393618 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
+1511394653 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
 	<stdbool.h>
 	"parser.h"
 	"nesting_list.h"
@@ -314,7 +314,8 @@
 	"strings.h"
 	"error_codes.h"
 
-<<<<<<< HEAD
+1511345379 D
+
 1511367405 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix2instructions.c
 	<stdio.h>
 	"postfix2instructions.h"
@@ -331,7 +332,7 @@
 	"../generator/instruction_list.h"
 	"instruction_list.h"
 
-1511376511 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.c
+1511395076 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.c
 	<stdio.h>
 	<ctype.h>
 	<string.h>
@@ -380,7 +381,9 @@
 	"error_codes.h"
 	"../scanner/token.h"
 	"token.h"
-=======
+
+1511393422 
+
 1511282194 source:c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\scanner\input.c
 	<stdio.h>
 	<malloc.h>
@@ -388,5 +391,6 @@
 
 1511282194 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\scanner\input.h
 	<stdio.h>
->>>>>>> dolejska/pu
+
+1511282194 ejska/pu
 
