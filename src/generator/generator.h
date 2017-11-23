@@ -518,7 +518,7 @@ int Instruction_int2char(InstructionListPtr l, SymbolPtr variable, SymbolPtr sym
  *
  * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
  */
-int Instruction_int2float(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
+int Instruction_int2float(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
 
 /**
  * Zapíše instrukce pro převod desetinné hodnoty na celočíselnou.

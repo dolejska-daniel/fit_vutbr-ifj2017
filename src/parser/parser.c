@@ -793,12 +793,12 @@ int Parser_ParseVariableDeclaration(InputPtr input, InstructionListPtr ilist, Sy
         DEBUG_LOG(source, "symbol successfully created");
         Token_debugPrint(token);
         SymbolTable_debugPrint(symtable);
-/*
+
         instruction_result = Instruction_variable_declare(ilist, var);
         if (instruction_result != NO_ERROR)
         {
             return instruction_result;
-        }*/
+        }
     }
 
     return NO_ERROR;
