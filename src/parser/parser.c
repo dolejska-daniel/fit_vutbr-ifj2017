@@ -51,6 +51,8 @@
 #define DEBUG_ERR(...) do{ } while ( 0 )
 #endif
 
+extern int  error_char_index;
+extern int  error_instruction_length;
 extern char *error_description;
 
 //==================================================================d=d=
@@ -1416,17 +1418,33 @@ int Parser_setError_allocation()
 
 int Parser_setError_statement(char *expected, TokenPtr token, InputPtr input)
 {
+    int  instruction_length;
+    if (token->type == INVALID)
+    {
+        instruction_length = 1;
+    }
+    else
+    {
+        instruction_length = strlen(token ? token->attr : "");
+    }
+
+    int  error_index = input->character - instruction_length;
     char *message;
-    if (expected != NULL)
+
+    if (token->type == INVALID)
+    {
+        message = token->attr;
+    }
+    else if (expected != NULL)
     {
         //  Očekávali jsme něco konkrétního
-        message = String_printf("Unexpected statement on line %i:%i. Expected %s got %s.", input ? input->line : 0, input ? input->character - strlen(token ? token->attr : "") : 0, expected, TokenType_toString(token->type));
+        message = String_printf("Unexpected statement on line %i:%i. Expected %s got %s.", input ? input->line : 0, error_index, expected, TokenType_toString(token->type));
     }
     else
     {
         //  Buď jsme toho očekávali spoustu, jako vždy,
         //  nebo jsme toho naopak moc neočekávali
-        message = String_printf("Unexpected '%s' on line %i:%i.", token, input ? input->line : 0, input ? input->character - strlen(token ? token->attr : "") : 0, NULL);
+        message = String_printf("Unexpected %s ('%s') on line %i:%i.", TokenType_toString(token->type), token->attr, input ? input->line : 0, error_index);
     }
 
     if (message == NULL)
@@ -1434,13 +1452,17 @@ int Parser_setError_statement(char *expected, TokenPtr token, InputPtr input)
         return Parser_setError_allocation();
     }
 
-    error_description = message;
+    error_description        = message;
+    error_char_index         = error_index;
+    error_instruction_length = instruction_length;
     return NO_ERROR;
 }
 
 int Parser_setError_custom(char *content)
 {
-    error_description = content;
+    error_description        = content;
+    error_char_index         = -1;
+    error_instruction_length = -1;
     return NO_ERROR;
 }
 

@@ -48,7 +48,11 @@
 #define DEBUG_ERR(...) do{ } while ( 0 )
 #endif
 
+int  error_char_index;
+int  error_instruction_length;
 char *error_description;
+char *last_line;
+
 
 //==================================================================d=d=
 //  DEKLARACE FUNKCÍ
@@ -67,6 +71,14 @@ int main(/*int argc, char **argv*/)
     DEBUG_LOG("main", "Initializing variables");
 
     int result = NO_ERROR;
+
+    last_line = String_create(NULL);
+    if (last_line == NULL)
+    {
+        DEBUG_ERR("main", "failed to mallocate last_line");
+        result = INTERNAL_ERROR;
+        goto program_exit;
+    }
 
     InputPtr input = Input_create(stdin);
     if (input == NULL)
@@ -134,14 +146,38 @@ program_exit:
     if (result != NO_ERROR)
     {
         //  Došlo k ukončení s chybami
+        fprintf(stderr, "\nAn error occured during program execution!\n==========================================\n\nYou will find more detailed information below.\n\n");
+        if (last_line != NULL && strlen(last_line) > 0)
+        {
+            //  Máme k dispozici obsah posledního řádku
+            fprintf(stderr, "Error line:\n");
+            fprintf(stderr, last_line);
+            fprintf(stderr, "\n");
+            for (int char_index = 0; char_index < input->character; char_index++)
+            {
+                fprintf(stderr, " ");
+            }
+            fprintf(stderr, "^");
+            fprintf(stderr, "~");
+            fprintf(stderr, "~");
+            fprintf(stderr, "~");
+            fprintf(stderr, "~");
+            fprintf(stderr, "\n\n");
+
+            String_destroy(&last_line);
+        }
+
+        fprintf(stderr, "Exit code:  %i\n", result);
+        fprintf(stderr, "Error:      ");
         if (error_description)
         {
             fprintf(stderr, error_description);
-            //String_destroy(&error_description);
+            fprintf(stderr, "\n");
+            String_destroy(&error_description);
         }
         else
         {
-            fprintf(stderr, "Unknown error occured during parsing.");
+            fprintf(stderr, "Unknown error occured during parsing.\n");
         }
     }
     return result;
