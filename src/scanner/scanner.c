@@ -107,6 +107,10 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 String_addChar(&final_string, ch);
             }
+            else if(ch == ' ')
+            {
+
+            }
             else if(isdigit(ch))
             {
                 first_number = ch;
@@ -288,6 +292,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 ungetc(ch, input->source);
+                input->character--;
                 //Porovnavani retezce, zda se nejedna o keyword
                 if(strcmp(final_string, "as") == 0)
                 {
@@ -626,6 +631,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 ungetc(ch, input->source);
+                input->character--;
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
                 char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected character \" ", ch, input->line, input->character, NULL);
                 *token = Token_create(INVALID, reason);
@@ -729,6 +735,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 if(esc1 == '0' && esc2 == '0' && ch == '0')
                 {
                     ungetc(ch, input->source);
+                    input->character--;
                     String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
                     char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <1,5>", ch, input->line, input->character, NULL);
                     *token = Token_create(INVALID, reason);
@@ -825,6 +832,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 ungetc(ch, input->source);
+                input->character--;
                 if(first_number == '0')
                 {
                     String_addChar(&final_string, '0');
@@ -871,6 +879,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 ungetc(ch, input->source);
+                input->character--;
                 *token = Token_create(CONSTANT_DOUBLE, final_string);
                 if(*token == NULL)
                 {
@@ -951,6 +960,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 ungetc(ch, input->source);
+                input->character--;
                 if(first_exp_number == '0')
                 {
                     String_addChar(&final_string, '0');
@@ -972,8 +982,9 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
-                String_addChar(&final_string, ch);
-                *token = Token_create(STAR, final_string);
+                ungetc(ch, input->source);
+                input->character--;
+                *token = Token_create(SLASH, final_string);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
@@ -1062,7 +1073,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             break;
 
         case STATE_INC_O:
-            if(ch >= '0' || ch <= '7')
+            if(ch >= '0' && ch <= '7')
             {
                 state = STATE_OCT;
                 String_addChar(&final_string, ch);
@@ -1081,7 +1092,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             break;
 
         case STATE_INC_H:
-            if(isalnum(ch))
+            if(isdigit(ch) || (ch >= 'a' && ch <= 'f') || (ch >= 'A' && ch <= 'F'))
             {
                 state = STATE_HEX;
                 String_addChar(&final_string, ch);
@@ -1106,6 +1117,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 ungetc(ch, input->source);
+                input->character--;
                 *token = Token_create(CONSTANT_BINARY, final_string);
                 if(*token == NULL)
                 {
@@ -1116,13 +1128,14 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             break;
 
         case STATE_OCT:
-            if(ch >= '0' || ch <= '7')
+            if(ch >= '0' && ch <= '7')
             {
                 String_addChar(&final_string, ch);
             }
             else
             {
                 ungetc(ch, input->source);
+                input->character--;
                 *token = Token_create(CONSTANT_OCTAL, final_string);
                 if(*token == NULL)
                 {
@@ -1133,13 +1146,14 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             break;
 
         case STATE_HEX:
-            if(isalnum(ch))
+            if(isdigit(ch) || (ch >= 'a' && ch <= 'f') || (ch >= 'A' && ch <= 'F'))
             {
                 String_addChar(&final_string, ch);
             }
             else
             {
                 ungetc(ch, input->source);
+                input->character--;
                 *token = Token_create(CONSTANT_HEXA, final_string);
                 if(*token == NULL)
                 {
