@@ -9,6 +9,7 @@
  */
 
 #include <stdio.h>
+#include <malloc.h>
 
 #include "nesting_list.h"
 
@@ -108,7 +109,7 @@ NestingLevelPtr NestingList_insertFirst(NestingListPtr l, NestingType type)
     //  Navázání ukazatelů
     l->first = level;
 
-    return l;
+    return level;
 }
 
 /**
@@ -135,7 +136,7 @@ NestingLevelPtr NestingList_insertLast(NestingListPtr l, NestingType type)
     //  Navázání ukazatelů
     l->last = level;
 
-    return l;
+    return level;
 }
 
 /**

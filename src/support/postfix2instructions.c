@@ -55,10 +55,10 @@
 
 int postfix2instructions_mathematical(InstructionListPtr ilist, PostfixListPtr *postfixList)
 {
-    SymbolStackPtr     s = SymbolStack_create();
+    SymbolStackPtr s = SymbolStack_create();
 
-    PostfixList_first(postfixList);
-    PostfixListItemPtr operand = PostfixList_get(postfixList);
+    PostfixList_first(*postfixList);
+    PostfixListItemPtr operand = PostfixList_get(*postfixList);
     do
     {
         if (operand->isOperator)
@@ -93,10 +93,10 @@ int postfix2instructions_mathematical(InstructionListPtr ilist, PostfixListPtr *
             else
             {
                 //  Neočekávaný token
-                SymbolStack_destroy(s);
+                SymbolStack_destroy(&s);
 
                 DEBUG_ERR("post2inst-math", "this type of Token was not expected!");
-                DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token ? token->type : -1, NULL ? token->attr : NULL);
+                Token_debugPrint(token);
                 return INTERNAL_ERROR;
             }
         }
@@ -107,20 +107,20 @@ int postfix2instructions_mathematical(InstructionListPtr ilist, PostfixListPtr *
         }
 
         //  Načtení dalšího operandu
-        operand = PostfixList_getNext(postfixList);
+        operand = PostfixList_getNext(*postfixList);
     }
     while (operand != NULL);
 
-    SymbolStack_destroy(s);
+    SymbolStack_destroy(&s);
     return NO_ERROR;
 }
 
 int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postfixList)
 {
-    SymbolStackPtr     s = SymbolStack_create();
+    SymbolStackPtr s = SymbolStack_create();
 
-    PostfixList_first(postfixList);
-    PostfixListItemPtr operand = PostfixList_get(postfixList);
+    PostfixList_first(*postfixList);
+    PostfixListItemPtr operand = PostfixList_get(*postfixList);
     do
     {
         if (operand->isOperator)
@@ -166,10 +166,10 @@ int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postf
             else
             {
                 //  Neočekávaný token
-                SymbolStack_destroy(s);
+                SymbolStack_destroy(&s);
 
                 DEBUG_ERR("post2inst-logic", "this type of Token was not expected!");
-                DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token ? token->type : -1, NULL ? token->attr : NULL);
+                Token_debugPrint(token);
                 return INTERNAL_ERROR;
             }
         }
@@ -180,11 +180,11 @@ int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postf
         }
 
         //  Načtení dalšího operandu
-        operand = PostfixList_getNext(postfixList);
+        operand = PostfixList_getNext(*postfixList);
     }
     while (operand != NULL);
 
-    SymbolStack_destroy(s);
+    SymbolStack_destroy(&s);
     return NO_ERROR;
 }
 

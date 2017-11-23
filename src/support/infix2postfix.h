@@ -39,6 +39,6 @@ int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, Toke
 
 int infix2postfix_process(TokenStackPtr *s, PostfixListPtr *postfixList);
 
-int infix2postfix_cleanup(TokenStackPtr *s, PostfixListPtr *postfixList);
+void infix2postfix_cleanup(TokenStackPtr *s, PostfixListPtr *postfixList);
 
 #endif

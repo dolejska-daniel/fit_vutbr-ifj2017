@@ -16,10 +16,14 @@
 #include "../scanner/input.h"
 #include "../scanner/token.h"
 #include "../generator/instruction_list.h"
+#include "../support/tokenType_list.h"
+#include "../support/token_list.h"
 #else
 #include "input.h"
 #include "token.h"
 #include "instruction_list.h"
+#include "tokenType_list.h"
+#include "token_list.h"
 #endif
 
 //==================================================================d=d=
@@ -120,8 +124,19 @@ int Parser_ParseScope(InputPtr input, InstructionListPtr ilist, SymbolTablePtr s
 
 int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable);
 
+
+//-------------------------------------------------d-d-
+//  Pomocné funkce
+//-----------------------------------------------------
+
+int Parser_getTokens(char *source, InputPtr input, NestingLevelPtr nlevel, TokenTypeListPtr expected_types, TokenListPtr *tokens);
+
+int Parser_getToken(char *source, InputPtr input, NestingLevelPtr nlevel, TokenType expected_type, TokenPtr *token);
+
 int Parser_setError_allocation();
 
 int Parser_setError_statement(char *expected, TokenPtr token, InputPtr input);
+
+int Parser_setError_custom(char *content);
 
 #endif

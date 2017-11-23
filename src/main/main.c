@@ -147,21 +147,21 @@ program_exit:
     {
         //  Došlo k ukončení s chybami
         fprintf(stderr, "\nAn error occured during program execution!\n==========================================\n\nYou will find more detailed information below.\n\n");
+        fprintf(stderr, "%p\n", last_line);
         if (last_line != NULL && strlen(last_line) > 0)
         {
             //  Máme k dispozici obsah posledního řádku
-            fprintf(stderr, "Error line:\n");
+            fprintf(stderr, "Error line:\n\t");
             fprintf(stderr, last_line);
-            fprintf(stderr, "\n");
-            for (int char_index = 0; char_index < input->character; char_index++)
-            {
+            if (last_line[strlen(last_line) - 1] != '\n')
+                fprintf(stderr, "\n");
+
+            fprintf(stderr, "\t");
+            for (int char_index = 0; char_index < error_char_index; char_index++)
                 fprintf(stderr, " ");
-            }
             fprintf(stderr, "^");
-            fprintf(stderr, "~");
-            fprintf(stderr, "~");
-            fprintf(stderr, "~");
-            fprintf(stderr, "~");
+            for (int char_index = 0; char_index < error_instruction_length - 1; char_index++)
+                fprintf(stderr, "~");
             fprintf(stderr, "\n\n");
 
             String_destroy(&last_line);

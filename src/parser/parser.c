@@ -7,6 +7,7 @@
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
+#include <stdio.h>
 #include <stdbool.h>
 
 #include "parser.h"
@@ -17,6 +18,7 @@
 
 #ifdef DEBUG_INCLUDE
 #include "../generator/generator.h"
+#include "../scanner/scanner.h"
 #include "../scanner/token.h"
 #include "../support/strings.h"
 #include "../support/error_codes.h"
@@ -25,6 +27,7 @@
 #include "../support/tokenType_list.h"
 #else
 #include "generator.h"
+#include "scanner.h"
 #include "token.h"
 #include "strings.h"
 #include "error_codes.h"
@@ -123,7 +126,7 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
 
         #ifdef DEBUG_VERBOSE
         DEBUG_LOG("parser-init", "successfully received token");
-        DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token->type, token->attr);
+        Token_debugPrint(token);
         #endif
 
         switch (token->type)
@@ -134,10 +137,11 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
             case DECLARE:
             {
                 //  Jedná se o posloupnost deklarace funkce
+
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: DECLARE\n");
                 DEBUG_LOG("parser-init", "calling Parser_ParseFunctionDeclaration");
                 #endif
+
                 parser_result = Parser_ParseFunctionDeclaration(input, ilist, symtable, nlist);
                 if (parser_result != NO_ERROR)
                 {
@@ -150,10 +154,11 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
             {
                 //  Jedná se o posloupnost definice funkce
                 //  (POUZE POKUD JE FUNKCE JIŽ DEKLAROVÁNA)
+
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: FUNCTION\n");
                 DEBUG_LOG("parser-init", "calling Parser_ParseFunctionDefinition");
                 #endif
+
                 parser_result = Parser_ParseFunctionDefinition(input, ilist, symtable, nlist);
                 if (parser_result != NO_ERROR)
                 {
@@ -168,10 +173,11 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
             case SCOPE:
             {
                 //  Hlavní tělo programu
+
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: SCOPE\n");
                 DEBUG_LOG("parser-init", "calling Parser_ParseScope");
                 #endif
+
                 parser_result = Parser_ParseScope(input, ilist, symtable, nlist);
                 if (parser_result != NO_ERROR)
                 {
@@ -183,9 +189,7 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
             case LINE_END:
             {
                 //  Konec řádku, prázdný řádek
-                #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: LINE_END\n");
-                #endif
+
                 continue;
                 break;
             }
@@ -193,9 +197,7 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
             case FILE_END:
             {
                 //  Konec vstupních dat
-                #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: FILE_END\n");
-                #endif
+
                 return result;
                 break;
             }
@@ -205,8 +207,7 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
                 //  Token není nic, co bychom očekáváli
                 //  jedná se tedy o syntaktickou chybu
                 DEBUG_ERR("parser-init", "this type of token was not expected!");
-                DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token ? token->type : -1, token ? token->attr : NULL);
-                DEBUG_PRINT("\ttype-str: %s (ERR!)\n", TokenType_toString(token ? token->type : -1));
+                Token_debugPrint(token);
 
                 if (token == NULL)
                 {
@@ -245,20 +246,14 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
         if (scanner_result != NO_ERROR
             || token == NULL || token->type == INVALID)
         {
-            DEBUG_PRINT("onload token");
             //  Došlo k chybě při skenování
-            char *scanner_result_reason = "failed to mallocate Token";
-            if (token != NULL)
-            {
-                scanner_result_reason = token->attr;
-            }
             *last_token = NULL;
 
             DEBUG_ERR("parser-nested", "Scanner returned error code");
-            DEBUG_PRINT("\tntype: %i\n", nlevel ? nlevel->type : -1);
-            DEBUG_PRINT("\tcode: %i\n\treason: %s\n", scanner_result, scanner_result_reason);
+            DEBUG_PRINT("\tntype: %i\n", nlevel->type);
+            DEBUG_PRINT("\tcode: %i\n\treason: %s\n", scanner_result, token ? token->attr : "failed to mallocate Token");
 
-            if (Parser_setError_statement(NULL, scanner_result_reason, NULL) != NO_ERROR)
+            if (Parser_setError_statement(NULL, token, NULL) != NO_ERROR)
                 return INTERNAL_ERROR;
 
             Token_destroy(&token);
@@ -271,8 +266,7 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
 
         #ifdef DEBUG_VERBOSE
         DEBUG_LOG("parser-nested", "successfully received token");
-        DEBUG_PRINT("\tntype: %i\n", nlevel ? nlevel->type : -1);
-        DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token->type, token->attr);
+        Token_debugPrint(token);
         #endif
 
         switch (token->type)
@@ -285,7 +279,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  Jedná se o posloupnost pro použití funkce ASC
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: ASC\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseBuiltinFunction_Asc");
                 #endif
 
@@ -302,7 +295,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  Jedná se o posloupnost pro použití funkce CHR
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: CHR\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseBuiltinFunction_Chr");
                 #endif
 
@@ -319,7 +311,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  Jedná se o posloupnost pro použití funkce LENGTH
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: LENGTH\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseBuiltinFunction_Length");
                 #endif
 
@@ -336,7 +327,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  Jedná se o posloupnost pro použití funkce SUBSTR
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: SUBSTR\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseBuiltinFunction_Substr");
                 #endif
 
@@ -357,7 +347,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  Jedná se o posloupnost deklarace proměnné
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: DIM\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseVariableDeclaration");
                 #endif
 
@@ -376,7 +365,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  (POUZE POKUD JE FUNKCE ČI PROMĚNNÁ JIŽ DEKLAROVÁNA)
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: IDENTIFIER\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseVariableDefinition");
                 #endif
 
@@ -397,7 +385,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  Jedná se o posloupnost pro použití podmínky
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: IF\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseCondition");
                 #endif
 
@@ -418,7 +405,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  Jedná se o posloupnost pro použití příkazu DO WHILE
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: DO\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseLoop_Do");
                 #endif
 
@@ -436,7 +422,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 return SYNTAX_ERROR;
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: FOR\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseLoop_For");
                 #endif
 
@@ -457,7 +442,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  Jedná se o posloupnost pro použití příkazu PRINT
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: PRINT\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseStatement_Print");
                 #endif
 
@@ -474,7 +458,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  Jedná se o posloupnost pro použití příkazu INPUT
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: INPUT\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseStatement_Input");
                 #endif
 
@@ -490,9 +473,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
             {
                 //  Jedná se o posloupnost pro použití příkazu CONTINUE
 
-                #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: CONTINUE\n");
-                #endif
                 if (NestingList_isNestedIn(nlist, NESTING_LOOP))
                 {
                     DEBUG_ERR("parser-nested", "Continue statement not within loop!");
@@ -517,9 +497,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
             {
                 //  Jedná se o posloupnost pro použití příkazu EXIT
 
-                #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: EXIT\n");
-                #endif
                 if (NestingList_isNestedIn(nlist, NESTING_LOOP))
                 {
                     DEBUG_ERR("parser-nested", "Exit statement not within loop!");
@@ -543,10 +520,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
             case RETURN:
             {
                 //  Jedná se o posloupnost pro použití příkazu RETURN
-
-                #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: RETURN\n");
-                #endif
 
                 if (NestingList_isNestedIn(nlist, NESTING_FUNCTION))
                 {
@@ -574,9 +547,9 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
             case SCOPE:
             {
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: SCOPE\n");
                 DEBUG_LOG("parser-nested", "calling Parser_ParseScope (NOT NOW! SYNTAX_ERR INTENTIONALLY)");
                 #endif
+
                 return SYNTAX_ERROR;
 
                 //  Tělo programu
@@ -591,8 +564,8 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
             case END:
             {
                 //  Ukončení vnoření
+
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: END\n");
                 DEBUG_LOG("parser-nested", "received END, returning to parent");
                 #endif
 
@@ -603,8 +576,8 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
             case LINE_END:
             {
                 //  Konec řádku, prázdný řádek
+
                 #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: LINE_END\n");
                 DEBUG_LOG("parser-nested", "received LINE_END, continuing to next token");
                 #endif
 
@@ -615,6 +588,7 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
             case FILE_END:
             {
                 //  Konec vstupních dat
+
                 #ifdef DEBUG_VERBOSE
                 //DEBUG_PRINT("\ttype-str: FILE_END\n");
                 #endif
@@ -623,14 +597,9 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
             {
                 //  Token není nic, co bychom očekáváli
                 //  jedná se tedy o syntaktickou chybu
-                #ifdef DEBUG_VERBOSE
-                DEBUG_PRINT("\ttype-str: %s\n", TokenType_toString(token->type));
-                #endif
 
                 DEBUG_ERR("parser-nested", "this type of token was not expected!");
-                DEBUG_PRINT("\tntype: %i\n", nlevel ? nlevel->type : -1);
-                DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token ? token->type : -1, token ? token->attr : NULL);
-                DEBUG_PRINT("\ttype-str: %s (ERR!)\n", TokenType_toString(token ? token->type : -1));
+                Token_debugPrint(token);
                 Token_destroy(&token);
 
                 if (Parser_setError_statement(NULL, token, input) != NO_ERROR)
@@ -718,14 +687,13 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
         //  TODO: Error, invalid token
 
         DEBUG_ERR("parser-function-def", "this type of token was not expected!");
-        DEBUG_PRINT("\tntype: %i\n", nlevel ? nlevel->type : -1);
-        DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", last_token ? last_token->type : -1, last_token ? last_token->attr : NULL);
-        DEBUG_PRINT("\ttype-str: %s (ERR!)\n", TokenType_toString(last_token ? last_token->type : -1));
+        Token_debugPrint(last_token);
+
+        if (Parser_setError_statement("END", last_token, input) != NO_ERROR)
+            return INTERNAL_ERROR;
+
         if (last_token != NULL)
             Token_destroy(&last_token);
-
-        if (Parser_setError_statement(END, token, input) != NO_ERROR)
-            return INTERNAL_ERROR;
         return SYNTAX_ERROR;
     }
 
@@ -759,7 +727,7 @@ int Parser_ParseVariableDeclaration(InputPtr input, InstructionListPtr ilist, Sy
 
     char        *var_name;
     SymbolType  var_type;
-    Symbol      var;
+    SymbolPtr   var;
 
     //-------------------------------------------------d-d-
     //  Zpracování tokenů
@@ -768,6 +736,7 @@ int Parser_ParseVariableDeclaration(InputPtr input, InstructionListPtr ilist, Sy
     scanner_result = Parser_getToken(source, input, nlevel, IDENTIFIER, &token);
     if (scanner_result != NO_ERROR)
     {
+        Token_destroy(&token);
         return scanner_result;
     }
 
@@ -782,47 +751,42 @@ int Parser_ParseVariableDeclaration(InputPtr input, InstructionListPtr ilist, Sy
     }
 
     //  <INTEGER|STRING|DOUBLE|BOOLEAN>
-    scanner_result = Parser_getToken(source, input, nlevel, NULL, &token);
+    scanner_result = Parser_getToken(source, input, nlevel, -1, &token);
     if (scanner_result != NO_ERROR)
     {
         return scanner_result;
     }
 
-    if (token->type != INTEGER && token->type != STRING && token->type != DOUBLE && token->type != BOOLEAN)
+    //  Datový typ je v pořádku, zvolíme adekvátní typ symbolu
+    switch (token->type)
     {
-        //  Byl očekáván datový typ, který jsme ale nedostali
-        DEBUG_ERR(source, "this type of token was not expected!");
-        #ifdef DEBUG_VERBOSE
-        DEBUG_PRINT("\tntype: %i\n", nlevel ? nlevel->type : -1);
-        DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token ? token->type : -1, token ? token->attr : NULL);
-        #endif
+        case INTEGER:
+            var_type = ST_INTEGER;
+            break;
+        case STRING:
+            var_type = ST_STRING;
+            break;
+        case DOUBLE:
+            var_type = ST_DOUBLE;
+            break;
+        case BOOLEAN:
+            var_type = ST_BOOLEAN;
+            break;
+        default:
+            //  Byl očekáván datový typ, který jsme ale nedostali
+            DEBUG_ERR(source, "this type of token was not expected!");
+            #ifdef DEBUG_VERBOSE
+            Token_debugPrint(token);
+            #endif
 
-        if (Parser_setError_statement("INTEGER, STRING, DOUBLE or BOOLEAN", token, input) != NO_ERROR)
-            return INTERNAL_ERROR;
+            if (Parser_setError_statement("INTEGER, STRING, DOUBLE or BOOLEAN", token, input) != NO_ERROR)
+                return INTERNAL_ERROR;
 
-        Token_destroy(&token);
-        return SYNTAX_ERROR;
+            Token_destroy(&token);
+            return SYNTAX_ERROR;
+            break;
     }
-    else
-    {
-        //  Datový typ je v pořádku, zvolíme adekvátní typ symbolu
-        switch (token->type)
-        {
-            case INTEGER:
-                var_type = ST_INTEGER;
-                break;
-            case STRING:
-                var_type = ST_STRING;
-                break;
-            case DOUBLE:
-                var_type = ST_DOUBLE;
-                break;
-            case BOOLEAN:
-                var_type = ST_BOOLEAN;
-                break;
-        }
-        Token_destroy(&token);
-    }
+    Token_destroy(&token);
 
     //  <LINE_END>
     scanner_result = Parser_getToken(source, input, nlevel, LINE_END, NULL);
@@ -846,7 +810,7 @@ int Parser_ParseVariableDeclaration(InputPtr input, InstructionListPtr ilist, Sy
     {
         //  Symbol byl úspěšně vytvořen
         DEBUG_LOG(source, "symbol successfully created");
-        DEBUG_PRINT("\tname: %s\n\ttype: %s\n", var_name, SymbolType_toString(var_type));
+        Token_debugPrint(token);
         SymbolTable_debugPrint(symtable);
         /*
         instruction_result = Instruction_variable_declare(ilist, var);
@@ -995,8 +959,8 @@ int Parser_ParseStatement_Print(InputPtr input, InstructionListPtr ilist, Symbol
 
     bool firstLoop = true;
 
-    TokenPtr  token;
-    SymbolPtr symbol;
+    TokenPtr  token  = NULL;
+    SymbolPtr symbol = NULL;
 
     NestingLevelPtr nlevel = NestingList_active(nlist);
 
@@ -1004,7 +968,7 @@ int Parser_ParseStatement_Print(InputPtr input, InstructionListPtr ilist, Symbol
     //  Zpracování tokenů
     //-----------------------------------------------------
 
-    scanner_result = Parser_getToken(source, input, nlevel, NULL, &token);
+    scanner_result = Parser_getToken(source, input, nlevel, -1, &token);
     if (scanner_result != NO_ERROR)
     {
         return scanner_result;
@@ -1041,7 +1005,7 @@ int Parser_ParseStatement_Print(InputPtr input, InstructionListPtr ilist, Symbol
         }
 
         //  <LINE_END> ?
-        scanner_result = Parser_getToken(source, input, nlevel, NULL, &token);
+        scanner_result = Parser_getToken(source, input, nlevel, -1, &token);
         if (scanner_result != NO_ERROR)
         {
             return scanner_result;
@@ -1306,7 +1270,7 @@ int Parser_getTokens(char *source, InputPtr input, NestingLevelPtr nlevel, Token
     TokenTypeListItemPtr type_item = TokenTypeList_get(expected_types);
     expected_type = type_item->type;
 
-    int scanner_result = Parser_getToken(source, nlevel, expected_type, &token);
+    int scanner_result = Parser_getToken(source, input, nlevel, expected_type, &token);
 
     do
     {
@@ -1319,13 +1283,13 @@ int Parser_getTokens(char *source, InputPtr input, NestingLevelPtr nlevel, Token
 
         if (tokens != NULL)
         {
-            TokenList_insert(tokens, token);
+            TokenList_insert(*tokens, token);
         }
         else
         {
             Token_destroy(&token);
         }
-        scanner_result = Parser_getToken(source, nlevel, expected_type, &token);
+        scanner_result = Parser_getToken(source, input, nlevel, expected_type, &token);
     }
     while(scanner_result == NO_ERROR);
 
@@ -1348,34 +1312,26 @@ int Parser_getToken(char *source, InputPtr input, NestingLevelPtr nlevel, TokenT
         *token = t;
     }
 
-    if (expected_type != NULL && (t == NULL || (t->type != expected_type && t->type != INVALID)))
-    {
-        //  Má se kontrolovat typ tokenu a token jsme buď nedostali, nebo daný typ nesouhlasí
-
-        DEBUG_ERR(source, "this type of token was not expected!");
-        #ifdef DEBUG_VERBOSE
-        DEBUG_PRINT("\tntype: %i\n", nlevel ? nlevel->type : -1);
-        DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", t ? t->type : -1, t ? t->attr : NULL);
-        DEBUG_PRINT("\ttype-str: %s (ERR!)\n", TokenType_toString(t ? t->type : -1));
-        #endif
-
-        if (Parser_setError_statement(expected_type ? TokenType_toString(expected_type) : NULL, t->attr, input) != NO_ERROR)
-            return INTERNAL_ERROR;
-
-        *token = NULL;
-        Token_destroy(&t);
-        return SYNTAX_ERROR;
-    }
-    else if (scanner_result != NO_ERROR || (t != NULL && t->type == INVALID))
+    if (scanner_result != NO_ERROR || t == NULL || t->type == INVALID)
     {
         //  Scanner byl ukončen s chybovým stavem nebo vrátil neplatný token
 
         DEBUG_ERR(source, "scanner returned error code");
+        DEBUG_PRINT("\tnlevel: %i\n", nlevel->type);
         DEBUG_PRINT("\tcode: %i\n\treason: %s\n", scanner_result, t ? t->attr : "");
         if (t)
         {
             //  Token jsme dostali, získáme z něj chybovou zprávu
-            Parser_setError_custom(t->attr);
+            if (Parser_setError_statement(expected_type ? TokenType_toString(expected_type) : NULL, t, input) != NO_ERROR)
+            {
+                if (token != NULL)
+                {
+                    *token = NULL;
+                }
+                Token_destroy(&t);
+                return INTERNAL_ERROR;
+            }
+            Token_destroy(&t);
         }
         else
         {
@@ -1383,30 +1339,61 @@ int Parser_getToken(char *source, InputPtr input, NestingLevelPtr nlevel, TokenT
             Parser_setError_allocation();
         }
 
-
-        if (t == NULL)
+        if (token != NULL)
         {
             *token = NULL;
-            Token_destroy(&t);
         }
         return scanner_result;
+    }
+    else if (expected_type >= 0 && t->type != expected_type)
+    {
+        //  Má se kontrolovat typ tokenu a token jsme buď nedostali, nebo daný typ nesouhlasí
+
+        DEBUG_ERR(source, "this type of token was not expected!");
+        #ifdef DEBUG_VERBOSE
+        Token_debugPrint(t);
+        #endif
+
+        if (Parser_setError_statement(expected_type ? TokenType_toString(expected_type) : NULL, t, input) != NO_ERROR)
+        {
+            if (token != NULL)
+            {
+                *token = NULL;
+            }
+            Token_destroy(&t);
+            return INTERNAL_ERROR;
+        }
+
+        if (token != NULL)
+        {
+            *token = NULL;
+        }
+        Token_destroy(&t);
+        return SYNTAX_ERROR;
     }
     else
     {
         //  Získaný token je v pořádku
 
         #ifdef DEBUG_VERBOSE
-        DEBUG_LOG(source, "successfully received token");
-        DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", t->type, t->attr);
-        DEBUG_PRINT("\ttype-str: %s (OK!)\n", TokenType_toString(t->type));
+        if (expected_type >= 0)
+            DEBUG_LOG(source, "successfully received correct token");
+        else
+            DEBUG_LOG(source, "received token");
+
+        if (token == NULL)
+            DEBUG_LOG(source, "NOT sending it back");
+
+        Token_debugPrint(t);
         #endif
     }
 
-    if (t == NULL)
+    /*
+    if (token != NULL)
     {
         *token = NULL;
-        Token_destroy(&t);
     }
+    Token_destroy(&t);*/
     return scanner_result;
 }
 
@@ -1433,18 +1420,19 @@ int Parser_setError_statement(char *expected, TokenPtr token, InputPtr input)
 
     if (token->type == INVALID)
     {
+        //  Speciální typ tokenu - obsahuje chybovou zprávu
         message = token->attr;
     }
     else if (expected != NULL)
     {
         //  Očekávali jsme něco konkrétního
-        message = String_printf("Unexpected statement on line %i:%i. Expected %s got %s.", input ? input->line : 0, error_index, expected, TokenType_toString(token->type));
+        message = String_printf("Unexpected statement on line %i:%i. Expected %s got %s.", (char *) input->line, (char *) error_index, expected, TokenType_toString(token->type));
     }
     else
     {
         //  Buď jsme toho očekávali spoustu, jako vždy,
         //  nebo jsme toho naopak moc neočekávali
-        message = String_printf("Unexpected %s ('%s') on line %i:%i.", TokenType_toString(token->type), token->attr, input ? input->line : 0, error_index);
+        message = String_printf("Unexpected %s ('%s') on line %i:%i.", TokenType_toString(token->type), token->attr, (char *) input->line, (char *) error_index);
     }
 
     if (message == NULL)
