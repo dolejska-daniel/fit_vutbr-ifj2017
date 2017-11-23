@@ -91,4 +91,18 @@ TokenPtr Token_create(TokenType type, char *attr);
  */
 void Token_destroy(TokenPtr *t);
 
+/**
+ * Funkce zobrazí obsah tokenu na stderr.
+ *
+ * @param[in,out]	TokenPtr    token   Ukazatel na existující token
+ */
+void Token_debugPrint(TokenPtr token);
+
+/**
+ * Funkce vrátí textový řetězec zastupující typ tokenu.
+ *
+ * @retval  char*   Textový řetězec popisující typ tokenu
+ */
+char *TokenType_toString(TokenType type);
+
 #endif

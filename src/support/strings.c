@@ -87,7 +87,7 @@ int String_addChar(char **string, char ch)
 {
     char *output;
     if (*string == NULL)
-        return;
+        return INTERNAL_ERROR;
 
     unsigned length = strlen(*string);
     output = malloc(sizeof(char) * (length + 2));
@@ -104,6 +104,8 @@ int String_addChar(char **string, char ch)
     output[length + 1] = '\0';
 
     *string = output;
+
+    return NO_ERROR;
 }
 
 /**

@@ -111,12 +111,12 @@ unsigned SymbolTable_hash(SymbolTablePtr st, char *key)
 /**
  * Funkce získá hledanou položku ze seznamu s daným identifikátorem.
  *
- * @param[in,out]	SymbolTable	*st		Ukazatel na existující tabulku symbolů
- * @param[in]		char		*key	Identifikátor položky
+ * @param[in,out]	SymbolTablePtr	st		Ukazatel na existující tabulku symbolů
+ * @param[in]		char		    *key	Identifikátor položky
  *
  * @retval	SymbolPtr|NULL	Ukazatel na vyhledanou položku v tabulce
  */
-SymbolPtr SymbolTable_get(SymbolTable *st, char *key)
+SymbolPtr SymbolTable_get(SymbolTablePtr st, char *key)
 {
 	//	Výpočet hashe
 	unsigned hash = SymbolTable_hash(st, key);
@@ -138,7 +138,7 @@ SymbolPtr SymbolTable_get(SymbolTable *st, char *key)
 /**
  * Funkce vloží novou položku do dané tabulky s daným klíčem a hodnotou.
  *
- * @param[in,out]	SymbolTable	    *st		    Ukazatel na existující tabulku symbolů
+ * @param[in,out]	SymbolTablePtr  st		    Ukazatel na existující tabulku symbolů
  * @param[in]		char		    *key	    Identifikátor položky
  * @param[in]		SymbolType	    type	    Typ symbolu
  * @param[in]	    SymbolLocation	location	Umístění symbolu
@@ -147,11 +147,11 @@ SymbolPtr SymbolTable_get(SymbolTable *st, char *key)
  *
  * @retval	int Kód se kterým bylo vložení symbolu ukončeno
  */
-int SymbolTable_insert(SymbolTable *st, char *key, SymbolType type, SymbolLocation location, void *value, SymbolPtr *symbol)
+int SymbolTable_insert(SymbolTablePtr st, char *key, SymbolType type, SymbolLocation location, void *value, SymbolPtr *symbol)
 {
 	//  Vyhledání sybolu na základě klíče
 	SymbolPtr s = SymbolTable_get(st, key);
-	if (s == NULL)
+	if (s != NULL)
     {
         //  Symbol s daným klíčem byl v tabulce již nalezen
         DEBUG_ERR("symtable-insert", "Symbol already exists");
@@ -181,10 +181,10 @@ int SymbolTable_insert(SymbolTable *st, char *key, SymbolType type, SymbolLocati
 /**
  * Funkce odstraní položku s daným jménem z tabulky.
  *
- * @param[in,out]	SymbolTable	*st		Ukazatel na existující tabulku symbolů
- * @param[in]		char		*key	Identifikátor položky
+ * @param[in,out]	SymbolTablePtr  st		Ukazatel na existující tabulku symbolů
+ * @param[in]		char		    *key	Identifikátor položky
  */
-void SymbolTable_delete(SymbolTable *st, char *key)
+void SymbolTable_delete(SymbolTablePtr st, char *key)
 {
 	//	Výpočet hashe
 	unsigned hash = SymbolTable_hash(st, key);
@@ -218,6 +218,36 @@ void SymbolTable_delete(SymbolTable *st, char *key)
 
         Symbol_destroy(&symbol);
     }
+}
+
+/**
+ * Funkce zobrazí obsah tabulky na stderr.
+ *
+ * @param[in,out]	SymbolTablePtr  st Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_debugPrint(SymbolTablePtr st)
+{
+    #ifdef DEBUG_PRINT_SYMTABLE
+    for (int i = 0; i < SYMBOL_TABLE_SIZE; i++)
+    {
+        fprintf(stderr, "%i:", i);
+        SymbolPtr s = st->array[i];
+        if (s == NULL)
+        {
+            fprintf(stderr, "\n");
+            continue;
+        }
+
+        while (s != NULL)
+        {
+            fprintf(stderr, " <K: %s (%s), L: %i>", s->key, SymbolType_toString(s->type), s->location);
+            s = s->next;
+            if (s != NULL)
+                fprintf(stderr, ", ");
+        }
+        fprintf(stderr, "\n");
+    }
+    #endif
 }
 
 /**
@@ -266,6 +296,27 @@ void Symbol_destroy(SymbolPtr *s)
 
     free(symbol);
     *s = NULL;
+}
+
+char *SymbolType_toString(SymbolType type)
+{
+    switch (type)
+    {
+        case ST_BOOLEAN:
+            return "bool";
+        case ST_DOUBLE:
+            return "float";
+        case ST_INTEGER:
+            return "int";
+        case ST_STRING:
+            return "string";
+        case ST_FUNCTION:
+            return "function";
+        case ST_NONE:
+            return "NONE";
+        default:
+            return "_UNKNOWN_";
+    }
 }
 
 

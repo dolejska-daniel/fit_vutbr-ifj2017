@@ -72,7 +72,7 @@ void TokenStack_destroy(TokenStackPtr *s)
 
 int TokenStack_push(TokenStackPtr s, TokenPtr token)
 {
-    if (SymbolStack_isFull(s) == true)
+    if (TokenStack_isFull(s) == true)
     {
         DEBUG_ERR("char_stack-push", "cannot push, stack is already full!");
         return INTERNAL_ERROR;

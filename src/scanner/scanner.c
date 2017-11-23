@@ -47,6 +47,8 @@
 
 extern char *last_line;
 
+bool charReturned = false;
+
 //==================================================================d=d=
 //  DEKLARACE FUNKCÍ
 //======================================================================
@@ -90,8 +92,6 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
     //pomocne promenne pro vynechavani nul na zacatku cisla
     char first_number;
     char first_exp_number;
-
-    bool charReturned = false;
 
     while(1)
     {
@@ -264,7 +264,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else if(ch == '\n')
             {
                 String_destroy(&last_line);
-                String_create(&last_line);
+                last_line = String_create(NULL);
                 input->line++;
                 input->character = 0;
 
@@ -287,7 +287,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i.", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i.", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -652,7 +652,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 ungetc(ch, input->source);
                 input->character--;
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected character \" ", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected character \" ", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -675,7 +675,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else if(ch == '\n')
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. (EOL)", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. (EOL)", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -715,7 +715,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: \", n, t, \\ or <0,2>", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: \", n, t, \\ or <0,2>", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -738,7 +738,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,5>", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,5>", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -757,7 +757,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                     ungetc(ch, input->source);
                     input->character--;
                     String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <1,5>", ch, input->line, input->character, NULL);
+                    char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <1,5>", ch, (char *) input->line, (char *) input->character, NULL);
                     *token = Token_create(INVALID, reason);
                     if(*token == NULL)
                     {
@@ -775,7 +775,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             {
                 first_number == '0';
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,5>", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,5>", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -879,7 +879,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9>", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9>", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -931,7 +931,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9> or +, -", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9> or +, -", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -954,7 +954,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9> or +, -", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9> or +, -", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -1040,14 +1040,14 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             break;
 
         case STATE_INC_BLOCK_COMMENT_APOS:
-            if(ch == '//')
+            if(ch == '/')
             {
                 state = STATE_BEGIN;
             }
             else if(ch == '\n')
             {
                 String_destroy(&last_line);
-                String_create(&last_line);
+                last_line = String_create(NULL);
                 input->line++;
             }
             else if(ch == EOF)
@@ -1079,7 +1079,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: B, O or H", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: B, O or H", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -1098,7 +1098,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: 1 or 0", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: 1 or 0", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -1117,7 +1117,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,7>", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,7>", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -1136,7 +1136,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: alphanumeric", ch, input->line, input->character, NULL);
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: alphanumeric", ch, (char *) input->line, (char *) input->character, NULL);
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {

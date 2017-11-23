@@ -68,7 +68,7 @@ int untilLeftPar(TokenStackPtr s, PostfixListPtr postfixList)
         {
             break;
         }
-        PostfixList_insertOperator(postfixList, stack_token->attr);
+        PostfixList_insertOperator(postfixList, stack_token);
     }
 
     return NO_ERROR;
@@ -143,6 +143,8 @@ int doOperation(TokenStackPtr s, PostfixListPtr postfixList, TokenPtr token)
             return INTERNAL_ERROR;
         }
     }
+
+    return NO_ERROR;
 }
 
 int getTokenPriority(TokenPtr token)
@@ -205,6 +207,8 @@ int infix2postfix_init(TokenStackPtr *s, PostfixListPtr *postfixList)
     {
         return INTERNAL_ERROR;
     }
+
+    return NO_ERROR;
 }
 
 int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, TokenPtr token, SymbolPtr symbol)
@@ -222,7 +226,7 @@ int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, Toke
             DEBUG_ERR("inf2post-addOperand", "token type is IDENTIFIER, but symbol is NULL!");
             return INTERNAL_ERROR;
         }
-        return PostfixList_insertSymbol(postfixList, symbol);
+        return PostfixList_insertSymbol(*postfixList, symbol);
     }
     else
     {
@@ -231,7 +235,7 @@ int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, Toke
             || token->type == CLOSE_BRACKET)
         {
             //	Znak je operátorem
-            return doOperation(s, token->attr, postfixList);
+            return doOperation(*s, *postfixList, token);
         }
         else
         {
@@ -246,10 +250,10 @@ int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, Toke
 
 int infix2postfix_process(TokenStackPtr *s, PostfixListPtr *postfixList)
 {
-    return doOperation(s, postfixList, NULL);
+    return doOperation(*s, *postfixList, NULL);
 }
 
-int infix2postfix_cleanup(TokenStackPtr *s, PostfixListPtr *postfixList)
+void infix2postfix_cleanup(TokenStackPtr *s, PostfixListPtr *postfixList)
 {
     TokenStack_destroy(s);
     PostfixList_destroy(postfixList);

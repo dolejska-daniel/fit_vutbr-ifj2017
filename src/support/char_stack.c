@@ -72,7 +72,7 @@ void CharStack_destroy(CharStackPtr *s)
 
 int CharStack_push(CharStackPtr s, char ch)
 {
-    if (SymbolStack_isFull(s) == true)
+    if (CharStack_isFull(s) == true)
     {
         DEBUG_ERR("char_stack-push", "cannot push, stack is already full!");
         return INTERNAL_ERROR;
@@ -90,7 +90,7 @@ int CharStack_pop(CharStackPtr s)
         return INTERNAL_ERROR;
     }
 
-    s->array[(s->index)--] = NULL;
+    s->array[(s->index)--] = -1;
     return NO_ERROR;
 }
 

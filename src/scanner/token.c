@@ -81,4 +81,103 @@ void Token_destroy(TokenPtr *t)
     *t = NULL;
 }
 
+/**
+ * Funkce zobrazí obsah tokenu na stderr.
+ *
+ * @param[in,out]	TokenPtr    token   Ukazatel na existující token
+ */
+void Token_debugPrint(TokenPtr token)
+{
+    #ifdef DEBUG_PRINT_TOKEN
+    if (token == NULL)
+    {
+        fprintf(stderr, "DEBUG | TOKEN: NULL\n");
+    }
+    else
+    {
+        fprintf(stderr, "DEBUG | TOKEN: {\n");
+        fprintf(stderr, "\ttype: %s,\n", TokenType_toString(token->type));
+        fprintf(stderr, "\tattr: %s,\n", token->attr);
+        fprintf(stderr, "}\n");
+    }
+    #endif
+}
+
+/**
+ * Funkce vrátí textový řetězec zastupující typ tokenu.
+ *
+ * @retval  char*   Textový řetězec popisující typ tokenu
+ */
+char *TokenType_toString(TokenType type)
+{
+    if (type < 35)
+        return "KEYWORD";
+
+    switch (type)
+    {
+        case IDENTIFIER:
+            return "IDENTIFIER";
+        case CONSTANT_INTEGER:
+            return "CONSTANT_INTEGER";
+        case CONSTANT_BINARY:
+            return "CONSTANT_BINARY";
+        case CONSTANT_OCTAL:
+            return "CONSTANT_OCTAL";
+        case CONSTANT_HEXA:
+            return "CONSTANT_HEXA";
+        case CONSTANT_DOUBLE:
+            return "CONSTANT_DOUBLE";
+        case CONSTANT_STRING:
+            return "CONSTANT_STRING";
+        case CONSTANT_BOOLEAN:
+            return "CONSTANT_BOOLEAN";
+        case COMMA:
+            return "COMMA";
+        case SEMICOLON:
+            return "SEMICOLON";
+        case OPEN_BRACKET:
+            return "OPEN_BRACKET";
+        case CLOSE_BRACKET:
+            return "CLOSE_BRACKET";
+        case EQ:
+            return "EQUALS";
+        case GT:
+            return "GREATER_THAN";
+        case GTEQ:
+            return "GREATER_THAN_EQUALS";
+        case LT:
+            return "LESS_THAN";
+        case LTEQ:
+            return "LESS_THAN_EQUALS";
+        case LTGT:
+            return "NOT_EQUALS";
+        case MINUS:
+            return "MINUS";
+        case MINUSEQ:
+            return "-=";
+        case PLUS:
+            return "PLUS";
+        case PLUSEQ:
+            return "+=";
+        case SLASH:
+            return "SLASH";
+        case SLASHEQ:
+            return "/=";
+        case BACK_SLASH:
+            return "BACK_SLASH";
+        case BACK_SLASHEQ:
+            return "\\=";
+        case STAR:
+            return "STAR";
+        case STAREQ:
+            return "*=";
+        case LINE_END:
+            return "<EOL>";
+        case FILE_END:
+            return "<EOF>";
+        default:
+            return "_UNKNOWN_";
+    }
+}
+
 #endif

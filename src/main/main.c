@@ -48,7 +48,11 @@
 #define DEBUG_ERR(...) do{ } while ( 0 )
 #endif
 
+int  error_char_index;
+int  error_instruction_length;
 char *error_description;
+char *last_line;
+
 
 //==================================================================d=d=
 //  DEKLARACE FUNKCÍ
@@ -67,6 +71,14 @@ int main(/*int argc, char **argv*/)
     DEBUG_LOG("main", "Initializing variables");
 
     int result = NO_ERROR;
+
+    last_line = String_create(NULL);
+    if (last_line == NULL)
+    {
+        DEBUG_ERR("main", "failed to mallocate last_line");
+        result = INTERNAL_ERROR;
+        goto program_exit;
+    }
 
     InputPtr input = Input_create(stdin);
     if (input == NULL)
@@ -103,10 +115,9 @@ int main(/*int argc, char **argv*/)
         DEBUG_PRINT("[%s] ERR Parser returned error code %i\n", "main", parser_result);
         DEBUG_PRINT("[%s]   | Message: %s\n", "main", error_description);
 
-        String_destroy(&error_description);
-        Instruction_outputAll(ilist);
         //  TODO: Output errors
         //  TODO: Cleanup & exit
+        Instruction_outputAll(ilist);
     }
     else
     {
@@ -132,5 +143,41 @@ program_exit:
 
 
     DEBUG_LOG("main", "Exiting program");
+    if (result != NO_ERROR)
+    {
+        //  Došlo k ukončení s chybami
+        fprintf(stderr, "\nAn error occured during program execution!\n==========================================\n\nYou will find more detailed information below.\n\n");
+        if (last_line != NULL && strlen(last_line) > 0)
+        {
+            //  Máme k dispozici obsah posledního řádku
+            fprintf(stderr, "Error line:\n\t");
+            fprintf(stderr, last_line);
+            if (last_line[strlen(last_line) - 1] != '\n')
+                fprintf(stderr, "\n");
+
+            fprintf(stderr, "\t");
+            for (int char_index = 0; char_index < error_char_index; char_index++)
+                fprintf(stderr, " ");
+            fprintf(stderr, "^");
+            for (int char_index = 0; char_index < error_instruction_length - 1; char_index++)
+                fprintf(stderr, "~");
+            fprintf(stderr, "\n\n");
+
+            String_destroy(&last_line);
+        }
+
+        fprintf(stderr, "Exit code:  %i\n", result);
+        fprintf(stderr, "Error:      ");
+        if (error_description)
+        {
+            fprintf(stderr, error_description);
+            fprintf(stderr, "\n");
+            String_destroy(&error_description);
+        }
+        else
+        {
+            fprintf(stderr, "Unknown error occured during parsing.\n");
+        }
+    }
     return result;
 }
