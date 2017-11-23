@@ -1,0 +1,815 @@
+\hypertarget{generator_8h}{}\section{Dokumentace souboru generator.\+h}
+\label{generator_8h}\index{generator.\+h@{generator.\+h}}
+{\ttfamily \#include \char`\"{}instruction\+\_\+list.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}symtable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}token.\+h\char`\"{}}\newline
+\subsection*{Definice maker}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{generator_8h_acee33a04e9f45f5d680721a732a3de6d}{\+\_\+generator\+\_\+h}
+\end{DoxyCompactItemize}
+\subsection*{Funkce}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{generator_8h_aaa1d11e0378f4cc102dfa86a77d72e2f}{Instruction\+\_\+function\+\_\+begin} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_aa71be23808f4d755c782160e1bd7589a}{Instruction\+\_\+function\+\_\+end} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_af9718e563f7280b3e61137841979cf35}{Instruction\+\_\+function\+\_\+return} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_ae00d2bd6cc73481caaf3478d5746a218}{Instruction\+\_\+function\+\_\+return\+\_\+read} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_af01bd33e4b961cfcbc7ea0cda4408318}{Instruction\+\_\+function\+\_\+call} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_aedde1a62780b6d52c4b72d2d0d32249d}{Instruction\+\_\+function\+\_\+call\+\_\+add\+Parameter} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_a384fb63fe38672b9e7146ff09059d8fe}{Instruction\+\_\+move} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_a27072b2526f677a4174d271ccdc9df97}{Instruction\+\_\+createframe} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a1ab07e876e12994c80a6583fd243a48e}{Instruction\+\_\+pushframe} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a7c5a9bf3fc10eddf6a5a5165399d3dae}{Instruction\+\_\+popframe} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a609b26296b62f1630d6a186e9d4f1d68}{Instruction\+\_\+defvar} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_ab18cba6c224f307db2aaf2b7b7f06510}{Instruction\+\_\+call} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_a8f1df72fef10317701d68e27b019bf9b}{Instruction\+\_\+return} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a83f78a3aa8b5935271c72fbff2fcc0de}{Instruction\+\_\+variable\+\_\+declare} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_aa7027f55a228cb863d8796b85f847bb2}{Instruction\+\_\+variable\+\_\+assign} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_af3d75d7526327f488b29c959285beb3e}{Instruction\+\_\+stack\+\_\+push} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_ab82304eaee6938c213901b0de0b911c6}{Instruction\+\_\+stack\+\_\+pop} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_ad7a2264ef2f4041411e7fee9bd055a78}{Instruction\+\_\+stack\+\_\+clear} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a6c99023dc66c4a9d5645a16e137ad6c0}{Instruction\+\_\+add} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_ada13b93107cccc4d2764311c51ecc342}{Instruction\+\_\+sub} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_acc645db6ee4f032c13ad66eb5d4548ee}{Instruction\+\_\+div} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_afca5917694f6f90360c0a43e323fef73}{Instruction\+\_\+mul} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_a702ef23fa4195adf923502d430d8634b}{Instruction\+\_\+add\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a90499df728b4d359dd44528bd2e77901}{Instruction\+\_\+sub\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a92cdf1385cec5c67600f7e88ce8c2d52}{Instruction\+\_\+div\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a6fb115f15394c9c5a8b2b4bee2ae02f6}{Instruction\+\_\+mul\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_adfef78c3cc6dc397517056d1617bfa65}{Instruction\+\_\+logic\+\_\+eq} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_a005c9eb598ba43656151a264a1ddfed7}{Instruction\+\_\+logic\+\_\+lt} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_ac4cdfc286d19ea43b94de826f6f284a8}{Instruction\+\_\+logic\+\_\+gt} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_a1757b01ee26c146cbdb9a0809dc1614b}{Instruction\+\_\+logic\+\_\+and} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_ae13a26e1b9f409882a5299e5c8149646}{Instruction\+\_\+logic\+\_\+or} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_ad47e6dd1e84ce11a7ee7e83408072554}{Instruction\+\_\+logic\+\_\+not} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_a87f8751a14883358d875994336f718a9}{Instruction\+\_\+logic\+\_\+eq\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a858207501e0c2ccdbd13eb1229dc080c}{Instruction\+\_\+logic\+\_\+lt\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a6e7546ec2de28111394f05956b0cb846}{Instruction\+\_\+logic\+\_\+gt\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a86a47faf41820e5604d6901cbaa08948}{Instruction\+\_\+logic\+\_\+and\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_aff7d28a564e3d71bae7fbc6590030b6e}{Instruction\+\_\+logic\+\_\+or\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a6a62f970bb549bdf4bc2c8b85e1017bc}{Instruction\+\_\+logic\+\_\+not\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_aa4f3b62ad5940703179611168051fe7f}{Instruction\+\_\+stri2int} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_af4dba262b5578636c43c0a4c97591897}{Instruction\+\_\+int2float} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_a21cb4b8d53ad24ed89ba2afbdec5dd4e}{Instruction\+\_\+float2int} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_a097ab7cab598f4fb1bee8afb1d121471}{Instruction\+\_\+float2r2eint} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_ace6b84937cba7129449b280c045ec7aa}{Instruction\+\_\+float2r2oint} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_a1a1d7d175bfdde6bbd6c70c327aa25d4}{Instruction\+\_\+stri2int\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_acf9adf1ca024d0385ed3d000ec3d0f93}{Instruction\+\_\+int2float\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a01d40eb3a4de3a36ae4755771defc1c9}{Instruction\+\_\+float2int\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a2df6e477890b0ecff2991022031a836c}{Instruction\+\_\+float2r2eint\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a821bfa6acb66a389e07c569e0174eccd}{Instruction\+\_\+float2r2oint\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a8bc0fe2f6ad5719ac53a5857369285de}{Instruction\+\_\+input} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_a08038ccee8a966845a60fc6cba223c5e}{Instruction\+\_\+write} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_a515a6762f5d75b757cf91761223d265a}{Instruction\+\_\+concat} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_a273940e26a096805671bfc31272d0967}{Instruction\+\_\+strlen} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_aa506cdea0e90c69aa5920d27b890a3d1}{Instruction\+\_\+getchar} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_a969b57ac8e5665d9de7140cc942f25b3}{Instruction\+\_\+setchar} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_a91f572a805ed3c30f72804e28c3f423a}{Instruction\+\_\+type} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} variable, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_a2655a6c8385ba6eae9971be64d31284d}{Instruction\+\_\+label} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, char $\ast$label)
+\item 
+int \hyperlink{generator_8h_a5bc58553e65872cdbbee6ebbb33b0fd6}{Instruction\+\_\+jump} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, char $\ast$label)
+\item 
+int \hyperlink{generator_8h_a256465fd2a6c2cd7fd4b91bd0abf4f39}{Instruction\+\_\+jumpifeq} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, char $\ast$label, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_afc68c1b390703a01302bf11ed2dac6bc}{Instruction\+\_\+jumpifneq} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, char $\ast$label, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol1, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol2)
+\item 
+int \hyperlink{generator_8h_a1ee50e6add60c24b32e959685f909c79}{Instruction\+\_\+jumpifeq\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, char $\ast$label)
+\item 
+int \hyperlink{generator_8h_ada5519127ef325d10b1ac51cac6b71e5}{Instruction\+\_\+jumpifneq\+\_\+stack} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, char $\ast$label)
+\item 
+int \hyperlink{generator_8h_a87ab626d822a4baee8cdc1bbc74a3987}{Instruction\+\_\+debug\+\_\+break} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\item 
+int \hyperlink{generator_8h_a2b7571119770e7da512d4c6cc27f819e}{Instruction\+\_\+debug\+\_\+print} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} symbol)
+\item 
+int \hyperlink{generator_8h_a43552ef44db4fa567bee8a82a892112d}{Instruction\+\_\+custom} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l, const char $\ast$data)
+\item 
+int \hyperlink{generator_8h_aa4e17cb7a73891cba5ecf6c8c291355a}{Instruction\+\_\+output\+All} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} l)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentace k definicím maker}
+\mbox{\Hypertarget{generator_8h_acee33a04e9f45f5d680721a732a3de6d}\label{generator_8h_acee33a04e9f45f5d680721a732a3de6d}} 
+\index{generator.\+h@{generator.\+h}!\+\_\+generator\+\_\+h@{\+\_\+generator\+\_\+h}}
+\index{\+\_\+generator\+\_\+h@{\+\_\+generator\+\_\+h}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+generator\+\_\+h}{\_generator\_h}}
+{\footnotesize\ttfamily \#define \+\_\+generator\+\_\+h}
+
+Tento soubor obsahuje deklarace funkcí využité při implementaci generátoru cílového kódu (generator).
+
+\begin{DoxyAuthor}{Autor}
+Daniel Dolejška (xdolej08) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Datum}
+21.\+11.\+2017  I\+F\+Jcode17\+Parser  Formální jazyky a překladače (I\+FJ) -\/ F\+IT V\+UT v Brně 
+\end{DoxyDate}
+
+
+Definice je uvedena na řádku 14 v souboru generator.\+h.
+
+
+
+\subsection{Dokumentace funkcí}
+\mbox{\Hypertarget{generator_8h_a6c99023dc66c4a9d5645a16e137ad6c0}\label{generator_8h_a6c99023dc66c4a9d5645a16e137ad6c0}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+add@{Instruction\+\_\+add}}
+\index{Instruction\+\_\+add@{Instruction\+\_\+add}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+add()}{Instruction\_add()}}
+{\footnotesize\ttfamily int Instruction\+\_\+add (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro součet proměnných/konstant. V případě nutnosti provádí požadované konverze datových typů.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & variable Symbol obsahující informace o proměnné, kam bude hodnota výpočtu uložena \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol1 Symbol obsahující informace o proměnné/konstantě, sloužící jako hodnota ve výpočtu \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol2 Symbol obsahující informace o proměnné/konstantě, sloužící jako hodnota ve výpočtu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_a702ef23fa4195adf923502d430d8634b}\label{generator_8h_a702ef23fa4195adf923502d430d8634b}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+add\+\_\+stack@{Instruction\+\_\+add\+\_\+stack}}
+\index{Instruction\+\_\+add\+\_\+stack@{Instruction\+\_\+add\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+add\+\_\+stack()}{Instruction\_add\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+add\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro součet proměnných/konstant na stacku.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_ab18cba6c224f307db2aaf2b7b7f06510}\label{generator_8h_ab18cba6c224f307db2aaf2b7b7f06510}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+call@{Instruction\+\_\+call}}
+\index{Instruction\+\_\+call@{Instruction\+\_\+call}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+call()}{Instruction\_call()}}
+{\footnotesize\ttfamily int Instruction\+\_\+call (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a515a6762f5d75b757cf91761223d265a}\label{generator_8h_a515a6762f5d75b757cf91761223d265a}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+concat@{Instruction\+\_\+concat}}
+\index{Instruction\+\_\+concat@{Instruction\+\_\+concat}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+concat()}{Instruction\_concat()}}
+{\footnotesize\ttfamily int Instruction\+\_\+concat (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a27072b2526f677a4174d271ccdc9df97}\label{generator_8h_a27072b2526f677a4174d271ccdc9df97}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+createframe@{Instruction\+\_\+createframe}}
+\index{Instruction\+\_\+createframe@{Instruction\+\_\+createframe}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+createframe()}{Instruction\_createframe()}}
+{\footnotesize\ttfamily int Instruction\+\_\+createframe (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a43552ef44db4fa567bee8a82a892112d}\label{generator_8h_a43552ef44db4fa567bee8a82a892112d}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+custom@{Instruction\+\_\+custom}}
+\index{Instruction\+\_\+custom@{Instruction\+\_\+custom}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+custom()}{Instruction\_custom()}}
+{\footnotesize\ttfamily int Instruction\+\_\+custom (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{const char $\ast$}]{data }\end{DoxyParamCaption})}
+
+Funkce pro zápis vlastní instrukce. Jendoduše uloží daný řetězec do seznamu instrukcí.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em char} & $\ast$data Obsah instrukce\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_a87ab626d822a4baee8cdc1bbc74a3987}\label{generator_8h_a87ab626d822a4baee8cdc1bbc74a3987}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+debug\+\_\+break@{Instruction\+\_\+debug\+\_\+break}}
+\index{Instruction\+\_\+debug\+\_\+break@{Instruction\+\_\+debug\+\_\+break}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+debug\+\_\+break()}{Instruction\_debug\_break()}}
+{\footnotesize\ttfamily int Instruction\+\_\+debug\+\_\+break (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a2b7571119770e7da512d4c6cc27f819e}\label{generator_8h_a2b7571119770e7da512d4c6cc27f819e}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+debug\+\_\+print@{Instruction\+\_\+debug\+\_\+print}}
+\index{Instruction\+\_\+debug\+\_\+print@{Instruction\+\_\+debug\+\_\+print}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+debug\+\_\+print()}{Instruction\_debug\_print()}}
+{\footnotesize\ttfamily int Instruction\+\_\+debug\+\_\+print (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a609b26296b62f1630d6a186e9d4f1d68}\label{generator_8h_a609b26296b62f1630d6a186e9d4f1d68}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+defvar@{Instruction\+\_\+defvar}}
+\index{Instruction\+\_\+defvar@{Instruction\+\_\+defvar}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+defvar()}{Instruction\_defvar()}}
+{\footnotesize\ttfamily int Instruction\+\_\+defvar (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_acc645db6ee4f032c13ad66eb5d4548ee}\label{generator_8h_acc645db6ee4f032c13ad66eb5d4548ee}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+div@{Instruction\+\_\+div}}
+\index{Instruction\+\_\+div@{Instruction\+\_\+div}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+div()}{Instruction\_div()}}
+{\footnotesize\ttfamily int Instruction\+\_\+div (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro dělení proměnných/konstant. V případě nutnosti provádí požadované konverze datových typů.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & variable Symbol obsahující informace o proměnné, kam bude hodnota výpočtu uložena \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol1 Symbol obsahující informace o proměnné/konstantě, sloužící jako hodnota ve výpočtu \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol2 Symbol obsahující informace o proměnné/konstantě, sloužící jako hodnota ve výpočtu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_a92cdf1385cec5c67600f7e88ce8c2d52}\label{generator_8h_a92cdf1385cec5c67600f7e88ce8c2d52}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+div\+\_\+stack@{Instruction\+\_\+div\+\_\+stack}}
+\index{Instruction\+\_\+div\+\_\+stack@{Instruction\+\_\+div\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+div\+\_\+stack()}{Instruction\_div\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+div\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro dělení proměnných/konstant na stacku.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_a21cb4b8d53ad24ed89ba2afbdec5dd4e}\label{generator_8h_a21cb4b8d53ad24ed89ba2afbdec5dd4e}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+float2int@{Instruction\+\_\+float2int}}
+\index{Instruction\+\_\+float2int@{Instruction\+\_\+float2int}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+float2int()}{Instruction\_float2int()}}
+{\footnotesize\ttfamily int Instruction\+\_\+float2int (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a01d40eb3a4de3a36ae4755771defc1c9}\label{generator_8h_a01d40eb3a4de3a36ae4755771defc1c9}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+float2int\+\_\+stack@{Instruction\+\_\+float2int\+\_\+stack}}
+\index{Instruction\+\_\+float2int\+\_\+stack@{Instruction\+\_\+float2int\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+float2int\+\_\+stack()}{Instruction\_float2int\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+float2int\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a097ab7cab598f4fb1bee8afb1d121471}\label{generator_8h_a097ab7cab598f4fb1bee8afb1d121471}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+float2r2eint@{Instruction\+\_\+float2r2eint}}
+\index{Instruction\+\_\+float2r2eint@{Instruction\+\_\+float2r2eint}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+float2r2eint()}{Instruction\_float2r2eint()}}
+{\footnotesize\ttfamily int Instruction\+\_\+float2r2eint (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a2df6e477890b0ecff2991022031a836c}\label{generator_8h_a2df6e477890b0ecff2991022031a836c}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+float2r2eint\+\_\+stack@{Instruction\+\_\+float2r2eint\+\_\+stack}}
+\index{Instruction\+\_\+float2r2eint\+\_\+stack@{Instruction\+\_\+float2r2eint\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+float2r2eint\+\_\+stack()}{Instruction\_float2r2eint\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+float2r2eint\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_ace6b84937cba7129449b280c045ec7aa}\label{generator_8h_ace6b84937cba7129449b280c045ec7aa}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+float2r2oint@{Instruction\+\_\+float2r2oint}}
+\index{Instruction\+\_\+float2r2oint@{Instruction\+\_\+float2r2oint}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+float2r2oint()}{Instruction\_float2r2oint()}}
+{\footnotesize\ttfamily int Instruction\+\_\+float2r2oint (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a821bfa6acb66a389e07c569e0174eccd}\label{generator_8h_a821bfa6acb66a389e07c569e0174eccd}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+float2r2oint\+\_\+stack@{Instruction\+\_\+float2r2oint\+\_\+stack}}
+\index{Instruction\+\_\+float2r2oint\+\_\+stack@{Instruction\+\_\+float2r2oint\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+float2r2oint\+\_\+stack()}{Instruction\_float2r2oint\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+float2r2oint\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_aaa1d11e0378f4cc102dfa86a77d72e2f}\label{generator_8h_aaa1d11e0378f4cc102dfa86a77d72e2f}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+function\+\_\+begin@{Instruction\+\_\+function\+\_\+begin}}
+\index{Instruction\+\_\+function\+\_\+begin@{Instruction\+\_\+function\+\_\+begin}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+function\+\_\+begin()}{Instruction\_function\_begin()}}
+{\footnotesize\ttfamily int Instruction\+\_\+function\+\_\+begin (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+Zapíše instrukce značící začátek funkce. Po této funkci budou následovat samotné instrukce dané funkce. Toto chování bude ukončeno voláním funkce Instruction\+\_\+function\+\_\+end.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol Symbol obsahující informace o funkci\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_af01bd33e4b961cfcbc7ea0cda4408318}\label{generator_8h_af01bd33e4b961cfcbc7ea0cda4408318}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+function\+\_\+call@{Instruction\+\_\+function\+\_\+call}}
+\index{Instruction\+\_\+function\+\_\+call@{Instruction\+\_\+function\+\_\+call}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+function\+\_\+call()}{Instruction\_function\_call()}}
+{\footnotesize\ttfamily int Instruction\+\_\+function\+\_\+call (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro volání funkce. Připraví rámce s parametry volané funkce. Parametry jsou určeny předem funkcí Instruction\+\_\+function\+\_\+call\+\_\+add\+Parameter.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol Symbol obsahující informace o volané funkci\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_aedde1a62780b6d52c4b72d2d0d32249d}\label{generator_8h_aedde1a62780b6d52c4b72d2d0d32249d}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+function\+\_\+call\+\_\+add\+Parameter@{Instruction\+\_\+function\+\_\+call\+\_\+add\+Parameter}}
+\index{Instruction\+\_\+function\+\_\+call\+\_\+add\+Parameter@{Instruction\+\_\+function\+\_\+call\+\_\+add\+Parameter}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+function\+\_\+call\+\_\+add\+Parameter()}{Instruction\_function\_call\_addParameter()}}
+{\footnotesize\ttfamily int Instruction\+\_\+function\+\_\+call\+\_\+add\+Parameter (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro přípravu rámce -\/ parametrů před voláním funkce. Za touto funkcí může následovat pouze volání Instruction\+\_\+function\+\_\+call či příprava dalších parametrů.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol Symbol obsahující informace o proměnné/konstantě, sloužící jako parametr volané funkce\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_aa71be23808f4d755c782160e1bd7589a}\label{generator_8h_aa71be23808f4d755c782160e1bd7589a}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+function\+\_\+end@{Instruction\+\_\+function\+\_\+end}}
+\index{Instruction\+\_\+function\+\_\+end@{Instruction\+\_\+function\+\_\+end}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+function\+\_\+end()}{Instruction\_function\_end()}}
+{\footnotesize\ttfamily int Instruction\+\_\+function\+\_\+end (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Zapíše instrukce značící konec funkce. Postará se o uklizení rámce po návratu z funkce.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_af9718e563f7280b3e61137841979cf35}\label{generator_8h_af9718e563f7280b3e61137841979cf35}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+function\+\_\+return@{Instruction\+\_\+function\+\_\+return}}
+\index{Instruction\+\_\+function\+\_\+return@{Instruction\+\_\+function\+\_\+return}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+function\+\_\+return()}{Instruction\_function\_return()}}
+{\footnotesize\ttfamily int Instruction\+\_\+function\+\_\+return (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro návrat hodnoty funkce. Tato funkce musí být volána před samotným ukončením funkce (Instruction\+\_\+function\+\_\+end)!
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol Symbol obsahující informace o proměnné ve funkci jejíž hodnota bude navrácena\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_ae00d2bd6cc73481caaf3478d5746a218}\label{generator_8h_ae00d2bd6cc73481caaf3478d5746a218}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+function\+\_\+return\+\_\+read@{Instruction\+\_\+function\+\_\+return\+\_\+read}}
+\index{Instruction\+\_\+function\+\_\+return\+\_\+read@{Instruction\+\_\+function\+\_\+return\+\_\+read}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+function\+\_\+return\+\_\+read()}{Instruction\_function\_return\_read()}}
+{\footnotesize\ttfamily int Instruction\+\_\+function\+\_\+return\+\_\+read (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro přečtení/uložení návratové hodnoty funkce. Tato funkce musí být volána po funkci Instruction\+\_\+function\+\_\+return a samotným ukončením funkce (Instruction\+\_\+function\+\_\+end)!
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol Symbol obsahující informace o proměnné, do které bude návratová hodnota funkce uložena\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_aa506cdea0e90c69aa5920d27b890a3d1}\label{generator_8h_aa506cdea0e90c69aa5920d27b890a3d1}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+getchar@{Instruction\+\_\+getchar}}
+\index{Instruction\+\_\+getchar@{Instruction\+\_\+getchar}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+getchar()}{Instruction\_getchar()}}
+{\footnotesize\ttfamily int Instruction\+\_\+getchar (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a8bc0fe2f6ad5719ac53a5857369285de}\label{generator_8h_a8bc0fe2f6ad5719ac53a5857369285de}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+input@{Instruction\+\_\+input}}
+\index{Instruction\+\_\+input@{Instruction\+\_\+input}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+input()}{Instruction\_input()}}
+{\footnotesize\ttfamily int Instruction\+\_\+input (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_af4dba262b5578636c43c0a4c97591897}\label{generator_8h_af4dba262b5578636c43c0a4c97591897}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+int2float@{Instruction\+\_\+int2float}}
+\index{Instruction\+\_\+int2float@{Instruction\+\_\+int2float}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+int2float()}{Instruction\_int2float()}}
+{\footnotesize\ttfamily int Instruction\+\_\+int2float (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_acf9adf1ca024d0385ed3d000ec3d0f93}\label{generator_8h_acf9adf1ca024d0385ed3d000ec3d0f93}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+int2float\+\_\+stack@{Instruction\+\_\+int2float\+\_\+stack}}
+\index{Instruction\+\_\+int2float\+\_\+stack@{Instruction\+\_\+int2float\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+int2float\+\_\+stack()}{Instruction\_int2float\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+int2float\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a5bc58553e65872cdbbee6ebbb33b0fd6}\label{generator_8h_a5bc58553e65872cdbbee6ebbb33b0fd6}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+jump@{Instruction\+\_\+jump}}
+\index{Instruction\+\_\+jump@{Instruction\+\_\+jump}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+jump()}{Instruction\_jump()}}
+{\footnotesize\ttfamily int Instruction\+\_\+jump (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{char $\ast$}]{label }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a256465fd2a6c2cd7fd4b91bd0abf4f39}\label{generator_8h_a256465fd2a6c2cd7fd4b91bd0abf4f39}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+jumpifeq@{Instruction\+\_\+jumpifeq}}
+\index{Instruction\+\_\+jumpifeq@{Instruction\+\_\+jumpifeq}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+jumpifeq()}{Instruction\_jumpifeq()}}
+{\footnotesize\ttfamily int Instruction\+\_\+jumpifeq (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{char $\ast$}]{label,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a1ee50e6add60c24b32e959685f909c79}\label{generator_8h_a1ee50e6add60c24b32e959685f909c79}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+jumpifeq\+\_\+stack@{Instruction\+\_\+jumpifeq\+\_\+stack}}
+\index{Instruction\+\_\+jumpifeq\+\_\+stack@{Instruction\+\_\+jumpifeq\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+jumpifeq\+\_\+stack()}{Instruction\_jumpifeq\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+jumpifeq\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{char $\ast$}]{label }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_afc68c1b390703a01302bf11ed2dac6bc}\label{generator_8h_afc68c1b390703a01302bf11ed2dac6bc}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+jumpifneq@{Instruction\+\_\+jumpifneq}}
+\index{Instruction\+\_\+jumpifneq@{Instruction\+\_\+jumpifneq}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+jumpifneq()}{Instruction\_jumpifneq()}}
+{\footnotesize\ttfamily int Instruction\+\_\+jumpifneq (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{char $\ast$}]{label,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_ada5519127ef325d10b1ac51cac6b71e5}\label{generator_8h_ada5519127ef325d10b1ac51cac6b71e5}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+jumpifneq\+\_\+stack@{Instruction\+\_\+jumpifneq\+\_\+stack}}
+\index{Instruction\+\_\+jumpifneq\+\_\+stack@{Instruction\+\_\+jumpifneq\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+jumpifneq\+\_\+stack()}{Instruction\_jumpifneq\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+jumpifneq\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{char $\ast$}]{label }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a2655a6c8385ba6eae9971be64d31284d}\label{generator_8h_a2655a6c8385ba6eae9971be64d31284d}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+label@{Instruction\+\_\+label}}
+\index{Instruction\+\_\+label@{Instruction\+\_\+label}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+label()}{Instruction\_label()}}
+{\footnotesize\ttfamily int Instruction\+\_\+label (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{char $\ast$}]{label }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a1757b01ee26c146cbdb9a0809dc1614b}\label{generator_8h_a1757b01ee26c146cbdb9a0809dc1614b}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+and@{Instruction\+\_\+logic\+\_\+and}}
+\index{Instruction\+\_\+logic\+\_\+and@{Instruction\+\_\+logic\+\_\+and}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+and()}{Instruction\_logic\_and()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+and (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a86a47faf41820e5604d6901cbaa08948}\label{generator_8h_a86a47faf41820e5604d6901cbaa08948}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+and\+\_\+stack@{Instruction\+\_\+logic\+\_\+and\+\_\+stack}}
+\index{Instruction\+\_\+logic\+\_\+and\+\_\+stack@{Instruction\+\_\+logic\+\_\+and\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+and\+\_\+stack()}{Instruction\_logic\_and\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+and\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_adfef78c3cc6dc397517056d1617bfa65}\label{generator_8h_adfef78c3cc6dc397517056d1617bfa65}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+eq@{Instruction\+\_\+logic\+\_\+eq}}
+\index{Instruction\+\_\+logic\+\_\+eq@{Instruction\+\_\+logic\+\_\+eq}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+eq()}{Instruction\_logic\_eq()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+eq (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a87f8751a14883358d875994336f718a9}\label{generator_8h_a87f8751a14883358d875994336f718a9}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+eq\+\_\+stack@{Instruction\+\_\+logic\+\_\+eq\+\_\+stack}}
+\index{Instruction\+\_\+logic\+\_\+eq\+\_\+stack@{Instruction\+\_\+logic\+\_\+eq\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+eq\+\_\+stack()}{Instruction\_logic\_eq\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+eq\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_ac4cdfc286d19ea43b94de826f6f284a8}\label{generator_8h_ac4cdfc286d19ea43b94de826f6f284a8}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+gt@{Instruction\+\_\+logic\+\_\+gt}}
+\index{Instruction\+\_\+logic\+\_\+gt@{Instruction\+\_\+logic\+\_\+gt}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+gt()}{Instruction\_logic\_gt()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+gt (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a6e7546ec2de28111394f05956b0cb846}\label{generator_8h_a6e7546ec2de28111394f05956b0cb846}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+gt\+\_\+stack@{Instruction\+\_\+logic\+\_\+gt\+\_\+stack}}
+\index{Instruction\+\_\+logic\+\_\+gt\+\_\+stack@{Instruction\+\_\+logic\+\_\+gt\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+gt\+\_\+stack()}{Instruction\_logic\_gt\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+gt\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a005c9eb598ba43656151a264a1ddfed7}\label{generator_8h_a005c9eb598ba43656151a264a1ddfed7}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+lt@{Instruction\+\_\+logic\+\_\+lt}}
+\index{Instruction\+\_\+logic\+\_\+lt@{Instruction\+\_\+logic\+\_\+lt}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+lt()}{Instruction\_logic\_lt()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+lt (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a858207501e0c2ccdbd13eb1229dc080c}\label{generator_8h_a858207501e0c2ccdbd13eb1229dc080c}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+lt\+\_\+stack@{Instruction\+\_\+logic\+\_\+lt\+\_\+stack}}
+\index{Instruction\+\_\+logic\+\_\+lt\+\_\+stack@{Instruction\+\_\+logic\+\_\+lt\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+lt\+\_\+stack()}{Instruction\_logic\_lt\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+lt\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_ad47e6dd1e84ce11a7ee7e83408072554}\label{generator_8h_ad47e6dd1e84ce11a7ee7e83408072554}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+not@{Instruction\+\_\+logic\+\_\+not}}
+\index{Instruction\+\_\+logic\+\_\+not@{Instruction\+\_\+logic\+\_\+not}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+not()}{Instruction\_logic\_not()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+not (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a6a62f970bb549bdf4bc2c8b85e1017bc}\label{generator_8h_a6a62f970bb549bdf4bc2c8b85e1017bc}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+not\+\_\+stack@{Instruction\+\_\+logic\+\_\+not\+\_\+stack}}
+\index{Instruction\+\_\+logic\+\_\+not\+\_\+stack@{Instruction\+\_\+logic\+\_\+not\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+not\+\_\+stack()}{Instruction\_logic\_not\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+not\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_ae13a26e1b9f409882a5299e5c8149646}\label{generator_8h_ae13a26e1b9f409882a5299e5c8149646}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+or@{Instruction\+\_\+logic\+\_\+or}}
+\index{Instruction\+\_\+logic\+\_\+or@{Instruction\+\_\+logic\+\_\+or}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+or()}{Instruction\_logic\_or()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+or (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_aff7d28a564e3d71bae7fbc6590030b6e}\label{generator_8h_aff7d28a564e3d71bae7fbc6590030b6e}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+logic\+\_\+or\+\_\+stack@{Instruction\+\_\+logic\+\_\+or\+\_\+stack}}
+\index{Instruction\+\_\+logic\+\_\+or\+\_\+stack@{Instruction\+\_\+logic\+\_\+or\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+logic\+\_\+or\+\_\+stack()}{Instruction\_logic\_or\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+logic\+\_\+or\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a384fb63fe38672b9e7146ff09059d8fe}\label{generator_8h_a384fb63fe38672b9e7146ff09059d8fe}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+move@{Instruction\+\_\+move}}
+\index{Instruction\+\_\+move@{Instruction\+\_\+move}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+move()}{Instruction\_move()}}
+{\footnotesize\ttfamily int Instruction\+\_\+move (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_afca5917694f6f90360c0a43e323fef73}\label{generator_8h_afca5917694f6f90360c0a43e323fef73}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+mul@{Instruction\+\_\+mul}}
+\index{Instruction\+\_\+mul@{Instruction\+\_\+mul}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+mul()}{Instruction\_mul()}}
+{\footnotesize\ttfamily int Instruction\+\_\+mul (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro násobení proměnných/konstant. V případě nutnosti provádí požadované konverze datových typů.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & variable Symbol obsahující informace o proměnné, kam bude hodnota výpočtu uložena \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol1 Symbol obsahující informace o proměnné/konstantě, sloužící jako hodnota ve výpočtu \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol2 Symbol obsahující informace o proměnné/konstantě, sloužící jako hodnota ve výpočtu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_a6fb115f15394c9c5a8b2b4bee2ae02f6}\label{generator_8h_a6fb115f15394c9c5a8b2b4bee2ae02f6}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+mul\+\_\+stack@{Instruction\+\_\+mul\+\_\+stack}}
+\index{Instruction\+\_\+mul\+\_\+stack@{Instruction\+\_\+mul\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+mul\+\_\+stack()}{Instruction\_mul\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+mul\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro násobení proměnných/konstant na stacku.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_aa4e17cb7a73891cba5ecf6c8c291355a}\label{generator_8h_aa4e17cb7a73891cba5ecf6c8c291355a}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+output\+All@{Instruction\+\_\+output\+All}}
+\index{Instruction\+\_\+output\+All@{Instruction\+\_\+output\+All}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+output\+All()}{Instruction\_outputAll()}}
+{\footnotesize\ttfamily int Instruction\+\_\+output\+All (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Závěrečná funkce volaná při úspěšném ukončování překladače. Vypíše všechny instrukce programu, který byl přeložen na stdout.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_a7c5a9bf3fc10eddf6a5a5165399d3dae}\label{generator_8h_a7c5a9bf3fc10eddf6a5a5165399d3dae}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+popframe@{Instruction\+\_\+popframe}}
+\index{Instruction\+\_\+popframe@{Instruction\+\_\+popframe}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+popframe()}{Instruction\_popframe()}}
+{\footnotesize\ttfamily int Instruction\+\_\+popframe (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a1ab07e876e12994c80a6583fd243a48e}\label{generator_8h_a1ab07e876e12994c80a6583fd243a48e}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+pushframe@{Instruction\+\_\+pushframe}}
+\index{Instruction\+\_\+pushframe@{Instruction\+\_\+pushframe}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+pushframe()}{Instruction\_pushframe()}}
+{\footnotesize\ttfamily int Instruction\+\_\+pushframe (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a8f1df72fef10317701d68e27b019bf9b}\label{generator_8h_a8f1df72fef10317701d68e27b019bf9b}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+return@{Instruction\+\_\+return}}
+\index{Instruction\+\_\+return@{Instruction\+\_\+return}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+return()}{Instruction\_return()}}
+{\footnotesize\ttfamily int Instruction\+\_\+return (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a969b57ac8e5665d9de7140cc942f25b3}\label{generator_8h_a969b57ac8e5665d9de7140cc942f25b3}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+setchar@{Instruction\+\_\+setchar}}
+\index{Instruction\+\_\+setchar@{Instruction\+\_\+setchar}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+setchar()}{Instruction\_setchar()}}
+{\footnotesize\ttfamily int Instruction\+\_\+setchar (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_ad7a2264ef2f4041411e7fee9bd055a78}\label{generator_8h_ad7a2264ef2f4041411e7fee9bd055a78}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+stack\+\_\+clear@{Instruction\+\_\+stack\+\_\+clear}}
+\index{Instruction\+\_\+stack\+\_\+clear@{Instruction\+\_\+stack\+\_\+clear}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+stack\+\_\+clear()}{Instruction\_stack\_clear()}}
+{\footnotesize\ttfamily int Instruction\+\_\+stack\+\_\+clear (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_ab82304eaee6938c213901b0de0b911c6}\label{generator_8h_ab82304eaee6938c213901b0de0b911c6}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+stack\+\_\+pop@{Instruction\+\_\+stack\+\_\+pop}}
+\index{Instruction\+\_\+stack\+\_\+pop@{Instruction\+\_\+stack\+\_\+pop}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+stack\+\_\+pop()}{Instruction\_stack\_pop()}}
+{\footnotesize\ttfamily int Instruction\+\_\+stack\+\_\+pop (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_af3d75d7526327f488b29c959285beb3e}\label{generator_8h_af3d75d7526327f488b29c959285beb3e}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+stack\+\_\+push@{Instruction\+\_\+stack\+\_\+push}}
+\index{Instruction\+\_\+stack\+\_\+push@{Instruction\+\_\+stack\+\_\+push}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+stack\+\_\+push()}{Instruction\_stack\_push()}}
+{\footnotesize\ttfamily int Instruction\+\_\+stack\+\_\+push (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_aa4f3b62ad5940703179611168051fe7f}\label{generator_8h_aa4f3b62ad5940703179611168051fe7f}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+stri2int@{Instruction\+\_\+stri2int}}
+\index{Instruction\+\_\+stri2int@{Instruction\+\_\+stri2int}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+stri2int()}{Instruction\_stri2int()}}
+{\footnotesize\ttfamily int Instruction\+\_\+stri2int (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a1a1d7d175bfdde6bbd6c70c327aa25d4}\label{generator_8h_a1a1d7d175bfdde6bbd6c70c327aa25d4}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+stri2int\+\_\+stack@{Instruction\+\_\+stri2int\+\_\+stack}}
+\index{Instruction\+\_\+stri2int\+\_\+stack@{Instruction\+\_\+stri2int\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+stri2int\+\_\+stack()}{Instruction\_stri2int\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+stri2int\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_a273940e26a096805671bfc31272d0967}\label{generator_8h_a273940e26a096805671bfc31272d0967}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+strlen@{Instruction\+\_\+strlen}}
+\index{Instruction\+\_\+strlen@{Instruction\+\_\+strlen}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+strlen()}{Instruction\_strlen()}}
+{\footnotesize\ttfamily int Instruction\+\_\+strlen (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_ada13b93107cccc4d2764311c51ecc342}\label{generator_8h_ada13b93107cccc4d2764311c51ecc342}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+sub@{Instruction\+\_\+sub}}
+\index{Instruction\+\_\+sub@{Instruction\+\_\+sub}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+sub()}{Instruction\_sub()}}
+{\footnotesize\ttfamily int Instruction\+\_\+sub (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol1,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol2 }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro rozdíl proměnných/konstant. V případě nutnosti provádí požadované konverze datových typů.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & variable Symbol obsahující informace o proměnné, kam bude hodnota výpočtu uložena \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol1 Symbol obsahující informace o proměnné/konstantě, sloužící jako hodnota ve výpočtu \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol2 Symbol obsahující informace o proměnné/konstantě, sloužící jako hodnota ve výpočtu\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_a90499df728b4d359dd44528bd2e77901}\label{generator_8h_a90499df728b4d359dd44528bd2e77901}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+sub\+\_\+stack@{Instruction\+\_\+sub\+\_\+stack}}
+\index{Instruction\+\_\+sub\+\_\+stack@{Instruction\+\_\+sub\+\_\+stack}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+sub\+\_\+stack()}{Instruction\_sub\_stack()}}
+{\footnotesize\ttfamily int Instruction\+\_\+sub\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro rozdíl proměnných/konstant na stacku.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_a91f572a805ed3c30f72804e28c3f423a}\label{generator_8h_a91f572a805ed3c30f72804e28c3f423a}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+type@{Instruction\+\_\+type}}
+\index{Instruction\+\_\+type@{Instruction\+\_\+type}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+type()}{Instruction\_type()}}
+{\footnotesize\ttfamily int Instruction\+\_\+type (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{generator_8h_aa7027f55a228cb863d8796b85f847bb2}\label{generator_8h_aa7027f55a228cb863d8796b85f847bb2}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+variable\+\_\+assign@{Instruction\+\_\+variable\+\_\+assign}}
+\index{Instruction\+\_\+variable\+\_\+assign@{Instruction\+\_\+variable\+\_\+assign}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+variable\+\_\+assign()}{Instruction\_variable\_assign()}}
+{\footnotesize\ttfamily int Instruction\+\_\+variable\+\_\+assign (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{variable,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro definici proměnné.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & variable Symbol obsahující informace o proměnné, jejíž hodnota bude definována \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol Symbol obsahující informace o proměnné/konstantě, sloužící jako hodnota proměnné\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_a83f78a3aa8b5935271c72fbff2fcc0de}\label{generator_8h_a83f78a3aa8b5935271c72fbff2fcc0de}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+variable\+\_\+declare@{Instruction\+\_\+variable\+\_\+declare}}
+\index{Instruction\+\_\+variable\+\_\+declare@{Instruction\+\_\+variable\+\_\+declare}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+variable\+\_\+declare()}{Instruction\_variable\_declare()}}
+{\footnotesize\ttfamily int Instruction\+\_\+variable\+\_\+declare (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+
+Zapíše instrukce pro deklaraci proměnné. Nastaví její hodnotu na implicitní dle jejího typu.
+
+
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em Instructionlist\+Ptr} & l Ukazatel na existující seznam instrukcí \\
+\hline
+\mbox{\tt in}  & {\em Symbol\+Ptr} & symbol Symbol obsahující informace o proměnné\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Vracené hodnoty}
+{\em int} & Návratový kód popisující situaci (chyba, úspěch, ...) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{generator_8h_a08038ccee8a966845a60fc6cba223c5e}\label{generator_8h_a08038ccee8a966845a60fc6cba223c5e}} 
+\index{generator.\+h@{generator.\+h}!Instruction\+\_\+write@{Instruction\+\_\+write}}
+\index{Instruction\+\_\+write@{Instruction\+\_\+write}!generator.\+h@{generator.\+h}}
+\subsubsection{\texorpdfstring{Instruction\+\_\+write()}{Instruction\_write()}}
+{\footnotesize\ttfamily int Instruction\+\_\+write (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{l,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr}}]{symbol }\end{DoxyParamCaption})}
+

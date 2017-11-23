@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IFJ2017_Project: Dokumentace souboru symtable.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IFJ2017_Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Hledat');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('symtable_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definice maker</a> &#124;
+<a href="#func-members">Funkce</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentace souboru symtable.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;malloc.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="symtable_8h_source.html">symtable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="error__codes_8h_source.html">error_codes.h</a>&quot;</code><br />
+</div>
+<p><a href="symtable_8c_source.html">Zobrazit zdrojový text tohoto souboru.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definice maker</h2></td></tr>
+<tr class="memitem:a8cfb185e2a1f7e61bfc0c56256b4867d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a8cfb185e2a1f7e61bfc0c56256b4867d">_symtable_c</a></td></tr>
+<tr class="separator:a8cfb185e2a1f7e61bfc0c56256b4867d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88edd2aa4feabff4af21a997d5d8aa23"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a88edd2aa4feabff4af21a997d5d8aa23">DEBUG_PRINT</a>(...)&#160;&#160;&#160;do{ } while ( 0 )</td></tr>
+<tr class="separator:a88edd2aa4feabff4af21a997d5d8aa23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21a2c7330a04ac78200a986f66609369"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a21a2c7330a04ac78200a986f66609369">DEBUG_LOG</a>(...)&#160;&#160;&#160;do{ } while ( 0 )</td></tr>
+<tr class="separator:a21a2c7330a04ac78200a986f66609369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a35dd0a07f5240134eba4e97fcdd48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a08a35dd0a07f5240134eba4e97fcdd48">DEBUG_ERR</a>(...)&#160;&#160;&#160;do{ } while ( 0 )</td></tr>
+<tr class="separator:a08a35dd0a07f5240134eba4e97fcdd48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add55624170e6366d96baf14cac17962a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#add55624170e6366d96baf14cac17962a">SYMBOL_TABLE_SIZE</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:add55624170e6366d96baf14cac17962a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkce</h2></td></tr>
+<tr class="memitem:a310b41108ea768bdf2da6693a7bd7793"><td class="memItemLeft" align="right" valign="top"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a310b41108ea768bdf2da6693a7bd7793">SymbolTable_create</a> ()</td></tr>
+<tr class="separator:a310b41108ea768bdf2da6693a7bd7793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56bbef8bb278ea61e6f775382c2b016c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a56bbef8bb278ea61e6f775382c2b016c">SymbolTable_destroy</a> (<a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> *st)</td></tr>
+<tr class="separator:a56bbef8bb278ea61e6f775382c2b016c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d29d1595ae15033e260b84a5d6c062a"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a9d29d1595ae15033e260b84a5d6c062a">SymbolTable_hash</a> (<a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> st, char *key)</td></tr>
+<tr class="separator:a9d29d1595ae15033e260b84a5d6c062a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8e713799be71031a3c093f040458e5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#ac8e713799be71031a3c093f040458e5e">SymbolTable_get</a> (<a class="el" href="symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab">SymbolTable</a> *st, char *key)</td></tr>
+<tr class="separator:ac8e713799be71031a3c093f040458e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb44f7195685408edd74cb4661e8eace"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#abb44f7195685408edd74cb4661e8eace">SymbolTable_insert</a> (<a class="el" href="symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab">SymbolTable</a> *st, char *key, <a class="el" href="symtable_8h.html#a623952f6aa67a355a3840e25272b1c91">SymbolType</a> type, <a class="el" href="symtable_8h.html#af810c55aa1b6968bd104b1babca10999">SymbolLocation</a> location, void *value, <a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a> *symbol)</td></tr>
+<tr class="separator:abb44f7195685408edd74cb4661e8eace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08dda33e2a17f63588aca9c712f69bd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a08dda33e2a17f63588aca9c712f69bd0">SymbolTable_delete</a> (<a class="el" href="symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab">SymbolTable</a> *st, char *key)</td></tr>
+<tr class="separator:a08dda33e2a17f63588aca9c712f69bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1798bda077bf9405471f319825bbccfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a1798bda077bf9405471f319825bbccfb">Symbol_create</a> (char *key, <a class="el" href="symtable_8h.html#a623952f6aa67a355a3840e25272b1c91">SymbolType</a> type, <a class="el" href="symtable_8h.html#af810c55aa1b6968bd104b1babca10999">SymbolLocation</a> location, void *value)</td></tr>
+<tr class="separator:a1798bda077bf9405471f319825bbccfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c9e630db250796d39f2233181bcea62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a6c9e630db250796d39f2233181bcea62">Symbol_destroy</a> (<a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a> *s)</td></tr>
+<tr class="separator:a6c9e630db250796d39f2233181bcea62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Dokumentace k definicím maker</h2>
+<a id="a8cfb185e2a1f7e61bfc0c56256b4867d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cfb185e2a1f7e61bfc0c56256b4867d">&#9670;&nbsp;</a></span>_symtable_c</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _symtable_c</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tento soubor obsahuje implementaci tabulky symbolů pomocí tabulky s rozptýlenými položkami.</p>
+<dl class="section author"><dt>Autor</dt><dd>Daniel Dolejška (xdolej08) </dd></dl>
+<dl class="section date"><dt>Datum</dt><dd>21.11.2017  IFJcode17Parser  Formální jazyky a překladače (IFJ) - FIT VUT v Brně </dd></dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00018">18</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<a id="a08a35dd0a07f5240134eba4e97fcdd48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08a35dd0a07f5240134eba4e97fcdd48">&#9670;&nbsp;</a></span>DEBUG_ERR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_ERR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;do{ } while ( 0 )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00041">41</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<a id="a21a2c7330a04ac78200a986f66609369"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21a2c7330a04ac78200a986f66609369">&#9670;&nbsp;</a></span>DEBUG_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_LOG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;do{ } while ( 0 )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00035">35</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<a id="a88edd2aa4feabff4af21a997d5d8aa23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88edd2aa4feabff4af21a997d5d8aa23">&#9670;&nbsp;</a></span>DEBUG_PRINT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_PRINT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;do{ } while ( 0 )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00029">29</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<a id="add55624170e6366d96baf14cac17962a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add55624170e6366d96baf14cac17962a">&#9670;&nbsp;</a></span>SYMBOL_TABLE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SYMBOL_TABLE_SIZE&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00044">44</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentace funkcí</h2>
+<a id="a1798bda077bf9405471f319825bbccfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1798bda077bf9405471f319825bbccfb">&#9670;&nbsp;</a></span>Symbol_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a> Symbol_create </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a623952f6aa67a355a3840e25272b1c91">SymbolType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#af810c55aa1b6968bd104b1babca10999">SymbolLocation</a>&#160;</td>
+          <td class="paramname"><em>location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Funkce vytvoří (naalokuje) novou položku pro seznam.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*key Identifikátor položky </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SymbolType</td><td>type Typ symbolu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SymbolLocation</td><td>location Umístění symbolu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">void</td><td>*value Hodnota položky</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Vracené hodnoty</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SymbolPtr|NULL</td><td>Ukazatel na nově vytvořenou položku </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00233">233</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<a id="a6c9e630db250796d39f2233181bcea62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c9e630db250796d39f2233181bcea62">&#9670;&nbsp;</a></span>Symbol_destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Symbol_destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a> *&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Funkce odstraní položku dle daného ukazatele.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">SymbolPtr</td><td>*s Ukazatel na existující symbol </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00258">258</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<a id="a310b41108ea768bdf2da6693a7bd7793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a310b41108ea768bdf2da6693a7bd7793">&#9670;&nbsp;</a></span>SymbolTable_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> SymbolTable_create </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Funkce vytvářející a inicializující tabulku symbolů.</p>
+<dl class="retval"><dt>Vracené hodnoty</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SymbolTablePtr</td><td>Ukazatel na nově vytvořenou tabulku symbolů </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00060">60</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<a id="a08dda33e2a17f63588aca9c712f69bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08dda33e2a17f63588aca9c712f69bd0">&#9670;&nbsp;</a></span>SymbolTable_delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SymbolTable_delete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab">SymbolTable</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Funkce odstraní položku s daným jménem z tabulky.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">SymbolTable</td><td>*st Ukazatel na existující tabulku symbolů </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*key Identifikátor položky </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00187">187</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<a id="a56bbef8bb278ea61e6f775382c2b016c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56bbef8bb278ea61e6f775382c2b016c">&#9670;&nbsp;</a></span>SymbolTable_destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SymbolTable_destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a> *&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Funkce pro zrušení existující tabulky symbolů.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">SymbolTablePtr</td><td>*st Ukazatel na existující tabulku symbolů </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00080">80</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<a id="ac8e713799be71031a3c093f040458e5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8e713799be71031a3c093f040458e5e">&#9670;&nbsp;</a></span>SymbolTable_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a> SymbolTable_get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab">SymbolTable</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Funkce získá hledanou položku ze seznamu s daným identifikátorem.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">SymbolTable</td><td>*st Ukazatel na existující tabulku symbolů </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*key Identifikátor položky</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Vracené hodnoty</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SymbolPtr|NULL</td><td>Ukazatel na vyhledanou položku v tabulce </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00119">119</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<a id="a9d29d1595ae15033e260b84a5d6c062a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d29d1595ae15033e260b84a5d6c062a">&#9670;&nbsp;</a></span>SymbolTable_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned SymbolTable_hash </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7">SymbolTablePtr</a>&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Funkce pro výpočet klíče na základě jména položky.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">SymbolTablePtr</td><td>st Ukazatel na existující tabulku symbolů </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*key Identifikátor položky</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Vracené hodnoty</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">unsigned</td><td>Vypočtený otisk (index) položky s daným identifikátorem </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00101">101</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+<a id="abb44f7195685408edd74cb4661e8eace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb44f7195685408edd74cb4661e8eace">&#9670;&nbsp;</a></span>SymbolTable_insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SymbolTable_insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab">SymbolTable</a> *&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#a623952f6aa67a355a3840e25272b1c91">SymbolType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#af810c55aa1b6968bd104b1babca10999">SymbolLocation</a>&#160;</td>
+          <td class="paramname"><em>location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a> *&#160;</td>
+          <td class="paramname"><em>symbol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Funkce vloží novou položku do dané tabulky s daným klíčem a hodnotou.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">SymbolTable</td><td>*st Ukazatel na existující tabulku symbolů </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*key Identifikátor položky </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SymbolType</td><td>type Typ symbolu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SymbolLocation</td><td>location Umístění symbolu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">void</td><td>*value Hodnota položky </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">SymbolPtr</td><td>*symbol Ukazatel na nově vytvořený symbol</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Vracené hodnoty</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">int</td><td>Kód se kterým bylo vložení symbolu ukončeno </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00150">150</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_572890c148f68441e050f6560d78312b.html">parser</a></li><li class="navelem"><a class="el" href="symtable_8c.html">symtable.c</a></li>
+    <li class="footer">Generováno st 22. lis 2017 15.38:10 pro projekt IFJ2017_Project programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>
