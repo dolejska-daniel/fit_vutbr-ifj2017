@@ -122,6 +122,6 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
 
 int Parser_setError_allocation();
 
-int Parser_setError_statement(char *expected, char *instruction, InputPtr input);
+int Parser_setError_statement(char *expected, TokenPtr token, InputPtr input);
 
 #endif

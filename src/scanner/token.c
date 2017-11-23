@@ -95,6 +95,20 @@ char *TokenType_toString(TokenType type)
     {
         case IDENTIFIER:
             return "IDENTIFIER";
+        case CONSTANT_INTEGER:
+            return "CONSTANT_INTEGER";
+        case CONSTANT_BINARY:
+            return "CONSTANT_BINARY";
+        case CONSTANT_OCTAL:
+            return "CONSTANT_OCTAL";
+        case CONSTANT_HEXA:
+            return "CONSTANT_HEXA";
+        case CONSTANT_DOUBLE:
+            return "CONSTANT_DOUBLE";
+        case CONSTANT_STRING:
+            return "CONSTANT_STRING";
+        case CONSTANT_BOOLEAN:
+            return "CONSTANT_BOOLEAN";
         case COMMA:
             return "COMMA";
         case SEMICOLON:

@@ -133,6 +133,13 @@ int SymbolTable_insert(SymbolTable *st, char *key, SymbolType type, SymbolLocati
 void SymbolTable_delete(SymbolTable *st, char *key);
 
 /**
+ * Funkce zobrazí obsah tabulky na stderr.
+ *
+ * @param[in,out]	SymbolTable	*st Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_debugPrint(SymbolTable *st);
+
+/**
  * Funkce vytvoří (naalokuje) novou položku pro seznam.
  *
  * @param[in]	char		    *key	    Identifikátor položky
@@ -158,5 +165,7 @@ void SymbolInfo_Function_destroy(SymbolInfo_FunctionPtr *s);
 SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create();
 
 void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s);
+
+char *SymbolType_toString(SymbolType type);
 
 #endif

@@ -109,7 +109,7 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
             }
             else
             {
-                if (Parser_setError_statement(NULL, token->attr, input) != NO_ERROR)
+                if (Parser_setError_statement(NULL, token, input) != NO_ERROR)
                 {
                     Token_destroy(&token);
                     return INTERNAL_ERROR;
@@ -204,6 +204,7 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
                 //  jedná se tedy o syntaktickou chybu
                 DEBUG_ERR("parser-init", "this type of token was not expected!");
                 DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token ? token->type : -1, token ? token->attr : NULL);
+                DEBUG_PRINT("\ttype-str: %s (ERR!)\n", TokenType_toString(token ? token->type : -1));
 
                 if (token == NULL)
                 {
@@ -211,7 +212,7 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
                 }
                 else
                 {
-                    if (Parser_setError_statement("function declaration, function definition or scope definition", token->attr, input) != NO_ERROR)
+                    if (Parser_setError_statement("DECLARE, FUNCTION or SCOPE", token, input) != NO_ERROR)
                     {
                         Token_destroy(&token);
                         return INTERNAL_ERROR;
@@ -493,7 +494,7 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 if (NestingList_isNestedIn(nlist, NESTING_LOOP))
                 {
                     DEBUG_ERR("parser-nested", "Continue statement not within loop!");
-                    if (Parser_setError_statement(NULL, token->attr, input) != NO_ERROR)
+                    if (Parser_setError_statement(NULL, token, input) != NO_ERROR)
                         return INTERNAL_ERROR;
                     return SYNTAX_ERROR;
                 }
@@ -520,7 +521,7 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 if (NestingList_isNestedIn(nlist, NESTING_LOOP))
                 {
                     DEBUG_ERR("parser-nested", "Exit statement not within loop!");
-                    if (Parser_setError_statement(NULL, token->attr, input) != NO_ERROR)
+                    if (Parser_setError_statement(NULL, token, input) != NO_ERROR)
                         return INTERNAL_ERROR;
                     return SYNTAX_ERROR;
                 }
@@ -548,7 +549,7 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 if (NestingList_isNestedIn(nlist, NESTING_FUNCTION))
                 {
                     DEBUG_ERR("parser-nested", "Return statement not within function!");
-                    if (Parser_setError_statement(NULL, token->attr, input) != NO_ERROR)
+                    if (Parser_setError_statement(NULL, token, input) != NO_ERROR)
                         return INTERNAL_ERROR;
                     return SYNTAX_ERROR;
                 }
@@ -627,9 +628,10 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 DEBUG_ERR("parser-nested", "this type of token was not expected!");
                 DEBUG_PRINT("\tntype: %i\n", nlevel ? nlevel->type : -1);
                 DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token ? token->type : -1, token ? token->attr : NULL);
+                DEBUG_PRINT("\ttype-str: %s (ERR!)\n", TokenType_toString(token ? token->type : -1));
                 Token_destroy(&token);
 
-                if (Parser_setError_statement(NULL, token->attr, input) != NO_ERROR)
+                if (Parser_setError_statement(NULL, token, input) != NO_ERROR)
                     return INTERNAL_ERROR;
                 return SYNTAX_ERROR;
                 break;
@@ -716,10 +718,11 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
         DEBUG_ERR("parser-function-def", "this type of token was not expected!");
         DEBUG_PRINT("\tntype: %i\n", nlevel ? nlevel->type : -1);
         DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", last_token ? last_token->type : -1, last_token ? last_token->attr : NULL);
+        DEBUG_PRINT("\ttype-str: %s (ERR!)\n", TokenType_toString(last_token ? last_token->type : -1));
         if (last_token != NULL)
             Token_destroy(&last_token);
 
-        if (Parser_setError_statement(END, token->attr, input) != NO_ERROR)
+        if (Parser_setError_statement(END, token, input) != NO_ERROR)
             return INTERNAL_ERROR;
         return SYNTAX_ERROR;
     }
@@ -792,7 +795,7 @@ int Parser_ParseVariableDeclaration(InputPtr input, InstructionListPtr ilist, Sy
         DEBUG_PRINT("\ttype: %i\n\tattr: %s\n", token ? token->type : -1, token ? token->attr : NULL);
         #endif
 
-        if (Parser_setError_statement("integer, string, double or bool", token->attr, input) != NO_ERROR)
+        if (Parser_setError_statement("INTEGER, STRING, DOUBLE or BOOLEAN", token, input) != NO_ERROR)
             return INTERNAL_ERROR;
 
         Token_destroy(&token);
@@ -840,7 +843,9 @@ int Parser_ParseVariableDeclaration(InputPtr input, InstructionListPtr ilist, Sy
     else
     {
         //  Symbol byl úspěšně vytvořen
-        DEBUG_LOG(source, "symbol '%s' with type %i created", var_name, var_type);
+        DEBUG_LOG(source, "symbol successfully created");
+        DEBUG_PRINT("\tname: %s\n\ttype: %s\n", var_name, SymbolType_toString(var_type));
+        SymbolTable_debugPrint(symtable);
         /*
         instruction_result = Instruction_variable_declare(ilist, var);
         if (instruction_result != NO_ERROR)
@@ -1018,7 +1023,7 @@ int Parser_ParseStatement_Print(InputPtr input, InstructionListPtr ilist, Symbol
         }
         else
         {
-            if (Parser_setError_statement(firstLoop ? "identifier or constant" : "identifier, constant or end of line", token->attr, input) != NO_ERROR)
+            if (Parser_setError_statement(firstLoop ? "identifier or constant" : "identifier, constant or end of line", token, input) != NO_ERROR)
                 return INTERNAL_ERROR;
 
             Token_destroy(&token);
@@ -1409,19 +1414,19 @@ int Parser_setError_allocation()
     return INTERNAL_ERROR;
 }
 
-int Parser_setError_statement(char *expected, char *instruction, InputPtr input)
+int Parser_setError_statement(char *expected, TokenPtr token, InputPtr input)
 {
     char *message;
     if (expected != NULL)
     {
         //  Očekávali jsme něco konkrétního
-        message = String_printf("Unexpected statement on line %i:%i. Expected %s got %s.", input ? input->line : 0, input ? input->character - strlen(instruction) : 0, expected, instruction);
+        message = String_printf("Unexpected statement on line %i:%i. Expected %s got %s.", input ? input->line : 0, input ? input->character - strlen(token ? token->attr : "") : 0, expected, TokenType_toString(token->type));
     }
     else
     {
         //  Buď jsme toho očekávali spoustu, jako vždy,
         //  nebo jsme toho naopak moc neočekávali
-        message = String_printf("Unexpected '%s' on line %i:%i.", instruction, input ? input->line : 0, input ? input->character - strlen(instruction) : 0, NULL);
+        message = String_printf("Unexpected '%s' on line %i:%i.", token, input ? input->line : 0, input ? input->character - strlen(token ? token->attr : "") : 0, NULL);
     }
 
     if (message == NULL)
