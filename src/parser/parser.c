@@ -821,7 +821,7 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
     TokenPtr token;
     TokenPtr last_token = NULL;
 
-    PostfixListPtr postfix;
+    PostfixListPtr postfix = NULL;
 
     NestingLevelPtr nlevel = NestingList_active(nlist);
 
@@ -834,8 +834,10 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
     parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix, &last_token);
     if (parser_result != NO_ERROR)
     {
+        DEBUG_ERR(source, "expression failed to be parsed");
         Token_destroy(&last_token);
-        PostfixList_destroy(&postfix);
+        if (postfix != NULL)
+            PostfixList_destroy(&postfix);
         return parser_result;
     }
 
@@ -1464,7 +1466,7 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
             DEBUG_LOG(source, "expression is complete, leaving loop");
             break;
         }
-        if (token->type == IDENTIFIER)
+        else if (token->type == IDENTIFIER)
         {
             //  Operand je identifikátor
             if (last_operand_was_variable == true)
@@ -1503,9 +1505,9 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
             if (token->type == OPEN_BRACKET)
             {
                 //  Otevírací závorka znamená zanoření do podvýrazu
-                DEBUG_LOG(source, "calling Parser_ParseSubExpression");
-                Token_destroy(&token);
+                infix2postfix_addOperand(&tokenStack, postfix, token, NULL);
 
+                DEBUG_LOG(source, "calling Parser_ParseSubExpression");
                 parser_result = Parser_ParseSubExpression(input, ilist, symtable, &tokenStack, postfix, &token);
                 *last_token = token;
                 if (parser_result != NO_ERROR)
@@ -1518,6 +1520,8 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
                 {
                     //  Posledním tokenem došlo k uzavření podvýrazu, načteme nový
                     //  jeho zpracování proběhne v následující iteraci
+                    infix2postfix_addOperand(&tokenStack, postfix, token, NULL);
+
                     scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
                     *last_token = token;
 
@@ -1528,7 +1532,7 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
             }
             else if (token->type == CLOSE_BRACKET)
             {
-                if (Parser_setError_statement("OPEN_BRACKET or OPERATOR", token, input) != NO_ERROR)
+                if (Parser_setError_statement("OPEN_BRACKET or OPERATOR MAIN", token, input) != NO_ERROR)
                     return INTERNAL_ERROR;
                 return SYNTAX_ERROR;
             }
@@ -1546,6 +1550,11 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
         }
         else
         {
+            if (Parser_setError_statement(NULL, token, input) != NO_ERROR)
+            {
+                infix2postfix_cleanup(&tokenStack, postfix);
+                return INTERNAL_ERROR;
+            }
             infix2postfix_cleanup(&tokenStack, postfix);
             return SYNTAX_ERROR;
         }
@@ -1654,24 +1663,34 @@ int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTa
             if (token->type == CLOSE_BRACKET)
             {
                 //  Jedná se o ukončení aktuálního podvýrazu, vracíme se o úroveň výš
+                infix2postfix_addOperand(tokenStack, postfix, token, NULL);
+
                 DEBUG_LOG(source, "subexpression is complete, returning to parent");
                 return NO_ERROR;
             }
             else if (token->type == OPEN_BRACKET)
             {
                 //  Otevírací závorka znamená zanoření do podvýrazu
-                DEBUG_LOG(source, "calling Parser_ParseSubExpression");
-                Token_destroy(&token);
+                infix2postfix_addOperand(tokenStack, postfix, token, NULL);
 
+                DEBUG_LOG(source, "calling Parser_ParseSubExpression");
                 parser_result = Parser_ParseSubExpression(input, ilist, symtable, tokenStack, postfix, &token);
                 *last_token = token;
                 if (parser_result != NO_ERROR)
                 {
                     return parser_result;
                 }
-                last_operand_was_variable = true;
-                last_operand_was_operator = false;
 
+                if (token->type == CLOSE_BRACKET)
+                {
+                    //  Posledním tokenem došlo k uzavření podvýrazu, načteme nový
+                    //  jeho zpracování proběhne v následující iteraci
+                    scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
+                    *last_token = token;
+
+                    last_operand_was_variable = true;
+                    last_operand_was_operator = false;
+                }
                 continue;
             }
             else if (last_operand_was_operator == true)
@@ -1688,6 +1707,8 @@ int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTa
         }
         else
         {
+            if (Parser_setError_statement(source, token, input) != NO_ERROR)
+                return INTERNAL_ERROR;
             return SYNTAX_ERROR;
         }
 
@@ -1830,7 +1851,7 @@ int Parser_getToken(char *source, InputPtr input, NestingLevelPtr nlevel, TokenT
         //  Získaný token je v pořádku
 
         #ifdef DEBUG_VERBOSE
-        if (expected_type >= 0)
+        if ((int) expected_type != NO_REQUIRED_TYPE)
             DEBUG_LOG(source, "successfully received correct token");
         else
             DEBUG_LOG(source, "received token");
@@ -1855,6 +1876,11 @@ int Parser_setError_allocation()
 {
     error_description = "Failed to allocate memory.";
     return INTERNAL_ERROR;
+}
+
+int Parser_setError_undefinedSymbol(SymbolPtr symbol, TokenPtr token, InputPtr input)
+{
+
 }
 
 int Parser_setError_statement(char *expected, TokenPtr token, InputPtr input)

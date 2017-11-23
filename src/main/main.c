@@ -150,10 +150,20 @@ program_exit:
         if (last_line != NULL && strlen(last_line) > 0)
         {
             //  Máme k dispozici obsah posledního řádku
+            if (last_line[strlen(last_line) - 1] != '\n')
+            {
+                //  Donačtení znaků posledního řádku
+                char c = c = fgetc(stdin);
+                do
+                {
+                    c = fgetc(stdin);
+                    String_addChar(&last_line, c);
+                }
+                while (c != '\n' && c != EOF);
+            }
+
             fprintf(stderr, "Error line:\n\t");
             fprintf(stderr, last_line);
-            if (last_line[strlen(last_line) - 1] != '\n')
-                fprintf(stderr, "\n");
 
             fprintf(stderr, "\t");
             for (int char_index = 0; char_index < error_char_index; char_index++)
