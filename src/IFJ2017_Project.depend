@@ -394,3 +394,124 @@
 
 1511282194 ejska/pu
 
+1511394180 source:c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\parser\symtable.c
+	<stdio.h>
+	<string.h>
+	<malloc.h>
+	"symtable.h"
+	"../support/error_codes.h"
+	"error_codes.h"
+
+1511394180 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\parser\symtable.h
+	<stdbool.h>
+
+1511282194 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\support\error_codes.h
+
+1511394180 source:c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\support\strings.c
+	<stdio.h>
+	<string.h>
+	<malloc.h>
+	"error_codes.h"
+	<stdio.h>
+	"strings.h"
+
+1511394180 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\support\strings.h
+	<string.h>
+	<malloc.h>
+
+1511395572 source:c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\main\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../generator/generator.h"
+	"../generator/instruction_list.h"
+	"../parser/parser.h"
+	"../scanner/scanner.h"
+	"../scanner/input.h"
+	"../support/strings.h"
+	"../support/error_codes.h"
+	"../generator/instruction_list.h"
+	"generator.h"
+	"instruction_list.h"
+	"parser.h"
+	"scanner.h"
+	"input.h"
+	"strings.h"
+	"error_codes.h"
+	"instruction_list.h"
+
+1511394180 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\generator\generator.h
+	"instruction_list.h"
+	"../parser/symtable.h"
+	"../scanner/token.h"
+	"symtable.h"
+	"token.h"
+
+1511394180 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\generator\instruction_list.h
+
+1511394180 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\scanner\token.h
+
+1511395572 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\parser\parser.h
+	"symtable.h"
+	"nesting_list.h"
+	"../scanner/input.h"
+	"../scanner/token.h"
+	"../generator/instruction_list.h"
+	"input.h"
+	"token.h"
+	"instruction_list.h"
+
+1511394180 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\parser\nesting_list.h
+	<stdio.h>
+
+1511394180 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\scanner\scanner.h
+	"token.h"
+	"input.h"
+
+1511395572 source:c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\parser\parser.c
+	<stdbool.h>
+	"parser.h"
+	"nesting_list.h"
+	"../generator/generator.h"
+	"../scanner/token.h"
+	"../support/strings.h"
+	"../support/error_codes.h"
+	"../support/infix2postfix.h"
+	"../support/token_list.h"
+	"../support/tokenType_list.h"
+	"generator.h"
+	"token.h"
+	"strings.h"
+	"error_codes.h"
+	"infix2postfix.h"
+	"token_list.h"
+	"tokenType_list.h"
+
+1511394180 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\support\infix2postfix.h
+	"token_stack.h"
+	"postfix_list.h"
+
+1511394180 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\support\token_stack.h
+	<stdbool.h>
+	<malloc.h>
+	"../scanner/token.h"
+	"token.h"
+
+1511395572 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\support\postfix_list.h
+	<stdbool.h>
+	<malloc.h>
+	"../parser/symtable.h"
+	"../scanner/token.h"
+	"symtable.h"
+	"token.h"
+
+1511395572 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\support\token_list.h
+	<stdbool.h>
+	"../scanner/token.h"
+	"token.h"
+
+1511395572 c:\users\petr2\onedrive\documents\vut\3. semestr\ifj\project\src\support\tokentype_list.h
+	<stdbool.h>
+	<malloc.h>
+	"../scanner/token.h"
+	"token.h"
+
