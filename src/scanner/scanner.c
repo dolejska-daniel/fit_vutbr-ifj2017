@@ -780,6 +780,9 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         case STATE_INC_COMMENT:
             if(ch == '\n')
             {
+                input->line++;
+                ungetc(ch, input->source);
+                input->character--;
                 state = STATE_BEGIN;
             }
             else if(ch == EOF)
@@ -998,6 +1001,10 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             {
                 state = STATE_INC_BLOCK_COMMENT_APOS;
             }
+            else if(ch == '\n')
+            {
+                input->line++;
+            }
             else if(ch == EOF)
             {
                 *token = Token_create(FILE_END, NULL);
@@ -1013,6 +1020,10 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             if(ch == '//')
             {
                 state = STATE_BEGIN;
+            }
+            else if(ch == '\n')
+            {
+                input->line++;
             }
             else if(ch == EOF)
             {
