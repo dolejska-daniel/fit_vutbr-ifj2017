@@ -9,6 +9,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #ifdef DEBUG_INCLUDE
 #include "../support/error_codes.h"
@@ -44,6 +45,7 @@
 #define DEBUG_ERR(...) do{ } while ( 0 )
 #endif
 
+extern char *last_line;
 
 //==================================================================d=d=
 //  DEKLARACE FUNKCÍ
@@ -89,9 +91,22 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
     char first_number;
     char first_exp_number;
 
+    bool charReturned = false;
+
     while(1)
     {
         char ch = fgetc(input->source);
+        if (charReturned == false)
+        {
+            //  Posledni znak nebyl vracen
+            String_addChar(&last_line, ch);
+        }
+        else
+        {
+            //  Posledni znak byl vracen
+            charReturned = false;
+        }
+
         input->character++;
 
         switch(state)
@@ -248,6 +263,8 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else if(ch == '\n')
             {
+                String_destroy(&last_line);
+                String_create(&last_line);
                 input->line++;
                 input->character = 0;
 
@@ -291,6 +308,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
                 //Porovnavani retezce, zda se nejedna o keyword
@@ -630,6 +648,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
@@ -734,6 +753,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             {
                 if(esc1 == '0' && esc2 == '0' && ch == '0')
                 {
+                    charReturned = true;
                     ungetc(ch, input->source);
                     input->character--;
                     String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
@@ -780,7 +800,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         case STATE_INC_COMMENT:
             if(ch == '\n')
             {
-                input->line++;
+                charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
                 state = STATE_BEGIN;
@@ -834,6 +854,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
                 if(first_number == '0')
@@ -962,6 +983,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
                 if(first_exp_number == '0')
@@ -985,6 +1007,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
                 *token = Token_create(SLASH, final_string);
@@ -1023,6 +1046,8 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else if(ch == '\n')
             {
+                String_destroy(&last_line);
+                String_create(&last_line);
                 input->line++;
             }
             else if(ch == EOF)
@@ -1127,6 +1152,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
                 *token = Token_create(CONSTANT_BINARY, final_string);
@@ -1145,6 +1171,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
                 *token = Token_create(CONSTANT_OCTAL, final_string);
@@ -1163,6 +1190,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
+                charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
                 *token = Token_create(CONSTANT_HEXA, final_string);
