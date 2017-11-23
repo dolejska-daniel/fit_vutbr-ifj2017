@@ -103,10 +103,9 @@ int main(/*int argc, char **argv*/)
         DEBUG_PRINT("[%s] ERR Parser returned error code %i\n", "main", parser_result);
         DEBUG_PRINT("[%s]   | Message: %s\n", "main", error_description);
 
-        String_destroy(&error_description);
-        Instruction_outputAll(ilist);
         //  TODO: Output errors
         //  TODO: Cleanup & exit
+        Instruction_outputAll(ilist);
     }
     else
     {
@@ -132,5 +131,18 @@ program_exit:
 
 
     DEBUG_LOG("main", "Exiting program");
+    if (result != NO_ERROR)
+    {
+        //  Došlo k ukončení s chybami
+        if (error_description)
+        {
+            fprintf(stderr, error_description);
+            //String_destroy(&error_description);
+        }
+        else
+        {
+            fprintf(stderr, "Unknown error occured during parsing.");
+        }
+    }
     return result;
 }

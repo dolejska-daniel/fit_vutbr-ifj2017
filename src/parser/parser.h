@@ -88,15 +88,15 @@ int Parser_ParseLoop_For(InputPtr input, InstructionListPtr ilist, SymbolTablePt
 //  Statementy
 //-----------------------------------------------------
 
-int Parser_ParseStatement_Print(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable);
+int Parser_ParseStatement_Print(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
-int Parser_ParseStatement_Input(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable);
+int Parser_ParseStatement_Input(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
-int Parser_ParseStatement_Continue(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable);
+int Parser_ParseStatement_Continue(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
-int Parser_ParseStatement_Exit(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable);
+int Parser_ParseStatement_Exit(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
-int Parser_ParseStatement_Return(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable);
+int Parser_ParseStatement_Return(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
 
 //-------------------------------------------------d-d-
@@ -122,6 +122,6 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
 
 int Parser_setError_allocation();
 
-int Parser_setError_statement(char *instruction, InputPtr input);
+int Parser_setError_statement(char *expected, char *instruction, InputPtr input);
 
 #endif

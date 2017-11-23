@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1511380281 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
+1511427930 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
 	<stdio.h>
 	<stdlib.h>
 	"../generator/generator.h"
@@ -30,7 +30,7 @@
 1511338387 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.h
 	<stdbool.h>
 
-1511394653 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
+1511430721 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
 	<stdbool.h>
 	"parser.h"
 	"nesting_list.h"
@@ -49,7 +49,7 @@
 	"token_list.h"
 	"tokenType_list.h"
 
-1511392877 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.h
+1511430651 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.h
 	"symtable.h"
 	"nesting_list.h"
 	"../scanner/input.h"
@@ -99,7 +99,7 @@
 	"token.h"
 	"input.h"
 
-1511362348 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\token.h
+1511427249 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\token.h
 
 1511281441 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\input.h
 	<stdio.h>
@@ -134,9 +134,9 @@
 	<stdio.h>
 	"strings.h"
 
-1511263960 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\error_codes.h
+1511427215 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\error_codes.h
 
-1511362046 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\token.c
+1511427099 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\token.c
 	<stdio.h>
 	<malloc.h>
 	"token.h"

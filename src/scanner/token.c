@@ -81,4 +81,35 @@ void Token_destroy(TokenPtr *t)
     *t = NULL;
 }
 
+/**
+ * Funkce vrátí textový řetězec zastupující typ tokenu.
+ *
+ * @retval  char*   Textový řetězec popisující typ tokenu
+ */
+char *TokenType_toString(TokenType type)
+{
+    if (type < 35)
+        return "KEYWORD";
+
+    switch (type)
+    {
+        case IDENTIFIER:
+            return "IDENTIFIER";
+        case COMMA:
+            return "COMMA";
+        case SEMICOLON:
+            return "SEMICOLON";
+        case OPEN_BRACKET:
+            return "OPEN_BRACKET";
+        case CLOSE_BRACKET:
+            return "CLOSE_BRACKET";
+        case LINE_END:
+            return "<EOL>";
+        case FILE_END:
+            return "<EOF>";
+        default:
+            return "_UNKNOWN_";
+    }
+}
+
 #endif
