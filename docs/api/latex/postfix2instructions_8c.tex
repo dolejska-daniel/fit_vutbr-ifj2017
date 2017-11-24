@@ -1,0 +1,106 @@
+\hypertarget{postfix2instructions_8c}{}\section{Dokumentace souboru postfix2instructions.\+c}
+\label{postfix2instructions_8c}\index{postfix2instructions.\+c@{postfix2instructions.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}postfix2instructions.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}postfix\+\_\+list.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instruction\+\_\+list.\+h\char`\"{}}\newline
+\subsection*{Definice maker}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{postfix2instructions_8c_a75d7e2a5ad74f1da67f7b4d9c51ea66b}{\+\_\+postfix2instructions\+\_\+c}
+\item 
+\#define \hyperlink{postfix2instructions_8c_a88edd2aa4feabff4af21a997d5d8aa23}{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}(...)~do\{ \} while ( 0 )
+\item 
+\#define \hyperlink{postfix2instructions_8c_a21a2c7330a04ac78200a986f66609369}{D\+E\+B\+U\+G\+\_\+\+L\+OG}(...)~do\{ \} while ( 0 )
+\item 
+\#define \hyperlink{postfix2instructions_8c_a08a35dd0a07f5240134eba4e97fcdd48}{D\+E\+B\+U\+G\+\_\+\+E\+RR}(...)~do\{ \} while ( 0 )
+\end{DoxyCompactItemize}
+\subsection*{Funkce}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{postfix2instructions_8c_aea4facfa0bcc778d1296ed2b556af3dc}{postfix2instructions\+\_\+mathematical} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{postfix__list_8h_ad2f70c813772f1f9e70349655f73c195}{Postfix\+List\+Ptr} $\ast$postfix\+List)
+\item 
+int \hyperlink{postfix2instructions_8c_a46d852fc1ce4ffa8ddb7f71b2ce76c84}{postfix2instructions\+\_\+logical} (\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr} ilist, \hyperlink{postfix__list_8h_ad2f70c813772f1f9e70349655f73c195}{Postfix\+List\+Ptr} $\ast$postfix\+List)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentace k definicím maker}
+\mbox{\Hypertarget{postfix2instructions_8c_a75d7e2a5ad74f1da67f7b4d9c51ea66b}\label{postfix2instructions_8c_a75d7e2a5ad74f1da67f7b4d9c51ea66b}} 
+\index{postfix2instructions.\+c@{postfix2instructions.\+c}!\+\_\+postfix2instructions\+\_\+c@{\+\_\+postfix2instructions\+\_\+c}}
+\index{\+\_\+postfix2instructions\+\_\+c@{\+\_\+postfix2instructions\+\_\+c}!postfix2instructions.\+c@{postfix2instructions.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+postfix2instructions\+\_\+c}{\_postfix2instructions\_c}}
+{\footnotesize\ttfamily \#define \+\_\+postfix2instructions\+\_\+c}
+
+Tento soubor obsahuje implementaci zpracování postfixových výrazů (generování instrukcí).
+
+\begin{DoxyAuthor}{Autor}
+Daniel Dolejška (xdolej08) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Datum}
+21.\+11.\+2017  I\+F\+Jcode17\+Parser  Formální jazyky a překladače (I\+FJ) -\/ F\+IT V\+UT v Brně 
+\end{DoxyDate}
+
+
+Definice je uvedena na řádku 17 v souboru postfix2instructions.\+c.
+
+\mbox{\Hypertarget{postfix2instructions_8c_a08a35dd0a07f5240134eba4e97fcdd48}\label{postfix2instructions_8c_a08a35dd0a07f5240134eba4e97fcdd48}} 
+\index{postfix2instructions.\+c@{postfix2instructions.\+c}!D\+E\+B\+U\+G\+\_\+\+E\+RR@{D\+E\+B\+U\+G\+\_\+\+E\+RR}}
+\index{D\+E\+B\+U\+G\+\_\+\+E\+RR@{D\+E\+B\+U\+G\+\_\+\+E\+RR}!postfix2instructions.\+c@{postfix2instructions.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+E\+RR}{DEBUG\_ERR}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+E\+RR(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na řádku 40 v souboru postfix2instructions.\+c.
+
+\mbox{\Hypertarget{postfix2instructions_8c_a21a2c7330a04ac78200a986f66609369}\label{postfix2instructions_8c_a21a2c7330a04ac78200a986f66609369}} 
+\index{postfix2instructions.\+c@{postfix2instructions.\+c}!D\+E\+B\+U\+G\+\_\+\+L\+OG@{D\+E\+B\+U\+G\+\_\+\+L\+OG}}
+\index{D\+E\+B\+U\+G\+\_\+\+L\+OG@{D\+E\+B\+U\+G\+\_\+\+L\+OG}!postfix2instructions.\+c@{postfix2instructions.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+L\+OG}{DEBUG\_LOG}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+L\+OG(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na řádku 34 v souboru postfix2instructions.\+c.
+
+\mbox{\Hypertarget{postfix2instructions_8c_a88edd2aa4feabff4af21a997d5d8aa23}\label{postfix2instructions_8c_a88edd2aa4feabff4af21a997d5d8aa23}} 
+\index{postfix2instructions.\+c@{postfix2instructions.\+c}!D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}}
+\index{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT@{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}!postfix2instructions.\+c@{postfix2instructions.\+c}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT}{DEBUG\_PRINT}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~do\{ \} while ( 0 )}
+
+
+
+Definice je uvedena na řádku 28 v souboru postfix2instructions.\+c.
+
+
+
+\subsection{Dokumentace funkcí}
+\mbox{\Hypertarget{postfix2instructions_8c_a46d852fc1ce4ffa8ddb7f71b2ce76c84}\label{postfix2instructions_8c_a46d852fc1ce4ffa8ddb7f71b2ce76c84}} 
+\index{postfix2instructions.\+c@{postfix2instructions.\+c}!postfix2instructions\+\_\+logical@{postfix2instructions\+\_\+logical}}
+\index{postfix2instructions\+\_\+logical@{postfix2instructions\+\_\+logical}!postfix2instructions.\+c@{postfix2instructions.\+c}}
+\subsubsection{\texorpdfstring{postfix2instructions\+\_\+logical()}{postfix2instructions\_logical()}}
+{\footnotesize\ttfamily int postfix2instructions\+\_\+logical (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{postfix__list_8h_ad2f70c813772f1f9e70349655f73c195}{Postfix\+List\+Ptr} $\ast$}]{postfix\+List }\end{DoxyParamCaption})}
+
+
+
+Definice je uvedena na řádku 57 v souboru postfix2instructions.\+c.
+
+\mbox{\Hypertarget{postfix2instructions_8c_aea4facfa0bcc778d1296ed2b556af3dc}\label{postfix2instructions_8c_aea4facfa0bcc778d1296ed2b556af3dc}} 
+\index{postfix2instructions.\+c@{postfix2instructions.\+c}!postfix2instructions\+\_\+mathematical@{postfix2instructions\+\_\+mathematical}}
+\index{postfix2instructions\+\_\+mathematical@{postfix2instructions\+\_\+mathematical}!postfix2instructions.\+c@{postfix2instructions.\+c}}
+\subsubsection{\texorpdfstring{postfix2instructions\+\_\+mathematical()}{postfix2instructions\_mathematical()}}
+{\footnotesize\ttfamily int postfix2instructions\+\_\+mathematical (\begin{DoxyParamCaption}\item[{\hyperlink{instruction__list_8h_a3b9ba10c654c008ba5d15051cc19ec62}{Instruction\+List\+Ptr}}]{ilist,  }\item[{\hyperlink{postfix__list_8h_ad2f70c813772f1f9e70349655f73c195}{Postfix\+List\+Ptr} $\ast$}]{postfix\+List }\end{DoxyParamCaption})}
+
+Tento soubor obsahuje deklarace funkcí využité při zpracování postfixových výrazů (generování instrukcí).
+
+\begin{DoxyAuthor}{Autor}
+Daniel Dolejška (xdolej08) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Datum}
+21.\+11.\+2017  I\+F\+Jcode17\+Parser  Formální jazyky a překladače (I\+FJ) -\/ F\+IT V\+UT v Brně 
+\end{DoxyDate}
+
+
+Definice je uvedena na řádku 52 v souboru postfix2instructions.\+c.
+

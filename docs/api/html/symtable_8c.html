@@ -90,6 +90,7 @@ $(document).ready(function(){initNavTree('symtable_8c.html','');});
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;malloc.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="symtable_8h_source.html">symtable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="error__codes_8h_source.html">error_codes.h</a>&quot;</code><br />
 </div>
 <p><a href="symtable_8c_source.html">Zobrazit zdrojový text tohoto souboru.</a></p>
 <table class="memberdecls">
@@ -116,8 +117,8 @@ Funkce</h2></td></tr>
 <tr class="separator:a9d29d1595ae15033e260b84a5d6c062a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8e713799be71031a3c093f040458e5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#ac8e713799be71031a3c093f040458e5e">SymbolTable_get</a> (<a class="el" href="symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab">SymbolTable</a> *st, char *key)</td></tr>
 <tr class="separator:ac8e713799be71031a3c093f040458e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21e186fb7964320425f5ad95a0c867d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a21e186fb7964320425f5ad95a0c867d2">SymbolTable_insert</a> (<a class="el" href="symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab">SymbolTable</a> *st, char *key, <a class="el" href="symtable_8h.html#a623952f6aa67a355a3840e25272b1c91">SymbolType</a> type, <a class="el" href="symtable_8h.html#af810c55aa1b6968bd104b1babca10999">SymbolLocation</a> location, void *value)</td></tr>
-<tr class="separator:a21e186fb7964320425f5ad95a0c867d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb44f7195685408edd74cb4661e8eace"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#abb44f7195685408edd74cb4661e8eace">SymbolTable_insert</a> (<a class="el" href="symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab">SymbolTable</a> *st, char *key, <a class="el" href="symtable_8h.html#a623952f6aa67a355a3840e25272b1c91">SymbolType</a> type, <a class="el" href="symtable_8h.html#af810c55aa1b6968bd104b1babca10999">SymbolLocation</a> location, void *value, <a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a> *symbol)</td></tr>
+<tr class="separator:abb44f7195685408edd74cb4661e8eace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08dda33e2a17f63588aca9c712f69bd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a08dda33e2a17f63588aca9c712f69bd0">SymbolTable_delete</a> (<a class="el" href="symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab">SymbolTable</a> *st, char *key)</td></tr>
 <tr class="separator:a08dda33e2a17f63588aca9c712f69bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1798bda077bf9405471f319825bbccfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symtable_8c.html#a1798bda077bf9405471f319825bbccfb">Symbol_create</a> (char *key, <a class="el" href="symtable_8h.html#a623952f6aa67a355a3840e25272b1c91">SymbolType</a> type, <a class="el" href="symtable_8h.html#af810c55aa1b6968bd104b1babca10999">SymbolLocation</a> location, void *value)</td></tr>
@@ -161,7 +162,7 @@ Funkce</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00035">35</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00041">41</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
@@ -181,7 +182,7 @@ Funkce</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00029">29</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00035">35</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
@@ -201,7 +202,7 @@ Funkce</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00023">23</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00029">29</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
@@ -217,7 +218,7 @@ Funkce</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00038">38</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00044">44</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
@@ -276,7 +277,7 @@ Funkce</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00225">225</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00233">233</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
@@ -303,7 +304,7 @@ Funkce</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00250">250</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00258">258</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
@@ -329,7 +330,7 @@ Funkce</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00054">54</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00060">60</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
@@ -367,7 +368,7 @@ Funkce</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00179">179</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00187">187</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
@@ -394,7 +395,7 @@ Funkce</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00074">74</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00080">80</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
@@ -438,7 +439,7 @@ Funkce</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00113">113</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00119">119</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
@@ -482,18 +483,18 @@ Funkce</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00095">95</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00101">101</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
-<a id="a21e186fb7964320425f5ad95a0c867d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21e186fb7964320425f5ad95a0c867d2">&#9670;&nbsp;</a></span>SymbolTable_insert()</h2>
+<a id="abb44f7195685408edd74cb4661e8eace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb44f7195685408edd74cb4661e8eace">&#9670;&nbsp;</a></span>SymbolTable_insert()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a> SymbolTable_insert </td>
+          <td class="memname">int SymbolTable_insert </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab">SymbolTable</a> *&#160;</td>
           <td class="paramname"><em>st</em>, </td>
@@ -520,7 +521,13 @@ Funkce</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2">SymbolPtr</a> *&#160;</td>
+          <td class="paramname"><em>symbol</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -536,18 +543,19 @@ Funkce</h2></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*key Identifikátor položky </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">SymbolType</td><td>type Typ symbolu </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">SymbolLocation</td><td>location Umístění symbolu </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">void</td><td>*value Hodnota položky</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">void</td><td>*value Hodnota položky </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">SymbolPtr</td><td>*symbol Ukazatel na nově vytvořený symbol</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="retval"><dt>Vracené hodnoty</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">SymbolPtr|null|int</td><td>Ukazatel na nově vytvořenou položku tabulky </td></tr>
+    <tr><td class="paramname">int</td><td>Kód se kterým bylo vložení symbolu ukončeno </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00143">143</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
+<p class="definition">Definice je uvedena na řádku <a class="el" href="symtable_8c_source.html#l00150">150</a> v souboru <a class="el" href="symtable_8c_source.html">symtable.c</a>.</p>
 
 </div>
 </div>
@@ -557,7 +565,7 @@ Funkce</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_572890c148f68441e050f6560d78312b.html">parser</a></li><li class="navelem"><a class="el" href="symtable_8c.html">symtable.c</a></li>
-    <li class="footer">Generováno út 21. lis 2017 14.25:03 pro projekt IFJ2017_Project programem
+    <li class="footer">Generováno st 22. lis 2017 15.38:10 pro projekt IFJ2017_Project programem
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

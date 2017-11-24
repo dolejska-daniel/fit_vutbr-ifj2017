@@ -8,6 +8,8 @@
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
+#include <stdbool.h>
+
 #ifndef _token_h
 #define _token_h
 
@@ -28,9 +30,9 @@ typedef enum E_TokenType {
     //  Keywords end
     IDENTIFIER,         ///< variable_name
     CONSTANT_INTEGER,   ///< 25
-    CONSTANT_BINARY,    ///< &B1011101000101
-    CONSTANT_OCTAL,     ///< &O7346104612315
-    CONSTANT_HEXA,      ///< &H1AB2F8D9CEE20
+    CONSTANT_BINARY,    ///< 1011101000101
+    CONSTANT_OCTAL,     ///< 7346104612315
+    CONSTANT_HEXA,      ///< FA12F8D9C5E20
     CONSTANT_DOUBLE,    ///< 0.25, 0.25e-2
     CONSTANT_STRING,    ///< "string"
     CONSTANT_BOOLEAN,   ///< true, false
@@ -40,11 +42,20 @@ typedef enum E_TokenType {
     CLOSE_BRACKET,      ///< )
     EQ,                 ///< =
     GT,                 ///< >
+    GTEQ,               ///< >=
     LT,                 ///< <
-    MINUS,              ///< -
-    PLUS,               ///< +
+    LTEQ,               ///< <=
+    LTGT,               ///< <>
+    MINUS,              ///< &#45;
+    MINUSEQ,            ///< &#45;=
+    PLUS,               ///< &#43;
+    PLUSEQ,             ///< &#43;=
     SLASH,              ///< /
-    STAR,               ///< *
+    SLASHEQ,            ///< /=
+    BACK_SLASH,         ///< &#92;
+    BACK_SLASHEQ,       ///< &#92;=
+    STAR,               ///< &#42;
+    STAREQ,             ///< &#42;=
     LINE_END,           ///< EOL
     FILE_END,           ///< EOF
     INVALID,            ///< Chyba scanneru
@@ -81,5 +92,25 @@ TokenPtr Token_create(TokenType type, char *attr);
  * @param[in,out]   TokenPtr    *t   Ukazatel na ukazatel na existující strukturu tokenu
  */
 void Token_destroy(TokenPtr *t);
+
+/**
+ * Funkce zobrazí obsah tokenu na stderr.
+ *
+ * @param[in,out]	TokenPtr    token   Ukazatel na existující token
+ */
+void Token_debugPrint(TokenPtr token);
+
+bool Token_isConstant(TokenPtr token);
+
+bool Token_isOperator(TokenPtr token);
+
+int TokenType_toSymbolType(TokenType type);
+
+/**
+ * Funkce vrátí textový řetězec zastupující typ tokenu.
+ *
+ * @retval  char*   Textový řetězec popisující typ tokenu
+ */
+char *TokenType_toString(TokenType type);
 
 #endif

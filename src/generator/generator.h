@@ -209,6 +209,16 @@ int Instruction_variable_declare(InstructionListPtr l, SymbolPtr symbol);
  */
 int Instruction_variable_assign(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
 
+/**
+ * Zapíše instrukce pro definici proměnné pomocí hodnoty ze stacku.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o proměnné, jejíž hodnota bude definována
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
+int Instruction_variable_assignFromStack(InstructionListPtr l, SymbolPtr variable);
+
 
 //-------------------------------------------------d-d-
 //  Instructions: Stack
@@ -508,7 +518,7 @@ int Instruction_int2char(InstructionListPtr l, SymbolPtr variable, SymbolPtr sym
  *
  * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
  */
-int Instruction_int2float(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
+int Instruction_int2float(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
 
 /**
  * Zapíše instrukce pro převod desetinné hodnoty na celočíselnou.

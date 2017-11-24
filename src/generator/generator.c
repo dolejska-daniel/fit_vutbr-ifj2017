@@ -394,24 +394,35 @@ int Instruction_return(InstructionListPtr l)
  */
 int Instruction_variable_declare(InstructionListPtr l, SymbolPtr symbol)
 {
-    if (symbol->type == ST_BOOLEAN) {
-        symbol->value = "false";
+    char *default_value;
+    switch (symbol->type)
+    {
+        case ST_BOOLEAN:
+            default_value = "false";
+            break;
+        case ST_STRING:
+            default_value = "";
+            break;
+        case ST_DOUBLE:
+            default_value = "0.0";
+            break;
+        case ST_INTEGER:
+            default_value = "0";
+            break;
+        default:
+            return INTERNAL_ERROR;
     }
-    else if (symbol->type == ST_STRING) {
-        symbol->value = "";
-    }
-    else if (symbol->type == ST_DOUBLE) {
-        symbol->value = 0;
-    }
-    else if (symbol->type == ST_INTEGER) {
-        symbol->value = 0;
-    }
-    else {
+
+    SymbolPtr newSymbol = Symbol_create(symbol->key, symbol->type, CONSTANT, default_value);
+    if (newSymbol == NULL)
+    {
         return INTERNAL_ERROR;
     }
 
     Instruction_defvar(l, symbol);
-    Instruction_move(l, symbol, symbol);
+    Instruction_move(l, symbol, newSymbol);
+    Symbol_destroy(&newSymbol);
+
     return NO_ERROR;
 }
 //TODO:
@@ -2027,7 +2038,7 @@ int Instruction_jumpifneq(InstructionListPtr l, char *label, SymbolPtr symbol1, 
  */
 int Instruction_jumpifeq_stack(InstructionListPtr l, char *label)
 {
-    char *instruction = String_concat("JUMPIFEQ", label, " ");
+    char *instruction = String_concat("JUMPIFEQS", label, " ");
     if (instruction == NULL)
     {
         DEBUG_ERR("generator", "instruction failed to allocate");
@@ -2053,7 +2064,7 @@ int Instruction_jumpifeq_stack(InstructionListPtr l, char *label)
  */
 int Instruction_jumpifneq_stack(InstructionListPtr l, char *label)
 {
-    char *instruction = String_concat("JUMPIFNEQ", label, " ");
+    char *instruction = String_concat("JUMPIFNEQS", label, " ");
     if (instruction == NULL)
     {
         DEBUG_ERR("generator", "instruction failed to allocate");

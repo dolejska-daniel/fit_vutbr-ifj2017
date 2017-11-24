@@ -26,7 +26,7 @@ typedef enum E_ErrorCodes {
     SEMANTICAL_DATATYPE_ERROR   = 4,    ///< sémantická chyba typové kompatibility v aritmetických, řetezcových a relačních výrazech, příp. špatný počet či typ parametrů u volání funkce
     SEMANTICAL_OTHER_ERROR      = 6,    ///< ostatní sémantické chyby
     INTERNAL_ERROR              = 99,   ///< interní chyba překladace tj. neovlivněná vstupním programem (např. chyba alokace paměti, atd.)
-} ParserError; ///< Chyby programu
+} ErrorCodes; ///< Chyby programu
 
 
 //==================================================================d=d=

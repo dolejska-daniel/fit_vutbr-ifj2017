@@ -7,9 +7,9 @@
 struct \hyperlink{struct_s___symbol}{S\+\_\+\+Symbol}
 \begin{DoxyCompactList}\small\item\em Struktura symbolu. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_s___symbol_info___function___parameter}{S\+\_\+\+Symbol\+Info\+\_\+\+Function\+\_\+\+Parameter}
-\item 
+\begin{DoxyCompactList}\small\item\em Struktura pro uložení vlastností parametru funkce. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_s___symbol_info___function}{S\+\_\+\+Symbol\+Info\+\_\+\+Function}
-\item 
+\begin{DoxyCompactList}\small\item\em Struktura pro uložení vlastností funkce. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_s___symbol_table}{S\+\_\+\+Symbol\+Table}
 \begin{DoxyCompactList}\small\item\em Struktura tabulky symbolů \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Definice typů}
@@ -65,7 +65,7 @@ unsigned \hyperlink{symtable_8h_a9d29d1595ae15033e260b84a5d6c062a}{Symbol\+Table
 \item 
 \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} \hyperlink{symtable_8h_ac8e713799be71031a3c093f040458e5e}{Symbol\+Table\+\_\+get} (\hyperlink{symtable_8h_a92c2bd08222b06fb0f2b4940a5fe51ab}{Symbol\+Table} $\ast$st, char $\ast$key)
 \item 
-\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} \hyperlink{symtable_8h_a21e186fb7964320425f5ad95a0c867d2}{Symbol\+Table\+\_\+insert} (\hyperlink{symtable_8h_a92c2bd08222b06fb0f2b4940a5fe51ab}{Symbol\+Table} $\ast$st, char $\ast$key, \hyperlink{symtable_8h_a623952f6aa67a355a3840e25272b1c91}{Symbol\+Type} type, \hyperlink{symtable_8h_af810c55aa1b6968bd104b1babca10999}{Symbol\+Location} location, void $\ast$value)
+int \hyperlink{symtable_8h_abb44f7195685408edd74cb4661e8eace}{Symbol\+Table\+\_\+insert} (\hyperlink{symtable_8h_a92c2bd08222b06fb0f2b4940a5fe51ab}{Symbol\+Table} $\ast$st, char $\ast$key, \hyperlink{symtable_8h_a623952f6aa67a355a3840e25272b1c91}{Symbol\+Type} type, \hyperlink{symtable_8h_af810c55aa1b6968bd104b1babca10999}{Symbol\+Location} location, void $\ast$value, \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} $\ast$symbol)
 \item 
 void \hyperlink{symtable_8h_a08dda33e2a17f63588aca9c712f69bd0}{Symbol\+Table\+\_\+delete} (\hyperlink{symtable_8h_a92c2bd08222b06fb0f2b4940a5fe51ab}{Symbol\+Table} $\ast$st, char $\ast$key)
 \item 
@@ -308,7 +308,7 @@ Funkce vytvoří (naalokuje) novou položku pro seznam.
 \end{DoxyRetVals}
 
 
-Definice je uvedena na řádku 225 v souboru symtable.\+c.
+Definice je uvedena na řádku 233 v souboru symtable.\+c.
 
 \mbox{\Hypertarget{symtable_8h_a6c9e630db250796d39f2233181bcea62}\label{symtable_8h_a6c9e630db250796d39f2233181bcea62}} 
 \index{symtable.\+h@{symtable.\+h}!Symbol\+\_\+destroy@{Symbol\+\_\+destroy}}
@@ -332,7 +332,7 @@ Funkce odstraní položku dle daného ukazatele.
 \end{DoxyParams}
 
 
-Definice je uvedena na řádku 250 v souboru symtable.\+c.
+Definice je uvedena na řádku 258 v souboru symtable.\+c.
 
 \mbox{\Hypertarget{symtable_8h_a19e2cea5d94a3ecbf8e7c0cc1d6e34f0}\label{symtable_8h_a19e2cea5d94a3ecbf8e7c0cc1d6e34f0}} 
 \index{symtable.\+h@{symtable.\+h}!Symbol\+Info\+\_\+\+Function\+\_\+create@{Symbol\+Info\+\_\+\+Function\+\_\+create}}
@@ -373,7 +373,7 @@ Funkce vytvářející a inicializující tabulku symbolů.
 \end{DoxyRetVals}
 
 
-Definice je uvedena na řádku 54 v souboru symtable.\+c.
+Definice je uvedena na řádku 60 v souboru symtable.\+c.
 
 \mbox{\Hypertarget{symtable_8h_a08dda33e2a17f63588aca9c712f69bd0}\label{symtable_8h_a08dda33e2a17f63588aca9c712f69bd0}} 
 \index{symtable.\+h@{symtable.\+h}!Symbol\+Table\+\_\+delete@{Symbol\+Table\+\_\+delete}}
@@ -392,7 +392,7 @@ Funkce odstraní položku s daným jménem z tabulky.
 \end{DoxyParams}
 
 
-Definice je uvedena na řádku 179 v souboru symtable.\+c.
+Definice je uvedena na řádku 187 v souboru symtable.\+c.
 
 \mbox{\Hypertarget{symtable_8h_a56bbef8bb278ea61e6f775382c2b016c}\label{symtable_8h_a56bbef8bb278ea61e6f775382c2b016c}} 
 \index{symtable.\+h@{symtable.\+h}!Symbol\+Table\+\_\+destroy@{Symbol\+Table\+\_\+destroy}}
@@ -409,7 +409,7 @@ Funkce pro zrušení existující tabulky symbolů.
 \end{DoxyParams}
 
 
-Definice je uvedena na řádku 74 v souboru symtable.\+c.
+Definice je uvedena na řádku 80 v souboru symtable.\+c.
 
 \mbox{\Hypertarget{symtable_8h_ac8e713799be71031a3c093f040458e5e}\label{symtable_8h_ac8e713799be71031a3c093f040458e5e}} 
 \index{symtable.\+h@{symtable.\+h}!Symbol\+Table\+\_\+get@{Symbol\+Table\+\_\+get}}
@@ -433,7 +433,7 @@ Funkce získá hledanou položku ze seznamu s daným identifikátorem.
 \end{DoxyRetVals}
 
 
-Definice je uvedena na řádku 113 v souboru symtable.\+c.
+Definice je uvedena na řádku 119 v souboru symtable.\+c.
 
 \mbox{\Hypertarget{symtable_8h_a9d29d1595ae15033e260b84a5d6c062a}\label{symtable_8h_a9d29d1595ae15033e260b84a5d6c062a}} 
 \index{symtable.\+h@{symtable.\+h}!Symbol\+Table\+\_\+hash@{Symbol\+Table\+\_\+hash}}
@@ -457,13 +457,13 @@ Funkce pro výpočet klíče na základě jména položky.
 \end{DoxyRetVals}
 
 
-Definice je uvedena na řádku 95 v souboru symtable.\+c.
+Definice je uvedena na řádku 101 v souboru symtable.\+c.
 
-\mbox{\Hypertarget{symtable_8h_a21e186fb7964320425f5ad95a0c867d2}\label{symtable_8h_a21e186fb7964320425f5ad95a0c867d2}} 
+\mbox{\Hypertarget{symtable_8h_abb44f7195685408edd74cb4661e8eace}\label{symtable_8h_abb44f7195685408edd74cb4661e8eace}} 
 \index{symtable.\+h@{symtable.\+h}!Symbol\+Table\+\_\+insert@{Symbol\+Table\+\_\+insert}}
 \index{Symbol\+Table\+\_\+insert@{Symbol\+Table\+\_\+insert}!symtable.\+h@{symtable.\+h}}
 \subsubsection{\texorpdfstring{Symbol\+Table\+\_\+insert()}{SymbolTable\_insert()}}
-{\footnotesize\ttfamily \hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} Symbol\+Table\+\_\+insert (\begin{DoxyParamCaption}\item[{\hyperlink{symtable_8h_a92c2bd08222b06fb0f2b4940a5fe51ab}{Symbol\+Table} $\ast$}]{st,  }\item[{char $\ast$}]{key,  }\item[{\hyperlink{symtable_8h_a623952f6aa67a355a3840e25272b1c91}{Symbol\+Type}}]{type,  }\item[{\hyperlink{symtable_8h_af810c55aa1b6968bd104b1babca10999}{Symbol\+Location}}]{location,  }\item[{void $\ast$}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Symbol\+Table\+\_\+insert (\begin{DoxyParamCaption}\item[{\hyperlink{symtable_8h_a92c2bd08222b06fb0f2b4940a5fe51ab}{Symbol\+Table} $\ast$}]{st,  }\item[{char $\ast$}]{key,  }\item[{\hyperlink{symtable_8h_a623952f6aa67a355a3840e25272b1c91}{Symbol\+Type}}]{type,  }\item[{\hyperlink{symtable_8h_af810c55aa1b6968bd104b1babca10999}{Symbol\+Location}}]{location,  }\item[{void $\ast$}]{value,  }\item[{\hyperlink{symtable_8h_ae75ae77f6060003cdcf7bd31d2c972f2}{Symbol\+Ptr} $\ast$}]{symbol }\end{DoxyParamCaption})}
 
 Funkce vloží novou položku do dané tabulky s daným klíčem a hodnotou.
 
@@ -477,35 +477,17 @@ Funkce vloží novou položku do dané tabulky s daným klíčem a hodnotou.
 \hline
 \mbox{\tt in}  & {\em Symbol\+Location} & location Umístění symbolu \\
 \hline
-\mbox{\tt in}  & {\em void} & $\ast$value Hodnota položky\\
+\mbox{\tt in}  & {\em void} & $\ast$value Hodnota položky \\
+\hline
+\mbox{\tt out}  & {\em Symbol\+Ptr} & $\ast$symbol Ukazatel na nově vytvořený symbol\\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyRetVals}{Vracené hodnoty}
-{\em Symbol\+Ptr} & Ukazatel na nově vytvoření položku tabulky\\
-\hline
-\end{DoxyRetVals}
-Funkce vloží novou položku do dané tabulky s daným klíčem a hodnotou.
-
-
-\begin{DoxyParams}[1]{Parametry}
-\mbox{\tt in,out}  & {\em Symbol\+Table} & $\ast$st Ukazatel na existující tabulku symbolů \\
-\hline
-\mbox{\tt in}  & {\em char} & $\ast$key Identifikátor položky \\
-\hline
-\mbox{\tt in}  & {\em Symbol\+Type} & type Typ symbolu \\
-\hline
-\mbox{\tt in}  & {\em Symbol\+Location} & location Umístění symbolu \\
-\hline
-\mbox{\tt in}  & {\em void} & $\ast$value Hodnota položky\\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Vracené hodnoty}
-{\em Symbol\+Ptr$\vert$null$\vert$int} & Ukazatel na nově vytvořenou položku tabulky \\
+{\em int} & Kód se kterým bylo vložení symbolu ukončeno \\
 \hline
 \end{DoxyRetVals}
 
 
-Definice je uvedena na řádku 143 v souboru symtable.\+c.
+Definice je uvedena na řádku 150 v souboru symtable.\+c.
 

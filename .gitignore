@@ -1,3 +1,6 @@
 /build/bin/Debug/*
 /build/obj/Debug/*
+/src/*.cbp
+/src/*.depend
+/src/*.layout
 *.save-failed

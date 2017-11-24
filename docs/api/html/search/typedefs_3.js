@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['symbol',['Symbol',['../symtable_8h.html#af824f438f84b7f736304f25632681acd',1,'symtable.h']]],
-  ['symbolinfo_5ffunction',['SymbolInfo_Function',['../symtable_8h.html#a065458f1e55d4358f563b7b295dd1b4f',1,'symtable.h']]],
-  ['symbolinfo_5ffunction_5fparameter',['SymbolInfo_Function_Parameter',['../symtable_8h.html#a6f66814120a40ef33089435deec15f47',1,'symtable.h']]],
-  ['symbolinfo_5ffunction_5fparameterptr',['SymbolInfo_Function_ParameterPtr',['../symtable_8h.html#a1a9ba6af4c191d6f7a69d09997748515',1,'symtable.h']]],
-  ['symbolinfo_5ffunctionptr',['SymbolInfo_FunctionPtr',['../symtable_8h.html#ab0570eb361c403622494b38b3fb71c75',1,'symtable.h']]],
-  ['symbollocation',['SymbolLocation',['../symtable_8h.html#af810c55aa1b6968bd104b1babca10999',1,'symtable.h']]],
-  ['symbolptr',['SymbolPtr',['../symtable_8h.html#ae75ae77f6060003cdcf7bd31d2c972f2',1,'symtable.h']]],
-  ['symboltable',['SymbolTable',['../symtable_8h.html#a92c2bd08222b06fb0f2b4940a5fe51ab',1,'symtable.h']]],
-  ['symboltableptr',['SymbolTablePtr',['../symtable_8h.html#a95850dbddb205e2c23a0c3b0cedf41f7',1,'symtable.h']]],
-  ['symboltype',['SymbolType',['../symtable_8h.html#a623952f6aa67a355a3840e25272b1c91',1,'symtable.h']]]
+  ['nestinglevel',['NestingLevel',['../nesting__list_8h.html#a79dcd2e6d263932d1b7b0f2928050552',1,'nesting_list.h']]],
+  ['nestinglevelptr',['NestingLevelPtr',['../nesting__list_8h.html#aea99292989d40bb6f97ba07eb2c820a6',1,'nesting_list.h']]],
+  ['nestinglist',['NestingList',['../nesting__list_8h.html#a3068ea85790d73a2dd5a635c239d8a9a',1,'nesting_list.h']]],
+  ['nestinglistptr',['NestingListPtr',['../nesting__list_8h.html#a94514b70b344fe14477174fdfc7653c9',1,'nesting_list.h']]],
+  ['nestingtype',['NestingType',['../nesting__list_8h.html#ae3be7fd101359a3813b67cf856c7c2d8',1,'nesting_list.h']]]
 ];
