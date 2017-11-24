@@ -2027,7 +2027,7 @@ int Instruction_jumpifneq(InstructionListPtr l, char *label, SymbolPtr symbol1, 
  */
 int Instruction_jumpifeq_stack(InstructionListPtr l, char *label)
 {
-    char *instruction = String_concat("JUMPIFEQ", label, " ");
+    char *instruction = String_concat("JUMPIFEQS", label, " ");
     if (instruction == NULL)
     {
         DEBUG_ERR("generator", "instruction failed to allocate");
@@ -2053,7 +2053,7 @@ int Instruction_jumpifeq_stack(InstructionListPtr l, char *label)
  */
 int Instruction_jumpifneq_stack(InstructionListPtr l, char *label)
 {
-    char *instruction = String_concat("JUMPIFNEQ", label, " ");
+    char *instruction = String_concat("JUMPIFNEQS", label, " ");
     if (instruction == NULL)
     {
         DEBUG_ERR("generator", "instruction failed to allocate");
