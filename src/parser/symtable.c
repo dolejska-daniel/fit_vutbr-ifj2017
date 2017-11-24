@@ -197,7 +197,7 @@ int SymbolTable_insert(SymbolTablePtr st, char *key, SymbolType type, SymbolLoca
 	if (s != NULL)
     {
         //  Symbol s daným klíčem byl v tabulce již nalezen
-        DEBUG_ERR("symtable-insert", "Symbol already exists");
+        DEBUG_ERR("symtable-insert", "symbol with given name already exists");
         return SEMANTICAL_DEFINITION_ERROR;
     }
     else
@@ -439,6 +439,7 @@ SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create(char *name
 	//	Inicializace struktury
 	s->dataType = dataType;
 	s->name     = name;
+	s->next     = NULL;
 
 	return s;
 }
@@ -451,6 +452,16 @@ void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s)
     String_destroy((*s)->name);
     free(*s);
     *s = NULL;
+}
+
+void SymbolInfo_Function_Parameter_debugPrint(SymbolInfo_Function_ParameterPtr s)
+{
+    #ifdef DEBUG_PRINT_SYMBOLINFO
+    fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameter (%p): {\n", s);
+    fprintf(stderr, "\tdataType: %s (%i)\n", SymbolType_toString(s->dataType), s->dataType);
+    fprintf(stderr, "\tname: %s\n", s->name);
+    fprintf(stderr, "}\n");
+    #endif
 }
 
 //-------------------------------------------------d-d-
@@ -487,6 +498,7 @@ int SymbolInfo_Function_ParameterList_insert(SymbolInfo_Function_ParameterListPt
 
     if (SymbolInfo_Function_ParameterList_parameterExistsWithName(l, param->name) == true)
     {
+        DEBUG_ERR("symtable-func-paramList_insert", "parameter with this name already exists");
         return SEMANTICAL_DEFINITION_ERROR;
     }
 
@@ -499,12 +511,12 @@ int SymbolInfo_Function_ParameterList_insert(SymbolInfo_Function_ParameterListPt
         }
 
         l->first = param;
-        TokenList_first(l);
+        SymbolInfo_Function_ParameterList_first(l);
     }
     else
     {
         l->active->next = param;
-        TokenList_next(l);
+        SymbolInfo_Function_ParameterList_next(l);
     }
 
     return NO_ERROR;
@@ -535,8 +547,8 @@ SymbolInfo_Function_ParameterPtr SymbolInfo_Function_ParameterList_getNext(Symbo
         return NULL;
     }
 
-    TokenList_next(l);
-    return TokenList_get(l);
+    SymbolInfo_Function_ParameterList_next(l);
+    return SymbolInfo_Function_ParameterList_get(l);
 }
 
 bool SymbolInfo_Function_ParameterList_parameterExistsWithName(SymbolInfo_Function_ParameterListPtr l, char *name)
@@ -554,6 +566,7 @@ bool SymbolInfo_Function_ParameterList_parameterExistsWithName(SymbolInfo_Functi
         SymbolInfo_Function_ParameterList_next(l);
     }
 
+    l->active = active;
     return exists;
 }
 
@@ -567,6 +580,24 @@ void SymbolInfo_Function_ParameterList_deleteFirst(SymbolInfo_Function_Parameter
     SymbolInfo_Function_ParameterPtr i = l->first;
     l->first = l->first->next;
     SymbolInfo_Function_Parameter_destroy(&i);
+}
+
+void SymbolInfo_Function_ParameterList_debugPrint(SymbolInfo_Function_ParameterListPtr l)
+{
+    #ifdef DEBUG_PRINT_SYMBOLINFO
+    SymbolInfo_Function_ParameterPtr active = l->active;
+    SymbolInfo_Function_ParameterList_first(l);
+    fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameterList (%p): {\n", l);
+    fprintf(stderr, "\tactive: %p\n", l->active);
+    fprintf(stderr, "\tfirst: %p\n", l->first);
+    while (l->active != NULL)
+    {
+        SymbolInfo_Function_Parameter_debugPrint(SymbolInfo_Function_ParameterList_get(l));
+        SymbolInfo_Function_ParameterList_next(l);
+    }
+    fprintf(stderr, "}\n");
+    l->active = active;
+    #endif
 }
 
 //-------------------------------------------------d-d-

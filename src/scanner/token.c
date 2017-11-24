@@ -182,6 +182,23 @@ int TokenType_toSymbolType(TokenType type)
     }
 }
 
+int TokenType_Keyword_toSymbolType(TokenType type)
+{
+    switch (type)
+    {
+        case INTEGER:
+            return ST_INTEGER;
+        case BOOLEAN:
+            return ST_BOOLEAN;
+        case DOUBLE:
+            return ST_DOUBLE;
+        case STRING:
+            return ST_STRING;
+        default:
+            return -1;
+    }
+}
+
 /**
  * Funkce vrátí textový řetězec zastupující typ tokenu.
  *

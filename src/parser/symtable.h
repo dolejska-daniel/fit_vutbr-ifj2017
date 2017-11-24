@@ -223,6 +223,8 @@ SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create(char *name
 
 void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s);
 
+void SymbolInfo_Function_Parameter_debugPrint(SymbolInfo_Function_ParameterPtr s);
+
 //-------------------------------------------------d-d-
 //  SymbolInfo_Function_ParameterList
 //-----------------------------------------------------
@@ -244,6 +246,8 @@ SymbolInfo_Function_ParameterPtr SymbolInfo_Function_ParameterList_getNext(Symbo
 bool SymbolInfo_Function_ParameterList_parameterExistsWithName(SymbolInfo_Function_ParameterListPtr l, char *name);
 
 void SymbolInfo_Function_ParameterList_deleteFirst(SymbolInfo_Function_ParameterListPtr l);
+
+void SymbolInfo_Function_ParameterList_debugPrint(SymbolInfo_Function_ParameterListPtr l);
 
 //-------------------------------------------------d-d-
 //  SymbolInfo_Loop

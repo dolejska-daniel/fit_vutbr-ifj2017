@@ -108,6 +108,8 @@ bool Token_isOperator(TokenPtr token);
 
 int TokenType_toSymbolType(TokenType type);
 
+int TokenType_Keyword_toSymbolType(TokenType type);
+
 /**
  * Funkce vrátí textový řetězec zastupující typ tokenu.
  *

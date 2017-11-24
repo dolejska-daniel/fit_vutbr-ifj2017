@@ -337,7 +337,8 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 SymbolPtr symbol = SymbolTable_getByToken(symtable, token);
                 if (symbol == NULL)
                 {
-                    //  TODO: Undefined error message
+                    if (Parser_setError_undefined(token, input) != NO_ERROR)
+                        return INTERNAL_ERROR;
                     return SEMANTICAL_DEFINITION_ERROR;
                 }
 
@@ -736,10 +737,13 @@ int Parser_ParseFunctionDeclaration(InputPtr input, InstructionListPtr ilist, Sy
             }
             else if (token->type == CLOSE_BRACKET)
             {
+                //  Načtený token je zavírací závorka
+                DEBUG_LOG(source, "CLOSE BRACKET received, leaving param process loop");
                 break;
             }
             else if (token->type != COMMA)
             {
+                //  Načtený token není ani čárka, ani zavírací závorka
                 if (Parser_setError_statement("COMMA or CLOSE_BRACKET", token, input) != NO_ERROR)
                 {
                     Token_destroy(&token);
@@ -804,14 +808,35 @@ int Parser_ParseFunctionDeclaration(InputPtr input, InstructionListPtr ilist, Sy
 
         DEBUG_LOG(source, "creating parameter");
         //  Vytvoření struktury
-        SymbolInfo_Function_ParameterPtr param = SymbolInfo_Function_Parameter_create(param_name_token->attr, TokenType_toSymbolType(param_type_token->type));
+        SymbolInfo_Function_ParameterPtr param = SymbolInfo_Function_Parameter_create(param_name_token->attr, TokenType_Keyword_toSymbolType(param_type_token->type));
+        if (param == NULL)
+        {
+            return INTERNAL_ERROR;
+        }
+        SymbolInfo_Function_Parameter_debugPrint(param);
+
+        DEBUG_LOG(source, "inserting to param list");
         //  Vložení parametru do seznamu
-        SymbolInfo_Function_ParameterList_insert(paramList, param);
+        symbol_result = SymbolInfo_Function_ParameterList_insert(paramList, param);
+        SymbolInfo_Function_ParameterList_debugPrint(paramList);
+        if (symbol_result != NO_ERROR)
+        {
+            DEBUG_ERR(source, "failed to insert parameter to list");
+            if (symbol_result == SEMANTICAL_DEFINITION_ERROR)
+            {
+                if (Parser_setError_alreadyDefined(param_name_token, input) != NO_ERROR)
+                    return INTERNAL_ERROR;
+                //  Param with this name already exists
+            }
+            return symbol_result;
+        }
 
         Token_destroy(&param_name_token);
         Token_destroy(&param_type_token);
     }
     while(true);
+
+    DEBUG_LOG(source, "parsing function return type");
 
     //  <AS>
     scanner_result = Parser_getToken(source, input, nlevel, AS, NULL);
@@ -861,9 +886,18 @@ int Parser_ParseFunctionDeclaration(InputPtr input, InstructionListPtr ilist, Sy
     symbol_result = SymbolTable_insert(symtable, func_token->attr, ST_FUNCTION, CONSTANT, func_info, &func_symbol);
     if (symbol_result != NO_ERROR)
     {
+        if (symbol_result == SEMANTICAL_DEFINITION_ERROR)
+        {
+            DEBUG_ERR(source, "function with this name is already declared");
+            if (Parser_setError_alreadyDefined(func_token, input) != NO_ERROR)
+                return INTERNAL_ERROR;
+        }
+        Token_destroy(&func_token);
+        Token_destroy(&param_name_token);
+        Token_destroy(&param_type_token);
+        Token_destroy(&func_type_token);
         SymbolInfo_Function_ParameterList_destroy(&paramList);
-        SymbolInfo_Function_destroy(&func_info);
-        return INTERNAL_ERROR;
+        return symbol_result;
     }
 
     SymbolTable_debugPrint(symtable);
@@ -891,16 +925,251 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
     char *source = "parser-func_def";
     int scanner_result;
     int parser_result;
+    int symbol_result;
+    int instruction_result;
 
-    TokenPtr token;
-    TokenPtr last_token = NULL;
+    bool firstParam = true;
 
-    //NestingLevelPtr nlevel = NestingList_newLevel(nlist, NESTING_FUNCTION);
+    TokenPtr  token;
+    TokenPtr  func_token;
+    TokenPtr  func_type_token;
+    TokenPtr  param_name_token;
+    TokenPtr  param_type_token;
+    SymbolPtr func_symbol;
+
+    SymbolInfo_Function_ParameterListPtr paramList;
+    SymbolInfo_FunctionPtr func_info;
+
+    NestingLevelPtr nlevel = NestingList_active(nlist);
 
     //-------------------------------------------------d-d-
     //  Zpracování tokenů
     //-----------------------------------------------------
 
+    //  <FUNCTION>
+    scanner_result = Parser_getToken(source, input, nlevel, FUNCTION, NULL);
+    if (scanner_result != NO_ERROR)
+    {
+        return scanner_result;
+    }
+
+    //  <IDENTIFIER>
+    scanner_result = Parser_getToken(source, input, nlevel, IDENTIFIER, &func_token);
+    if (scanner_result != NO_ERROR)
+    {
+        return scanner_result;
+    }
+
+    func_symbol = SymbolTable_getByToken(symtable, func_token);
+    if (func_symbol == NULL)
+    {
+        if (Parser_setError_undefined(func_token, input) != NO_ERROR)
+        {
+            Token_destroy(&func_token);
+            return INTERNAL_ERROR;
+        }
+        Token_destroy(&func_token);
+        return SEMANTICAL_DEFINITION_ERROR;
+    }
+    func_info = func_symbol->value;
+    if (func_info->isDefined == true)
+    {
+        if (Parser_setError_alrea(func_token, input) != NO_ERROR)
+        {
+            Token_destroy(&func_token);
+            return INTERNAL_ERROR;
+        }
+        Token_destroy(&func_token);
+        return SEMANTICAL_DEFINITION_ERROR;
+    }
+    Token_destroy(&func_token);
+
+    //  <OPEN_BRACKET>
+    scanner_result = Parser_getToken(source, input, nlevel, OPEN_BRACKET, NULL);
+    if (scanner_result != NO_ERROR)
+    {
+        return scanner_result;
+    }
+
+    DEBUG_LOG(source, "parsing parameters");
+    paramList = func_info->params;
+    SymbolInfo_Function_ParameterList_first(paramList);
+    do
+    {
+        if (SymbolInfo_Function_ParameterList_get(paramList) == NULL)
+        {
+            DEBUG_ERR(source, "invalid count of parameters");
+            return SEMANTICAL_DATATYPE_ERROR;
+        }
+
+        if (firstParam == false)
+        {
+            //  <COMMA> or <CLOSE_BRACKET>
+            scanner_result = Parser_getToken(source, input, nlevel, NO_REQUIRED_TYPE, &token);
+            if (scanner_result != NO_ERROR)
+            {
+                SymbolInfo_Function_ParameterList_destroy(&paramList);
+                return scanner_result;
+            }
+            else if (token->type == CLOSE_BRACKET)
+            {
+                //  Načtený token je zavírací závorka
+                DEBUG_LOG(source, "CLOSE BRACKET received, leaving param process loop");
+                break;
+            }
+            else if (token->type != COMMA)
+            {
+                //  Načtený token není ani čárka, ani zavírací závorka
+                if (Parser_setError_statement("COMMA or CLOSE_BRACKET", token, input) != NO_ERROR)
+                {
+                    Token_destroy(&token);
+                    SymbolInfo_Function_ParameterList_destroy(&paramList);
+                    return INTERNAL_ERROR;
+                }
+                Token_destroy(&token);
+                SymbolInfo_Function_ParameterList_destroy(&paramList);
+                return SYNTAX_ERROR;
+            }
+        }
+        else
+        {
+            firstParam = false;
+        }
+
+        //  <IDENTIFIER>
+        scanner_result = Parser_getToken(source, input, nlevel, IDENTIFIER, &param_name_token);
+        if (scanner_result != NO_ERROR)
+        {
+            SymbolInfo_Function_ParameterList_destroy(&paramList);
+            return scanner_result;
+        }
+
+        if (SymbolInfo_Function_ParameterList_parameterExistsWithName(paramList, param_name_token->attr) == true)
+        {
+            DEBUG_ERR(source, "parameter with given name already exists");
+            if (Parser_setError_alreadyDefined(param_name_token) != NO_ERROR)
+            {
+                Token_destroy(&param_name_token);
+                return INTERNAL_ERROR
+            }
+            Token_destroy(&param_name_token);
+            return SEMANTICAL_DEFINITION_ERROR;
+        }
+
+        //  <AS>
+        scanner_result = Parser_getToken(source, input, nlevel, AS, NULL);
+        if (scanner_result != NO_ERROR)
+        {
+            SymbolInfo_Function_ParameterList_destroy(&paramList);
+            return scanner_result;
+        }
+
+        //  <INTEGER|STRING|DOUBLE|BOOLEAN>
+        scanner_result = Parser_getToken(source, input, nlevel, NO_REQUIRED_TYPE, &param_type_token);
+        if (scanner_result != NO_ERROR)
+        {
+            SymbolInfo_Function_ParameterList_destroy(&paramList);
+            Token_destroy(&func_token);
+            return scanner_result;
+        }
+
+        if (Token_isDataType(param_type_token) == false)
+        {
+            if (Parser_setError_statement("INTEGER, STRING, DOUBLE or BOOLEAN", param_type_token, input))
+            {
+                SymbolInfo_Function_ParameterList_destroy(&paramList);
+                Token_destroy(&param_name_token);
+                Token_destroy(&param_type_token);
+                return INTERNAL_ERROR;
+            }
+            SymbolInfo_Function_ParameterList_destroy(&paramList);
+            Token_destroy(&param_name_token);
+            Token_destroy(&param_type_token);
+            return SYNTAX_ERROR;
+        }
+
+        DEBUG_LOG(source, "validating parameter");
+        if (SymbolInfo_Function_ParameterList_get(paramList)->dataType != TokenType_Keyword_toSymbolType(param_type_token))
+        {
+            //  Datový typ aktuálního parametru se neshoduje s datovým typem
+            //  uvedeným při deklaraci funkce
+            DEBUG_ERR(source, "parameter datatypes do not match");
+
+            if (Parser_setError_alreadyDefined(param_name_token) != NO_ERROR)
+            {
+                Token_destroy(&param_name_token);
+                Token_destroy(&param_type_token);
+                return INTERNAL_ERROR;
+            }
+
+            Token_destroy(&param_name_token);
+            Token_destroy(&param_type_token);
+            return SEMANTICAL_DATATYPE_ERROR;
+        }
+
+        Token_destroy(&param_name_token);
+        Token_destroy(&param_type_token);
+        SymbolInfo_Function_ParameterList_next();
+    }
+    while(true);
+
+    DEBUG_LOG(source, "parsing function return type");
+
+    //  <AS>
+    scanner_result = Parser_getToken(source, input, nlevel, AS, NULL);
+    if (scanner_result != NO_ERROR)
+    {
+        SymbolInfo_Function_ParameterList_destroy(&paramList);
+        Token_destroy(&param_name_token);
+        Token_destroy(&param_type_token);
+        return scanner_result;
+    }
+
+    //  <INTEGER|STRING|DOUBLE|BOOLEAN>
+    scanner_result = Parser_getToken(source, input, nlevel, NO_REQUIRED_TYPE, &func_type_token);
+    if (scanner_result != NO_ERROR)
+    {
+        SymbolInfo_Function_ParameterList_destroy(&paramList);
+        Token_destroy(&param_name_token);
+        Token_destroy(&param_type_token);
+        return scanner_result;
+    }
+
+    if (Token_isDataType(func_type_token) == false)
+    {
+        if (Parser_setError_statement("INTEGER, STRING, DOUBLE or BOOLEAN", func_type_token, input))
+        {
+            SymbolInfo_Function_ParameterList_destroy(&paramList);
+            Token_destroy(&param_name_token);
+            Token_destroy(&param_type_token);
+            Token_destroy(&func_type_token);
+            return INTERNAL_ERROR;
+        }
+        SymbolInfo_Function_ParameterList_destroy(&paramList);
+        Token_destroy(&param_name_token);
+        Token_destroy(&param_type_token);
+        Token_destroy(&func_type_token);
+        return SYNTAX_ERROR;
+    }
+
+    DEBUG_LOG(source, "creating symbol information");
+    if (func_symbol->type != TokenType_Keyword_toSymbolType(func_type_token->type))
+    {
+        DEBUG_ERR(source, "function return datatype does not match");
+        SymbolInfo_Function_ParameterList_destroy(&paramList);
+        Token_destroy(&param_name_token);
+        Token_destroy(&param_type_token);
+        Token_destroy(&func_type_token);
+
+        return SEMANTICAL_DATATYPE_ERROR;
+    }
+
+    SymbolInfo_Function_ParameterList_destroy(&paramList);
+    Token_destroy(&param_name_token);
+    Token_destroy(&param_type_token);
+    Token_destroy(&func_type_token);
+
+    NestingLevelPtr nlevel = NestingList_newLevel(nlist, NESTING_FUNCTION, func_symbol);
 
     //-------------------------------------------------d-d-
     //  Parsování vnitřního kódu funkce
@@ -913,14 +1182,12 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
         return parser_result;
     }
 
+    // TODO: Check
+
     //-------------------------------------------------d-d-
     //  Závěrečné tokeny
     //-----------------------------------------------------
-    if (last_token != NULL && last_token->type == END)
-    {
-
-    }
-    else
+    if (last_token != NULL && last_token->type != END)
     {
         //  TODO: Error, invalid token
 
@@ -937,6 +1204,7 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
 
     if (last_token != NULL)
         Token_destroy(&last_token);
+
     return NO_ERROR;
 }
 
@@ -1798,6 +2066,8 @@ int Parser_ParseStatement_Print(InputPtr input, InstructionListPtr ilist, Symbol
             if (symbol == NULL)
             {
                 DEBUG_ERR(source, "trying to print undefined variable");
+                if (Parser_setError_undefined(token, input) != NO_ERROR)
+                    return INTERNAL_ERROR;
                 return SEMANTICAL_DEFINITION_ERROR;
             }
 
@@ -1888,7 +2158,8 @@ int Parser_ParseStatement_Input(InputPtr input, InstructionListPtr ilist, Symbol
     variable = SymbolTable_getByToken(symtable, token);
     if (variable == NULL)
     {
-        //  TODO: Undefined error message
+        if (Parser_setError_undefined(token, input) != NO_ERROR)
+            return INTERNAL_ERROR;
         return SEMANTICAL_DEFINITION_ERROR;
     }
 
@@ -2762,9 +3033,78 @@ int Parser_setError_allocation()
     return INTERNAL_ERROR;
 }
 
-int Parser_setError_undefinedSymbol(SymbolPtr symbol, TokenPtr token, InputPtr input)
+int Parser_setError_undefined(TokenPtr token, InputPtr input)
 {
+    int  instruction_length;
+    if (token->type == INVALID)
+    {
+        instruction_length = 1;
+    }
+    else
+    {
+        instruction_length = strlen(token ? token->attr : "");
+    }
 
+    int  error_index = input->character - instruction_length;
+    char *message;
+
+    if (token->type == INVALID)
+    {
+        //  Speciální typ tokenu - obsahuje chybovou zprávu
+        message = token->attr;
+    }
+    else
+    {
+        message = String_printf("Usage of undefined reference %s on line %i:%i.", token->attr, (char *) input->line, (char *) (error_index + 1), NULL);
+    }
+
+    if (message == NULL)
+    {
+        return Parser_setError_allocation();
+    }
+
+    error_description        = message;
+    error_char_index         = error_index;
+    error_instruction_length = instruction_length;
+
+    return NO_ERROR;
+}
+
+int Parser_setError_alreadyDefined(TokenPtr token, InputPtr input)
+{
+    int  instruction_length;
+    if (token->type == INVALID)
+    {
+        instruction_length = 1;
+    }
+    else
+    {
+        instruction_length = strlen(token ? token->attr : "");
+    }
+
+    int  error_index = input->character - instruction_length;
+    char *message;
+
+    if (token->type == INVALID)
+    {
+        //  Speciální typ tokenu - obsahuje chybovou zprávu
+        message = token->attr;
+    }
+    else
+    {
+        message = String_printf("Cannot redeclare/redefine symbol %s on line %i:%i.", token->attr, (char *) input->line, (char *) (error_index + 1), NULL);
+    }
+
+    if (message == NULL)
+    {
+        return Parser_setError_allocation();
+    }
+
+    error_description        = message;
+    error_char_index         = error_index;
+    error_instruction_length = instruction_length;
+
+    return NO_ERROR;
 }
 
 int Parser_setError_statement(char *expected, TokenPtr token, InputPtr input)
@@ -2807,6 +3147,7 @@ int Parser_setError_statement(char *expected, TokenPtr token, InputPtr input)
     error_description        = message;
     error_char_index         = error_index;
     error_instruction_length = instruction_length;
+
     return NO_ERROR;
 }
 
