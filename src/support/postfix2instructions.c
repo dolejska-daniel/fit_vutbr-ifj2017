@@ -55,11 +55,12 @@
 
 int postfix2instructions_mathematical(InstructionListPtr ilist, PostfixListPtr *postfixList)
 {
+    DEBUG_LOG("post2instr-math", "converting postfix expression to instructions");
+    PostfixList_debugPrint(*postfixList);
+
     int instruction_result;
 
     SymbolStackPtr s = SymbolStack_create();
-
-    PostfixList_debugPrint(*postfixList);
 
     PostfixList_first(*postfixList);
     PostfixListItemPtr operand = PostfixList_get(*postfixList);
@@ -119,7 +120,7 @@ int postfix2instructions_mathematical(InstructionListPtr ilist, PostfixListPtr *
                 //  Neočekávaný token
                 SymbolStack_destroy(&s);
 
-                DEBUG_ERR("post2inst-math", "this type of Token was not expected!");
+                DEBUG_ERR("post2instr-math", "this type of token was not expected!");
                 Token_debugPrint(token);
                 return INTERNAL_ERROR;
             }
@@ -141,6 +142,9 @@ int postfix2instructions_mathematical(InstructionListPtr ilist, PostfixListPtr *
 
 int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postfixList)
 {
+    DEBUG_LOG("post2instr-logic", "converting postfix expression to instructions");
+    PostfixList_debugPrint(*postfixList);
+
     SymbolStackPtr s = SymbolStack_create();
 
     PostfixList_first(*postfixList);
@@ -192,7 +196,7 @@ int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postf
                 //  Neočekávaný token
                 SymbolStack_destroy(&s);
 
-                DEBUG_ERR("post2inst-logic", "this type of Token was not expected!");
+                DEBUG_ERR("post2instr-logic", "this type of token was not expected!");
                 Token_debugPrint(token);
                 return INTERNAL_ERROR;
             }

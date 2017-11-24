@@ -118,7 +118,7 @@ int doOperation(TokenStackPtr s, PostfixListPtr postfixList, TokenPtr token)
 
             //	Pokud je operátorem na vrcholu zásobníku otevírací závorka
             //	pak není problém pokračovat
-            if (stack_token == OPEN_BRACKET /* stack_priority == -1 */)
+            if (stack_token->type == OPEN_BRACKET /* stack_priority == -1 */)
             {
                 break;
             }

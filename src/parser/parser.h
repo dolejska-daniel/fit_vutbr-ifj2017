@@ -82,6 +82,8 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
 
 int Parser_ParseCondition(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
+int Parser_ParseSubCondition(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist, TokenPtr *last_token);
+
 
 //-------------------------------------------------d-d-
 //  Cykly
