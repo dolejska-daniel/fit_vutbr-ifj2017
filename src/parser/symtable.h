@@ -26,7 +26,7 @@ typedef enum E_SymbolType {
 	ST_STRING,   ///< Proměnná datového typu string
 	ST_DOUBLE,	 ///< Proměnná datového typu double
 	ST_INTEGER,  ///< Proměnná datového typu integer
-	ST_NONE,     ///< Slouží pro ukládání návěstí aspod.
+	ST_NONE,     ///< Datový typ void (pro návratové typy funkcí)
 	ST_FUNCTION, ///< Funkce
 	ST_LOOP,     ///< Cyklus
 	ST_COND,     ///< Podmínka
@@ -54,17 +54,26 @@ typedef struct S_SymbolInfo_Function_Parameter
     SymbolInfo_Function_Parameter,
    *SymbolInfo_Function_ParameterPtr;
 struct S_SymbolInfo_Function_Parameter {
-    SymbolType  dataType; ///< Datový typ parametru funkce
-    char        *name;    ///< Název parametru (proměnné)
+    SymbolInfo_Function_ParameterPtr next; ///< Ukazatel na následující položku v seznamu
+    SymbolType dataType; ///< Datový typ parametru funkce
+    char       *name;    ///< Název parametru (proměnné)
 }; ///< Struktura pro uložení vlastností parametru funkce
+
+typedef struct S_SymbolInfo_Function_ParameterList
+    SymbolInfo_Function_ParameterList,
+   *SymbolInfo_Function_ParameterListPtr;
+struct S_SymbolInfo_Function_ParameterList {
+    SymbolInfo_Function_ParameterPtr first;  ///< Uzakatel na první prvek v seznamu
+    SymbolInfo_Function_ParameterPtr active; ///< Ukazatel na aktivní prvek v seznamu
+}; ///< Seznam parametrů funkce
 
 typedef struct S_SymbolInfo_Function
     SymbolInfo_Function,
    *SymbolInfo_FunctionPtr;
 struct S_SymbolInfo_Function {
-    SymbolInfo_Function_Parameter   **params; ///< Pole parametrů funkce
-    SymbolType  returnDataType; ///< Datový typ návratové hodnoty
-    bool        isDefined;      ///< Označuje zda je funkce definována
+    SymbolInfo_Function_ParameterListPtr params; ///< Seznam parametrů funkce
+    SymbolType  dataType;   ///< Datový typ návratové hodnoty
+    bool        isDefined;  ///< Označuje zda je funkce definována
 }; ///< Struktura pro uložení vlastností funkce
 
 typedef struct S_SymbolInfo_Loop
@@ -192,13 +201,17 @@ SymbolPtr Symbol_create(char *key, SymbolType type, SymbolLocation location, voi
  */
 void Symbol_destroy(SymbolPtr *s);
 
+bool Symbol_isVariable(SymbolPtr s);
+
+bool Symbol_isFunction(SymbolPtr s);
+
 void Symbol_debugPrint(SymbolPtr symbol);
 
 //-------------------------------------------------d-d-
 //  SymbolInfo_Function
 //-----------------------------------------------------
 
-SymbolInfo_FunctionPtr SymbolInfo_Function_create();
+SymbolInfo_FunctionPtr SymbolInfo_Function_create(SymbolType dataType, SymbolInfo_Function_ParameterListPtr paramList);
 
 void SymbolInfo_Function_destroy(SymbolInfo_FunctionPtr *s);
 
@@ -206,9 +219,31 @@ void SymbolInfo_Function_destroy(SymbolInfo_FunctionPtr *s);
 //  SymbolInfo_Function_Parameter
 //-----------------------------------------------------
 
-SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create();
+SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create(char *name, SymbolType dataType);
 
 void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s);
+
+//-------------------------------------------------d-d-
+//  SymbolInfo_Function_ParameterList
+//-----------------------------------------------------
+
+SymbolInfo_Function_ParameterListPtr SymbolInfo_Function_ParameterList_create();
+
+void SymbolInfo_Function_ParameterList_destroy(SymbolInfo_Function_ParameterListPtr *l);
+
+int SymbolInfo_Function_ParameterList_insert(SymbolInfo_Function_ParameterListPtr l, SymbolInfo_Function_ParameterPtr param);
+
+void SymbolInfo_Function_ParameterList_first(SymbolInfo_Function_ParameterListPtr l);
+
+void SymbolInfo_Function_ParameterList_next(SymbolInfo_Function_ParameterListPtr l);
+
+SymbolInfo_Function_ParameterPtr SymbolInfo_Function_ParameterList_get(SymbolInfo_Function_ParameterListPtr l);
+
+SymbolInfo_Function_ParameterPtr SymbolInfo_Function_ParameterList_getNext(SymbolInfo_Function_ParameterListPtr l);
+
+bool SymbolInfo_Function_ParameterList_parameterExistsWithName(SymbolInfo_Function_ParameterListPtr l, char *name);
+
+void SymbolInfo_Function_ParameterList_deleteFirst(SymbolInfo_Function_ParameterListPtr l);
 
 //-------------------------------------------------d-d-
 //  SymbolInfo_Loop

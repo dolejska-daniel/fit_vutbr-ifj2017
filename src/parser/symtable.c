@@ -365,21 +365,209 @@ void Symbol_debugPrint(SymbolPtr symbol)
     #endif
 }
 
+bool Symbol_isVariable(SymbolPtr s)
+{
+    switch (s->type)
+    {
+        case ST_BOOLEAN:
+        case ST_DOUBLE:
+        case ST_INTEGER:
+        case ST_STRING:
+            return true;
+        default:
+            return false;
+    }
+}
+
+bool Symbol_isFunction(SymbolPtr s)
+{
+    switch (s->type)
+    {
+        case ST_FUNCTION:
+            return true;
+        default:
+            return false;
+    }
+}
+
 //-------------------------------------------------d-d-
 //  SymbolInfo_Function
 //-----------------------------------------------------
 
-SymbolInfo_FunctionPtr SymbolInfo_Function_create();
+SymbolInfo_FunctionPtr SymbolInfo_Function_create(SymbolType dataType, SymbolInfo_Function_ParameterListPtr paramList)
+{
+    //	Vytvoření struktury
+	SymbolInfo_FunctionPtr s = (SymbolInfo_FunctionPtr) malloc(sizeof(SymbolInfo_Function));
+	if (s == NULL)
+    {
+        DEBUG_ERR("symtable-func_create", "failed to mallocate SymbolInfo_Function");
+        return NULL;
+    }
 
-void SymbolInfo_Function_destroy(SymbolInfo_FunctionPtr *s);
+	//	Inicializace struktury
+	s->dataType  = dataType;
+	s->params    = paramList;
+	s->isDefined = false;
+
+	return s;
+}
+
+void SymbolInfo_Function_destroy(SymbolInfo_FunctionPtr *s)
+{
+    if (*s == NULL)
+        return;
+
+    SymbolInfo_Function_Parameter_destroy(&((*s)->params));
+    free(*s);
+    *s = NULL;
+}
 
 //-------------------------------------------------d-d-
 //  SymbolInfo_Function_Parameter
 //-----------------------------------------------------
 
-SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create();
+SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create(char *name, SymbolType dataType)
+{
+    //	Vytvoření struktury
+	SymbolInfo_Function_ParameterPtr s = (SymbolInfo_Function_ParameterPtr) malloc(sizeof(SymbolInfo_Function_Parameter));
+	if (s == NULL)
+    {
+        DEBUG_ERR("symtable-func-param_create", "failed to mallocate SymbolInfo_Function_Parameter");
+        return NULL;
+    }
 
-void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s);
+	//	Inicializace struktury
+	s->dataType = dataType;
+	s->name     = name;
+
+	return s;
+}
+
+void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s)
+{
+    if (*s == NULL)
+        return;
+
+    String_destroy((*s)->name);
+    free(*s);
+    *s = NULL;
+}
+
+//-------------------------------------------------d-d-
+//  SymbolInfo_Function_ParameterList
+//-----------------------------------------------------
+
+SymbolInfo_Function_ParameterListPtr SymbolInfo_Function_ParameterList_create()
+{
+    SymbolInfo_Function_ParameterListPtr l = (SymbolInfo_Function_ParameterListPtr) malloc(sizeof(SymbolInfo_Function_ParameterList));
+    if (l == NULL)
+    {
+        DEBUG_ERR("symtable-func-paramList_create", "failed to mallocate SymbolInfo_Function_ParameterList");
+        return NULL;
+    }
+
+    l->active = NULL;
+    l->first  = NULL;
+
+    return l;
+}
+
+void SymbolInfo_Function_ParameterList_destroy(SymbolInfo_Function_ParameterListPtr *l)
+{
+    free(*l);
+    *l = NULL;
+}
+
+int SymbolInfo_Function_ParameterList_insert(SymbolInfo_Function_ParameterListPtr l, SymbolInfo_Function_ParameterPtr param)
+{
+    if (param == NULL || l == NULL)
+    {
+        return INTERNAL_ERROR;
+    }
+
+    if (SymbolInfo_Function_ParameterList_parameterExistsWithName(l, param->name) == true)
+    {
+        return SEMANTICAL_DEFINITION_ERROR;
+    }
+
+    if (l->active == NULL)
+    {
+        if (l->first != NULL)
+        {
+            DEBUG_ERR("symtable-func-paramList_insert", "active is NULL, but there are items in the list!");
+            return INTERNAL_ERROR;
+        }
+
+        l->first = param;
+        TokenList_first(l);
+    }
+    else
+    {
+        l->active->next = param;
+        TokenList_next(l);
+    }
+
+    return NO_ERROR;
+}
+
+void SymbolInfo_Function_ParameterList_first(SymbolInfo_Function_ParameterListPtr l)
+{
+    l->active = l->first;
+}
+
+void SymbolInfo_Function_ParameterList_next(SymbolInfo_Function_ParameterListPtr l)
+{
+    if (l->active != NULL)
+    {
+        l->active = l->active->next;
+    }
+}
+
+SymbolInfo_Function_ParameterPtr SymbolInfo_Function_ParameterList_get(SymbolInfo_Function_ParameterListPtr l)
+{
+    return l->active;
+}
+
+SymbolInfo_Function_ParameterPtr SymbolInfo_Function_ParameterList_getNext(SymbolInfo_Function_ParameterListPtr l)
+{
+    if (l->active == NULL)
+    {
+        return NULL;
+    }
+
+    TokenList_next(l);
+    return TokenList_get(l);
+}
+
+bool SymbolInfo_Function_ParameterList_parameterExistsWithName(SymbolInfo_Function_ParameterListPtr l, char *name)
+{
+    bool exists = false;
+
+    SymbolInfo_Function_ParameterPtr active = l->active;
+    SymbolInfo_Function_ParameterList_first(l);
+    while (l->active != NULL)
+    {
+        if (strcmp(SymbolInfo_Function_ParameterList_get(l)->name, name) == 0)
+        {
+            return true;
+        }
+        SymbolInfo_Function_ParameterList_next(l);
+    }
+
+    return exists;
+}
+
+void SymbolInfo_Function_ParameterList_deleteFirst(SymbolInfo_Function_ParameterListPtr l)
+{
+    if (l->first == NULL)
+    {
+        return;
+    }
+
+    SymbolInfo_Function_ParameterPtr i = l->first;
+    l->first = l->first->next;
+    SymbolInfo_Function_Parameter_destroy(&i);
+}
 
 //-------------------------------------------------d-d-
 //  SymbolInfo_Loop

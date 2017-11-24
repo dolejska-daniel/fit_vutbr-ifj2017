@@ -100,6 +100,8 @@ void Token_destroy(TokenPtr *t);
  */
 void Token_debugPrint(TokenPtr token);
 
+bool Token_isDataType(TokenPtr token);
+
 bool Token_isConstant(TokenPtr token);
 
 bool Token_isOperator(TokenPtr token);

@@ -105,6 +105,20 @@ void Token_debugPrint(TokenPtr token)
     #endif
 }
 
+bool Token_isDataType(TokenPtr token)
+{
+    switch (token->type)
+    {
+        case INTEGER:
+        case BOOLEAN:
+        case STRING:
+        case DOUBLE:
+            return true;
+        default:
+            return false;
+    }
+}
+
 bool Token_isConstant(TokenPtr token)
 {
     switch (token->type)
