@@ -8,6 +8,7 @@
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
@@ -52,6 +53,10 @@
 //  DEKLARACE FUNKCÍ
 //======================================================================
 
+//-------------------------------------------------d-d-
+//  SymbolTable
+//-----------------------------------------------------
+
 /**
  * Funkce vytvářející a inicializující tabulku symbolů.
  *
@@ -64,6 +69,8 @@ SymbolTablePtr SymbolTable_create()
 	//	Inicializace struktury
 	st->size  = SYMBOL_TABLE_SIZE;
 	st->array = (SymbolPtr *) malloc(sizeof(Symbol) * st->size);
+	st->condCount = 0;
+	st->loopCount = 0;
 
 	//  Inicializace položek
 	for (unsigned i = 0; i < st->size; i++)
@@ -286,6 +293,10 @@ void SymbolTable_debugPrint(SymbolTablePtr st)
     #endif
 }
 
+//-------------------------------------------------d-d-
+//  Symbol
+//-----------------------------------------------------
+
 /**
  * Funkce vytvoří (naalokuje) novou položku pro seznam.
  *
@@ -353,6 +364,54 @@ void Symbol_debugPrint(SymbolPtr symbol)
     }
     #endif
 }
+
+//-------------------------------------------------d-d-
+//  SymbolInfo_Function
+//-----------------------------------------------------
+
+SymbolInfo_FunctionPtr SymbolInfo_Function_create();
+
+void SymbolInfo_Function_destroy(SymbolInfo_FunctionPtr *s);
+
+//-------------------------------------------------d-d-
+//  SymbolInfo_Function_Parameter
+//-----------------------------------------------------
+
+SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create();
+
+void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s);
+
+//-------------------------------------------------d-d-
+//  SymbolInfo_Loop
+//-----------------------------------------------------
+
+SymbolInfo_LoopPtr SymbolInfo_Loop_create(char *begin_label, char *end_label)
+{
+    SymbolInfo_LoopPtr i = (SymbolInfo_LoopPtr) malloc(sizeof(SymbolInfo_Loop));
+    if (i == NULL)
+    {
+        DEBUG_ERR("symtable-info_loop_create", "faile to mallocate SymbolInfo_Loop");
+        return NULL;
+    }
+
+    i->begin_label = begin_label;
+    i->end_label   = end_label;
+
+    return i;
+}
+
+void SymbolInfo_Loop_destroy(SymbolInfo_LoopPtr *s)
+{
+    SymbolInfo_LoopPtr symbol = *s;
+    String_destroy(symbol->begin_label);
+    String_destroy(symbol->end_label);
+    free(symbol);
+    *s = NULL;
+}
+
+//-------------------------------------------------d-d-
+//  SymbolType
+//-----------------------------------------------------
 
 char *SymbolType_toString(SymbolType type)
 {

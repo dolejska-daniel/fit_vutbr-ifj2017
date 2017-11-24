@@ -33,10 +33,10 @@ typedef enum E_SymbolType {
 } SymbolType; ///< Typ symbolu
 
 typedef enum E_SymbolLocation {
-    GLOBAL_FRAME,    ///< Globální rámec
-    LOCAL_FRAME,     ///< Lokální rámec
-    TEMPORARY_FRAME, ///< Dočasný rámec
-    CONSTANT,        ///< Konstanta
+    GLOBAL_FRAME    = 1, ///< Globální rámec
+    LOCAL_FRAME     = 3, ///< Lokální rámec
+    TEMPORARY_FRAME = 2, ///< Dočasný rámec
+    CONSTANT        = 0, ///< Konstanta
 } SymbolLocation; ///< Umístění symbolu
 
 typedef struct S_Symbol
@@ -67,18 +67,32 @@ struct S_SymbolInfo_Function {
     bool        isDefined;      ///< Označuje zda je funkce definována
 }; ///< Struktura pro uložení vlastností funkce
 
+typedef struct S_SymbolInfo_Loop
+    SymbolInfo_Loop,
+   *SymbolInfo_LoopPtr;
+struct S_SymbolInfo_Loop {
+    char *begin_label; ///< Název návěstí na které se skočí vždy po dokončení iterace
+    char *end_label;   ///< Název návěstí na které se skočí po ukončení cyklu
+}; ///< Struktura pro uložení vlastností cyklu
+
 typedef struct S_SymbolTable
     SymbolTable,
    *SymbolTablePtr;
 struct S_SymbolTable {
-	Symbol	    **array; ///< Pole ukazatelů na jednotlivé symboly
-	unsigned	size;	 ///< Velikost tabulky symbolů
+	Symbol	    **array;   ///< Pole ukazatelů na jednotlivé symboly
+	unsigned	size;	   ///< Velikost tabulky symbolů
+	unsigned    condCount; ///< Index pro nově vytvářené podmínky
+	unsigned    loopCount; ///< Index pro nově vytvářené cykly
 }; ///< Struktura tabulky symbolů
 
 
 //==================================================================d=d=
 //  DEKLARACE FUNKCÍ
 //======================================================================
+
+//-------------------------------------------------d-d-
+//  SymbolTable
+//-----------------------------------------------------
 
 /**
  * Funkce vytvářející a inicializující tabulku symbolů.
@@ -155,6 +169,10 @@ void SymbolTable_delete(SymbolTablePtr st, char *key);
  */
 void SymbolTable_debugPrint(SymbolTablePtr st);
 
+//-------------------------------------------------d-d-
+//  Symbol
+//-----------------------------------------------------
+
 /**
  * Funkce vytvoří (naalokuje) novou položku pro seznam.
  *
@@ -176,13 +194,33 @@ void Symbol_destroy(SymbolPtr *s);
 
 void Symbol_debugPrint(SymbolPtr symbol);
 
+//-------------------------------------------------d-d-
+//  SymbolInfo_Function
+//-----------------------------------------------------
+
 SymbolInfo_FunctionPtr SymbolInfo_Function_create();
 
 void SymbolInfo_Function_destroy(SymbolInfo_FunctionPtr *s);
 
+//-------------------------------------------------d-d-
+//  SymbolInfo_Function_Parameter
+//-----------------------------------------------------
+
 SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create();
 
 void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s);
+
+//-------------------------------------------------d-d-
+//  SymbolInfo_Loop
+//-----------------------------------------------------
+
+SymbolInfo_LoopPtr SymbolInfo_Loop_create(char *begin_label, char *end_label);
+
+void SymbolInfo_Loop_destroy(SymbolInfo_LoopPtr *s);
+
+//-------------------------------------------------d-d-
+//  SymbolType
+//-----------------------------------------------------
 
 char *SymbolType_toString(SymbolType type);
 

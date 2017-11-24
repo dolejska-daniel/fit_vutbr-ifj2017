@@ -159,8 +159,8 @@ int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postf
             else if (token->type == LTGT)
             {
                 //  Porovnání (not equals)
-                Instruction_logic_not_stack(ilist);
                 Instruction_logic_eq_stack(ilist);
+                Instruction_logic_not_stack(ilist);
             }
             else if (token->type == LT)
             {

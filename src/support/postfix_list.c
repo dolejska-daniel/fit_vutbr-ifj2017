@@ -152,13 +152,19 @@ PostfixListItemPtr PostfixList_getNext(PostfixListPtr l)
 
 void PostfixList_debugPrint(PostfixListPtr l)
 {
-    fprintf(stderr, "DEBUG | PostfixList:\n");
+    #ifdef DEBUG_PRINT_POSTFIXLIST
+    PostfixListItemPtr active = l->active;
+    fprintf(stderr, "DEBUG | PostfixList (%p): {\n", l);
     PostfixList_first(l);
     while (l->active != NULL)
     {
+        fprintf(stderr, "\t");
         PostfixListItem_debugPrint(PostfixList_get(l));
         PostfixList_next(l);
     }
+    fprintf(stderr, "}\n");
+    l->active = active;
+    #endif
 }
 
 void PostfixList_deleteFirst(PostfixListPtr l)

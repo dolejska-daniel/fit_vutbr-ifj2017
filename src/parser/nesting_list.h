@@ -10,6 +10,8 @@
 
 #include <stdio.h>
 
+#include "symtable.h"
+
 #ifndef _nesting_list_h
 #define _nesting_list_h
 
@@ -48,9 +50,10 @@ typedef struct S_NestingLevel
     NestingLevel,
     *NestingLevelPtr;
 struct S_NestingLevel {
-    NestingType     type; ///< Typ dané úrovně zanoření
-    NestingLevelPtr next; ///< Ukazatel na následující úroveň
-    NestingLevelPtr prev; ///< Ukazatel na předchozí úroveň
+    NestingType     type;   ///< Typ dané úrovně zanoření
+    SymbolPtr       symbol; ///< Ukazatel na symbol aktuální úrovně (cyklus, funkce, apod.)
+    NestingLevelPtr next;   ///< Ukazatel na následující úroveň
+    NestingLevelPtr prev;   ///< Ukazatel na předchozí úroveň
 }; ///< Struktura daného zanoření
 
 typedef struct S_NestingList
@@ -92,20 +95,22 @@ void NestingList_destroy(NestingListPtr *l);
  *
  * @param[in,out]   NestingListPtr  l       Ukazatel na řídící strukturu seznamu
  * @param[in]       NestingType     type    Samotný obsah úrovně - typ zanoření
+ * @param[in]       SymbolPtr       symbol  Ukazatel na symbol dané úrovně (cyklus, funkce, apod.)
  *
  * @retval  NestingLevelPtr Ukazatel na nově vytvořenou strukturu
  */
-NestingLevelPtr NestingList_insertFirst(NestingListPtr l, NestingType type);
+NestingLevelPtr NestingList_insertFirst(NestingListPtr l, NestingType type, SymbolPtr symbol);
 
 /**
  * Vloží novou úroveň na konec seznamu.
  *
  * @param[in,out]   NestingListPtr  l       Ukazatel na řídící strukturu seznamu
  * @param[in]       NestingType     type    Samotný obsah úrovně - typ zanoření
+ * @param[in]       SymbolPtr       symbol  Ukazatel na symbol dané úrovně (cyklus, funkce, apod.)
  *
  * @retval  NestingLevelPtr Ukazatel na nově vytvořenou strukturu
  */
-NestingLevelPtr NestingList_insertLast(NestingListPtr l, NestingType type);
+NestingLevelPtr NestingList_insertLast(NestingListPtr l, NestingType type, SymbolPtr symbol);
 
 /**
  * Nastaví první úroveň na aktivní.
@@ -166,10 +171,11 @@ void NestingList_deleteLast(NestingListPtr l);
  * Funkce vytvoří (alokuje) novou úroveň seznamu.
  *
  * @param[in]   NestingType type    Typ zanoření úrovně
+ * @param[in]   SymbolPtr   symbol  Ukazatel na symbol dané úrovně (cyklus, funkce, apod.)
  *
  * @retval  NestingLevelPtr Ukazatel na nově vytvořenou strukturu
  */
-NestingLevelPtr NestingLevel_create(NestingType type);
+NestingLevelPtr NestingLevel_create(NestingType type, SymbolPtr symbol);
 
 /**
  * Funkce zruší (uvolní) existující úroveň seznamu.
@@ -200,10 +206,11 @@ NestingLevelPtr NestingList_isNestedIn(NestingListPtr l, NestingType type);
  *
  * @param[in,out]   NestingListPtr  l       Ukazatel na řídící strukturu seznamu
  * @param[in]       NestingType     type    Samotný obsah úrovně - typ zanoření
+ * @param[in]       SymbolPtr       symbol  Ukazatel na symbol aktuální úrovně (cyklus, funkce, apod.)
  *
  * @param[in,out]   NestingListPtr  l   Ukazatel na řídící strukturu seznamu
  */
-NestingLevelPtr NestingList_newLevel(NestingListPtr l, NestingType type);
+NestingLevelPtr NestingList_newLevel(NestingListPtr l, NestingType type, SymbolPtr symbol);
 
 /**
  * Odstraní poslední úroveň v seznamu a nastaví aktivitu na předcházející

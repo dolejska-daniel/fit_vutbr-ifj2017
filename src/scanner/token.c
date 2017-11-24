@@ -139,6 +139,7 @@ bool Token_isOperator(TokenPtr token)
         case STAR:
         case AND:
         case OR:
+        case NOT:
         case OPEN_BRACKET:
         case CLOSE_BRACKET:
             return true;
@@ -174,11 +175,78 @@ int TokenType_toSymbolType(TokenType type)
  */
 char *TokenType_toString(TokenType type)
 {
-    if (type < 35)
-        return "KEYWORD";
-
     switch (type)
     {
+        case AS:
+            return "KEYWORD (AS)";
+        case ASC:
+            return "KEYWORD (ASC)";
+        case DECLARE:
+            return "KEYWORD (DECLARE)";
+        case DIM:
+            return "KEYWORD (DIM)";
+        case DO:
+            return "KEYWORD (DO)";
+        case DOUBLE:
+            return "KEYWORD (DOUBLE)";
+        case ELSE:
+            return "KEYWORD (ELSE)";
+        case END:
+            return "KEYWORD (END)";
+        case CHR:
+            return "KEYWORD (CHR)";
+        case FUNCTION:
+            return "KEYWORD (FUNCTION)";
+        case IF:
+            return "KEYWORD (IF)";
+        case INPUT:
+            return "KEYWORD (INPUT)";
+        case INTEGER:
+            return "KEYWORD (INTEGER)";
+        case LENGTH:
+            return "KEYWORD (LENGTH)";
+        case LOOP:
+            return "KEYWORD (LOOP)";
+        case PRINT:
+            return "KEYWORD (PRINT)";
+        case RETURN:
+            return "KEYWORD (RETURN)";
+        case SCOPE:
+            return "KEYWORD (SCOPE)";
+        case STRING:
+            return "KEYWORD (STRING)";
+        case SUBSTR:
+            return "KEYWORD (SUBSTR)";
+        case THEN:
+            return "KEYWORD (THEN)";
+        case WHILE:
+            return "KEYWORD (WHILE)";
+        case AND:
+            return "KEYWORD (AND)";
+        case BOOLEAN:
+            return "KEYWORD (BOOLEAN)";
+        case CONTINUE:
+            return "KEYWORD (CONTINUE)";
+        case ELSEIF:
+            return "KEYWORD (ELSEIF)";
+        case EXIT:
+            return "KEYWORD (EXIT)";
+        case FALSE:
+            return "KEYWORD (FALSE)";
+        case FOR:
+            return "KEYWORD (FOR)";
+        case NEXT:
+            return "KEYWORD (NEXT)";
+        case NOT:
+            return "KEYWORD (NOT)";
+        case OR:
+            return "KEYWORD (OR)";
+        case SHARED:
+            return "KEYWORD (SHARED)";
+        case STATIC:
+            return "KEYWORD (STATIC)";
+        case TRUE:
+            return "KEYWORD (TRUE)";
         case IDENTIFIER:
             return "IDENTIFIER";
         case CONSTANT_INTEGER:

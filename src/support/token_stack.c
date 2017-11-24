@@ -76,7 +76,7 @@ int TokenStack_push(TokenStackPtr s, TokenPtr token)
 {
     if (TokenStack_isFull(s) == true)
     {
-        DEBUG_ERR("char_stack-push", "cannot push, stack is already full!");
+        DEBUG_ERR("char_stack-push", "cannot PUSH, stack full!");
         return INTERNAL_ERROR;
     }
 
@@ -88,7 +88,7 @@ int TokenStack_pop(TokenStackPtr s)
 {
     if (TokenStack_isEmpty(s) == true)
     {
-        DEBUG_ERR("char_stack-pop", "cannot pop, stack empty!");
+        DEBUG_ERR("char_stack-pop", "cannot POP, stack empty!");
         return INTERNAL_ERROR;
     }
 
@@ -113,18 +113,21 @@ bool TokenStack_isFull(TokenStackPtr s)
 
 void TokenStack_debugPrint(TokenStackPtr s)
 {
-    fprintf(stderr, "DEBUG | TokenStack:\n");
+    #ifdef DEBUG_PRINT_TOKENSTACK
+    fprintf(stderr, "DEBUG | TokenStack (%p): {\n", s);
     for (int index = TOKEN_STACK_SIZE - 1; index >= 0; index--)
     {
         if (s->array[index] != NULL)
         {
-            fprintf(stderr, "%2i: <(%p): %s (%i), %s>\n", index, s->array[index], TokenType_toString(s->array[index]->type), s->array[index]->type, s->array[index]->attr);
+            fprintf(stderr, "\t%2i: <(%p): %s (%i), %s>\n", index, s->array[index], TokenType_toString(s->array[index]->type), s->array[index]->type, s->array[index]->attr);
         }
         else
         {
-            fprintf(stderr, "%2i:\n", index);
+            fprintf(stderr, "\t%2i:\n", index);
         }
     }
+    fprintf(stderr, "}\n");
+    #endif
 }
 
 

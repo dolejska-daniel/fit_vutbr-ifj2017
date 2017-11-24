@@ -54,6 +54,7 @@ int untilLeftPar(TokenStackPtr s, PostfixListPtr postfixList)
 {
     TokenPtr stack_token;
     int      stack_result;
+    int      postfix_result;
 
     while(TokenStack_isEmpty(s) == false)
     {
@@ -68,7 +69,12 @@ int untilLeftPar(TokenStackPtr s, PostfixListPtr postfixList)
         {
             break;
         }
-        PostfixList_insertOperator(postfixList, stack_token);
+        postfix_result = PostfixList_insertOperator(postfixList, stack_token);
+        if (postfix_result != NO_ERROR)
+        {
+            DEBUG_ERR("inf2post-untilLP", "failed to insert operator");
+            return INTERNAL_ERROR;
+        }
     }
 
     return NO_ERROR;
@@ -178,7 +184,7 @@ int getTokenPriority(TokenPtr token)
 
         case AND:
         case OR:
-        case NOT:
+        case NOT: //    TODO: NOT bude pravděpodobně potřebovat vyšší prioritu
             return 1;
 
         //-------------------------------------------------d-d-

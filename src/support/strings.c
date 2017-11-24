@@ -61,7 +61,7 @@ char *String_create(const char *str)
     char *output = malloc(sizeof(char) * ((str ? strlen(str) : 0) + 1));
     if (output == NULL)
     {
-        DEBUG_ERR("string-create", "failed to mallocate string");
+        DEBUG_ERR("strings-create", "failed to mallocate string");
         return NULL;
     }
 
@@ -87,12 +87,16 @@ int String_addChar(char **string, char ch)
 {
     char *output;
     if (*string == NULL)
+    {
+        DEBUG_ERR("strings-addChar", "result string was NULL");
         return INTERNAL_ERROR;
+    }
 
     unsigned length = strlen(*string);
     output = malloc(sizeof(char) * (length + 2));
     if (*string == NULL)
     {
+        DEBUG_ERR("strings-addChar", "failed to mallocate new string");
         return INTERNAL_ERROR;
     }
 
@@ -126,7 +130,10 @@ char *String_concat(char *str1, char *str2, const char *strBetween)
 
     char *output = (char *) malloc(sizeof(char) * (strlen(str1) + strlen(str2) + extra_size));
     if (output == NULL)
+    {
+        DEBUG_ERR("strings-concat", "failed to mallocate new string");
         return NULL;
+    }
 
     strcpy(output, str1);
     if (strBetween != NULL)
@@ -166,6 +173,9 @@ char *String_printf(char *subject, char *arg1, char *arg2, char *arg3, char *arg
  */
 void String_destroy(char **s)
 {
+    if (*s == NULL)
+        return;
+
     free(*s);
     *s = NULL;
 }
