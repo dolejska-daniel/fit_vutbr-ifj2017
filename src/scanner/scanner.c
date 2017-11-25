@@ -14,9 +14,11 @@
 #ifdef DEBUG_INCLUDE
 #include "../support/error_codes.h"
 #include "../support/strings.h"
+#include "../support/token_stack.h"
 #else
 #include "error_codes.h"
-#include "error_codes.h"
+#include "strings.h"
+#include "token_stack.h"
 #endif // DEBUG_INCLUDE
 
 
@@ -47,6 +49,7 @@
 
 extern char *last_line;
 
+TokenStackPtr token_stack = NULL;
 bool charReturned = false;
 
 //==================================================================d=d=
@@ -55,6 +58,9 @@ bool charReturned = false;
 
 /**
  * Hlavní funkce ovládající lexikální analyzátor.
+ *
+ * Pokud se na stacku tokenů nachází nějaký vrácený token,
+ * je vrácen dříve, než je započato získávání tokenu nového.
  *
  * Pokud nebude token z nějakého důvodu získán, v parametru token vrací
  * hodnotu NULL a dále vrací adekvátní stavový kód.
@@ -82,6 +88,20 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
 
         String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
     */
+
+    if (token_stack == NULL)
+    {
+        token_stack = TokenStack_create();
+    }
+    else if (TokenStack_isEmpty(token_stack) == false)
+    {
+        *token = TokenStack_top(token_stack);
+        if (TokenStack_pop(token_stack) != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+    }
+
     AutomataState state = STATE_BEGIN;
     char* final_string = String_create(NULL);
 
@@ -1205,4 +1225,31 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         }
 
     }
+}
+
+/**
+ * Tato funkce "vrátí" získaný token. Uloží jej na stack
+ * tokenů a při dalším volání funkce Scanner_GetToken vrátí
+ * tento, ne nový token.
+ *
+ * @param[in,out]   InputPtr    input           Ukazatel na strukturu se vstupními daty
+ * @param[out]      TokenPtr    *token          Ukazatel na získaný token
+ *
+ * @retval int  Kód se kterým bylo vrácení získaného tokenu ukončeno
+ */
+int Scanner_UngetToken(InputPtr input, TokenPtr *token)
+{
+    if (token_stack == NULL)
+    {
+        token_stack = TokenStack_create();
+    }
+
+    if (TokenStack_push(token_stack, *token) != NO_ERROR)
+    {
+        *token = NULL;
+        return INTERNAL_ERROR;
+    }
+    *token = NULL;
+
+    return
 }

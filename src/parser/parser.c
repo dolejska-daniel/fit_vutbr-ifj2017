@@ -1014,6 +1014,7 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
     SymbolInfo_Function_ParameterList_first(paramList);
     do
     {
+        //  TODO: musí podporovat i funkce bez parametrů
         if (firstParam == false)
         {
             //  <COMMA> or <CLOSE_BRACKET>
@@ -1048,12 +1049,6 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
             firstParam = false;
         }
 
-        if (SymbolInfo_Function_ParameterList_get(paramList) == NULL)
-        {
-            DEBUG_ERR(source, "invalid count of parameters");
-            return SEMANTICAL_DATATYPE_ERROR;
-        }
-
         //  <IDENTIFIER>
         scanner_result = Parser_getToken(source, input, nlevel, IDENTIFIER, &param_name_token);
         if (scanner_result != NO_ERROR)
@@ -1061,21 +1056,11 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
             return scanner_result;
         }
 
-        /*
-        DEBUG_LOG(source, "checking parameter name existence");
-        SymbolInfo_Function_ParameterList_debugPrint(paramList);
-        Token_debugPrint(param_name_token);
-        if (SymbolInfo_Function_ParameterList_parameterExistsWithName(paramList, param_name_token->attr) == true)
+        if (SymbolInfo_Function_ParameterList_get(paramList) == NULL)
         {
-            DEBUG_ERR(source, "parameter with given name already exists");
-            if (Parser_setError_alreadyDefined(param_name_token, input) != NO_ERROR)
-            {
-                Token_destroy(&param_name_token);
-                return INTERNAL_ERROR;
-            }
-            Token_destroy(&param_name_token);
-            return SEMANTICAL_DEFINITION_ERROR;
-        }*/
+            DEBUG_ERR(source, "there are no more parameters defined in function declaration");
+            return SEMANTICAL_DATATYPE_ERROR;
+        }
 
         //  <AS>
         scanner_result = Parser_getToken(source, input, nlevel, AS, NULL);
@@ -1125,6 +1110,12 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
         SymbolInfo_Function_ParameterList_next(paramList);
     }
     while(true);
+
+    if (SymbolInfo_Function_ParameterList_get(paramList) != NULL)
+    {
+        DEBUG_ERR(source, "there are more parameters defined in function declaration");
+        return SEMANTICAL_DEFINITION_ERROR;
+    }
 
     DEBUG_LOG(source, "parsing function return type");
 
@@ -1247,7 +1238,7 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
     return NO_ERROR;
 }
 
-int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, Symbol func)
+int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, Symbol func_symbol)
 {
     //               |->
     //  <IDENTIFIER> | <OPEN_BRACKET> {[<COMMA] <IDENTIFIER|CONSTANT>}* <CLOSE_BRACKET>
@@ -1263,10 +1254,13 @@ int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTab
     int symbol_result;
 
     TokenPtr token;
+    TokenPtr last_token;
 
-    char        *var_name;
-    SymbolType  var_type;
-    SymbolPtr   var;
+    PostfixListPtr postfix;
+
+    SymbolInfo_FunctionPtr func_info = (SymbolInfo_FunctionPtr) func_symbol->value;
+    SymbolInfo_Function_ParameterListPtr paramList = func_info->params;
+    SymbolInfo_Function_ParameterPtr func_param = NULL;
 
     //-------------------------------------------------d-d-
     //  Zpracování tokenů
@@ -1278,11 +1272,45 @@ int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTab
         return scanner_result;
     }
 
-    //  <CLOSE_BRACKET>
-    scanner_result = Parser_getToken(source, input, NULL, CLOSE_BRACKET, NULL);
-    if (scanner_result != NO_ERROR)
+    //  PARAMETERS
+    SymbolInfo_Function_ParameterList_first(paramList);
+    do
     {
-        return scanner_result;
+        func_param = SymbolInfo_Function_ParameterList_get(paramList);
+        parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix, &last_token);
+        if (parser_result != NO_ERROR)
+        {
+            return parser_result;
+        }
+
+        if (func_param->dataType == ST_BOOLEAN)
+        {
+            parser_result = postfix2instructions_logical(ilist, &postfix);
+            if (parser_result != NO_ERROR)
+            {
+                return parser_result;
+            }
+        }
+        else
+        {
+            parser_result = postfix2instructions_mathematical(ilist, &postfix, func_param->dataType);
+            if (parser_result != NO_ERROR)
+            {
+                return parser_result;
+            }
+        }
+
+        if (last_token->type == COMMA)
+            continue;
+        else
+            break;
+    }
+    while(true);
+
+    //  <CLOSE_BRACKET>
+    if (last_token->type != CLOSE_BRACKET)
+    {
+        return SYNTAX_ERROR;
     }
 
     return NO_ERROR;
@@ -2231,9 +2259,16 @@ int Parser_ParseStatement_Continue(InputPtr input, InstructionListPtr ilist, Sym
 
     TokenPtr token;
 
-    NestingLevelPtr nlevel = NestingList_active(nlist);
+    NestingLevelPtr nlevel = NestingList_isNestedIn(nlist, NESTING_LOOP);
+
+    SymbolPtr loop_symbol = nlevel->symbol;
+    SymbolInfo_LoopPtr loop_info = loop_symbol->value;
 
 
+    //-------------------------------------------------d-d-
+    //  Zpracování
+    //-----------------------------------------------------
+    Instruction_jump(ilist, loop_info->begin_label);
 
     return INTERNAL_ERROR;
 }
@@ -2249,9 +2284,16 @@ int Parser_ParseStatement_Exit(InputPtr input, InstructionListPtr ilist, SymbolT
 
     TokenPtr token;
 
-    NestingLevelPtr nlevel = NestingList_active(nlist);
+    NestingLevelPtr nlevel = NestingList_isNestedIn(nlist, NESTING_LOOP);
+
+    SymbolPtr loop_symbol = nlevel->symbol;
+    SymbolInfo_LoopPtr loop_info = loop_symbol->value;
 
 
+    //-------------------------------------------------d-d-
+    //  Zpracování
+    //-----------------------------------------------------
+    Instruction_jump(ilist, loop_info->end_label);
 
     return INTERNAL_ERROR;
 }

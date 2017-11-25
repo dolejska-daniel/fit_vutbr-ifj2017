@@ -53,7 +53,7 @@
 //  DEKLARACE FUNKCÍ
 //======================================================================
 
-int postfix2instructions_mathematical(InstructionListPtr ilist, PostfixListPtr *postfixList)
+int postfix2instructions_mathematical(InstructionListPtr ilist, PostfixListPtr *postfixList, SymbolType result_dt)
 {
     DEBUG_LOG("post2instr-math", "converting postfix expression to instructions");
     PostfixList_debugPrint(*postfixList);
@@ -149,8 +149,17 @@ int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postf
 
     PostfixList_first(*postfixList);
     PostfixListItemPtr operand = PostfixList_get(*postfixList);
+
+    SymbolPtr stack_symbol1 = NULL;
+    SymbolPtr stack_symbol2 = NULL;
+
+    //  TODO: Provést dummy zpracování a odvodit, které symboly bude nutné zkonvertovat
+    //  plus jaký bude výsledný datový typ
+
     do
     {
+        //  TODO: Udělat namísto dvou operací jednu + kontrola DT
+
         if (operand->isOperator)
         {
             //  Operand je operátorem
@@ -205,6 +214,8 @@ int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postf
         {
             //  Operand je identifikátorem/konstantou
             Instruction_stack_push(ilist, operand->symbol);
+            stack_symbol2 = stack_symbol1;
+            stack_symbol1 = operand->symbol;
         }
 
         //  Načtení dalšího operandu
