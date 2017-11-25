@@ -145,6 +145,10 @@ int Parser_setError_allocation();
 
 int Parser_setError_statement(char *expected, TokenPtr token, InputPtr input);
 
+int Parser_setError_undefined(TokenPtr token, InputPtr input);
+
+int Parser_setError_alreadyDefined(TokenPtr token, InputPtr input);
+
 int Parser_setError_custom(char *content);
 
 #endif
