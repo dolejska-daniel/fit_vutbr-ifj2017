@@ -978,6 +978,7 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
         return scanner_result;
     }
     DEBUG_LOG(source, "loading symbol information by token");
+
     func_symbol = SymbolTable_getByToken(symtable, func_token);
     if (func_symbol == NULL)
     {
@@ -1182,7 +1183,7 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
 
     nlevel = NestingList_newLevel(nlist, NESTING_FUNCTION, func_symbol);
 
-    Instruction_custom("# FUNCTION")
+    Instruction_custom(ilist, "# FUNCTION");
     instruction_result = Instruction_label(ilist, func_symbol->key);
     if (instruction_result != NO_ERROR)
     {
@@ -1207,6 +1208,8 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
             Token_destroy(&last_token);
         return parser_result;
     }
+
+    // TODO: Check
 
     //-------------------------------------------------d-d-
     //  Závěrečné tokeny
@@ -1239,7 +1242,7 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
         return instruction_result;
     }
 
-    Instruction_custom("# END FUNCTION")
+    Instruction_custom(ilist, "# END FUNCTION");
 
     return NO_ERROR;
 }
