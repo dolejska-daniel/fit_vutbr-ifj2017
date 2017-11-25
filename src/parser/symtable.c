@@ -462,7 +462,7 @@ void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s)
     if (*s == NULL)
         return;
 
-    String_destroy((*s)->name);
+    String_destroy(&((*s)->name));
     free(*s);
     *s = NULL;
 }
@@ -669,6 +669,269 @@ char *SymbolType_toString(SymbolType type)
             return "NONE";
         default:
             return "_UNKNOWN_";
+    }
+}
+
+bool SymbolType_isBinaryOperationOk(SymbolType type1, SymbolType type2, TokenPtr o)
+{
+    return SymbolType_isOperationOk(type1, o) && SymbolType_isOperationOk(type2, o);
+}
+
+bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
+{
+    //
+    //  MATEMATIKA
+    //
+    if (o->type == PLUS)
+    {
+        //  Sčítání
+        switch (type)
+        {
+            case ST_DOUBLE:
+            case ST_INTEGER:
+            case ST_STRING:
+                return true;
+            default:
+                return false;
+        }
+    }
+    else if (o->type == MINUS)
+    {
+        //  Odčítání
+        switch (type)
+        {
+            case ST_DOUBLE:
+            case ST_INTEGER:
+                return true;
+            default:
+                return false;
+        }
+    }
+    else if (o->type == STAR)
+    {
+        //  Násobení
+        switch (type)
+        {
+            case ST_DOUBLE:
+            case ST_INTEGER:
+                return true;
+            default:
+                return false;
+        }
+    }
+    else if (o->type == SLASH)
+    {
+        //  Dělení
+        switch (type)
+        {
+            case ST_DOUBLE:
+            case ST_INTEGER:
+                return true;
+            default:
+                return false;
+        }
+    }
+    else if (o->type == BACK_SLASH)
+    {
+        //  Celočíselné dělení
+        switch (type)
+        {
+            case ST_INTEGER:
+                return true;
+            default:
+                return false;
+        }
+    }
+    //
+    //  LOGIKA
+    //
+    else if (o->type == EQ)
+    {
+        //  Porovnání (equals)
+        switch (type)
+        {
+            case ST_DOUBLE:
+            case ST_INTEGER:
+            case ST_STRING:
+            case ST_BOOLEAN:
+                return true;
+            default:
+                return false;
+        }
+    }
+    else if (o->type == LTGT)
+    {
+        //  Porovnání (not equals)
+        switch (type)
+        {
+            case ST_DOUBLE:
+            case ST_INTEGER:
+            case ST_STRING:
+            case ST_BOOLEAN:
+                return true;
+            default:
+                return false;
+        }
+    }
+    else if (o->type == LT)
+    {
+        //  Porovnání (less than)
+        switch (type)
+        {
+            case ST_DOUBLE:
+            case ST_INTEGER:
+            case ST_STRING:
+            //case ST_BOOLEAN:
+                return true;
+            default:
+                return false;
+        }
+
+    }
+    else if (o->type == GT)
+    {
+        //  Porovnání (greater than)
+        switch (type)
+        {
+            case ST_DOUBLE:
+            case ST_INTEGER:
+            case ST_STRING:
+            //case ST_BOOLEAN:
+                return true;
+            default:
+                return false;
+        }
+    }
+    else if (o->type == AND)
+    {
+        //  Konjunkce
+        switch (type)
+        {
+            case ST_DOUBLE:
+            case ST_INTEGER:
+            case ST_STRING:
+            case ST_BOOLEAN:
+                return true;
+            default:
+                return false;
+        }
+    }
+    else if (o->type == OR)
+    {
+        //  Disjunkce
+        switch (type)
+        {
+            case ST_DOUBLE:
+            case ST_INTEGER:
+            case ST_STRING:
+            case ST_BOOLEAN:
+                return true;
+            default:
+                return false;
+        }
+    }
+    else if (o->type == NOT)
+    {
+        //  Negace
+        switch (type)
+        {
+            case ST_DOUBLE:
+            case ST_INTEGER:
+            case ST_STRING:
+            case ST_BOOLEAN:
+                return true;
+            default:
+                return false;
+        }
+    }
+    else
+    {
+        //  Neočekávaný token
+        DEBUG_ERR("symbolType-isOpOk", "this type of token was not expected!");
+        Token_debugPrint(o);
+        return false;
+    }
+}
+
+bool SymbolType_canBeConvertedTo(SymbolType source, SymbolType target)
+{
+    switch (source)
+    {
+        case ST_DOUBLE:
+        case ST_INTEGER:
+            if (target == ST_DOUBLE || target == ST_INTEGER)
+                return true;
+            return false;
+        default:
+            return false;
+    }
+}
+
+bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, SymbolType *dataType)
+{
+    //  Implicitně ponecháme stejný datový typ
+    *dataType = operator1;
+
+    if (operator1 == ST_INTEGER)
+    {
+        //  První operátor je celé číslo
+        if (operator2 == ST_DOUBLE)
+        {
+            //  INT + DOUBLE
+            //  =
+            //  DOUBLE + DOUBLE
+            *dataType = ST_DOUBLE;
+            return true;
+        }
+        else
+        {
+            //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+            return false;
+        }
+    }
+    else if (operator1 == ST_DOUBLE)
+    {
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
+    }
+    else
+    {
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
+    }
+}
+
+bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, SymbolType *dataType)
+{
+    //  Implicitně ponecháme stejný datový typ
+    *dataType = operator2;
+
+    if (operator1 == ST_INTEGER)
+    {
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
+    }
+    else if (operator1 == ST_DOUBLE)
+    {
+        //  První operátor je celé číslo
+        if (operator2 == ST_INTEGER)
+        {
+            //  DOUBLE + INT
+            //  =
+            //  DOUBLE + DOUBLE
+            *dataType = ST_DOUBLE;
+            return true;
+        }
+        else
+        {
+            //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+            return false;
+        }
+    }
+    else
+    {
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
     }
 }
 

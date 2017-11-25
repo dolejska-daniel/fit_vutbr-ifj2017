@@ -53,6 +53,8 @@ int  error_instruction_length;
 char *error_description;
 char *last_line;
 
+//  TODO: Warnings
+
 
 //==================================================================d=d=
 //  DEKLARACE FUNKCÍ

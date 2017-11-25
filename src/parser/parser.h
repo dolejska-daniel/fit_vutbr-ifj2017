@@ -56,11 +56,10 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
  * @param[in,out]   InstructionListPtr  ilist       Ukazatel na strukturu s instrukcemi
  * @param[in,out]   SymbolTablePtr      symtable    Ukazatel na strukturu se symboly
  * @param[in,out]   NestingListPtr      nlist       Ukazatel na strukturu s úrovněmi zanořování
- * @param[in,out]   TokenPtr            *last_token Ukazatel na poslední přijatý token funkcí
  *
  * @retval	int	Návratový kód popisující situaci (chyba, úspěch, ...)
  */
-int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist, TokenPtr *last_token);
+int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
 
 //-------------------------------------------------d-d-
@@ -82,7 +81,7 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
 
 int Parser_ParseCondition(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
-int Parser_ParseSubCondition(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist, TokenPtr *last_token);
+int Parser_ParseSubCondition(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
 
 //-------------------------------------------------d-d-
@@ -128,9 +127,9 @@ int Parser_ParseBuiltinFunction_Substr(InputPtr input, InstructionListPtr ilist,
 
 int Parser_ParseScope(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
-int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, PostfixListPtr *postfix, TokenPtr *last_token);
+int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, PostfixListPtr *postfix);
 
-int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, TokenStackPtr *tokenStack, PostfixListPtr *postfix, TokenPtr *last_token);
+int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, TokenStackPtr *tokenStack, PostfixListPtr *postfix);
 
 
 //-------------------------------------------------d-d-

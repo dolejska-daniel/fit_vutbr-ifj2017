@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1511478061 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
+1511641335 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
 	<stdio.h>
 	<stdlib.h>
 	"../generator/generator.h"
@@ -19,7 +19,7 @@
 	"error_codes.h"
 	"instruction_list.h"
 
-1511574302 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.c
+1511646173 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.c
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
@@ -30,12 +30,12 @@
 	"error_codes.h"
 	"strings.h"
 
-1511579283 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.h
+1511645848 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.h
 	<stdbool.h>
 	"../scanner/token.h"
 	"token.h"
 
-1511578461 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
+1511643666 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
 	<stdlib.h>
 	<stdio.h>
 	<stdbool.h>
@@ -60,7 +60,7 @@
 	"token_list.h"
 	"tokenType_list.h"
 
-1511544127 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.h
+1511647406 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.h
 	"symtable.h"
 	"nesting_list.h"
 	"../scanner/input.h"
@@ -114,7 +114,7 @@
 1511021870 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\scanner\input.h
 	<stdio.h>
 
-1511445843 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.h
+1511608592 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.h
 	"token.h"
 	"input.h"
 
@@ -140,7 +140,10 @@
 	<malloc.h>
 	"input.h"
 
-1511445843 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\instruction_list.h
+1511646858 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\instruction_list.h
+	<stdbool.h>
+	"../parser/symtable.h"
+	"symtable.h"
 
 1511445843 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\strings.h
 	<string.h>
@@ -246,9 +249,10 @@
 	"strings.h"
 	"error_codes.h"
 
-1511445843 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\instruction_list.c
-	"instruction_list.h"
+1511646868 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\instruction_list.c
 	<stdio.h>
+	<stdbool.h>
+	"instruction_list.h"
 	"../support/strings.h"
 	"../support/error_codes.h"
 	"strings.h"
@@ -264,7 +268,7 @@
 	<stdio.h>
 	"symtable.h"
 
-1511445843 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.c
+1511637789 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.c
 	<stdio.h>
 	<ctype.h>
 	<string.h>
@@ -272,8 +276,10 @@
 	<stdbool.h>
 	"../support/error_codes.h"
 	"../support/strings.h"
+	"../support/token_stack.h"
 	"error_codes.h"
-	"error_codes.h"
+	"strings.h"
+	"token_stack.h"
 	"input.h"
 	"scanner.h"
 	"token.h"
@@ -289,7 +295,7 @@
 	<stdbool.h>
 	<malloc.h>
 
-1511445843 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\symbol_stack.c
+1511609303 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\symbol_stack.c
 	<stdio.h>
 	<stdbool.h>
 	<malloc.h>
@@ -298,7 +304,7 @@
 	"../parser/symtable.h"
 	"symtable.h"
 
-1511445843 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\symbol_stack.h
+1511609170 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\symbol_stack.h
 	<stdbool.h>
 	<malloc.h>
 	"../parser/symtable.h"
@@ -317,7 +323,7 @@
 	"../scanner/token.h"
 	"token.h"
 
-1511528636 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\generator.c
+1511638173 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\generator.c
 	"instruction_list.h"
 	<stdio.h>
 	"../parser/symtable.h"
@@ -367,18 +373,19 @@
 	"token_stack.h"
 	"postfix_list.h"
 
-1511528636 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix2instructions.c
+1511646479 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix2instructions.c
 	<stdio.h>
 	"postfix2instructions.h"
 	"postfix_list.h"
 	"symbol_stack.h"
 	"error_codes.h"
+	"strings.h"
 	"../generator/generator.h"
 	"../generator/instruction_list.h"
 	"generator.h"
 	"instruction_list.h"
 
-1511445843 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix2instructions.h
+1511641100 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix2instructions.h
 	"postfix_list.h"
 	"../generator/instruction_list.h"
 	"instruction_list.h"

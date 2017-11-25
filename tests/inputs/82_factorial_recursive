@@ -13,7 +13,6 @@ Function factorial (n As Integer) As Integer
 		temp_result = factorial(decremented_n)
 		result = n * temp_result
 	End If
-	
 	Return result
 End Function
 
@@ -23,7 +22,6 @@ Scope 'Hlavni telo programu
 	
 	Print !"Zadejte cislo pro vypocet faktorialu";
 	Input a
-	
 	If a < 0 Then
 		Print !"\nFaktorial nelze spocitat\n";
 	Else

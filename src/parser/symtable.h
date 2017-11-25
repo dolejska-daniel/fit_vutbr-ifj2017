@@ -265,6 +265,16 @@ void SymbolInfo_Loop_destroy(SymbolInfo_LoopPtr *s);
 
 char *SymbolType_toString(SymbolType type);
 
+bool SymbolType_isBinaryOperationOk(SymbolType type1, SymbolType type2, TokenPtr o);
+
+bool SymbolType_isOperationOk(SymbolType type, TokenPtr o);
+
+bool SymbolType_canBeConvertedTo(SymbolType source, SymbolType target);
+
+bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, SymbolType *dataType);
+
+bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, SymbolType *dataType);
+
 char *SymbolLocation_toString(SymbolLocation location);
 
 #endif

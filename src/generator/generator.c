@@ -2177,7 +2177,8 @@ int Instruction_outputAll(InstructionListPtr l)
 {
     while (l->first != NULL) {
         char *content = InstructionList_getFirstAndDelete(l);
-        printf("%s\n", content);
+        fprintf(stdout, "%s\n", content);
+        //  InstructionList_getFirstAndDelete obsah neuvolňuje!
         String_destroy(&content);
     }
     return NO_ERROR;

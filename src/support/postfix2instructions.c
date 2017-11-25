@@ -14,6 +14,7 @@
 #include "postfix_list.h"
 #include "symbol_stack.h"
 #include "error_codes.h"
+#include "strings.h"
 
 #ifndef _postfix2instructions_c
 #define _postfix2instructions_c
@@ -53,159 +54,159 @@
 //  DEKLARACE FUNKCÍ
 //======================================================================
 
-int postfix2instructions_mathematical(InstructionListPtr ilist, PostfixListPtr *postfixList, SymbolType result_dt)
+int postfix2instructions(InstructionListPtr ilist, PostfixListPtr *postfixList, SymbolType result_dt, SymbolType *actual_dt)
 {
-    DEBUG_LOG("post2instr-math", "converting postfix expression to instructions");
+    char *source = "post2inst";
+    DEBUG_LOG(source, "converting postfix expression to instructions");
     PostfixList_debugPrint(*postfixList);
 
+    int result = NO_ERROR;
     int instruction_result;
 
     SymbolStackPtr s = SymbolStack_create();
 
     PostfixList_first(*postfixList);
     PostfixListItemPtr operand = PostfixList_get(*postfixList);
+
+    InstructionListPtr preprocess_ilist = InstructionList_create();
+
+    DEBUG_LOG(source, "preprocessing expression");
+    //  Preprocess instrukcí do speciálního listu instrukcí
     do
     {
         if (operand->isOperator)
         {
             //  Operand je operátorem
             TokenPtr token = operand->token;
+            //
+            //  MATEMATIKA:
+            //
             if (token->type == PLUS)
             {
                 //  Sčítání
-                instruction_result = Instruction_add_stack(ilist);
+                instruction_result = Instruction_add_stack(preprocess_ilist);
                 if (instruction_result != NO_ERROR)
                 {
                     return instruction_result;
                 }
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
             else if (token->type == MINUS)
             {
                 //  Odčítání
-                instruction_result = Instruction_sub_stack(ilist);
+                instruction_result = Instruction_sub_stack(preprocess_ilist);
                 if (instruction_result != NO_ERROR)
                 {
                     return instruction_result;
                 }
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
             else if (token->type == STAR)
             {
                 //  Násobení
-                instruction_result = Instruction_mul_stack(ilist);
+                instruction_result = Instruction_mul_stack(preprocess_ilist);
                 if (instruction_result != NO_ERROR)
                 {
                     return instruction_result;
                 }
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
             else if (token->type == SLASH)
             {
                 //  Dělení
-                instruction_result = Instruction_div_stack(ilist);
+                instruction_result = Instruction_div_stack(preprocess_ilist);
                 if (instruction_result != NO_ERROR)
                 {
                     return instruction_result;
                 }
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
             else if (token->type == BACK_SLASH)
             {
                 //  Celočíselné dělení
-                instruction_result = Instruction_div_stack(ilist);
+                instruction_result = Instruction_div_stack(preprocess_ilist);
                 if (instruction_result != NO_ERROR)
                 {
                     return instruction_result;
                 }
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
-            else
-            {
-                //  Neočekávaný token
-                SymbolStack_destroy(&s);
-
-                DEBUG_ERR("post2instr-math", "this type of token was not expected!");
-                Token_debugPrint(token);
-                return INTERNAL_ERROR;
-            }
-        }
-        else
-        {
-            //  Operand je identifikátorem/konstantou
-            Instruction_stack_push(ilist, operand->symbol);
-        }
-
-        //  Načtení dalšího operandu
-        operand = PostfixList_getNext(*postfixList);
-    }
-    while (operand != NULL);
-
-    SymbolStack_destroy(&s);
-    return NO_ERROR;
-}
-
-int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postfixList)
-{
-    DEBUG_LOG("post2instr-logic", "converting postfix expression to instructions");
-    PostfixList_debugPrint(*postfixList);
-
-    SymbolStackPtr s = SymbolStack_create();
-
-    PostfixList_first(*postfixList);
-    PostfixListItemPtr operand = PostfixList_get(*postfixList);
-
-    SymbolPtr stack_symbol1 = NULL;
-    SymbolPtr stack_symbol2 = NULL;
-
-    //  TODO: Provést dummy zpracování a odvodit, které symboly bude nutné zkonvertovat
-    //  plus jaký bude výsledný datový typ
-
-    do
-    {
-        //  TODO: Udělat namísto dvou operací jednu + kontrola DT
-
-        if (operand->isOperator)
-        {
-            //  Operand je operátorem
-            TokenPtr token = operand->token;
-            if (token->type == EQ)
+            //
+            //  LOGIKA:
+            //
+            else if (token->type == EQ)
             {
                 //  Porovnání (equals)
-                Instruction_logic_eq_stack(ilist);
+                Instruction_logic_eq_stack(preprocess_ilist);
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
             else if (token->type == LTGT)
             {
                 //  Porovnání (not equals)
-                Instruction_logic_eq_stack(ilist);
-                Instruction_logic_not_stack(ilist);
+                Instruction_logic_eq_stack(preprocess_ilist);
+                Instruction_logic_not_stack(preprocess_ilist);
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
             else if (token->type == LT)
             {
                 //  Porovnání (less than)
-                Instruction_logic_lt_stack(ilist);
+                Instruction_logic_lt_stack(preprocess_ilist);
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
             else if (token->type == GT)
             {
                 //  Porovnání (greater than)
-                Instruction_logic_gt_stack(ilist);
+                Instruction_logic_gt_stack(preprocess_ilist);
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
             else if (token->type == AND)
             {
                 //  Konjunkce
-                Instruction_logic_and_stack(ilist);
+                Instruction_logic_and_stack(preprocess_ilist);
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
             else if (token->type == OR)
             {
                 //  Disjunkce
-                Instruction_logic_or_stack(ilist);
+                Instruction_logic_or_stack(preprocess_ilist);
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
             else if (token->type == NOT)
             {
                 //  Negace
-                Instruction_logic_not_stack(ilist);
+                Instruction_logic_not_stack(preprocess_ilist);
+
+                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
             }
             else
             {
                 //  Neočekávaný token
                 SymbolStack_destroy(&s);
 
-                DEBUG_ERR("post2instr-logic", "this type of token was not expected!");
+                DEBUG_ERR("post2instr-pre", "this type of token was not expected!");
                 Token_debugPrint(token);
                 return INTERNAL_ERROR;
             }
@@ -213,9 +214,11 @@ int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postf
         else
         {
             //  Operand je identifikátorem/konstantou
-            Instruction_stack_push(ilist, operand->symbol);
-            stack_symbol2 = stack_symbol1;
-            stack_symbol1 = operand->symbol;
+            Instruction_stack_push(preprocess_ilist, operand->symbol);
+
+            InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+            i->isVariable = true;
+            i->dataType   = operand->symbol->type;
         }
 
         //  Načtení dalšího operandu
@@ -223,8 +226,318 @@ int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postf
     }
     while (operand != NULL);
 
+    DEBUG_LOG(source, "preprocessing completed");
+    InstructionList_debugPrint(preprocess_ilist);
+    if (SymbolStack_isEmpty(s) == false)
+    {
+        //  Na stacku nějaké proměnné zůstaly, jedná se o syntaktickou chybu ve výrazu
+        DEBUG_ERR(source, "symbol stack is not empty, probably invalid expression");
+        return SYNTAX_ERROR;
+    }
     SymbolStack_destroy(&s);
-    return NO_ERROR;
+
+    DEBUG_LOG(source, "calling postfix2instructions_process");
+    //  Zpracování preprocessed výrazu
+    instruction_result = postfix2instructions_process(ilist, preprocess_ilist, postfixList, actual_dt);
+    if (instruction_result != NO_ERROR
+        && instruction_result != SEMANTICAL_DATATYPE_ERROR)
+    {
+        InstructionList_destroy(&preprocess_ilist);
+
+        DEBUG_LOG(source, "expression failed to be processed");
+        return instruction_result;
+    }
+
+    InstructionList_destroy(&preprocess_ilist);
+    if (instruction_result == SEMANTICAL_DATATYPE_ERROR)
+    {
+        DEBUG_LOG(source, "expression processed successfully but implicit conversions were used");
+        result = NO_ERROR;
+    }
+    else
+    {
+        DEBUG_LOG(source, "expression processed successfully");
+    }
+
+    if (result_dt != *actual_dt)
+    {
+        //  TODO: Issue warning, change exit code to datatype error even when translation was successful
+        DEBUG_LOG(source, "actual result dt doesnt match with expected result dt");
+        DEBUG_PRINT("\texpected: %s\n\tactual: %s\n", SymbolType_toString(result_dt), SymbolType_toString(*actual_dt));/*
+        if (SymbolType_canBeConvertedTo(result_dt, *actual_dt) == false)
+        {
+            DEBUG_ERR(source, "actual result dt cannot be implicitly converted to expected dt");
+            return SEMANTICAL_DATATYPE_ERROR;
+        }*/
+        DEBUG_ERR(source, "actual result dt cannot be implicitly converted to expected dt");
+        result = SEMANTICAL_DATATYPE_ERROR;
+    }
+
+    return result;
+}
+
+int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr preprocessed_ilist, PostfixListPtr *postfixList, SymbolType *result_dt)
+{
+    char *source = "post2inst-process";
+
+    int result = NO_ERROR;
+
+    //  Nastavíme se na začátek seznamu instrukcí
+    InstructionList_first(preprocessed_ilist);
+    InstructionPtr i = InstructionList_getActive(preprocessed_ilist);
+    InstructionPtr iX = NULL;
+    InstructionPtr iX_end = NULL;
+    InstructionPtr iY = NULL;
+    InstructionPtr iY_end = NULL;
+
+    //  Nastavíme se na začátek postfixového výrazu
+    PostfixList_first(*postfixList);
+    PostfixListItemPtr operand = PostfixList_get(*postfixList);
+
+    DEBUG_LOG(source, "starting real expression processing");
+    do
+    {
+        if (operand->isOperator)
+        {
+            //  Operand je operátorem
+            TokenPtr token = operand->token;
+
+            #ifdef DEBUG_VERBOSE
+            //DEBUG_LOG(source, "searching operands");
+            //DEBUG_LOG(source, "searching Y (second operator)");
+            #endif
+
+            iY = i->prev;
+            iY_end = NULL;
+            if (iY->isBlockEnd == true)
+            {
+                iY_end = iY;
+                while (iY->isBlockBegin != true)
+                {
+                    iY = iY->prev;
+                    if (iY == NULL)
+                    {
+                        //  Or syntax err?
+                        return INTERNAL_ERROR;
+                    }
+                }
+            }
+
+            #ifdef DEBUG_VERBOSE
+            //DEBUG_LOG(source, "searching X (first operator)");
+            #endif
+
+            //  Operand 2 této operace (předchozí blok předchozího bloku instrukcí)
+            iX = iY->prev;
+            iX_end = NULL;
+            if (iX->isBlockEnd == true)
+            {
+                iX_end = iX;
+                while (iX->isBlockBegin != true)
+                {
+                    iX = iX->prev;
+                    if (iX == NULL)
+                    {
+                        //  Or syntax err?
+                        return INTERNAL_ERROR;
+                    }
+                }
+            }
+
+            #ifdef DEBUG_VERBOSE
+            DEBUG_LOG(source, "validating operation");
+            DEBUG_PRINT("\toperation: %s,\n\tx = %s,\n\ty = %s\n", TokenType_toString(token->type), SymbolType_toString(iX ? (int) iX->dataType : -1), SymbolType_toString(iY ? (int) iY->dataType : -1));
+            #endif
+
+            switch (token->type)
+            {
+                //
+                //  Binární operace
+                //
+                case PLUS:
+                case MINUS:
+                case SLASH:
+                case STAR:
+                case BACK_SLASH:
+                case EQ:
+                case LT:
+                case LTGT:
+                case GT:
+                case AND:
+                case OR:
+                    if (iX == NULL || iY == NULL || SymbolType_isBinaryOperationOk(iX->dataType, iY->dataType, token) == false)
+                    {
+                        //  TODO: Error message
+                        DEBUG_ERR(source, "these operands cannot be used in this binary operation");
+                        return SEMANTICAL_DATATYPE_ERROR;
+                    }
+
+                    #ifdef DEBUG_VERBOSE
+                    DEBUG_LOG(source, "this binary operation is valid, validating implicit datatype conversions");
+                    #endif
+
+                    SymbolType resultDataType;
+                    char *i_content;
+
+                    //  Kontrola datového typu prvního operandu
+                    if (SymbolType_hasToConvertOperator1(iX->dataType, iY->dataType, &resultDataType) == true)
+                    {
+                        if (iX->dataType == ST_DOUBLE && resultDataType == ST_INTEGER)
+                        {
+                            #ifdef DEBUG_VERBOSE
+                            DEBUG_LOG(source, "first operand needs to be converted from float to integer");
+                            #endif
+                            i_content = String_create("FLOAT2INTS");
+                            if (i_content == NULL)
+                            {
+                                return INTERNAL_ERROR;
+                            }
+                        }
+                        else if (iX->dataType == ST_INTEGER && resultDataType == ST_DOUBLE)
+                        {
+                            #ifdef DEBUG_VERBOSE
+                            DEBUG_LOG(source, "first operand needs to be converted from integer to float");
+                            #endif
+                            i_content = String_create("INT2FLOATS");
+                            if (i_content == NULL)
+                            {
+                                return INTERNAL_ERROR;
+                            }
+                        }
+                        else
+                        {
+                            DEBUG_ERR(source, "first operand needs to be converted, but we do not know how");
+                            DEBUG_PRINT("\ttarget data type is %s\n", SymbolType_toString(resultDataType));
+                            return INTERNAL_ERROR;
+                        }
+                        InstructionList_insertAfter(preprocessed_ilist, iX, i_content);
+                        result = SEMANTICAL_DATATYPE_ERROR;
+                    }
+
+                    //  Kontrola datového typu druhého operandu
+                    resultDataType = -1;
+                    if (SymbolType_hasToConvertOperator2(iX->dataType, iY->dataType, &resultDataType) == true)
+                    {
+                        if (iY->dataType == ST_DOUBLE && resultDataType == ST_INTEGER)
+                        {
+                            #ifdef DEBUG_VERBOSE
+                            DEBUG_LOG(source, "second operand needs to be converted from float to integer");
+                            #endif
+                            i_content = String_create("FLOAT2INTS");
+                            if (i_content == NULL)
+                            {
+                                return INTERNAL_ERROR;
+                            }
+                        }
+                        else if (iY->dataType == ST_INTEGER && resultDataType == ST_DOUBLE)
+                        {
+                            #ifdef DEBUG_VERBOSE
+                            DEBUG_LOG(source, "second operand needs to be converted from integer to float");
+                            #endif
+                            i_content = String_create("INT2FLOATS");
+                            if (i_content == NULL)
+                            {
+                                return INTERNAL_ERROR;
+                            }
+                        }
+                        else
+                        {
+                            DEBUG_ERR(source, "second operand needs to be converted, but we do not know how");
+                            DEBUG_PRINT("\ttarget data type is %s\n", SymbolType_toString(resultDataType));
+                            return INTERNAL_ERROR;
+                        }
+                        InstructionList_insertAfter(preprocessed_ilist, iY, i_content);
+                        result = SEMANTICAL_DATATYPE_ERROR;
+                    }
+    printf("\nnope\n");
+
+                    //  Opravení výsledného datového typu na základě operace
+                    switch (token->type)
+                    {
+                        case SLASH:
+                            resultDataType = ST_DOUBLE;
+                            break;
+                        case EQ:
+                        case LT:
+                        case LTGT:
+                        case GT:
+                        case AND:
+                        case OR:
+                        case NOT:
+                            resultDataType = ST_BOOLEAN;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    //  Vytvoření nového bloku z použitých instrukcí
+                    iX->isBlockBegin = true;
+                    iX->dataType = resultDataType;
+                    if (iX_end != NULL)
+                        iX_end->isBlockEnd = false;
+
+                    iY->isBlockBegin = false;
+                    if (iY_end != NULL)
+                        iY_end->isBlockEnd = false;
+
+                    i->isBlockEnd = true;
+                    break;
+                //
+                //  Unární operace
+                //
+                case NOT:
+                    if (iY == NULL || SymbolType_isOperationOk(iY->dataType, token) == false)
+                    {
+                        //  TODO: Error message
+                        DEBUG_ERR(source, "this operand cannot be used in this unary operation");
+                        return SEMANTICAL_DATATYPE_ERROR;
+                    }
+
+                    #ifdef DEBUG_VERBOSE
+                    DEBUG_LOG(source, "this unary operation is valid, validating implicit datatype conversions");
+                    #endif
+
+                    iY->isBlockBegin = true;
+                    iY->dataType     = resultDataType;
+                    i->isBlockEnd    = true;
+                    if (iY_end != NULL)
+                        iY_end->isBlockEnd = false;
+                    break;
+                default:
+                    //  Neočekávaný token
+                    DEBUG_ERR(source, "this type of token was not expected!");
+                    Token_debugPrint(token);
+                    return INTERNAL_ERROR;
+            }
+        }
+        else
+        {
+            //  Operand je identifikátorem/konstantou
+        }
+
+        //  Načtení dalšího operandu
+        operand = PostfixList_getNext(*postfixList);
+
+        //  Načtení další instrukce
+        InstructionList_next(preprocessed_ilist);
+        i = InstructionList_getActive(preprocessed_ilist);
+    }
+    while (operand != NULL);
+    DEBUG_LOG(source, "copying instructions to instruction list");
+
+    //  Nastavíme se na začátek seznamu instrukcí
+    InstructionList_first(preprocessed_ilist);
+    i = InstructionList_getActive(preprocessed_ilist);
+    *result_dt = i->dataType;
+    while (i != NULL)
+    {
+        Instruction_custom(ilist, i->content);
+        InstructionList_next(preprocessed_ilist);
+        i = InstructionList_getActive(preprocessed_ilist);
+    }
+
+    DEBUG_LOG(source, "real expression processing completed");
+    return result;
 }
 
 #endif

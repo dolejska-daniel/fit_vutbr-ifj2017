@@ -168,21 +168,27 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
                 {
                     return parser_result;
                 }
-                Instruction_outputAll(ilist);
+
+                #ifdef DEBUG_VERBOSE
+                //Instruction_outputAll(ilist);
+                #endif
+
                 break;
             }
 
             case LINE_END:
             {
                 //  Konec řádku, prázdný řádek
-
                 continue;
-                break;
             }
 
             case FILE_END:
             {
                 //  Konec vstupních dat
+
+                #ifdef DEBUG_VERBOSE
+                DEBUG_LOG(source, "received FILE_END, ending translation");
+                #endif
 
                 return result;
                 break;
@@ -214,7 +220,7 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
     }
 }
 
-int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist, TokenPtr *last_token)
+int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist)
 {
     //  Inicializace proměnných
     char *source = "parser-nested";
@@ -234,10 +240,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
             Token_destroy(&token);
             return scanner_result;
         }
-
-        if (*last_token != NULL)
-            Token_destroy(last_token);
-        *last_token = token;
 
         switch (token->type)
         {
@@ -394,9 +396,10 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 }
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_LOG(source, "received ELSEIF, returning to parent");
+                DEBUG_LOG(source, "received ELSEIF, returning to parent (ungetting token)");
                 #endif
 
+                Scanner_UngetToken(input, &token);
                 return NO_ERROR;
             }
 
@@ -413,9 +416,10 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 }
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_LOG(source, "received ELSE, returning to parent");
+                DEBUG_LOG(source, "received ELSE, returning to parent (ungetting token)");
                 #endif
 
+                Scanner_UngetToken(input, &token);
                 return NO_ERROR;
             }
 
@@ -597,11 +601,11 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 }
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_LOG(source, "received END, returning to parent");
+                DEBUG_LOG(source, "received END, returning to parent (ungetting token)");
                 #endif
 
+                Scanner_UngetToken(input, &token);
                 return NO_ERROR;
-                break;
             }
 
             case LOOP:
@@ -617,11 +621,11 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 }
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_LOG(source, "received LOOP, returning to parent");
+                DEBUG_LOG(source, "received LOOP, returning to parent (ungetting token)");
                 #endif
 
+                Scanner_UngetToken(input, &token);
                 return NO_ERROR;
-                break;
             }
 
             case LINE_END:
@@ -633,7 +637,6 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 #endif
 
                 continue;
-                break;
             }
 
             case FILE_END:
@@ -641,7 +644,7 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  Konec vstupních dat
 
                 #ifdef DEBUG_VERBOSE
-                //DEBUG_PRINT("\ttype-str: FILE_END\n");
+                DEBUG_LOG(source, "received LINE_END but nested, cannot end");
                 #endif
             }
             default:
@@ -650,12 +653,11 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                 //  jedná se tedy o syntaktickou chybu
 
                 DEBUG_ERR(source, "this type of token was not expected!");
-                Token_debugPrint(token);;
+                Token_debugPrint(token);
 
                 if (Parser_setError_statement(NULL, token, input) != NO_ERROR)
                     return INTERNAL_ERROR;
 
-                *last_token = NULL;
                 Token_destroy(&token);
                 return SYNTAX_ERROR;
             }
@@ -679,9 +681,7 @@ int Parser_ParseFunctionDeclaration(InputPtr input, InstructionListPtr ilist, Sy
     //-----------------------------------------------------
     char *source = "parser-func_dec";
     int scanner_result;
-    int parser_result;
     int symbol_result;
-    int instruction_result;
 
     bool firstParam = true;
 
@@ -949,13 +949,11 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
     char *source = "parser-func_def";
     int scanner_result;
     int parser_result;
-    int symbol_result;
     int instruction_result;
 
     bool firstParam = true;
 
     TokenPtr  token;
-    TokenPtr  last_token;
     TokenPtr  func_token;
     TokenPtr  func_type_token;
     TokenPtr  param_name_token;
@@ -1087,7 +1085,7 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
         }
 
         DEBUG_LOG(source, "validating parameter");
-        if (SymbolInfo_Function_ParameterList_get(paramList)->dataType != TokenType_Keyword_toSymbolType(param_type_token->type))
+        if ((int) SymbolInfo_Function_ParameterList_get(paramList)->dataType != TokenType_Keyword_toSymbolType(param_type_token->type))
         {
             //  Datový typ aktuálního parametru se neshoduje s datovým typem
             //  uvedeným při deklaraci funkce
@@ -1157,7 +1155,7 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
     }
 
     DEBUG_LOG(source, "validating function datatype");
-    if (func_info->dataType != TokenType_Keyword_toSymbolType(func_type_token->type))
+    if ((int) func_info->dataType != TokenType_Keyword_toSymbolType(func_type_token->type))
     {
         DEBUG_ERR(source, "function return datatype does not match");
         SymbolInfo_Function_ParameterList_destroy(&paramList);
@@ -1192,11 +1190,9 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
     //-------------------------------------------------d-d-
     //  Parsování vnitřního kódu funkce
     //-----------------------------------------------------
-    parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist, &last_token);
+    parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist);
     if (parser_result != NO_ERROR)
     {
-        if (last_token != NULL)
-            Token_destroy(&last_token);
         return parser_result;
     }
 
@@ -1205,19 +1201,11 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
     //-------------------------------------------------d-d-
     //  Závěrečné tokeny
     //-----------------------------------------------------
-    if (last_token != NULL && last_token->type != END)
+    //  <END>
+    scanner_result = Parser_getToken(source, input, nlevel, END, NULL);
+    if (scanner_result != NO_ERROR)
     {
-        //  TODO: Error, invalid token
-
-        DEBUG_ERR(source, "this type of token was not expected!");
-        Token_debugPrint(last_token);
-
-        if (Parser_setError_statement("END", last_token, input) != NO_ERROR)
-            return INTERNAL_ERROR;
-
-        if (last_token != NULL)
-            Token_destroy(&last_token);
-        return SYNTAX_ERROR;
+        return scanner_result;
     }
 
     //  <FUNCTION>
@@ -1238,7 +1226,7 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
     return NO_ERROR;
 }
 
-int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, Symbol func_symbol)
+int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, SymbolPtr func_symbol)
 {
     //               |->
     //  <IDENTIFIER> | <OPEN_BRACKET> {[<COMMA] <IDENTIFIER|CONSTANT>}* <CLOSE_BRACKET>
@@ -1254,7 +1242,6 @@ int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTab
     int symbol_result;
 
     TokenPtr token;
-    TokenPtr last_token;
 
     PostfixListPtr postfix;
 
@@ -1272,45 +1259,74 @@ int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTab
         return scanner_result;
     }
 
+    //  TODO: posunout location u symbolů v symtable
+    instruction_result = Instruction_pushframe(ilist);
+    if (instruction_result != NO_ERROR)
+    {
+        return instruction_result;
+    }
+
+    instruction_result = Instruction_createframe(ilist);
+    if (instruction_result != NO_ERROR)
+    {
+        return instruction_result;
+    }
+
     //  PARAMETERS
+    DEBUG_LOG(source, "parsing parameters");
     SymbolInfo_Function_ParameterList_first(paramList);
     do
     {
         func_param = SymbolInfo_Function_ParameterList_get(paramList);
-        parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix, &last_token);
+        parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix);
         if (parser_result != NO_ERROR)
         {
+            DEBUG_ERR(source, "failed to parse expression");
             return parser_result;
         }
 
-        if (func_param->dataType == ST_BOOLEAN)
+        SymbolType result_dt;
+        parser_result = postfix2instructions(ilist, &postfix, func_param->dataType, &result_dt);
+        if (parser_result != NO_ERROR)
         {
-            parser_result = postfix2instructions_logical(ilist, &postfix);
-            if (parser_result != NO_ERROR)
-            {
-                return parser_result;
-            }
-        }
-        else
-        {
-            parser_result = postfix2instructions_mathematical(ilist, &postfix, func_param->dataType);
-            if (parser_result != NO_ERROR)
-            {
-                return parser_result;
-            }
+            DEBUG_ERR(source, "failed convert postfix to instructions");
+            return parser_result;
         }
 
-        if (last_token->type == COMMA)
-            continue;
+        //  TODO: vložit symbol s novou proměnnou do tabulky symbolů
+
+        scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
+        if (scanner_result != NO_ERROR)
+        {
+            return scanner_result;
+        }
+
+        if (token->type == COMMA)
+        {
+            Token_destroy(&token);
+        }
         else
             break;
     }
     while(true);
 
     //  <CLOSE_BRACKET>
-    if (last_token->type != CLOSE_BRACKET)
+    if (token->type != CLOSE_BRACKET)
     {
+        //  TODO: Error message
         return SYNTAX_ERROR;
+    }
+
+    instruction_result = Instruction_call(ilist, func_symbol);
+    if (instruction_result != NO_ERROR)
+    {
+        return instruction_result;
+    }
+
+    instruction_result = Instruction_popframe(ilist);
+    if (instruction_result != NO_ERROR)
+    {
+        return instruction_result;
     }
 
     return NO_ERROR;
@@ -1332,7 +1348,6 @@ int Parser_ParseVariableDeclaration(InputPtr input, InstructionListPtr ilist, Sy
     //-----------------------------------------------------
     char *source = "parser-var_dec";
     int scanner_result;
-    int parser_result;
     int instruction_result;
     int symbol_result;
 
@@ -1447,16 +1462,16 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
     //  Inicializace
     //-----------------------------------------------------
     char *source = "parser-var_def";
-    int scanner_result;
     int parser_result;
+    int scanner_result;
     int instruction_result;
 
-    TokenPtr token;
     TokenPtr last_token = NULL;
 
     PostfixListPtr postfix = NULL;
 
     NestingLevelPtr nlevel = NestingList_active(nlist);
+
 
     //-------------------------------------------------d-d-
     //  Zpracování tokenů
@@ -1464,36 +1479,22 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
 
     //  _EXPRESSION_
     DEBUG_LOG(source, "calling Parser_ParseExpression");
-    parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix, &last_token);
+    parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix);
     if (parser_result != NO_ERROR)
     {
         DEBUG_ERR(source, "expression failed to be parsed");
-        Token_destroy(&last_token);
-        if (postfix != NULL)
-            PostfixList_destroy(&postfix);
+        PostfixList_destroy(&postfix);
         return parser_result;
     }
 
-    if (variable->type == ST_BOOLEAN)
+    DEBUG_LOG(source, "postfix conversion completed, calling postfix2instructions");
+    SymbolType result_dt;
+    parser_result = postfix2instructions(ilist, &postfix, variable->type, &result_dt);
+    if (parser_result != NO_ERROR)
     {
-        //  Vyhodnocení logické hodnoty
-        DEBUG_LOG(source, "postfix conversion completed, calling postfix2instructions_logical");
-        parser_result = postfix2instructions_logical(ilist, &postfix);
-        if (parser_result != NO_ERROR)
-        {
-            return parser_result;
-        }
+        return parser_result;
     }
-    else
-    {
-        //  Vyhodnocení číselné hodnoty
-        DEBUG_LOG(source, "postfix conversion completed, calling postfix2instructions_mathematical");
-        parser_result = postfix2instructions_mathematical(ilist, &postfix);
-        if (parser_result != NO_ERROR)
-        {
-            return parser_result;
-        }
-    }
+
     DEBUG_LOG(source, "instruction conversion completed, cleaning up");
     PostfixList_destroy(&postfix);
 
@@ -1512,20 +1513,12 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
     }
 
     //  <LINE_END>
-    if (last_token->type != LINE_END)
+    scanner_result = Parser_getToken(source, input, nlevel, LINE_END, NULL);
+    if (scanner_result != NO_ERROR)
     {
-        if (Parser_setError_statement("<EOL>", last_token, input))
-        {
-            Token_destroy(&last_token);
-            return INTERNAL_ERROR;
-        }
-
-        Token_debugPrint(last_token);
-        Token_destroy(&last_token);
-        return SYNTAX_ERROR;
+        return scanner_result;
     }
 
-    Token_destroy(&last_token);
     return NO_ERROR;
 }
 
@@ -1552,16 +1545,14 @@ int Parser_ParseCondition(InputPtr input, InstructionListPtr ilist, SymbolTableP
     char *source = "parser-cond";
     int scanner_result;
     int parser_result;
-    int symbol_result;
     int instruction_result;
 
-    TokenPtr token;
-    TokenPtr last_token = NULL;
-    SymbolPtr cond_symbol = NULL;
+    TokenPtr  token;
+    SymbolPtr cond_symbol;
 
     PostfixListPtr postfix;
 
-    NestingLevelPtr nlevel;
+    NestingLevelPtr nlevel = NestingList_active(nlist);
 
 
     //-------------------------------------------------d-d-
@@ -1571,7 +1562,7 @@ int Parser_ParseCondition(InputPtr input, InstructionListPtr ilist, SymbolTableP
 
     //  _EXPRESSION_
     DEBUG_LOG(source, "calling Parser_ParseExpression");
-    parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix, &last_token);
+    parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix);
     if (parser_result != NO_ERROR)
     {
         DEBUG_ERR(source, "failed to parse expression");
@@ -1581,27 +1572,20 @@ int Parser_ParseCondition(InputPtr input, InstructionListPtr ilist, SymbolTableP
     Instruction_custom(ilist, "# IF");
 
     //  Zpracování podmínky
-    DEBUG_LOG(source, "calling postfix2instructions_logical");
-    instruction_result = postfix2instructions_logical(ilist, &postfix);
+    DEBUG_LOG(source, "calling postfix2instructions");
+    SymbolType result_dt;
+    instruction_result = postfix2instructions(ilist, &postfix, ST_BOOLEAN, &result_dt);
     if (instruction_result != NO_ERROR)
     {
         return instruction_result;
     }
 
     //  <THEN>
-    if (last_token->type != THEN)
+    scanner_result = Parser_getToken(source, input, NULL, THEN, NULL);
+    if (scanner_result != NO_ERROR)
     {
-        if (Parser_setError_statement("THEN", last_token, input) != NO_ERROR)
-        {
-            Token_destroy(&last_token);
-            return INTERNAL_ERROR;
-        }
-        Token_destroy(&last_token);
-        return SYNTAX_ERROR;
+        return scanner_result;
     }
-    DEBUG_LOG(source, "last token terminating expression is correct");
-    Token_debugPrint(last_token);
-    Token_destroy(&last_token);
 
     //  <LINE_END>
     scanner_result = Parser_getToken(source, input, NULL, LINE_END, NULL);
@@ -1651,10 +1635,9 @@ int Parser_ParseCondition(InputPtr input, InstructionListPtr ilist, SymbolTableP
 
     //  _CODE_
     DEBUG_LOG(source, "calling Parser_ParseNestedCode");
-    parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist, &last_token);
+    parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist);
     if (parser_result != NO_ERROR)
     {
-        Token_destroy(&last_token);
         return parser_result;
     }
 
@@ -1670,20 +1653,26 @@ int Parser_ParseCondition(InputPtr input, InstructionListPtr ilist, SymbolTableP
     }
     String_destroy(&cond_end_label);
 
+    //  <ELSE|ELSEIF|END>
+    scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
+    if (scanner_result != NO_ERROR)
+    {
+        return scanner_result;
+    }
     //  Blok podmínek pokračuje
-    if (last_token->type == ELSEIF)
+    if (token->type == ELSEIF)
     {
         //  Následuje další podmínka
         DEBUG_LOG(source, "calling Parser_ParseSubCondition");
 
-        Token_destroy(&last_token);
-        parser_result = Parser_ParseSubCondition(input, ilist, symtable, nlist, &last_token);
+        parser_result = Parser_ParseSubCondition(input, ilist, symtable, nlist);
         if (parser_result != NO_ERROR)
         {
+            Token_destroy(&token);
             return parser_result;
         }
     }
-    else if (last_token->type == ELSE)
+    else if (token->type == ELSE)
     {
         //  Následuje konečný blok else
         Instruction_custom(ilist, "# ELSE");
@@ -1691,37 +1680,48 @@ int Parser_ParseCondition(InputPtr input, InstructionListPtr ilist, SymbolTableP
         //  _CODE_
         DEBUG_LOG(source, "calling Parser_ParseNestedCode");
 
-        Token_destroy(&last_token);
-        parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist, &last_token);
+        Token_destroy(&token);
+        parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist);
         if (parser_result != NO_ERROR)
         {
-            Token_destroy(&last_token);
             return parser_result;
         }
     }
-
-    if (last_token->type == END)
+    else if (token->type != END)
     {
-        //  Následuje úplný konec bloku
-
-        //  <IF>
-        scanner_result = Parser_getToken(source, input, NULL, IF, NULL);
-        if (scanner_result != NO_ERROR)
-        {
-            Token_destroy(&last_token);
-            return scanner_result;
-        }
-
-        //  <LINE_EN>
-        scanner_result = Parser_getToken(source, input, NULL, LINE_END, NULL);
-        if (scanner_result != NO_ERROR)
-        {
-            Token_destroy(&last_token);
-            return scanner_result;
-        }
-        Instruction_custom(ilist, "# END IF");
+        //  Token není to co potřebujeme, nastává syntax error
+        //  TODO: Error message
+        Token_destroy(&token);
+        return SYNTAX_ERROR;
     }
-    Token_destroy(&last_token);
+    else
+    {
+        //  Token je typu END, ale máme ho příliš brzy
+        Scanner_UngetToken(input, &token);
+    }
+
+    //  Následuje úplný konec bloku
+    //  <END>
+    scanner_result = Parser_getToken(source, input, NULL, END, NULL);
+    if (scanner_result != NO_ERROR)
+    {
+        return scanner_result;
+    }
+
+    //  <IF>
+    scanner_result = Parser_getToken(source, input, NULL, IF, NULL);
+    if (scanner_result != NO_ERROR)
+    {
+        return scanner_result;
+    }
+
+    //  <LINE_END>
+    scanner_result = Parser_getToken(source, input, NULL, LINE_END, NULL);
+    if (scanner_result != NO_ERROR)
+    {
+        return scanner_result;
+    }
+    Instruction_custom(ilist, "# END IF");
 
     //  Vytvoření konečného návěstí bloku podmínek
     instruction_result = Instruction_label(ilist, cond_block_end_label);
@@ -1741,7 +1741,7 @@ int Parser_ParseCondition(InputPtr input, InstructionListPtr ilist, SymbolTableP
     return NO_ERROR;
 }
 
-int Parser_ParseSubCondition(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist, TokenPtr *last_token)
+int Parser_ParseSubCondition(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist)
 {
 
     //-------------------------------------------------d-d-
@@ -1750,11 +1750,9 @@ int Parser_ParseSubCondition(InputPtr input, InstructionListPtr ilist, SymbolTab
     char *source = "parser-cond_sub";
     int scanner_result;
     int parser_result;
-    int symbol_result;
     int instruction_result;
 
-    TokenPtr  token;
-    SymbolPtr cond_symbol = NULL;
+    TokenPtr token;
 
     PostfixListPtr postfix;
 
@@ -1768,7 +1766,7 @@ int Parser_ParseSubCondition(InputPtr input, InstructionListPtr ilist, SymbolTab
 
     //  _EXPRESSION_
     DEBUG_LOG(source, "calling Parser_ParseExpression");
-    parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix, last_token);
+    parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix);
     if (parser_result != NO_ERROR)
     {
         DEBUG_ERR(source, "failed to parse expression");
@@ -1776,26 +1774,19 @@ int Parser_ParseSubCondition(InputPtr input, InstructionListPtr ilist, SymbolTab
     }
 
     //  Zpracování podmínky
-    instruction_result = postfix2instructions_logical(ilist, &postfix);
+    SymbolType result_dt;
+    instruction_result = postfix2instructions(ilist, &postfix, ST_BOOLEAN, &result_dt);
     if (instruction_result != NO_ERROR)
     {
         return instruction_result;
     }
 
     //  <THEN>
-    if ((*last_token)->type != THEN)
+    scanner_result = Parser_getToken(source, input, NULL, THEN, NULL);
+    if (scanner_result != NO_ERROR)
     {
-        if (Parser_setError_statement("THEN", *last_token, input) != NO_ERROR)
-        {
-            Token_destroy(last_token);
-            return INTERNAL_ERROR;
-        }
-        Token_destroy(last_token);
-        return SYNTAX_ERROR;
+        return scanner_result;
     }
-    DEBUG_LOG(source, "last token terminating expression is correct");
-    Token_debugPrint(*last_token);
-    Token_destroy(last_token);
 
     //  <LINE_END>
     scanner_result = Parser_getToken(source, input, NULL, LINE_END, NULL);
@@ -1835,10 +1826,9 @@ int Parser_ParseSubCondition(InputPtr input, InstructionListPtr ilist, SymbolTab
 
     //  _CODE_
     DEBUG_LOG(source, "calling Parser_ParseNestedCode");
-    parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist, last_token);
+    parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist);
     if (parser_result != NO_ERROR)
     {
-        Token_destroy(last_token);
         return parser_result;
     }
 
@@ -1854,39 +1844,52 @@ int Parser_ParseSubCondition(InputPtr input, InstructionListPtr ilist, SymbolTab
     }
     String_destroy(&cond_end_label);
 
+    //  <ELSE|ELSEIF|END>
+    scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
+    if (scanner_result != NO_ERROR)
+    {
+        return scanner_result;
+    }
     //  Blok podmínek pokračuje
-    if ((*last_token)->type == ELSEIF)
+    if (token->type == ELSEIF)
     {
         //  Následuje další podmínka
         DEBUG_LOG(source, "calling Parser_ParseSubCondition");
-        parser_result = Parser_ParseSubCondition(input, ilist, symtable, nlist, last_token);
+        parser_result = Parser_ParseSubCondition(input, ilist, symtable, nlist);
         if (parser_result != NO_ERROR)
         {
+            Token_destroy(&token);
             return parser_result;
         }
     }
-    else if ((*last_token)->type == ELSE)
+    else if (token->type == ELSE)
     {
         //  Následuje konečný blok else
         Instruction_custom(ilist, "# ELSE");
 
         //  _CODE_
         DEBUG_LOG(source, "calling Parser_ParseNestedCode");
-        parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist, last_token);
+        parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist);
         if (parser_result != NO_ERROR)
         {
-            Token_destroy(last_token);
+            Token_destroy(&token);
             return parser_result;
         }
     }
-
-    if ((*last_token)->type == END)
+    else if (token->type != END)
+    {
+        //  Token není to co potřebujeme, nastává syntax error
+        //  TODO: Error message
+        Token_destroy(&token);
+        return SYNTAX_ERROR;
+    }
+    else
     {
         //  Následuje úplný konec bloku
         DEBUG_LOG(source, "received END, returning to parent condition");
+        Scanner_UngetToken(input, &token);
         return NO_ERROR;
     }
-    Token_destroy(last_token);
 
     return SYNTAX_ERROR;
 }
@@ -1913,9 +1916,6 @@ int Parser_ParseLoop_Do(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
     int symbol_result;
     int instruction_result;
 
-    TokenPtr  token;
-    TokenPtr  last_token;
-    SymbolPtr symbol;
     SymbolPtr loop_symbol;
 
     PostfixListPtr postfix;
@@ -1935,7 +1935,7 @@ int Parser_ParseLoop_Do(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
 
     //  _EXPRESSION_
     DEBUG_LOG(source, "calling Parser_ParseExpression");
-    parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix, &last_token);
+    parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix);
     if (parser_result != NO_ERROR)
     {
         DEBUG_ERR(source, "failed to parse expression");
@@ -1980,8 +1980,9 @@ int Parser_ParseLoop_Do(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
     }
 
     //  Zpracování podmínky cyklení
-    DEBUG_LOG(source, "calling postfix2instructions_logical");
-    parser_result = postfix2instructions_logical(ilist, &postfix);
+    DEBUG_LOG(source, "calling postfix2instructions");
+    SymbolType result_dt;
+    instruction_result = postfix2instructions(ilist, &postfix, ST_BOOLEAN, &result_dt);
     if (parser_result != NO_ERROR)
     {
         DEBUG_ERR(source, "failed to process expression");
@@ -2004,21 +2005,15 @@ int Parser_ParseLoop_Do(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
     }
 
     //  <LINE_END>
-    if (last_token->type != LINE_END)
+    scanner_result = Parser_getToken(source, input, nlevel, LINE_END, NULL);
+    if (scanner_result != NO_ERROR)
     {
-        if (Parser_setError_statement("<EOL>", last_token, input) != NO_ERROR)
-        {
-            Token_destroy(&last_token);
-            return INTERNAL_ERROR;
-        }
-        Token_destroy(&last_token);
-        return SYNTAX_ERROR;
+        return scanner_result;
     }
-    Token_destroy(&last_token);
 
     //  _CODE_
     DEBUG_LOG(source, "calling Parser_ParseNestedCode");
-    parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist, &last_token);
+    parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist);
     if (parser_result != NO_ERROR)
     {
         DEBUG_ERR(source, "failed to parse nested code");
@@ -2026,19 +2021,11 @@ int Parser_ParseLoop_Do(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
     }
 
     //  <LOOP>
-    if (last_token->type != LOOP)
+    scanner_result = Parser_getToken(source, input, nlevel, LOOP, NULL);
+    if (scanner_result != NO_ERROR)
     {
-        DEBUG_ERR(source, "return from nested NOT OK");
-        if (Parser_setError_statement(NULL, last_token, input) != NO_ERROR)
-        {
-            Token_destroy(&last_token);
-            return INTERNAL_ERROR;
-        }
-        Token_destroy(&last_token);
-        return SYNTAX_ERROR;
+        return scanner_result;
     }
-    DEBUG_LOG(source, "return from nested ok");
-    Token_destroy(&last_token);
 
     //  <LINE_END>
     scanner_result = Parser_getToken(source, input, nlevel, LINE_END, NULL);
@@ -2103,7 +2090,6 @@ int Parser_ParseStatement_Print(InputPtr input, InstructionListPtr ilist, Symbol
     //-----------------------------------------------------
     char *source = "parser-print";
     int scanner_result;
-    int parser_result;
     int instruction_result;
 
     bool firstLoop = true;
@@ -2122,7 +2108,6 @@ int Parser_ParseStatement_Print(InputPtr input, InstructionListPtr ilist, Symbol
     {
         return scanner_result;
     }
-
     do
     {
         //  <IDENTIFIER>|<CONSTANT>
@@ -2184,6 +2169,7 @@ int Parser_ParseStatement_Print(InputPtr input, InstructionListPtr ilist, Symbol
         if (token->type == LINE_END)
         {
             //  Ukončení posloupnosti
+            Token_destroy(&token);
             return NO_ERROR;
         }
     }
@@ -2203,7 +2189,6 @@ int Parser_ParseStatement_Input(InputPtr input, InstructionListPtr ilist, Symbol
     //-----------------------------------------------------
     char *source = "parser-input";
     int scanner_result;
-    int parser_result;
     int instruction_result;
 
     TokenPtr  token;
@@ -2249,26 +2234,26 @@ int Parser_ParseStatement_Input(InputPtr input, InstructionListPtr ilist, Symbol
 
 int Parser_ParseStatement_Continue(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist)
 {
-
     //-------------------------------------------------d-d-
     //  Inicializace
     //-----------------------------------------------------
     char *source = "parser-continue";
-    int scanner_result;
-    int parser_result;
-
-    TokenPtr token;
+    int instruction_result;
 
     NestingLevelPtr nlevel = NestingList_isNestedIn(nlist, NESTING_LOOP);
 
     SymbolPtr loop_symbol = nlevel->symbol;
-    SymbolInfo_LoopPtr loop_info = loop_symbol->value;
+    SymbolInfo_LoopPtr loop_info = (SymbolInfo_LoopPtr) loop_symbol->value;
 
 
     //-------------------------------------------------d-d-
     //  Zpracování
     //-----------------------------------------------------
-    Instruction_jump(ilist, loop_info->begin_label);
+    instruction_result = Instruction_jump(ilist, loop_info->begin_label);
+    if (instruction_result != NO_ERROR)
+    {
+        return instruction_result;
+    }
 
     return INTERNAL_ERROR;
 }
@@ -2279,21 +2264,22 @@ int Parser_ParseStatement_Exit(InputPtr input, InstructionListPtr ilist, SymbolT
     //  Inicializace
     //-----------------------------------------------------
     char *source = "parser-exit";
-    int scanner_result;
-    int parser_result;
-
-    TokenPtr token;
+    int instruction_result;
 
     NestingLevelPtr nlevel = NestingList_isNestedIn(nlist, NESTING_LOOP);
 
     SymbolPtr loop_symbol = nlevel->symbol;
-    SymbolInfo_LoopPtr loop_info = loop_symbol->value;
+    SymbolInfo_LoopPtr loop_info = (SymbolInfo_LoopPtr) loop_symbol->value;
 
 
     //-------------------------------------------------d-d-
     //  Zpracování
     //-----------------------------------------------------
-    Instruction_jump(ilist, loop_info->end_label);
+    instruction_result = Instruction_jump(ilist, loop_info->end_label);
+    if (instruction_result != NO_ERROR)
+    {
+        return instruction_result;
+    }
 
     return INTERNAL_ERROR;
 }
@@ -2310,14 +2296,15 @@ int Parser_ParseStatement_Return(InputPtr input, InstructionListPtr ilist, Symbo
     char *source = "parser-return";
     int scanner_result;
     int parser_result;
-    int instruction_result;
 
-    TokenPtr token;
     TokenPtr last_token = NULL;
 
     PostfixListPtr postfix;
 
-    NestingLevelPtr nlevel = NestingList_active(nlist);
+    NestingLevelPtr nlevel = NestingList_isNestedIn(nlist, NESTING_FUNCTION);
+
+    SymbolPtr func_symbol = nlevel->symbol;
+    SymbolInfo_FunctionPtr func_info = (SymbolInfo_FunctionPtr) func_symbol->value;
 
 
     //-------------------------------------------------d-d-
@@ -2325,19 +2312,19 @@ int Parser_ParseStatement_Return(InputPtr input, InstructionListPtr ilist, Symbo
     //-----------------------------------------------------
     //  _EXPRESSION_
     DEBUG_ERR(source, "calling Parser_ParseExpression");
-    parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix, &last_token);
+    parser_result = Parser_ParseExpression(input, ilist, symtable, &postfix);
     if (parser_result != NO_ERROR)
     {
         DEBUG_ERR(source, "failed to parse expression");
         return parser_result;
     }
 
-    //  TODO: Zjistit, jak se má vypočítat
-    return INTERNAL_ERROR;
-    /*
-    postfix2instructions_mathematical(ilist, &postfix);
-    postfix2instructions_logical(ilist, &postfix);
-    */
+    SymbolType result_dt;
+    parser_result = postfix2instructions(ilist, &postfix, func_info->dataType, &result_dt);
+    if (parser_result != NO_ERROR)
+    {
+        return parser_result;
+    }
 
     //  <LINE_END>
     scanner_result = Parser_getToken(source, input, nlevel, LINE_END, NULL);
@@ -2567,14 +2554,13 @@ int Parser_ParseScope(InputPtr input, InstructionListPtr ilist, SymbolTablePtr s
     int parser_result;
 
     TokenPtr token;
-    TokenPtr last_token = NULL;
 
     NestingLevelPtr nlevel = NestingList_newLevel(nlist, NESTING_SCOPE, NULL);
 
     //-------------------------------------------------d-d-
     //  Úvodní tokeny
     //-----------------------------------------------------
-    scanner_result = Parser_getToken(source, input, nlevel, LINE_END, &token);
+    scanner_result = Parser_getToken(source, input, nlevel, LINE_END, NULL);
     if (scanner_result != NO_ERROR)
     {
         return scanner_result;
@@ -2583,14 +2569,16 @@ int Parser_ParseScope(InputPtr input, InstructionListPtr ilist, SymbolTablePtr s
     //-------------------------------------------------d-d-
     //  Zanořené instrukce
     //-----------------------------------------------------
+
+    //  TODO: Main symbol
+    Instruction_custom(ilist, "\n# MAIN");
     Instruction_label(ilist, "main");
     Instruction_createframe(ilist);
 
     DEBUG_LOG(source, "calling Parser_ParseNestedCode");
-    parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist, &last_token);
+    parser_result = Parser_ParseNestedCode(input, ilist, symtable, nlist);
     if (parser_result != NO_ERROR)
     {
-        Token_destroy(&last_token);
         return parser_result;
     }
 
@@ -2598,31 +2586,42 @@ int Parser_ParseScope(InputPtr input, InstructionListPtr ilist, SymbolTablePtr s
     //  Závěrečné tokeny
     //-----------------------------------------------------
     DEBUG_LOG(source, "parsing closing tokens");
-    if (last_token == NULL || last_token->type != END)
-    {
-        DEBUG_ERR(source, "last_token from nested code is incorrect");
-        Token_debugPrint(last_token);
-        Token_destroy(&last_token);
-        return SYNTAX_ERROR;
-    }
-    Token_destroy(&last_token);
 
-    TokenTypeListPtr closing_tokens = TokenTypeList_create();
-    TokenTypeList_insert(closing_tokens, SCOPE);
-    TokenTypeList_insert(closing_tokens, LINE_END);
-
-    scanner_result = Parser_getTokens(source, input, nlevel, closing_tokens, NULL);
+    //  <END>
+    scanner_result = Parser_getToken(source, input, nlevel, END, NULL);
     if (scanner_result != NO_ERROR)
     {
-        TokenTypeList_destroy(&closing_tokens);
         return scanner_result;
     }
 
-    TokenTypeList_destroy(&closing_tokens);
+    //  <SCOPE>
+    scanner_result = Parser_getToken(source, input, nlevel, SCOPE, NULL);
+    if (scanner_result != NO_ERROR)
+    {
+        return scanner_result;
+    }
+
+    //  <LINE_END|FILE_END>
+    scanner_result = Parser_getToken(source, input, nlevel, NO_REQUIRED_TYPE, &token);
+    if (scanner_result != NO_ERROR)
+    {
+        return scanner_result;
+    }
+
+    if (token->type == FILE_END)
+    {
+        Scanner_UngetToken(input, &token);
+    }
+    else if (token->type != LINE_END)
+    {
+        //  TODO: Error message
+        return SYNTAX_ERROR;
+    }
+
     return NO_ERROR;
 }
 
-int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, PostfixListPtr *postfix, TokenPtr *last_token)
+int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, PostfixListPtr *postfix)
 {
     //
     //  {<VARIABLE|CONSTANT> {+|-|*|/|\|and|or|>|>=|<|<=|<>} <VARIABLE|CONSTANT> [{+|-|*|/|\|and|or|>|>=|<|<=|<>}]}*
@@ -2654,7 +2653,6 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
     }
 
     scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
-    *last_token = token;
     do
     {
         if (scanner_result != NO_ERROR)
@@ -2706,8 +2704,7 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
                 infix2postfix_addOperand(&tokenStack, postfix, token, NULL);
 
                 DEBUG_LOG(source, "calling Parser_ParseSubExpression");
-                parser_result = Parser_ParseSubExpression(input, ilist, symtable, &tokenStack, postfix, &token);
-                *last_token = token;
+                parser_result = Parser_ParseSubExpression(input, ilist, symtable, &tokenStack, postfix);
                 if (parser_result != NO_ERROR)
                 {
                     infix2postfix_cleanup(&tokenStack, postfix);
@@ -2721,7 +2718,6 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
                     infix2postfix_addOperand(&tokenStack, postfix, token, NULL);
 
                     scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
-                    *last_token = token;
 
                     last_operand_was_variable = true;
                     last_operand_was_operator = false;
@@ -2758,12 +2754,14 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
                     infix2postfix_cleanup(&tokenStack, postfix);
                     return INTERNAL_ERROR;
                 }
+                return SYNTAX_ERROR;
             }
 
             //  Poslední operand nebyl operátor, takže tu výraz ukončíme a daný token
-            //  vrátíme pomocí parametru last_token parent funkci, která si s nim už nějak
+            //  vrátíme pomocí scanneru parent funkci, která si s nim už nějak
             //  poradí
             DEBUG_LOG(source, "expression is complete, leaving loop");
+            Scanner_UngetToken(input, &token);
             break;
         }
 
@@ -2779,7 +2777,6 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
 
         //  Načtení dalšího tokenu
         scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
-        *last_token = token;
     }
     while(true);
 
@@ -2799,7 +2796,7 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
     return NO_ERROR;
 }
 
-int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, TokenStackPtr *tokenStack, PostfixListPtr *postfix, TokenPtr *last_token)
+int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, TokenStackPtr *tokenStack, PostfixListPtr *postfix)
 {
     //-------------------------------------------------d-d-
     //  Inicializace
@@ -2819,7 +2816,6 @@ int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTa
     //  Zpracování tokenů
     //-----------------------------------------------------
     scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
-    *last_token = token;
     do
     {
         if (scanner_result != NO_ERROR)
@@ -2901,8 +2897,7 @@ int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTa
                 infix2postfix_addOperand(tokenStack, postfix, token, NULL);
 
                 DEBUG_LOG(source, "calling Parser_ParseSubExpression");
-                parser_result = Parser_ParseSubExpression(input, ilist, symtable, tokenStack, postfix, &token);
-                *last_token = token;
+                parser_result = Parser_ParseSubExpression(input, ilist, symtable, tokenStack, postfix);
                 if (parser_result != NO_ERROR)
                 {
                     return parser_result;
@@ -2913,7 +2908,6 @@ int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTa
                     //  Posledním tokenem došlo k uzavření podvýrazu, načteme nový
                     //  jeho zpracování proběhne v následující iteraci
                     scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
-                    *last_token = token;
 
                     last_operand_was_variable = true;
                     last_operand_was_operator = false;
@@ -2934,8 +2928,10 @@ int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTa
         }
         else
         {
-            if (Parser_setError_statement(source, token, input) != NO_ERROR)
-                return INTERNAL_ERROR;
+            //  Token je něco co tu rozhodně neočekáváme,
+            //  navíc se zde jedná o podvýraz, takže se zcela nepochybně
+            //  jedná o syntaktickou chybu
+            //  TODO: Error message
             return SYNTAX_ERROR;
         }
 
@@ -2947,7 +2943,6 @@ int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTa
 
         //  Načtení dalšího tokenu
         scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
-        *last_token = token;
     }
     while(true);
 

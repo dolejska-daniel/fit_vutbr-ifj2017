@@ -95,11 +95,13 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
     }
     else if (TokenStack_isEmpty(token_stack) == false)
     {
+        DEBUG_LOG("scanner", "returning token from stack, rather than creating new!");
         *token = TokenStack_top(token_stack);
         if (TokenStack_pop(token_stack) != NO_ERROR)
         {
             return INTERNAL_ERROR;
         }
+        return NO_ERROR;
     }
 
     AutomataState state = STATE_BEGIN;
@@ -1239,11 +1241,15 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
  */
 int Scanner_UngetToken(InputPtr input, TokenPtr *token)
 {
+    DEBUG_LOG("scanner-unget", "ungetting token");
+    Token_debugPrint(*token);
+
     if (token_stack == NULL)
     {
         token_stack = TokenStack_create();
     }
 
+    DEBUG_LOG("scanner-unget", "pusing");
     if (TokenStack_push(token_stack, *token) != NO_ERROR)
     {
         *token = NULL;
@@ -1251,5 +1257,7 @@ int Scanner_UngetToken(InputPtr input, TokenPtr *token)
     }
     *token = NULL;
 
-    return
+    DEBUG_LOG("scanner-unget", "ok");
+    TokenStack_debugPrint(token_stack);
+    return NO_ERROR;
 }
