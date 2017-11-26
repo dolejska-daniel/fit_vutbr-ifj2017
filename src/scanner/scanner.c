@@ -808,6 +808,11 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             break;
 
         case STATE_STRING:
+            //  Došlo ke změně stavu načetl se nepotřebný znak, musíme ho vrátit
+            charReturned = true;
+            ungetc(ch, input->source);
+            input->character--;
+
             *token = Token_create(CONSTANT_STRING, final_string);
             if(*token == NULL)
             {
