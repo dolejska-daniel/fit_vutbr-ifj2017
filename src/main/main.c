@@ -115,7 +115,7 @@ int main(/*int argc, char **argv*/)
     if (parser_result != 0)
     {
         DEBUG_PRINT("[%s] ERR Parser returned error code %i\n", "main", parser_result);
-        DEBUG_PRINT("[%s]   | Message: %s\n", "main", error_description);
+        DEBUG_PRINT("\tmessage: %s\n", "main", error_description);
 
         //  TODO: Output errors
         //  TODO: Cleanup & exit
@@ -148,7 +148,7 @@ program_exit:
     if (result != NO_ERROR)
     {
         //  Došlo k ukončení s chybami
-        fprintf(stderr, "\nAn error occured during program execution!\n==========================================\n\nYou will find more detailed information below.\n\n");
+        fprintf(stderr, "An error occured during program execution!\n==========================================\n\nYou will find more detailed information below.\n\n");
         if (last_line != NULL && strlen(last_line) > 0)
         {
             //  Máme k dispozici obsah posledního řádku

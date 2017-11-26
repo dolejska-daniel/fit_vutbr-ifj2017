@@ -75,6 +75,9 @@ TokenPtr Token_create(TokenType type, char *attr)
 /**
  * Funkce pro zrušení struktury tokenu.
  *
+ * Neuvolňuje obsah tokenu!
+ * Attr je alokovaný textový řetězec!
+ *
  * @param[in,out]   TokenPtr    *t   Ukazatel na ukazatel na existující strukturu tokenu
  */
 void Token_destroy(TokenPtr *t)

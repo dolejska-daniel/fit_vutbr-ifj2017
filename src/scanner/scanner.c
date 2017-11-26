@@ -1254,7 +1254,7 @@ int Scanner_UngetToken(InputPtr input, TokenPtr *token)
         token_stack = TokenStack_create();
     }
 
-    DEBUG_LOG("scanner-unget", "pusing");
+    DEBUG_LOG("scanner-unget", "pushing");
     if (TokenStack_push(token_stack, *token) != NO_ERROR)
     {
         *token = NULL;
@@ -1264,5 +1264,6 @@ int Scanner_UngetToken(InputPtr input, TokenPtr *token)
 
     DEBUG_LOG("scanner-unget", "ok");
     TokenStack_debugPrint(token_stack);
+    DEBUG_LOG("scanner-unget", "return");
     return NO_ERROR;
 }

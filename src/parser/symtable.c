@@ -133,8 +133,9 @@ SymbolPtr SymbolTable_get(SymbolTablePtr st, char *key)
 	SymbolPtr symbol = st->array[hash];
 
 	//	Dokud symbol není NULL, nebo není nalezen symbol s požadovaným jménem,
+	//  nebo se daný symbol nachází na framu, který je na stacku
 	//	pokračuje se ve vyhledávání na daném hashi
-	while (symbol != NULL && strcmp(symbol->key, key) != 0)
+	while (symbol != NULL && strcmp(symbol->key, key) != 0 && symbol->location <= LOCAL_FRAME)
 		symbol = symbol->next;
 
 	//	Pokud na daném hashi nic nebylo a nebo nebyl symbol nalezen vrací se NULL
@@ -224,6 +225,48 @@ int SymbolTable_insert(SymbolTablePtr st, char *key, SymbolType type, SymbolLoca
 }
 
 /**
+ * Funkce posune definované proměnné na vyšší úroveň rámce.
+ *
+ * @param[in,out]	SymbolTablePtr	st Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_pushFrame(SymbolTablePtr st)
+{
+    SymbolPtr s;
+    for (int i = 0; i < SYMBOL_TABLE_SIZE; i++)
+    {
+        s = st->array[i];
+        while (s != NULL)
+        {
+            if (s->location == LOCAL_FRAME || s->location == TEMPORARY_FRAME)
+                s->location++;
+            s = s->next;
+        }
+    }
+}
+
+/**
+ * Funkce posune definované proměnné na nižší úroveň rámce.
+ *
+ * Proměnné které jsou aktuálně na TF jsou odstraněny.
+ *
+ * @param[in,out]	SymbolTablePtr	st Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_popFrame(SymbolTablePtr st)
+{
+    SymbolPtr s;
+    for (int i = 0; i < SYMBOL_TABLE_SIZE; i++)
+    {
+        s = st->array[i];
+        while (s != NULL)
+        {
+            if (s->location > LOCAL_FRAME)
+                s->location--;
+            s = s->next;
+        }
+    }
+}
+
+/**
  * Funkce odstraní položku s daným jménem z tabulky.
  *
  * @param[in,out]	SymbolTablePtr  st		Ukazatel na existující tabulku symbolů
@@ -273,9 +316,10 @@ void SymbolTable_delete(SymbolTablePtr st, char *key)
 void SymbolTable_debugPrint(SymbolTablePtr st)
 {
     #ifdef DEBUG_PRINT_SYMTABLE
+    fprintf(stderr, "DEBUG | SymbolTable (%p): {\n", st);
     for (int i = 0; i < SYMBOL_TABLE_SIZE; i++)
     {
-        fprintf(stderr, "%i:", i);
+        fprintf(stderr, "\t%i:", i);
         SymbolPtr s = st->array[i];
         if (s == NULL)
         {
@@ -292,6 +336,7 @@ void SymbolTable_debugPrint(SymbolTablePtr st)
         }
         fprintf(stderr, "\n");
     }
+    fprintf(stderr, "}\n", st);
     #endif
 }
 
@@ -325,6 +370,7 @@ SymbolPtr Symbol_create(char *key, SymbolType type, SymbolLocation location, voi
 	s->type     = type;
 	s->location = location;
 	s->value    = value;
+	s->value2   = NULL;
 
 	return s;
 }
@@ -352,11 +398,11 @@ void Symbol_debugPrint(SymbolPtr symbol)
     #ifdef DEBUG_PRINT_SYMBOL
     if (symbol == NULL)
     {
-        fprintf(stderr, "DEBUG | SYMBOL: NULL\n");
+        fprintf(stderr, "DEBUG | Symbol: NULL\n");
     }
     else
     {
-        fprintf(stderr, "DEBUG | SYMBOL: {\n");
+        fprintf(stderr, "DEBUG | Symbol (%p): {\n", symbol);
         fprintf(stderr, "\tkey: %s,\n", symbol->key);
         fprintf(stderr, "\tlocation: %s,\n", SymbolLocation_toString(symbol->location));
         fprintf(stderr, "\ttype: %s,\n", SymbolType_toString(symbol->type));
@@ -937,6 +983,9 @@ bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2
 
 char *SymbolLocation_toString(SymbolLocation location)
 {
+    if (location > LOCAL_FRAME)
+        return "@_FRAMESTACK";
+
     switch (location)
     {
         case GLOBAL_FRAME:
@@ -946,9 +995,9 @@ char *SymbolLocation_toString(SymbolLocation location)
         case TEMPORARY_FRAME:
             return "@TF";
         case CONSTANT:
-            return "CONSTANT";
+            return "@_CONSTANT";
         default:
-            return "_UNKNOWN_";
+            return "@_UNKNOWN_";
     }
 }
 

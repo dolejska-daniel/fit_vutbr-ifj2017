@@ -48,6 +48,7 @@ struct S_Symbol {
 	SymbolPtr	    next;	  ///< Ukazatel na další prvek se stejným otiskem (synonymum)
 	char 		    *key;	  ///< Název/Identifikátor symbolu
 	void		    *value;	  ///< Ukazatel na další informace o symbolu
+	void		    *value2;  ///< Ukazatel na další informace o symbolu
 }; ///< Struktura symbolu
 
 typedef struct S_SymbolInfo_Function_Parameter
@@ -162,6 +163,22 @@ SymbolPtr SymbolTable_getByToken(SymbolTablePtr st, TokenPtr token);
  * @retval	int Kód se kterým bylo vložení symbolu ukončeno
  */
 int SymbolTable_insert(SymbolTablePtr st, char *key, SymbolType type, SymbolLocation location, void *value, SymbolPtr *symbol);
+
+/**
+ * Funkce posune definované proměnné na vyšší úroveň rámce.
+ *
+ * @param[in,out]	SymbolTablePtr	st Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_pushFrame(SymbolTablePtr st);
+
+/**
+ * Funkce posune definované proměnné na nižší úroveň rámce.
+ *
+ * Proměnné které jsou aktuálně na TF jsou odstraněny.
+ *
+ * @param[in,out]	SymbolTablePtr	st Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_popFrame(SymbolTablePtr st);
 
 /**
  * Funkce odstraní položku s daným jménem z tabulky.

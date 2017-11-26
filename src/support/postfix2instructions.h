@@ -14,8 +14,12 @@
 #define _postfix2instructions_h
 
 #ifdef DEBUG_INCLUDE
+#include "../scanner/input.h"
+#include "../parser/symtable.h"
 #include "../generator/instruction_list.h"
 #else
+#include "input.h"
+#include "symtable.h"
 #include "instruction_list.h"
 #endif
 
@@ -42,7 +46,7 @@
  *
  * @retval  int Stavový kód zpracování posloupnosti
  */
-int postfix2instructions(InstructionListPtr ilist, PostfixListPtr *postfixList, SymbolType result_dt, SymbolType *actual_dt);
+int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, PostfixListPtr *postfixList, SymbolType result_dt, SymbolType *actual_dt);
 
 int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr preprocessed_ilist, PostfixListPtr *postfixList, SymbolType *result_dt);
 

@@ -20,9 +20,11 @@
 #define _postfix2instructions_c
 
 #ifdef DEBUG_INCLUDE
+#include "../parser/parser.h"
 #include "../generator/generator.h"
 #include "../generator/instruction_list.h"
 #else
+#include "parser.h"
 #include "generator.h"
 #include "instruction_list.h"
 #endif
@@ -54,13 +56,14 @@
 //  DEKLARACE FUNKCÍ
 //======================================================================
 
-int postfix2instructions(InstructionListPtr ilist, PostfixListPtr *postfixList, SymbolType result_dt, SymbolType *actual_dt)
+int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, PostfixListPtr *postfixList, SymbolType result_dt, SymbolType *actual_dt)
 {
     char *source = "post2inst";
     DEBUG_LOG(source, "converting postfix expression to instructions");
     PostfixList_debugPrint(*postfixList);
 
     int result = NO_ERROR;
+    int parser_result;
     int instruction_result;
 
     SymbolStackPtr s = SymbolStack_create();
@@ -214,11 +217,48 @@ int postfix2instructions(InstructionListPtr ilist, PostfixListPtr *postfixList, 
         else
         {
             //  Operand je identifikátorem/konstantou
-            Instruction_stack_push(preprocess_ilist, operand->symbol);
+            InstructionPtr i;
+            if (operand->symbol->type == ST_FUNCTION)
+            {
+                DEBUG_LOG(source, "operand is function identifier");
+                DEBUG_LOG(source, "returning saved function params to scanner");
+                //  Parametry funkce byly uloženy na stack do speciálního pole symbolu,
+                //  je nutné je vrátit scanneru, protože volaná funkce si je bude ze scanneru tahat
+                TokenStackPtr tStack = (TokenStackPtr) operand->symbol->value2;
+                TokenPtr t;
+                while (TokenStack_isEmpty(tStack) == false)
+                {
+                    t = TokenStack_top(tStack);
+                    Scanner_UngetToken(NULL, &t);
+                    TokenStack_pop(tStack);
+                }
 
-            InstructionPtr i = InstructionList_getLast(preprocess_ilist);
-            i->isVariable = true;
-            i->dataType   = operand->symbol->type;
+                DEBUG_LOG(source, "calling Parser_ParseFunctionCall");
+                //  Parametry funkce byly vráceny scanneru,
+                //  můžeme zavolat funkci parseru, která je zpracuje
+                parser_result = Parser_ParseFunctionCall(input, ilist, symtable, operand->symbol);
+                if (parser_result != NO_ERROR)
+                {
+                    return parser_result;
+                }
+
+                i = InstructionList_getLast(preprocess_ilist);
+                SymbolInfo_FunctionPtr func_info = (SymbolInfo_FunctionPtr) operand->symbol->value;
+                i->isVariable = true;
+                i->dataType   = func_info->dataType;
+            }
+            else
+            {
+                instruction_result = Instruction_stack_push(preprocess_ilist, operand->symbol);
+                if (instruction_result != NO_ERROR)
+                {
+                    return instruction_result;
+                }
+
+                i = InstructionList_getLast(preprocess_ilist);
+                i->isVariable = true;
+                i->dataType   = operand->symbol->type;
+            }
         }
 
         //  Načtení dalšího operandu
@@ -449,7 +489,6 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                         InstructionList_insertAfter(preprocessed_ilist, iY, i_content);
                         result = SEMANTICAL_DATATYPE_ERROR;
                     }
-    printf("\nnope\n");
 
                     //  Opravení výsledného datového typu na základě operace
                     switch (token->type)
