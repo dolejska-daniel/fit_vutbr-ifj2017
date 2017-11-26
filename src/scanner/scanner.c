@@ -1201,7 +1201,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 return NO_ERROR;
             }
             break;
-        // Cases for extended number input begin
+        // Cases for extended number input end
         }
 
     }
