@@ -189,6 +189,14 @@ void SymbolTable_popFrame(SymbolTablePtr st);
 void SymbolTable_delete(SymbolTablePtr st, char *key);
 
 /**
+ * Funkce odstraní položku s daným ukazatelem z tabulky.
+ *
+ * @param[in,out]	SymbolTablePtr  st  Ukazatel na existující tabulku symbolů
+ * @param[in]		SymbolPtr       *s  Ukazatel na položku k odstranění
+ */
+void SymbolTable_deleteByPtr(SymbolTablePtr st, SymbolPtr *s);
+
+/**
  * Funkce zobrazí obsah tabulky na stderr.
  *
  * @param[in,out]	SymbolTablePtr	st Ukazatel na existující tabulku symbolů

@@ -99,16 +99,26 @@ NestingLevelPtr NestingList_insertFirst(NestingListPtr l, NestingType type, Symb
 {
     //  Vytvoření nové struktury úrovně
     NestingLevelPtr level = NestingLevel_create(type, symbol);
-    NestingLevelPtr first = l->first;
 
-    if (first != NULL)
+    if (l->last == NULL)
     {
-        //  V seznamu již je první položka
-        first->prev = level;
-        level->next = first;
+        //  Neexistuje poslední položka v seznamu
+        l->last = level;
     }
-
-    //  Navázání ukazatelů
+    else
+    {
+        //  Existuje poslední položka v seznamu
+        if (l->first == l->last)
+        {
+            //  Seznam obsahuje pouze jednu položku
+        }
+        else
+        {
+            //  Seznam obsahuje více položek
+        }
+        l->first->prev = level;
+        level->next= l->first;
+    }
     l->first = level;
 
     return level;
@@ -127,16 +137,26 @@ NestingLevelPtr NestingList_insertLast(NestingListPtr l, NestingType type, Symbo
 {
     //  Vytvoření nové struktury úrovně
     NestingLevelPtr level = NestingLevel_create(type, symbol);
-    NestingLevelPtr last = l->last;
 
-    if (last != NULL)
+    if (l->first == NULL)
     {
-        //  V seznamu již je poslední položka
-        last->next  = level;
-        level->prev = last;
+        //  Neexistuje první položka v seznamu
+        l->first = level;
     }
-
-    //  Navázání ukazatelů
+    else
+    {
+        //  Existuje první položka v seznamu
+        if (l->first == l->last)
+        {
+            //  Seznam obsahuje pouze jednu položku
+        }
+        else
+        {
+            //  Seznam obsahuje více položek
+        }
+        l->last->next = level;
+        level->prev = l->last;
+    }
     l->last = level;
 
     return level;
@@ -178,6 +198,41 @@ NestingLevelPtr NestingList_last(NestingListPtr l)
 NestingLevelPtr NestingList_active(NestingListPtr l)
 {
     return l->active;
+}
+
+void NestingList_debugPrint(NestingListPtr l)
+{
+    #ifdef DEBUG_PRINT_NESTING
+    fprintf(stderr, "DEBUG | NestingList (%p) {\n", l);
+    fprintf(stderr, "\tactive: %p\n", l->active);
+    fprintf(stderr, "\tfirst: %p\n", l->first);
+    fprintf(stderr, "\tlast: %p\n", l->last);
+    NestingLevelPtr active = l->active;
+    NestingLevelPtr level = NestingList_first(l);
+    int nlevel = 1;
+    while (level != NULL)
+    {
+        for (int i = 0; i < nlevel; i++)
+            fprintf(stderr, "\t");
+        fprintf(stderr, "<%s (%p)> {\n", NestingType_toString(level->type), level);
+        for (int i = 0; i < nlevel; i++)
+            fprintf(stderr, "\t");
+        fprintf(stderr, "\tsymbol: %p\n", level->symbol);
+        for (int i = 0; i < nlevel; i++)
+            fprintf(stderr, "\t");
+        fprintf(stderr, "\tnext: %p\n", level->prev);
+        for (int i = 0; i < nlevel; i++)
+            fprintf(stderr, "\t");
+        fprintf(stderr, "\tptev: %p\n", level->next);
+        for (int i = 0; i < nlevel; i++)
+            fprintf(stderr, "\t");
+        fprintf(stderr, "}\n");
+        level = level->next;
+        nlevel++;
+    }
+    fprintf(stderr, "}\n", l);
+    l->active = active;
+    #endif
 }
 
 /**
@@ -359,6 +414,25 @@ NestingLevelPtr NestingList_leaveCurrentLevel(NestingListPtr l)
 {
     NestingList_delete(l, l->active);
     return NestingList_last(l);
+}
+
+char *NestingType_toString(NestingType type)
+{
+    switch (type)
+    {
+        case NESTING_NONE:
+            return "NONE";
+        case NESTING_SCOPE:
+            return "SCOPE";
+        case NESTING_LOOP:
+            return "LOOP";
+        case NESTING_FUNCTION:
+            return "FUNCTION";
+        case NESTING_CONDITION:
+            return "CONDITION";
+        default:
+            return "_UNKNOWN_";
+    }
 }
 
 #endif
