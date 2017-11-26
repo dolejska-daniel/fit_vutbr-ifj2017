@@ -144,7 +144,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 String_addChar(&final_string, ch);
             }
-            else if(ch == ' ')
+            else if(ch == ' ' || ch == '\t')
             {
 
             }

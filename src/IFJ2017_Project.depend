@@ -35,7 +35,7 @@
 	"../scanner/token.h"
 	"token.h"
 
-1511643666 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
+1511650111 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
 	<stdlib.h>
 	<stdio.h>
 	<stdbool.h>
@@ -390,7 +390,7 @@
 	"../generator/instruction_list.h"
 	"instruction_list.h"
 
-1511528636 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix_list.c
+1511648767 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix_list.c
 	<stdio.h>
 	<stdbool.h>
 	<malloc.h>
