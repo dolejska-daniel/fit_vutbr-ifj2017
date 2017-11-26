@@ -332,14 +332,12 @@ int Instruction_defvar(InstructionListPtr l, SymbolPtr symbol)
  */
 int Instruction_call(InstructionListPtr l, SymbolPtr symbol) /// TODO:
 {
-    if (symbol->type == ST_FUNCTION) {
+    if (symbol->type != ST_FUNCTION) {
         DEBUG_ERR("generator", "first operand has to be label of function");
         return INTERNAL_ERROR;
     }
-    char *s_symbol;
-    Instruction_getsymbol(symbol, &s_symbol);
 
-    char *instruction = String_concat("CALL", s_symbol, " ");
+    char *instruction = String_concat("CALL", symbol->key, " ");
     if (instruction == NULL)
     {
         DEBUG_ERR("generator", "instruction failed to allocate");

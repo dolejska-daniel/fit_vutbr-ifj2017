@@ -253,14 +253,30 @@ void SymbolTable_pushFrame(SymbolTablePtr st)
  */
 void SymbolTable_popFrame(SymbolTablePtr st)
 {
+    DEBUG_LOG("symtable-popFrame", "preparing to pop frame");
+    SymbolTable_debugPrint(st);
+
     SymbolPtr s;
+    SymbolPtr s2;
     for (int i = 0; i < SYMBOL_TABLE_SIZE; i++)
     {
         s = st->array[i];
         while (s != NULL)
         {
-            if (s->location > LOCAL_FRAME)
+            if (s->location > TEMPORARY_FRAME)
+            {
                 s->location--;
+            }
+            else if (s->location == TEMPORARY_FRAME)
+            {
+                DEBUG_LOG("symtable-popFrame", "deleting symbol");
+                Symbol_debugPrint(s);
+
+                s2 = s->next;
+                SymbolTable_deleteByPtr(st, &s);
+                s = s2;
+                continue;
+            }
             s = s->next;
         }
     }
@@ -295,7 +311,7 @@ void SymbolTable_delete(SymbolTablePtr st, char *key)
         //  Ano byla
         if (prev == NULL)
         {
-            //  Pøed tímto prvkem není žádný pøedcházející
+            //  Před tímto prvkem není žádný předcházející
             st->array[hash] = symbol->next;
         }
         else
@@ -306,6 +322,42 @@ void SymbolTable_delete(SymbolTablePtr st, char *key)
 
         Symbol_destroy(&symbol);
     }
+}
+
+/**
+ * Funkce odstraní položku s daným ukazatelem z tabulky.
+ *
+ * @param[in,out]	SymbolTablePtr  st  Ukazatel na existující tabulku symbolů
+ * @param[in]		SymbolPtr       *s  Ukazatel na položku k odstranění
+ */
+void SymbolTable_deleteByPtr(SymbolTablePtr st, SymbolPtr *s)
+{
+    SymbolPtr symbol = *s;
+    if (symbol == NULL)
+    {
+        return;
+    }
+
+	//	Výpočet hashe
+	unsigned hash = SymbolTable_hash(st, symbol->key);
+
+    if (symbol == st->array[hash])
+    {
+        //  Tato položka je první na daném indexu
+        st->array[hash] = symbol->next;
+        Symbol_destroy(&symbol);
+    }
+    else
+    {
+        //  Tato položka není první na daném indexu
+        SymbolPtr prev = st->array[hash];
+        while (prev != NULL && prev->next != symbol)
+            prev = prev->next;
+
+        prev->next = symbol->next;
+        Symbol_destroy(&symbol);
+    }
+    *s = NULL;
 }
 
 /**
@@ -407,6 +459,7 @@ void Symbol_debugPrint(SymbolPtr symbol)
         fprintf(stderr, "\tlocation: %s,\n", SymbolLocation_toString(symbol->location));
         fprintf(stderr, "\ttype: %s,\n", SymbolType_toString(symbol->type));
         fprintf(stderr, "\tvalue: %p,\n", symbol->value);
+        fprintf(stderr, "\tvalue2: %p,\n", symbol->value2);
         fprintf(stderr, "\tnext: %p,\n", symbol->next);
         fprintf(stderr, "}\n");
     }

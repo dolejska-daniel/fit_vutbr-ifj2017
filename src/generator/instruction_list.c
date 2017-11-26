@@ -363,8 +363,14 @@ void InstructionList_debugPrint(InstructionListPtr l)
     i = InstructionList_getActive(l);
     while (l->active != NULL)
     {
-        fprintf(stderr, "\t%s: {\n", i->content);
+        fprintf(stderr, "\t%s (%p): {\n", i->content, i);
         fprintf(stderr, "\t\ttype: %s\n", SymbolType_toString(i->dataType));
+        fprintf(stderr, "\t\tisBlockBegin: %i\n", i->isBlockBegin);
+        fprintf(stderr, "\t\tisBlockEnd: %i\n", i->isBlockEnd);
+        fprintf(stderr, "\t\tisOperator: %i\n", i->isOperator);
+        fprintf(stderr, "\t\tisVariable: %i\n", i->isVariable);
+        fprintf(stderr, "\t\tnext: %p\n", i->next);
+        fprintf(stderr, "\t\tprev: %p\n", i->prev);
         fprintf(stderr, "\t}\n", i->content);
         InstructionList_next(l);
         i = InstructionList_getActive(l);

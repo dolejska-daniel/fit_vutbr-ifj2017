@@ -20,10 +20,12 @@
 #define _postfix2instructions_c
 
 #ifdef DEBUG_INCLUDE
+#include "../scanner/scanner.h"
 #include "../parser/parser.h"
 #include "../generator/generator.h"
 #include "../generator/instruction_list.h"
 #else
+#include "scanner.h"
 #include "parser.h"
 #include "generator.h"
 #include "instruction_list.h"
@@ -233,19 +235,34 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                     TokenStack_pop(tStack);
                 }
 
+                //  Poslední instrukce před zpracováním volání funkce
+                i = InstructionList_getLast(preprocess_ilist);
+
                 DEBUG_LOG(source, "calling Parser_ParseFunctionCall");
                 //  Parametry funkce byly vráceny scanneru,
                 //  můžeme zavolat funkci parseru, která je zpracuje
-                parser_result = Parser_ParseFunctionCall(input, ilist, symtable, operand->symbol);
+                parser_result = Parser_ParseFunctionCall(input, preprocess_ilist, symtable, operand->symbol);
                 if (parser_result != NO_ERROR)
                 {
                     return parser_result;
                 }
+                DEBUG_LOG(source, "return from Parser_ParseFunctionCall");
+                InstructionList_debugPrint(preprocess_ilist);
+
+                if (i == NULL)
+                {
+                    //  Před těmito instrukcemi nebyly v seznamu žádné instrukce
+                    i = InstructionList_getFirst(preprocess_ilist);
+                }
+                SymbolInfo_FunctionPtr func_info = (SymbolInfo_FunctionPtr) operand->symbol->value;
+                i->isVariable   = true;
+                i->isBlockBegin = true;
+                i->dataType     = func_info->dataType;
 
                 i = InstructionList_getLast(preprocess_ilist);
-                SymbolInfo_FunctionPtr func_info = (SymbolInfo_FunctionPtr) operand->symbol->value;
-                i->isVariable = true;
-                i->dataType   = func_info->dataType;
+                i->isBlockEnd = true;
+
+                DEBUG_LOG(source, "function in expression successfully parsed");
             }
             else
             {
@@ -562,8 +579,10 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
         i = InstructionList_getActive(preprocessed_ilist);
     }
     while (operand != NULL);
-    DEBUG_LOG(source, "copying instructions to instruction list");
+    DEBUG_LOG(source, "real expression processing completed");
+    InstructionList_debugPrint(preprocessed_ilist);
 
+    DEBUG_LOG(source, "copying instructions to instruction list");
     //  Nastavíme se na začátek seznamu instrukcí
     InstructionList_first(preprocessed_ilist);
     i = InstructionList_getActive(preprocessed_ilist);
@@ -575,7 +594,6 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
         i = InstructionList_getActive(preprocessed_ilist);
     }
 
-    DEBUG_LOG(source, "real expression processing completed");
     return result;
 }
 
