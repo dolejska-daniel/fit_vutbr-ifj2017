@@ -1,5 +1,5 @@
 /**
- * Tento soubor obsahuje implementaci stacku symbolů.
+ * Tento soubor obsahuje implementaci stacku charů.
  *
  * @author Daniel Dolejška (xdolej08)
  * @date 21.11.2017
@@ -11,16 +11,14 @@
 #include <stdbool.h>
 #include <malloc.h>
 
-#include "symbol_stack.h"
+#include "char_stack.h"
 #include "error_codes.h"
 
-#ifndef _symbol_stack_c
-#define _symbol_stack_c
+#ifndef _char_stack_c
+#define _char_stack_c
 
 #ifdef DEBUG_INCLUDE
-#include "../parser/symtable.h"
 #else
-#include "symtable.h"
 #endif
 
 #ifdef DEBUG_PRINT_ENABLED
@@ -41,7 +39,7 @@
 #define DEBUG_ERR(...) do{ } while ( 0 )
 #endif
 
-#define SYMBOL_STACK_SIZE 50
+#define CHAR_STACK_SIZE 50
 
 //==================================================================d=d=
 //  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR
@@ -52,12 +50,12 @@
 //  DEKLARACE FUNKCÍ
 //======================================================================
 
-SymbolStackPtr SymbolStack_create()
+CharStackPtr CharStack_create()
 {
-    SymbolStackPtr s = (SymbolStackPtr) malloc(sizeof(SymbolStack));
+    CharStackPtr s = (CharStackPtr) malloc(sizeof(CharStack));
     if (s == NULL)
     {
-        DEBUG_ERR("symbol_stack-create", "failed to mallocate SymbolStack");
+        DEBUG_ERR("char_stack-create", "failed to mallocate CharStack");
         return NULL;
     }
 
@@ -66,66 +64,49 @@ SymbolStackPtr SymbolStack_create()
     return s;
 }
 
-void SymbolStack_destroy(SymbolStackPtr *s)
+void CharStack_destroy(CharStackPtr *s)
 {
     free(*s);
     *s = NULL;
 }
 
-int SymbolStack_push(SymbolStackPtr s, SymbolPtr symbol)
+int CharStack_push(CharStackPtr s, char ch)
 {
-    if (SymbolStack_isFull(s))
+    if (CharStack_isFull(s) == true)
     {
-        DEBUG_ERR("symbol_stack-push", "cannot push, stack is already full!");
+        DEBUG_ERR("char_stack-push", "cannot push, stack is already full!");
         return INTERNAL_ERROR;
     }
 
-    s->array[++(s->index)] = symbol;
+    s->array[++(s->index)] = ch;
     return NO_ERROR;
 }
 
-int SymbolStack_pop(SymbolStackPtr s)
+int CharStack_pop(CharStackPtr s)
 {
-    if (SymbolStack_isEmpty(s) == true)
+    if (CharStack_isEmpty(s) == true)
     {
-        DEBUG_ERR("symbol_stack-pop", "cannot pop, stack empty!");
+        DEBUG_ERR("char_stack-pop", "cannot pop, stack empty!");
         return INTERNAL_ERROR;
     }
 
-    s->array[(s->index)--] = NULL;
+    s->array[(s->index)--] = -1;
     return NO_ERROR;
 }
 
-SymbolPtr SymbolStack_top(SymbolStackPtr s)
+char CharStack_top(CharStackPtr s)
 {
-    if (SymbolStack_isEmpty(s) == true)
-    {
-        DEBUG_ERR("symbol_stack-top", "cannot get top, stack empty!");
-        return NULL;
-    }
-
     return s->array[s->index];
 }
 
-SymbolPtr SymbolStack_afterTop(SymbolStackPtr s)
-{
-    if (s->index - 1 < 0)
-    {
-        DEBUG_ERR("symbol_stack-afterTop", "cannot get after top, stack empty or only with one symbol!");
-        return NULL;
-    }
-
-    return s->array[s->index - 1];
-}
-
-bool SymbolStack_isEmpty(SymbolStackPtr s)
+bool CharStack_isEmpty(CharStackPtr s)
 {
     return s->index == -1 ? true : false;
 }
 
-bool SymbolStack_isFull(SymbolStackPtr s)
+bool CharStack_isFull(CharStackPtr s)
 {
-    return s->index == SYMBOL_STACK_SIZE - 1 ? true : false;
+    return s->index == CHAR_STACK_SIZE - 1 ? true : false;
 }
 
 

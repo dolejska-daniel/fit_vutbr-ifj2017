@@ -8,6 +8,8 @@
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
+#include <stdbool.h>
+
 #ifndef _token_h
 #define _token_h
 
@@ -87,6 +89,9 @@ TokenPtr Token_create(TokenType type, char *attr);
 /**
  * Funkce pro zrušení struktury tokenu.
  *
+ * Neuvolňuje obsah tokenu!
+ * Attr je alokovaný textový řetězec!
+ *
  * @param[in,out]   TokenPtr    *t   Ukazatel na ukazatel na existující strukturu tokenu
  */
 void Token_destroy(TokenPtr *t);
@@ -97,6 +102,16 @@ void Token_destroy(TokenPtr *t);
  * @param[in,out]	TokenPtr    token   Ukazatel na existující token
  */
 void Token_debugPrint(TokenPtr token);
+
+bool Token_isDataType(TokenPtr token);
+
+bool Token_isConstant(TokenPtr token);
+
+bool Token_isOperator(TokenPtr token);
+
+int TokenType_toSymbolType(TokenType type);
+
+int TokenType_Keyword_toSymbolType(TokenType type);
 
 /**
  * Funkce vrátí textový řetězec zastupující typ tokenu.

@@ -81,6 +81,9 @@ typedef enum E_AutomataState {
 /**
  * Hlavní funkce ovládající lexikální analyzátor.
  *
+ * Pokud se na stacku tokenů nachází nějaký vrácený token,
+ * je vrácen dříve, než je započato získávání tokenu nového.
+ *
  * Pokud nebude token z nějakého důvodu získán, v parametru token vrací
  * hodnotu NULL a dále vrací adekvátní stavový kód.
  *
@@ -90,5 +93,17 @@ typedef enum E_AutomataState {
  * @retval int  Kód se kterým bylo získávání nového tokenu ukončeno
  */
 int Scanner_GetToken(InputPtr input, TokenPtr *token);
+
+/**
+ * Tato funkce "vrátí" získaný token. Uloží jej na stack
+ * tokenů a při dalším volání funkce Scanner_GetToken vrátí
+ * tento, ne nový token.
+ *
+ * @param[in,out]   InputPtr    input           Ukazatel na strukturu se vstupními daty
+ * @param[out]      TokenPtr    *token          Ukazatel na získaný token
+ *
+ * @retval int  Kód se kterým bylo získávání nového tokenu ukončeno
+ */
+int Scanner_UngetToken(InputPtr input, TokenPtr *token);
 
 #endif

@@ -1,6 +1,5 @@
 /**
- * Tento soubor obsahuje implementaci dvousměrně vázaného
- * seznamu pro Tokeny.
+ * Tento soubor obsahuje implementaci seznamu typů tokenů.
  *
  * @author Daniel Dolejška (xdolej08)
  * @date 21.11.2017
@@ -9,14 +8,12 @@
  */
 
 #include <stdio.h>
-#include <stdbool.h>
-#include <malloc.h>
 
-#include "token_list.h"
+#include "tokenType_list.h"
 #include "error_codes.h"
 
-#ifndef _token_list_c
-#define _token_list_c
+#ifndef _tokenType_list_c
+#define _tokenType_list_c
 
 #ifdef DEBUG_INCLUDE
 #include "../scanner/token.h"
@@ -52,15 +49,15 @@
 //======================================================================
 
 //-------------------------------------------------d-d-
-//  TokenList functions
+//  TokenTypeList functions
 //-----------------------------------------------------
 
-TokenListPtr TokenList_create()
+TokenTypeListPtr TokenTypeList_create()
 {
-    TokenListPtr l = (TokenListPtr) malloc(sizeof(TokenList));
+    TokenTypeListPtr l = (TokenTypeListPtr) malloc(sizeof(TokenTypeList));
     if (l == NULL)
     {
-        DEBUG_ERR("tokenType_list-create", "failed to mallocate TokenList");
+        DEBUG_ERR("tokenType_list-create", "failed to mallocate TokenTypeList");
         return NULL;
     }
 
@@ -70,19 +67,19 @@ TokenListPtr TokenList_create()
     return l;
 }
 
-void TokenList_destroy(TokenListPtr *l)
+void TokenTypeList_destroy(TokenTypeListPtr *l)
 {
-    TokenListPtr list = *l;
+    TokenTypeListPtr list = *l;
     while (list->first != NULL)
-        TokenList_deleteFirst(list);
+        TokenTypeList_deleteFirst(list);
 
     free(list);
     *l = NULL;
 }
 
-int TokenList_insert(TokenListPtr l, TokenPtr token)
+int TokenTypeList_insert(TokenTypeListPtr l, TokenType type)
 {
-    TokenListItemPtr i = TokenListItem_create(token);
+    TokenTypeListItemPtr i = TokenTypeListItem_create(type);
     if (i == NULL)
     {
         return INTERNAL_ERROR;
@@ -92,28 +89,28 @@ int TokenList_insert(TokenListPtr l, TokenPtr token)
     {
         if (l->first != NULL)
         {
-            DEBUG_ERR("token_list-insert", "active is NULL, but there are items in the list!");
+            DEBUG_ERR("tokenType_list-insert", "active is NULL, but there are items in the list!");
             return INTERNAL_ERROR;
         }
 
         l->first = i;
-        TokenList_first(l);
+        TokenTypeList_first(l);
     }
     else
     {
         l->active->next = i;
-        TokenList_next(l);
+        TokenTypeList_next(l);
     }
 
     return NO_ERROR;
 }
 
-void TokenList_first(TokenListPtr l)
+void TokenTypeList_first(TokenTypeListPtr l)
 {
     l->active = l->first;
 }
 
-void TokenList_next(TokenListPtr l)
+void TokenTypeList_next(TokenTypeListPtr l)
 {
     if (l->active != NULL)
     {
@@ -121,72 +118,55 @@ void TokenList_next(TokenListPtr l)
     }
 }
 
-TokenListItemPtr TokenList_get(TokenListPtr l)
+TokenTypeListItemPtr TokenTypeList_get(TokenTypeListPtr l)
 {
     return l->active;
 }
 
-TokenListItemPtr TokenList_getNext(TokenListPtr l)
+TokenTypeListItemPtr TokenTypeList_getNext(TokenTypeListPtr l)
 {
     if (l->active == NULL)
     {
         return NULL;
     }
 
-    TokenList_next(l);
-    return TokenList_get(l);
+    TokenTypeList_next(l);
+    return TokenTypeList_get(l);
 }
 
-TokenPtr TokenList_findFirstToken(TokenListPtr l, TokenType type)
-{
-    TokenList_first(l);
-    while (TokenList_get(l) != NULL && TokenList_get(l)->token->type != type)
-        TokenList_next(l);
-
-    return TokenList_get(l)->token;
-}
-
-TokenPtr TokenList_findNextToken(TokenListPtr l, TokenType type)
-{
-    while (TokenList_get(l) != NULL && TokenList_get(l)->token->type != type)
-        TokenList_next(l);
-
-    return TokenList_get(l)->token;
-}
-
-void TokenList_deleteFirst(TokenListPtr l)
+void TokenTypeList_deleteFirst(TokenTypeListPtr l)
 {
     if (l->first == NULL)
     {
         return;
     }
 
-    TokenListItemPtr i = l->first;
+    TokenTypeListItemPtr i = l->first;
     l->first = l->first->next;
-    TokenListItem_destroy(&i);
+    TokenTypeListItem_destroy(&i);
 }
 
 
 //-------------------------------------------------d-d-
-//  TokenListItem functions
+//  TokenTypeListItem functions
 //-----------------------------------------------------
 
-TokenListItemPtr TokenListItem_create(TokenPtr token)
+TokenTypeListItemPtr TokenTypeListItem_create(TokenType type)
 {
-    TokenListItemPtr i = (TokenListItemPtr) malloc(sizeof(TokenListItem));
+    TokenTypeListItemPtr i = (TokenTypeListItemPtr) malloc(sizeof(TokenTypeListItem));
     if (i == NULL)
     {
-        DEBUG_ERR("token_list-item_create", "failed to mallocate TokenTypeListItem");
+        DEBUG_ERR("tokenType_list-item_create", "failed to mallocate TokenTypeListItem");
         return NULL;
     }
 
-    i->token = token;
-    i->next  = NULL;
+    i->type = type;
+    i->next = NULL;
 
     return i;
 }
 
-void TokenListItem_destroy(TokenListItemPtr *i)
+void TokenTypeListItem_destroy(TokenTypeListItemPtr *i)
 {
     free(*i);
     *i = NULL;

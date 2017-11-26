@@ -1,22 +1,77 @@
 /**
  * Tento soubor obsahuje deklarace funkcí využité při implementaci
- * lexikálního analyzátoru (scanneru).
+ * lexikálního analyzátoru (scanner).
  *
- * @author Daniel Dolejška
+ * @author Daniel Dolejška (xdolej08)
+ * @author Petr Ullrich (xullri00)
+ * @date 22.11.2017
+ * @project IFJcode17Parser
+ * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
-#include <token.h>
+#include "token.h"
+#include "input.h"
 
 #ifndef _scanner_h
 #define _scanner_h
+
+#ifdef DEBUG_INCLUDE
+#else
+#endif
+
+
 
 //==================================================================d=d=
 //  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR
 //======================================================================
 
 typedef enum E_AutomataState {
-	BEGIN,
-} AutomataState;
+    // Final states begin
+	STATE_BEGIN,
+    STATE_INTEGER,
+    STATE_DOUBLE,
+    STATE_DOUBLE_EXP,
+    STATE_IDENTIFIER,
+    STATE_STRING,
+    STATE_DIV,
+    STATE_MUL,
+    STATE_ADD,
+    STATE_SUB,
+    STATE_LINE_END,
+    STATE_OPEN_B,
+    STATE_CLOSE_B,
+    STATE_SEMICOLON,
+    STATE_COMMA,
+    STATE_LESS,
+    STATE_GREATER,
+    STATE_EQUAL,
+    STATE_BIN,
+    STATE_OCT,
+    STATE_HEX,
+    // Final states end
+    // States for INT begin
+    STATE_INC_EXP,
+    STATE_INC_DOT,
+    STATE_INC_SIGN,
+    // States for INT end
+    // States for STRING begin
+    STATE_INC_EXC,
+    STATE_INC_STRING_BEGIN,
+    STATE_INC_BACKSLASH,
+    STATE_INC_ESC1,
+    STATE_INC_ESC2,
+    //States for STRING end
+    //States for COMMENTS starts
+    STATE_INC_COMMENT,
+    STATE_INC_BLOCK_COMMENT,
+    STATE_INC_BLOCK_COMMENT_APOS,
+    //States for COMMENTS end
+    STATE_INC_AMPERSAND,
+    STATE_INC_B,
+    STATE_INC_O,
+    STATE_INC_H,
+	//  TODO: Další stavy automatu pro lexikální analýzu
+} AutomataState; ///< Stavy automatu
 
 
 //==================================================================d=d=
@@ -24,12 +79,16 @@ typedef enum E_AutomataState {
 //======================================================================
 
 /**
- * Hlavní funkce ovládající překladač.
+ * Hlavní funkce ovládající lexikální analyzátor.
  *
- * @param	int		argc	Počet vstupních argumentů
- * @param	char**	argv	Pole vstupních argumentů
+ * Pokud nebude token z nějakého důvodu získán, v parametru token vrací
+ * hodnotu NULL a dále vrací adekvátní stavový kód.
+ *
+ * @param[in,out]   InputPtr    input           Ukazatel na strukturu se vstupními daty
+ * @param[out]      TokenPtr    *token          Ukazatel na získaný token
+ *
+ * @retval int  Kód se kterým bylo získávání nového tokenu ukončeno
  */
-Token *Scanner_GetToken();
-
+int Scanner_GetToken(InputPtr input, TokenPtr *token);
 
 #endif

@@ -75,9 +75,6 @@ TokenPtr Token_create(TokenType type, char *attr)
 /**
  * Funkce pro zrušení struktury tokenu.
  *
- * Neuvolňuje obsah tokenu!
- * Attr je alokovaný textový řetězec!
- *
  * @param[in,out]   TokenPtr    *t   Ukazatel na ukazatel na existující strukturu tokenu
  */
 void Token_destroy(TokenPtr *t)
@@ -106,20 +103,6 @@ void Token_debugPrint(TokenPtr token)
         fprintf(stderr, "}\n");
     }
     #endif
-}
-
-bool Token_isDataType(TokenPtr token)
-{
-    switch (token->type)
-    {
-        case INTEGER:
-        case BOOLEAN:
-        case STRING:
-        case DOUBLE:
-            return true;
-        default:
-            return false;
-    }
 }
 
 bool Token_isConstant(TokenPtr token)
@@ -179,23 +162,6 @@ int TokenType_toSymbolType(TokenType type)
         case CONSTANT_DOUBLE:
             return ST_DOUBLE;
         case CONSTANT_STRING:
-            return ST_STRING;
-        default:
-            return -1;
-    }
-}
-
-int TokenType_Keyword_toSymbolType(TokenType type)
-{
-    switch (type)
-    {
-        case INTEGER:
-            return ST_INTEGER;
-        case BOOLEAN:
-            return ST_BOOLEAN;
-        case DOUBLE:
-            return ST_DOUBLE;
-        case STRING:
             return ST_STRING;
         default:
             return -1;

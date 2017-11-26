@@ -8,10 +8,8 @@
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
-#include <stdio.h>
-
-#include "generator.h"
 #include "instruction_list.h"
+#include <stdio.h>
 
 #ifndef _generator_c
 #define _generator_c
@@ -396,9 +394,7 @@ int Instruction_return(InstructionListPtr l)
  */
 int Instruction_variable_declare(InstructionListPtr l, SymbolPtr symbol)
 {
-    int result;
     char *default_value;
-
     switch (symbol->type)
     {
         case ST_BOOLEAN:
@@ -423,14 +419,8 @@ int Instruction_variable_declare(InstructionListPtr l, SymbolPtr symbol)
         return INTERNAL_ERROR;
     }
 
-    result = Instruction_defvar(l, symbol);
-    if (result != NO_ERROR)
-        return result;
-
-    result = Instruction_move(l, symbol, newSymbol);
-    if (result != NO_ERROR)
-        return result;
-
+    Instruction_defvar(l, symbol);
+    Instruction_move(l, symbol, newSymbol);
     Symbol_destroy(&newSymbol);
 
     return NO_ERROR;
@@ -447,29 +437,9 @@ int Instruction_variable_declare(InstructionListPtr l, SymbolPtr symbol)
  */
 int Instruction_variable_assign(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 {
-    int result;
-    result = Instruction_defvar(l, variable);
-    if (result != NO_ERROR)
-        return result;
-
-    result = Instruction_move(l, variable, symbol);
-    if (result != NO_ERROR)
-        return result;
-
+    Instruction_defvar(l, variable);
+    Instruction_move(l, variable, symbol);
     return NO_ERROR;
-}
-
-/**
- * Zapíše instrukce pro definici proměnné pomocí hodnoty ze stacku.
- *
- * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
- * @param[in]       SymbolPtr           variable    Symbol obsahující informace o proměnné, jejíž hodnota bude definována
- *
- * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
- */
-int Instruction_variable_assignFromStack(InstructionListPtr l, SymbolPtr variable)
-{
-    return Instruction_stack_pop(l, variable);
 }
 
 
@@ -2207,8 +2177,7 @@ int Instruction_outputAll(InstructionListPtr l)
 {
     while (l->first != NULL) {
         char *content = InstructionList_getFirstAndDelete(l);
-        fprintf(stdout, "%s\n", content);
-        //  InstructionList_getFirstAndDelete obsah neuvolňuje!
+        printf("%s\n", content);
         String_destroy(&content);
     }
     return NO_ERROR;

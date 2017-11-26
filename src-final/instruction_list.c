@@ -2,16 +2,14 @@
  * Tento soubor obsahuje deklarace funkcí využité při implementaci
  * generátoru cílového kódu (generator).
  *
- * @author Lukáš Kulda (xkulda01), Daniel Dolejška (xdolej08)
+ * @author Lukáš Kulda (xkulda01)
  * @date 21.11.2017
  * @project IFJcode17Parser
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
-#include <stdio.h>
-#include <stdbool.h>
-
 #include "instruction_list.h"
+#include <stdio.h>
 
 #ifndef _instruction_list_c
 #define _instruction_list_c
@@ -82,9 +80,11 @@ void InstructionList_destroy(InstructionListPtr *l)
     while (list->first != NULL) { // Dokud máme instrukce, které můžeme rušit
         destroyed = list->first; // Uložení rušené instrukce
         list->first = destroyed->next; // Posunutí na další instrukci
-        String_destroy(&(destroyed->content)); // Uvolnění textu instrukce (je alokovaná)
         free(destroyed); // Uvolnění
     }
+    // Inicializace
+    list->active = NULL;
+    list->last = NULL;
 
     free(list);
     *l = NULL;
@@ -120,94 +120,6 @@ InstructionPtr InstructionList_insertFirst(InstructionListPtr l, char *content)
 }
 
 /**
- * Vloží novou instrukci před danou instrukci v seznamu.
- *
- * @param[in,out]   InstructionListPtr  l           Ukazatel na řídící strukturu seznamu
- * @param[in,out]   InstructionPtr      active      Ukazatel na instrukci, za kterou bude nová instrukce vložena
- * @param[in]       char                *content    Samotný obsah instrukce - textový řetězec
- *
- * @retval  InstructionPtr  Ukazatel na nově vytvořenou strukturu
- */
-InstructionPtr InstructionList_insertBefore(InstructionListPtr l, InstructionPtr active, char *content)
-{
-    if (active == NULL)
-    {
-        DEBUG_ERR("instruction_list-insertBefore", "cannot insert before active, when none active!");
-        return NULL;
-    }
-
-    InstructionPtr i = malloc(sizeof(Instruction));
-    if (i == NULL)
-    {
-        DEBUG_ERR("instruction_list", "failed to allocate Element of List");
-        return NULL;
-    }
-
-    i->content = content;
-    if (active->prev)
-    {
-        //  Existuje předchozí prvek
-        active->prev->next = i;
-        i->prev = active->prev;
-    }
-    else
-    {
-        //  Neexistuje předchozí prvek, instrukce bude tedy první v seznamu
-        l->first = i;
-        i->prev = NULL;
-    }
-
-    i->next = active;
-    active->prev = i;
-
-    return i;
-}
-
-/**
- * Vloží novou instrukci za danou instrukci v seznamu.
- *
- * @param[in,out]   InstructionListPtr  l           Ukazatel na řídící strukturu seznamu
- * @param[in,out]   InstructionPtr      active      Ukazatel na instrukci, za kterou bude nová instrukce vložena
- * @param[in]       char                *content    Samotný obsah instrukce - textový řetězec
- *
- * @retval  InstructionPtr  Ukazatel na nově vytvořenou strukturu
- */
-InstructionPtr InstructionList_insertAfter(InstructionListPtr l, InstructionPtr active, char *content)
-{
-    if (active == NULL)
-    {
-        DEBUG_ERR("instruction_list-insertAfter", "cannot insert after active, when none active!");
-        return NULL;
-    }
-
-    InstructionPtr i = malloc(sizeof(Instruction));
-    if (i == NULL)
-    {
-        DEBUG_ERR("instruction_list", "failed to allocate Element of List");
-        return NULL;
-    }
-
-    i->content = content;
-    if (active->next)
-    {
-        //  Existuje následující prvek
-        active->next->prev = i;
-        i->next = active->next;
-    }
-    else
-    {
-        //  Neexistuje následující prvek, instrukce bude tedy poslední v seznamu
-        l->last = i;
-        i->next = NULL;
-    }
-
-    i->prev = active;
-    active->next = i;
-
-    return i;
-}
-
-/**
  * Vloží novou instrukci na konec seznamu.
  *
  * @param[in,out]   InstructionListPtr  l           Ukazatel řídící strukturu seznamu
@@ -226,11 +138,6 @@ InstructionPtr InstructionList_insertLast(InstructionListPtr l, char *content)
     inserted->content = content; // Přiřazení obsahu instrukce vkládanému
     inserted->prev = l->last; // Původní poslední bude předchozí
     inserted->next = NULL; // Následující vkládaného bude NULL, protože vkládaný je poslední
-    inserted->isBlockBegin = false;
-    inserted->isBlockEnd = false;
-    inserted->isVariable = false;
-    inserted->isOperator = false;
-    inserted->dataType = -1;
     if (l->last != NULL) { // Seznam není prázdný
         l->last->next = inserted; // Předchozí původního posledního bude ukazovat na vkládaný
     }
@@ -275,42 +182,6 @@ void InstructionList_next(InstructionListPtr l)
 }
 
 /**
- * Získá první instrukci v seznamu.
- *
- * @param[in]   InstructionListPtr  l   Ukazatel na řídící strukturu seznamu
- *
- * @retval  InstructionPtr|NULL Instrukce
- */
-InstructionPtr InstructionList_getFirst(InstructionListPtr l)
-{
-    return l->first;
-}
-
-/**
- * Získá poslední instrukci v seznamu.
- *
- * @param[in]   InstructionListPtr  l   Ukazatel na řídící strukturu seznamu
- *
- * @retval  InstructionPtr|NULL Instrukce
- */
-InstructionPtr InstructionList_getLast(InstructionListPtr l)
-{
-    return  l->last;
-}
-
-/**
- * Získá aktivní instrukci v seznamu.
- *
- * @param[in]   InstructionListPtr  l   Ukazatel na řídící strukturu seznamu
- *
- * @retval  InstructionPtr|NULL Instrukce
- */
-InstructionPtr InstructionList_getActive(InstructionListPtr l)
-{
-    return l->active;
-}
-
-/**
  * Získá obsah (samotnou instrukci - textový řetězec) první instrukce
  * v seznamu.
  *
@@ -318,7 +189,7 @@ InstructionPtr InstructionList_getActive(InstructionListPtr l)
  *
  * @retval  char*  Obsah instrukce
  */
-char *InstructionList_getFirstContent(InstructionListPtr l)
+char *InstructionList_getFirst(InstructionListPtr l)
 {
     return l->first->content;
 }
@@ -331,7 +202,7 @@ char *InstructionList_getFirstContent(InstructionListPtr l)
  *
  * @retval  char*  Obsah instrukce
  */
-char *InstructionList_getLastContent(InstructionListPtr l)
+char *InstructionList_getLast(InstructionListPtr l)
 {
     return  l->last->content;
 }
@@ -344,7 +215,7 @@ char *InstructionList_getLastContent(InstructionListPtr l)
  *
  * @retval  char*  Obsah instrukce
  */
-char *InstructionList_getActiveContent(InstructionListPtr l)
+char *InstructionList_getActive(InstructionListPtr l)
 {
     if (l->active == NULL) { // Pokud seznam nemá instrukci, která je aktivní
         return NULL; // Vrácení prázdného obsahu
@@ -352,26 +223,6 @@ char *InstructionList_getActiveContent(InstructionListPtr l)
     else { // Pokud seznam má nějakou instrukci, která je aktivní
         return l->active->content; // Vrácení obsahu aktivní instrukce
     }
-}
-
-void InstructionList_debugPrint(InstructionListPtr l)
-{
-    #ifdef DEBUG_PRINT_INSTRUCTIONS
-    InstructionPtr active = l->active;
-    InstructionPtr i;
-    fprintf(stderr, "DEBUG | InstructionList (%p): {\n", l);
-    i = InstructionList_getActive(l);
-    while (l->active != NULL)
-    {
-        fprintf(stderr, "\t%s: {\n", i->content);
-        fprintf(stderr, "\t\ttype: %s\n", SymbolType_toString(i->dataType));
-        fprintf(stderr, "\t}\n", i->content);
-        InstructionList_next(l);
-        i = InstructionList_getActive(l);
-    }
-    fprintf(stderr, "}\n");
-    l->active = active;
-    #endif
 }
 
 /**
@@ -460,7 +311,7 @@ void InstructionList_deleteActive(InstructionListPtr l)
  */
 char *InstructionList_getFirstAndDelete(InstructionListPtr l)
 {
-    char *content = InstructionList_getFirstContent(l);
+    char *content = InstructionList_getFirst(l);
     InstructionList_deleteFirst(l);
     return content; // Vrácení obsahu
 }
