@@ -232,9 +232,6 @@ void PostfixListItem_debugPrint(PostfixListItemPtr i)
 
 void PostfixListItem_destroy(PostfixListItemPtr *i)
 {
-    if (*i == NULL)
-        return;
-
     free(*i);
     *i = NULL;
 }

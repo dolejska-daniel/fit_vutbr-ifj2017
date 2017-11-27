@@ -8,8 +8,10 @@
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
-#include "instruction_list.h"
 #include <stdio.h>
+
+#include "generator.h"
+#include "instruction_list.h"
 
 #ifndef _generator_c
 #define _generator_c
@@ -18,10 +20,12 @@
 #include "../parser/symtable.h"
 #include "../scanner/token.h"
 #include "../support/error_codes.h"
+#include "../support/strings.h"
 #else
 #include "symtable.h"
 #include "token.h"
 #include "error_codes.h"
+#include "strings.h"
 #endif
 
 #ifdef DEBUG_PRINT_ENABLED
@@ -51,6 +55,14 @@
 //  DEKLARACE FUNKCÍ
 //======================================================================
 
+/**
+ * Funkce pro vytvoření řetězce symbolu v patřičném tvaru.
+ *
+ * @param[in]       SymbolPtr           symbol  Symbol obsahující informace pro vytvoření řetězce
+ * @param[in,out]       char**           output  Výsledný řetězec
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_getsymbol(SymbolPtr symbol, char **output)
 {
     char *s_location;
@@ -169,6 +181,15 @@ int Instruction_function_call(InstructionListPtr l, SymbolPtr symbol);
  */
 int Instruction_function_call_addParameter(InstructionListPtr l, SymbolPtr symbol);
 
+/**
+ * Zapíše instrukce pro přiřazení hodnoty do proměnné.
+ *
+ * @param[in,out]   InstructionlistPtr  l       Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o proměnné
+ * @param[in]       SymbolPtr           symbol      Symbol obsahující informace o proměnné/konstantě, sloužící jako hodnota proměnné
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_move(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 {
     if (variable->location == CONSTANT) {
@@ -197,6 +218,13 @@ int Instruction_move(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro vytvoření nového dočasného rámce.
+ *
+ * @param[in,out]   InstructionlistPtr  l       Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_createframe(InstructionListPtr l)
 {
     char *instruction = String_create("CREATEFRAME");
@@ -215,6 +243,13 @@ int Instruction_createframe(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro přesun dočasného rámce na zásobník rámců.
+ *
+ * @param[in,out]   InstructionlistPtr  l       Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_pushframe(InstructionListPtr l)
 {
     char *instruction = String_create("PUSHFRAME");
@@ -232,6 +267,14 @@ int Instruction_pushframe(InstructionListPtr l)
     }
     return NO_ERROR;
 }
+
+/**
+ * Zapíše instrukce pro přesun aktuálního rámce do dočasného.
+ *
+ * @param[in,out]   InstructionlistPtr  l       Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_popframe(InstructionListPtr l)
 {
     char *instruction = String_create("POPFRAME");
@@ -250,6 +293,14 @@ int Instruction_popframe(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro definování proměnné v určeném rámci.
+ *
+ * @param[in,out]   InstructionlistPtr  l       Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           symbol  Symbol obsahující informace o definované proměnné
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_defvar(InstructionListPtr l, SymbolPtr symbol)
 {
     char *s_symbol;
@@ -271,9 +322,44 @@ int Instruction_defvar(InstructionListPtr l, SymbolPtr symbol)
     return NO_ERROR;
 }
 
-int Instruction_call(InstructionListPtr l, SymbolPtr symbol); /// Dodělat
+/**
+ * Zapíše instrukce pro skok na návěstí s podporou návratu.
+ *
+ * @param[in,out]   InstructionlistPtr  l       Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           symbol  Symbol obsahující informace o návěstí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
+int Instruction_call(InstructionListPtr l, SymbolPtr symbol) /// TODO:
+{
+    if (symbol->type != ST_FUNCTION) {
+        DEBUG_ERR("generator", "first operand has to be label of function");
+        return INTERNAL_ERROR;
+    }
 
+    char *instruction = String_concat("CALL", symbol->key, " ");
+    if (instruction == NULL)
+    {
+        DEBUG_ERR("generator", "instruction failed to allocate");
+        return INTERNAL_ERROR;
+    }
 
+    InstructionPtr ins_ptr = InstructionList_insertLast(l, instruction);
+    if (ins_ptr == NULL)
+    {
+        DEBUG_ERR("generator", "instruction pointer failed to allocate");
+        return INTERNAL_ERROR;
+    }
+    return NO_ERROR;
+}
+
+/**
+ * Zapíše instrukce pro návrat na pozici uloženou instrukcí CALL.
+ *
+ * @param[in,out]   InstructionlistPtr  l       Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_return(InstructionListPtr l)
 {
     char *instruction = String_create("RETURN");
@@ -306,7 +392,47 @@ int Instruction_return(InstructionListPtr l)
  *
  * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
  */
-int Instruction_variable_declare(InstructionListPtr l, SymbolPtr symbol);
+int Instruction_variable_declare(InstructionListPtr l, SymbolPtr symbol)
+{
+    int result;
+    char *default_value;
+
+    switch (symbol->type)
+    {
+        case ST_BOOLEAN:
+            default_value = "false";
+            break;
+        case ST_STRING:
+            default_value = "";
+            break;
+        case ST_DOUBLE:
+            default_value = "0.0";
+            break;
+        case ST_INTEGER:
+            default_value = "0";
+            break;
+        default:
+            return INTERNAL_ERROR;
+    }
+
+    SymbolPtr newSymbol = Symbol_create(symbol->key, symbol->type, CONSTANT, default_value);
+    if (newSymbol == NULL)
+    {
+        return INTERNAL_ERROR;
+    }
+
+    result = Instruction_defvar(l, symbol);
+    if (result != NO_ERROR)
+        return result;
+
+    result = Instruction_move(l, symbol, newSymbol);
+    if (result != NO_ERROR)
+        return result;
+
+    Symbol_destroy(&newSymbol);
+
+    return NO_ERROR;
+}
 //TODO:
 /**
  * Zapíše instrukce pro definici proměnné.
@@ -317,13 +443,46 @@ int Instruction_variable_declare(InstructionListPtr l, SymbolPtr symbol);
  *
  * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
  */
-int Instruction_variable_assign(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol);
-//TODO:
+int Instruction_variable_assign(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
+{
+    int result;
+    result = Instruction_defvar(l, variable);
+    if (result != NO_ERROR)
+        return result;
+
+    result = Instruction_move(l, variable, symbol);
+    if (result != NO_ERROR)
+        return result;
+
+    return NO_ERROR;
+}
+
+/**
+ * Zapíše instrukce pro definici proměnné pomocí hodnoty ze stacku.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o proměnné, jejíž hodnota bude definována
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
+int Instruction_variable_assignFromStack(InstructionListPtr l, SymbolPtr variable)
+{
+    return Instruction_stack_pop(l, variable);
+}
+
 
 //-------------------------------------------------d-d-
 //  Instructions: Stack
 //-----------------------------------------------------
 
+/**
+ * Zapíše instrukce pro vložení hodnoty na vrchol datového zásobníku.
+ *
+ * @param[in,out]   InstructionlistPtr  l       Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           symbol  Symbol obsahující informace o proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_stack_push(InstructionListPtr l, SymbolPtr symbol)
 {
     char *s_symbol;
@@ -345,6 +504,14 @@ int Instruction_stack_push(InstructionListPtr l, SymbolPtr symbol)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro vyjmutí hodnoty z vrcholu datového zásobníku.
+ *
+ * @param[in,out]   InstructionlistPtr  l       Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           symbol  Symbol obsahující informace o proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_stack_pop(InstructionListPtr l, SymbolPtr symbol)
 {
     if (symbol->location == CONSTANT) {
@@ -370,6 +537,14 @@ int Instruction_stack_pop(InstructionListPtr l, SymbolPtr symbol)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro vyjmutí hodnoty z vrcholu datového zásobníku.
+ *
+ * @param[in,out]   InstructionlistPtr  l       Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           symbol  Symbol obsahující informace o proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_stack_clear(InstructionListPtr l)
 {
     char *instruction = String_create("CLEARS");
@@ -669,6 +844,16 @@ int Instruction_mul_stack(InstructionListPtr l)
 //  Instructions: Logic
 //-----------------------------------------------------
 
+/**
+ * Zapíše instrukce pro porovnání dvou proměnných/konstant relačním operátorem EQ.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude výsledek porovnání uložena
+ * @param[in]       SymbolPtr           symbol1     Symbol obsahující informace o porovnávané proměnné/konstantě
+ * @param[in]       SymbolPtr           symbol2     Symbol obsahující informace o porovnávané proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_eq(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     if (variable->location == CONSTANT) {
@@ -704,6 +889,16 @@ int Instruction_logic_eq(InstructionListPtr l, SymbolPtr variable, SymbolPtr sym
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro porovnání dvou proměnných/konstant relačním operátorem LT.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude výsledek porovnání uložena
+ * @param[in]       SymbolPtr           symbol1     Symbol obsahující informace o porovnávané proměnné/konstantě
+ * @param[in]       SymbolPtr           symbol2     Symbol obsahující informace o porovnávané proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_lt(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     if (variable->location == CONSTANT) {
@@ -739,6 +934,16 @@ int Instruction_logic_lt(InstructionListPtr l, SymbolPtr variable, SymbolPtr sym
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro porovnání dvou proměnných/konstant relačním operátorem GT.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude výsledek porovnání uložena
+ * @param[in]       SymbolPtr           symbol1     Symbol obsahující informace o porovnávané proměnné/konstantě
+ * @param[in]       SymbolPtr           symbol2     Symbol obsahující informace o porovnávané proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_gt(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     if (variable->location == CONSTANT) {
@@ -774,6 +979,16 @@ int Instruction_logic_gt(InstructionListPtr l, SymbolPtr variable, SymbolPtr sym
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro konjukci (logické A) dvou proměnných/konstant.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude hodnota porovnání uložena
+ * @param[in]       SymbolPtr           symbol1     Symbol obsahující informace o porovnávané proměnné/konstantě
+ * @param[in]       SymbolPtr           symbol2     Symbol obsahující informace o porovnávané proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_and(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     if (variable->location == CONSTANT) {
@@ -805,6 +1020,16 @@ int Instruction_logic_and(InstructionListPtr l, SymbolPtr variable, SymbolPtr sy
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro disjunkci (logické NEBO) dvou proměnných/konstant.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude hodnota porovnání uložena
+ * @param[in]       SymbolPtr           symbol1     Symbol obsahující informace o porovnávané proměnné/konstantě
+ * @param[in]       SymbolPtr           symbol2     Symbol obsahující informace o porovnávané proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_or(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     if (variable->location == CONSTANT) {
@@ -836,6 +1061,15 @@ int Instruction_logic_or(InstructionListPtr l, SymbolPtr variable, SymbolPtr sym
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro negaci (NOT) proměnné/konstanty.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude hodnota výsledku uložena
+ * @param[in]       SymbolPtr           symbol    Symbol obsahující informace o negované proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_not(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 {
     if (variable->location == CONSTANT) {
@@ -868,6 +1102,13 @@ int Instruction_logic_not(InstructionListPtr l, SymbolPtr variable, SymbolPtr sy
 //  Instructions: Logic for stack
 //-----------------------------------------------------
 
+/**
+ * Zapíše instrukce pro porovnání dvou proměnných/konstant relačním operátorem EQ na stacku.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_eq_stack(InstructionListPtr l)
 {
     char *instruction = String_create("EQS");
@@ -886,6 +1127,12 @@ int Instruction_logic_eq_stack(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro porovnání dvou proměnných/konstant relačním operátorem LT na stacku.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_lt_stack(InstructionListPtr l)
 {
     char *instruction = String_create("LTS");
@@ -904,6 +1151,12 @@ int Instruction_logic_lt_stack(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro porovnání dvou proměnných/konstant relačním operátorem GT na stacku.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_gt_stack(InstructionListPtr l)
 {
     char *instruction = String_create("GTS");
@@ -922,6 +1175,12 @@ int Instruction_logic_gt_stack(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro konjukci (logické A) dvou proměnných/konstant na stacku.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_and_stack(InstructionListPtr l)
 {
     char *instruction = String_create("ANDS");
@@ -940,6 +1199,12 @@ int Instruction_logic_and_stack(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro disjunkci (logické NEBO) dvou proměnných/konstant na stacku.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_or_stack(InstructionListPtr l)
 {
     char *instruction = String_create("ORS");
@@ -958,6 +1223,12 @@ int Instruction_logic_or_stack(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro negaci (NOT) proměnné/konstanty na stacku.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_logic_not_stack(InstructionListPtr l)
 {
     char *instruction = String_create("NOTS");
@@ -980,6 +1251,16 @@ int Instruction_logic_not_stack(InstructionListPtr l)
 //  Instructions: Conversions
 //-----------------------------------------------------
 
+/**
+ * Zapíše instrukce pro uložení ordinální hodnoty znaku v řetězci na pozici indexu.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude hodnota uložena
+ * @param[in]       SymbolPtr           symbol1     Symbol obsahující informace o proměnné/konstantě, sloužící jako řetězec
+ * @param[in]       SymbolPtr           symbol2     Symbol obsahující informace o proměnné/konstantě, sloužící jako index
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_stri2int(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     if (variable->location == CONSTANT) {
@@ -1011,6 +1292,15 @@ int Instruction_stri2int(InstructionListPtr l, SymbolPtr variable, SymbolPtr sym
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro převod celého čísla na znak.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude jednoznakový řetězec uložen
+ * @param[in]       SymbolPtr           symbol     Symbol obsahující informace o převáděné proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_int2char(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 {
     if (variable->location == CONSTANT) {
@@ -1039,6 +1329,15 @@ int Instruction_int2char(InstructionListPtr l, SymbolPtr variable, SymbolPtr sym
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro převod celočíselné hodnoty na desetinnou.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude hodnota uložena
+ * @param[in]       SymbolPtr           symbol     Symbol obsahující informace o převáděné proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_int2float(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 {
     if (variable->location == CONSTANT) {
@@ -1067,6 +1366,15 @@ int Instruction_int2float(InstructionListPtr l, SymbolPtr variable, SymbolPtr sy
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro převod desetinné hodnoty na celočíselnou.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude hodnota uložena
+ * @param[in]       SymbolPtr           symbol     Symbol obsahující informace o převáděné proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_float2int(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 {
     if (variable->location == CONSTANT) {
@@ -1095,6 +1403,15 @@ int Instruction_float2int(InstructionListPtr l, SymbolPtr variable, SymbolPtr sy
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro zaokrouhlení na celé číslo (na sudou).
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude hodnota uložena
+ * @param[in]       SymbolPtr           symbol     Symbol obsahující informace o zaokrouhlované proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_float2r2eint(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 {
     if (variable->location == CONSTANT) {
@@ -1123,6 +1440,15 @@ int Instruction_float2r2eint(InstructionListPtr l, SymbolPtr variable, SymbolPtr
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro zaokrouhlení na celé číslo (na lichou).
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o booleovské proměnné, kam bude hodnota uložena
+ * @param[in]       SymbolPtr           symbol     Symbol obsahující informace o zaokrouhlované proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_float2r2oint(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 {
     if (variable->location == CONSTANT) {
@@ -1155,6 +1481,13 @@ int Instruction_float2r2oint(InstructionListPtr l, SymbolPtr variable, SymbolPtr
 //  Instructions: Conversions for stack
 //-----------------------------------------------------
 
+/**
+ * Zapíše instrukce pro převod celého čísla na znak pro stack.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_int2char_stack(InstructionListPtr l)
 {
     char *instruction = String_create("INT2CHARS");
@@ -1173,6 +1506,13 @@ int Instruction_int2char_stack(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro uložení ordinální hodnoty znaku v řetězci na pozici indexu pro stack.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_stri2int_stack(InstructionListPtr l)
 {
     char *instruction = String_create("STRI2INTS");
@@ -1191,6 +1531,13 @@ int Instruction_stri2int_stack(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro převod celočíselné hodnoty na desetinnou pro stack.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_int2float_stack(InstructionListPtr l)
 {
     char *instruction = String_create("INT2FLOATS");
@@ -1209,6 +1556,13 @@ int Instruction_int2float_stack(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro převod desetinné hodnoty na celočíselnou pro stack.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_float2int_stack(InstructionListPtr l)
 {
     char *instruction = String_create("FLOAT2INTS");
@@ -1227,6 +1581,13 @@ int Instruction_float2int_stack(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro zaokrouhlení na celé číslo (na sudou) pro stack.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_float2r2eint_stack(InstructionListPtr l)
 {
     char *instruction = String_create("FLOAT2R2EINTS");
@@ -1245,6 +1606,13 @@ int Instruction_float2r2eint_stack(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro zaokrouhlení na celé číslo (na lichou) pro stack.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_float2r2oint_stack(InstructionListPtr l)
 {
     char *instruction = String_create("FLOAT2R2OINTS");
@@ -1268,7 +1636,15 @@ int Instruction_float2r2oint_stack(InstructionListPtr l)
 //  Instructions: IO
 //-----------------------------------------------------
 
-int Instruction_input(InstructionListPtr l, SymbolPtr symbol) /// ZKONROLOVAT!!
+/**
+ * Zapíše instrukce pro načtení hodnoty ze standardního vstupu.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           symbol     Symbol obsahující informace o proměnné kam bude hodnota uložena
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
+int Instruction_input(InstructionListPtr l, SymbolPtr symbol)
 {
     if (symbol->location == CONSTANT) {
         DEBUG_ERR("generator", "first operand cannot be constant");
@@ -1313,6 +1689,14 @@ int Instruction_input(InstructionListPtr l, SymbolPtr symbol) /// ZKONROLOVAT!!
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro výpis hodnoty na standardní výstup.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           symbol     Symbol obsahující informace o proměnné/konstantě, jejíž hodnota bude vypsána
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_write(InstructionListPtr l, SymbolPtr symbol)
 {
     char *s_symbol;
@@ -1338,6 +1722,16 @@ int Instruction_write(InstructionListPtr l, SymbolPtr symbol)
 //  Instructions: Strings
 //-----------------------------------------------------
 
+/**
+ * Zapíše instrukce pro konkatenaci dvou řetězcových operandů (jiné typy nejsou povoleny).
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o proměnné, kam bude výsledný řetězec uložen
+ * @param[in]       SymbolPtr           symbol1     Symbol obsahující informace o konkatenované proměnné/konstantě
+ * @param[in]       SymbolPtr           symbol2     Symbol obsahující informace o konkatenované proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_concat(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     if (variable->location == CONSTANT) {
@@ -1377,6 +1771,15 @@ int Instruction_concat(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbo
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro zjištění délky řetězce.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o proměnné, kam bude uložena délka řetězce jako celé číslo
+ * @param[in]       SymbolPtr           symbol     Symbol obsahující informace o proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_strlen(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 {
     if (variable->location == CONSTANT) {
@@ -1405,6 +1808,16 @@ int Instruction_strlen(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbo
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro vrácení znaku řetězce.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o proměnné, kam bude výsledný řetězec uložen
+ * @param[in]       SymbolPtr           symbol1     Symbol obsahující informace o proměnné/konstantě, ve které se bude vyhledávat
+ * @param[in]       SymbolPtr           symbol2     Symbol obsahující informace o proměnné/konstantě, která slouží jako index znaku v řetězci
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_getchar(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     if (variable->location == CONSTANT) {
@@ -1436,6 +1849,16 @@ int Instruction_getchar(InstructionListPtr l, SymbolPtr variable, SymbolPtr symb
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro změnu znaku řetězce.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o proměnné, ve které se bude znak měnit
+ * @param[in]       SymbolPtr           symbol1     Symbol obsahující informace o proměnné/konstantě, která slouží jako index znaku v řetězci
+ * @param[in]       SymbolPtr           symbol2     Symbol obsahující informace o proměnné/konstantě obsahující znak na který se bude měnit
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_setchar(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     if (variable->location == CONSTANT) {
@@ -1472,6 +1895,15 @@ int Instruction_setchar(InstructionListPtr l, SymbolPtr variable, SymbolPtr symb
 //  Instructions: Types
 //-----------------------------------------------------
 
+/**
+ * Zapíše instrukce pro zjištění typu daného symbolu.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           variable    Symbol obsahující informace o proměnné, do které se uloží typ symbolu
+ * @param[in]       SymbolPtr           symbol     Symbol obsahující informace o proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_type(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 {
     if (variable->location == CONSTANT) {
@@ -1504,6 +1936,14 @@ int Instruction_type(InstructionListPtr l, SymbolPtr variable, SymbolPtr symbol)
 //  Instructions: Jumps
 //-----------------------------------------------------
 
+/**
+ * Zapíše instrukce pro definici návěstí.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       char*           label    Řetězec obsahující název návěstí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_label(InstructionListPtr l, char *label)
 {
     char *instruction = String_concat("LABEL", label, " ");
@@ -1522,6 +1962,14 @@ int Instruction_label(InstructionListPtr l, char *label)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro nepodmíněný skok na návěstí.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       char*           label    Řetězec obsahující název návěstí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_jump(InstructionListPtr l, char *label)
 {
     char *instruction = String_concat("JUMP", label, " ");
@@ -1540,6 +1988,16 @@ int Instruction_jump(InstructionListPtr l, char *label)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro podmíněný skok na návěstí při rovnosti.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       char*           label    Řetězec obsahující název návěstí
+ * @param[in]       SymbolPtr           symbol1     Symbol obsahující informace o porovnávané proměnné/konstantě
+ * @param[in]       SymbolPtr           symbol2     Symbol obsahující informace o porovnávané proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_jumpifeq(InstructionListPtr l, char *label, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     char *s_symbol1;
@@ -1564,6 +2022,16 @@ int Instruction_jumpifeq(InstructionListPtr l, char *label, SymbolPtr symbol1, S
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro podmíněný skok na návěstí při nerovnosti.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       char*           label    Řetězec obsahující název návěstí
+ * @param[in]       SymbolPtr           symbol1     Symbol obsahující informace o porovnávané proměnné/konstantě
+ * @param[in]       SymbolPtr           symbol2     Symbol obsahující informace o porovnávané proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_jumpifneq(InstructionListPtr l, char *label, SymbolPtr symbol1, SymbolPtr symbol2)
 {
     char *s_symbol1;
@@ -1587,9 +2055,18 @@ int Instruction_jumpifneq(InstructionListPtr l, char *label, SymbolPtr symbol1, 
     }
     return NO_ERROR;
 }
+
+/**
+ * Zapíše instrukce pro podmíněný skok na návěstí při rovnosti na stacku.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       char*           label    Řetězec obsahující název návěstí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_jumpifeq_stack(InstructionListPtr l, char *label)
 {
-    char *instruction = String_concat("JUMPIFEQ", label, " ");
+    char *instruction = String_concat("JUMPIFEQS", label, " ");
     if (instruction == NULL)
     {
         DEBUG_ERR("generator", "instruction failed to allocate");
@@ -1605,9 +2082,17 @@ int Instruction_jumpifeq_stack(InstructionListPtr l, char *label)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro podmíněný skok na návěstí při nerovnosti na stacku.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       char*           label    Řetězec obsahující název návěstí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_jumpifneq_stack(InstructionListPtr l, char *label)
 {
-    char *instruction = String_concat("JUMPIFNEQ", label, " ");
+    char *instruction = String_concat("JUMPIFNEQS", label, " ");
     if (instruction == NULL)
     {
         DEBUG_ERR("generator", "instruction failed to allocate");
@@ -1627,6 +2112,13 @@ int Instruction_jumpifneq_stack(InstructionListPtr l, char *label)
 //  Instructions: Other
 //-----------------------------------------------------
 
+/**
+ * Zapíše instrukce pro výpis stavu interpretu na stderr.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_debug_break(InstructionListPtr l)
 {
     char *instruction = String_create("BREAK");
@@ -1645,6 +2137,14 @@ int Instruction_debug_break(InstructionListPtr l)
     return NO_ERROR;
 }
 
+/**
+ * Zapíše instrukce pro výpis hodnoty na stderr.
+ *
+ * @param[in,out]   InstructionlistPtr  l           Ukazatel na existující seznam instrukcí
+ * @param[in]       SymbolPtr           symbol     Symbol obsahující informace o vypisované proměnné/konstantě
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_debug_print(InstructionListPtr l, SymbolPtr symbol)
 {
     char *s_symbol;
@@ -1666,6 +2166,15 @@ int Instruction_debug_print(InstructionListPtr l, SymbolPtr symbol)
     return NO_ERROR;
 }
 
+/**
+ * Funkce pro zápis vlastní instrukce. Jendoduše uloží daný řetězec
+ * do seznamu instrukcí.
+ *
+ * @param[in,out]   InstructionlistPtr  l       Ukazatel na existující seznam instrukcí
+ * @param[in]       char                *data   Obsah instrukce
+ *
+ * @retval  int Návratový kód popisující situaci (chyba, úspěch, ...)
+ */
 int Instruction_custom(InstructionListPtr l, const char *data)
 {
     char *instruction = String_create(data);
@@ -1696,7 +2205,8 @@ int Instruction_outputAll(InstructionListPtr l)
 {
     while (l->first != NULL) {
         char *content = InstructionList_getFirstAndDelete(l);
-        printf("%s\n", content);
+        fprintf(stdout, "%s\n", content);
+        //  InstructionList_getFirstAndDelete obsah neuvolňuje!
         String_destroy(&content);
     }
     return NO_ERROR;

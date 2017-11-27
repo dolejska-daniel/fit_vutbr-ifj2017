@@ -17,7 +17,9 @@
 #define _token_c
 
 #ifdef DEBUG_INCLUDE
+#include "../parser/symtable.h"
 #else
+#include "symtable.h"
 #endif
 
 #ifdef DEBUG_PRINT_ENABLED
@@ -73,6 +75,9 @@ TokenPtr Token_create(TokenType type, char *attr)
 /**
  * Funkce pro zrušení struktury tokenu.
  *
+ * Neuvolňuje obsah tokenu!
+ * Attr je alokovaný textový řetězec!
+ *
  * @param[in,out]   TokenPtr    *t   Ukazatel na ukazatel na existující strukturu tokenu
  */
 void Token_destroy(TokenPtr *t)
@@ -95,12 +100,106 @@ void Token_debugPrint(TokenPtr token)
     }
     else
     {
-        fprintf(stderr, "DEBUG | TOKEN: {\n");
+        fprintf(stderr, "DEBUG | TOKEN (%p): {\n", token);
         fprintf(stderr, "\ttype: %s,\n", TokenType_toString(token->type));
         fprintf(stderr, "\tattr: %s,\n", token->attr);
         fprintf(stderr, "}\n");
     }
     #endif
+}
+
+bool Token_isDataType(TokenPtr token)
+{
+    switch (token->type)
+    {
+        case INTEGER:
+        case BOOLEAN:
+        case STRING:
+        case DOUBLE:
+            return true;
+        default:
+            return false;
+    }
+}
+
+bool Token_isConstant(TokenPtr token)
+{
+    switch (token->type)
+    {
+        case CONSTANT_BINARY:
+        case CONSTANT_BOOLEAN:
+        case CONSTANT_DOUBLE:
+        case CONSTANT_HEXA:
+        case CONSTANT_STRING:
+        case CONSTANT_INTEGER:
+        case CONSTANT_OCTAL:
+            return true;
+        default:
+            return false;
+    }
+}
+
+bool Token_isOperator(TokenPtr token)
+{
+    switch (token->type)
+    {
+        case EQ:
+        case LT:
+        case LTEQ:
+        case LTGT:
+        case GT:
+        case GTEQ:
+        case PLUS:
+        case MINUS:
+        case SLASH:
+        case BACK_SLASH:
+        case STAR:
+        case AND:
+        case OR:
+        case NOT:
+        case OPEN_BRACKET:
+        case CLOSE_BRACKET:
+            return true;
+        default:
+            return false;
+    }
+}
+
+int TokenType_toSymbolType(TokenType type)
+{
+    switch (type)
+    {
+        case CONSTANT_BINARY:
+        case CONSTANT_HEXA:
+        case CONSTANT_OCTAL:
+        case CONSTANT_INTEGER:
+            return ST_INTEGER;
+        case CONSTANT_BOOLEAN:
+            return ST_BOOLEAN;
+        case CONSTANT_DOUBLE:
+            return ST_DOUBLE;
+        case CONSTANT_STRING:
+            return ST_STRING;
+        default:
+            return -1;
+    }
+}
+
+int TokenType_Keyword_toSymbolType(TokenType type)
+{
+    switch (type)
+    {
+        case INTEGER:
+            return ST_INTEGER;
+        case BOOLEAN:
+            return ST_BOOLEAN;
+        case DOUBLE:
+            return ST_DOUBLE;
+        case STRING:
+            return ST_STRING;
+        default:
+            return -1;
+    }
 }
 
 /**
@@ -110,11 +209,78 @@ void Token_debugPrint(TokenPtr token)
  */
 char *TokenType_toString(TokenType type)
 {
-    if (type < 35)
-        return "KEYWORD";
-
     switch (type)
     {
+        case AS:
+            return "KEYWORD (AS)";
+        case ASC:
+            return "KEYWORD (ASC)";
+        case DECLARE:
+            return "KEYWORD (DECLARE)";
+        case DIM:
+            return "KEYWORD (DIM)";
+        case DO:
+            return "KEYWORD (DO)";
+        case DOUBLE:
+            return "KEYWORD (DOUBLE)";
+        case ELSE:
+            return "KEYWORD (ELSE)";
+        case END:
+            return "KEYWORD (END)";
+        case CHR:
+            return "KEYWORD (CHR)";
+        case FUNCTION:
+            return "KEYWORD (FUNCTION)";
+        case IF:
+            return "KEYWORD (IF)";
+        case INPUT:
+            return "KEYWORD (INPUT)";
+        case INTEGER:
+            return "KEYWORD (INTEGER)";
+        case LENGTH:
+            return "KEYWORD (LENGTH)";
+        case LOOP:
+            return "KEYWORD (LOOP)";
+        case PRINT:
+            return "KEYWORD (PRINT)";
+        case RETURN:
+            return "KEYWORD (RETURN)";
+        case SCOPE:
+            return "KEYWORD (SCOPE)";
+        case STRING:
+            return "KEYWORD (STRING)";
+        case SUBSTR:
+            return "KEYWORD (SUBSTR)";
+        case THEN:
+            return "KEYWORD (THEN)";
+        case WHILE:
+            return "KEYWORD (WHILE)";
+        case AND:
+            return "KEYWORD (AND)";
+        case BOOLEAN:
+            return "KEYWORD (BOOLEAN)";
+        case CONTINUE:
+            return "KEYWORD (CONTINUE)";
+        case ELSEIF:
+            return "KEYWORD (ELSEIF)";
+        case EXIT:
+            return "KEYWORD (EXIT)";
+        case FALSE:
+            return "KEYWORD (FALSE)";
+        case FOR:
+            return "KEYWORD (FOR)";
+        case NEXT:
+            return "KEYWORD (NEXT)";
+        case NOT:
+            return "KEYWORD (NOT)";
+        case OR:
+            return "KEYWORD (OR)";
+        case SHARED:
+            return "KEYWORD (SHARED)";
+        case STATIC:
+            return "KEYWORD (STATIC)";
+        case TRUE:
+            return "KEYWORD (TRUE)";
         case IDENTIFIER:
             return "IDENTIFIER";
         case CONSTANT_INTEGER:

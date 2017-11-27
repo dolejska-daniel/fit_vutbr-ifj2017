@@ -1,6 +1,6 @@
 /**
  * Tento soubor obsahuje deklarace funkcí využité při implementaci
- * stacku Tokenů.
+ * stacku charů.
  *
  * @author Daniel Dolejška (xdolej08)
  * @date 21.11.2017
@@ -11,27 +11,25 @@
 #include <stdbool.h>
 #include <malloc.h>
 
-#ifndef _token_stack_h
-#define _token_stack_h
+#ifndef _char_stack_h
+#define _char_stack_h
 
 #ifdef DEBUG_INCLUDE
-#include "../scanner/token.h"
 #else
-#include "token.h"
 #endif
 
-#define TOKEN_STACK_SIZE 50
+#define CHAR_STACK_SIZE 50
 
 //==================================================================d=d=
 //  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR
 //======================================================================
 
-typedef struct S_TokenStack
-    TokenStack,
-    *TokenStackPtr;
-struct S_TokenStack {
-    TokenPtr array[TOKEN_STACK_SIZE];
-    int      index;
+typedef struct S_CharStack
+    CharStack,
+    *CharStackPtr;
+struct S_CharStack {
+    char    array[CHAR_STACK_SIZE];
+    int     index;
 };
 
 
@@ -39,21 +37,19 @@ struct S_TokenStack {
 //  DEKLARACE FUNKCÍ
 //======================================================================
 
-TokenStackPtr TokenStack_create();
+CharStackPtr CharStack_create();
 
-void TokenStack_destroy(TokenStackPtr *s);
+void CharStack_destroy(CharStackPtr *s);
 
-int TokenStack_push(TokenStackPtr s, TokenPtr token);
+int CharStack_push(CharStackPtr s, char ch);
 
-int TokenStack_pop(TokenStackPtr s);
+int CharStack_pop(CharStackPtr s);
 
-TokenPtr TokenStack_top(TokenStackPtr s);
+char CharStack_top(CharStackPtr s);
 
-bool TokenStack_isEmpty(TokenStackPtr s);
+bool CharStack_isEmpty(CharStackPtr s);
 
-bool TokenStack_isFull(TokenStackPtr s);
-
-void TokenStack_debugPrint(TokenStackPtr s);
+bool CharStack_isFull(CharStackPtr s);
 
 
 #endif

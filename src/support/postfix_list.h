@@ -69,6 +69,8 @@ PostfixListItemPtr PostfixList_get(PostfixListPtr l);
 
 PostfixListItemPtr PostfixList_getNext(PostfixListPtr l);
 
+void PostfixList_debugPrint(PostfixListPtr i);
+
 void PostfixList_deleteFirst(PostfixListPtr l);
 
 
@@ -79,6 +81,8 @@ void PostfixList_deleteFirst(PostfixListPtr l);
 PostfixListItemPtr PostfixListItem_createOperator(TokenPtr token);
 
 PostfixListItemPtr PostfixListItem_createSymbol(SymbolPtr symbol);
+
+void PostfixListItem_debugPrint(PostfixListItemPtr i);
 
 void PostfixListItem_destroy(PostfixListItemPtr *i);
 

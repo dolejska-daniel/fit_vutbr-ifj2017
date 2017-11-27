@@ -139,8 +139,6 @@ NestingLevelPtr NestingList_last(NestingListPtr l);
  */
 NestingLevelPtr NestingList_active(NestingListPtr l);
 
-void NestingList_debugPrint(NestingListPtr l);
-
 /**
  * Zruší a uvolní úroveň v seznamu na základě ukazatele na danou
  * úroveň.
@@ -224,7 +222,5 @@ NestingLevelPtr NestingList_newLevel(NestingListPtr l, NestingType type, SymbolP
  * @param[in,out]   NestingListPtr  l   Ukazatel na řídící strukturu seznamu
  */
 NestingLevelPtr NestingList_leaveCurrentLevel(NestingListPtr l);
-
-char *NestingType_toString(NestingType type);
 
 #endif

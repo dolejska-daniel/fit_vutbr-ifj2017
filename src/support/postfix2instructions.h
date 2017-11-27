@@ -14,8 +14,12 @@
 #define _postfix2instructions_h
 
 #ifdef DEBUG_INCLUDE
+#include "../scanner/input.h"
+#include "../parser/symtable.h"
 #include "../generator/instruction_list.h"
 #else
+#include "input.h"
+#include "symtable.h"
 #include "instruction_list.h"
 #endif
 
@@ -28,8 +32,22 @@
 //  DEKLARACE FUNKCÍ
 //======================================================================
 
-int postfix2instructions_mathematical(InstructionListPtr ilist, PostfixListPtr *postfixList);
+/**
+ * Tato funkce převede postfixový výraz na instrukce.
+ *
+ * Před samotným převodem kontroluje výsledný datový typ, pokud
+ * se neshoduje s result_dt a nelze zkonvertovat, dojde k chybě.
+ *
+ * Tato funkce sama zpracovává implicitní typové konverze mezi symboly.
+ *
+ * @param[in,out]   InstructionListPtr  ilist       Seznam instrukcí
+ * @param[in,out]   PostfixListPtr      postfix     Postfixový výraz
+ * @param[in]       SymbolType          result_dt   Předpokládaný datový typ výsledku výrazu
+ *
+ * @retval  int Stavový kód zpracování posloupnosti
+ */
+int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, PostfixListPtr *postfixList, SymbolType result_dt, SymbolType *actual_dt);
 
-int postfix2instructions_logical(InstructionListPtr ilist, PostfixListPtr *postfixList);
+int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr preprocessed_ilist, PostfixListPtr *postfixList, SymbolType *result_dt);
 
 #endif
