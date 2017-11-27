@@ -29,7 +29,7 @@ OK      14  (input in function):  ▒ COMPILER EXIT CODE expected=0, returned=32
 OK      15  (function call function which have input):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xaa in position 24308: ordinal not in range(128))
 OK      16  (function call function which have input):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xad in position 21991: ordinal not in range(128))
 OK      18  (argument of function is call of function):  skipping, required extension(s) FUNEXP is not activated.
-        19  (argument of function is call of function and expr):  skipping, required extension(s) FUNEXP is not activated.
+OK      19  (argument of function is call of function and expr):  skipping, required extension(s) FUNEXP is not activated.
         20  (argument = var with same name as parametr):  ▒ COMPILER EXIT CODE expected=0, returned=2
         21  (recursion of three functions):  ▒ COMPILER EXIT CODE expected=0, returned=2
         22  (try to modify an argument passed by the value):  ▒ COMPILER EXIT CODE expected=0, returned=2

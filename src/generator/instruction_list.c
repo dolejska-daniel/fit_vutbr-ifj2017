@@ -360,8 +360,9 @@ void InstructionList_debugPrint(InstructionListPtr l)
     InstructionPtr active = l->active;
     InstructionPtr i;
     fprintf(stderr, "DEBUG | InstructionList (%p): {\n", l);
-    i = InstructionList_getActive(l);
-    while (l->active != NULL)
+    InstructionList_first(l);
+    i = l->active;
+    while (i != NULL)
     {
         fprintf(stderr, "\t%s (%p): {\n", i->content, i);
         fprintf(stderr, "\t\ttype: %s\n", SymbolType_toString(i->dataType));

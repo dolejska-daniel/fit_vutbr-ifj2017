@@ -228,8 +228,12 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                 DEBUG_LOG(source, "returning saved function params to scanner");
                 //  Parametry funkce byly uloženy na stack do speciálního pole symbolu,
                 //  je nutné je vrátit scanneru, protože volaná funkce si je bude ze scanneru tahat
-                TokenStackPtr tStack = (TokenStackPtr) operand->symbol->value2;
+                TokenStackPtr tStack = (TokenStackPtr) operand->info;
                 TokenPtr t;
+                if (TokenStack_isEmpty(tStack) == true)
+                {
+                    DEBUG_ERR(source, "nothing to return, token stack is empty!");
+                }
                 while (TokenStack_isEmpty(tStack) == false)
                 {
                     t = TokenStack_top(tStack);
@@ -249,12 +253,17 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                     return parser_result;
                 }
                 DEBUG_LOG(source, "return from Parser_ParseFunctionCall");
-                InstructionList_debugPrint(preprocess_ilist);
 
                 if (i == NULL)
                 {
                     //  Před těmito instrukcemi nebyly v seznamu žádné instrukce
                     i = InstructionList_getFirst(preprocess_ilist);
+                }
+                else
+                {
+                    //  Před těmito instrukcemi byly instrukce, zvolí se první vložená instrukce
+                    //  po poslední před voláním zpracování funkce
+                    i = i->next;
                 }
                 SymbolInfo_FunctionPtr func_info = (SymbolInfo_FunctionPtr) operand->symbol->value;
                 i->isVariable   = true;
@@ -265,6 +274,7 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                 i->isBlockEnd = true;
 
                 DEBUG_LOG(source, "function in expression successfully parsed");
+                InstructionList_debugPrint(preprocess_ilist);
             }
             else
             {
@@ -426,7 +436,7 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
 
             #ifdef DEBUG_VERBOSE
             DEBUG_LOG(source, "validating operation");
-            DEBUG_PRINT("\toperation: %s,\n\tx = %s,\n\ty = %s\n", TokenType_toString(token->type), SymbolType_toString(iX ? (int) iX->dataType : -1), SymbolType_toString(iY ? (int) iY->dataType : -1));
+            DEBUG_PRINT("\toperator: %s,\n\tx = %p\n\tdt x = %s,\n\ty = %p\n\tdt y = %s\n", TokenType_toString(token->type), iX, SymbolType_toString(iX ? (int) iX->dataType : -1), iY, SymbolType_toString(iY ? (int) iY->dataType : -1));
             #endif
 
             switch (token->type)
@@ -453,7 +463,7 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                     }
 
                     #ifdef DEBUG_VERBOSE
-                    DEBUG_LOG(source, "this binary operation is valid, validating implicit datatype conversions");
+                    DEBUG_LOG(source, "this binary operation is valid, validating implicit datatype conversions for operand 1");
                     #endif
 
                     SymbolType resultDataType;
@@ -493,6 +503,10 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                         InstructionList_insertAfter(preprocessed_ilist, iX, i_content);
                         result = SEMANTICAL_DATATYPE_ERROR;
                     }
+
+                    #ifdef DEBUG_VERBOSE
+                    DEBUG_LOG(source, "this binary operation is valid, validating implicit datatype conversions for operand 2");
+                    #endif
 
                     //  Kontrola datového typu druhého operandu
                     resultDataType = -1;
@@ -551,15 +565,20 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
 
                     //  Vytvoření nového bloku z použitých instrukcí
                     iX->isBlockBegin = true;
+                    iX->isVariable = false;
                     iX->dataType = resultDataType;
                     if (iX_end != NULL)
                         iX_end->isBlockEnd = false;
 
                     iY->isBlockBegin = false;
+                    iY->isVariable = false;
                     if (iY_end != NULL)
                         iY_end->isBlockEnd = false;
 
+                    i->isOperator = false;
                     i->isBlockEnd = true;
+
+                    DEBUG_LOG(source, "operation processed");
                     break;
                 //
                 //  Unární operace
@@ -598,10 +617,17 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
         operand = PostfixList_getNext(*postfixList);
 
         //  Načtení další instrukce
-        InstructionList_next(preprocessed_ilist);
-        i = InstructionList_getActive(preprocessed_ilist);
+        i = i->next;
+        while (i != NULL && i->isOperator == false && i->isVariable == false && i->isBlockBegin == false)
+            //  Instrukce není ani operátor andi proměnná ani začátek bloku zpracovaného operandu
+            i = i->next;
+
+        if (operand != NULL)
+        {
+            DEBUG_ERR(source, "operand is not NULL but instruction is!!");
+        }
     }
-    while (operand != NULL);
+    while (operand != NULL && i != NULL);
     DEBUG_LOG(source, "real expression processing completed");
     InstructionList_debugPrint(preprocessed_ilist);
 

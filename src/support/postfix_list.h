@@ -33,6 +33,7 @@ struct S_PostfixListItem {
     bool                isOperator; ///< Proměnná určující typ prvku
     TokenPtr            token;      ///< Ukazatel na token
     SymbolPtr           symbol;     ///< Ukazatel na symbol
+    void                *info;      ///< Ukazatel na další informace o operandu
     PostfixListItemPtr  next;       ///< Ukazatel na následující prvek v seznamu
 };
 
@@ -59,7 +60,7 @@ void PostfixList_destroy(PostfixListPtr *l);
 
 int PostfixList_insertOperator(PostfixListPtr l, TokenPtr token);
 
-int PostfixList_insertSymbol(PostfixListPtr l, SymbolPtr symbol);
+int PostfixList_insertSymbol(PostfixListPtr l, SymbolPtr symbol, void *info);
 
 void PostfixList_first(PostfixListPtr l);
 
@@ -80,7 +81,7 @@ void PostfixList_deleteFirst(PostfixListPtr l);
 
 PostfixListItemPtr PostfixListItem_createOperator(TokenPtr token);
 
-PostfixListItemPtr PostfixListItem_createSymbol(SymbolPtr symbol);
+PostfixListItemPtr PostfixListItem_createSymbol(SymbolPtr symbol, void *info);
 
 void PostfixListItem_debugPrint(PostfixListItemPtr i);
 

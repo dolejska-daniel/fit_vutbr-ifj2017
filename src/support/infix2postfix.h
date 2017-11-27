@@ -35,7 +35,7 @@ int getTokenPriority(TokenPtr token);
 
 int infix2postfix_init(TokenStackPtr *s, PostfixListPtr *postfixList);
 
-int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, TokenPtr token, SymbolPtr symbol);
+int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, TokenPtr token, SymbolPtr symbol, void *info);
 
 int infix2postfix_process(TokenStackPtr *s, PostfixListPtr *postfixList);
 
