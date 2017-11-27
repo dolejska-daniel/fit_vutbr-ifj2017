@@ -321,7 +321,7 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
     if ((int) result_dt != NO_REQUIRED_TYPE && result_dt != *actual_dt)
     {
         DEBUG_LOG(source, "actual result dt doesnt match with expected result dt");
-        DEBUG_PRINT("\texpected: %s\n\tactual: %s\n", SymbolType_toString(result_dt), SymbolType_toString(*actual_dt));
+        DEBUG_PRINT("\texpected: %s (%i)\n\tactual: %s (%i)\n", SymbolType_toString(result_dt), result_dt, SymbolType_toString(*actual_dt), *actual_dt);
         /*
         if (SymbolType_canBeConvertedTo(result_dt, *actual_dt) == false)
         {

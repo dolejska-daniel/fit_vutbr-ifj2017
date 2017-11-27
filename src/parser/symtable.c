@@ -317,13 +317,16 @@ int SymbolTable_insert(SymbolTablePtr st, char *key, SymbolType type, SymbolLoca
  */
 void SymbolTable_pushFrame(SymbolTablePtr st)
 {
+    DEBUG_LOG("symtable-pushFrame", "preparing to push frame");
+    SymbolTable_debugPrint(st);
+
     SymbolPtr s;
     for (int i = 0; i < SYMBOL_TABLE_SIZE; i++)
     {
         s = st->array[i];
         while (s != NULL)
         {
-            if (s->location == LOCAL_FRAME || s->location == TEMPORARY_FRAME)
+            if (s->location >= TEMPORARY_FRAME)
                 s->location++;
             s = s->next;
         }
@@ -524,8 +527,13 @@ void Symbol_destroy(SymbolPtr *s)
     if (symbol == NULL)
         return;
 
+        /*
     if (symbol->value != NULL)
         free(symbol->value);
+
+    if (symbol->value2 != NULL)
+        free(symbol->value2);*/
+        //  TODO: FIXME
 
     free(symbol);
     *s = NULL;
@@ -612,11 +620,18 @@ void SymbolInfo_Function_destroy(SymbolInfo_FunctionPtr *s)
 void SymbolInfo_Function_debugPrint(SymbolInfo_FunctionPtr s)
 {
     #ifdef DEBUG_PRINT_SYMBOLINFO
-    fprintf(stderr, "DEBUG | SymbolInfo_Function (%p): {\n", s);
-    fprintf(stderr, "\tdataType: %s,\n", SymbolType_toString(s->dataType));
-    fprintf(stderr, "\tisDef: %i,\n", s->isDefined);
-    SymbolInfo_Function_ParameterList_debugPrint(s->params);
-    fprintf(stderr, "}\n", s);
+    if (s == NULL)
+    {
+        fprintf(stderr, "DEBUG | SymbolInfo_Function (%p): NULL\n", s);
+    }
+    else
+    {
+        fprintf(stderr, "DEBUG | SymbolInfo_Function (%p): {\n", s);
+        fprintf(stderr, "\tdataType: %s,\n", SymbolType_toString(s->dataType));
+        fprintf(stderr, "\tisDef: %i,\n", s->isDefined);
+        SymbolInfo_Function_ParameterList_debugPrint(s->params);
+        fprintf(stderr, "}\n", s);
+    }
     #endif
 }
 
@@ -655,10 +670,17 @@ void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s)
 void SymbolInfo_Function_Parameter_debugPrint(SymbolInfo_Function_ParameterPtr s)
 {
     #ifdef DEBUG_PRINT_SYMBOLINFO
-    fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameter (%p): {\n", s);
-    fprintf(stderr, "\tdataType: %s (%i)\n", SymbolType_toString(s->dataType), s->dataType);
-    fprintf(stderr, "\tname: %s\n", s->name);
-    fprintf(stderr, "}\n");
+    if (s == NULL)
+    {
+        fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameter (%p): NULL\n", s);
+    }
+    else
+    {
+        fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameter (%p): {\n", s);
+        fprintf(stderr, "\tdataType: %s (%i)\n", SymbolType_toString(s->dataType), s->dataType);
+        fprintf(stderr, "\tname: %s\n", s->name);
+        fprintf(stderr, "}\n");
+    }
     #endif
 }
 
@@ -785,18 +807,25 @@ void SymbolInfo_Function_ParameterList_deleteFirst(SymbolInfo_Function_Parameter
 void SymbolInfo_Function_ParameterList_debugPrint(SymbolInfo_Function_ParameterListPtr l)
 {
     #ifdef DEBUG_PRINT_SYMBOLINFO
-    SymbolInfo_Function_ParameterPtr active = l->active;
-    SymbolInfo_Function_ParameterList_first(l);
-    fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameterList (%p): {\n", l);
-    fprintf(stderr, "\tactive: %p\n", l->active);
-    fprintf(stderr, "\tfirst: %p\n", l->first);
-    while (l->active != NULL)
+    if (l == NULL)
     {
-        SymbolInfo_Function_Parameter_debugPrint(SymbolInfo_Function_ParameterList_get(l));
-        SymbolInfo_Function_ParameterList_next(l);
+        fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameterList (%p): NULL\n", l);
     }
-    fprintf(stderr, "}\n");
-    l->active = active;
+    else
+    {
+        SymbolInfo_Function_ParameterPtr active = l->active;
+        SymbolInfo_Function_ParameterList_first(l);
+        fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameterList (%p): {\n", l);
+        fprintf(stderr, "\tactive: %p\n", l->active);
+        fprintf(stderr, "\tfirst: %p\n", l->first);
+        while (l->active != NULL)
+        {
+            SymbolInfo_Function_Parameter_debugPrint(SymbolInfo_Function_ParameterList_get(l));
+            SymbolInfo_Function_ParameterList_next(l);
+        }
+        fprintf(stderr, "}\n");
+        l->active = active;
+    }
     #endif
 }
 

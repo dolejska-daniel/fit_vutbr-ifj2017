@@ -3,32 +3,32 @@ LEX     05  (string escape sequences):  ▒ COMPILER EXIT CODE expected=0, retur
 LEX     09  (use all data types):  ▒ COMPILER EXIT CODE expected=0, returned=1
 SKIP    10  (scope inside scope):  skipping, required extension(s) SCOPE is not activated.
 SKIP    11  (single scope without any statements):  skipping, required extension(s) SCOPE is not activated.
-        12  (print input): \u2713\u2713 ▒ STDOUT
-        13  (multi line string): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=51
-        16  (simple input and print): \u2713\u2713 ▒ STDOUT
-        17  (add two inputs): \u2713\u2713 ▒ STDOUT
-        21  (s▒▒ta▒ka): \u2713\u2713 ▒ STDOUT
-        22  (calculator):  ▒ COMPILER EXIT CODE expected=0, returned=2
-        23  (big number of dims):  ▒ COMPILER TIMEOUT
-        26  (multilite print (from documentation)): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=51
-        27  (all data types):  ▒ COMPILER EXIT CODE expected=0, returned=1
+OK      12  (print input): \u2713\u2713 ▒ STDOUT
+OK      13  (multi line string): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=51
+OK      16  (simple input and print): \u2713\u2713 ▒ STDOUT
+OK      17  (add two inputs): \u2713\u2713 ▒ STDOUT
+OK      21  (s▒▒ta▒ka): \u2713\u2713 ▒ STDOUT
+OK      22  (calculator):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK?     23  (big number of dims):  ▒ COMPILER TIMEOUT
+OK      26  (multilite print (from documentation)): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=51
+LEX     27  (all data types):  ▒ COMPILER EXIT CODE expected=0, returned=1
 02_functions:
         01  (asc value):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
         02  (chr function):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
-        04  (function params):  ▒ COMPILER EXIT CODE expected=0, returned=2
-        05  (function params with declaration):  ▒ COMPILER EXIT CODE expected=0, returned=2
-        06  (function params with declaration but invalid types):  ▒ COMPILER EXIT CODE expected=3, returned=2
-        07  (function params with declaration but invalid count):  ▒ COMPILER EXIT CODE expected=4, returned=2
-        08  (simple call function):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xbf in position 17193: ordinal not in range(128))
+OK      04  (function params):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      05  (function params with declaration):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      06  (function params with declaration but invalid types):  ▒ COMPILER EXIT CODE expected=3, returned=2
+OK      07  (function params with declaration but invalid count):  ▒ COMPILER EXIT CODE expected=4, returned=2
+OK      08  (simple call function):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xbf in position 17193: ordinal not in range(128))
         09  (call built-in feature length):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
         10  (call built-in features - combined):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
-        11  (function call function):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
-        12  (recursive function):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      11  (function call function):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      12  (recursive function):  ▒ COMPILER EXIT CODE expected=0, returned=2
         13  (calling multiple functions):  ▒ COMPILER EXIT CODE expected=0, returned=2
-        14  (input in function):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
-        15  (function call function which have input):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xaa in position 24308: ordinal not in range(128))
-        16  (function call function which have input):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xad in position 21991: ordinal not in range(128))
-        18  (argument of function is call of function):  skipping, required extension(s) FUNEXP is not activated.
+OK      14  (input in function):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      15  (function call function which have input):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xaa in position 24308: ordinal not in range(128))
+OK      16  (function call function which have input):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xad in position 21991: ordinal not in range(128))
+OK      18  (argument of function is call of function):  skipping, required extension(s) FUNEXP is not activated.
         19  (argument of function is call of function and expr):  skipping, required extension(s) FUNEXP is not activated.
         20  (argument = var with same name as parametr):  ▒ COMPILER EXIT CODE expected=0, returned=2
         21  (recursion of three functions):  ▒ COMPILER EXIT CODE expected=0, returned=2
