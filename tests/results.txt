@@ -30,7 +30,7 @@ OK      15  (function call function which have input):  ▒ FAIL TO RUN COMPILER
 OK      16  (function call function which have input):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xad in position 21991: ordinal not in range(128))
 OK      18  (argument of function is call of function):  skipping, required extension(s) FUNEXP is not activated.
 OK      19  (argument of function is call of function and expr):  skipping, required extension(s) FUNEXP is not activated.
-        20  (argument = var with same name as parametr):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      20  (argument = var with same name as parametr):  ▒ COMPILER EXIT CODE expected=0, returned=2
         21  (recursion of three functions):  ▒ COMPILER EXIT CODE expected=0, returned=2
         22  (try to modify an argument passed by the value):  ▒ COMPILER EXIT CODE expected=0, returned=2
         23  (invalid types without supported implicit conversion i):  ▒ COMPILER EXIT CODE expected=4, returned=2
@@ -42,7 +42,7 @@ OK      19  (argument of function is call of function and expr):  skipping, requ
 03_statements:
         05  (input statement): \u2713\u2713 ▒ STDOUT
         06  (print statement):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
-        07  (print statement without semicolon):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+OK      07  (print statement without semicolon):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
         08  (multiple main scopes):  ▒ COMPILER EXIT CODE expected=2, returned=0
         011 (empty condition):  skipping, required extension(s) IFTHEN is not activated.
 04_expressions:
@@ -54,8 +54,8 @@ OK      19  (argument of function is call of function and expr):  skipping, requ
         14  (test for implicit conversion):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
         15  (exp(x) 6 iteration without loop): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=53
         16  (exp(x) 6 iteration with loop): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=53
-        17  (comment inside expression):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
-        18  (comments inside expressions):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      17  (comment inside expression):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      18  (comments inside expressions):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
         19  (function used as variable):  ▒ COMPILER EXIT CODE expected=3, returned=3221225477
         003 (unary magic):  skipping, required extension(s) UNARY is not activated.
 05_conditions:
