@@ -13,15 +13,20 @@
 #include <string.h>
 #include <malloc.h>
 
-#include "symtable.h"
-
 #ifndef _symtable_c
 #define _symtable_c
 
+#include "symtable.h"
+#include "parser.h"
+
 #ifdef DEBUG_INCLUDE
+//#include "../generator/generator.h"
+//#include "../generator/instruction_list.h"
 #include "../support/error_codes.h"
 #include "../support/strings.h"
 #else
+//#include "generator.h"
+//#include "instruction_list.h"
 #include "error_codes.h"
 #include "strings.h"
 #endif
@@ -45,6 +50,7 @@
 #endif
 
 #define SYMBOL_TABLE_SIZE 100
+#define TEMPVAR_INTERNAL_NAME "__INTERNAL__VAR"
 
 //==================================================================d=d=
 //  DEKLARACE A DEFINICE ENUMERÁTORÙ A STRUKTUR
@@ -179,6 +185,86 @@ SymbolPtr SymbolTable_getByToken(SymbolTablePtr st, TokenPtr token)
     {
         return NULL;
     }
+}
+
+/**
+ * Funkce získá symbol pro dočasnou proměnnou zvoleného typu. Pokud
+ * daná proměnná v tabulce symbolů ještě není, bude vytvořena.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ * @param[in]		InstructionListPtr	ilist   Ukazatel na existující list instrukcí
+ * @param[in]		SymbolType	        type    Typ symbolu
+ * @param[in]		unsigned	        id      Identifikátor symbolu
+ *
+ * @retval	SymbolPtr|NULL	Ukazatel na vyhledanou položku v tabulce
+ */
+SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, InstructionListPtr ilist, SymbolType type, unsigned id)
+{
+    char *source = "symtable-getTempVar";
+
+    //  Vytvoření názvu proměnné
+    DEBUG_LOG(source, "creating temp var name");
+    char tempvar_symbol_id[5];
+    snprintf(tempvar_symbol_id, 5, "%i", id);
+
+    char *name = String_concat(TEMPVAR_INTERNAL_NAME, tempvar_symbol_id, "_");
+    if (name == NULL)
+    {
+        DEBUG_ERR(source, "failed to create variable name");
+        return NULL;
+    }
+
+    DEBUG_LOG(source, "getting temp var");
+    SymbolPtr s = SymbolTable_get(st, name);
+    if (s == NULL)
+    {
+        //  Symbol nebyl v tabulce nalezen, bude vytvořen
+        DEBUG_LOG(source, "creating new temp var");
+        int result = SymbolTable_insert(st, name, type, TEMPORARY_FRAME, name, &s);
+        if (result != NO_ERROR)
+        {
+            DEBUG_ERR(source, "failed to insert symbol to table");
+            return NULL;
+        }
+
+        result = Instruction_defvar(ilist, s);
+        if (result != NO_ERROR)
+        {
+            DEBUG_ERR(source, "failed to create instruction");
+            return NULL;
+        }
+
+        return s;
+    }
+    else
+    {
+        //  Symbol byl nalezen
+        s->type = type;
+        return s;
+    }
+}
+
+/**
+ * Funkce odstraní symbol pro dočasnou proměnnou z tabulky symbolů.
+ *
+ * Při dalším použití je tak program nucen ji znovu inicializovat.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ * @param[in]		InstructionListPtr	ilist   Ukazatel na existující list instrukcí
+ * @param[in]		SymbolType	        type    Typ symbolu
+ * @param[in]		unsigned	        id      Identifikátor symbolu
+ */
+void SymbolTable_deleteTempVar(SymbolTablePtr st, unsigned id)
+{
+    char *source = "symtable-deleteTempVar";
+
+    //  Vytvoření názvu proměnné
+    DEBUG_LOG(source, "creating temp var name");
+    char tempvar_symbol_id[5];
+    snprintf(tempvar_symbol_id, 5, "%i", id);
+
+    char *name = String_concat(TEMPVAR_INTERNAL_NAME, tempvar_symbol_id, "_");
+    SymbolTable_delete(st, name);
 }
 
 /**

@@ -12,6 +12,7 @@
 #define _symtable_h
 
 #ifdef DEBUG_INCLUDE
+//#include "../generator/instruction_list.h"
 #include "../scanner/token.h"
 #else
 #include "token.h"
@@ -149,6 +150,31 @@ SymbolPtr SymbolTable_get(SymbolTablePtr st, char *key);
  * @retval	SymbolPtr|NULL	Ukazatel na vyhledanou položku v tabulce
  */
 SymbolPtr SymbolTable_getByToken(SymbolTablePtr st, TokenPtr token);
+
+/**
+ * Funkce získá symbol pro dočasnou proměnnou zvoleného typu. Pokud
+ * daná proměnná v tabulce symbolů ještě není, bude vytvořena.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ * @param[in]		InstructionListPtr	ilist   Ukazatel na existující list instrukcí
+ * @param[in]		SymbolType	        type    Typ symbolu
+ * @param[in]		unsigned	        id      Identifikátor symbolu
+ *
+ * @retval	SymbolPtr|NULL	Ukazatel na vyhledanou položku v tabulce
+ */
+//SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, InstructionListPtr ilist, SymbolType type, unsigned id);
+
+/**
+ * Funkce odstraní symbol pro dočasnou proměnnou z tabulky symbolů.
+ *
+ * Při dalším použití je tak program nucen ji znovu inicializovat.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ * @param[in]		InstructionListPtr	ilist   Ukazatel na existující list instrukcí
+ * @param[in]		SymbolType	        type    Typ symbolu
+ * @param[in]		unsigned	        id      Identifikátor symbolu
+ */
+void SymbolTable_deleteTempVar(SymbolTablePtr st, unsigned id);
 
 /**
  * Funkce vloží novou položku do dané tabulky s daným klíčem a hodnotou.

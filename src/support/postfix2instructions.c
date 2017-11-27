@@ -49,6 +49,8 @@
 #define DEBUG_ERR(...) do{ } while ( 0 )
 #endif
 
+#define NO_REQUIRED_TYPE -1
+
 //==================================================================d=d=
 //  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR
 //======================================================================
@@ -316,18 +318,39 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
         DEBUG_LOG(source, "expression processed successfully");
     }
 
-    if (result_dt != *actual_dt)
+    if ((int) result_dt != NO_REQUIRED_TYPE && result_dt != *actual_dt)
     {
-        //  TODO: Issue warning, change exit code to datatype error even when translation was successful
         DEBUG_LOG(source, "actual result dt doesnt match with expected result dt");
-        DEBUG_PRINT("\texpected: %s\n\tactual: %s\n", SymbolType_toString(result_dt), SymbolType_toString(*actual_dt));/*
+        DEBUG_PRINT("\texpected: %s\n\tactual: %s\n", SymbolType_toString(result_dt), SymbolType_toString(*actual_dt));
+        /*
         if (SymbolType_canBeConvertedTo(result_dt, *actual_dt) == false)
+        {
+        }*/
+
+        DEBUG_ERR(source, "actual result dt will be converted to expected dt");
+        if (result_dt == ST_INTEGER && *actual_dt == ST_DOUBLE)
+        {
+            result = Instruction_float2int_stack(ilist);
+            if (result != NO_ERROR)
+            {
+                return result;
+            }
+        }
+        else if (result_dt == ST_DOUBLE && *actual_dt == ST_INTEGER)
+        {
+            result = Instruction_int2float_stack(ilist);
+            if (result != NO_ERROR)
+            {
+                return result;
+            }
+        }
+        else
         {
             DEBUG_ERR(source, "actual result dt cannot be implicitly converted to expected dt");
             return SEMANTICAL_DATATYPE_ERROR;
-        }*/
-        DEBUG_ERR(source, "actual result dt cannot be implicitly converted to expected dt");
-        result = SEMANTICAL_DATATYPE_ERROR;
+        }
+
+        result = NO_ERROR;
     }
 
     return result;

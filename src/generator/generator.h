@@ -9,10 +9,10 @@
  * @subject Formální jazyky a překladače (IFJ) - FIT VUT v Brně
  */
 
-#include "instruction_list.h"
-
 #ifndef _generator_h
 #define _generator_h
+
+#include "instruction_list.h"
 
 #ifdef DEBUG_INCLUDE
 #include "../parser/symtable.h"
