@@ -37,6 +37,12 @@ typedef enum E_AutomataState {
     STATE_BIN,
     STATE_OCT,
     STATE_HEX,
+    STATE_LESS,
+    STATE_GREATER,
+    STATE_MUL,
+    STATE_SUB,
+    STATE_ADD,
+    STATE_B_SLASH,
     // Final states end
     // States for INT begin
     STATE_INC_EXP,
