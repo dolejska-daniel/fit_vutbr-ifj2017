@@ -147,6 +147,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else if(ch == '/')
             {
                 state = STATE_DIV;
+                String_addChar(&final_string, ch);
             }
             else if(ch == '&')
             {
@@ -233,13 +234,8 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else if(ch == '\\')
             {
+                state = STATE_B_SLASH;
                 String_addChar(&final_string, ch);
-                *token = Token_create(BACK_SLASH, final_string);
-                if(*token == NULL)
-                {
-                    return INTERNAL_ERROR;
-                }
-                return NO_ERROR;
             }
             else if(ch == '\n')
             {
@@ -1040,12 +1036,13 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         case STATE_DIV:
             if(ch == '\'')
             {
+                String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
                 state = STATE_INC_BLOCK_COMMENT;
             }
             else if(ch == '=')
             {
                 String_addChar(&final_string, ch);
-                *token = Token_create(BACK_SLASHEQ, final_string);
+                *token = Token_create(SLASHEQ, final_string);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
@@ -1065,8 +1062,8 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 return NO_ERROR;
             }
-
             break;
+
         case STATE_INC_BLOCK_COMMENT:
             if(ch == '\'')
             {
@@ -1484,7 +1481,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             if(ch == '=')
             {
                 String_addChar(&final_string, ch);
-                *token = Token_create(STAREQ, final_string);
+                *token = Token_create(BACK_SLASHEQ, final_string);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
@@ -1497,7 +1494,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 ungetc(ch, input->source);
                 input->character--;
 
-                *token = Token_create(STAR, final_string);
+                *token = Token_create(BACK_SLASH, final_string);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
