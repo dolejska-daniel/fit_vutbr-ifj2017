@@ -951,6 +951,7 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
         switch (type)
         {
             case ST_INTEGER:
+            case ST_DOUBLE:
                 return true;
             default:
                 return false;
@@ -1021,9 +1022,11 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
         //  Konjunkce
         switch (type)
         {
+            /*
             case ST_DOUBLE:
             case ST_INTEGER:
             case ST_STRING:
+            */
             case ST_BOOLEAN:
                 return true;
             default:
@@ -1035,9 +1038,11 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
         //  Disjunkce
         switch (type)
         {
+            /*
             case ST_DOUBLE:
             case ST_INTEGER:
             case ST_STRING:
+            */
             case ST_BOOLEAN:
                 return true;
             default:
@@ -1049,9 +1054,11 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
         //  Negace
         switch (type)
         {
+            /*
             case ST_DOUBLE:
             case ST_INTEGER:
             case ST_STRING:
+            */
             case ST_BOOLEAN:
                 return true;
             default:
@@ -1081,7 +1088,7 @@ bool SymbolType_canBeConvertedTo(SymbolType source, SymbolType target)
     }
 }
 
-bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, SymbolType *dataType)
+bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, TokenType op, SymbolType *dataType)
 {
     //  Implicitně ponecháme stejný datový typ
     *dataType = operator1;
@@ -1089,7 +1096,7 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
     if (operator1 == ST_INTEGER)
     {
         //  První operátor je celé číslo
-        if (operator2 == ST_DOUBLE)
+        if (operator2 == ST_DOUBLE && op != BACK_SLASH)
         {
             //  INT + DOUBLE
             //  =
@@ -1097,14 +1104,19 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
             *dataType = ST_DOUBLE;
             return true;
         }
-        else
-        {
-            //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
-            return false;
-        }
+
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
     }
     else if (operator1 == ST_DOUBLE)
     {
+        //  Případ celočíselného dělení
+        if (op == BACK_SLASH)
+        {
+            *dataType = ST_INTEGER;
+            return true;
+        }
+
         //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
         return false;
     }
@@ -1115,20 +1127,27 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
     }
 }
 
-bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, SymbolType *dataType)
+bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, TokenType op, SymbolType *dataType)
 {
     //  Implicitně ponecháme stejný datový typ
     *dataType = operator2;
 
     if (operator1 == ST_INTEGER)
     {
+        //  Případ celočíselného dělení
+        if (operator2 == ST_DOUBLE && op == BACK_SLASH)
+        {
+            *dataType = ST_INTEGER;
+            return true;
+        }
+
         //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
         return false;
     }
     else if (operator1 == ST_DOUBLE)
     {
         //  První operátor je celé číslo
-        if (operator2 == ST_INTEGER)
+        if (operator2 == ST_INTEGER && op != BACK_SLASH)
         {
             //  DOUBLE + INT
             //  =

@@ -323,9 +323,9 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o);
 
 bool SymbolType_canBeConvertedTo(SymbolType source, SymbolType target);
 
-bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, SymbolType *dataType);
+bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, TokenType op, SymbolType *dataType);
 
-bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, SymbolType *dataType);
+bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, TokenType op, SymbolType *dataType);
 
 char *SymbolLocation_toString(SymbolLocation location);
 

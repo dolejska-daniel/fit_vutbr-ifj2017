@@ -1693,7 +1693,7 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
     //  Zpracování tokenů
     //-----------------------------------------------------
 
-    //  <EQ|MINUSEQ|PLUSEQ>
+    //  <EQ|MINUSEQ|PLUSEQ|..>
     result = Parser_getToken(source, input, nlevel, NO_REQUIRED_TYPE, &token);
     if (result != NO_ERROR)
     {
@@ -1753,7 +1753,7 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
         tempvar = SymbolTable_getTempVar(symtable, ilist, result_dt, 0);
 
         //  Načtení výsledku do dočasné proměnné
-        result = Instruction_stack_pop(ilist, variable);
+        result = Instruction_stack_pop(ilist, tempvar);
         if (result != NO_ERROR)
         {
             return result;

@@ -223,7 +223,7 @@ int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, Toke
     DEBUG_LOG("inf2post-addOperand", "received");
     Token_debugPrint(token);
     Symbol_debugPrint(symbol);
-    fprintf(stderr, "info: (%p)\n", info);
+    DEBUG_PRINT("info: (%p)\n", info);
 
     if (token == NULL)
     {

@@ -555,7 +555,7 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                     char *i_content;
 
                     //  Kontrola datového typu prvního operandu
-                    if (SymbolType_hasToConvertOperator1(iX->dataType, iY->dataType, &resultDataType) == true)
+                    if (SymbolType_hasToConvertOperator1(iX->dataType, iY->dataType, token->type, &resultDataType) == true)
                     {
                         if (iX->dataType == ST_DOUBLE && resultDataType == ST_INTEGER)
                         {
@@ -595,7 +595,7 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
 
                     //  Kontrola datového typu druhého operandu
                     resultDataType = -1;
-                    if (SymbolType_hasToConvertOperator2(iX->dataType, iY->dataType, &resultDataType) == true)
+                    if (SymbolType_hasToConvertOperator2(iX->dataType, iY->dataType, token->type, &resultDataType) == true)
                     {
                         if (iY->dataType == ST_DOUBLE && resultDataType == ST_INTEGER)
                         {
