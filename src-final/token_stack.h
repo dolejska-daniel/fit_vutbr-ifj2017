@@ -1,6 +1,6 @@
 /**
  * Tento soubor obsahuje deklarace funkcí využité při implementaci
- * stacku symbolů.
+ * stacku Tokenů.
  *
  * @author Daniel Dolejška (xdolej08)
  * @date 21.11.2017
@@ -11,27 +11,27 @@
 #include <stdbool.h>
 #include <malloc.h>
 
-#ifndef _symbol_stack_h
-#define _symbol_stack_h
+#ifndef _token_stack_h
+#define _token_stack_h
 
 #ifdef DEBUG_INCLUDE
-#include "../parser/symtable.h"
+#include "../scanner/token.h"
 #else
-#include "symtable.h"
+#include "token.h"
 #endif
 
-#define SYMBOL_STACK_SIZE 50
+#define TOKEN_STACK_SIZE 50
 
 //==================================================================d=d=
 //  DEKLARACE A DEFINICE ENUMERÁTORŮ A STRUKTUR
 //======================================================================
 
-typedef struct S_SymbolStack
-    SymbolStack,
-    *SymbolStackPtr;
-struct S_SymbolStack {
-    SymbolPtr   array[SYMBOL_STACK_SIZE];
-    int         index;
+typedef struct S_TokenStack
+    TokenStack,
+    *TokenStackPtr;
+struct S_TokenStack {
+    TokenPtr array[TOKEN_STACK_SIZE];
+    int      index;
 };
 
 
@@ -39,21 +39,21 @@ struct S_SymbolStack {
 //  DEKLARACE FUNKCÍ
 //======================================================================
 
-SymbolStackPtr SymbolStack_create();
+TokenStackPtr TokenStack_create();
 
-void SymbolStack_destroy(SymbolStackPtr *s);
+void TokenStack_destroy(TokenStackPtr *s);
 
-int SymbolStack_push(SymbolStackPtr s, SymbolPtr symbol);
+int TokenStack_push(TokenStackPtr s, TokenPtr token);
 
-int SymbolStack_pop(SymbolStackPtr s);
+int TokenStack_pop(TokenStackPtr s);
 
-SymbolPtr SymbolStack_top(SymbolStackPtr s);
+TokenPtr TokenStack_top(TokenStackPtr s);
 
-SymbolPtr SymbolStack_afterTop(SymbolStackPtr s);
+bool TokenStack_isEmpty(TokenStackPtr s);
 
-bool SymbolStack_isEmpty(SymbolStackPtr s);
+bool TokenStack_isFull(TokenStackPtr s);
 
-bool SymbolStack_isFull(SymbolStackPtr s);
+void TokenStack_debugPrint(TokenStackPtr s);
 
 
 #endif

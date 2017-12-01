@@ -86,7 +86,7 @@ int SymbolStack_push(SymbolStackPtr s, SymbolPtr symbol)
 
 int SymbolStack_pop(SymbolStackPtr s)
 {
-    if (SymbolStack_isEmpty(s))
+    if (SymbolStack_isEmpty(s) == true)
     {
         DEBUG_ERR("symbol_stack-pop", "cannot pop, stack empty!");
         return INTERNAL_ERROR;
@@ -98,7 +98,24 @@ int SymbolStack_pop(SymbolStackPtr s)
 
 SymbolPtr SymbolStack_top(SymbolStackPtr s)
 {
+    if (SymbolStack_isEmpty(s) == true)
+    {
+        DEBUG_ERR("symbol_stack-top", "cannot get top, stack empty!");
+        return NULL;
+    }
+
     return s->array[s->index];
+}
+
+SymbolPtr SymbolStack_afterTop(SymbolStackPtr s)
+{
+    if (s->index - 1 < 0)
+    {
+        DEBUG_ERR("symbol_stack-afterTop", "cannot get after top, stack empty or only with one symbol!");
+        return NULL;
+    }
+
+    return s->array[s->index - 1];
 }
 
 bool SymbolStack_isEmpty(SymbolStackPtr s)

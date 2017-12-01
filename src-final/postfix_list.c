@@ -115,9 +115,9 @@ int PostfixList_insertOperator(PostfixListPtr l, TokenPtr token)
     return PostfixList_insert(l, i);
 }
 
-int PostfixList_insertSymbol(PostfixListPtr l, SymbolPtr symbol)
+int PostfixList_insertSymbol(PostfixListPtr l, SymbolPtr symbol, void *info)
 {
-    PostfixListItemPtr i = PostfixListItem_createSymbol(symbol);
+    PostfixListItemPtr i = PostfixListItem_createSymbol(symbol, info);
     return PostfixList_insert(l, i);
 }
 
@@ -196,12 +196,13 @@ PostfixListItemPtr PostfixListItem_createOperator(TokenPtr token)
     i->isOperator   = true;
     i->token        = token;
     i->symbol       = NULL;
+    i->info         = NULL;
     i->next         = NULL;
 
     return i;
 }
 
-PostfixListItemPtr PostfixListItem_createSymbol(SymbolPtr symbol)
+PostfixListItemPtr PostfixListItem_createSymbol(SymbolPtr symbol, void *info)
 {
     PostfixListItemPtr i = (PostfixListItemPtr) malloc(sizeof(PostfixListItem));
     if (i == NULL)
@@ -213,6 +214,7 @@ PostfixListItemPtr PostfixListItem_createSymbol(SymbolPtr symbol)
     i->isOperator   = false;
     i->token        = NULL;
     i->symbol       = symbol;
+    i->info         = info;
     i->next         = NULL;
 
     return i;
@@ -226,12 +228,15 @@ void PostfixListItem_debugPrint(PostfixListItemPtr i)
     }
     else
     {
-        fprintf(stderr, "<SYMBOL, T: %s (%i), %s>\n", SymbolType_toString(i->symbol->type), i->symbol->type, i->symbol->value);
+        fprintf(stderr, "<SYMBOL, T: %s (%i), %s (%p), %p>\n", SymbolType_toString(i->symbol->type), i->symbol->type, i->symbol->value, i->symbol->value, i->info);
     }
 }
 
 void PostfixListItem_destroy(PostfixListItemPtr *i)
 {
+    if (*i == NULL)
+        return;
+
     free(*i);
     *i = NULL;
 }

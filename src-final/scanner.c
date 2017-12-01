@@ -14,9 +14,11 @@
 #ifdef DEBUG_INCLUDE
 #include "../support/error_codes.h"
 #include "../support/strings.h"
+#include "../support/token_stack.h"
 #else
 #include "error_codes.h"
-#include "error_codes.h"
+#include "strings.h"
+#include "token_stack.h"
 #endif // DEBUG_INCLUDE
 
 
@@ -47,6 +49,7 @@
 
 extern char *last_line;
 
+TokenStackPtr token_stack = NULL;
 bool charReturned = false;
 
 //==================================================================d=d=
@@ -55,6 +58,9 @@ bool charReturned = false;
 
 /**
  * Hlavní funkce ovládající lexikální analyzátor.
+ *
+ * Pokud se na stacku tokenů nachází nějaký vrácený token,
+ * je vrácen dříve, než je započato získávání tokenu nového.
  *
  * Pokud nebude token z nějakého důvodu získán, v parametru token vrací
  * hodnotu NULL a dále vrací adekvátní stavový kód.
@@ -82,6 +88,22 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
 
         String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
     */
+
+    if (token_stack == NULL)
+    {
+        token_stack = TokenStack_create();
+    }
+    else if (TokenStack_isEmpty(token_stack) == false)
+    {
+        DEBUG_LOG("scanner", "returning token from stack, rather than creating new!");
+        *token = TokenStack_top(token_stack);
+        if (TokenStack_pop(token_stack) != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+        return NO_ERROR;
+    }
+
     AutomataState state = STATE_BEGIN;
     char* final_string = String_create(NULL);
 
@@ -122,7 +144,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 String_addChar(&final_string, ch);
             }
-            else if(ch == ' ')
+            else if(ch == ' ' || ch == '\t')
             {
 
             }
@@ -287,7 +309,12 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i.", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i.", final_string, (char *) input->line, (char *) input->character, NULL);
+                 String_destroy(&final_string); //nasledne uvolneni
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -652,7 +679,12 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 ungetc(ch, input->source);
                 input->character--;
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected character \" ", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected character \" ", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string); //uvolneni
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -675,7 +707,13 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else if(ch == '\n')
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. (EOL)", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. (EOL)", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string);
+
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -699,11 +737,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         case STATE_INC_BACKSLASH:
             if(ch >= '0' && ch <= '2')
             {
-                if(ch == '0')
-                {
-                    esc1 = ch;
-                }
-
+                esc1 = ch; //dosazeni do promenne, ktera bude pro dalsi kontrolu, zda cislo odpovida intervalu <0,255>
                 state = STATE_INC_ESC1;
                 String_addChar(&final_string, ch);
             }
@@ -715,7 +749,13 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: \", n, t, \\ or <0,2>", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: \", n, t, \\ or <0,2>", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string);
+
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -726,19 +766,22 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             break;
 
         case STATE_INC_ESC1:
-            if(ch >= '0' && ch <= '5')
+            if(isdigit(ch))
             {
-                if(ch == '0')
-                {
-                    esc2 = ch;
-                }
+                esc2 = ch; //dosazeni do promenne, ktera bude pro dalsi kontrolu, zda cislo odpovida intervalu <0,255>
                 state = STATE_INC_ESC2;
                 String_addChar(&final_string, ch);
             }
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,5>", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,5>", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string);
+
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -749,15 +792,21 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             break;
 
         case STATE_INC_ESC2:
-            if(ch >= '0' && ch <= '5')
+            if(isdigit(ch))
             {
-                if(esc1 == '0' && esc2 == '0' && ch == '0')
+                if((esc1 == '0' && esc2 == '0' && ch == '0') || (esc1 == '2' && esc2 > '5') || (esc1 == '2' && esc2 >= '5' && ch > '5'))
                 {
                     charReturned = true;
                     ungetc(ch, input->source);
                     input->character--;
                     String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                    char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <1,5>", ch, (char *) input->line, (char *) input->character, NULL);
+
+                    final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                    String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                    char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <1,5>", final_string, (char *) input->line, (char *) input->character, NULL);
+                    String_destroy(&final_string);
+
                     *token = Token_create(INVALID, reason);
                     if(*token == NULL)
                     {
@@ -773,9 +822,16 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
-                first_number == '0';
+                first_number = '0';
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,5>", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,5>", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string);
+
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -786,6 +842,11 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             break;
 
         case STATE_STRING:
+            //  Došlo ke změně stavu načetl se nepotřebný znak, musíme ho vrátit
+            charReturned = true;
+            ungetc(ch, input->source);
+            input->character--;
+
             *token = Token_create(CONSTANT_STRING, final_string);
             if(*token == NULL)
             {
@@ -879,7 +940,13 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9>", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9>", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string);
+
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -931,7 +998,13 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9> or +, -", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9> or +, -", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string);
+
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -954,7 +1027,13 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9> or +, -", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,9> or +, -", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string);
+
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -1079,7 +1158,13 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: B, O or H", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: B, O or H", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string); //uvolneni pred ukoncenim funkce
+
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -1092,13 +1177,25 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         case STATE_INC_B:
             if(ch == '1' || ch == '0')
             {
+                first_number = ch;
+
                 state = STATE_BIN;
-                String_addChar(&final_string, ch);
+                if(first_number != '0') //pokud bude prvni cislo nula, tak zatim nepridavame do retezce (muze nasledovat dalsi nula)
+                {
+                    String_addChar(&final_string, ch);
+                }
+
             }
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: 1 or 0", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: 1 or 0", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string);
+
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -1111,13 +1208,23 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         case STATE_INC_O:
             if(ch >= '0' && ch <= '7')
             {
+                first_number = ch;
                 state = STATE_OCT;
-                String_addChar(&final_string, ch);
+                if(first_number != '0') //pokud bude prvni cislo nula, tak zatim nepridavame do retezce (muze nasledovat dalsi nula)
+                {
+                    String_addChar(&final_string, ch);
+                }
             }
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,7>", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: <0,7>", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string);
+
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -1130,13 +1237,23 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         case STATE_INC_H:
             if(isdigit(ch) || (ch >= 'a' && ch <= 'f') || (ch >= 'A' && ch <= 'F'))
             {
+                first_number = ch;
                 state = STATE_HEX;
-                String_addChar(&final_string, ch);
+                if(first_number != '0') //pokud bude prvni cislo nula, tak zatim nepridavame do retezce (muze nasledovat dalsi nula)
+                {
+                    String_addChar(&final_string, ch);
+                }
             }
             else
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: alphanumeric", ch, (char *) input->line, (char *) input->character, NULL);
+
+                final_string = String_create(NULL); //alokace, za ucelem vytvoreni stringu, ktery posleme, jako parametr znaku, ktery je chybny.
+                String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
+
+                char* reason = String_printf("Unexpected character '%c' on line %i:%i. Expected characters: alphanumeric", final_string, (char *) input->line, (char *) input->character, NULL);
+                String_destroy(&final_string);
+
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -1148,13 +1265,30 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         case STATE_BIN:
             if(ch == '1' || ch == '0')
             {
-                String_addChar(&final_string, ch);
+                //testovani, zda i dalsi cislo neni nulove, pokud ano, prejdeme na dalsi cislo a do retezce nic nezapisujeme
+                if(first_number == '0')
+                {
+                    if(ch != '0')
+                    {
+                        first_number = '1';
+                        String_addChar(&final_string, ch);
+                    }
+                }
+                else
+                {
+                    String_addChar(&final_string, ch);
+                }
+
             }
             else
             {
                 charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
+                if(first_number == '0')
+                {
+                    String_addChar(&final_string, '0');
+                }
                 *token = Token_create(CONSTANT_BINARY, final_string);
                 if(*token == NULL)
                 {
@@ -1167,13 +1301,29 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         case STATE_OCT:
             if(ch >= '0' && ch <= '7')
             {
-                String_addChar(&final_string, ch);
+                //testovani, zda i dalsi cislo neni nulove, pokud ano, prejdeme na dalsi cislo a do retezce nic nezapisujeme
+                if(first_number == '0')
+                {
+                    if(ch != '0')
+                    {
+                        first_number = '1';
+                        String_addChar(&final_string, ch);
+                    }
+                }
+                else
+                {
+                    String_addChar(&final_string, ch);
+                }
             }
             else
             {
                 charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
+                if(first_number == '0')
+                {
+                    String_addChar(&final_string, '0');
+                }
                 *token = Token_create(CONSTANT_OCTAL, final_string);
                 if(*token == NULL)
                 {
@@ -1186,13 +1336,29 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
         case STATE_HEX:
             if(isdigit(ch) || (ch >= 'a' && ch <= 'f') || (ch >= 'A' && ch <= 'F'))
             {
-                String_addChar(&final_string, ch);
+                //testovani, zda i dalsi cislo neni nulove, pokud ano, prejdeme na dalsi cislo a do retezce nic nezapisujeme
+                if(first_number == '0')
+                {
+                    if(ch != '0')
+                    {
+                        first_number = '1';
+                        String_addChar(&final_string, ch);
+                    }
+                }
+                else
+                {
+                    String_addChar(&final_string, ch);
+                }
             }
             else
             {
                 charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
+                if(first_number == '0')
+                {
+                    String_addChar(&final_string, '0');
+                }
                 *token = Token_create(CONSTANT_HEXA, final_string);
                 if(*token == NULL)
                 {
@@ -1201,8 +1367,43 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 return NO_ERROR;
             }
             break;
-        // Cases for extended number input begin
+        // Cases for extended number input end
         }
 
     }
+}
+
+/**
+ * Tato funkce "vrátí" získaný token. Uloží jej na stack
+ * tokenů a při dalším volání funkce Scanner_GetToken vrátí
+ * tento, ne nový token.
+ *
+ * @param[in,out]   InputPtr    input           Ukazatel na strukturu se vstupními daty
+ * @param[out]      TokenPtr    *token          Ukazatel na získaný token
+ *
+ * @retval int  Kód se kterým bylo vrácení získaného tokenu ukončeno
+ */
+int Scanner_UngetToken(InputPtr input, TokenPtr *token)
+{
+    if (input && input->source == NULL)
+        return INTERNAL_ERROR;
+
+    DEBUG_LOG("scanner-unget", "ungetting token");
+    Token_debugPrint(*token);
+
+    if (token_stack == NULL)
+    {
+        token_stack = TokenStack_create();
+    }
+
+    if (TokenStack_push(token_stack, *token) != NO_ERROR)
+    {
+        *token = NULL;
+        return INTERNAL_ERROR;
+    }
+    *token = NULL;
+
+    DEBUG_LOG("scanner-unget", "ok");
+    TokenStack_debugPrint(token_stack);
+    return NO_ERROR;
 }

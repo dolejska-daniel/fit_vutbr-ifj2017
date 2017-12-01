@@ -12,6 +12,7 @@
 #define _symtable_h
 
 #ifdef DEBUG_INCLUDE
+//#include "../generator/instruction_list.h"
 #include "../scanner/token.h"
 #else
 #include "token.h"
@@ -26,7 +27,7 @@ typedef enum E_SymbolType {
 	ST_STRING,   ///< Proměnná datového typu string
 	ST_DOUBLE,	 ///< Proměnná datového typu double
 	ST_INTEGER,  ///< Proměnná datového typu integer
-	ST_NONE,     ///< Slouží pro ukládání návěstí aspod.
+	ST_NONE,     ///< Datový typ void (pro návratové typy funkcí)
 	ST_FUNCTION, ///< Funkce
 	ST_LOOP,     ///< Cyklus
 	ST_COND,     ///< Podmínka
@@ -48,23 +49,33 @@ struct S_Symbol {
 	SymbolPtr	    next;	  ///< Ukazatel na další prvek se stejným otiskem (synonymum)
 	char 		    *key;	  ///< Název/Identifikátor symbolu
 	void		    *value;	  ///< Ukazatel na další informace o symbolu
+	void		    *value2;  ///< Ukazatel na další informace o symbolu
 }; ///< Struktura symbolu
 
 typedef struct S_SymbolInfo_Function_Parameter
     SymbolInfo_Function_Parameter,
    *SymbolInfo_Function_ParameterPtr;
 struct S_SymbolInfo_Function_Parameter {
-    SymbolType  dataType; ///< Datový typ parametru funkce
-    char        *name;    ///< Název parametru (proměnné)
+    SymbolInfo_Function_ParameterPtr next; ///< Ukazatel na následující položku v seznamu
+    SymbolType dataType; ///< Datový typ parametru funkce
+    char       *name;    ///< Název parametru (proměnné)
 }; ///< Struktura pro uložení vlastností parametru funkce
+
+typedef struct S_SymbolInfo_Function_ParameterList
+    SymbolInfo_Function_ParameterList,
+   *SymbolInfo_Function_ParameterListPtr;
+struct S_SymbolInfo_Function_ParameterList {
+    SymbolInfo_Function_ParameterPtr first;  ///< Uzakatel na první prvek v seznamu
+    SymbolInfo_Function_ParameterPtr active; ///< Ukazatel na aktivní prvek v seznamu
+}; ///< Seznam parametrů funkce
 
 typedef struct S_SymbolInfo_Function
     SymbolInfo_Function,
    *SymbolInfo_FunctionPtr;
 struct S_SymbolInfo_Function {
-    SymbolInfo_Function_Parameter   **params; ///< Pole parametrů funkce
-    SymbolType  returnDataType; ///< Datový typ návratové hodnoty
-    bool        isDefined;      ///< Označuje zda je funkce definována
+    SymbolInfo_Function_ParameterListPtr params; ///< Seznam parametrů funkce
+    SymbolType  dataType;   ///< Datový typ návratové hodnoty
+    bool        isDefined;  ///< Označuje zda je funkce definována
 }; ///< Struktura pro uložení vlastností funkce
 
 typedef struct S_SymbolInfo_Loop
@@ -141,6 +152,32 @@ SymbolPtr SymbolTable_get(SymbolTablePtr st, char *key);
 SymbolPtr SymbolTable_getByToken(SymbolTablePtr st, TokenPtr token);
 
 /**
+ * Funkce získá symbol pro dočasnou proměnnou zvoleného typu. Pokud
+ * daná proměnná v tabulce symbolů ještě není, bude vytvořena.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ * @param[in]		InstructionListPtr	ilist   Ukazatel na existující list instrukcí
+ * @param[in]		SymbolType	        type    Typ symbolu
+ * @param[in]		unsigned	        id      Identifikátor symbolu
+ *
+ * @retval	SymbolPtr|NULL	Ukazatel na vyhledanou položku v tabulce
+ */
+ // TODO: void = InstructionListPtr
+SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type, unsigned id);
+
+/**
+ * Funkce odstraní symbol pro dočasnou proměnnou z tabulky symbolů.
+ *
+ * Při dalším použití je tak program nucen ji znovu inicializovat.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ * @param[in]		InstructionListPtr	ilist   Ukazatel na existující list instrukcí
+ * @param[in]		SymbolType	        type    Typ symbolu
+ * @param[in]		unsigned	        id      Identifikátor symbolu
+ */
+void SymbolTable_deleteTempVar(SymbolTablePtr st, unsigned id);
+
+/**
  * Funkce vloží novou položku do dané tabulky s daným klíčem a hodnotou.
  *
  * @param[in,out]	SymbolTablePtr  st		    Ukazatel na existující tabulku symbolů
@@ -155,12 +192,36 @@ SymbolPtr SymbolTable_getByToken(SymbolTablePtr st, TokenPtr token);
 int SymbolTable_insert(SymbolTablePtr st, char *key, SymbolType type, SymbolLocation location, void *value, SymbolPtr *symbol);
 
 /**
+ * Funkce posune definované proměnné na vyšší úroveň rámce.
+ *
+ * @param[in,out]	SymbolTablePtr	st Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_pushFrame(SymbolTablePtr st);
+
+/**
+ * Funkce posune definované proměnné na nižší úroveň rámce.
+ *
+ * Proměnné které jsou aktuálně na TF jsou odstraněny.
+ *
+ * @param[in,out]	SymbolTablePtr	st Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_popFrame(SymbolTablePtr st);
+
+/**
  * Funkce odstraní položku s daným jménem z tabulky.
  *
  * @param[in,out]	SymbolTablePtr	st		Ukazatel na existující tabulku symbolů
  * @param[in]		char		    *key	Identifikátor položky
  */
 void SymbolTable_delete(SymbolTablePtr st, char *key);
+
+/**
+ * Funkce odstraní položku s daným ukazatelem z tabulky.
+ *
+ * @param[in,out]	SymbolTablePtr  st  Ukazatel na existující tabulku symbolů
+ * @param[in]		SymbolPtr       *s  Ukazatel na položku k odstranění
+ */
+void SymbolTable_deleteByPtr(SymbolTablePtr st, SymbolPtr *s);
 
 /**
  * Funkce zobrazí obsah tabulky na stderr.
@@ -192,23 +253,55 @@ SymbolPtr Symbol_create(char *key, SymbolType type, SymbolLocation location, voi
  */
 void Symbol_destroy(SymbolPtr *s);
 
+bool Symbol_isVariable(SymbolPtr s);
+
+bool Symbol_isFunction(SymbolPtr s);
+
 void Symbol_debugPrint(SymbolPtr symbol);
 
 //-------------------------------------------------d-d-
 //  SymbolInfo_Function
 //-----------------------------------------------------
 
-SymbolInfo_FunctionPtr SymbolInfo_Function_create();
+SymbolInfo_FunctionPtr SymbolInfo_Function_create(SymbolType dataType, SymbolInfo_Function_ParameterListPtr paramList);
 
 void SymbolInfo_Function_destroy(SymbolInfo_FunctionPtr *s);
+
+void SymbolInfo_Function_debugPrint(SymbolInfo_FunctionPtr s);
 
 //-------------------------------------------------d-d-
 //  SymbolInfo_Function_Parameter
 //-----------------------------------------------------
 
-SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create();
+SymbolInfo_Function_ParameterPtr SymbolInfo_Function_Parameter_create(char *name, SymbolType dataType);
 
 void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s);
+
+void SymbolInfo_Function_Parameter_debugPrint(SymbolInfo_Function_ParameterPtr s);
+
+//-------------------------------------------------d-d-
+//  SymbolInfo_Function_ParameterList
+//-----------------------------------------------------
+
+SymbolInfo_Function_ParameterListPtr SymbolInfo_Function_ParameterList_create();
+
+void SymbolInfo_Function_ParameterList_destroy(SymbolInfo_Function_ParameterListPtr *l);
+
+int SymbolInfo_Function_ParameterList_insert(SymbolInfo_Function_ParameterListPtr l, SymbolInfo_Function_ParameterPtr param);
+
+void SymbolInfo_Function_ParameterList_first(SymbolInfo_Function_ParameterListPtr l);
+
+void SymbolInfo_Function_ParameterList_next(SymbolInfo_Function_ParameterListPtr l);
+
+SymbolInfo_Function_ParameterPtr SymbolInfo_Function_ParameterList_get(SymbolInfo_Function_ParameterListPtr l);
+
+SymbolInfo_Function_ParameterPtr SymbolInfo_Function_ParameterList_getNext(SymbolInfo_Function_ParameterListPtr l);
+
+bool SymbolInfo_Function_ParameterList_parameterExistsWithName(SymbolInfo_Function_ParameterListPtr l, char *name);
+
+void SymbolInfo_Function_ParameterList_deleteFirst(SymbolInfo_Function_ParameterListPtr l);
+
+void SymbolInfo_Function_ParameterList_debugPrint(SymbolInfo_Function_ParameterListPtr l);
 
 //-------------------------------------------------d-d-
 //  SymbolInfo_Loop
@@ -223,6 +316,16 @@ void SymbolInfo_Loop_destroy(SymbolInfo_LoopPtr *s);
 //-----------------------------------------------------
 
 char *SymbolType_toString(SymbolType type);
+
+bool SymbolType_isBinaryOperationOk(SymbolType type1, SymbolType type2, TokenPtr o);
+
+bool SymbolType_isOperationOk(SymbolType type, TokenPtr o);
+
+bool SymbolType_canBeConvertedTo(SymbolType source, SymbolType target);
+
+bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, SymbolType *dataType);
+
+bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, SymbolType *dataType);
 
 char *SymbolLocation_toString(SymbolLocation location);
 

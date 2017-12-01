@@ -365,13 +365,7 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
                         return INTERNAL_ERROR;
                     return SEMANTICAL_DEFINITION_ERROR;
                 }
-
                 Token_destroy(&token);
-                scanner_result = Parser_getToken(source, input, nlevel, EQ, &token);
-                if (scanner_result != NO_ERROR)
-                {
-                    return scanner_result;
-                }
 
                 #ifdef DEBUG_VERBOSE
                 DEBUG_LOG(source, "calling Parser_ParseVariableDefinition");
@@ -1651,12 +1645,14 @@ int Parser_ParseVariableDeclaration(InputPtr input, InstructionListPtr ilist, Sy
     if (token->type == EQ)
     {
         //  Proměnná bude rovnou i definována
-        DEBUG_LOG(source, "calling ");
+        Scanner_UngetToken(input, &token);
+        DEBUG_LOG(source, "calling Parser_ParseVariableDefinition");
         result = Parser_ParseVariableDefinition(input, ilist, symtable, nlist, var);
         if (result != NO_ERROR)
         {
             return result;
         }
+        DEBUG_LOG(source, "return from Parser_ParseVariableDefinition");
     }
     else if (token->type != LINE_END)
     {
@@ -1670,8 +1666,8 @@ int Parser_ParseVariableDeclaration(InputPtr input, InstructionListPtr ilist, Sy
 
 int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist, SymbolPtr variable)
 {
-    //                    |->
-    //  <IDENTIFIER> <EQ> | _EXPRESSION_ <LINE_END>
+    //               |->
+    //  <IDENTIFIER> | <EQ> _EXPRESSION_ <LINE_END>
     //
 
     //-------------------------------------------------d-d-
@@ -1680,6 +1676,14 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
     char *source = "parser-var_def";
     int result;
 
+    bool isPlusEq = false;
+    bool isMinusEq = false;
+    bool isStarEq = false;
+    bool isSlashEq = false;
+    bool isBSlashEq = false;
+
+    TokenPtr token;
+    SymbolPtr tempvar;
     PostfixListPtr postfix = NULL;
 
     NestingLevelPtr nlevel = NestingList_active(nlist);
@@ -1688,6 +1692,39 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
     //-------------------------------------------------d-d-
     //  Zpracování tokenů
     //-----------------------------------------------------
+
+    //  <EQ|MINUSEQ|PLUSEQ>
+    result = Parser_getToken(source, input, nlevel, NO_REQUIRED_TYPE, &token);
+    if (result != NO_ERROR)
+    {
+        return result;
+    }
+
+    if (token->type == PLUSEQ)
+    {
+        isPlusEq = true;
+    }
+    else if (token->type == MINUSEQ)
+    {
+        isMinusEq = true;
+    }
+    else if (token->type == STAREQ)
+    {
+        isStarEq = true;
+    }
+    else if (token->type == SLASHEQ)
+    {
+        isSlashEq = true;
+    }
+    else if (token->type == BACK_SLASHEQ)
+    {
+        isBSlashEq = true;
+    }
+    else if (token->type != EQ)
+    {
+        //  TODO: Error message
+        return SYNTAX_ERROR;
+    }
 
     //  _EXPRESSION_
     DEBUG_LOG(source, "calling Parser_ParseExpression");
@@ -1710,11 +1747,85 @@ int Parser_ParseVariableDefinition(InputPtr input, InstructionListPtr ilist, Sym
     DEBUG_LOG(source, "instruction conversion completed, cleaning up");
     PostfixList_destroy(&postfix);
 
-    //  Načtení výsledku do proměnné
-    result = Instruction_stack_pop(ilist, variable);
-    if (result != NO_ERROR)
+    if (isPlusEq || isMinusEq || isStarEq || isSlashEq || isBSlashEq)
     {
-        return result;
+        //  Nejedná se o klasické přiřazení ale o += nebo -=
+        tempvar = SymbolTable_getTempVar(symtable, ilist, result_dt, 0);
+
+        //  Načtení výsledku do dočasné proměnné
+        result = Instruction_stack_pop(ilist, variable);
+        if (result != NO_ERROR)
+        {
+            return result;
+        }
+
+        if (isPlusEq)
+        {
+            //  +=
+            //  Sečtení výsledku výrazu a původní hodnoty proměnné
+            result = Instruction_add(ilist, variable, variable, tempvar);
+            if (result != NO_ERROR)
+            {
+                return result;
+            }
+        }
+        else if (isMinusEq)
+        {
+            //  -=
+            //  Odečtení výsledku výrazu a původní hodnoty proměnné
+            result = Instruction_sub(ilist, variable, variable, tempvar);
+            if (result != NO_ERROR)
+            {
+                return result;
+            }
+        }
+        else if (isStarEq)
+        {
+            //  *=
+            //
+            result = Instruction_mul(ilist, variable, variable, tempvar);
+            if (result != NO_ERROR)
+            {
+                return result;
+            }
+        }
+        else if (isSlashEq)
+        {
+            //  /=
+            //
+            result = Instruction_div(ilist, variable, variable, tempvar);
+            if (result != NO_ERROR)
+            {
+                return result;
+            }
+        }
+        else if (isBSlashEq)
+        {
+            //  \=
+            //
+            result = Instruction_div(ilist, variable, variable, tempvar);
+            if (result != NO_ERROR)
+            {
+                return result;
+            }
+
+            result = Instruction_float2int(ilist, variable, variable);
+            if (result != NO_ERROR)
+            {
+                return result;
+            }
+        }
+
+        SymbolTable_deleteTempVar(symtable, 0);
+    }
+    else
+    {
+        //  Načtení výsledku do proměnné
+        result = Instruction_stack_pop(ilist, variable);
+        if (result != NO_ERROR)
+        {
+            return result;
+        }
     }
 
     //  Vyčištění stacku
@@ -2650,6 +2761,10 @@ int Parser_ParseScope(InputPtr input, InstructionListPtr ilist, SymbolTablePtr s
     result = SymbolTable_insert(symtable, "main", ST_FUNCTION, CONSTANT, NULL, &symbol);
     if (result != NO_ERROR)
     {
+        if (result == SEMANTICAL_DEFINITION_ERROR)
+        {
+            return SYNTAX_ERROR;
+        }
         return result;
     }
 
