@@ -72,23 +72,6 @@ bool charReturned = false;
  */
 int Scanner_GetToken(InputPtr input, TokenPtr *token)
 {
-    /** HOW TO
-
-        char ch = fgetc(input->source);
-        ungetc(ch, input->source);
-
-        token = Token_create(IF, NULL);
-        token = Token_create(CONSTANT_INTEGER, "25");
-        if(token == NULL)
-        {
-            return INTERNAL_ERROR;
-        }
-
-        pokud dojde k lexikální chybě (přijde neočekávaný znak -> LEXICAL_ERROR)
-
-        String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
-    */
-
     if (token_stack == NULL)
     {
         token_stack = TokenStack_create();
@@ -175,33 +158,18 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else if(ch == '*')
             {
+                state = STATE_MUL;
                 String_addChar(&final_string, ch);
-                *token = Token_create(STAR, final_string);
-                if(*token == NULL)
-                {
-                    return INTERNAL_ERROR;
-                }
-                return NO_ERROR;
             }
             else if(ch == '+')
             {
+                state = STATE_ADD;
                 String_addChar(&final_string, ch);
-                *token = Token_create(PLUS, final_string);
-                if(*token == NULL)
-                {
-                    return INTERNAL_ERROR;
-                }
-                return NO_ERROR;
             }
             else if(ch == '-')
             {
+                state = STATE_SUB;
                 String_addChar(&final_string, ch);
-                *token = Token_create(MINUS, final_string);
-                if(*token == NULL)
-                {
-                    return INTERNAL_ERROR;
-                }
-                return NO_ERROR;
             }
             else if(ch == '(')
             {
@@ -245,23 +213,13 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else if(ch == '<')
             {
+                state = STATE_LESS;
                 String_addChar(&final_string, ch);
-                *token = Token_create(LT, final_string);
-                if(*token == NULL)
-                {
-                    return INTERNAL_ERROR;
-                }
-                return NO_ERROR;
             }
             else if(ch == '>')
             {
+                state = STATE_GREATER;
                 String_addChar(&final_string, ch);
-                *token = Token_create(GT, final_string);
-                if(*token == NULL)
-                {
-                    return INTERNAL_ERROR;
-                }
-                return NO_ERROR;
             }
             else if(ch == '=')
             {
@@ -314,7 +272,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 String_addChar(&final_string, ch);  //znak pridame do retezce -> budeme mit retezec s jednim znakem
 
                 char* reason = String_printf("Unexpected character '%c' on line %i:%i.", final_string, (char *) input->line, (char *) input->character, NULL);
-                 String_destroy(&final_string); //nasledne uvolneni
+                String_destroy(&final_string); //nasledne uvolneni
                 *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
@@ -1041,7 +999,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
                 return LEXICAL_ERROR;
             }
-        break;
+            break;
 
         case STATE_DOUBLE_EXP:
             if(isdigit(ch))
@@ -1084,11 +1042,22 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             {
                 state = STATE_INC_BLOCK_COMMENT;
             }
+            else if(ch == '=')
+            {
+                String_addChar(&final_string, ch);
+                *token = Token_create(BACK_SLASHEQ, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
             else
             {
                 charReturned = true;
                 ungetc(ch, input->source);
                 input->character--;
+
                 *token = Token_create(SLASH, final_string);
                 if(*token == NULL)
                 {
@@ -1368,11 +1337,180 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             break;
         // Cases for extended number input end
+        // Cases for comparison begin
+        case STATE_LESS:
+            if(ch == '=')
+            {
+                String_addChar(&final_string, ch);
+                *token = Token_create(LTEQ, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            else if(ch == '>')
+            {
+                String_addChar(&final_string, ch);
+                *token = Token_create(LTGT, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            else
+            {
+                charReturned = true;
+                ungetc(ch, input->source);
+                input->character--;
+
+                *token = Token_create(LT, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            break;
+
+        case STATE_GREATER:
+            if(ch == '=')
+            {
+                String_addChar(&final_string, ch);
+                *token = Token_create(GTEQ, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            else
+            {
+                charReturned = true;
+                ungetc(ch, input->source);
+                input->character--;
+
+                *token = Token_create(GT, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            break;
+        // Cases for comparison end
+        // Cases for unary begin
+        case STATE_MUL:
+            if(ch == '=')
+            {
+                String_addChar(&final_string, ch);
+                *token = Token_create(STAREQ, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            else
+            {
+                charReturned = true;
+                ungetc(ch, input->source);
+                input->character--;
+
+                *token = Token_create(STAR, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            break;
+
+        case STATE_ADD:
+            if(ch == '=')
+            {
+                String_addChar(&final_string, ch);
+                *token = Token_create(PLUSEQ, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            else
+            {
+                charReturned = true;
+                ungetc(ch, input->source);
+                input->character--;
+
+                *token = Token_create(PLUS, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            break;
+
+        case STATE_SUB:
+            if(ch == '=')
+            {
+                String_addChar(&final_string, ch);
+                *token = Token_create(MINUSEQ, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            else
+            {
+                charReturned = true;
+                ungetc(ch, input->source);
+                input->character--;
+
+                *token = Token_create(MINUS, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+
+            }
+            break;
+
+        case STATE_B_SLASH:
+            if(ch == '=')
+            {
+                String_addChar(&final_string, ch);
+                *token = Token_create(STAREQ, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+            }
+            else
+            {
+                charReturned = true;
+                ungetc(ch, input->source);
+                input->character--;
+
+                *token = Token_create(STAR, final_string);
+                if(*token == NULL)
+                {
+                    return INTERNAL_ERROR;
+                }
+                return NO_ERROR;
+
+            }
+            break;
+            // Cases for unary end
         }
-
     }
-}
 
+}
 /**
  * Tato funkce "vrátí" získaný token. Uloží jej na stack
  * tokenů a při dalším volání funkce Scanner_GetToken vrátí
