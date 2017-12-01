@@ -20,12 +20,12 @@
 #include "parser.h"
 
 #ifdef DEBUG_INCLUDE
-//#include "../generator/generator.h"
+#include "../generator/generator.h"
 //#include "../generator/instruction_list.h"
 #include "../support/error_codes.h"
 #include "../support/strings.h"
 #else
-//#include "generator.h"
+#include "generator.h"
 //#include "instruction_list.h"
 #include "error_codes.h"
 #include "strings.h"
@@ -198,7 +198,7 @@ SymbolPtr SymbolTable_getByToken(SymbolTablePtr st, TokenPtr token)
  *
  * @retval	SymbolPtr|NULL	Ukazatel na vyhledanou položku v tabulce
  */
-SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, InstructionListPtr ilist, SymbolType type, unsigned id)
+SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type, unsigned id)
 {
     char *source = "symtable-getTempVar";
 

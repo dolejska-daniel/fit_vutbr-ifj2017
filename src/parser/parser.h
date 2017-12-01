@@ -16,7 +16,7 @@
 #include "../scanner/input.h"
 #include "../scanner/token.h"
 #include "../generator/instruction_list.h"
-#include "../support/tokenType_list.h"
+#include "../support/tokentype_list.h"
 #include "../support/token_list.h"
 #include "../support/token_stack.h"
 #include "../support/postfix_list.h"
@@ -24,7 +24,7 @@
 #include "input.h"
 #include "token.h"
 #include "instruction_list.h"
-#include "tokenType_list.h"
+#include "tokentype_list.h"
 #include "token_list.h"
 #include "token_stack.h"
 #include "postfix_list.h"
@@ -66,7 +66,7 @@ int Parser_ParseNestedCode(InputPtr input, InstructionListPtr ilist, SymbolTable
 //  Uživatelské funkce
 //-----------------------------------------------------
 
-int Parser_ParseFunctionDeclaration(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
+int Parser_ParseFunctionDeclaration(InputPtr input/*, InstructionListPtr ilist*/, SymbolTablePtr symtable, NestingListPtr nlist);
 
 int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
@@ -102,9 +102,9 @@ int Parser_ParseStatement_Print(InputPtr input, InstructionListPtr ilist, Symbol
 
 int Parser_ParseStatement_Input(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
-int Parser_ParseStatement_Continue(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
+int Parser_ParseStatement_Continue(/*InputPtr input, */InstructionListPtr ilist/*, SymbolTablePtr symtable*/, NestingListPtr nlist);
 
-int Parser_ParseStatement_Exit(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
+int Parser_ParseStatement_Exit(/*InputPtr input, */InstructionListPtr ilist/*, SymbolTablePtr symtable*/, NestingListPtr nlist);
 
 int Parser_ParseStatement_Return(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable, NestingListPtr nlist);
 
@@ -136,6 +136,10 @@ int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTa
 //-------------------------------------------------d-d-
 //  Pomocné funkce
 //-----------------------------------------------------
+
+int Parser_DeclareBuiltinFunctions(/*InputPtr input, InstructionListPtr ilist, */SymbolTablePtr symtable);
+
+int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, SymbolTablePtr symtable);
 
 int Parser_getTokens(char *source, InputPtr input, NestingLevelPtr nlevel, TokenTypeListPtr expected_types, TokenListPtr *tokens);
 

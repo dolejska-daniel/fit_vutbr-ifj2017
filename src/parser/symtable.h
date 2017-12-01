@@ -162,7 +162,8 @@ SymbolPtr SymbolTable_getByToken(SymbolTablePtr st, TokenPtr token);
  *
  * @retval	SymbolPtr|NULL	Ukazatel na vyhledanou položku v tabulce
  */
-//SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, InstructionListPtr ilist, SymbolType type, unsigned id);
+ // TODO: void = InstructionListPtr
+SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type, unsigned id);
 
 /**
  * Funkce odstraní symbol pro dočasnou proměnnou z tabulky symbolů.

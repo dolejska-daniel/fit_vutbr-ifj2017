@@ -1385,6 +1385,9 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
  */
 int Scanner_UngetToken(InputPtr input, TokenPtr *token)
 {
+    if (input && input->source == NULL)
+        return INTERNAL_ERROR;
+
     DEBUG_LOG("scanner-unget", "ungetting token");
     Token_debugPrint(*token);
 

@@ -233,7 +233,7 @@ int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, Toke
 
     if (token->type == IDENTIFIER || Token_isConstant(token))
     {
-        DEBUG_LOG("inf2post-addOperand", "adding identifier to postfix list");
+        DEBUG_LOG("inf2post-addOperand", "adding identifier or constant to postfix list");
         //  Operand je proměnnou
         if (symbol == NULL)
         {

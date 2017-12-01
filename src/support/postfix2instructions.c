@@ -237,9 +237,13 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                 while (TokenStack_isEmpty(tStack) == false)
                 {
                     t = TokenStack_top(tStack);
-                    Scanner_UngetToken(NULL, &t);
+                    DEBUG_LOG(source, "returning");
+                    Token_debugPrint(t);
+
+                    Scanner_UngetToken(input, &t);
                     TokenStack_pop(tStack);
                 }
+                DEBUG_LOG(source, "all params returned");
 
                 //  Poslední instrukce před zpracováním volání funkce
                 i = InstructionList_getLast(preprocess_ilist);
