@@ -31,7 +31,7 @@ OK      16  (function call function which have input):  ▒ FAIL TO RUN COMPILER
 OK      18  (argument of function is call of function):  skipping, required extension(s) FUNEXP is not activated.
 OK      19  (argument of function is call of function and expr):  skipping, required extension(s) FUNEXP is not activated.
 OK      20  (argument = var with same name as parametr):  ▒ COMPILER EXIT CODE expected=0, returned=2
-        21  (recursion of three functions):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      21  (recursion of three functions):  ▒ COMPILER EXIT CODE expected=0, returned=2
         22  (try to modify an argument passed by the value):  ▒ COMPILER EXIT CODE expected=0, returned=2
 OK      23  (invalid types without supported implicit conversion i):  ▒ COMPILER EXIT CODE expected=4, returned=2
 OK      24  (invalid types without supported implicit conversion ii):  ▒ COMPILER EXIT CODE expected=4, returned=2

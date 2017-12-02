@@ -1000,12 +1000,19 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
         //  i o deklaraci dané funkce, parametry jsou vždy OK
         paramList = func_info->params;
 
+        result = Instruction_pushframe(ilist);
+        if (result != NO_ERROR)
+        {
+            return result;
+        }
         //  Provedeme změny v tabulce symbolů (je nutné "skrýt" proměnné hlavního programu či jiných funkcí)
         //  první pushframe pro parametry funkce
         SymbolTable_pushFrame(symtable);
+        /*
         //  druhý pushframe kvůli samotnému volání funkce
         //  (instrukce je vytvořena později)
         SymbolTable_pushFrame(symtable);
+        */
 
         //  Vytvoření symbolů parametrů
         DEBUG_LOG(source, "creating parameter symbols");
@@ -1042,12 +1049,19 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
         return result;
     }
 
+    result = Instruction_pushframe(ilist);
+    if (result != NO_ERROR)
+    {
+        return result;
+    }
     //  Provedeme změny v tabulce symbolů (je nutné "skrýt" proměnné hlavního programu či jiných funkcí)
     //  první pushframe pro parametry funkce
     SymbolTable_pushFrame(symtable);
+    /*
     //  druhý pushframe kvůli samotnému volání funkce
     //  (instrukce je vytvořena později)
     SymbolTable_pushFrame(symtable);
+    */
 
     DEBUG_LOG(source, "parsing parameters");
     paramList = func_info->params;
@@ -1214,8 +1228,8 @@ func_def_newlyDeclared:
         return result;
     }
 
-    //  Vytvoření nového rámce pro dočasné proměnné funkce
-    result = Instruction_createframe(ilist);
+    //  Přesunutí dočasného rámce s parametry funkce na LF
+    result = Instruction_pushframe(ilist);
     if (result != NO_ERROR)
     {
         return result;
@@ -1320,6 +1334,7 @@ func_def_newlyDeclared:
         }
     }
 
+    /*
     //  Zrušení rámce pro dočasné proměnné funkce
     //  (smaže dočasné proměnné funkce)
     result = Instruction_popframe(ilist);
@@ -1327,6 +1342,7 @@ func_def_newlyDeclared:
     {
         return result;
     }
+    */
 
     //  Instrukce pro návrat
     result = Instruction_return(ilist);
@@ -1336,12 +1352,12 @@ func_def_newlyDeclared:
     }
 
     //  Provedeme změny i v tabulce symbolů
-    //  nejdříve odstraní lokální proměnné funkce vytvořené
-    //  v Parser_ParseNested
+    //  Posune lokální proměnné funkce na TF
     SymbolTable_popFrame(symtable);
-    //  Provedeme změny i v tabulce symbolů
-    //  následně odstraní parametry funkce
+    //  Smaže lokální proměnné funkce z TF ale posune ostatní proměnné na TF
     SymbolTable_popFrame(symtable);
+    //  Vrátí proměnné z TF na LF, kam patří
+    SymbolTable_pushFrame(symtable);
 
     Instruction_custom(ilist, "# END FUNCTION");
 
@@ -1383,6 +1399,7 @@ int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTab
         return result;
     }
 
+    /*
     //  Posunutí aktuálního rámce výše
     result = Instruction_pushframe(ilist);
     if (result != NO_ERROR)
@@ -1390,6 +1407,7 @@ int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTab
         return result;
     }
     SymbolTable_pushFrame(symtable);
+    */
 
     //  Vytvoření nového rámce pro parametry funkce
     result = Instruction_createframe(ilist);
@@ -1505,6 +1523,7 @@ int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTab
 
     DEBUG_LOG(source, "creating instructions");
 
+    /*
     //  Samotný skok na návěstí funkce a další pushframe
     //  který jsme ovšem v rámci práce s lokální tabulkou symbolů
     //  provedli už dříve
@@ -1513,6 +1532,7 @@ int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTab
     {
         return result;
     }
+    */
     result = Instruction_call(ilist, func_symbol);
     if (result != NO_ERROR)
     {
@@ -1526,7 +1546,9 @@ int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTab
     {
         return result;
     }
+    /*
     SymbolTable_popFrame(symtable);
+    */
 
     DEBUG_LOG(source, "function call successfully parsed");
     return NO_ERROR;
@@ -1614,7 +1636,7 @@ int Parser_ParseVariableDeclaration(InputPtr input, InstructionListPtr ilist, Sy
     Token_destroy(&token);
 
     //  Vytvoření symbolu proměnné
-    result = SymbolTable_insert(symtable, var_name, var_type, TEMPORARY_FRAME, var_name, &var);
+    result = SymbolTable_insert(symtable, var_name, var_type, LOCAL_FRAME, var_name, &var);
     if (result != NO_ERROR)
     {
         //  Při vytváření symbolu došlo k chybě
@@ -2704,11 +2726,13 @@ int Parser_ParseStatement_Return(InputPtr input, InstructionListPtr ilist, Symbo
         return result;
     }
 
+    /*
     result = Instruction_popframe(ilist);
     if (result != NO_ERROR)
     {
         return result;
     }
+    */
 
     result = Instruction_return(ilist);
     if (result != NO_ERROR)
@@ -2771,6 +2795,7 @@ int Parser_ParseScope(InputPtr input, InstructionListPtr ilist, SymbolTablePtr s
     Instruction_custom(ilist, "\n# MAIN");
     Instruction_label(ilist, "main");
     Instruction_createframe(ilist);
+    Instruction_pushframe(ilist);
 
     DEBUG_LOG(source, "calling Parser_ParseNestedCode");
     result = Parser_ParseNestedCode(input, ilist, symtable, nlist);
