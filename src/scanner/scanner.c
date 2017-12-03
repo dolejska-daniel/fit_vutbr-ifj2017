@@ -677,9 +677,16 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
-                if(ch == ' ') //nahrazeni mezery
+                if(ch <= 32) //nahrazeni mezery
                 {
-                    final_string = String_concat(final_string, "\\032", NULL);
+                    if (ch < 10)
+                    {
+                        final_string = String_concat(final_string, (char *) ((int) ch), "\\00");
+                    }
+                    else
+                    {
+                        final_string = String_concat(final_string, (char *) ((int) ch), "\\0");
+                    }
                 }
                 else
                 {
@@ -695,10 +702,25 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 state = STATE_INC_ESC1;
                 String_addChar(&final_string, ch);
             }
-            else if(ch == '"' || ch == 'n' || ch == 't' || ch == '\\')
+            else if(ch == '"')
             {
                 state = STATE_INC_STRING_BEGIN;
                 String_addChar(&final_string, ch);
+            }
+            else if(ch == 'n')
+            {
+                final_string = String_concat(final_string, "010", NULL);
+                state = STATE_INC_STRING_BEGIN;
+            }
+            else if(ch == 't')
+            {
+                final_string = String_concat(final_string, "009", NULL);
+                state = STATE_INC_STRING_BEGIN;
+            }
+            else if(ch == '\\')
+            {
+                final_string = String_concat(final_string, "092", NULL);
+                state = STATE_INC_STRING_BEGIN;
             }
             else
             {
@@ -1037,6 +1059,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             if(ch == '\'')
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
+                final_string = String_create(NULL);
                 state = STATE_INC_BLOCK_COMMENT;
             }
             else if(ch == '=')
