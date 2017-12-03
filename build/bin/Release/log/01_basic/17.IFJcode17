@@ -1,0 +1,98 @@
+# 2017-12-03 11:37:01.952920
+# SECTION: 01_basic
+# TEST: 17
+# INFO: Add two inputs
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 11 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@b()
+# Executing instruction: IREAD at line: 12 with following arguments:
+# Dest: LF@a=0(int)
+# Executing instruction: IREAD at line: 13 with following arguments:
+# Dest: LF@b=0(int)
+# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Arg1: LF@a=42(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 15 with following arguments:
+# Arg1: LF@b=24(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 16 with following arguments:
+# Arg1: Stack@=42(int)
+# Arg2: Stack@=24(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 17 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 18 with following arguments:
+# Arg1: Stack@=66(int)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 19 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=66(int)
+# Executing instruction: IJUMP at line: 20 with following arguments:
+# Executing instruction: ILABEL at line: 23 with following arguments:
+# 
+# STDOUT DIFF:
+# --- expected
+# +++ actual
+# @@ -1 +1 @@
+
+# -? ?  66
+# + 66
+
+# INTERPRETER STDIN: 
+# 42
+# 24
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: ---
+# 
+#   1: scope 
+#   2:  dim a as integer 
+#   3:  dim b as integer 
+#   4:  input a 
+#   5:  input b 
+#   6:  print a + b; 
+#   7: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/23
+JUMP main                                                                       #     2/23
+# MAIN                                                                          #     4/23
+LABEL main                                                                      #     5/23
+CREATEFRAME                                                                     #     6/23
+PUSHFRAME                                                                       #     7/23
+DEFVAR LF@a                                                                     #     8/23
+MOVE LF@a int@0                                                                 #     9/23
+DEFVAR LF@b                                                                     #    10/23
+MOVE LF@b int@0                                                                 #    11/23
+READ LF@a int                                                                   #    12/23
+READ LF@b int                                                                   #    13/23
+PUSHS LF@a                                                                      #    14/23
+PUSHS LF@b                                                                      #    15/23
+ADDS                                                                            #    16/23
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    17/23
+POPS LF@__INTERNAL__VAR_0                                                       #    18/23
+WRITE LF@__INTERNAL__VAR_0                                                      #    19/23
+JUMP __INTERNAL__FILE_END                                                       #    20/23
+# PROGRAM END                                                                   #    22/23
+LABEL __INTERNAL__FILE_END                                                      #    23/23

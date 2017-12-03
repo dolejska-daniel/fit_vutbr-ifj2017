@@ -1,0 +1,182 @@
+# 2017-12-03 11:37:04.851127
+# SECTION: 02_functions
+# TEST: 10
+# INFO: Call built-in features - combined
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@retezec
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@retezec()
+# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Arg1: Const@=ahoj ahoj ahoj(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 11 with following arguments:
+# Arg1: Stack@=ahoj ahoj ahoj(string)
+# Dest: LF@retezec=(string)
+# Executing instruction: ICLEARS at line: 12 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 13 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Arg1: LF@retezec=ahoj ahoj ahoj(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 15 with following arguments:
+# Dest: TF@s
+# Executing instruction: IPOPS at line: 16 with following arguments:
+# Arg1: Stack@=ahoj ahoj ahoj(string)
+# Dest: TF@s()
+# Executing instruction: IPUSHS at line: 17 with following arguments:
+# Arg1: Const@=6(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 18 with following arguments:
+# Dest: TF@i
+# Executing instruction: IPOPS at line: 19 with following arguments:
+# Arg1: Stack@=6(int)
+# Dest: TF@i()
+# Executing instruction: IPUSHS at line: 20 with following arguments:
+# Arg1: Const@=10(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 21 with following arguments:
+# Dest: TF@n
+# Executing instruction: IPOPS at line: 22 with following arguments:
+# Arg1: Stack@=10(int)
+# Dest: TF@n()
+# Executing instruction: ICALL at line: 23 with following arguments:
+# Executing instruction: ILABEL at line: 55 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 56 with following arguments:
+# Executing instruction: ISUB at line: 57 with following arguments:
+# Arg1: LF@i=6(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=6(int)
+# Executing instruction: ILABEL at line: 58 with following arguments:
+# Executing instruction: IPUSHS at line: 59 with following arguments:
+# Arg1: LF@n=10(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 60 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 61 with following arguments:
+# Arg1: Stack@=10(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 62 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 63 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Symbol LF@__INTERNAL__VAR_0 not found!
+# Error at line: 64
+# Symbol is undefined!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  9
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 54
+# PRICE: ---
+# 
+#   1: ' Call built-in features - combined
+#   2: 
+#   3: scope 
+#   4: 	dim retezec as string = !"ahoj ahoj ahoj"
+#   5: 	retezec = substr(retezec, 6, 10)
+#   6: 	dim a as integer
+#   7: 	a = length(retezec)
+#   8: 	print a;
+#   9: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/76
+JUMP main                                                                       #     2/76
+# MAIN                                                                          #     4/76
+LABEL main                                                                      #     5/76
+CREATEFRAME                                                                     #     6/76
+PUSHFRAME                                                                       #     7/76
+DEFVAR LF@retezec                                                               #     8/76
+MOVE LF@retezec string@                                                         #     9/76
+PUSHS string@ahoj\032ahoj\032ahoj                                               #    10/76
+POPS LF@retezec                                                                 #    11/76
+CLEARS                                                                          #    12/76
+CREATEFRAME                                                                     #    13/76
+PUSHS LF@retezec                                                                #    14/76
+DEFVAR TF@s                                                                     #    15/76
+POPS TF@s                                                                       #    16/76
+PUSHS int@6                                                                     #    17/76
+DEFVAR TF@i                                                                     #    18/76
+POPS TF@i                                                                       #    19/76
+PUSHS int@10                                                                    #    20/76
+DEFVAR TF@n                                                                     #    21/76
+POPS TF@n                                                                       #    22/76
+CALL substr                                                                     #    23/76
+POPFRAME                                                                        #    24/76
+POPS LF@retezec                                                                 #    25/76
+CLEARS                                                                          #    26/76
+DEFVAR LF@a                                                                     #    27/76
+MOVE LF@a int@0                                                                 #    28/76
+CREATEFRAME                                                                     #    29/76
+PUSHS LF@retezec                                                                #    30/76
+DEFVAR TF@s                                                                     #    31/76
+POPS TF@s                                                                       #    32/76
+CALL length                                                                     #    33/76
+POPFRAME                                                                        #    34/76
+POPS LF@a                                                                       #    35/76
+CLEARS                                                                          #    36/76
+PUSHS LF@a                                                                      #    37/76
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    38/76
+POPS LF@__INTERNAL__VAR_0                                                       #    39/76
+WRITE LF@__INTERNAL__VAR_0                                                      #    40/76
+JUMP __INTERNAL__FILE_END                                                       #    41/76
+# LENGTH FUNCTION                                                               #    43/76
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    44/76
+LABEL chr                                                                       #    45/76
+PUSHFRAME                                                                       #    46/76
+STRLEN LF@__INTERNAL__VAR_0 LF@s                                                #    47/76
+PUSHS LF@__INTERNAL__VAR_0                                                      #    48/76
+RETURN                                                                          #    49/76
+# LENGTH FUNCTION END                                                           #    50/76
+# SUBSTR FUNCTION                                                               #    52/76
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    53/76
+DEFVAR LF@__INTERNAL__VAR_1                                                     #    54/76
+LABEL substr                                                                    #    55/76
+PUSHFRAME                                                                       #    56/76
+SUB LF@i LF@i int@1                                                             #    57/76
+LABEL begin                                                                     #    58/76
+PUSHS LF@n                                                                      #    59/76
+PUSHS int@0                                                                     #    60/76
+GTS                                                                             #    61/76
+PUSHS bool@true                                                                 #    62/76
+JUMPIFNEQS end                                                                  #    63/76
+GETCHAR LF@__INTERNAL__VAR_0 LF@s LF@i                                          #    64/76
+CONCAT LF@__INTERNAL__VAR_1 LF@__INTERNAL__VAR_1 LF@__INTERNAL__VAR_0           #    65/76
+ADD LF@i LF@i int@1                                                             #    66/76
+SUB LF@n LF@n int@1                                                             #    67/76
+JUMP begin                                                                      #    68/76
+LABEL end                                                                       #    69/76
+CLEARS                                                                          #    70/76
+PUSHS LF@__INTERNAL__VAR_1                                                      #    71/76
+RETURN                                                                          #    72/76
+# SUBSTR FUNCTION END                                                           #    73/76
+# PROGRAM END                                                                   #    75/76
+LABEL __INTERNAL__FILE_END                                                      #    76/76

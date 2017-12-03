@@ -1,0 +1,142 @@
+# 2017-12-03 11:37:05.609643
+# SECTION: 03_statements
+# TEST: 01
+# INFO: basic constant assigment
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Arg1: Const@=fooman(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 11 with following arguments:
+# Arg1: Stack@=fooman(string)
+# Dest: LF@a=(string)
+# Executing instruction: ICLEARS at line: 12 with following arguments:
+# Executing instruction: IDEFVAR at line: 13 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 14 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@b()
+# Executing instruction: IPUSHS at line: 15 with following arguments:
+# Arg1: Const@=42(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 16 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: LF@b=0(int)
+# Executing instruction: ICLEARS at line: 17 with following arguments:
+# Executing instruction: IDEFVAR at line: 18 with following arguments:
+# Dest: LF@c
+# Executing instruction: IMOVE at line: 19 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@c()
+# Executing instruction: IPUSHS at line: 20 with following arguments:
+# Arg1: Const@=74.85(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 21 with following arguments:
+# Arg1: Stack@=74.85(double)
+# Dest: LF@c=0(double)
+# Executing instruction: ICLEARS at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Arg1: LF@a=fooman(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 24 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 25 with following arguments:
+# Arg1: Stack@=fooman(string)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 26 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=fooman(string)
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: LF@b=42(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 28 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: LF@__INTERNAL__VAR_0=fooman(string)
+# Executing instruction: IWRITE at line: 29 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=42(int)
+# Executing instruction: IPUSHS at line: 30 with following arguments:
+# Arg1: LF@c=74.85(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=74.85(double)
+# Dest: LF@__INTERNAL__VAR_0=42(int)
+# Executing instruction: IWRITE at line: 32 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=74.85(double)
+# Executing instruction: IJUMP at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 36 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 115 (45+70)
+# 
+#   1: ' basic constant assigment
+#   2: scope
+#   3: 	dim a as string
+#   4: 	a =    !"fooman"
+#   5: 
+#   6: 	dim b as integer
+#   7: 	b =  42
+#   8: 
+#   9: 	dim c as double
+#  10: 	c  =  74.85
+#  11: 
+#  12: 	print a; b; c;
+#  13: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/36
+JUMP main                                                                       #     2/36
+# MAIN                                                                          #     4/36
+LABEL main                                                                      #     5/36
+CREATEFRAME                                                                     #     6/36
+PUSHFRAME                                                                       #     7/36
+DEFVAR LF@a                                                                     #     8/36
+MOVE LF@a string@                                                               #     9/36
+PUSHS string@fooman                                                             #    10/36
+POPS LF@a                                                                       #    11/36
+CLEARS                                                                          #    12/36
+DEFVAR LF@b                                                                     #    13/36
+MOVE LF@b int@0                                                                 #    14/36
+PUSHS int@42                                                                    #    15/36
+POPS LF@b                                                                       #    16/36
+CLEARS                                                                          #    17/36
+DEFVAR LF@c                                                                     #    18/36
+MOVE LF@c float@0.0                                                             #    19/36
+PUSHS float@74.85                                                               #    20/36
+POPS LF@c                                                                       #    21/36
+CLEARS                                                                          #    22/36
+PUSHS LF@a                                                                      #    23/36
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    24/36
+POPS LF@__INTERNAL__VAR_0                                                       #    25/36
+WRITE LF@__INTERNAL__VAR_0                                                      #    26/36
+PUSHS LF@b                                                                      #    27/36
+POPS LF@__INTERNAL__VAR_0                                                       #    28/36
+WRITE LF@__INTERNAL__VAR_0                                                      #    29/36
+PUSHS LF@c                                                                      #    30/36
+POPS LF@__INTERNAL__VAR_0                                                       #    31/36
+WRITE LF@__INTERNAL__VAR_0                                                      #    32/36
+JUMP __INTERNAL__FILE_END                                                       #    33/36
+# PROGRAM END                                                                   #    35/36
+LABEL __INTERNAL__FILE_END                                                      #    36/36

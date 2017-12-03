@@ -1,0 +1,113 @@
+# 2017-12-03 11:37:40.993732
+# SECTION: 99_benchmarks
+# TEST: 08
+# INFO: factorial by iteration method
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Wrong escape sequence!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+# Zadejte cislo pro vypocet faktorialu?  3628800
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 10
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 51
+# PRICE: ---
+# 
+#   1: ' factorial by iteration method
+#   2: 
+#   3: scope 'Hlavni telo programu
+#   4: Dim a As Integer
+#   5: DIM vysl AS INTEGER
+#   6: PrinT !"Zadejte cislo pro vypocet faktorialu";
+#   7: InpuT A
+#   8: If a < 0 THEN
+#   9: print !"\nFaktorial nelze spocitat\n";
+#  10: ELSE
+#  11: Vysl = 1
+#  12: Do WHile A > 0
+#  13: VYSL = vysl * a
+#  14: a = A - 1
+#  15: LooP
+#  16: Print vYsl;
+#  17: end IF
+#  18: END SCOPE
+
+########################################
+
+.IFJcode17                                                                      #     1/63
+JUMP main                                                                       #     2/63
+# MAIN                                                                          #     4/63
+LABEL main                                                                      #     5/63
+CREATEFRAME                                                                     #     6/63
+PUSHFRAME                                                                       #     7/63
+DEFVAR LF@a                                                                     #     8/63
+MOVE LF@a int@0                                                                 #     9/63
+DEFVAR LF@vysl                                                                  #    10/63
+MOVE LF@vysl int@0                                                              #    11/63
+PUSHS string@Zadejte\032cislo\032pro\032vypocet\032faktorialu                   #    12/63
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    13/63
+POPS LF@__INTERNAL__VAR_0                                                       #    14/63
+WRITE LF@__INTERNAL__VAR_0                                                      #    15/63
+READ LF@a int                                                                   #    16/63
+# IF BLOCK                                                                      #    17/63
+# IF                                                                            #    18/63
+PUSHS LF@a                                                                      #    19/63
+PUSHS int@0                                                                     #    20/63
+LTS                                                                             #    21/63
+PUSHS bool@true                                                                 #    22/63
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    23/63
+# THEN                                                                          #    24/63
+PUSHS string@\nFaktorial\032nelze\032spocitat\n                                 #    25/63
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    26/63
+POPS LF@__INTERNAL__VAR_0                                                       #    27/63
+WRITE LF@__INTERNAL__VAR_0                                                      #    28/63
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    29/63
+LABEL __INTERNAL__COND_0_END                                                    #    30/63
+# ELSE                                                                          #    31/63
+PUSHS int@1                                                                     #    32/63
+POPS LF@vysl                                                                    #    33/63
+CLEARS                                                                          #    34/63
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    35/63
+PUSHS LF@a                                                                      #    36/63
+PUSHS int@0                                                                     #    37/63
+GTS                                                                             #    38/63
+PUSHS bool@true                                                                 #    39/63
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    40/63
+PUSHS LF@vysl                                                                   #    41/63
+PUSHS LF@a                                                                      #    42/63
+MULS                                                                            #    43/63
+POPS LF@vysl                                                                    #    44/63
+CLEARS                                                                          #    45/63
+PUSHS LF@a                                                                      #    46/63
+PUSHS int@1                                                                     #    47/63
+SUBS                                                                            #    48/63
+POPS LF@a                                                                       #    49/63
+CLEARS                                                                          #    50/63
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    51/63
+LABEL __INTERNAL__LOOP_0_END                                                    #    52/63
+PUSHS LF@vysl                                                                   #    53/63
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    54/63
+POPS LF@__INTERNAL__VAR_0                                                       #    55/63
+WRITE LF@__INTERNAL__VAR_0                                                      #    56/63
+# END IF                                                                        #    57/63
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    58/63
+# END IF BLOCK                                                                  #    59/63
+JUMP __INTERNAL__FILE_END                                                       #    60/63
+# PROGRAM END                                                                   #    62/63
+LABEL __INTERNAL__FILE_END                                                      #    63/63

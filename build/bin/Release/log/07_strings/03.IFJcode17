@@ -1,0 +1,215 @@
+# 2017-12-03 11:37:10.571838
+# SECTION: 07_strings
+# TEST: 03
+# INFO: substr builtin function
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Wrong escape sequence!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+# hainguyen
+# son hai nguyen
+# END
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 51
+# PRICE: ---
+# 
+#   1: ' substr builtin function
+#   2: scope
+#   3: 	dim res as string
+#   4: 	dim tmp as integer
+#   5: 	tmp = 0 - 1
+#   6: 
+#   7: 	res = substr(!"son hai nguyen", 5, 3)
+#   8: 	print res;
+#   9: 
+#  10: 	res = substr(!"son hai nguyen", 9, 120)
+#  11: 	print res;
+#  12: 
+#  13: 	res = substr(!"", 1, 1)
+#  14: 	print res;
+#  15: 
+#  16: 	res = substr(!"nothing", 0, 1)
+#  17: 	print res;
+#  18: 
+#  19: 	res = substr(!"nothing", tmp, 1)
+#  20: 	print res;
+#  21: 
+#  22: 	res = substr(!"\nson hai nguyen", 1, tmp)
+#  23: 	print res;
+#  24: 
+#  25: 	print !"\nEND";
+#  26: 	
+#  27: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/155
+JUMP main                                                                       #     2/155
+# MAIN                                                                          #     4/155
+LABEL main                                                                      #     5/155
+CREATEFRAME                                                                     #     6/155
+PUSHFRAME                                                                       #     7/155
+DEFVAR LF@res                                                                   #     8/155
+MOVE LF@res string@                                                             #     9/155
+DEFVAR LF@tmp                                                                   #    10/155
+MOVE LF@tmp int@0                                                               #    11/155
+PUSHS int@0                                                                     #    12/155
+PUSHS int@1                                                                     #    13/155
+SUBS                                                                            #    14/155
+POPS LF@tmp                                                                     #    15/155
+CLEARS                                                                          #    16/155
+CREATEFRAME                                                                     #    17/155
+PUSHS string@son\032hai\032nguyen                                               #    18/155
+DEFVAR TF@s                                                                     #    19/155
+POPS TF@s                                                                       #    20/155
+PUSHS int@5                                                                     #    21/155
+DEFVAR TF@i                                                                     #    22/155
+POPS TF@i                                                                       #    23/155
+PUSHS int@3                                                                     #    24/155
+DEFVAR TF@n                                                                     #    25/155
+POPS TF@n                                                                       #    26/155
+CALL substr                                                                     #    27/155
+POPFRAME                                                                        #    28/155
+POPS LF@res                                                                     #    29/155
+CLEARS                                                                          #    30/155
+PUSHS LF@res                                                                    #    31/155
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    32/155
+POPS LF@__INTERNAL__VAR_0                                                       #    33/155
+WRITE LF@__INTERNAL__VAR_0                                                      #    34/155
+CREATEFRAME                                                                     #    35/155
+PUSHS string@son\032hai\032nguyen                                               #    36/155
+DEFVAR TF@s                                                                     #    37/155
+POPS TF@s                                                                       #    38/155
+PUSHS int@9                                                                     #    39/155
+DEFVAR TF@i                                                                     #    40/155
+POPS TF@i                                                                       #    41/155
+PUSHS int@120                                                                   #    42/155
+DEFVAR TF@n                                                                     #    43/155
+POPS TF@n                                                                       #    44/155
+CALL substr                                                                     #    45/155
+POPFRAME                                                                        #    46/155
+POPS LF@res                                                                     #    47/155
+CLEARS                                                                          #    48/155
+PUSHS LF@res                                                                    #    49/155
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    50/155
+POPS LF@__INTERNAL__VAR_0                                                       #    51/155
+WRITE LF@__INTERNAL__VAR_0                                                      #    52/155
+CREATEFRAME                                                                     #    53/155
+PUSHS string@                                                                   #    54/155
+DEFVAR TF@s                                                                     #    55/155
+POPS TF@s                                                                       #    56/155
+PUSHS int@1                                                                     #    57/155
+DEFVAR TF@i                                                                     #    58/155
+POPS TF@i                                                                       #    59/155
+PUSHS int@1                                                                     #    60/155
+DEFVAR TF@n                                                                     #    61/155
+POPS TF@n                                                                       #    62/155
+CALL substr                                                                     #    63/155
+POPFRAME                                                                        #    64/155
+POPS LF@res                                                                     #    65/155
+CLEARS                                                                          #    66/155
+PUSHS LF@res                                                                    #    67/155
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    68/155
+POPS LF@__INTERNAL__VAR_0                                                       #    69/155
+WRITE LF@__INTERNAL__VAR_0                                                      #    70/155
+CREATEFRAME                                                                     #    71/155
+PUSHS string@nothing                                                            #    72/155
+DEFVAR TF@s                                                                     #    73/155
+POPS TF@s                                                                       #    74/155
+PUSHS int@0                                                                     #    75/155
+DEFVAR TF@i                                                                     #    76/155
+POPS TF@i                                                                       #    77/155
+PUSHS int@1                                                                     #    78/155
+DEFVAR TF@n                                                                     #    79/155
+POPS TF@n                                                                       #    80/155
+CALL substr                                                                     #    81/155
+POPFRAME                                                                        #    82/155
+POPS LF@res                                                                     #    83/155
+CLEARS                                                                          #    84/155
+PUSHS LF@res                                                                    #    85/155
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    86/155
+POPS LF@__INTERNAL__VAR_0                                                       #    87/155
+WRITE LF@__INTERNAL__VAR_0                                                      #    88/155
+CREATEFRAME                                                                     #    89/155
+PUSHS string@nothing                                                            #    90/155
+DEFVAR TF@s                                                                     #    91/155
+POPS TF@s                                                                       #    92/155
+PUSHS LF@tmp                                                                    #    93/155
+DEFVAR TF@i                                                                     #    94/155
+POPS TF@i                                                                       #    95/155
+PUSHS int@1                                                                     #    96/155
+DEFVAR TF@n                                                                     #    97/155
+POPS TF@n                                                                       #    98/155
+CALL substr                                                                     #    99/155
+POPFRAME                                                                        #   100/155
+POPS LF@res                                                                     #   101/155
+CLEARS                                                                          #   102/155
+PUSHS LF@res                                                                    #   103/155
+DEFVAR LF@__INTERNAL__VAR_0                                                     #   104/155
+POPS LF@__INTERNAL__VAR_0                                                       #   105/155
+WRITE LF@__INTERNAL__VAR_0                                                      #   106/155
+CREATEFRAME                                                                     #   107/155
+PUSHS string@\nson\032hai\032nguyen                                             #   108/155
+DEFVAR TF@s                                                                     #   109/155
+POPS TF@s                                                                       #   110/155
+PUSHS int@1                                                                     #   111/155
+DEFVAR TF@i                                                                     #   112/155
+POPS TF@i                                                                       #   113/155
+PUSHS LF@tmp                                                                    #   114/155
+DEFVAR TF@n                                                                     #   115/155
+POPS TF@n                                                                       #   116/155
+CALL substr                                                                     #   117/155
+POPFRAME                                                                        #   118/155
+POPS LF@res                                                                     #   119/155
+CLEARS                                                                          #   120/155
+PUSHS LF@res                                                                    #   121/155
+DEFVAR LF@__INTERNAL__VAR_0                                                     #   122/155
+POPS LF@__INTERNAL__VAR_0                                                       #   123/155
+WRITE LF@__INTERNAL__VAR_0                                                      #   124/155
+PUSHS string@\nEND                                                              #   125/155
+DEFVAR LF@__INTERNAL__VAR_0                                                     #   126/155
+POPS LF@__INTERNAL__VAR_0                                                       #   127/155
+WRITE LF@__INTERNAL__VAR_0                                                      #   128/155
+JUMP __INTERNAL__FILE_END                                                       #   129/155
+# SUBSTR FUNCTION                                                               #   131/155
+DEFVAR LF@__INTERNAL__VAR_0                                                     #   132/155
+DEFVAR LF@__INTERNAL__VAR_1                                                     #   133/155
+LABEL substr                                                                    #   134/155
+PUSHFRAME                                                                       #   135/155
+SUB LF@i LF@i int@1                                                             #   136/155
+LABEL begin                                                                     #   137/155
+PUSHS LF@n                                                                      #   138/155
+PUSHS int@0                                                                     #   139/155
+GTS                                                                             #   140/155
+PUSHS bool@true                                                                 #   141/155
+JUMPIFNEQS end                                                                  #   142/155
+GETCHAR LF@__INTERNAL__VAR_0 LF@s LF@i                                          #   143/155
+CONCAT LF@__INTERNAL__VAR_1 LF@__INTERNAL__VAR_1 LF@__INTERNAL__VAR_0           #   144/155
+ADD LF@i LF@i int@1                                                             #   145/155
+SUB LF@n LF@n int@1                                                             #   146/155
+JUMP begin                                                                      #   147/155
+LABEL end                                                                       #   148/155
+CLEARS                                                                          #   149/155
+PUSHS LF@__INTERNAL__VAR_1                                                      #   150/155
+RETURN                                                                          #   151/155
+# SUBSTR FUNCTION END                                                           #   152/155
+# PROGRAM END                                                                   #   154/155
+LABEL __INTERNAL__FILE_END                                                      #   155/155

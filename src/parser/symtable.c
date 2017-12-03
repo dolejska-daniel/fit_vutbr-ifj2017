@@ -220,7 +220,7 @@ SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type
     {
         //  Symbol nebyl v tabulce nalezen, bude vytvořen
         DEBUG_LOG(source, "creating new temp var");
-        int result = SymbolTable_insert(st, name, type, TEMPORARY_FRAME, name, &s);
+        int result = SymbolTable_insert(st, name, type, LOCAL_FRAME, name, &s);
         if (result != NO_ERROR)
         {
             DEBUG_ERR(source, "failed to insert symbol to table");

@@ -1,0 +1,77 @@
+# 2017-12-03 11:37:12.350066
+# SECTION: 08_booleans
+# TEST: 007
+# INFO: Print boolean
+# REQUIRED EXTENSIONS: BOOLOP
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 11 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: LF@a=false(bool)
+# Executing instruction: ICLEARS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
+# Arg1: LF@a=true(bool)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 14 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 15 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 16 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=true(bool)
+# Executing instruction: IJUMP at line: 17 with following arguments:
+# Executing instruction: ILABEL at line: 20 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 47 (21+26)
+# 
+#   1: scope 
+#   2:  dim a as boolean = true 
+#   3:  print a; 
+#   4:  end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/20
+JUMP main                                                                       #     2/20
+# MAIN                                                                          #     4/20
+LABEL main                                                                      #     5/20
+CREATEFRAME                                                                     #     6/20
+PUSHFRAME                                                                       #     7/20
+DEFVAR LF@a                                                                     #     8/20
+MOVE LF@a bool@false                                                            #     9/20
+PUSHS bool@true                                                                 #    10/20
+POPS LF@a                                                                       #    11/20
+CLEARS                                                                          #    12/20
+PUSHS LF@a                                                                      #    13/20
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    14/20
+POPS LF@__INTERNAL__VAR_0                                                       #    15/20
+WRITE LF@__INTERNAL__VAR_0                                                      #    16/20
+JUMP __INTERNAL__FILE_END                                                       #    17/20
+# PROGRAM END                                                                   #    19/20
+LABEL __INTERNAL__FILE_END                                                      #    20/20

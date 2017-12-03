@@ -1,0 +1,155 @@
+# 2017-12-03 11:37:12.244787
+# SECTION: 08_booleans
+# TEST: 04
+# INFO: boolean functions
+# REQUIRED EXTENSIONS: BOOLOP
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Exit code:  99
+# Error:      Unknown error occured during parsing.
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  1
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 99
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' boolean functions
+#   2: 
+#   3: function equali(a as integer, b as integer) as boolean
+#   4: 	return a = b
+#   5: end function
+#   6: 
+#   7: function equals(a as string, b as string) as boolean
+#   8: 	return a = b
+#   9: end function
+#  10: 
+#  11: function equalb(a as boolean, b as boolean) as boolean
+#  12: 	return a = b
+#  13: end function
+#  14: 
+#  15: function biggeri(a as integer, b as integer) as boolean
+#  16: 	return a > b
+#  17: end function
+#  18: 
+#  19: function biggerorequald(a as double, b as double) as boolean
+#  20: 	return a >= b
+#  21: end function
+#  22: 
+#  23: scope
+#  24: 	dim a as boolean = true
+#  25: 	dim res as boolean
+#  26: 	dim minus as integer
+#  27: 	minus = minus - 10
+#  28: 
+#  29: 	res = equali(1, 1)
+#  30: 	a = a and res
+#  31: 
+#  32: 	res = equali(1, 1.1)
+#  33: 	a = a and res
+#  34: 
+#  35: 	res = equali(1.7, 1.6)
+#  36: 	a = a and res
+#  37: 
+#  38: 	res = equali(1.8, 0.1)
+#  39: 	a = a and not res
+#  40: 
+#  41: 	res = equals(!"", !"")
+#  42: 	a = a and res
+#  43: 
+#  44: 	res = equals(!"         \n         ", !"         \n         ")
+#  45: 	a = a and res
+#  46: 
+#  47: 	res = equalb(true, true)
+#  48: 	a = a and res
+#  49: 
+#  50: 	res = equalb(false, false)
+#  51: 	a = a and res
+#  52: 
+#  53: 	res = biggeri(42, minus)
+#  54: 	a = a and res
+#  55: 
+#  56: 	res = biggeri(42.78, 41.78)
+#  57: 	a = a and res
+#  58: 
+#  59: 	res = biggerorequald(42.78, 42.78)
+#  60: 	a = a and res
+#  61: 
+#  62: 	res = biggerorequald(minus, 42.78)
+#  63: 	a = a and not res
+#  64: 
+#  65: 	if a then
+#  66: 		print 1;
+#  67: 	else
+#  68: 		print 0;
+#  69: 	end if
+#  70: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/50
+JUMP main                                                                       #     2/50
+# FUNCTION                                                                      #     4/50
+LABEL equali                                                                    #     5/50
+PUSHFRAME                                                                       #     6/50
+PUSHS LF@a                                                                      #     7/50
+PUSHS LF@b                                                                      #     8/50
+EQS                                                                             #     9/50
+RETURN                                                                          #    10/50
+PUSHS bool@false                                                                #    11/50
+RETURN                                                                          #    12/50
+# END FUNCTION                                                                  #    13/50
+# FUNCTION                                                                      #    15/50
+LABEL equals                                                                    #    16/50
+PUSHFRAME                                                                       #    17/50
+PUSHS LF@a                                                                      #    18/50
+PUSHS LF@b                                                                      #    19/50
+EQS                                                                             #    20/50
+RETURN                                                                          #    21/50
+PUSHS bool@false                                                                #    22/50
+RETURN                                                                          #    23/50
+# END FUNCTION                                                                  #    24/50
+# FUNCTION                                                                      #    26/50
+LABEL equalb                                                                    #    27/50
+PUSHFRAME                                                                       #    28/50
+PUSHS LF@a                                                                      #    29/50
+PUSHS LF@b                                                                      #    30/50
+EQS                                                                             #    31/50
+RETURN                                                                          #    32/50
+PUSHS bool@false                                                                #    33/50
+RETURN                                                                          #    34/50
+# END FUNCTION                                                                  #    35/50
+# FUNCTION                                                                      #    37/50
+LABEL biggeri                                                                   #    38/50
+PUSHFRAME                                                                       #    39/50
+PUSHS LF@a                                                                      #    40/50
+PUSHS LF@b                                                                      #    41/50
+GTS                                                                             #    42/50
+RETURN                                                                          #    43/50
+PUSHS bool@false                                                                #    44/50
+RETURN                                                                          #    45/50
+# END FUNCTION                                                                  #    46/50
+# FUNCTION                                                                      #    48/50
+LABEL biggerorequald                                                            #    49/50
+PUSHFRAME                                                                       #    50/50

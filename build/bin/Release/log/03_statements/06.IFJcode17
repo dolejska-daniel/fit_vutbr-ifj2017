@@ -1,0 +1,40 @@
+# 2017-12-03 11:37:06.546134
+# SECTION: 03_statements
+# TEST: 06
+# INFO: print statement
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  42-78 142.254-1.42879e+07 14.25
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 3221225477
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' print statement
+#   2: scope
+#   3: 	print 42; -78;   142.2541;
+#   4: 	print -14287877.254121211  ;
+#   5: 	print 14.25;
+#   6: end scope
+
+########################################
+
+# ---

@@ -60,6 +60,7 @@
 #endif
 
 #define NO_REQUIRED_TYPE -1
+#define FILEEND_INTERNAL_NAME "__INTERNAL__FILE_END"
 #define LOOP_INTERNAL_NAME "__INTERNAL__LOOP"
 #define COND_INTERNAL_NAME "__INTERNAL__COND"
 #define TEMPVAR_INTERNAL_NAME "__INTERNAL__VAR"
@@ -200,15 +201,18 @@ int Parser_ParseInitial(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
                 //  Konec vstupních dat
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_LOG(source, "received FILE_END, calling Parser_DeclareBuiltinFunctions");
+                DEBUG_LOG(source, "received FILE_END, calling Parser_DefineBuiltinFunctions");
                 #endif
 
                 //  Deklarace symbolů pro vestavěné funkce ASC, CHR, LENGTH a SUBSTR
                 Parser_DefineBuiltinFunctions(/*input,*/ ilist, symtable);
 
                 #ifdef DEBUG_VERBOSE
-                DEBUG_LOG(source, "return from Parser_DeclareBuiltinFunctions, ending translation");
+                DEBUG_LOG(source, "return from Parser_DefineBuiltinFunctions, ending translation");
                 #endif
+
+                Instruction_custom(ilist, "\n# PROGRAM END");
+                Instruction_label(ilist, FILEEND_INTERNAL_NAME);
 
                 return result;
                 break;
@@ -1000,11 +1004,6 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
         //  i o deklaraci dané funkce, parametry jsou vždy OK
         paramList = func_info->params;
 
-        result = Instruction_pushframe(ilist);
-        if (result != NO_ERROR)
-        {
-            return result;
-        }
         //  Provedeme změny v tabulce symbolů (je nutné "skrýt" proměnné hlavního programu či jiných funkcí)
         //  první pushframe pro parametry funkce
         SymbolTable_pushFrame(symtable);
@@ -1049,11 +1048,6 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
         return result;
     }
 
-    result = Instruction_pushframe(ilist);
-    if (result != NO_ERROR)
-    {
-        return result;
-    }
     //  Provedeme změny v tabulce symbolů (je nutné "skrýt" proměnné hlavního programu či jiných funkcí)
     //  první pushframe pro parametry funkce
     SymbolTable_pushFrame(symtable);
@@ -2840,6 +2834,12 @@ int Parser_ParseScope(InputPtr input, InstructionListPtr ilist, SymbolTablePtr s
         return SYNTAX_ERROR;
     }
 
+    result = Instruction_jump(ilist, FILEEND_INTERNAL_NAME);
+    if (result != NO_ERROR)
+    {
+        return result;
+    }
+
     DEBUG_LOG(source, "leaving current nesting level");
     NestingList_leaveCurrentLevel(nlist);
     NestingList_debugPrint(nlist);
@@ -3063,6 +3063,29 @@ int Parser_ParseExpression(InputPtr input, InstructionListPtr ilist, SymbolTable
                     return INTERNAL_ERROR;
                 return SYNTAX_ERROR;
             }
+            else if (last_operand_was_variable == false)
+            {
+                //  Posledním operandem neybla proměnná ale ani operátor
+                //  Jedná se o první operand ve výrazu
+                if (token->type == PLUS || token->type == MINUS)
+                {
+                    //  Vrátí plus/mínus
+                    Scanner_UngetToken(input, &token);
+
+                    //  Vrátí nulu a začne zpracovávat výraz znovu
+                    token = Token_create(CONSTANT_INTEGER, String_create("0"));
+                    Scanner_UngetToken(input, &token);
+
+                    scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
+                    continue;
+                }
+                else
+                {
+                    //  Jedná se o jinou operaci
+                    return SYNTAX_ERROR;
+                }
+            }
+
             last_operand_was_variable = false;
             last_operand_was_operator = true;
 
@@ -3429,13 +3452,14 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
     int result;
     SymbolPtr symbol;
     SymbolPtr tempvar;
+    SymbolPtr tempvar2;
     SymbolPtr param_s;
     SymbolPtr param_i;
-    //SymbolPtr param_n;
+    SymbolPtr param_n;
 
     param_s = Symbol_create("s", ST_STRING, LOCAL_FRAME, "s");
     param_i = Symbol_create("i", ST_STRING, LOCAL_FRAME, "i");
-    //param_n = Symbol_create("n", ST_STRING, LOCAL_FRAME, "n");
+    param_n = Symbol_create("n", ST_STRING, LOCAL_FRAME, "n");
 
     if (isUsed_asc)
     {
@@ -3446,7 +3470,14 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
             return INTERNAL_ERROR;
         }
 
+        Instruction_custom(ilist, "\n# ASC FUNCTION");
         result = Instruction_label(ilist, symbol->key);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_pushframe(ilist);
         if (result != NO_ERROR)
         {
             return INTERNAL_ERROR;
@@ -3476,6 +3507,7 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
             return INTERNAL_ERROR;
         }
 
+        Instruction_custom(ilist, "# ASC FUNCTION END");
     }
 
     if (isUsed_chr)
@@ -3487,7 +3519,15 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
             return INTERNAL_ERROR;
         }
 
+        Instruction_custom(ilist, "\n# CHR FUNCTION");
+
         result = Instruction_label(ilist, symbol->key);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_pushframe(ilist);
         if (result != NO_ERROR)
         {
             return INTERNAL_ERROR;
@@ -3511,6 +3551,7 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
             return INTERNAL_ERROR;
         }
 
+        Instruction_custom(ilist, "# CHR FUNCTION END");
     }
 
     if (isUsed_length)
@@ -3522,6 +3563,8 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
             return INTERNAL_ERROR;
         }
 
+        Instruction_custom(ilist, "\n# LENGTH FUNCTION");
+
         tempvar = SymbolTable_getTempVar(symtable, ilist, ST_INTEGER, 0);
         if (tempvar == NULL)
         {
@@ -3529,6 +3572,12 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
         }
 
         result = Instruction_label(ilist, symbol->key);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_pushframe(ilist);
         if (result != NO_ERROR)
         {
             return INTERNAL_ERROR;
@@ -3552,14 +3601,147 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
             return INTERNAL_ERROR;
         }
 
-
         SymbolTable_deleteTempVar(symtable, 0);
+
+        Instruction_custom(ilist, "# LENGTH FUNCTION END");
     }
 
     if (isUsed_substr)
     {
         //  Funkce SUBSTR je v programu použita
         //  TODO: Dodělat
+        symbol = SymbolTable_get(symtable, "substr");
+        if (symbol == NULL)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        Instruction_custom(ilist, "\n# SUBSTR FUNCTION");
+
+        tempvar = SymbolTable_getTempVar(symtable, ilist, ST_STRING, 0);
+        if (tempvar == NULL)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        tempvar2 = SymbolTable_getTempVar(symtable, ilist, ST_STRING, 1);
+        if (tempvar == NULL)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_label(ilist, symbol->key);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_pushframe(ilist);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_custom(ilist, "SUB LF@i LF@i int@1");
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_label(ilist, "begin");
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_stack_push(ilist, param_n);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_custom(ilist, "PUSHS int@0");
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_logic_gt_stack(ilist);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_custom(ilist, "PUSHS bool@true");
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_jumpifneq_stack(ilist, "end");
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_getchar(ilist, tempvar, param_s, param_i);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_concat(ilist, tempvar2, tempvar2, tempvar);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_custom(ilist, "ADD LF@i LF@i int@1");
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_custom(ilist, "SUB LF@n LF@n int@1");
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_jump(ilist, "begin");
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_label(ilist, "end");
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_stack_clear(ilist);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_stack_push(ilist, tempvar2);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        result = Instruction_return(ilist);
+        if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        SymbolTable_deleteTempVar(symtable, 0);
+        SymbolTable_deleteTempVar(symtable, 1);
+
+        Instruction_custom(ilist, "# SUBSTR FUNCTION END");
     }
 
     return NO_ERROR;

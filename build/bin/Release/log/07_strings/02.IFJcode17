@@ -1,0 +1,116 @@
+# 2017-12-03 11:37:10.533737
+# SECTION: 07_strings
+# TEST: 02
+# INFO: string concat
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Wrong escape sequence!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  my content 
+# foo barfoo barfoo bar
+# foo barfoo barfoo bar
+#  my content 
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 51
+# PRICE: ---
+# 
+#   1: ' string concat
+#   2: 
+#   3: scope
+#   4: 	dim a as string
+#   5: 	dim content as string = !" my content "
+#   6: 
+#   7: 	print a; content; !"\n";
+#   8: 
+#   9: 	dim b as string = !""
+#  10: 	dim c as string = !"foo bar"
+#  11: 	dim foo as string
+#  12: 	foo = c + !"" + c + !"" + c + !"\n"
+#  13: 
+#  14: 	print b; foo; foo; content; 
+#  15: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/66
+JUMP main                                                                       #     2/66
+# MAIN                                                                          #     4/66
+LABEL main                                                                      #     5/66
+CREATEFRAME                                                                     #     6/66
+PUSHFRAME                                                                       #     7/66
+DEFVAR LF@a                                                                     #     8/66
+MOVE LF@a string@                                                               #     9/66
+DEFVAR LF@content                                                               #    10/66
+MOVE LF@content string@                                                         #    11/66
+PUSHS string@\032my\032content\032                                              #    12/66
+POPS LF@content                                                                 #    13/66
+CLEARS                                                                          #    14/66
+PUSHS LF@a                                                                      #    15/66
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    16/66
+POPS LF@__INTERNAL__VAR_0                                                       #    17/66
+WRITE LF@__INTERNAL__VAR_0                                                      #    18/66
+PUSHS LF@content                                                                #    19/66
+POPS LF@__INTERNAL__VAR_0                                                       #    20/66
+WRITE LF@__INTERNAL__VAR_0                                                      #    21/66
+PUSHS string@\n                                                                 #    22/66
+POPS LF@__INTERNAL__VAR_0                                                       #    23/66
+WRITE LF@__INTERNAL__VAR_0                                                      #    24/66
+DEFVAR LF@b                                                                     #    25/66
+MOVE LF@b string@                                                               #    26/66
+PUSHS string@                                                                   #    27/66
+POPS LF@b                                                                       #    28/66
+CLEARS                                                                          #    29/66
+DEFVAR LF@c                                                                     #    30/66
+MOVE LF@c string@                                                               #    31/66
+PUSHS string@foo\032bar                                                         #    32/66
+POPS LF@c                                                                       #    33/66
+CLEARS                                                                          #    34/66
+DEFVAR LF@foo                                                                   #    35/66
+MOVE LF@foo string@                                                             #    36/66
+PUSHS LF@c                                                                      #    37/66
+PUSHS string@                                                                   #    38/66
+ADDS                                                                            #    39/66
+PUSHS LF@c                                                                      #    40/66
+ADDS                                                                            #    41/66
+PUSHS string@                                                                   #    42/66
+ADDS                                                                            #    43/66
+PUSHS LF@c                                                                      #    44/66
+ADDS                                                                            #    45/66
+PUSHS string@\n                                                                 #    46/66
+ADDS                                                                            #    47/66
+POPS LF@foo                                                                     #    48/66
+CLEARS                                                                          #    49/66
+PUSHS LF@b                                                                      #    50/66
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    51/66
+POPS LF@__INTERNAL__VAR_0                                                       #    52/66
+WRITE LF@__INTERNAL__VAR_0                                                      #    53/66
+PUSHS LF@foo                                                                    #    54/66
+POPS LF@__INTERNAL__VAR_0                                                       #    55/66
+WRITE LF@__INTERNAL__VAR_0                                                      #    56/66
+PUSHS LF@foo                                                                    #    57/66
+POPS LF@__INTERNAL__VAR_0                                                       #    58/66
+WRITE LF@__INTERNAL__VAR_0                                                      #    59/66
+PUSHS LF@content                                                                #    60/66
+POPS LF@__INTERNAL__VAR_0                                                       #    61/66
+WRITE LF@__INTERNAL__VAR_0                                                      #    62/66
+JUMP __INTERNAL__FILE_END                                                       #    63/66
+# PROGRAM END                                                                   #    65/66
+LABEL __INTERNAL__FILE_END                                                      #    66/66

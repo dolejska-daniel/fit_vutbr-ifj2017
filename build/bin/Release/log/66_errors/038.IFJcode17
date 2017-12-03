@@ -1,0 +1,47 @@
+# 2017-12-03 11:37:31.921609
+# SECTION: 66_errors
+# TEST: 038
+# INFO: wrong operand for two strings
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 4
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: scope 
+#   2:  print !"foo" * !"foo";
+#   3:  end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/14
+JUMP main                                                                       #     2/14
+# MAIN                                                                          #     4/14
+LABEL main                                                                      #     5/14
+CREATEFRAME                                                                     #     6/14
+PUSHFRAME                                                                       #     7/14
+DEFVAR LF@__INTERNAL__VAR_0                                                     #     8/14
+POPS LF@__INTERNAL__VAR_0                                                       #     9/14
+WRITE LF@__INTERNAL__VAR_0                                                      #    10/14
+JUMP __INTERNAL__FILE_END                                                       #    11/14
+# PROGRAM END                                                                   #    13/14
+LABEL __INTERNAL__FILE_END                                                      #    14/14

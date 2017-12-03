@@ -1,0 +1,87 @@
+# 2017-12-03 11:37:07.500672
+# SECTION: 04_expressions
+# TEST: 04
+# INFO: mixed operations with same priority
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Arg1: Const@=42(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 9 with following arguments:
+# Arg1: Const@=21(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 10 with following arguments:
+# Arg1: Stack@=42(int)
+# Arg2: Stack@=21(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 12 with following arguments:
+# Arg1: Stack@=63(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 13 with following arguments:
+# Arg1: Const@=21(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 14 with following arguments:
+# Arg1: Stack@=63(int)
+# Arg2: Stack@=21(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 15 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 16 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 17 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=42(int)
+# Executing instruction: IJUMP at line: 18 with following arguments:
+# Executing instruction: ILABEL at line: 21 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 67 (27+40)
+# 
+#   1: ' mixed operations with same priority
+#   2: scope
+#   3: 	print 42 + 21 + 0 - 21;
+#   4: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/21
+JUMP main                                                                       #     2/21
+# MAIN                                                                          #     4/21
+LABEL main                                                                      #     5/21
+CREATEFRAME                                                                     #     6/21
+PUSHFRAME                                                                       #     7/21
+PUSHS int@42                                                                    #     8/21
+PUSHS int@21                                                                    #     9/21
+ADDS                                                                            #    10/21
+PUSHS int@0                                                                     #    11/21
+ADDS                                                                            #    12/21
+PUSHS int@21                                                                    #    13/21
+SUBS                                                                            #    14/21
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    15/21
+POPS LF@__INTERNAL__VAR_0                                                       #    16/21
+WRITE LF@__INTERNAL__VAR_0                                                      #    17/21
+JUMP __INTERNAL__FILE_END                                                       #    18/21
+# PROGRAM END                                                                   #    20/21
+LABEL __INTERNAL__FILE_END                                                      #    21/21

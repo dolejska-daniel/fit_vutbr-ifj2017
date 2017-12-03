@@ -1,0 +1,157 @@
+# 2017-12-03 11:37:40.888452
+# SECTION: 99_benchmarks
+# TEST: 04
+# INFO: complex expression
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Exit code:  4
+# Error:      Unknown error occured during parsing.
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+# -44485.3
+#  114.453
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 4
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' complex expression
+#   2: 
+#   3: scope
+#   4: 	dim a as integer = 74
+#   5: 	dim b as double = 745.745
+#   6: 	dim c as double = 0-123456789
+#   7: 	
+#   8: 	dim d as double
+#   9: 
+#  10: 	c = (a * a) + b / b - b * a + (b * (a * a + b * a + c * 7 + 2 * 5 * b) - b * 78 * 96 - b * a + (b + c + b + c + b + c)) / c
+#  11: 	print c;
+#  12: 	print !"\n";
+#  13: 	d = a + (b / c) - (7 + b - 0 / (2 * (4 - a + 8 * 9 / (c * 74 - c + c * (b * 8 + 4) + b * a / c + 7) - a + 7) - a * b / b) + 1)/4
+#  14: 	d = d - 2 * d
+#  15: 	print d;
+#  16: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/101
+JUMP main                                                                       #     2/101
+# MAIN                                                                          #     4/101
+LABEL main                                                                      #     5/101
+CREATEFRAME                                                                     #     6/101
+PUSHFRAME                                                                       #     7/101
+DEFVAR LF@a                                                                     #     8/101
+MOVE LF@a int@0                                                                 #     9/101
+PUSHS int@74                                                                    #    10/101
+POPS LF@a                                                                       #    11/101
+CLEARS                                                                          #    12/101
+DEFVAR LF@b                                                                     #    13/101
+MOVE LF@b float@0.0                                                             #    14/101
+PUSHS float@745.745                                                             #    15/101
+POPS LF@b                                                                       #    16/101
+CLEARS                                                                          #    17/101
+DEFVAR LF@c                                                                     #    18/101
+MOVE LF@c float@0.0                                                             #    19/101
+PUSHS int@0                                                                     #    20/101
+PUSHS int@123456789                                                             #    21/101
+SUBS                                                                            #    22/101
+INT2FLOATS                                                                      #    23/101
+POPS LF@c                                                                       #    24/101
+CLEARS                                                                          #    25/101
+DEFVAR LF@d                                                                     #    26/101
+MOVE LF@d float@0.0                                                             #    27/101
+PUSHS LF@a                                                                      #    28/101
+INT2FLOATS                                                                      #    29/101
+PUSHS LF@a                                                                      #    30/101
+MULS                                                                            #    31/101
+PUSHS LF@b                                                                      #    32/101
+PUSHS LF@b                                                                      #    33/101
+DIVS                                                                            #    34/101
+ADDS                                                                            #    35/101
+PUSHS LF@b                                                                      #    36/101
+PUSHS LF@a                                                                      #    37/101
+INT2FLOATS                                                                      #    38/101
+MULS                                                                            #    39/101
+SUBS                                                                            #    40/101
+PUSHS LF@b                                                                      #    41/101
+PUSHS LF@a                                                                      #    42/101
+INT2FLOATS                                                                      #    43/101
+PUSHS LF@a                                                                      #    44/101
+MULS                                                                            #    45/101
+PUSHS LF@b                                                                      #    46/101
+PUSHS LF@a                                                                      #    47/101
+INT2FLOATS                                                                      #    48/101
+MULS                                                                            #    49/101
+ADDS                                                                            #    50/101
+PUSHS LF@c                                                                      #    51/101
+PUSHS int@7                                                                     #    52/101
+INT2FLOATS                                                                      #    53/101
+MULS                                                                            #    54/101
+ADDS                                                                            #    55/101
+PUSHS int@2                                                                     #    56/101
+INT2FLOATS                                                                      #    57/101
+PUSHS int@5                                                                     #    58/101
+MULS                                                                            #    59/101
+PUSHS LF@b                                                                      #    60/101
+MULS                                                                            #    61/101
+ADDS                                                                            #    62/101
+MULS                                                                            #    63/101
+PUSHS LF@b                                                                      #    64/101
+PUSHS int@78                                                                    #    65/101
+INT2FLOATS                                                                      #    66/101
+MULS                                                                            #    67/101
+PUSHS int@96                                                                    #    68/101
+INT2FLOATS                                                                      #    69/101
+MULS                                                                            #    70/101
+SUBS                                                                            #    71/101
+PUSHS LF@b                                                                      #    72/101
+PUSHS LF@a                                                                      #    73/101
+INT2FLOATS                                                                      #    74/101
+MULS                                                                            #    75/101
+SUBS                                                                            #    76/101
+PUSHS LF@b                                                                      #    77/101
+PUSHS LF@c                                                                      #    78/101
+ADDS                                                                            #    79/101
+PUSHS LF@b                                                                      #    80/101
+ADDS                                                                            #    81/101
+PUSHS LF@c                                                                      #    82/101
+ADDS                                                                            #    83/101
+PUSHS LF@b                                                                      #    84/101
+ADDS                                                                            #    85/101
+PUSHS LF@c                                                                      #    86/101
+ADDS                                                                            #    87/101
+ADDS                                                                            #    88/101
+PUSHS LF@c                                                                      #    89/101
+DIVS                                                                            #    90/101
+ADDS                                                                            #    91/101
+POPS LF@c                                                                       #    92/101
+CLEARS                                                                          #    93/101
+PUSHS LF@c                                                                      #    94/101
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    95/101
+POPS LF@__INTERNAL__VAR_0                                                       #    96/101
+WRITE LF@__INTERNAL__VAR_0                                                      #    97/101
+PUSHS string@\n                                                                 #    98/101
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    99/101
+POPS LF@__INTERNAL__VAR_0                                                       #   100/101
+WRITE LF@__INTERNAL__VAR_0                                                      #   101/101

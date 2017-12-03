@@ -1,0 +1,197 @@
+# 2017-12-03 11:37:07.884192
+# SECTION: 04_expressions
+# TEST: 16
+# INFO: exp(x) 6 iteration with loop
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@vysledek
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@vysledek()
+# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Dest: LF@citatel
+# Executing instruction: IMOVE at line: 11 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@citatel()
+# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 13 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: LF@citatel=0(int)
+# Executing instruction: ICLEARS at line: 14 with following arguments:
+# Executing instruction: IDEFVAR at line: 15 with following arguments:
+# Dest: LF@jmenovatel
+# Executing instruction: IMOVE at line: 16 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@jmenovatel()
+# Executing instruction: IPUSHS at line: 17 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 18 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: LF@jmenovatel=0(int)
+# Executing instruction: ICLEARS at line: 19 with following arguments:
+# Executing instruction: IDEFVAR at line: 20 with following arguments:
+# Dest: LF@pocitadlo
+# Executing instruction: IMOVE at line: 21 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@pocitadlo()
+# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 23 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: LF@pocitadlo=0(int)
+# Executing instruction: ICLEARS at line: 24 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@pocitadlo=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=7(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 28 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 30 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: LF@vysledek=0(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 32 with following arguments:
+# Arg1: LF@citatel=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 33 with following arguments:
+# Arg1: LF@jmenovatel=1(int)
+# Dest: Stack@()
+# Executing instruction: IDIVS at line: 34 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Error at line: 34
+# Wrong operand type!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  7.26667
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 53
+# PRICE: ---
+# 
+#   1: ' exp(x) 6 iteration with loop
+#   2: 
+#   3: SCOPE
+#   4: 
+#   5: 	dim vysledek as double
+#   6: 	dim citatel as integer
+#   7: 	citatel = 1
+#   8: 	dim jmenovatel as integer
+#   9: 	jmenovatel = 1
+#  10: 
+#  11: 	dim pocitadlo as integer
+#  12: 	pocitadlo = 1
+#  13: 
+#  14: 	do while pocitadlo < 7
+#  15: 
+#  16: 		vysledek = vysledek + citatel / jmenovatel
+#  17: 
+#  18: 		citatel = citatel * 2
+#  19: 		jmenovatel = jmenovatel * pocitadlo
+#  20: 
+#  21: 		pocitadlo = pocitadlo + 1
+#  22: 
+#  23: 	loop
+#  24: 
+#  25: 	print vysledek;
+#  26: 
+#  27: END SCOPE
+
+########################################
+
+.IFJcode17                                                                      #     1/62
+JUMP main                                                                       #     2/62
+# MAIN                                                                          #     4/62
+LABEL main                                                                      #     5/62
+CREATEFRAME                                                                     #     6/62
+PUSHFRAME                                                                       #     7/62
+DEFVAR LF@vysledek                                                              #     8/62
+MOVE LF@vysledek float@0.0                                                      #     9/62
+DEFVAR LF@citatel                                                               #    10/62
+MOVE LF@citatel int@0                                                           #    11/62
+PUSHS int@1                                                                     #    12/62
+POPS LF@citatel                                                                 #    13/62
+CLEARS                                                                          #    14/62
+DEFVAR LF@jmenovatel                                                            #    15/62
+MOVE LF@jmenovatel int@0                                                        #    16/62
+PUSHS int@1                                                                     #    17/62
+POPS LF@jmenovatel                                                              #    18/62
+CLEARS                                                                          #    19/62
+DEFVAR LF@pocitadlo                                                             #    20/62
+MOVE LF@pocitadlo int@0                                                         #    21/62
+PUSHS int@1                                                                     #    22/62
+POPS LF@pocitadlo                                                               #    23/62
+CLEARS                                                                          #    24/62
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    25/62
+PUSHS LF@pocitadlo                                                              #    26/62
+PUSHS int@7                                                                     #    27/62
+LTS                                                                             #    28/62
+PUSHS bool@true                                                                 #    29/62
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    30/62
+PUSHS LF@vysledek                                                               #    31/62
+PUSHS LF@citatel                                                                #    32/62
+PUSHS LF@jmenovatel                                                             #    33/62
+DIVS                                                                            #    34/62
+ADDS                                                                            #    35/62
+POPS LF@vysledek                                                                #    36/62
+CLEARS                                                                          #    37/62
+PUSHS LF@citatel                                                                #    38/62
+PUSHS int@2                                                                     #    39/62
+MULS                                                                            #    40/62
+POPS LF@citatel                                                                 #    41/62
+CLEARS                                                                          #    42/62
+PUSHS LF@jmenovatel                                                             #    43/62
+PUSHS LF@pocitadlo                                                              #    44/62
+MULS                                                                            #    45/62
+POPS LF@jmenovatel                                                              #    46/62
+CLEARS                                                                          #    47/62
+PUSHS LF@pocitadlo                                                              #    48/62
+PUSHS int@1                                                                     #    49/62
+ADDS                                                                            #    50/62
+POPS LF@pocitadlo                                                               #    51/62
+CLEARS                                                                          #    52/62
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    53/62
+LABEL __INTERNAL__LOOP_0_END                                                    #    54/62
+PUSHS LF@vysledek                                                               #    55/62
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    56/62
+POPS LF@__INTERNAL__VAR_0                                                       #    57/62
+WRITE LF@__INTERNAL__VAR_0                                                      #    58/62
+JUMP __INTERNAL__FILE_END                                                       #    59/62
+# PROGRAM END                                                                   #    61/62
+LABEL __INTERNAL__FILE_END                                                      #    62/62

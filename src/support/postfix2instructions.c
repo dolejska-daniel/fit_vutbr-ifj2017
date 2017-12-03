@@ -484,6 +484,11 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
 
             iY = i->prev;
             iY_end = NULL;
+            if (iY == NULL)
+            {
+                return SYNTAX_ERROR;
+            }
+
             if (iY->isBlockEnd == true)
             {
                 iY_end = iY;
@@ -505,6 +510,11 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
             //  Operand 2 této operace (předchozí blok předchozího bloku instrukcí)
             iX = iY->prev;
             iX_end = NULL;
+            if (iX == NULL)
+            {
+                return SYNTAX_ERROR;
+            }
+
             if (iX->isBlockEnd == true)
             {
                 iX_end = iX;
