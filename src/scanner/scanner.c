@@ -677,7 +677,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
-                if(ch <= 32) //nahrazeni mezery
+                if(ch <= 32)
                 {
                     if (ch < 10)
                     {
@@ -704,8 +704,8 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else if(ch == '"')
             {
+                final_string = String_concat(final_string, "034", NULL);
                 state = STATE_INC_STRING_BEGIN;
-                String_addChar(&final_string, ch);
             }
             else if(ch == 'n')
             {
