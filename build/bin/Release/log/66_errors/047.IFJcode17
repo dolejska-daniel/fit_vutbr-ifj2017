@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:34.259325
+# 2017-12-03 23:09:35.169071
 # SECTION: 66_errors
 # TEST: 047
 # INFO: Expected scope
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 	dim a as integer 
-# 	^~~
-# 
-# Exit code:  2
-# Error:      Unexpected statement on line 1:1. Expected DECLARE, FUNCTION or SCOPE got KEYWORD (DIM).
 # 
 # INTERPRETER STDERR:
 # 

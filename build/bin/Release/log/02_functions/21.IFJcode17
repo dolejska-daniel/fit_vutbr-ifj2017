@@ -1,1309 +1,1354 @@
-# 2017-12-03 11:37:05.270241
+# 2017-12-03 23:09:01.413815
 # SECTION: 02_functions
 # TEST: 21
 # INFO: Recursion of three functions
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
 # Executing instruction: IJUMP at line: 2 with following arguments:
-# Executing instruction: ILABEL at line: 130 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 131 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 132 with following arguments:
-# Executing instruction: IDEFVAR at line: 133 with following arguments:
+# Executing instruction: ILABEL at line: 136 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 137 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 138 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 139 with following arguments:
+# Executing instruction: IDEFVAR at line: 140 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 134 with following arguments:
+# Executing instruction: IMOVE at line: 141 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@a()
-# Executing instruction: ICREATEFRAME at line: 135 with following arguments:
-# Executing instruction: IPUSHS at line: 136 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 142 with following arguments:
+# Executing instruction: IPUSHS at line: 143 with following arguments:
 # Arg1: Const@=20(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 137 with following arguments:
+# Executing instruction: IDEFVAR at line: 144 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 138 with following arguments:
+# Executing instruction: IPOPS at line: 145 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 139 with following arguments:
-# Executing instruction: ILABEL at line: 87 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 88 with following arguments:
-# Executing instruction: IDEFVAR at line: 89 with following arguments:
+# Executing instruction: ICALL at line: 146 with following arguments:
+# Executing instruction: ILABEL at line: 91 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 92 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 93 with following arguments:
+# Executing instruction: IDEFVAR at line: 94 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 90 with following arguments:
+# Executing instruction: IMOVE at line: 95 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 93 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 97 with following arguments:
+# Executing instruction: IPUSHS at line: 99 with following arguments:
 # Arg1: LF@a=20(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 94 with following arguments:
+# Executing instruction: IPUSHS at line: 100 with following arguments:
 # Arg1: Const@=10(int)
 # Dest: Stack@()
-# Executing instruction: IGTS at line: 95 with following arguments:
+# Executing instruction: IGTS at line: 101 with following arguments:
 # Arg1: Stack@=20(int)
 # Arg2: Stack@=10(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 96 with following arguments:
+# Executing instruction: IPUSHS at line: 102 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 97 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 103 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ICREATEFRAME at line: 99 with following arguments:
-# Executing instruction: IPUSHS at line: 100 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 105 with following arguments:
+# Executing instruction: IPUSHS at line: 106 with following arguments:
 # Arg1: LF@a=20(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 101 with following arguments:
+# Executing instruction: IDEFVAR at line: 107 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 102 with following arguments:
+# Executing instruction: IPOPS at line: 108 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 103 with following arguments:
+# Executing instruction: ICALL at line: 109 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: LF@a=20(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 13 with following arguments:
+# Executing instruction: IEQS at line: 15 with following arguments:
 # Arg1: Stack@=20(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 17 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 20 with following arguments:
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: LF@a=20(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 24 with following arguments:
+# Executing instruction: ISUBS at line: 26 with following arguments:
 # Arg1: Stack@=20(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 25 with following arguments:
+# Executing instruction: IPOPS at line: 27 with following arguments:
 # Arg1: Stack@=19(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 26 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 27 with following arguments:
-# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
 # Arg1: LF@b=19(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Executing instruction: IDEFVAR at line: 31 with following arguments:
 # Dest: TF@nn
-# Executing instruction: IPOPS at line: 30 with following arguments:
+# Executing instruction: IPOPS at line: 32 with following arguments:
 # Arg1: Stack@=19(int)
 # Dest: TF@nn()
-# Executing instruction: ICALL at line: 31 with following arguments:
-# Executing instruction: ILABEL at line: 45 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 46 with following arguments:
-# Executing instruction: IDEFVAR at line: 47 with following arguments:
+# Executing instruction: ICALL at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 47 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 48 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 50 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 48 with following arguments:
+# Executing instruction: IMOVE at line: 51 with following arguments:
 # Arg1: LF@nn=19(int)
 # Dest: LF@a()
-# Executing instruction: IDEFVAR at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 50 with following arguments:
+# Executing instruction: IMOVE at line: 53 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 55 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
 # Arg1: LF@a=19(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 55 with following arguments:
+# Executing instruction: IEQS at line: 59 with following arguments:
 # Arg1: Stack@=19(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 60 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 57 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 61 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Executing instruction: ILABEL at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 68 with following arguments:
 # Arg1: LF@a=19(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 66 with following arguments:
+# Executing instruction: ISUBS at line: 70 with following arguments:
 # Arg1: Stack@=19(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 67 with following arguments:
+# Executing instruction: IPOPS at line: 71 with following arguments:
 # Arg1: Stack@=18(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 68 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 69 with following arguments:
-# Executing instruction: IPUSHS at line: 70 with following arguments:
+# Executing instruction: ICLEARS at line: 72 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 73 with following arguments:
+# Executing instruction: IPUSHS at line: 74 with following arguments:
 # Arg1: LF@b=18(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 71 with following arguments:
+# Executing instruction: IDEFVAR at line: 75 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 72 with following arguments:
+# Executing instruction: IPOPS at line: 76 with following arguments:
 # Arg1: Stack@=18(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 73 with following arguments:
+# Executing instruction: ICALL at line: 77 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: LF@a=18(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 13 with following arguments:
+# Executing instruction: IEQS at line: 15 with following arguments:
 # Arg1: Stack@=18(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 17 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 20 with following arguments:
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: LF@a=18(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 24 with following arguments:
+# Executing instruction: ISUBS at line: 26 with following arguments:
 # Arg1: Stack@=18(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 25 with following arguments:
+# Executing instruction: IPOPS at line: 27 with following arguments:
 # Arg1: Stack@=17(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 26 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 27 with following arguments:
-# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
 # Arg1: LF@b=17(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Executing instruction: IDEFVAR at line: 31 with following arguments:
 # Dest: TF@nn
-# Executing instruction: IPOPS at line: 30 with following arguments:
+# Executing instruction: IPOPS at line: 32 with following arguments:
 # Arg1: Stack@=17(int)
 # Dest: TF@nn()
-# Executing instruction: ICALL at line: 31 with following arguments:
-# Executing instruction: ILABEL at line: 45 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 46 with following arguments:
-# Executing instruction: IDEFVAR at line: 47 with following arguments:
+# Executing instruction: ICALL at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 47 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 48 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 50 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 48 with following arguments:
+# Executing instruction: IMOVE at line: 51 with following arguments:
 # Arg1: LF@nn=17(int)
 # Dest: LF@a()
-# Executing instruction: IDEFVAR at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 50 with following arguments:
+# Executing instruction: IMOVE at line: 53 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 55 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
 # Arg1: LF@a=17(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 55 with following arguments:
+# Executing instruction: IEQS at line: 59 with following arguments:
 # Arg1: Stack@=17(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 60 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 57 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 61 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Executing instruction: ILABEL at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 68 with following arguments:
 # Arg1: LF@a=17(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 66 with following arguments:
+# Executing instruction: ISUBS at line: 70 with following arguments:
 # Arg1: Stack@=17(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 67 with following arguments:
+# Executing instruction: IPOPS at line: 71 with following arguments:
 # Arg1: Stack@=16(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 68 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 69 with following arguments:
-# Executing instruction: IPUSHS at line: 70 with following arguments:
+# Executing instruction: ICLEARS at line: 72 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 73 with following arguments:
+# Executing instruction: IPUSHS at line: 74 with following arguments:
 # Arg1: LF@b=16(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 71 with following arguments:
+# Executing instruction: IDEFVAR at line: 75 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 72 with following arguments:
+# Executing instruction: IPOPS at line: 76 with following arguments:
 # Arg1: Stack@=16(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 73 with following arguments:
+# Executing instruction: ICALL at line: 77 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: LF@a=16(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 13 with following arguments:
+# Executing instruction: IEQS at line: 15 with following arguments:
 # Arg1: Stack@=16(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 17 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 20 with following arguments:
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: LF@a=16(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 24 with following arguments:
+# Executing instruction: ISUBS at line: 26 with following arguments:
 # Arg1: Stack@=16(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 25 with following arguments:
+# Executing instruction: IPOPS at line: 27 with following arguments:
 # Arg1: Stack@=15(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 26 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 27 with following arguments:
-# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
 # Arg1: LF@b=15(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Executing instruction: IDEFVAR at line: 31 with following arguments:
 # Dest: TF@nn
-# Executing instruction: IPOPS at line: 30 with following arguments:
+# Executing instruction: IPOPS at line: 32 with following arguments:
 # Arg1: Stack@=15(int)
 # Dest: TF@nn()
-# Executing instruction: ICALL at line: 31 with following arguments:
-# Executing instruction: ILABEL at line: 45 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 46 with following arguments:
-# Executing instruction: IDEFVAR at line: 47 with following arguments:
+# Executing instruction: ICALL at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 47 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 48 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 50 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 48 with following arguments:
+# Executing instruction: IMOVE at line: 51 with following arguments:
 # Arg1: LF@nn=15(int)
 # Dest: LF@a()
-# Executing instruction: IDEFVAR at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 50 with following arguments:
+# Executing instruction: IMOVE at line: 53 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 55 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
 # Arg1: LF@a=15(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 55 with following arguments:
+# Executing instruction: IEQS at line: 59 with following arguments:
 # Arg1: Stack@=15(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 60 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 57 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 61 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Executing instruction: ILABEL at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 68 with following arguments:
 # Arg1: LF@a=15(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 66 with following arguments:
+# Executing instruction: ISUBS at line: 70 with following arguments:
 # Arg1: Stack@=15(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 67 with following arguments:
+# Executing instruction: IPOPS at line: 71 with following arguments:
 # Arg1: Stack@=14(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 68 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 69 with following arguments:
-# Executing instruction: IPUSHS at line: 70 with following arguments:
+# Executing instruction: ICLEARS at line: 72 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 73 with following arguments:
+# Executing instruction: IPUSHS at line: 74 with following arguments:
 # Arg1: LF@b=14(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 71 with following arguments:
+# Executing instruction: IDEFVAR at line: 75 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 72 with following arguments:
+# Executing instruction: IPOPS at line: 76 with following arguments:
 # Arg1: Stack@=14(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 73 with following arguments:
+# Executing instruction: ICALL at line: 77 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: LF@a=14(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 13 with following arguments:
+# Executing instruction: IEQS at line: 15 with following arguments:
 # Arg1: Stack@=14(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 17 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 20 with following arguments:
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: LF@a=14(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 24 with following arguments:
+# Executing instruction: ISUBS at line: 26 with following arguments:
 # Arg1: Stack@=14(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 25 with following arguments:
+# Executing instruction: IPOPS at line: 27 with following arguments:
 # Arg1: Stack@=13(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 26 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 27 with following arguments:
-# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
 # Arg1: LF@b=13(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Executing instruction: IDEFVAR at line: 31 with following arguments:
 # Dest: TF@nn
-# Executing instruction: IPOPS at line: 30 with following arguments:
+# Executing instruction: IPOPS at line: 32 with following arguments:
 # Arg1: Stack@=13(int)
 # Dest: TF@nn()
-# Executing instruction: ICALL at line: 31 with following arguments:
-# Executing instruction: ILABEL at line: 45 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 46 with following arguments:
-# Executing instruction: IDEFVAR at line: 47 with following arguments:
+# Executing instruction: ICALL at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 47 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 48 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 50 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 48 with following arguments:
+# Executing instruction: IMOVE at line: 51 with following arguments:
 # Arg1: LF@nn=13(int)
 # Dest: LF@a()
-# Executing instruction: IDEFVAR at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 50 with following arguments:
+# Executing instruction: IMOVE at line: 53 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 55 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
 # Arg1: LF@a=13(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 55 with following arguments:
+# Executing instruction: IEQS at line: 59 with following arguments:
 # Arg1: Stack@=13(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 60 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 57 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 61 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Executing instruction: ILABEL at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 68 with following arguments:
 # Arg1: LF@a=13(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 66 with following arguments:
+# Executing instruction: ISUBS at line: 70 with following arguments:
 # Arg1: Stack@=13(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 67 with following arguments:
+# Executing instruction: IPOPS at line: 71 with following arguments:
 # Arg1: Stack@=12(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 68 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 69 with following arguments:
-# Executing instruction: IPUSHS at line: 70 with following arguments:
+# Executing instruction: ICLEARS at line: 72 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 73 with following arguments:
+# Executing instruction: IPUSHS at line: 74 with following arguments:
 # Arg1: LF@b=12(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 71 with following arguments:
+# Executing instruction: IDEFVAR at line: 75 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 72 with following arguments:
+# Executing instruction: IPOPS at line: 76 with following arguments:
 # Arg1: Stack@=12(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 73 with following arguments:
+# Executing instruction: ICALL at line: 77 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: LF@a=12(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 13 with following arguments:
+# Executing instruction: IEQS at line: 15 with following arguments:
 # Arg1: Stack@=12(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 17 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 20 with following arguments:
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: LF@a=12(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 24 with following arguments:
+# Executing instruction: ISUBS at line: 26 with following arguments:
 # Arg1: Stack@=12(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 25 with following arguments:
+# Executing instruction: IPOPS at line: 27 with following arguments:
 # Arg1: Stack@=11(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 26 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 27 with following arguments:
-# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
 # Arg1: LF@b=11(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Executing instruction: IDEFVAR at line: 31 with following arguments:
 # Dest: TF@nn
-# Executing instruction: IPOPS at line: 30 with following arguments:
+# Executing instruction: IPOPS at line: 32 with following arguments:
 # Arg1: Stack@=11(int)
 # Dest: TF@nn()
-# Executing instruction: ICALL at line: 31 with following arguments:
-# Executing instruction: ILABEL at line: 45 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 46 with following arguments:
-# Executing instruction: IDEFVAR at line: 47 with following arguments:
+# Executing instruction: ICALL at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 47 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 48 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 50 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 48 with following arguments:
+# Executing instruction: IMOVE at line: 51 with following arguments:
 # Arg1: LF@nn=11(int)
 # Dest: LF@a()
-# Executing instruction: IDEFVAR at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 50 with following arguments:
+# Executing instruction: IMOVE at line: 53 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 55 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
 # Arg1: LF@a=11(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 55 with following arguments:
+# Executing instruction: IEQS at line: 59 with following arguments:
 # Arg1: Stack@=11(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 60 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 57 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 61 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Executing instruction: ILABEL at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 68 with following arguments:
 # Arg1: LF@a=11(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 66 with following arguments:
+# Executing instruction: ISUBS at line: 70 with following arguments:
 # Arg1: Stack@=11(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 67 with following arguments:
+# Executing instruction: IPOPS at line: 71 with following arguments:
 # Arg1: Stack@=10(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 68 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 69 with following arguments:
-# Executing instruction: IPUSHS at line: 70 with following arguments:
+# Executing instruction: ICLEARS at line: 72 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 73 with following arguments:
+# Executing instruction: IPUSHS at line: 74 with following arguments:
 # Arg1: LF@b=10(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 71 with following arguments:
+# Executing instruction: IDEFVAR at line: 75 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 72 with following arguments:
+# Executing instruction: IPOPS at line: 76 with following arguments:
 # Arg1: Stack@=10(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 73 with following arguments:
+# Executing instruction: ICALL at line: 77 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: LF@a=10(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 13 with following arguments:
+# Executing instruction: IEQS at line: 15 with following arguments:
 # Arg1: Stack@=10(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 17 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 20 with following arguments:
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: LF@a=10(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 24 with following arguments:
+# Executing instruction: ISUBS at line: 26 with following arguments:
 # Arg1: Stack@=10(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 25 with following arguments:
+# Executing instruction: IPOPS at line: 27 with following arguments:
 # Arg1: Stack@=9(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 26 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 27 with following arguments:
-# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
 # Arg1: LF@b=9(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Executing instruction: IDEFVAR at line: 31 with following arguments:
 # Dest: TF@nn
-# Executing instruction: IPOPS at line: 30 with following arguments:
+# Executing instruction: IPOPS at line: 32 with following arguments:
 # Arg1: Stack@=9(int)
 # Dest: TF@nn()
-# Executing instruction: ICALL at line: 31 with following arguments:
-# Executing instruction: ILABEL at line: 45 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 46 with following arguments:
-# Executing instruction: IDEFVAR at line: 47 with following arguments:
+# Executing instruction: ICALL at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 47 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 48 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 50 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 48 with following arguments:
+# Executing instruction: IMOVE at line: 51 with following arguments:
 # Arg1: LF@nn=9(int)
 # Dest: LF@a()
-# Executing instruction: IDEFVAR at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 50 with following arguments:
+# Executing instruction: IMOVE at line: 53 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 55 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
 # Arg1: LF@a=9(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 55 with following arguments:
+# Executing instruction: IEQS at line: 59 with following arguments:
 # Arg1: Stack@=9(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 60 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 57 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 61 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Executing instruction: ILABEL at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 68 with following arguments:
 # Arg1: LF@a=9(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 66 with following arguments:
+# Executing instruction: ISUBS at line: 70 with following arguments:
 # Arg1: Stack@=9(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 67 with following arguments:
+# Executing instruction: IPOPS at line: 71 with following arguments:
 # Arg1: Stack@=8(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 68 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 69 with following arguments:
-# Executing instruction: IPUSHS at line: 70 with following arguments:
+# Executing instruction: ICLEARS at line: 72 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 73 with following arguments:
+# Executing instruction: IPUSHS at line: 74 with following arguments:
 # Arg1: LF@b=8(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 71 with following arguments:
+# Executing instruction: IDEFVAR at line: 75 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 72 with following arguments:
+# Executing instruction: IPOPS at line: 76 with following arguments:
 # Arg1: Stack@=8(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 73 with following arguments:
+# Executing instruction: ICALL at line: 77 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: LF@a=8(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 13 with following arguments:
+# Executing instruction: IEQS at line: 15 with following arguments:
 # Arg1: Stack@=8(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 17 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 20 with following arguments:
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: LF@a=8(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 24 with following arguments:
+# Executing instruction: ISUBS at line: 26 with following arguments:
 # Arg1: Stack@=8(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 25 with following arguments:
+# Executing instruction: IPOPS at line: 27 with following arguments:
 # Arg1: Stack@=7(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 26 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 27 with following arguments:
-# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
 # Arg1: LF@b=7(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Executing instruction: IDEFVAR at line: 31 with following arguments:
 # Dest: TF@nn
-# Executing instruction: IPOPS at line: 30 with following arguments:
+# Executing instruction: IPOPS at line: 32 with following arguments:
 # Arg1: Stack@=7(int)
 # Dest: TF@nn()
-# Executing instruction: ICALL at line: 31 with following arguments:
-# Executing instruction: ILABEL at line: 45 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 46 with following arguments:
-# Executing instruction: IDEFVAR at line: 47 with following arguments:
+# Executing instruction: ICALL at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 47 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 48 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 50 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 48 with following arguments:
+# Executing instruction: IMOVE at line: 51 with following arguments:
 # Arg1: LF@nn=7(int)
 # Dest: LF@a()
-# Executing instruction: IDEFVAR at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 50 with following arguments:
+# Executing instruction: IMOVE at line: 53 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 55 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
 # Arg1: LF@a=7(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 55 with following arguments:
+# Executing instruction: IEQS at line: 59 with following arguments:
 # Arg1: Stack@=7(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 60 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 57 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 61 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Executing instruction: ILABEL at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 68 with following arguments:
 # Arg1: LF@a=7(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 66 with following arguments:
+# Executing instruction: ISUBS at line: 70 with following arguments:
 # Arg1: Stack@=7(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 67 with following arguments:
+# Executing instruction: IPOPS at line: 71 with following arguments:
 # Arg1: Stack@=6(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 68 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 69 with following arguments:
-# Executing instruction: IPUSHS at line: 70 with following arguments:
+# Executing instruction: ICLEARS at line: 72 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 73 with following arguments:
+# Executing instruction: IPUSHS at line: 74 with following arguments:
 # Arg1: LF@b=6(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 71 with following arguments:
+# Executing instruction: IDEFVAR at line: 75 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 72 with following arguments:
+# Executing instruction: IPOPS at line: 76 with following arguments:
 # Arg1: Stack@=6(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 73 with following arguments:
+# Executing instruction: ICALL at line: 77 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: LF@a=6(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 13 with following arguments:
+# Executing instruction: IEQS at line: 15 with following arguments:
 # Arg1: Stack@=6(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 17 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 20 with following arguments:
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: LF@a=6(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 24 with following arguments:
+# Executing instruction: ISUBS at line: 26 with following arguments:
 # Arg1: Stack@=6(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 25 with following arguments:
+# Executing instruction: IPOPS at line: 27 with following arguments:
 # Arg1: Stack@=5(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 26 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 27 with following arguments:
-# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
 # Arg1: LF@b=5(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Executing instruction: IDEFVAR at line: 31 with following arguments:
 # Dest: TF@nn
-# Executing instruction: IPOPS at line: 30 with following arguments:
+# Executing instruction: IPOPS at line: 32 with following arguments:
 # Arg1: Stack@=5(int)
 # Dest: TF@nn()
-# Executing instruction: ICALL at line: 31 with following arguments:
-# Executing instruction: ILABEL at line: 45 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 46 with following arguments:
-# Executing instruction: IDEFVAR at line: 47 with following arguments:
+# Executing instruction: ICALL at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 47 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 48 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 50 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 48 with following arguments:
+# Executing instruction: IMOVE at line: 51 with following arguments:
 # Arg1: LF@nn=5(int)
 # Dest: LF@a()
-# Executing instruction: IDEFVAR at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 50 with following arguments:
+# Executing instruction: IMOVE at line: 53 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 55 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
 # Arg1: LF@a=5(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 55 with following arguments:
+# Executing instruction: IEQS at line: 59 with following arguments:
 # Arg1: Stack@=5(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 60 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 57 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 61 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Executing instruction: ILABEL at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 68 with following arguments:
 # Arg1: LF@a=5(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 66 with following arguments:
+# Executing instruction: ISUBS at line: 70 with following arguments:
 # Arg1: Stack@=5(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 67 with following arguments:
+# Executing instruction: IPOPS at line: 71 with following arguments:
 # Arg1: Stack@=4(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 68 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 69 with following arguments:
-# Executing instruction: IPUSHS at line: 70 with following arguments:
+# Executing instruction: ICLEARS at line: 72 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 73 with following arguments:
+# Executing instruction: IPUSHS at line: 74 with following arguments:
 # Arg1: LF@b=4(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 71 with following arguments:
+# Executing instruction: IDEFVAR at line: 75 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 72 with following arguments:
+# Executing instruction: IPOPS at line: 76 with following arguments:
 # Arg1: Stack@=4(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 73 with following arguments:
+# Executing instruction: ICALL at line: 77 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: LF@a=4(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 13 with following arguments:
+# Executing instruction: IEQS at line: 15 with following arguments:
 # Arg1: Stack@=4(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 17 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 20 with following arguments:
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: LF@a=4(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 24 with following arguments:
+# Executing instruction: ISUBS at line: 26 with following arguments:
 # Arg1: Stack@=4(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 25 with following arguments:
+# Executing instruction: IPOPS at line: 27 with following arguments:
 # Arg1: Stack@=3(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 26 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 27 with following arguments:
-# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
 # Arg1: LF@b=3(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Executing instruction: IDEFVAR at line: 31 with following arguments:
 # Dest: TF@nn
-# Executing instruction: IPOPS at line: 30 with following arguments:
+# Executing instruction: IPOPS at line: 32 with following arguments:
 # Arg1: Stack@=3(int)
 # Dest: TF@nn()
-# Executing instruction: ICALL at line: 31 with following arguments:
-# Executing instruction: ILABEL at line: 45 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 46 with following arguments:
-# Executing instruction: IDEFVAR at line: 47 with following arguments:
+# Executing instruction: ICALL at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 47 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 48 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 50 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 48 with following arguments:
+# Executing instruction: IMOVE at line: 51 with following arguments:
 # Arg1: LF@nn=3(int)
 # Dest: LF@a()
-# Executing instruction: IDEFVAR at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 50 with following arguments:
+# Executing instruction: IMOVE at line: 53 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 55 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
 # Arg1: LF@a=3(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 55 with following arguments:
+# Executing instruction: IEQS at line: 59 with following arguments:
 # Arg1: Stack@=3(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 60 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 57 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 61 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Executing instruction: ILABEL at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 68 with following arguments:
 # Arg1: LF@a=3(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 66 with following arguments:
+# Executing instruction: ISUBS at line: 70 with following arguments:
 # Arg1: Stack@=3(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 67 with following arguments:
+# Executing instruction: IPOPS at line: 71 with following arguments:
 # Arg1: Stack@=2(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 68 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 69 with following arguments:
-# Executing instruction: IPUSHS at line: 70 with following arguments:
+# Executing instruction: ICLEARS at line: 72 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 73 with following arguments:
+# Executing instruction: IPUSHS at line: 74 with following arguments:
 # Arg1: LF@b=2(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 71 with following arguments:
+# Executing instruction: IDEFVAR at line: 75 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 72 with following arguments:
+# Executing instruction: IPOPS at line: 76 with following arguments:
 # Arg1: Stack@=2(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 73 with following arguments:
+# Executing instruction: ICALL at line: 77 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: LF@a=2(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 13 with following arguments:
+# Executing instruction: IEQS at line: 15 with following arguments:
 # Arg1: Stack@=2(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 17 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 20 with following arguments:
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: LF@a=2(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 24 with following arguments:
+# Executing instruction: ISUBS at line: 26 with following arguments:
 # Arg1: Stack@=2(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 25 with following arguments:
+# Executing instruction: IPOPS at line: 27 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 26 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 27 with following arguments:
-# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
 # Arg1: LF@b=1(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Executing instruction: IDEFVAR at line: 31 with following arguments:
 # Dest: TF@nn
-# Executing instruction: IPOPS at line: 30 with following arguments:
+# Executing instruction: IPOPS at line: 32 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: TF@nn()
-# Executing instruction: ICALL at line: 31 with following arguments:
-# Executing instruction: ILABEL at line: 45 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 46 with following arguments:
-# Executing instruction: IDEFVAR at line: 47 with following arguments:
+# Executing instruction: ICALL at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 47 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 48 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 50 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 48 with following arguments:
+# Executing instruction: IMOVE at line: 51 with following arguments:
 # Arg1: LF@nn=1(int)
 # Dest: LF@a()
-# Executing instruction: IDEFVAR at line: 49 with following arguments:
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 50 with following arguments:
+# Executing instruction: IMOVE at line: 53 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 55 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
 # Arg1: LF@a=1(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 55 with following arguments:
+# Executing instruction: IEQS at line: 59 with following arguments:
 # Arg1: Stack@=1(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 60 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 57 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 61 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Executing instruction: ILABEL at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 68 with following arguments:
 # Arg1: LF@a=1(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 66 with following arguments:
+# Executing instruction: ISUBS at line: 70 with following arguments:
 # Arg1: Stack@=1(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 67 with following arguments:
+# Executing instruction: IPOPS at line: 71 with following arguments:
 # Arg1: Stack@=0(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 68 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 69 with following arguments:
-# Executing instruction: IPUSHS at line: 70 with following arguments:
+# Executing instruction: ICLEARS at line: 72 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 73 with following arguments:
+# Executing instruction: IPUSHS at line: 74 with following arguments:
 # Arg1: LF@b=0(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 71 with following arguments:
+# Executing instruction: IDEFVAR at line: 75 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 72 with following arguments:
+# Executing instruction: IPOPS at line: 76 with following arguments:
 # Arg1: Stack@=0(int)
 # Dest: TF@a()
-# Executing instruction: ICALL at line: 73 with following arguments:
+# Executing instruction: ICALL at line: 77 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: LF@a=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 13 with following arguments:
+# Executing instruction: IEQS at line: 15 with following arguments:
 # Arg1: Stack@=0(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 17 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: IPUSHS at line: 17 with following arguments:
+# Executing instruction: IPUSHS at line: 19 with following arguments:
 # Arg1: Const@=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 18 with following arguments:
-# Executing instruction: IPOPFRAME at line: 74 with following arguments:
-# Executing instruction: IPOPS at line: 75 with following arguments:
+# Executing instruction: IRETURN at line: 20 with following arguments:
+# Executing instruction: IPOPFRAME at line: 78 with following arguments:
+# Executing instruction: IPOPS at line: 79 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 76 with following arguments:
-# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Executing instruction: ICLEARS at line: 80 with following arguments:
+# Executing instruction: IPUSHS at line: 81 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 78 with following arguments:
-# Executing instruction: IPOPFRAME at line: 32 with following arguments:
-# Executing instruction: IPOPS at line: 33 with following arguments:
+# Executing instruction: IRETURN at line: 82 with following arguments:
+# Executing instruction: IPOPFRAME at line: 34 with following arguments:
+# Executing instruction: IPOPS at line: 35 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=1(int)
-# Executing instruction: ICLEARS at line: 34 with following arguments:
-# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IPUSHS at line: 37 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 36 with following arguments:
-# Executing instruction: IPOPFRAME at line: 74 with following arguments:
-# Executing instruction: IPOPS at line: 75 with following arguments:
+# Executing instruction: IRETURN at line: 38 with following arguments:
+# Executing instruction: IPOPFRAME at line: 78 with following arguments:
+# Executing instruction: IPOPS at line: 79 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=2(int)
-# Executing instruction: ICLEARS at line: 76 with following arguments:
-# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Executing instruction: ICLEARS at line: 80 with following arguments:
+# Executing instruction: IPUSHS at line: 81 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 78 with following arguments:
-# Executing instruction: IPOPFRAME at line: 32 with following arguments:
-# Executing instruction: IPOPS at line: 33 with following arguments:
+# Executing instruction: IRETURN at line: 82 with following arguments:
+# Executing instruction: IPOPFRAME at line: 34 with following arguments:
+# Executing instruction: IPOPS at line: 35 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=3(int)
-# Executing instruction: ICLEARS at line: 34 with following arguments:
-# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IPUSHS at line: 37 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 36 with following arguments:
-# Executing instruction: IPOPFRAME at line: 74 with following arguments:
-# Executing instruction: IPOPS at line: 75 with following arguments:
+# Executing instruction: IRETURN at line: 38 with following arguments:
+# Executing instruction: IPOPFRAME at line: 78 with following arguments:
+# Executing instruction: IPOPS at line: 79 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=4(int)
-# Executing instruction: ICLEARS at line: 76 with following arguments:
-# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Executing instruction: ICLEARS at line: 80 with following arguments:
+# Executing instruction: IPUSHS at line: 81 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 78 with following arguments:
-# Executing instruction: IPOPFRAME at line: 32 with following arguments:
-# Executing instruction: IPOPS at line: 33 with following arguments:
+# Executing instruction: IRETURN at line: 82 with following arguments:
+# Executing instruction: IPOPFRAME at line: 34 with following arguments:
+# Executing instruction: IPOPS at line: 35 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=5(int)
-# Executing instruction: ICLEARS at line: 34 with following arguments:
-# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IPUSHS at line: 37 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 36 with following arguments:
-# Executing instruction: IPOPFRAME at line: 74 with following arguments:
-# Executing instruction: IPOPS at line: 75 with following arguments:
+# Executing instruction: IRETURN at line: 38 with following arguments:
+# Executing instruction: IPOPFRAME at line: 78 with following arguments:
+# Executing instruction: IPOPS at line: 79 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=6(int)
-# Executing instruction: ICLEARS at line: 76 with following arguments:
-# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Executing instruction: ICLEARS at line: 80 with following arguments:
+# Executing instruction: IPUSHS at line: 81 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 78 with following arguments:
-# Executing instruction: IPOPFRAME at line: 32 with following arguments:
-# Executing instruction: IPOPS at line: 33 with following arguments:
+# Executing instruction: IRETURN at line: 82 with following arguments:
+# Executing instruction: IPOPFRAME at line: 34 with following arguments:
+# Executing instruction: IPOPS at line: 35 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=7(int)
-# Executing instruction: ICLEARS at line: 34 with following arguments:
-# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IPUSHS at line: 37 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 36 with following arguments:
-# Executing instruction: IPOPFRAME at line: 74 with following arguments:
-# Executing instruction: IPOPS at line: 75 with following arguments:
+# Executing instruction: IRETURN at line: 38 with following arguments:
+# Executing instruction: IPOPFRAME at line: 78 with following arguments:
+# Executing instruction: IPOPS at line: 79 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=8(int)
-# Executing instruction: ICLEARS at line: 76 with following arguments:
-# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Executing instruction: ICLEARS at line: 80 with following arguments:
+# Executing instruction: IPUSHS at line: 81 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 78 with following arguments:
-# Executing instruction: IPOPFRAME at line: 32 with following arguments:
-# Executing instruction: IPOPS at line: 33 with following arguments:
+# Executing instruction: IRETURN at line: 82 with following arguments:
+# Executing instruction: IPOPFRAME at line: 34 with following arguments:
+# Executing instruction: IPOPS at line: 35 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=9(int)
-# Executing instruction: ICLEARS at line: 34 with following arguments:
-# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IPUSHS at line: 37 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 36 with following arguments:
-# Executing instruction: IPOPFRAME at line: 74 with following arguments:
-# Executing instruction: IPOPS at line: 75 with following arguments:
+# Executing instruction: IRETURN at line: 38 with following arguments:
+# Executing instruction: IPOPFRAME at line: 78 with following arguments:
+# Executing instruction: IPOPS at line: 79 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=10(int)
-# Executing instruction: ICLEARS at line: 76 with following arguments:
-# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Executing instruction: ICLEARS at line: 80 with following arguments:
+# Executing instruction: IPUSHS at line: 81 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 78 with following arguments:
-# Executing instruction: IPOPFRAME at line: 32 with following arguments:
-# Executing instruction: IPOPS at line: 33 with following arguments:
+# Executing instruction: IRETURN at line: 82 with following arguments:
+# Executing instruction: IPOPFRAME at line: 34 with following arguments:
+# Executing instruction: IPOPS at line: 35 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=11(int)
-# Executing instruction: ICLEARS at line: 34 with following arguments:
-# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IPUSHS at line: 37 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 36 with following arguments:
-# Executing instruction: IPOPFRAME at line: 74 with following arguments:
-# Executing instruction: IPOPS at line: 75 with following arguments:
+# Executing instruction: IRETURN at line: 38 with following arguments:
+# Executing instruction: IPOPFRAME at line: 78 with following arguments:
+# Executing instruction: IPOPS at line: 79 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=12(int)
-# Executing instruction: ICLEARS at line: 76 with following arguments:
-# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Executing instruction: ICLEARS at line: 80 with following arguments:
+# Executing instruction: IPUSHS at line: 81 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 78 with following arguments:
-# Executing instruction: IPOPFRAME at line: 32 with following arguments:
-# Executing instruction: IPOPS at line: 33 with following arguments:
+# Executing instruction: IRETURN at line: 82 with following arguments:
+# Executing instruction: IPOPFRAME at line: 34 with following arguments:
+# Executing instruction: IPOPS at line: 35 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=13(int)
-# Executing instruction: ICLEARS at line: 34 with following arguments:
-# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IPUSHS at line: 37 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 36 with following arguments:
-# Executing instruction: IPOPFRAME at line: 74 with following arguments:
-# Executing instruction: IPOPS at line: 75 with following arguments:
+# Executing instruction: IRETURN at line: 38 with following arguments:
+# Executing instruction: IPOPFRAME at line: 78 with following arguments:
+# Executing instruction: IPOPS at line: 79 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=14(int)
-# Executing instruction: ICLEARS at line: 76 with following arguments:
-# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Executing instruction: ICLEARS at line: 80 with following arguments:
+# Executing instruction: IPUSHS at line: 81 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 78 with following arguments:
-# Executing instruction: IPOPFRAME at line: 32 with following arguments:
-# Executing instruction: IPOPS at line: 33 with following arguments:
+# Executing instruction: IRETURN at line: 82 with following arguments:
+# Executing instruction: IPOPFRAME at line: 34 with following arguments:
+# Executing instruction: IPOPS at line: 35 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=15(int)
-# Executing instruction: ICLEARS at line: 34 with following arguments:
-# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IPUSHS at line: 37 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 36 with following arguments:
-# Executing instruction: IPOPFRAME at line: 74 with following arguments:
-# Executing instruction: IPOPS at line: 75 with following arguments:
+# Executing instruction: IRETURN at line: 38 with following arguments:
+# Executing instruction: IPOPFRAME at line: 78 with following arguments:
+# Executing instruction: IPOPS at line: 79 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=16(int)
-# Executing instruction: ICLEARS at line: 76 with following arguments:
-# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Executing instruction: ICLEARS at line: 80 with following arguments:
+# Executing instruction: IPUSHS at line: 81 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 78 with following arguments:
-# Executing instruction: IPOPFRAME at line: 32 with following arguments:
-# Executing instruction: IPOPS at line: 33 with following arguments:
+# Executing instruction: IRETURN at line: 82 with following arguments:
+# Executing instruction: IPOPFRAME at line: 34 with following arguments:
+# Executing instruction: IPOPS at line: 35 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=17(int)
-# Executing instruction: ICLEARS at line: 34 with following arguments:
-# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IPUSHS at line: 37 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 36 with following arguments:
-# Executing instruction: IPOPFRAME at line: 74 with following arguments:
-# Executing instruction: IPOPS at line: 75 with following arguments:
+# Executing instruction: IRETURN at line: 38 with following arguments:
+# Executing instruction: IPOPFRAME at line: 78 with following arguments:
+# Executing instruction: IPOPS at line: 79 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=18(int)
-# Executing instruction: ICLEARS at line: 76 with following arguments:
-# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Executing instruction: ICLEARS at line: 80 with following arguments:
+# Executing instruction: IPUSHS at line: 81 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 78 with following arguments:
-# Executing instruction: IPOPFRAME at line: 32 with following arguments:
-# Executing instruction: IPOPS at line: 33 with following arguments:
+# Executing instruction: IRETURN at line: 82 with following arguments:
+# Executing instruction: IPOPFRAME at line: 34 with following arguments:
+# Executing instruction: IPOPS at line: 35 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=19(int)
-# Executing instruction: ICLEARS at line: 34 with following arguments:
-# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IPUSHS at line: 37 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 36 with following arguments:
-# Executing instruction: IPOPFRAME at line: 104 with following arguments:
-# Executing instruction: IPOPS at line: 105 with following arguments:
+# Executing instruction: IRETURN at line: 38 with following arguments:
+# Executing instruction: IPOPFRAME at line: 110 with following arguments:
+# Executing instruction: IPOPS at line: 111 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@b=0(int)
-# Executing instruction: ICLEARS at line: 106 with following arguments:
-# Executing instruction: IPUSHS at line: 107 with following arguments:
+# Executing instruction: ICLEARS at line: 112 with following arguments:
+# Executing instruction: IPUSHS at line: 113 with following arguments:
 # Arg1: LF@b=20(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 108 with following arguments:
-# Executing instruction: IPOPFRAME at line: 140 with following arguments:
-# Executing instruction: IPOPS at line: 141 with following arguments:
+# Executing instruction: IRETURN at line: 114 with following arguments:
+# Executing instruction: IPOPFRAME at line: 147 with following arguments:
+# Executing instruction: IPOPS at line: 148 with following arguments:
 # Arg1: Stack@=20(int)
 # Dest: LF@a=0(int)
-# Executing instruction: ICLEARS at line: 142 with following arguments:
-# Executing instruction: IPUSHS at line: 143 with following arguments:
+# Executing instruction: ICLEARS at line: 149 with following arguments:
+# Executing instruction: IPUSHS at line: 150 with following arguments:
 # Arg1: LF@a=20(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 144 with following arguments:
-# Dest: LF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 145 with following arguments:
+# Executing instruction: IDEFVAR at line: 151 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 152 with following arguments:
 # Arg1: Stack@=20(int)
-# Dest: LF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 146 with following arguments:
-# Arg1: LF@__INTERNAL__VAR_0=20(int)
-# Executing instruction: IJUMP at line: 147 with following arguments:
-# Executing instruction: ILABEL at line: 150 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 153 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=20(int)
+# Executing instruction: IJUMP at line: 154 with following arguments:
+# Executing instruction: ILABEL at line: 157 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -1315,7 +1360,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 2370 (901+1469)
+# PRICE: 2460 (991+1469)
 # 
 #   1: ' Recursion of three functions
 #   2: 
@@ -1369,148 +1414,155 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/150
-JUMP main                                                                       #     2/150
-# FUNCTION                                                                      #     4/150
-LABEL foo                                                                       #     5/150
-PUSHFRAME                                                                       #     6/150
-DEFVAR LF@b                                                                     #     7/150
-MOVE LF@b int@0                                                                 #     8/150
-# IF BLOCK                                                                      #     9/150
-# IF                                                                            #    10/150
-PUSHS LF@a                                                                      #    11/150
-PUSHS int@0                                                                     #    12/150
-EQS                                                                             #    13/150
-PUSHS bool@true                                                                 #    14/150
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    15/150
-# THEN                                                                          #    16/150
-PUSHS int@20                                                                    #    17/150
-RETURN                                                                          #    18/150
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    19/150
-LABEL __INTERNAL__COND_0_END                                                    #    20/150
-# ELSE                                                                          #    21/150
-PUSHS LF@a                                                                      #    22/150
-PUSHS int@1                                                                     #    23/150
-SUBS                                                                            #    24/150
-POPS LF@b                                                                       #    25/150
-CLEARS                                                                          #    26/150
-CREATEFRAME                                                                     #    27/150
-PUSHS LF@b                                                                      #    28/150
-DEFVAR TF@nn                                                                    #    29/150
-POPS TF@nn                                                                      #    30/150
-CALL bar                                                                        #    31/150
-POPFRAME                                                                        #    32/150
-POPS LF@b                                                                       #    33/150
-CLEARS                                                                          #    34/150
-PUSHS LF@b                                                                      #    35/150
-RETURN                                                                          #    36/150
-# END IF                                                                        #    37/150
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    38/150
-# END IF BLOCK                                                                  #    39/150
-PUSHS int@0                                                                     #    40/150
-RETURN                                                                          #    41/150
-# END FUNCTION                                                                  #    42/150
-# FUNCTION                                                                      #    44/150
-LABEL bar                                                                       #    45/150
-PUSHFRAME                                                                       #    46/150
-DEFVAR LF@a                                                                     #    47/150
-MOVE LF@a LF@nn                                                                 #    48/150
-DEFVAR LF@b                                                                     #    49/150
-MOVE LF@b int@0                                                                 #    50/150
-# IF BLOCK                                                                      #    51/150
-# IF                                                                            #    52/150
-PUSHS LF@a                                                                      #    53/150
-PUSHS int@0                                                                     #    54/150
-EQS                                                                             #    55/150
-PUSHS bool@true                                                                 #    56/150
-JUMPIFNEQS __INTERNAL__COND_1_END                                               #    57/150
-# THEN                                                                          #    58/150
-PUSHS int@20                                                                    #    59/150
-RETURN                                                                          #    60/150
-JUMP __INTERNAL__COND_1_BLOCK_END                                               #    61/150
-LABEL __INTERNAL__COND_1_END                                                    #    62/150
-# ELSE                                                                          #    63/150
-PUSHS LF@a                                                                      #    64/150
-PUSHS int@1                                                                     #    65/150
-SUBS                                                                            #    66/150
-POPS LF@b                                                                       #    67/150
-CLEARS                                                                          #    68/150
-CREATEFRAME                                                                     #    69/150
-PUSHS LF@b                                                                      #    70/150
-DEFVAR TF@a                                                                     #    71/150
-POPS TF@a                                                                       #    72/150
-CALL foo                                                                        #    73/150
-POPFRAME                                                                        #    74/150
-POPS LF@b                                                                       #    75/150
-CLEARS                                                                          #    76/150
-PUSHS LF@b                                                                      #    77/150
-RETURN                                                                          #    78/150
-# END IF                                                                        #    79/150
-LABEL __INTERNAL__COND_1_BLOCK_END                                              #    80/150
-# END IF BLOCK                                                                  #    81/150
-PUSHS int@0                                                                     #    82/150
-RETURN                                                                          #    83/150
-# END FUNCTION                                                                  #    84/150
-# FUNCTION                                                                      #    86/150
-LABEL start                                                                     #    87/150
-PUSHFRAME                                                                       #    88/150
-DEFVAR LF@b                                                                     #    89/150
-MOVE LF@b int@0                                                                 #    90/150
-# IF BLOCK                                                                      #    91/150
-# IF                                                                            #    92/150
-PUSHS LF@a                                                                      #    93/150
-PUSHS int@10                                                                    #    94/150
-GTS                                                                             #    95/150
-PUSHS bool@true                                                                 #    96/150
-JUMPIFNEQS __INTERNAL__COND_2_END                                               #    97/150
-# THEN                                                                          #    98/150
-CREATEFRAME                                                                     #    99/150
-PUSHS LF@a                                                                      #   100/150
-DEFVAR TF@a                                                                     #   101/150
-POPS TF@a                                                                       #   102/150
-CALL foo                                                                        #   103/150
-POPFRAME                                                                        #   104/150
-POPS LF@b                                                                       #   105/150
-CLEARS                                                                          #   106/150
-PUSHS LF@b                                                                      #   107/150
-RETURN                                                                          #   108/150
-JUMP __INTERNAL__COND_2_BLOCK_END                                               #   109/150
-LABEL __INTERNAL__COND_2_END                                                    #   110/150
-# ELSE                                                                          #   111/150
-CREATEFRAME                                                                     #   112/150
-PUSHS LF@a                                                                      #   113/150
-DEFVAR TF@nn                                                                    #   114/150
-POPS TF@nn                                                                      #   115/150
-CALL bar                                                                        #   116/150
-POPFRAME                                                                        #   117/150
-POPS LF@b                                                                       #   118/150
-CLEARS                                                                          #   119/150
-PUSHS LF@b                                                                      #   120/150
-RETURN                                                                          #   121/150
-# END IF                                                                        #   122/150
-LABEL __INTERNAL__COND_2_BLOCK_END                                              #   123/150
-# END IF BLOCK                                                                  #   124/150
-PUSHS int@0                                                                     #   125/150
-RETURN                                                                          #   126/150
-# END FUNCTION                                                                  #   127/150
-# MAIN                                                                          #   129/150
-LABEL main                                                                      #   130/150
-CREATEFRAME                                                                     #   131/150
-PUSHFRAME                                                                       #   132/150
-DEFVAR LF@a                                                                     #   133/150
-MOVE LF@a int@0                                                                 #   134/150
-CREATEFRAME                                                                     #   135/150
-PUSHS int@20                                                                    #   136/150
-DEFVAR TF@a                                                                     #   137/150
-POPS TF@a                                                                       #   138/150
-CALL start                                                                      #   139/150
-POPFRAME                                                                        #   140/150
-POPS LF@a                                                                       #   141/150
-CLEARS                                                                          #   142/150
-PUSHS LF@a                                                                      #   143/150
-DEFVAR LF@__INTERNAL__VAR_0                                                     #   144/150
-POPS LF@__INTERNAL__VAR_0                                                       #   145/150
-WRITE LF@__INTERNAL__VAR_0                                                      #   146/150
-JUMP __INTERNAL__FILE_END                                                       #   147/150
-# PROGRAM END                                                                   #   149/150
-LABEL __INTERNAL__FILE_END                                                      #   150/150
+.IFJcode17                                                                      #     1/157
+JUMP main                                                                       #     2/157
+# FUNCTION                                                                      #     4/157
+LABEL foo                                                                       #     5/157
+PUSHFRAME                                                                       #     6/157
+CREATEFRAME                                                                     #     7/157
+DEFVAR LF@b                                                                     #     8/157
+MOVE LF@b int@0                                                                 #     9/157
+# IF BLOCK                                                                      #    10/157
+CREATEFRAME                                                                     #    11/157
+# IF                                                                            #    12/157
+PUSHS LF@a                                                                      #    13/157
+PUSHS int@0                                                                     #    14/157
+EQS                                                                             #    15/157
+PUSHS bool@true                                                                 #    16/157
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    17/157
+# THEN                                                                          #    18/157
+PUSHS int@20                                                                    #    19/157
+RETURN                                                                          #    20/157
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    21/157
+LABEL __INTERNAL__COND_0_END                                                    #    22/157
+# ELSE                                                                          #    23/157
+PUSHS LF@a                                                                      #    24/157
+PUSHS int@1                                                                     #    25/157
+SUBS                                                                            #    26/157
+POPS LF@b                                                                       #    27/157
+CLEARS                                                                          #    28/157
+CREATEFRAME                                                                     #    29/157
+PUSHS LF@b                                                                      #    30/157
+DEFVAR TF@nn                                                                    #    31/157
+POPS TF@nn                                                                      #    32/157
+CALL bar                                                                        #    33/157
+POPFRAME                                                                        #    34/157
+POPS LF@b                                                                       #    35/157
+CLEARS                                                                          #    36/157
+PUSHS LF@b                                                                      #    37/157
+RETURN                                                                          #    38/157
+# END IF                                                                        #    39/157
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    40/157
+# END IF BLOCK                                                                  #    41/157
+PUSHS int@0                                                                     #    42/157
+RETURN                                                                          #    43/157
+# END FUNCTION                                                                  #    44/157
+# FUNCTION                                                                      #    46/157
+LABEL bar                                                                       #    47/157
+PUSHFRAME                                                                       #    48/157
+CREATEFRAME                                                                     #    49/157
+DEFVAR LF@a                                                                     #    50/157
+MOVE LF@a LF@nn                                                                 #    51/157
+DEFVAR LF@b                                                                     #    52/157
+MOVE LF@b int@0                                                                 #    53/157
+# IF BLOCK                                                                      #    54/157
+CREATEFRAME                                                                     #    55/157
+# IF                                                                            #    56/157
+PUSHS LF@a                                                                      #    57/157
+PUSHS int@0                                                                     #    58/157
+EQS                                                                             #    59/157
+PUSHS bool@true                                                                 #    60/157
+JUMPIFNEQS __INTERNAL__COND_1_END                                               #    61/157
+# THEN                                                                          #    62/157
+PUSHS int@20                                                                    #    63/157
+RETURN                                                                          #    64/157
+JUMP __INTERNAL__COND_1_BLOCK_END                                               #    65/157
+LABEL __INTERNAL__COND_1_END                                                    #    66/157
+# ELSE                                                                          #    67/157
+PUSHS LF@a                                                                      #    68/157
+PUSHS int@1                                                                     #    69/157
+SUBS                                                                            #    70/157
+POPS LF@b                                                                       #    71/157
+CLEARS                                                                          #    72/157
+CREATEFRAME                                                                     #    73/157
+PUSHS LF@b                                                                      #    74/157
+DEFVAR TF@a                                                                     #    75/157
+POPS TF@a                                                                       #    76/157
+CALL foo                                                                        #    77/157
+POPFRAME                                                                        #    78/157
+POPS LF@b                                                                       #    79/157
+CLEARS                                                                          #    80/157
+PUSHS LF@b                                                                      #    81/157
+RETURN                                                                          #    82/157
+# END IF                                                                        #    83/157
+LABEL __INTERNAL__COND_1_BLOCK_END                                              #    84/157
+# END IF BLOCK                                                                  #    85/157
+PUSHS int@0                                                                     #    86/157
+RETURN                                                                          #    87/157
+# END FUNCTION                                                                  #    88/157
+# FUNCTION                                                                      #    90/157
+LABEL start                                                                     #    91/157
+PUSHFRAME                                                                       #    92/157
+CREATEFRAME                                                                     #    93/157
+DEFVAR LF@b                                                                     #    94/157
+MOVE LF@b int@0                                                                 #    95/157
+# IF BLOCK                                                                      #    96/157
+CREATEFRAME                                                                     #    97/157
+# IF                                                                            #    98/157
+PUSHS LF@a                                                                      #    99/157
+PUSHS int@10                                                                    #   100/157
+GTS                                                                             #   101/157
+PUSHS bool@true                                                                 #   102/157
+JUMPIFNEQS __INTERNAL__COND_2_END                                               #   103/157
+# THEN                                                                          #   104/157
+CREATEFRAME                                                                     #   105/157
+PUSHS LF@a                                                                      #   106/157
+DEFVAR TF@a                                                                     #   107/157
+POPS TF@a                                                                       #   108/157
+CALL foo                                                                        #   109/157
+POPFRAME                                                                        #   110/157
+POPS LF@b                                                                       #   111/157
+CLEARS                                                                          #   112/157
+PUSHS LF@b                                                                      #   113/157
+RETURN                                                                          #   114/157
+JUMP __INTERNAL__COND_2_BLOCK_END                                               #   115/157
+LABEL __INTERNAL__COND_2_END                                                    #   116/157
+# ELSE                                                                          #   117/157
+CREATEFRAME                                                                     #   118/157
+PUSHS LF@a                                                                      #   119/157
+DEFVAR TF@nn                                                                    #   120/157
+POPS TF@nn                                                                      #   121/157
+CALL bar                                                                        #   122/157
+POPFRAME                                                                        #   123/157
+POPS LF@b                                                                       #   124/157
+CLEARS                                                                          #   125/157
+PUSHS LF@b                                                                      #   126/157
+RETURN                                                                          #   127/157
+# END IF                                                                        #   128/157
+LABEL __INTERNAL__COND_2_BLOCK_END                                              #   129/157
+# END IF BLOCK                                                                  #   130/157
+PUSHS int@0                                                                     #   131/157
+RETURN                                                                          #   132/157
+# END FUNCTION                                                                  #   133/157
+# MAIN                                                                          #   135/157
+LABEL main                                                                      #   136/157
+CREATEFRAME                                                                     #   137/157
+PUSHFRAME                                                                       #   138/157
+CREATEFRAME                                                                     #   139/157
+DEFVAR LF@a                                                                     #   140/157
+MOVE LF@a int@0                                                                 #   141/157
+CREATEFRAME                                                                     #   142/157
+PUSHS int@20                                                                    #   143/157
+DEFVAR TF@a                                                                     #   144/157
+POPS TF@a                                                                       #   145/157
+CALL start                                                                      #   146/157
+POPFRAME                                                                        #   147/157
+POPS LF@a                                                                       #   148/157
+CLEARS                                                                          #   149/157
+PUSHS LF@a                                                                      #   150/157
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   151/157
+POPS TF@__INTERNAL__VAR_0                                                       #   152/157
+WRITE TF@__INTERNAL__VAR_0                                                      #   153/157
+JUMP __INTERNAL__FILE_END                                                       #   154/157
+# PROGRAM END                                                                   #   156/157
+LABEL __INTERNAL__FILE_END                                                      #   157/157

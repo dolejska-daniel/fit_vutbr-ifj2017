@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:09.655401
+# 2017-12-03 23:09:13.068305
 # SECTION: 05_conditions
 # TEST: 13
 # INFO: Compare equal input strings
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -13,50 +13,52 @@
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 6 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 7 with following arguments:
-# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 9 with following arguments:
+# Executing instruction: IMOVE at line: 10 with following arguments:
 # Arg1: Const@=(string)
 # Dest: LF@a()
-# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Executing instruction: IDEFVAR at line: 11 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 11 with following arguments:
+# Executing instruction: IMOVE at line: 12 with following arguments:
 # Arg1: Const@=(string)
 # Dest: LF@b()
-# Executing instruction: IREAD at line: 12 with following arguments:
-# Dest: LF@a=(string)
 # Executing instruction: IREAD at line: 13 with following arguments:
+# Dest: LF@a=(string)
+# Executing instruction: IREAD at line: 14 with following arguments:
 # Dest: LF@b=(string)
-# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 16 with following arguments:
+# Executing instruction: IPUSHS at line: 18 with following arguments:
 # Arg1: LF@a=Ahojky(string)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 17 with following arguments:
+# Executing instruction: IPUSHS at line: 19 with following arguments:
 # Arg1: LF@b=Ahojky(string)
 # Dest: Stack@()
-# Executing instruction: IEQS at line: 18 with following arguments:
+# Executing instruction: IEQS at line: 20 with following arguments:
 # Arg1: Stack@=Ahojky(string)
 # Arg2: Stack@=Ahojky(string)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 19 with following arguments:
+# Executing instruction: IPUSHS at line: 21 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 20 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 22 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: Const@=42(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 23 with following arguments:
-# Dest: LF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 24 with following arguments:
+# Executing instruction: IDEFVAR at line: 25 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 26 with following arguments:
 # Arg1: Stack@=42(int)
-# Dest: LF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 25 with following arguments:
-# Arg1: LF@__INTERNAL__VAR_0=42(int)
-# Executing instruction: IJUMP at line: 26 with following arguments:
-# Executing instruction: ILABEL at line: 34 with following arguments:
-# Executing instruction: IJUMP at line: 36 with following arguments:
-# Executing instruction: ILABEL at line: 39 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 27 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=42(int)
+# Executing instruction: IJUMP at line: 28 with following arguments:
+# Executing instruction: ILABEL at line: 36 with following arguments:
+# Executing instruction: IJUMP at line: 38 with following arguments:
+# Executing instruction: ILABEL at line: 41 with following arguments:
 # 
 # STDOUT DIFF:
 # --- expected
@@ -92,40 +94,42 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/39
-JUMP main                                                                       #     2/39
-# MAIN                                                                          #     4/39
-LABEL main                                                                      #     5/39
-CREATEFRAME                                                                     #     6/39
-PUSHFRAME                                                                       #     7/39
-DEFVAR LF@a                                                                     #     8/39
-MOVE LF@a string@                                                               #     9/39
-DEFVAR LF@b                                                                     #    10/39
-MOVE LF@b string@                                                               #    11/39
-READ LF@a string                                                                #    12/39
-READ LF@b string                                                                #    13/39
-# IF BLOCK                                                                      #    14/39
-# IF                                                                            #    15/39
-PUSHS LF@a                                                                      #    16/39
-PUSHS LF@b                                                                      #    17/39
-EQS                                                                             #    18/39
-PUSHS bool@true                                                                 #    19/39
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    20/39
-# THEN                                                                          #    21/39
-PUSHS int@42                                                                    #    22/39
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    23/39
-POPS LF@__INTERNAL__VAR_0                                                       #    24/39
-WRITE LF@__INTERNAL__VAR_0                                                      #    25/39
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    26/39
-LABEL __INTERNAL__COND_0_END                                                    #    27/39
-# ELSE                                                                          #    28/39
-PUSHS int@43                                                                    #    29/39
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    30/39
-POPS LF@__INTERNAL__VAR_0                                                       #    31/39
-WRITE LF@__INTERNAL__VAR_0                                                      #    32/39
-# END IF                                                                        #    33/39
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    34/39
-# END IF BLOCK                                                                  #    35/39
-JUMP __INTERNAL__FILE_END                                                       #    36/39
-# PROGRAM END                                                                   #    38/39
-LABEL __INTERNAL__FILE_END                                                      #    39/39
+.IFJcode17                                                                      #     1/41
+JUMP main                                                                       #     2/41
+# MAIN                                                                          #     4/41
+LABEL main                                                                      #     5/41
+CREATEFRAME                                                                     #     6/41
+PUSHFRAME                                                                       #     7/41
+CREATEFRAME                                                                     #     8/41
+DEFVAR LF@a                                                                     #     9/41
+MOVE LF@a string@                                                               #    10/41
+DEFVAR LF@b                                                                     #    11/41
+MOVE LF@b string@                                                               #    12/41
+READ LF@a string                                                                #    13/41
+READ LF@b string                                                                #    14/41
+# IF BLOCK                                                                      #    15/41
+CREATEFRAME                                                                     #    16/41
+# IF                                                                            #    17/41
+PUSHS LF@a                                                                      #    18/41
+PUSHS LF@b                                                                      #    19/41
+EQS                                                                             #    20/41
+PUSHS bool@true                                                                 #    21/41
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    22/41
+# THEN                                                                          #    23/41
+PUSHS int@42                                                                    #    24/41
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    25/41
+POPS TF@__INTERNAL__VAR_0                                                       #    26/41
+WRITE TF@__INTERNAL__VAR_0                                                      #    27/41
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    28/41
+LABEL __INTERNAL__COND_0_END                                                    #    29/41
+# ELSE                                                                          #    30/41
+PUSHS int@43                                                                    #    31/41
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    32/41
+POPS TF@__INTERNAL__VAR_0                                                       #    33/41
+WRITE TF@__INTERNAL__VAR_0                                                      #    34/41
+# END IF                                                                        #    35/41
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    36/41
+# END IF BLOCK                                                                  #    37/41
+JUMP __INTERNAL__FILE_END                                                       #    38/41
+# PROGRAM END                                                                   #    40/41
+LABEL __INTERNAL__FILE_END                                                      #    41/41

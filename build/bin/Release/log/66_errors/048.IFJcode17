@@ -1,19 +1,12 @@
-# 2017-12-03 11:37:34.273362
+# 2017-12-03 23:09:35.184111
 # SECTION: 66_errors
 # TEST: 048
 # INFO: Missing return data type I
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  2
-# Error:      Unexpected statement on line 2:1. Expected KEYWORD (AS) got <EOL>.
 # 
 # INTERPRETER STDERR:
 # 

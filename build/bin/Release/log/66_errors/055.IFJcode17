@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:34.371624
+# 2017-12-03 23:09:35.289390
 # SECTION: 66_errors
 # TEST: 055
 # INFO: False if
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 	 ifa<10 then 
-# 	 ^~~
-# 
-# Exit code:  3
-# Error:      Usage of undefined reference ifa on line 3:2.
 # 
 # INTERPRETER STDERR:
 # 
@@ -48,11 +37,12 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/9
-JUMP main                                                                       #     2/9
-# MAIN                                                                          #     4/9
-LABEL main                                                                      #     5/9
-CREATEFRAME                                                                     #     6/9
-PUSHFRAME                                                                       #     7/9
-DEFVAR LF@a                                                                     #     8/9
-MOVE LF@a int@0                                                                 #     9/9
+.IFJcode17                                                                      #     1/10
+JUMP main                                                                       #     2/10
+# MAIN                                                                          #     4/10
+LABEL main                                                                      #     5/10
+CREATEFRAME                                                                     #     6/10
+PUSHFRAME                                                                       #     7/10
+CREATEFRAME                                                                     #     8/10
+DEFVAR LF@a                                                                     #     9/10
+MOVE LF@a int@0                                                                 #    10/10

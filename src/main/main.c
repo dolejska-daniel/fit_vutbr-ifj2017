@@ -145,7 +145,7 @@ program_exit:
 
 
     DEBUG_LOG("main", "Exiting program");
-    if (result != NO_ERROR)
+    if (result != NO_ERROR && false)
     {
         //  Došlo k ukončení s chybami
         fprintf(stderr, "An error occured during program execution!\n==========================================\n\nYou will find more detailed information below.\n\n");

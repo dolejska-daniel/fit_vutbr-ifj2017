@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:04.653601
+# 2017-12-03 23:09:00.630232
 # SECTION: 02_functions
 # TEST: 03
 # INFO: variable same name like function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 	dim bar as integer
-# 	^
-# 
-# Exit code:  3
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -51,15 +40,17 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/14
-JUMP main                                                                       #     2/14
-# FUNCTION                                                                      #     4/14
-LABEL bar                                                                       #     5/14
-PUSHFRAME                                                                       #     6/14
-PUSHS string@                                                                   #     7/14
-RETURN                                                                          #     8/14
-# END FUNCTION                                                                  #     9/14
-# MAIN                                                                          #    11/14
-LABEL main                                                                      #    12/14
-CREATEFRAME                                                                     #    13/14
-PUSHFRAME                                                                       #    14/14
+.IFJcode17                                                                      #     1/16
+JUMP main                                                                       #     2/16
+# FUNCTION                                                                      #     4/16
+LABEL bar                                                                       #     5/16
+PUSHFRAME                                                                       #     6/16
+CREATEFRAME                                                                     #     7/16
+PUSHS string@                                                                   #     8/16
+RETURN                                                                          #     9/16
+# END FUNCTION                                                                  #    10/16
+# MAIN                                                                          #    12/16
+LABEL main                                                                      #    13/16
+CREATEFRAME                                                                     #    14/16
+PUSHFRAME                                                                       #    15/16
+CREATEFRAME                                                                     #    16/16

@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:01.572409
+# 2017-12-03 23:08:57.655823
 # SECTION: 01_basic
 # TEST: 05
 # INFO: string escape sequences
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -36,22 +36,23 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/21
-JUMP main                                                                       #     2/21
-# MAIN                                                                          #     4/21
-LABEL main                                                                      #     5/21
-CREATEFRAME                                                                     #     6/21
-PUSHFRAME                                                                       #     7/21
-DEFVAR LF@str                                                                   #     8/21
-MOVE LF@str string@                                                             #     9/21
-PUSHS string@\"\n\t\\\238                                                       #    10/21
-POPS LF@str                                                                     #    11/21
-CLEARS                                                                          #    12/21
-DEFVAR LF@str0                                                                  #    13/21
-MOVE LF@str0 string@                                                            #    14/21
-PUSHS string@\001\255\\\n                                                       #    15/21
-POPS LF@str0                                                                    #    16/21
-CLEARS                                                                          #    17/21
-JUMP __INTERNAL__FILE_END                                                       #    18/21
-# PROGRAM END                                                                   #    20/21
-LABEL __INTERNAL__FILE_END                                                      #    21/21
+.IFJcode17                                                                      #     1/22
+JUMP main                                                                       #     2/22
+# MAIN                                                                          #     4/22
+LABEL main                                                                      #     5/22
+CREATEFRAME                                                                     #     6/22
+PUSHFRAME                                                                       #     7/22
+CREATEFRAME                                                                     #     8/22
+DEFVAR LF@str                                                                   #     9/22
+MOVE LF@str string@                                                             #    10/22
+PUSHS string@\"\n\t\\\238                                                       #    11/22
+POPS LF@str                                                                     #    12/22
+CLEARS                                                                          #    13/22
+DEFVAR LF@str0                                                                  #    14/22
+MOVE LF@str0 string@                                                            #    15/22
+PUSHS string@\001\255\\\n                                                       #    16/22
+POPS LF@str0                                                                    #    17/22
+CLEARS                                                                          #    18/22
+JUMP __INTERNAL__FILE_END                                                       #    19/22
+# PROGRAM END                                                                   #    21/22
+LABEL __INTERNAL__FILE_END                                                      #    22/22

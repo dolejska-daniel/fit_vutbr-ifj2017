@@ -1,10 +1,10 @@
-# 2017-12-03 11:37:34.231251
+# 2017-12-03 23:09:35.139493
 # SECTION: 66_errors
 # TEST: 045
 # INFO: missing operand in braces group
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
@@ -22,7 +22,7 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 2
-# CURRENT COMPILER EXIT CODE: 3221225477
+# CURRENT COMPILER EXIT CODE: 2
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
@@ -33,4 +33,10 @@
 
 ########################################
 
-# ---
+.IFJcode17                                                                      #     1/8
+JUMP main                                                                       #     2/8
+# MAIN                                                                          #     4/8
+LABEL main                                                                      #     5/8
+CREATEFRAME                                                                     #     6/8
+PUSHFRAME                                                                       #     7/8
+CREATEFRAME                                                                     #     8/8

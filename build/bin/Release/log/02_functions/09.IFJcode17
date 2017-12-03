@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:04.813025
+# 2017-12-03 23:09:00.852824
 # SECTION: 02_functions
 # TEST: 09
 # INFO: Call built-in feature length
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -13,34 +13,35 @@
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 6 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 7 with following arguments:
-# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
 # Dest: LF@retezec
-# Executing instruction: IMOVE at line: 9 with following arguments:
+# Executing instruction: IMOVE at line: 10 with following arguments:
 # Arg1: Const@=(string)
 # Dest: LF@retezec()
-# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Executing instruction: IPUSHS at line: 11 with following arguments:
 # Arg1: Const@=ahoj(string)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 11 with following arguments:
+# Executing instruction: IPOPS at line: 12 with following arguments:
 # Arg1: Stack@=ahoj(string)
 # Dest: LF@retezec=(string)
-# Executing instruction: ICLEARS at line: 12 with following arguments:
-# Executing instruction: IDEFVAR at line: 13 with following arguments:
+# Executing instruction: ICLEARS at line: 13 with following arguments:
+# Executing instruction: IDEFVAR at line: 14 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 14 with following arguments:
+# Executing instruction: IMOVE at line: 15 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@a()
-# Executing instruction: ICREATEFRAME at line: 15 with following arguments:
-# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 16 with following arguments:
+# Executing instruction: IPUSHS at line: 17 with following arguments:
 # Arg1: LF@retezec=ahoj(string)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 17 with following arguments:
+# Executing instruction: IDEFVAR at line: 18 with following arguments:
 # Dest: TF@s
-# Executing instruction: IPOPS at line: 18 with following arguments:
+# Executing instruction: IPOPS at line: 19 with following arguments:
 # Arg1: Stack@=ahoj(string)
 # Dest: TF@s()
-# Executing instruction: ICALL at line: 19 with following arguments:
-# Error at line: 19
+# Executing instruction: ICALL at line: 20 with following arguments:
+# Error at line: 20
 # Label does not exist!
 # 
 # EXPECTED INTERPRETER STDOUT:
@@ -78,32 +79,32 @@ JUMP main                                                                       
 LABEL main                                                                      #     5/39
 CREATEFRAME                                                                     #     6/39
 PUSHFRAME                                                                       #     7/39
-DEFVAR LF@retezec                                                               #     8/39
-MOVE LF@retezec string@                                                         #     9/39
-PUSHS string@ahoj                                                               #    10/39
-POPS LF@retezec                                                                 #    11/39
-CLEARS                                                                          #    12/39
-DEFVAR LF@a                                                                     #    13/39
-MOVE LF@a int@0                                                                 #    14/39
-CREATEFRAME                                                                     #    15/39
-PUSHS LF@retezec                                                                #    16/39
-DEFVAR TF@s                                                                     #    17/39
-POPS TF@s                                                                       #    18/39
-CALL length                                                                     #    19/39
-POPFRAME                                                                        #    20/39
-POPS LF@a                                                                       #    21/39
-CLEARS                                                                          #    22/39
-PUSHS LF@a                                                                      #    23/39
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    24/39
-POPS LF@__INTERNAL__VAR_0                                                       #    25/39
-WRITE LF@__INTERNAL__VAR_0                                                      #    26/39
-JUMP __INTERNAL__FILE_END                                                       #    27/39
-# LENGTH FUNCTION                                                               #    29/39
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    30/39
+CREATEFRAME                                                                     #     8/39
+DEFVAR LF@retezec                                                               #     9/39
+MOVE LF@retezec string@                                                         #    10/39
+PUSHS string@ahoj                                                               #    11/39
+POPS LF@retezec                                                                 #    12/39
+CLEARS                                                                          #    13/39
+DEFVAR LF@a                                                                     #    14/39
+MOVE LF@a int@0                                                                 #    15/39
+CREATEFRAME                                                                     #    16/39
+PUSHS LF@retezec                                                                #    17/39
+DEFVAR TF@s                                                                     #    18/39
+POPS TF@s                                                                       #    19/39
+CALL length                                                                     #    20/39
+POPFRAME                                                                        #    21/39
+POPS LF@a                                                                       #    22/39
+CLEARS                                                                          #    23/39
+PUSHS LF@a                                                                      #    24/39
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    25/39
+POPS TF@__INTERNAL__VAR_0                                                       #    26/39
+WRITE TF@__INTERNAL__VAR_0                                                      #    27/39
+JUMP __INTERNAL__FILE_END                                                       #    28/39
+# LENGTH FUNCTION                                                               #    30/39
 LABEL chr                                                                       #    31/39
 PUSHFRAME                                                                       #    32/39
-STRLEN LF@__INTERNAL__VAR_0 LF@s                                                #    33/39
-PUSHS LF@__INTERNAL__VAR_0                                                      #    34/39
+STRLEN TF@__INTERNAL__VAR_0 LF@s                                                #    33/39
+PUSHS TF@__INTERNAL__VAR_0                                                      #    34/39
 RETURN                                                                          #    35/39
 # LENGTH FUNCTION END                                                           #    36/39
 # PROGRAM END                                                                   #    38/39

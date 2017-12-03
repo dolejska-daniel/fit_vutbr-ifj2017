@@ -1,19 +1,12 @@
-# 2017-12-03 11:37:19.916686
+# 2017-12-03 23:09:22.622208
 # SECTION: 66_errors
 # TEST: 07
 # INFO: Call function with too many arguments
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  2
-# Error:      Unexpected statement on line 10:-1. Expected CLOSE_BRACKET got CONSTANT_INTEGER.
 # 
 # INTERPRETER STDERR:
 # 
@@ -48,17 +41,19 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/16
-JUMP main                                                                       #     2/16
-# FUNCTION                                                                      #     4/16
-LABEL foo                                                                       #     5/16
-PUSHFRAME                                                                       #     6/16
-PUSHS int@0                                                                     #     7/16
-RETURN                                                                          #     8/16
-# END FUNCTION                                                                  #     9/16
-# MAIN                                                                          #    11/16
-LABEL main                                                                      #    12/16
-CREATEFRAME                                                                     #    13/16
-PUSHFRAME                                                                       #    14/16
-DEFVAR LF@a                                                                     #    15/16
-MOVE LF@a int@0                                                                 #    16/16
+.IFJcode17                                                                      #     1/18
+JUMP main                                                                       #     2/18
+# FUNCTION                                                                      #     4/18
+LABEL foo                                                                       #     5/18
+PUSHFRAME                                                                       #     6/18
+CREATEFRAME                                                                     #     7/18
+PUSHS int@0                                                                     #     8/18
+RETURN                                                                          #     9/18
+# END FUNCTION                                                                  #    10/18
+# MAIN                                                                          #    12/18
+LABEL main                                                                      #    13/18
+CREATEFRAME                                                                     #    14/18
+PUSHFRAME                                                                       #    15/18
+CREATEFRAME                                                                     #    16/18
+DEFVAR LF@a                                                                     #    17/18
+MOVE LF@a int@0                                                                 #    18/18

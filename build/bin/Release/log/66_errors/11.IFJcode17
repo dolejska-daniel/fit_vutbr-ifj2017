@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:19.972334
+# 2017-12-03 23:09:22.685878
 # SECTION: 66_errors
 # TEST: 11
 # INFO: Function call undefined function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 		a = bar()
-# 	^
-# 
-# Exit code:  3
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -54,10 +43,11 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/8
-JUMP main                                                                       #     2/8
-# FUNCTION                                                                      #     4/8
-LABEL foo                                                                       #     5/8
-PUSHFRAME                                                                       #     6/8
-DEFVAR LF@a                                                                     #     7/8
-MOVE LF@a int@0                                                                 #     8/8
+.IFJcode17                                                                      #     1/9
+JUMP main                                                                       #     2/9
+# FUNCTION                                                                      #     4/9
+LABEL foo                                                                       #     5/9
+PUSHFRAME                                                                       #     6/9
+CREATEFRAME                                                                     #     7/9
+DEFVAR LF@a                                                                     #     8/9
+MOVE LF@a int@0                                                                 #     9/9

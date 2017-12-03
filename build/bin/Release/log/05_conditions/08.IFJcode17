@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:09.535082
+# 2017-12-03 23:09:11.762834
 # SECTION: 05_conditions
 # TEST: 08
 # INFO: Smaller or same
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 		if (8 <= 8)  then
-# 	^
-# 
-# Exit code:  99
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -34,7 +23,7 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 99
+# CURRENT COMPILER EXIT CODE: 3221225477
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
@@ -51,11 +40,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/9
-JUMP main                                                                       #     2/9
-# MAIN                                                                          #     4/9
-LABEL main                                                                      #     5/9
-CREATEFRAME                                                                     #     6/9
-PUSHFRAME                                                                       #     7/9
-# IF BLOCK                                                                      #     8/9
-# IF                                                                            #     9/9
+# ---

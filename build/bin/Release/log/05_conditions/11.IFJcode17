@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:09.603764
+# 2017-12-03 23:09:11.851570
 # SECTION: 05_conditions
 # TEST: 11
 # INFO: Call undefined function in expr
 # REQUIRED EXTENSIONS: FUNEXP
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 		if foo() > 8 then
-# 	^
-# 
-# Exit code:  3
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -49,10 +38,12 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/8
-JUMP main                                                                       #     2/8
-# MAIN                                                                          #     4/8
-LABEL main                                                                      #     5/8
-CREATEFRAME                                                                     #     6/8
-PUSHFRAME                                                                       #     7/8
-# IF BLOCK                                                                      #     8/8
+.IFJcode17                                                                      #     1/10
+JUMP main                                                                       #     2/10
+# MAIN                                                                          #     4/10
+LABEL main                                                                      #     5/10
+CREATEFRAME                                                                     #     6/10
+PUSHFRAME                                                                       #     7/10
+CREATEFRAME                                                                     #     8/10
+# IF BLOCK                                                                      #     9/10
+CREATEFRAME                                                                     #    10/10

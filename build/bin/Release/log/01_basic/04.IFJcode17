@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:01.535310
+# 2017-12-03 23:08:57.617220
 # SECTION: 01_basic
 # TEST: 04
 # INFO: variable declarations with edge cases
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -13,43 +13,44 @@
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 6 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 7 with following arguments:
-# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
 # Dest: LF@_a45
-# Executing instruction: IMOVE at line: 9 with following arguments:
+# Executing instruction: IMOVE at line: 10 with following arguments:
 # Arg1: Const@=(string)
 # Dest: LF@_a45()
-# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Executing instruction: IDEFVAR at line: 11 with following arguments:
 # Dest: LF@__b
-# Executing instruction: IMOVE at line: 11 with following arguments:
+# Executing instruction: IMOVE at line: 12 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@__b()
-# Executing instruction: IDEFVAR at line: 12 with following arguments:
+# Executing instruction: IDEFVAR at line: 13 with following arguments:
 # Dest: LF@_
-# Executing instruction: IMOVE at line: 13 with following arguments:
+# Executing instruction: IMOVE at line: 14 with following arguments:
 # Arg1: Const@=0(double)
 # Dest: LF@_()
-# Executing instruction: IDEFVAR at line: 14 with following arguments:
+# Executing instruction: IDEFVAR at line: 15 with following arguments:
 # Dest: LF@__
-# Executing instruction: IMOVE at line: 15 with following arguments:
+# Executing instruction: IMOVE at line: 16 with following arguments:
 # Arg1: Const@=0(double)
 # Dest: LF@__()
-# Executing instruction: IDEFVAR at line: 16 with following arguments:
+# Executing instruction: IDEFVAR at line: 17 with following arguments:
 # Dest: LF@_47
-# Executing instruction: IMOVE at line: 17 with following arguments:
+# Executing instruction: IMOVE at line: 18 with following arguments:
 # Arg1: Const@=0(double)
 # Dest: LF@_47()
-# Executing instruction: IDEFVAR at line: 18 with following arguments:
+# Executing instruction: IDEFVAR at line: 19 with following arguments:
 # Dest: LF@_47_
-# Executing instruction: IMOVE at line: 19 with following arguments:
+# Executing instruction: IMOVE at line: 20 with following arguments:
 # Arg1: Const@=0(double)
 # Dest: LF@_47_()
-# Executing instruction: IDEFVAR at line: 20 with following arguments:
+# Executing instruction: IDEFVAR at line: 21 with following arguments:
 # Dest: LF@_barman
-# Executing instruction: IMOVE at line: 21 with following arguments:
+# Executing instruction: IMOVE at line: 22 with following arguments:
 # Arg1: Const@=0(double)
 # Dest: LF@_barman()
-# Executing instruction: IJUMP at line: 22 with following arguments:
-# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IJUMP at line: 23 with following arguments:
+# Executing instruction: ILABEL at line: 26 with following arguments:
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -66,7 +67,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 57 (22+35)
+# PRICE: 59 (24+35)
 # 
 #   1: ' variable declarations with edge cases
 #   2: scope
@@ -81,26 +82,27 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/25
-JUMP main                                                                       #     2/25
-# MAIN                                                                          #     4/25
-LABEL main                                                                      #     5/25
-CREATEFRAME                                                                     #     6/25
-PUSHFRAME                                                                       #     7/25
-DEFVAR LF@_a45                                                                  #     8/25
-MOVE LF@_a45 string@                                                            #     9/25
-DEFVAR LF@__b                                                                   #    10/25
-MOVE LF@__b int@0                                                               #    11/25
-DEFVAR LF@_                                                                     #    12/25
-MOVE LF@_ float@0.0                                                             #    13/25
-DEFVAR LF@__                                                                    #    14/25
-MOVE LF@__ float@0.0                                                            #    15/25
-DEFVAR LF@_47                                                                   #    16/25
-MOVE LF@_47 float@0.0                                                           #    17/25
-DEFVAR LF@_47_                                                                  #    18/25
-MOVE LF@_47_ float@0.0                                                          #    19/25
-DEFVAR LF@_barman                                                               #    20/25
-MOVE LF@_barman float@0.0                                                       #    21/25
-JUMP __INTERNAL__FILE_END                                                       #    22/25
-# PROGRAM END                                                                   #    24/25
-LABEL __INTERNAL__FILE_END                                                      #    25/25
+.IFJcode17                                                                      #     1/26
+JUMP main                                                                       #     2/26
+# MAIN                                                                          #     4/26
+LABEL main                                                                      #     5/26
+CREATEFRAME                                                                     #     6/26
+PUSHFRAME                                                                       #     7/26
+CREATEFRAME                                                                     #     8/26
+DEFVAR LF@_a45                                                                  #     9/26
+MOVE LF@_a45 string@                                                            #    10/26
+DEFVAR LF@__b                                                                   #    11/26
+MOVE LF@__b int@0                                                               #    12/26
+DEFVAR LF@_                                                                     #    13/26
+MOVE LF@_ float@0.0                                                             #    14/26
+DEFVAR LF@__                                                                    #    15/26
+MOVE LF@__ float@0.0                                                            #    16/26
+DEFVAR LF@_47                                                                   #    17/26
+MOVE LF@_47 float@0.0                                                           #    18/26
+DEFVAR LF@_47_                                                                  #    19/26
+MOVE LF@_47_ float@0.0                                                          #    20/26
+DEFVAR LF@_barman                                                               #    21/26
+MOVE LF@_barman float@0.0                                                       #    22/26
+JUMP __INTERNAL__FILE_END                                                       #    23/26
+# PROGRAM END                                                                   #    25/26
+LABEL __INTERNAL__FILE_END                                                      #    26/26

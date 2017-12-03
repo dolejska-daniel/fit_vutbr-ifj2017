@@ -1,32 +1,92 @@
-# 2017-12-03 11:37:06.546134
+# 2017-12-03 23:09:02.030455
 # SECTION: 03_statements
 # TEST: 06
 # INFO: print statement
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IPUSHS at line: 9 with following arguments:
+# Arg1: Const@=42(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 11 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 12 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=42(int)
+# Executing instruction: IPUSHS at line: 13 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Arg1: Const@=78(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 15 with following arguments:
+# Arg1: Stack@=0(int)
+# Arg2: Stack@=78(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 16 with following arguments:
+# Arg1: Stack@=-78(int)
+# Dest: TF@__INTERNAL__VAR_0=42(int)
+# Executing instruction: IWRITE at line: 17 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=-78(int)
+# Executing instruction: IPUSHS at line: 18 with following arguments:
+# Arg1: Const@=142.254(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 19 with following arguments:
+# Arg1: Stack@=142.254(double)
+# Dest: TF@__INTERNAL__VAR_0=-78(int)
+# Executing instruction: IWRITE at line: 20 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=142.254(double)
+# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 22 with following arguments:
+# Arg1: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Arg1: Const@=1.42879e+07(double)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 24 with following arguments:
+# Arg1: Stack@=0(double)
+# Arg2: Stack@=1.42879e+07(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 25 with following arguments:
+# Arg1: Stack@=-1.42879e+07(double)
+# Dest: TF@__INTERNAL__VAR_0=142.254(double)
+# Executing instruction: IWRITE at line: 26 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=-1.42879e+07(double)
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=14.25(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 28 with following arguments:
+# Arg1: Stack@=14.25(double)
+# Dest: TF@__INTERNAL__VAR_0=-1.42879e+07(double)
+# Executing instruction: IWRITE at line: 29 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=14.25(double)
+# Executing instruction: IJUMP at line: 30 with following arguments:
+# Executing instruction: ILABEL at line: 33 with following arguments:
 # 
-# EXPECTED INTERPRETER STDOUT:
-
-#  42-78 142.254-1.42879e+07 14.25
-
-
-# CURRENT INTERPRETER STDOUT:
-
-
+# STDOUT DIFF:
+# 
 
 # INTERPRETER STDIN: 
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 3221225477
+# CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: None
-# PRICE: ---
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 121 (50+71)
 # 
 #   1: ' print statement
 #   2: scope
@@ -37,4 +97,34 @@
 
 ########################################
 
-# ---
+.IFJcode17                                                                      #     1/33
+JUMP main                                                                       #     2/33
+# MAIN                                                                          #     4/33
+LABEL main                                                                      #     5/33
+CREATEFRAME                                                                     #     6/33
+PUSHFRAME                                                                       #     7/33
+CREATEFRAME                                                                     #     8/33
+PUSHS int@42                                                                    #     9/33
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    10/33
+POPS TF@__INTERNAL__VAR_0                                                       #    11/33
+WRITE TF@__INTERNAL__VAR_0                                                      #    12/33
+PUSHS int@0                                                                     #    13/33
+PUSHS int@78                                                                    #    14/33
+SUBS                                                                            #    15/33
+POPS TF@__INTERNAL__VAR_0                                                       #    16/33
+WRITE TF@__INTERNAL__VAR_0                                                      #    17/33
+PUSHS float@142.2541                                                            #    18/33
+POPS TF@__INTERNAL__VAR_0                                                       #    19/33
+WRITE TF@__INTERNAL__VAR_0                                                      #    20/33
+PUSHS int@0                                                                     #    21/33
+INT2FLOATS                                                                      #    22/33
+PUSHS float@14287877.254121211                                                  #    23/33
+SUBS                                                                            #    24/33
+POPS TF@__INTERNAL__VAR_0                                                       #    25/33
+WRITE TF@__INTERNAL__VAR_0                                                      #    26/33
+PUSHS float@14.25                                                               #    27/33
+POPS TF@__INTERNAL__VAR_0                                                       #    28/33
+WRITE TF@__INTERNAL__VAR_0                                                      #    29/33
+JUMP __INTERNAL__FILE_END                                                       #    30/33
+# PROGRAM END                                                                   #    32/33
+LABEL __INTERNAL__FILE_END                                                      #    33/33

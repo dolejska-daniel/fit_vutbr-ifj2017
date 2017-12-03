@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:12.230749
+# 2017-12-03 23:09:20.573762
 # SECTION: 08_booleans
 # TEST: 03
 # INFO: assignment of boolean expressions
 # REQUIRED EXTENSIONS: BOOLOP
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 		a = a = True and 36 = (4 + 3 * 12 - 4) and 2 + 2 = 4 and not (c <> (4 * 8 = 13))
-# 	                                                          ^~~
-# 
-# Exit code:  2
-# Error:      Unexpected statement on line 7:59. Expected OPEN_BRACKET, IDENTIFIER or CONSTANT got KEYWORD (NOT).
 # 
 # INTERPRETER STDERR:
 # 
@@ -34,7 +23,7 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 2
+# CURRENT COMPILER EXIT CODE: 3221225477
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
@@ -56,42 +45,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/40
-JUMP main                                                                       #     2/40
-# MAIN                                                                          #     4/40
-LABEL main                                                                      #     5/40
-CREATEFRAME                                                                     #     6/40
-PUSHFRAME                                                                       #     7/40
-DEFVAR LF@a                                                                     #     8/40
-MOVE LF@a bool@false                                                            #     9/40
-PUSHS int@42                                                                    #    10/40
-PUSHS int@1                                                                     #    11/40
-PUSHS int@2                                                                     #    12/40
-PUSHS int@3                                                                     #    13/40
-MULS                                                                            #    14/40
-ADDS                                                                            #    15/40
-GTS                                                                             #    16/40
-PUSHS bool@true                                                                 #    17/40
-ANDS                                                                            #    18/40
-POPS LF@a                                                                       #    19/40
-CLEARS                                                                          #    20/40
-DEFVAR LF@b                                                                     #    21/40
-MOVE LF@b bool@false                                                            #    22/40
-DEFVAR LF@c                                                                     #    23/40
-MOVE LF@c bool@false                                                            #    24/40
-PUSHS int@1                                                                     #    25/40
-PUSHS int@2                                                                     #    26/40
-EQS                                                                             #    27/40
-PUSHS bool@true                                                                 #    28/40
-PUSHS bool@false                                                                #    29/40
-EQS                                                                             #    30/40
-ORS                                                                             #    31/40
-PUSHS int@1                                                                     #    32/40
-PUSHS int@1                                                                     #    33/40
-EQS                                                                             #    34/40
-NOTS                                                                            #    35/40
-ORS                                                                             #    36/40
-PUSHS bool@false                                                                #    37/40
-ORS                                                                             #    38/40
-POPS LF@c                                                                       #    39/40
-CLEARS                                                                          #    40/40
+# ---

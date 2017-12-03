@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:40.993732
+# 2017-12-03 23:09:45.446903
 # SECTION: 99_benchmarks
 # TEST: 08
 # INFO: factorial by iteration method
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -50,64 +50,72 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/63
-JUMP main                                                                       #     2/63
-# MAIN                                                                          #     4/63
-LABEL main                                                                      #     5/63
-CREATEFRAME                                                                     #     6/63
-PUSHFRAME                                                                       #     7/63
-DEFVAR LF@a                                                                     #     8/63
-MOVE LF@a int@0                                                                 #     9/63
-DEFVAR LF@vysl                                                                  #    10/63
-MOVE LF@vysl int@0                                                              #    11/63
-PUSHS string@Zadejte\032cislo\032pro\032vypocet\032faktorialu                   #    12/63
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    13/63
-POPS LF@__INTERNAL__VAR_0                                                       #    14/63
-WRITE LF@__INTERNAL__VAR_0                                                      #    15/63
-READ LF@a int                                                                   #    16/63
-# IF BLOCK                                                                      #    17/63
-# IF                                                                            #    18/63
-PUSHS LF@a                                                                      #    19/63
-PUSHS int@0                                                                     #    20/63
-LTS                                                                             #    21/63
-PUSHS bool@true                                                                 #    22/63
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    23/63
-# THEN                                                                          #    24/63
-PUSHS string@\nFaktorial\032nelze\032spocitat\n                                 #    25/63
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    26/63
-POPS LF@__INTERNAL__VAR_0                                                       #    27/63
-WRITE LF@__INTERNAL__VAR_0                                                      #    28/63
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    29/63
-LABEL __INTERNAL__COND_0_END                                                    #    30/63
-# ELSE                                                                          #    31/63
-PUSHS int@1                                                                     #    32/63
-POPS LF@vysl                                                                    #    33/63
-CLEARS                                                                          #    34/63
-LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    35/63
-PUSHS LF@a                                                                      #    36/63
-PUSHS int@0                                                                     #    37/63
-GTS                                                                             #    38/63
-PUSHS bool@true                                                                 #    39/63
-JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    40/63
-PUSHS LF@vysl                                                                   #    41/63
-PUSHS LF@a                                                                      #    42/63
-MULS                                                                            #    43/63
-POPS LF@vysl                                                                    #    44/63
-CLEARS                                                                          #    45/63
-PUSHS LF@a                                                                      #    46/63
-PUSHS int@1                                                                     #    47/63
-SUBS                                                                            #    48/63
-POPS LF@a                                                                       #    49/63
-CLEARS                                                                          #    50/63
-JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    51/63
-LABEL __INTERNAL__LOOP_0_END                                                    #    52/63
-PUSHS LF@vysl                                                                   #    53/63
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    54/63
-POPS LF@__INTERNAL__VAR_0                                                       #    55/63
-WRITE LF@__INTERNAL__VAR_0                                                      #    56/63
-# END IF                                                                        #    57/63
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    58/63
-# END IF BLOCK                                                                  #    59/63
-JUMP __INTERNAL__FILE_END                                                       #    60/63
-# PROGRAM END                                                                   #    62/63
-LABEL __INTERNAL__FILE_END                                                      #    63/63
+.IFJcode17                                                                      #     1/71
+JUMP main                                                                       #     2/71
+# MAIN                                                                          #     4/71
+LABEL main                                                                      #     5/71
+CREATEFRAME                                                                     #     6/71
+PUSHFRAME                                                                       #     7/71
+CREATEFRAME                                                                     #     8/71
+DEFVAR LF@a                                                                     #     9/71
+MOVE LF@a int@0                                                                 #    10/71
+DEFVAR LF@vysl                                                                  #    11/71
+MOVE LF@vysl int@0                                                              #    12/71
+PUSHS string@Zadejte\032cislo\032pro\032vypocet\032faktorialu                   #    13/71
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    14/71
+POPS TF@__INTERNAL__VAR_0                                                       #    15/71
+WRITE TF@__INTERNAL__VAR_0                                                      #    16/71
+READ LF@a int                                                                   #    17/71
+# IF BLOCK                                                                      #    18/71
+CREATEFRAME                                                                     #    19/71
+# IF                                                                            #    20/71
+PUSHS LF@a                                                                      #    21/71
+PUSHS int@0                                                                     #    22/71
+LTS                                                                             #    23/71
+PUSHS bool@true                                                                 #    24/71
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    25/71
+# THEN                                                                          #    26/71
+PUSHS string@\nFaktorial\032nelze\032spocitat\n                                 #    27/71
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    28/71
+POPS TF@__INTERNAL__VAR_0                                                       #    29/71
+WRITE TF@__INTERNAL__VAR_0                                                      #    30/71
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    31/71
+LABEL __INTERNAL__COND_0_END                                                    #    32/71
+# ELSE                                                                          #    33/71
+PUSHS int@1                                                                     #    34/71
+POPS LF@vysl                                                                    #    35/71
+CLEARS                                                                          #    36/71
+# DO WHILE                                                                      #    37/71
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    38/71
+PUSHS LF@a                                                                      #    39/71
+PUSHS int@0                                                                     #    40/71
+GTS                                                                             #    41/71
+PUSHS bool@true                                                                 #    42/71
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    43/71
+# DO WHILE TRUE                                                                 #    44/71
+CREATEFRAME                                                                     #    45/71
+PUSHS LF@vysl                                                                   #    46/71
+PUSHS LF@a                                                                      #    47/71
+MULS                                                                            #    48/71
+POPS LF@vysl                                                                    #    49/71
+CLEARS                                                                          #    50/71
+PUSHS LF@a                                                                      #    51/71
+PUSHS int@1                                                                     #    52/71
+SUBS                                                                            #    53/71
+POPS LF@a                                                                       #    54/71
+CLEARS                                                                          #    55/71
+# LOOP                                                                          #    56/71
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    57/71
+# DO WHILE FALSE                                                                #    58/71
+LABEL __INTERNAL__LOOP_0_END                                                    #    59/71
+# DO WHILE END                                                                  #    60/71
+PUSHS LF@vysl                                                                   #    61/71
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    62/71
+POPS TF@__INTERNAL__VAR_0                                                       #    63/71
+WRITE TF@__INTERNAL__VAR_0                                                      #    64/71
+# END IF                                                                        #    65/71
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    66/71
+# END IF BLOCK                                                                  #    67/71
+JUMP __INTERNAL__FILE_END                                                       #    68/71
+# PROGRAM END                                                                   #    70/71
+LABEL __INTERNAL__FILE_END                                                      #    71/71

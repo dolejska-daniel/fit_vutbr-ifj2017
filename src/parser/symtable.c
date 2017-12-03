@@ -220,7 +220,7 @@ SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type
     {
         //  Symbol nebyl v tabulce nalezen, bude vytvořen
         DEBUG_LOG(source, "creating new temp var");
-        int result = SymbolTable_insert(st, name, type, LOCAL_FRAME, name, &s);
+        int result = SymbolTable_insert(st, name, type, TEMPORARY_FRAME, name, &s);
         if (result != NO_ERROR)
         {
             DEBUG_ERR(source, "failed to insert symbol to table");
@@ -250,12 +250,11 @@ SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type
  * Při dalším použití je tak program nucen ji znovu inicializovat.
  *
  * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
- * @param[in]		InstructionListPtr	ilist   Ukazatel na existující list instrukcí
- * @param[in]		SymbolType	        type    Typ symbolu
  * @param[in]		unsigned	        id      Identifikátor symbolu
  */
 void SymbolTable_deleteTempVar(SymbolTablePtr st, unsigned id)
 {
+    /*
     char *source = "symtable-deleteTempVar";
 
     //  Vytvoření názvu proměnné
@@ -265,6 +264,20 @@ void SymbolTable_deleteTempVar(SymbolTablePtr st, unsigned id)
 
     char *name = String_concat(TEMPVAR_INTERNAL_NAME, tempvar_symbol_id, "_");
     SymbolTable_delete(st, name);
+    */
+}
+
+/**
+ * Funkce odstraní symbol pro dočasnou proměnnou z tabulky symbolů.
+ *
+ * Při dalším použití je tak program nucen ji znovu inicializovat.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_deleteTempVars(SymbolTablePtr st)
+{
+    SymbolTable_popFrame(st);
+    SymbolTable_pushFrame(st);
 }
 
 /**
@@ -1096,7 +1109,8 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
     if (operator1 == ST_INTEGER)
     {
         //  První operátor je celé číslo
-        if (operator2 == ST_DOUBLE && op != BACK_SLASH)
+        if ((operator2 == ST_DOUBLE && op != BACK_SLASH)
+            || op == SLASH)
         {
             //  INT + DOUBLE
             //  =
@@ -1138,6 +1152,11 @@ bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2
         if (operator2 == ST_DOUBLE && op == BACK_SLASH)
         {
             *dataType = ST_INTEGER;
+            return true;
+        }
+        else if (operator2 == ST_INTEGER && op == SLASH)
+        {
+            *dataType = ST_DOUBLE;
             return true;
         }
 

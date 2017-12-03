@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:31.737118
+# 2017-12-03 23:09:34.821647
 # SECTION: 66_errors
 # TEST: 024
 # INFO: wrong if termination
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -22,7 +22,7 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 2
-# CURRENT COMPILER EXIT CODE: None
+# CURRENT COMPILER EXIT CODE: 3
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
@@ -33,4 +33,19 @@
 
 ########################################
 
-# ---
+.IFJcode17                                                                      #     1/17
+JUMP main                                                                       #     2/17
+# MAIN                                                                          #     4/17
+LABEL main                                                                      #     5/17
+CREATEFRAME                                                                     #     6/17
+PUSHFRAME                                                                       #     7/17
+CREATEFRAME                                                                     #     8/17
+# IF BLOCK                                                                      #     9/17
+CREATEFRAME                                                                     #    10/17
+# IF                                                                            #    11/17
+PUSHS int@1                                                                     #    12/17
+PUSHS int@2                                                                     #    13/17
+LTS                                                                             #    14/17
+PUSHS bool@true                                                                 #    15/17
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    16/17
+# THEN                                                                          #    17/17

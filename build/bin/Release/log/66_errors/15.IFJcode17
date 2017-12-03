@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:20.028483
+# 2017-12-03 23:09:22.746038
 # SECTION: 66_errors
 # TEST: 15
 # INFO: unfinished multi line comment
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -37,16 +37,17 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/15
-JUMP main                                                                       #     2/15
-# MAIN                                                                          #     4/15
-LABEL main                                                                      #     5/15
-CREATEFRAME                                                                     #     6/15
-PUSHFRAME                                                                       #     7/15
-PUSHS int@42                                                                    #     8/15
-DEFVAR LF@__INTERNAL__VAR_0                                                     #     9/15
-POPS LF@__INTERNAL__VAR_0                                                       #    10/15
-WRITE LF@__INTERNAL__VAR_0                                                      #    11/15
-JUMP __INTERNAL__FILE_END                                                       #    12/15
-# PROGRAM END                                                                   #    14/15
-LABEL __INTERNAL__FILE_END                                                      #    15/15
+.IFJcode17                                                                      #     1/16
+JUMP main                                                                       #     2/16
+# MAIN                                                                          #     4/16
+LABEL main                                                                      #     5/16
+CREATEFRAME                                                                     #     6/16
+PUSHFRAME                                                                       #     7/16
+CREATEFRAME                                                                     #     8/16
+PUSHS int@42                                                                    #     9/16
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    10/16
+POPS TF@__INTERNAL__VAR_0                                                       #    11/16
+WRITE TF@__INTERNAL__VAR_0                                                      #    12/16
+JUMP __INTERNAL__FILE_END                                                       #    13/16
+# PROGRAM END                                                                   #    15/16
+LABEL __INTERNAL__FILE_END                                                      #    16/16

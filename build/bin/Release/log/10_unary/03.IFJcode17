@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:14.777020
+# 2017-12-03 23:09:22.182038
 # SECTION: 10_unary
 # TEST: 03
 # INFO: functions with funexp and unary
-# REQUIRED EXTENSIONS: FUNEXP, UNARY
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# REQUIRED EXTENSIONS: UNARY, FUNEXP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -23,7 +23,7 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 3221225477
+# CURRENT COMPILER EXIT CODE: 2
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
@@ -46,4 +46,20 @@
 
 ########################################
 
-# ---
+.IFJcode17                                                                      #     1/19
+JUMP main                                                                       #     2/19
+# FUNCTION                                                                      #     4/19
+LABEL fce1                                                                      #     5/19
+PUSHFRAME                                                                       #     6/19
+CREATEFRAME                                                                     #     7/19
+PUSHS int@0                                                                     #     8/19
+PUSHS LF@a                                                                      #     9/19
+SUBS                                                                            #    10/19
+RETURN                                                                          #    11/19
+PUSHS int@0                                                                     #    12/19
+RETURN                                                                          #    13/19
+# END FUNCTION                                                                  #    14/19
+# FUNCTION                                                                      #    16/19
+LABEL fce2                                                                      #    17/19
+PUSHFRAME                                                                       #    18/19
+CREATEFRAME                                                                     #    19/19

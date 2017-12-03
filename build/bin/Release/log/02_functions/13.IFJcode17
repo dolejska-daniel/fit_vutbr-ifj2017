@@ -1,176 +1,181 @@
-# 2017-12-03 11:37:04.972950
+# 2017-12-03 23:09:01.041826
 # SECTION: 02_functions
 # TEST: 13
 # INFO: calling multiple functions
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
 # Executing instruction: IJUMP at line: 2 with following arguments:
-# Executing instruction: ILABEL at line: 88 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 89 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 90 with following arguments:
-# Executing instruction: IDEFVAR at line: 91 with following arguments:
+# Executing instruction: ILABEL at line: 92 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 93 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 94 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 95 with following arguments:
+# Executing instruction: IDEFVAR at line: 96 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 92 with following arguments:
+# Executing instruction: IMOVE at line: 97 with following arguments:
 # Arg1: Const@=0(double)
 # Dest: LF@a()
-# Executing instruction: ICREATEFRAME at line: 93 with following arguments:
-# Executing instruction: ICALL at line: 94 with following arguments:
-# Executing instruction: ILABEL at line: 48 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 49 with following arguments:
-# Executing instruction: IDEFVAR at line: 50 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 98 with following arguments:
+# Executing instruction: ICALL at line: 99 with following arguments:
+# Executing instruction: ILABEL at line: 51 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 52 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 53 with following arguments:
+# Executing instruction: IDEFVAR at line: 54 with following arguments:
 # Dest: LF@res
-# Executing instruction: IMOVE at line: 51 with following arguments:
+# Executing instruction: IMOVE at line: 55 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@res()
-# Executing instruction: ICREATEFRAME at line: 52 with following arguments:
-# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
 # Arg1: Const@=30(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 54 with following arguments:
+# Executing instruction: IDEFVAR at line: 58 with following arguments:
 # Dest: TF@__acv
-# Executing instruction: IPOPS at line: 55 with following arguments:
+# Executing instruction: IPOPS at line: 59 with following arguments:
 # Arg1: Stack@=30(int)
 # Dest: TF@__acv()
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 60 with following arguments:
 # Arg1: Const@=10(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 57 with following arguments:
+# Executing instruction: IDEFVAR at line: 61 with following arguments:
 # Dest: TF@__foo__
-# Executing instruction: IPOPS at line: 58 with following arguments:
+# Executing instruction: IPOPS at line: 62 with following arguments:
 # Arg1: Stack@=10(int)
 # Dest: TF@__foo__()
-# Executing instruction: ICALL at line: 59 with following arguments:
-# Executing instruction: ILABEL at line: 21 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 22 with following arguments:
-# Executing instruction: IDEFVAR at line: 23 with following arguments:
+# Executing instruction: ICALL at line: 63 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 23 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 24 with following arguments:
+# Executing instruction: IDEFVAR at line: 25 with following arguments:
 # Dest: LF@_
-# Executing instruction: IMOVE at line: 24 with following arguments:
+# Executing instruction: IMOVE at line: 26 with following arguments:
 # Arg1: LF@__acv=30(int)
 # Dest: LF@_()
-# Executing instruction: IDEFVAR at line: 25 with following arguments:
+# Executing instruction: IDEFVAR at line: 27 with following arguments:
 # Dest: LF@__
-# Executing instruction: IMOVE at line: 26 with following arguments:
+# Executing instruction: IMOVE at line: 28 with following arguments:
 # Arg1: LF@__foo__=10(int)
 # Dest: LF@__()
-# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Executing instruction: IPUSHS at line: 29 with following arguments:
 # Arg1: LF@_=30(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
 # Arg1: LF@__=10(int)
 # Dest: Stack@()
-# Executing instruction: IMULTS at line: 29 with following arguments:
+# Executing instruction: IMULTS at line: 31 with following arguments:
 # Arg1: Stack@=30(int)
 # Arg2: Stack@=10(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 30 with following arguments:
-# Executing instruction: IPOPFRAME at line: 60 with following arguments:
-# Executing instruction: IPOPS at line: 61 with following arguments:
+# Executing instruction: IRETURN at line: 32 with following arguments:
+# Executing instruction: IPOPFRAME at line: 64 with following arguments:
+# Executing instruction: IPOPS at line: 65 with following arguments:
 # Arg1: Stack@=300(int)
 # Dest: LF@res=0(int)
-# Executing instruction: ICLEARS at line: 62 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 63 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Executing instruction: ICLEARS at line: 66 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 67 with following arguments:
+# Executing instruction: IPUSHS at line: 68 with following arguments:
 # Arg1: LF@res=300(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 65 with following arguments:
+# Executing instruction: IDEFVAR at line: 69 with following arguments:
 # Dest: TF@_
-# Executing instruction: IPOPS at line: 66 with following arguments:
+# Executing instruction: IPOPS at line: 70 with following arguments:
 # Arg1: Stack@=300(int)
 # Dest: TF@_()
-# Executing instruction: ICALL at line: 67 with following arguments:
+# Executing instruction: ICALL at line: 71 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@res
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@res()
-# Executing instruction: IPUSHS at line: 9 with following arguments:
+# Executing instruction: IPUSHS at line: 10 with following arguments:
 # Arg1: LF@_=300(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Executing instruction: IPUSHS at line: 11 with following arguments:
 # Arg1: Const@=2(int)
 # Dest: Stack@()
-# Executing instruction: IADDS at line: 11 with following arguments:
+# Executing instruction: IADDS at line: 12 with following arguments:
 # Arg1: Stack@=300(int)
 # Arg2: Stack@=2(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 12 with following arguments:
+# Executing instruction: IPOPS at line: 13 with following arguments:
 # Arg1: Stack@=302(int)
 # Dest: LF@res=0(int)
-# Executing instruction: ICLEARS at line: 13 with following arguments:
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: ICLEARS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 15 with following arguments:
 # Arg1: LF@res=302(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 15 with following arguments:
-# Executing instruction: IPOPFRAME at line: 68 with following arguments:
-# Executing instruction: IPOPS at line: 69 with following arguments:
+# Executing instruction: IRETURN at line: 16 with following arguments:
+# Executing instruction: IPOPFRAME at line: 72 with following arguments:
+# Executing instruction: IPOPS at line: 73 with following arguments:
 # Arg1: Stack@=302(int)
 # Dest: LF@res=300(int)
-# Executing instruction: ICLEARS at line: 70 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 71 with following arguments:
-# Executing instruction: IPUSHS at line: 72 with following arguments:
+# Executing instruction: ICLEARS at line: 74 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 75 with following arguments:
+# Executing instruction: IPUSHS at line: 76 with following arguments:
 # Arg1: LF@res=302(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 73 with following arguments:
+# Executing instruction: IDEFVAR at line: 77 with following arguments:
 # Dest: TF@_______
-# Executing instruction: IPOPS at line: 74 with following arguments:
+# Executing instruction: IPOPS at line: 78 with following arguments:
 # Arg1: Stack@=302(int)
 # Dest: TF@_______()
-# Executing instruction: ICALL at line: 75 with following arguments:
-# Executing instruction: ILABEL at line: 36 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 37 with following arguments:
-# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Executing instruction: ICALL at line: 79 with following arguments:
+# Executing instruction: ILABEL at line: 38 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 39 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 40 with following arguments:
+# Executing instruction: IPUSHS at line: 41 with following arguments:
 # Arg1: LF@_______=302(int)
 # Dest: Stack@()
-# Executing instruction: IINT2FLOATS at line: 39 with following arguments:
+# Executing instruction: IINT2FLOATS at line: 42 with following arguments:
 # Arg1: Stack@=302(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 40 with following arguments:
+# Executing instruction: IPUSHS at line: 43 with following arguments:
 # Arg1: Const@=0.5(double)
 # Dest: Stack@()
-# Executing instruction: IMULTS at line: 41 with following arguments:
+# Executing instruction: IMULTS at line: 44 with following arguments:
 # Arg1: Stack@=302(double)
 # Arg2: Stack@=0.5(double)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 42 with following arguments:
-# Executing instruction: IPOPFRAME at line: 76 with following arguments:
-# Executing instruction: IFLOAT2INTS at line: 77 with following arguments:
+# Executing instruction: IRETURN at line: 45 with following arguments:
+# Executing instruction: IPOPFRAME at line: 80 with following arguments:
+# Executing instruction: IFLOAT2INTS at line: 81 with following arguments:
 # Arg1: Stack@=151(double)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 78 with following arguments:
+# Executing instruction: IPOPS at line: 82 with following arguments:
 # Arg1: Stack@=151(int)
 # Dest: LF@res=302(int)
-# Executing instruction: ICLEARS at line: 79 with following arguments:
-# Executing instruction: IPUSHS at line: 80 with following arguments:
+# Executing instruction: ICLEARS at line: 83 with following arguments:
+# Executing instruction: IPUSHS at line: 84 with following arguments:
 # Arg1: LF@res=151(int)
 # Dest: Stack@()
-# Executing instruction: IINT2FLOATS at line: 81 with following arguments:
+# Executing instruction: IINT2FLOATS at line: 85 with following arguments:
 # Arg1: Stack@=151(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 82 with following arguments:
-# Executing instruction: IPOPFRAME at line: 95 with following arguments:
-# Executing instruction: IPOPS at line: 96 with following arguments:
+# Executing instruction: IRETURN at line: 86 with following arguments:
+# Executing instruction: IPOPFRAME at line: 100 with following arguments:
+# Executing instruction: IPOPS at line: 101 with following arguments:
 # Arg1: Stack@=151(double)
 # Dest: LF@a=0(double)
-# Executing instruction: ICLEARS at line: 97 with following arguments:
-# Executing instruction: IPUSHS at line: 98 with following arguments:
+# Executing instruction: ICLEARS at line: 102 with following arguments:
+# Executing instruction: IPUSHS at line: 103 with following arguments:
 # Arg1: LF@a=151(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 99 with following arguments:
-# Dest: LF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 100 with following arguments:
+# Executing instruction: IDEFVAR at line: 104 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 105 with following arguments:
 # Arg1: Stack@=151(double)
-# Dest: LF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 101 with following arguments:
-# Arg1: LF@__INTERNAL__VAR_0=151(double)
-# Executing instruction: IJUMP at line: 102 with following arguments:
-# Executing instruction: ILABEL at line: 105 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 106 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=151(double)
+# Executing instruction: IJUMP at line: 107 with following arguments:
+# Executing instruction: ILABEL at line: 110 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -182,7 +187,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 307 (136+171)
+# PRICE: 317 (146+171)
 # 
 #   1: ' calling multiple functions
 #   2: 
@@ -221,102 +226,107 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/105
-JUMP main                                                                       #     2/105
-# FUNCTION                                                                      #     4/105
-LABEL _add_two                                                                  #     5/105
-PUSHFRAME                                                                       #     6/105
-DEFVAR LF@res                                                                   #     7/105
-MOVE LF@res int@0                                                               #     8/105
-PUSHS LF@_                                                                      #     9/105
-PUSHS int@2                                                                     #    10/105
-ADDS                                                                            #    11/105
-POPS LF@res                                                                     #    12/105
-CLEARS                                                                          #    13/105
-PUSHS LF@res                                                                    #    14/105
-RETURN                                                                          #    15/105
-PUSHS int@0                                                                     #    16/105
-RETURN                                                                          #    17/105
-# END FUNCTION                                                                  #    18/105
-# FUNCTION                                                                      #    20/105
-LABEL _multiply                                                                 #    21/105
-PUSHFRAME                                                                       #    22/105
-DEFVAR LF@_                                                                     #    23/105
-MOVE LF@_ LF@__acv                                                              #    24/105
-DEFVAR LF@__                                                                    #    25/105
-MOVE LF@__ LF@__foo__                                                           #    26/105
-PUSHS LF@_                                                                      #    27/105
-PUSHS LF@__                                                                     #    28/105
-MULS                                                                            #    29/105
-RETURN                                                                          #    30/105
-PUSHS int@0                                                                     #    31/105
-RETURN                                                                          #    32/105
-# END FUNCTION                                                                  #    33/105
-# FUNCTION                                                                      #    35/105
-LABEL ____                                                                      #    36/105
-PUSHFRAME                                                                       #    37/105
-PUSHS LF@_______                                                                #    38/105
-INT2FLOATS                                                                      #    39/105
-PUSHS float@0.5                                                                 #    40/105
-MULS                                                                            #    41/105
-RETURN                                                                          #    42/105
-PUSHS float@0.0                                                                 #    43/105
-RETURN                                                                          #    44/105
-# END FUNCTION                                                                  #    45/105
-# FUNCTION                                                                      #    47/105
-LABEL __compute                                                                 #    48/105
-PUSHFRAME                                                                       #    49/105
-DEFVAR LF@res                                                                   #    50/105
-MOVE LF@res int@0                                                               #    51/105
-CREATEFRAME                                                                     #    52/105
-PUSHS int@30                                                                    #    53/105
-DEFVAR TF@__acv                                                                 #    54/105
-POPS TF@__acv                                                                   #    55/105
-PUSHS int@10                                                                    #    56/105
-DEFVAR TF@__foo__                                                               #    57/105
-POPS TF@__foo__                                                                 #    58/105
-CALL _multiply                                                                  #    59/105
-POPFRAME                                                                        #    60/105
-POPS LF@res                                                                     #    61/105
-CLEARS                                                                          #    62/105
-CREATEFRAME                                                                     #    63/105
-PUSHS LF@res                                                                    #    64/105
-DEFVAR TF@_                                                                     #    65/105
-POPS TF@_                                                                       #    66/105
-CALL _add_two                                                                   #    67/105
-POPFRAME                                                                        #    68/105
-POPS LF@res                                                                     #    69/105
-CLEARS                                                                          #    70/105
-CREATEFRAME                                                                     #    71/105
-PUSHS LF@res                                                                    #    72/105
-DEFVAR TF@_______                                                               #    73/105
-POPS TF@_______                                                                 #    74/105
-CALL ____                                                                       #    75/105
-POPFRAME                                                                        #    76/105
-FLOAT2INTS                                                                      #    77/105
-POPS LF@res                                                                     #    78/105
-CLEARS                                                                          #    79/105
-PUSHS LF@res                                                                    #    80/105
-INT2FLOATS                                                                      #    81/105
-RETURN                                                                          #    82/105
-PUSHS float@0.0                                                                 #    83/105
-RETURN                                                                          #    84/105
-# END FUNCTION                                                                  #    85/105
-# MAIN                                                                          #    87/105
-LABEL main                                                                      #    88/105
-CREATEFRAME                                                                     #    89/105
-PUSHFRAME                                                                       #    90/105
-DEFVAR LF@a                                                                     #    91/105
-MOVE LF@a float@0.0                                                             #    92/105
-CREATEFRAME                                                                     #    93/105
-CALL __compute                                                                  #    94/105
-POPFRAME                                                                        #    95/105
-POPS LF@a                                                                       #    96/105
-CLEARS                                                                          #    97/105
-PUSHS LF@a                                                                      #    98/105
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    99/105
-POPS LF@__INTERNAL__VAR_0                                                       #   100/105
-WRITE LF@__INTERNAL__VAR_0                                                      #   101/105
-JUMP __INTERNAL__FILE_END                                                       #   102/105
-# PROGRAM END                                                                   #   104/105
-LABEL __INTERNAL__FILE_END                                                      #   105/105
+.IFJcode17                                                                      #     1/110
+JUMP main                                                                       #     2/110
+# FUNCTION                                                                      #     4/110
+LABEL _add_two                                                                  #     5/110
+PUSHFRAME                                                                       #     6/110
+CREATEFRAME                                                                     #     7/110
+DEFVAR LF@res                                                                   #     8/110
+MOVE LF@res int@0                                                               #     9/110
+PUSHS LF@_                                                                      #    10/110
+PUSHS int@2                                                                     #    11/110
+ADDS                                                                            #    12/110
+POPS LF@res                                                                     #    13/110
+CLEARS                                                                          #    14/110
+PUSHS LF@res                                                                    #    15/110
+RETURN                                                                          #    16/110
+PUSHS int@0                                                                     #    17/110
+RETURN                                                                          #    18/110
+# END FUNCTION                                                                  #    19/110
+# FUNCTION                                                                      #    21/110
+LABEL _multiply                                                                 #    22/110
+PUSHFRAME                                                                       #    23/110
+CREATEFRAME                                                                     #    24/110
+DEFVAR LF@_                                                                     #    25/110
+MOVE LF@_ LF@__acv                                                              #    26/110
+DEFVAR LF@__                                                                    #    27/110
+MOVE LF@__ LF@__foo__                                                           #    28/110
+PUSHS LF@_                                                                      #    29/110
+PUSHS LF@__                                                                     #    30/110
+MULS                                                                            #    31/110
+RETURN                                                                          #    32/110
+PUSHS int@0                                                                     #    33/110
+RETURN                                                                          #    34/110
+# END FUNCTION                                                                  #    35/110
+# FUNCTION                                                                      #    37/110
+LABEL ____                                                                      #    38/110
+PUSHFRAME                                                                       #    39/110
+CREATEFRAME                                                                     #    40/110
+PUSHS LF@_______                                                                #    41/110
+INT2FLOATS                                                                      #    42/110
+PUSHS float@0.5                                                                 #    43/110
+MULS                                                                            #    44/110
+RETURN                                                                          #    45/110
+PUSHS float@0.0                                                                 #    46/110
+RETURN                                                                          #    47/110
+# END FUNCTION                                                                  #    48/110
+# FUNCTION                                                                      #    50/110
+LABEL __compute                                                                 #    51/110
+PUSHFRAME                                                                       #    52/110
+CREATEFRAME                                                                     #    53/110
+DEFVAR LF@res                                                                   #    54/110
+MOVE LF@res int@0                                                               #    55/110
+CREATEFRAME                                                                     #    56/110
+PUSHS int@30                                                                    #    57/110
+DEFVAR TF@__acv                                                                 #    58/110
+POPS TF@__acv                                                                   #    59/110
+PUSHS int@10                                                                    #    60/110
+DEFVAR TF@__foo__                                                               #    61/110
+POPS TF@__foo__                                                                 #    62/110
+CALL _multiply                                                                  #    63/110
+POPFRAME                                                                        #    64/110
+POPS LF@res                                                                     #    65/110
+CLEARS                                                                          #    66/110
+CREATEFRAME                                                                     #    67/110
+PUSHS LF@res                                                                    #    68/110
+DEFVAR TF@_                                                                     #    69/110
+POPS TF@_                                                                       #    70/110
+CALL _add_two                                                                   #    71/110
+POPFRAME                                                                        #    72/110
+POPS LF@res                                                                     #    73/110
+CLEARS                                                                          #    74/110
+CREATEFRAME                                                                     #    75/110
+PUSHS LF@res                                                                    #    76/110
+DEFVAR TF@_______                                                               #    77/110
+POPS TF@_______                                                                 #    78/110
+CALL ____                                                                       #    79/110
+POPFRAME                                                                        #    80/110
+FLOAT2INTS                                                                      #    81/110
+POPS LF@res                                                                     #    82/110
+CLEARS                                                                          #    83/110
+PUSHS LF@res                                                                    #    84/110
+INT2FLOATS                                                                      #    85/110
+RETURN                                                                          #    86/110
+PUSHS float@0.0                                                                 #    87/110
+RETURN                                                                          #    88/110
+# END FUNCTION                                                                  #    89/110
+# MAIN                                                                          #    91/110
+LABEL main                                                                      #    92/110
+CREATEFRAME                                                                     #    93/110
+PUSHFRAME                                                                       #    94/110
+CREATEFRAME                                                                     #    95/110
+DEFVAR LF@a                                                                     #    96/110
+MOVE LF@a float@0.0                                                             #    97/110
+CREATEFRAME                                                                     #    98/110
+CALL __compute                                                                  #    99/110
+POPFRAME                                                                        #   100/110
+POPS LF@a                                                                       #   101/110
+CLEARS                                                                          #   102/110
+PUSHS LF@a                                                                      #   103/110
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   104/110
+POPS TF@__INTERNAL__VAR_0                                                       #   105/110
+WRITE TF@__INTERNAL__VAR_0                                                      #   106/110
+JUMP __INTERNAL__FILE_END                                                       #   107/110
+# PROGRAM END                                                                   #   109/110
+LABEL __INTERNAL__FILE_END                                                      #   110/110

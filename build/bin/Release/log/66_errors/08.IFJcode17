@@ -1,19 +1,12 @@
-# 2017-12-03 11:37:19.930222
+# 2017-12-03 23:09:22.637750
 # SECTION: 66_errors
 # TEST: 08
 # INFO: Assign string into integer
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  4
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -48,20 +41,22 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/19
-JUMP main                                                                       #     2/19
-# FUNCTION                                                                      #     4/19
-LABEL foo                                                                       #     5/19
-PUSHFRAME                                                                       #     6/19
-PUSHS string@                                                                   #     7/19
-RETURN                                                                          #     8/19
-# END FUNCTION                                                                  #     9/19
-# MAIN                                                                          #    11/19
-LABEL main                                                                      #    12/19
-CREATEFRAME                                                                     #    13/19
-PUSHFRAME                                                                       #    14/19
-DEFVAR LF@a                                                                     #    15/19
-MOVE LF@a int@0                                                                 #    16/19
-CREATEFRAME                                                                     #    17/19
-CALL foo                                                                        #    18/19
-POPFRAME                                                                        #    19/19
+.IFJcode17                                                                      #     1/21
+JUMP main                                                                       #     2/21
+# FUNCTION                                                                      #     4/21
+LABEL foo                                                                       #     5/21
+PUSHFRAME                                                                       #     6/21
+CREATEFRAME                                                                     #     7/21
+PUSHS string@                                                                   #     8/21
+RETURN                                                                          #     9/21
+# END FUNCTION                                                                  #    10/21
+# MAIN                                                                          #    12/21
+LABEL main                                                                      #    13/21
+CREATEFRAME                                                                     #    14/21
+PUSHFRAME                                                                       #    15/21
+CREATEFRAME                                                                     #    16/21
+DEFVAR LF@a                                                                     #    17/21
+MOVE LF@a int@0                                                                 #    18/21
+CREATEFRAME                                                                     #    19/21
+CALL foo                                                                        #    20/21
+POPFRAME                                                                        #    21/21

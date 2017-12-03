@@ -1,19 +1,12 @@
-# 2017-12-03 11:37:34.301437
+# 2017-12-03 23:09:35.213689
 # SECTION: 66_errors
 # TEST: 050
 # INFO: No then after if
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  2
-# Error:      Unexpected statement on line 4:1. Expected KEYWORD (THEN) got <EOL>.
 # 
 # INTERPRETER STDERR:
 # 
@@ -42,16 +35,18 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/14
-JUMP main                                                                       #     2/14
-# MAIN                                                                          #     4/14
-LABEL main                                                                      #     5/14
-CREATEFRAME                                                                     #     6/14
-PUSHFRAME                                                                       #     7/14
-DEFVAR LF@a                                                                     #     8/14
-MOVE LF@a int@0                                                                 #     9/14
-# IF BLOCK                                                                      #    10/14
-# IF                                                                            #    11/14
-PUSHS LF@a                                                                      #    12/14
-PUSHS int@10                                                                    #    13/14
-GTS                                                                             #    14/14
+.IFJcode17                                                                      #     1/16
+JUMP main                                                                       #     2/16
+# MAIN                                                                          #     4/16
+LABEL main                                                                      #     5/16
+CREATEFRAME                                                                     #     6/16
+PUSHFRAME                                                                       #     7/16
+CREATEFRAME                                                                     #     8/16
+DEFVAR LF@a                                                                     #     9/16
+MOVE LF@a int@0                                                                 #    10/16
+# IF BLOCK                                                                      #    11/16
+CREATEFRAME                                                                     #    12/16
+# IF                                                                            #    13/16
+PUSHS LF@a                                                                      #    14/16
+PUSHS int@10                                                                    #    15/16
+GTS                                                                             #    16/16

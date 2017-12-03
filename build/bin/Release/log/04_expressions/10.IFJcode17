@@ -1,56 +1,71 @@
-# 2017-12-03 11:37:07.730784
+# 2017-12-03 23:09:04.915125
 # SECTION: 04_expressions
 # TEST: 10
 # INFO: Convert integer into double
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
 # Executing instruction: IJUMP at line: 2 with following arguments:
-# Executing instruction: ILABEL at line: 12 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 13 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 14 with following arguments:
-# Executing instruction: IDEFVAR at line: 15 with following arguments:
+# Executing instruction: ILABEL at line: 13 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 14 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 15 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 16 with following arguments:
+# Executing instruction: IDEFVAR at line: 17 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 16 with following arguments:
+# Executing instruction: IMOVE at line: 18 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@a()
-# Executing instruction: IPUSHS at line: 17 with following arguments:
+# Executing instruction: IPUSHS at line: 19 with following arguments:
 # Arg1: Const@=3(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 18 with following arguments:
+# Executing instruction: IPOPS at line: 20 with following arguments:
 # Arg1: Stack@=3(int)
 # Dest: LF@a=0(int)
-# Executing instruction: ICLEARS at line: 19 with following arguments:
-# Executing instruction: IDEFVAR at line: 20 with following arguments:
+# Executing instruction: ICLEARS at line: 21 with following arguments:
+# Executing instruction: IDEFVAR at line: 22 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 21 with following arguments:
+# Executing instruction: IMOVE at line: 23 with following arguments:
 # Arg1: Const@=0(double)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: LF@a=3(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IINT2FLOATS at line: 25 with following arguments:
+# Arg1: Stack@=3(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 26 with following arguments:
 # Arg1: Const@=2(int)
 # Dest: Stack@()
-# Executing instruction: IDIVS at line: 24 with following arguments:
-# Arg1: Stack@=3(int)
-# Arg2: Stack@=2(int)
+# Executing instruction: IINT2FLOATS at line: 27 with following arguments:
+# Arg1: Stack@=2(int)
 # Dest: Stack@()
-# Error at line: 24
-# Wrong operand type!
+# Executing instruction: IDIVS at line: 28 with following arguments:
+# Arg1: Stack@=3(double)
+# Arg2: Stack@=2(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 29 with following arguments:
+# Arg1: Stack@=1.5(double)
+# Dest: LF@b=0(double)
+# Executing instruction: ICLEARS at line: 30 with following arguments:
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: LF@b=1.5(double)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 32 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 33 with following arguments:
+# Arg1: Stack@=1.5(double)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=1.5(double)
+# Executing instruction: IJUMP at line: 35 with following arguments:
+# Executing instruction: ILABEL at line: 38 with following arguments:
 # 
-# EXPECTED INTERPRETER STDOUT:
-
-#  1.5
-
-
-# CURRENT INTERPRETER STDOUT:
-
-
+# STDOUT DIFF:
+# 
 
 # INTERPRETER STDIN: 
 # 
@@ -58,8 +73,8 @@
 # EXPECTED COMPILER EXIT CODE: 0
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: 53
-# PRICE: ---
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 91 (35+56)
 # 
 #   1: ' Convert integer into double
 #   2: function foo(a as integer, b as integer) as integer
@@ -78,34 +93,38 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/34
-JUMP main                                                                       #     2/34
-# FUNCTION                                                                      #     4/34
-LABEL foo                                                                       #     5/34
-PUSHFRAME                                                                       #     6/34
-PUSHS int@0                                                                     #     7/34
-RETURN                                                                          #     8/34
-# END FUNCTION                                                                  #     9/34
-# MAIN                                                                          #    11/34
-LABEL main                                                                      #    12/34
-CREATEFRAME                                                                     #    13/34
-PUSHFRAME                                                                       #    14/34
-DEFVAR LF@a                                                                     #    15/34
-MOVE LF@a int@0                                                                 #    16/34
-PUSHS int@3                                                                     #    17/34
-POPS LF@a                                                                       #    18/34
-CLEARS                                                                          #    19/34
-DEFVAR LF@b                                                                     #    20/34
-MOVE LF@b float@0.0                                                             #    21/34
-PUSHS LF@a                                                                      #    22/34
-PUSHS int@2                                                                     #    23/34
-DIVS                                                                            #    24/34
-POPS LF@b                                                                       #    25/34
-CLEARS                                                                          #    26/34
-PUSHS LF@b                                                                      #    27/34
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    28/34
-POPS LF@__INTERNAL__VAR_0                                                       #    29/34
-WRITE LF@__INTERNAL__VAR_0                                                      #    30/34
-JUMP __INTERNAL__FILE_END                                                       #    31/34
-# PROGRAM END                                                                   #    33/34
-LABEL __INTERNAL__FILE_END                                                      #    34/34
+.IFJcode17                                                                      #     1/38
+JUMP main                                                                       #     2/38
+# FUNCTION                                                                      #     4/38
+LABEL foo                                                                       #     5/38
+PUSHFRAME                                                                       #     6/38
+CREATEFRAME                                                                     #     7/38
+PUSHS int@0                                                                     #     8/38
+RETURN                                                                          #     9/38
+# END FUNCTION                                                                  #    10/38
+# MAIN                                                                          #    12/38
+LABEL main                                                                      #    13/38
+CREATEFRAME                                                                     #    14/38
+PUSHFRAME                                                                       #    15/38
+CREATEFRAME                                                                     #    16/38
+DEFVAR LF@a                                                                     #    17/38
+MOVE LF@a int@0                                                                 #    18/38
+PUSHS int@3                                                                     #    19/38
+POPS LF@a                                                                       #    20/38
+CLEARS                                                                          #    21/38
+DEFVAR LF@b                                                                     #    22/38
+MOVE LF@b float@0.0                                                             #    23/38
+PUSHS LF@a                                                                      #    24/38
+INT2FLOATS                                                                      #    25/38
+PUSHS int@2                                                                     #    26/38
+INT2FLOATS                                                                      #    27/38
+DIVS                                                                            #    28/38
+POPS LF@b                                                                       #    29/38
+CLEARS                                                                          #    30/38
+PUSHS LF@b                                                                      #    31/38
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    32/38
+POPS TF@__INTERNAL__VAR_0                                                       #    33/38
+WRITE TF@__INTERNAL__VAR_0                                                      #    34/38
+JUMP __INTERNAL__FILE_END                                                       #    35/38
+# PROGRAM END                                                                   #    37/38
+LABEL __INTERNAL__FILE_END                                                      #    38/38

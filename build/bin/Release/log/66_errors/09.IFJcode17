@@ -1,19 +1,12 @@
-# 2017-12-03 11:37:19.944260
+# 2017-12-03 23:09:22.655297
 # SECTION: 66_errors
 # TEST: 09
 # INFO: Assign integer into string
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  4
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -48,17 +41,18 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/15
-JUMP main                                                                       #     2/15
-# MAIN                                                                          #     4/15
-LABEL main                                                                      #     5/15
-CREATEFRAME                                                                     #     6/15
-PUSHFRAME                                                                       #     7/15
-DEFVAR LF@a                                                                     #     8/15
-MOVE LF@a string@                                                               #     9/15
-PUSHS string@ahoj                                                               #    10/15
-POPS LF@a                                                                       #    11/15
-CLEARS                                                                          #    12/15
-DEFVAR LF@b                                                                     #    13/15
-MOVE LF@b int@0                                                                 #    14/15
-PUSHS LF@a                                                                      #    15/15
+.IFJcode17                                                                      #     1/16
+JUMP main                                                                       #     2/16
+# MAIN                                                                          #     4/16
+LABEL main                                                                      #     5/16
+CREATEFRAME                                                                     #     6/16
+PUSHFRAME                                                                       #     7/16
+CREATEFRAME                                                                     #     8/16
+DEFVAR LF@a                                                                     #     9/16
+MOVE LF@a string@                                                               #    10/16
+PUSHS string@ahoj                                                               #    11/16
+POPS LF@a                                                                       #    12/16
+CLEARS                                                                          #    13/16
+DEFVAR LF@b                                                                     #    14/16
+MOVE LF@b int@0                                                                 #    15/16
+PUSHS LF@a                                                                      #    16/16

@@ -1,10 +1,10 @@
-# 2017-12-03 11:37:07.884192
+# 2017-12-03 23:09:05.081568
 # SECTION: 04_expressions
 # TEST: 16
 # INFO: exp(x) 6 iteration with loop
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
@@ -13,88 +13,609 @@
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 6 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 7 with following arguments:
-# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
 # Dest: LF@vysledek
-# Executing instruction: IMOVE at line: 9 with following arguments:
+# Executing instruction: IMOVE at line: 10 with following arguments:
 # Arg1: Const@=0(double)
 # Dest: LF@vysledek()
-# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Executing instruction: IDEFVAR at line: 11 with following arguments:
 # Dest: LF@citatel
-# Executing instruction: IMOVE at line: 11 with following arguments:
+# Executing instruction: IMOVE at line: 12 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@citatel()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 13 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 13 with following arguments:
+# Executing instruction: IPOPS at line: 14 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: LF@citatel=0(int)
-# Executing instruction: ICLEARS at line: 14 with following arguments:
-# Executing instruction: IDEFVAR at line: 15 with following arguments:
+# Executing instruction: ICLEARS at line: 15 with following arguments:
+# Executing instruction: IDEFVAR at line: 16 with following arguments:
 # Dest: LF@jmenovatel
-# Executing instruction: IMOVE at line: 16 with following arguments:
+# Executing instruction: IMOVE at line: 17 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@jmenovatel()
-# Executing instruction: IPUSHS at line: 17 with following arguments:
+# Executing instruction: IPUSHS at line: 18 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 18 with following arguments:
+# Executing instruction: IPOPS at line: 19 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: LF@jmenovatel=0(int)
-# Executing instruction: ICLEARS at line: 19 with following arguments:
-# Executing instruction: IDEFVAR at line: 20 with following arguments:
+# Executing instruction: ICLEARS at line: 20 with following arguments:
+# Executing instruction: IDEFVAR at line: 21 with following arguments:
 # Dest: LF@pocitadlo
-# Executing instruction: IMOVE at line: 21 with following arguments:
+# Executing instruction: IMOVE at line: 22 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@pocitadlo()
-# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 23 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 23 with following arguments:
+# Executing instruction: IPOPS at line: 24 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: LF@pocitadlo=0(int)
-# Executing instruction: ICLEARS at line: 24 with following arguments:
-# Executing instruction: ILABEL at line: 25 with following arguments:
-# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Executing instruction: ICLEARS at line: 25 with following arguments:
+# Executing instruction: ILABEL at line: 27 with following arguments:
+# Executing instruction: IPUSHS at line: 28 with following arguments:
 # Arg1: LF@pocitadlo=1(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Executing instruction: IPUSHS at line: 29 with following arguments:
 # Arg1: Const@=7(int)
 # Dest: Stack@()
-# Executing instruction: ILSS at line: 28 with following arguments:
+# Executing instruction: ILSS at line: 30 with following arguments:
 # Arg1: Stack@=1(int)
 # Arg2: Stack@=7(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 31 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 30 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 32 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 34 with following arguments:
+# Executing instruction: IPUSHS at line: 35 with following arguments:
 # Arg1: LF@vysledek=0(double)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 32 with following arguments:
+# Executing instruction: IPUSHS at line: 36 with following arguments:
 # Arg1: LF@citatel=1(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 33 with following arguments:
+# Executing instruction: IINT2FLOATS at line: 37 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
 # Arg1: LF@jmenovatel=1(int)
 # Dest: Stack@()
-# Executing instruction: IDIVS at line: 34 with following arguments:
+# Executing instruction: IINT2FLOATS at line: 39 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDIVS at line: 40 with following arguments:
+# Arg1: Stack@=1(double)
+# Arg2: Stack@=1(double)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 41 with following arguments:
+# Arg1: Stack@=0(double)
+# Arg2: Stack@=1(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 42 with following arguments:
+# Arg1: Stack@=1(double)
+# Dest: LF@vysledek=0(double)
+# Executing instruction: ICLEARS at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 44 with following arguments:
+# Arg1: LF@citatel=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 46 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 47 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: LF@citatel=1(int)
+# Executing instruction: ICLEARS at line: 48 with following arguments:
+# Executing instruction: IPUSHS at line: 49 with following arguments:
+# Arg1: LF@jmenovatel=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 50 with following arguments:
+# Arg1: LF@pocitadlo=1(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 51 with following arguments:
 # Arg1: Stack@=1(int)
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
-# Error at line: 34
-# Wrong operand type!
+# Executing instruction: IPOPS at line: 52 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: LF@jmenovatel=1(int)
+# Executing instruction: ICLEARS at line: 53 with following arguments:
+# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Arg1: LF@pocitadlo=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 55 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 56 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 57 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: LF@pocitadlo=1(int)
+# Executing instruction: ICLEARS at line: 58 with following arguments:
+# Executing instruction: IJUMP at line: 60 with following arguments:
+# Executing instruction: ILABEL at line: 27 with following arguments:
+# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Arg1: LF@pocitadlo=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=7(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 30 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 32 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 34 with following arguments:
+# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Arg1: LF@vysledek=1(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: LF@citatel=2(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 37 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: LF@jmenovatel=1(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 39 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDIVS at line: 40 with following arguments:
+# Arg1: Stack@=2(double)
+# Arg2: Stack@=1(double)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 41 with following arguments:
+# Arg1: Stack@=1(double)
+# Arg2: Stack@=2(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 42 with following arguments:
+# Arg1: Stack@=3(double)
+# Dest: LF@vysledek=1(double)
+# Executing instruction: ICLEARS at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 44 with following arguments:
+# Arg1: LF@citatel=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 46 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 47 with following arguments:
+# Arg1: Stack@=4(int)
+# Dest: LF@citatel=2(int)
+# Executing instruction: ICLEARS at line: 48 with following arguments:
+# Executing instruction: IPUSHS at line: 49 with following arguments:
+# Arg1: LF@jmenovatel=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 50 with following arguments:
+# Arg1: LF@pocitadlo=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 51 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 52 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: LF@jmenovatel=1(int)
+# Executing instruction: ICLEARS at line: 53 with following arguments:
+# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Arg1: LF@pocitadlo=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 55 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 56 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 57 with following arguments:
+# Arg1: Stack@=3(int)
+# Dest: LF@pocitadlo=2(int)
+# Executing instruction: ICLEARS at line: 58 with following arguments:
+# Executing instruction: IJUMP at line: 60 with following arguments:
+# Executing instruction: ILABEL at line: 27 with following arguments:
+# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Arg1: LF@pocitadlo=3(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=7(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 30 with following arguments:
+# Arg1: Stack@=3(int)
+# Arg2: Stack@=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 32 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 34 with following arguments:
+# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Arg1: LF@vysledek=3(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: LF@citatel=4(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 37 with following arguments:
+# Arg1: Stack@=4(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: LF@jmenovatel=2(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 39 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IDIVS at line: 40 with following arguments:
+# Arg1: Stack@=4(double)
+# Arg2: Stack@=2(double)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 41 with following arguments:
+# Arg1: Stack@=3(double)
+# Arg2: Stack@=2(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 42 with following arguments:
+# Arg1: Stack@=5(double)
+# Dest: LF@vysledek=3(double)
+# Executing instruction: ICLEARS at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 44 with following arguments:
+# Arg1: LF@citatel=4(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 46 with following arguments:
+# Arg1: Stack@=4(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 47 with following arguments:
+# Arg1: Stack@=8(int)
+# Dest: LF@citatel=4(int)
+# Executing instruction: ICLEARS at line: 48 with following arguments:
+# Executing instruction: IPUSHS at line: 49 with following arguments:
+# Arg1: LF@jmenovatel=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 50 with following arguments:
+# Arg1: LF@pocitadlo=3(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 51 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=3(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 52 with following arguments:
+# Arg1: Stack@=6(int)
+# Dest: LF@jmenovatel=2(int)
+# Executing instruction: ICLEARS at line: 53 with following arguments:
+# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Arg1: LF@pocitadlo=3(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 55 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 56 with following arguments:
+# Arg1: Stack@=3(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 57 with following arguments:
+# Arg1: Stack@=4(int)
+# Dest: LF@pocitadlo=3(int)
+# Executing instruction: ICLEARS at line: 58 with following arguments:
+# Executing instruction: IJUMP at line: 60 with following arguments:
+# Executing instruction: ILABEL at line: 27 with following arguments:
+# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Arg1: LF@pocitadlo=4(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=7(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 30 with following arguments:
+# Arg1: Stack@=4(int)
+# Arg2: Stack@=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 32 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 34 with following arguments:
+# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Arg1: LF@vysledek=5(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: LF@citatel=8(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 37 with following arguments:
+# Arg1: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: LF@jmenovatel=6(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 39 with following arguments:
+# Arg1: Stack@=6(int)
+# Dest: Stack@()
+# Executing instruction: IDIVS at line: 40 with following arguments:
+# Arg1: Stack@=8(double)
+# Arg2: Stack@=6(double)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 41 with following arguments:
+# Arg1: Stack@=5(double)
+# Arg2: Stack@=1.33333(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 42 with following arguments:
+# Arg1: Stack@=6.33333(double)
+# Dest: LF@vysledek=5(double)
+# Executing instruction: ICLEARS at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 44 with following arguments:
+# Arg1: LF@citatel=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 46 with following arguments:
+# Arg1: Stack@=8(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 47 with following arguments:
+# Arg1: Stack@=16(int)
+# Dest: LF@citatel=8(int)
+# Executing instruction: ICLEARS at line: 48 with following arguments:
+# Executing instruction: IPUSHS at line: 49 with following arguments:
+# Arg1: LF@jmenovatel=6(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 50 with following arguments:
+# Arg1: LF@pocitadlo=4(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 51 with following arguments:
+# Arg1: Stack@=6(int)
+# Arg2: Stack@=4(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 52 with following arguments:
+# Arg1: Stack@=24(int)
+# Dest: LF@jmenovatel=6(int)
+# Executing instruction: ICLEARS at line: 53 with following arguments:
+# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Arg1: LF@pocitadlo=4(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 55 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 56 with following arguments:
+# Arg1: Stack@=4(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 57 with following arguments:
+# Arg1: Stack@=5(int)
+# Dest: LF@pocitadlo=4(int)
+# Executing instruction: ICLEARS at line: 58 with following arguments:
+# Executing instruction: IJUMP at line: 60 with following arguments:
+# Executing instruction: ILABEL at line: 27 with following arguments:
+# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Arg1: LF@pocitadlo=5(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=7(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 30 with following arguments:
+# Arg1: Stack@=5(int)
+# Arg2: Stack@=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 32 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 34 with following arguments:
+# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Arg1: LF@vysledek=6.33333(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: LF@citatel=16(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 37 with following arguments:
+# Arg1: Stack@=16(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: LF@jmenovatel=24(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 39 with following arguments:
+# Arg1: Stack@=24(int)
+# Dest: Stack@()
+# Executing instruction: IDIVS at line: 40 with following arguments:
+# Arg1: Stack@=16(double)
+# Arg2: Stack@=24(double)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 41 with following arguments:
+# Arg1: Stack@=6.33333(double)
+# Arg2: Stack@=0.666667(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 42 with following arguments:
+# Arg1: Stack@=7(double)
+# Dest: LF@vysledek=6.33333(double)
+# Executing instruction: ICLEARS at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 44 with following arguments:
+# Arg1: LF@citatel=16(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 46 with following arguments:
+# Arg1: Stack@=16(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 47 with following arguments:
+# Arg1: Stack@=32(int)
+# Dest: LF@citatel=16(int)
+# Executing instruction: ICLEARS at line: 48 with following arguments:
+# Executing instruction: IPUSHS at line: 49 with following arguments:
+# Arg1: LF@jmenovatel=24(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 50 with following arguments:
+# Arg1: LF@pocitadlo=5(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 51 with following arguments:
+# Arg1: Stack@=24(int)
+# Arg2: Stack@=5(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 52 with following arguments:
+# Arg1: Stack@=120(int)
+# Dest: LF@jmenovatel=24(int)
+# Executing instruction: ICLEARS at line: 53 with following arguments:
+# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Arg1: LF@pocitadlo=5(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 55 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 56 with following arguments:
+# Arg1: Stack@=5(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 57 with following arguments:
+# Arg1: Stack@=6(int)
+# Dest: LF@pocitadlo=5(int)
+# Executing instruction: ICLEARS at line: 58 with following arguments:
+# Executing instruction: IJUMP at line: 60 with following arguments:
+# Executing instruction: ILABEL at line: 27 with following arguments:
+# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Arg1: LF@pocitadlo=6(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=7(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 30 with following arguments:
+# Arg1: Stack@=6(int)
+# Arg2: Stack@=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 32 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 34 with following arguments:
+# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Arg1: LF@vysledek=7(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: LF@citatel=32(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 37 with following arguments:
+# Arg1: Stack@=32(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: LF@jmenovatel=120(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 39 with following arguments:
+# Arg1: Stack@=120(int)
+# Dest: Stack@()
+# Executing instruction: IDIVS at line: 40 with following arguments:
+# Arg1: Stack@=32(double)
+# Arg2: Stack@=120(double)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 41 with following arguments:
+# Arg1: Stack@=7(double)
+# Arg2: Stack@=0.266667(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 42 with following arguments:
+# Arg1: Stack@=7.26667(double)
+# Dest: LF@vysledek=7(double)
+# Executing instruction: ICLEARS at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 44 with following arguments:
+# Arg1: LF@citatel=32(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 46 with following arguments:
+# Arg1: Stack@=32(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 47 with following arguments:
+# Arg1: Stack@=64(int)
+# Dest: LF@citatel=32(int)
+# Executing instruction: ICLEARS at line: 48 with following arguments:
+# Executing instruction: IPUSHS at line: 49 with following arguments:
+# Arg1: LF@jmenovatel=120(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 50 with following arguments:
+# Arg1: LF@pocitadlo=6(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 51 with following arguments:
+# Arg1: Stack@=120(int)
+# Arg2: Stack@=6(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 52 with following arguments:
+# Arg1: Stack@=720(int)
+# Dest: LF@jmenovatel=120(int)
+# Executing instruction: ICLEARS at line: 53 with following arguments:
+# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Arg1: LF@pocitadlo=6(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 55 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 56 with following arguments:
+# Arg1: Stack@=6(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 57 with following arguments:
+# Arg1: Stack@=7(int)
+# Dest: LF@pocitadlo=6(int)
+# Executing instruction: ICLEARS at line: 58 with following arguments:
+# Executing instruction: IJUMP at line: 60 with following arguments:
+# Executing instruction: ILABEL at line: 27 with following arguments:
+# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Arg1: LF@pocitadlo=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=7(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 30 with following arguments:
+# Arg1: Stack@=7(int)
+# Arg2: Stack@=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 32 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 62 with following arguments:
+# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Arg1: LF@vysledek=7.26667(double)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 65 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 66 with following arguments:
+# Arg1: Stack@=7.26667(double)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 67 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=7.26667(double)
+# Executing instruction: IJUMP at line: 68 with following arguments:
+# Executing instruction: ILABEL at line: 71 with following arguments:
 # 
-# EXPECTED INTERPRETER STDOUT:
-
-#  7.26667
-
-
-# CURRENT INTERPRETER STDOUT:
-
-
+# STDOUT DIFF:
+# 
 
 # INTERPRETER STDIN: 
 # 
@@ -102,8 +623,8 @@
 # EXPECTED COMPILER EXIT CODE: 0
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: 53
-# PRICE: ---
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 1107 (338+769)
 # 
 #   1: ' exp(x) 6 iteration with loop
 #   2: 
@@ -135,63 +656,72 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/62
-JUMP main                                                                       #     2/62
-# MAIN                                                                          #     4/62
-LABEL main                                                                      #     5/62
-CREATEFRAME                                                                     #     6/62
-PUSHFRAME                                                                       #     7/62
-DEFVAR LF@vysledek                                                              #     8/62
-MOVE LF@vysledek float@0.0                                                      #     9/62
-DEFVAR LF@citatel                                                               #    10/62
-MOVE LF@citatel int@0                                                           #    11/62
-PUSHS int@1                                                                     #    12/62
-POPS LF@citatel                                                                 #    13/62
-CLEARS                                                                          #    14/62
-DEFVAR LF@jmenovatel                                                            #    15/62
-MOVE LF@jmenovatel int@0                                                        #    16/62
-PUSHS int@1                                                                     #    17/62
-POPS LF@jmenovatel                                                              #    18/62
-CLEARS                                                                          #    19/62
-DEFVAR LF@pocitadlo                                                             #    20/62
-MOVE LF@pocitadlo int@0                                                         #    21/62
-PUSHS int@1                                                                     #    22/62
-POPS LF@pocitadlo                                                               #    23/62
-CLEARS                                                                          #    24/62
-LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    25/62
-PUSHS LF@pocitadlo                                                              #    26/62
-PUSHS int@7                                                                     #    27/62
-LTS                                                                             #    28/62
-PUSHS bool@true                                                                 #    29/62
-JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    30/62
-PUSHS LF@vysledek                                                               #    31/62
-PUSHS LF@citatel                                                                #    32/62
-PUSHS LF@jmenovatel                                                             #    33/62
-DIVS                                                                            #    34/62
-ADDS                                                                            #    35/62
-POPS LF@vysledek                                                                #    36/62
-CLEARS                                                                          #    37/62
-PUSHS LF@citatel                                                                #    38/62
-PUSHS int@2                                                                     #    39/62
-MULS                                                                            #    40/62
-POPS LF@citatel                                                                 #    41/62
-CLEARS                                                                          #    42/62
-PUSHS LF@jmenovatel                                                             #    43/62
-PUSHS LF@pocitadlo                                                              #    44/62
-MULS                                                                            #    45/62
-POPS LF@jmenovatel                                                              #    46/62
-CLEARS                                                                          #    47/62
-PUSHS LF@pocitadlo                                                              #    48/62
-PUSHS int@1                                                                     #    49/62
-ADDS                                                                            #    50/62
-POPS LF@pocitadlo                                                               #    51/62
-CLEARS                                                                          #    52/62
-JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    53/62
-LABEL __INTERNAL__LOOP_0_END                                                    #    54/62
-PUSHS LF@vysledek                                                               #    55/62
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    56/62
-POPS LF@__INTERNAL__VAR_0                                                       #    57/62
-WRITE LF@__INTERNAL__VAR_0                                                      #    58/62
-JUMP __INTERNAL__FILE_END                                                       #    59/62
-# PROGRAM END                                                                   #    61/62
-LABEL __INTERNAL__FILE_END                                                      #    62/62
+.IFJcode17                                                                      #     1/71
+JUMP main                                                                       #     2/71
+# MAIN                                                                          #     4/71
+LABEL main                                                                      #     5/71
+CREATEFRAME                                                                     #     6/71
+PUSHFRAME                                                                       #     7/71
+CREATEFRAME                                                                     #     8/71
+DEFVAR LF@vysledek                                                              #     9/71
+MOVE LF@vysledek float@0.0                                                      #    10/71
+DEFVAR LF@citatel                                                               #    11/71
+MOVE LF@citatel int@0                                                           #    12/71
+PUSHS int@1                                                                     #    13/71
+POPS LF@citatel                                                                 #    14/71
+CLEARS                                                                          #    15/71
+DEFVAR LF@jmenovatel                                                            #    16/71
+MOVE LF@jmenovatel int@0                                                        #    17/71
+PUSHS int@1                                                                     #    18/71
+POPS LF@jmenovatel                                                              #    19/71
+CLEARS                                                                          #    20/71
+DEFVAR LF@pocitadlo                                                             #    21/71
+MOVE LF@pocitadlo int@0                                                         #    22/71
+PUSHS int@1                                                                     #    23/71
+POPS LF@pocitadlo                                                               #    24/71
+CLEARS                                                                          #    25/71
+# DO WHILE                                                                      #    26/71
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    27/71
+PUSHS LF@pocitadlo                                                              #    28/71
+PUSHS int@7                                                                     #    29/71
+LTS                                                                             #    30/71
+PUSHS bool@true                                                                 #    31/71
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    32/71
+# DO WHILE TRUE                                                                 #    33/71
+CREATEFRAME                                                                     #    34/71
+PUSHS LF@vysledek                                                               #    35/71
+PUSHS LF@citatel                                                                #    36/71
+INT2FLOATS                                                                      #    37/71
+PUSHS LF@jmenovatel                                                             #    38/71
+INT2FLOATS                                                                      #    39/71
+DIVS                                                                            #    40/71
+ADDS                                                                            #    41/71
+POPS LF@vysledek                                                                #    42/71
+CLEARS                                                                          #    43/71
+PUSHS LF@citatel                                                                #    44/71
+PUSHS int@2                                                                     #    45/71
+MULS                                                                            #    46/71
+POPS LF@citatel                                                                 #    47/71
+CLEARS                                                                          #    48/71
+PUSHS LF@jmenovatel                                                             #    49/71
+PUSHS LF@pocitadlo                                                              #    50/71
+MULS                                                                            #    51/71
+POPS LF@jmenovatel                                                              #    52/71
+CLEARS                                                                          #    53/71
+PUSHS LF@pocitadlo                                                              #    54/71
+PUSHS int@1                                                                     #    55/71
+ADDS                                                                            #    56/71
+POPS LF@pocitadlo                                                               #    57/71
+CLEARS                                                                          #    58/71
+# LOOP                                                                          #    59/71
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    60/71
+# DO WHILE FALSE                                                                #    61/71
+LABEL __INTERNAL__LOOP_0_END                                                    #    62/71
+# DO WHILE END                                                                  #    63/71
+PUSHS LF@vysledek                                                               #    64/71
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    65/71
+POPS TF@__INTERNAL__VAR_0                                                       #    66/71
+WRITE TF@__INTERNAL__VAR_0                                                      #    67/71
+JUMP __INTERNAL__FILE_END                                                       #    68/71
+# PROGRAM END                                                                   #    70/71
+LABEL __INTERNAL__FILE_END                                                      #    71/71

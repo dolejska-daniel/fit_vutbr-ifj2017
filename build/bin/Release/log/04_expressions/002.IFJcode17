@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:09.216735
+# 2017-12-03 23:09:09.069171
 # SECTION: 04_expressions
 # TEST: 002
 # INFO: implicit conversion
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -13,28 +13,29 @@
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 6 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 7 with following arguments:
-# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IPUSHS at line: 9 with following arguments:
 # Arg1: Const@=3(int)
 # Dest: Stack@()
-# Executing instruction: IINT2FLOATS at line: 9 with following arguments:
+# Executing instruction: IINT2FLOATS at line: 10 with following arguments:
 # Arg1: Stack@=3(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Executing instruction: IPUSHS at line: 11 with following arguments:
 # Arg1: Const@=2(double)
 # Dest: Stack@()
-# Executing instruction: IDIVS at line: 11 with following arguments:
+# Executing instruction: IDIVS at line: 12 with following arguments:
 # Arg1: Stack@=3(double)
 # Arg2: Stack@=2(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 12 with following arguments:
-# Dest: LF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 13 with following arguments:
+# Executing instruction: IDEFVAR at line: 13 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 14 with following arguments:
 # Arg1: Stack@=1.5(double)
-# Dest: LF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 14 with following arguments:
-# Arg1: LF@__INTERNAL__VAR_0=1.5(double)
-# Executing instruction: IJUMP at line: 15 with following arguments:
-# Executing instruction: ILABEL at line: 18 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 15 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=1.5(double)
+# Executing instruction: IJUMP at line: 16 with following arguments:
+# Executing instruction: ILABEL at line: 19 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -46,7 +47,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 46 (20+26)
+# PRICE: 48 (22+26)
 # 
 #   1: scope 
 #   2:  print 3/2.0;
@@ -54,19 +55,20 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/18
-JUMP main                                                                       #     2/18
-# MAIN                                                                          #     4/18
-LABEL main                                                                      #     5/18
-CREATEFRAME                                                                     #     6/18
-PUSHFRAME                                                                       #     7/18
-PUSHS int@3                                                                     #     8/18
-INT2FLOATS                                                                      #     9/18
-PUSHS float@2.0                                                                 #    10/18
-DIVS                                                                            #    11/18
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    12/18
-POPS LF@__INTERNAL__VAR_0                                                       #    13/18
-WRITE LF@__INTERNAL__VAR_0                                                      #    14/18
-JUMP __INTERNAL__FILE_END                                                       #    15/18
-# PROGRAM END                                                                   #    17/18
-LABEL __INTERNAL__FILE_END                                                      #    18/18
+.IFJcode17                                                                      #     1/19
+JUMP main                                                                       #     2/19
+# MAIN                                                                          #     4/19
+LABEL main                                                                      #     5/19
+CREATEFRAME                                                                     #     6/19
+PUSHFRAME                                                                       #     7/19
+CREATEFRAME                                                                     #     8/19
+PUSHS int@3                                                                     #     9/19
+INT2FLOATS                                                                      #    10/19
+PUSHS float@2.0                                                                 #    11/19
+DIVS                                                                            #    12/19
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    13/19
+POPS TF@__INTERNAL__VAR_0                                                       #    14/19
+WRITE TF@__INTERNAL__VAR_0                                                      #    15/19
+JUMP __INTERNAL__FILE_END                                                       #    16/19
+# PROGRAM END                                                                   #    18/19
+LABEL __INTERNAL__FILE_END                                                      #    19/19

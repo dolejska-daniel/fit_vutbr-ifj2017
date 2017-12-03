@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:01.687214
+# 2017-12-03 23:08:57.816751
 # SECTION: 01_basic
 # TEST: 08
 # INFO: variable declaration with implicit value
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -13,49 +13,50 @@
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 6 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 7 with following arguments:
-# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
 # Dest: LF@int
-# Executing instruction: IMOVE at line: 9 with following arguments:
+# Executing instruction: IMOVE at line: 10 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@int()
-# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Executing instruction: IDEFVAR at line: 11 with following arguments:
 # Dest: LF@float
-# Executing instruction: IMOVE at line: 11 with following arguments:
+# Executing instruction: IMOVE at line: 12 with following arguments:
 # Arg1: Const@=0(double)
 # Dest: LF@float()
-# Executing instruction: IDEFVAR at line: 12 with following arguments:
+# Executing instruction: IDEFVAR at line: 13 with following arguments:
 # Dest: LF@str
-# Executing instruction: IMOVE at line: 13 with following arguments:
+# Executing instruction: IMOVE at line: 14 with following arguments:
 # Arg1: Const@=(string)
 # Dest: LF@str()
-# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 15 with following arguments:
 # Arg1: LF@int=0(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 15 with following arguments:
-# Dest: LF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 16 with following arguments:
+# Executing instruction: IDEFVAR at line: 16 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 17 with following arguments:
 # Arg1: Stack@=0(int)
-# Dest: LF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 17 with following arguments:
-# Arg1: LF@__INTERNAL__VAR_0=0(int)
-# Executing instruction: IPUSHS at line: 18 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 18 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IPUSHS at line: 19 with following arguments:
 # Arg1: LF@float=0(double)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 19 with following arguments:
+# Executing instruction: IPOPS at line: 20 with following arguments:
 # Arg1: Stack@=0(double)
-# Dest: LF@__INTERNAL__VAR_0=0(int)
-# Executing instruction: IWRITE at line: 20 with following arguments:
-# Arg1: LF@__INTERNAL__VAR_0=0(double)
-# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 21 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=0(double)
+# Executing instruction: IPUSHS at line: 22 with following arguments:
 # Arg1: LF@str=(string)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 22 with following arguments:
+# Executing instruction: IPOPS at line: 23 with following arguments:
 # Arg1: Stack@=(string)
-# Dest: LF@__INTERNAL__VAR_0=0(double)
-# Executing instruction: IWRITE at line: 23 with following arguments:
-# Arg1: LF@__INTERNAL__VAR_0=(string)
-# Executing instruction: IJUMP at line: 24 with following arguments:
-# Executing instruction: ILABEL at line: 27 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0=0(double)
+# Executing instruction: IWRITE at line: 24 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IJUMP at line: 25 with following arguments:
+# Executing instruction: ILABEL at line: 28 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -67,7 +68,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 88 (33+55)
+# PRICE: 90 (35+55)
 # 
 #   1: ' variable declaration with implicit value
 #   2: scope
@@ -80,28 +81,29 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/27
-JUMP main                                                                       #     2/27
-# MAIN                                                                          #     4/27
-LABEL main                                                                      #     5/27
-CREATEFRAME                                                                     #     6/27
-PUSHFRAME                                                                       #     7/27
-DEFVAR LF@int                                                                   #     8/27
-MOVE LF@int int@0                                                               #     9/27
-DEFVAR LF@float                                                                 #    10/27
-MOVE LF@float float@0.0                                                         #    11/27
-DEFVAR LF@str                                                                   #    12/27
-MOVE LF@str string@                                                             #    13/27
-PUSHS LF@int                                                                    #    14/27
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    15/27
-POPS LF@__INTERNAL__VAR_0                                                       #    16/27
-WRITE LF@__INTERNAL__VAR_0                                                      #    17/27
-PUSHS LF@float                                                                  #    18/27
-POPS LF@__INTERNAL__VAR_0                                                       #    19/27
-WRITE LF@__INTERNAL__VAR_0                                                      #    20/27
-PUSHS LF@str                                                                    #    21/27
-POPS LF@__INTERNAL__VAR_0                                                       #    22/27
-WRITE LF@__INTERNAL__VAR_0                                                      #    23/27
-JUMP __INTERNAL__FILE_END                                                       #    24/27
-# PROGRAM END                                                                   #    26/27
-LABEL __INTERNAL__FILE_END                                                      #    27/27
+.IFJcode17                                                                      #     1/28
+JUMP main                                                                       #     2/28
+# MAIN                                                                          #     4/28
+LABEL main                                                                      #     5/28
+CREATEFRAME                                                                     #     6/28
+PUSHFRAME                                                                       #     7/28
+CREATEFRAME                                                                     #     8/28
+DEFVAR LF@int                                                                   #     9/28
+MOVE LF@int int@0                                                               #    10/28
+DEFVAR LF@float                                                                 #    11/28
+MOVE LF@float float@0.0                                                         #    12/28
+DEFVAR LF@str                                                                   #    13/28
+MOVE LF@str string@                                                             #    14/28
+PUSHS LF@int                                                                    #    15/28
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    16/28
+POPS TF@__INTERNAL__VAR_0                                                       #    17/28
+WRITE TF@__INTERNAL__VAR_0                                                      #    18/28
+PUSHS LF@float                                                                  #    19/28
+POPS TF@__INTERNAL__VAR_0                                                       #    20/28
+WRITE TF@__INTERNAL__VAR_0                                                      #    21/28
+PUSHS LF@str                                                                    #    22/28
+POPS TF@__INTERNAL__VAR_0                                                       #    23/28
+WRITE TF@__INTERNAL__VAR_0                                                      #    24/28
+JUMP __INTERNAL__FILE_END                                                       #    25/28
+# PROGRAM END                                                                   #    27/28
+LABEL __INTERNAL__FILE_END                                                      #    28/28

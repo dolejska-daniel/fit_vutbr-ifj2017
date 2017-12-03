@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:41.273977
+# 2017-12-03 23:09:45.751213
 # SECTION: 99_benchmarks
 # TEST: 13
 # INFO: Multiplier listing
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -64,74 +64,87 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/74
-JUMP main                                                                       #     2/74
-# FUNCTION                                                                      #     4/74
-LABEL multiply                                                                  #     5/74
-PUSHFRAME                                                                       #     6/74
-PUSHS LF@a                                                                      #     7/74
-PUSHS LF@b                                                                      #     8/74
-MULS                                                                            #     9/74
-RETURN                                                                          #    10/74
-PUSHS int@0                                                                     #    11/74
-RETURN                                                                          #    12/74
-# END FUNCTION                                                                  #    13/74
-# MAIN                                                                          #    15/74
-LABEL main                                                                      #    16/74
-CREATEFRAME                                                                     #    17/74
-PUSHFRAME                                                                       #    18/74
-DEFVAR LF@a                                                                     #    19/74
-MOVE LF@a int@0                                                                 #    20/74
-PUSHS int@1                                                                     #    21/74
-POPS LF@a                                                                       #    22/74
-CLEARS                                                                          #    23/74
-LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    24/74
-PUSHS LF@a                                                                      #    25/74
-PUSHS int@10                                                                    #    26/74
-LTS                                                                             #    27/74
-PUSHS bool@true                                                                 #    28/74
-JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    29/74
-DEFVAR LF@b                                                                     #    30/74
-MOVE LF@b int@0                                                                 #    31/74
-PUSHS int@1                                                                     #    32/74
-POPS LF@b                                                                       #    33/74
-CLEARS                                                                          #    34/74
-LABEL __INTERNAL__LOOP_1_BEGIN                                                  #    35/74
-PUSHS LF@b                                                                      #    36/74
-PUSHS int@10                                                                    #    37/74
-LTS                                                                             #    38/74
-PUSHS bool@true                                                                 #    39/74
-JUMPIFNEQS __INTERNAL__LOOP_1_END                                               #    40/74
-CREATEFRAME                                                                     #    41/74
-PUSHS LF@a                                                                      #    42/74
-DEFVAR TF@a                                                                     #    43/74
-POPS TF@a                                                                       #    44/74
-PUSHS LF@b                                                                      #    45/74
-DEFVAR TF@b                                                                     #    46/74
-POPS TF@b                                                                       #    47/74
-CALL multiply                                                                   #    48/74
-POPFRAME                                                                        #    49/74
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    50/74
-POPS LF@__INTERNAL__VAR_0                                                       #    51/74
-WRITE LF@__INTERNAL__VAR_0                                                      #    52/74
-PUSHS LF@b                                                                      #    53/74
-PUSHS int@1                                                                     #    54/74
-ADDS                                                                            #    55/74
-POPS LF@b                                                                       #    56/74
-CLEARS                                                                          #    57/74
-JUMP __INTERNAL__LOOP_1_BEGIN                                                   #    58/74
-LABEL __INTERNAL__LOOP_1_END                                                    #    59/74
-PUSHS string@\n                                                                 #    60/74
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    61/74
-POPS LF@__INTERNAL__VAR_0                                                       #    62/74
-WRITE LF@__INTERNAL__VAR_0                                                      #    63/74
-PUSHS LF@a                                                                      #    64/74
-PUSHS int@1                                                                     #    65/74
-ADDS                                                                            #    66/74
-POPS LF@a                                                                       #    67/74
-CLEARS                                                                          #    68/74
-JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    69/74
-LABEL __INTERNAL__LOOP_0_END                                                    #    70/74
-JUMP __INTERNAL__FILE_END                                                       #    71/74
-# PROGRAM END                                                                   #    73/74
-LABEL __INTERNAL__FILE_END                                                      #    74/74
+.IFJcode17                                                                      #     1/87
+JUMP main                                                                       #     2/87
+# FUNCTION                                                                      #     4/87
+LABEL multiply                                                                  #     5/87
+PUSHFRAME                                                                       #     6/87
+CREATEFRAME                                                                     #     7/87
+PUSHS LF@a                                                                      #     8/87
+PUSHS LF@b                                                                      #     9/87
+MULS                                                                            #    10/87
+RETURN                                                                          #    11/87
+PUSHS int@0                                                                     #    12/87
+RETURN                                                                          #    13/87
+# END FUNCTION                                                                  #    14/87
+# MAIN                                                                          #    16/87
+LABEL main                                                                      #    17/87
+CREATEFRAME                                                                     #    18/87
+PUSHFRAME                                                                       #    19/87
+CREATEFRAME                                                                     #    20/87
+DEFVAR LF@a                                                                     #    21/87
+MOVE LF@a int@0                                                                 #    22/87
+PUSHS int@1                                                                     #    23/87
+POPS LF@a                                                                       #    24/87
+CLEARS                                                                          #    25/87
+# DO WHILE                                                                      #    26/87
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    27/87
+PUSHS LF@a                                                                      #    28/87
+PUSHS int@10                                                                    #    29/87
+LTS                                                                             #    30/87
+PUSHS bool@true                                                                 #    31/87
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    32/87
+# DO WHILE TRUE                                                                 #    33/87
+CREATEFRAME                                                                     #    34/87
+DEFVAR LF@b                                                                     #    35/87
+MOVE LF@b int@0                                                                 #    36/87
+PUSHS int@1                                                                     #    37/87
+POPS LF@b                                                                       #    38/87
+CLEARS                                                                          #    39/87
+# DO WHILE                                                                      #    40/87
+LABEL __INTERNAL__LOOP_1_BEGIN                                                  #    41/87
+PUSHS LF@b                                                                      #    42/87
+PUSHS int@10                                                                    #    43/87
+LTS                                                                             #    44/87
+PUSHS bool@true                                                                 #    45/87
+JUMPIFNEQS __INTERNAL__LOOP_1_END                                               #    46/87
+# DO WHILE TRUE                                                                 #    47/87
+CREATEFRAME                                                                     #    48/87
+CREATEFRAME                                                                     #    49/87
+PUSHS LF@a                                                                      #    50/87
+DEFVAR TF@a                                                                     #    51/87
+POPS TF@a                                                                       #    52/87
+PUSHS LF@b                                                                      #    53/87
+DEFVAR TF@b                                                                     #    54/87
+POPS TF@b                                                                       #    55/87
+CALL multiply                                                                   #    56/87
+POPFRAME                                                                        #    57/87
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    58/87
+POPS TF@__INTERNAL__VAR_0                                                       #    59/87
+WRITE TF@__INTERNAL__VAR_0                                                      #    60/87
+PUSHS LF@b                                                                      #    61/87
+PUSHS int@1                                                                     #    62/87
+ADDS                                                                            #    63/87
+POPS LF@b                                                                       #    64/87
+CLEARS                                                                          #    65/87
+# LOOP                                                                          #    66/87
+JUMP __INTERNAL__LOOP_1_BEGIN                                                   #    67/87
+# DO WHILE FALSE                                                                #    68/87
+LABEL __INTERNAL__LOOP_1_END                                                    #    69/87
+# DO WHILE END                                                                  #    70/87
+PUSHS string@\n                                                                 #    71/87
+POPS TF@__INTERNAL__VAR_0                                                       #    72/87
+WRITE TF@__INTERNAL__VAR_0                                                      #    73/87
+PUSHS LF@a                                                                      #    74/87
+PUSHS int@1                                                                     #    75/87
+ADDS                                                                            #    76/87
+POPS LF@a                                                                       #    77/87
+CLEARS                                                                          #    78/87
+# LOOP                                                                          #    79/87
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    80/87
+# DO WHILE FALSE                                                                #    81/87
+LABEL __INTERNAL__LOOP_0_END                                                    #    82/87
+# DO WHILE END                                                                  #    83/87
+JUMP __INTERNAL__FILE_END                                                       #    84/87
+# PROGRAM END                                                                   #    86/87
+LABEL __INTERNAL__FILE_END                                                      #    87/87

@@ -1,21 +1,15 @@
-# 2017-12-03 11:37:40.888452
+# 2017-12-03 23:09:43.971982
 # SECTION: 99_benchmarks
 # TEST: 04
 # INFO: complex expression
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  4
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
+# Wrong escape sequence!
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -31,9 +25,9 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 4
+# CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: None
+# CURRENT INTERPRETER EXIT CODE: 51
 # PRICE: ---
 # 
 #   1: ' complex expression
@@ -55,103 +49,192 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/101
-JUMP main                                                                       #     2/101
-# MAIN                                                                          #     4/101
-LABEL main                                                                      #     5/101
-CREATEFRAME                                                                     #     6/101
-PUSHFRAME                                                                       #     7/101
-DEFVAR LF@a                                                                     #     8/101
-MOVE LF@a int@0                                                                 #     9/101
-PUSHS int@74                                                                    #    10/101
-POPS LF@a                                                                       #    11/101
-CLEARS                                                                          #    12/101
-DEFVAR LF@b                                                                     #    13/101
-MOVE LF@b float@0.0                                                             #    14/101
-PUSHS float@745.745                                                             #    15/101
-POPS LF@b                                                                       #    16/101
-CLEARS                                                                          #    17/101
-DEFVAR LF@c                                                                     #    18/101
-MOVE LF@c float@0.0                                                             #    19/101
-PUSHS int@0                                                                     #    20/101
-PUSHS int@123456789                                                             #    21/101
-SUBS                                                                            #    22/101
-INT2FLOATS                                                                      #    23/101
-POPS LF@c                                                                       #    24/101
-CLEARS                                                                          #    25/101
-DEFVAR LF@d                                                                     #    26/101
-MOVE LF@d float@0.0                                                             #    27/101
-PUSHS LF@a                                                                      #    28/101
-INT2FLOATS                                                                      #    29/101
-PUSHS LF@a                                                                      #    30/101
-MULS                                                                            #    31/101
-PUSHS LF@b                                                                      #    32/101
-PUSHS LF@b                                                                      #    33/101
-DIVS                                                                            #    34/101
-ADDS                                                                            #    35/101
-PUSHS LF@b                                                                      #    36/101
-PUSHS LF@a                                                                      #    37/101
-INT2FLOATS                                                                      #    38/101
-MULS                                                                            #    39/101
-SUBS                                                                            #    40/101
-PUSHS LF@b                                                                      #    41/101
-PUSHS LF@a                                                                      #    42/101
-INT2FLOATS                                                                      #    43/101
-PUSHS LF@a                                                                      #    44/101
-MULS                                                                            #    45/101
-PUSHS LF@b                                                                      #    46/101
-PUSHS LF@a                                                                      #    47/101
-INT2FLOATS                                                                      #    48/101
-MULS                                                                            #    49/101
-ADDS                                                                            #    50/101
-PUSHS LF@c                                                                      #    51/101
-PUSHS int@7                                                                     #    52/101
-INT2FLOATS                                                                      #    53/101
-MULS                                                                            #    54/101
-ADDS                                                                            #    55/101
-PUSHS int@2                                                                     #    56/101
-INT2FLOATS                                                                      #    57/101
-PUSHS int@5                                                                     #    58/101
-MULS                                                                            #    59/101
-PUSHS LF@b                                                                      #    60/101
-MULS                                                                            #    61/101
-ADDS                                                                            #    62/101
-MULS                                                                            #    63/101
-PUSHS LF@b                                                                      #    64/101
-PUSHS int@78                                                                    #    65/101
-INT2FLOATS                                                                      #    66/101
-MULS                                                                            #    67/101
-PUSHS int@96                                                                    #    68/101
-INT2FLOATS                                                                      #    69/101
-MULS                                                                            #    70/101
-SUBS                                                                            #    71/101
-PUSHS LF@b                                                                      #    72/101
-PUSHS LF@a                                                                      #    73/101
-INT2FLOATS                                                                      #    74/101
-MULS                                                                            #    75/101
-SUBS                                                                            #    76/101
-PUSHS LF@b                                                                      #    77/101
-PUSHS LF@c                                                                      #    78/101
-ADDS                                                                            #    79/101
-PUSHS LF@b                                                                      #    80/101
-ADDS                                                                            #    81/101
-PUSHS LF@c                                                                      #    82/101
-ADDS                                                                            #    83/101
-PUSHS LF@b                                                                      #    84/101
-ADDS                                                                            #    85/101
-PUSHS LF@c                                                                      #    86/101
-ADDS                                                                            #    87/101
-ADDS                                                                            #    88/101
-PUSHS LF@c                                                                      #    89/101
-DIVS                                                                            #    90/101
-ADDS                                                                            #    91/101
-POPS LF@c                                                                       #    92/101
-CLEARS                                                                          #    93/101
-PUSHS LF@c                                                                      #    94/101
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    95/101
-POPS LF@__INTERNAL__VAR_0                                                       #    96/101
-WRITE LF@__INTERNAL__VAR_0                                                      #    97/101
-PUSHS string@\n                                                                 #    98/101
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    99/101
-POPS LF@__INTERNAL__VAR_0                                                       #   100/101
-WRITE LF@__INTERNAL__VAR_0                                                      #   101/101
+.IFJcode17                                                                      #     1/191
+JUMP main                                                                       #     2/191
+# MAIN                                                                          #     4/191
+LABEL main                                                                      #     5/191
+CREATEFRAME                                                                     #     6/191
+PUSHFRAME                                                                       #     7/191
+CREATEFRAME                                                                     #     8/191
+DEFVAR LF@a                                                                     #     9/191
+MOVE LF@a int@0                                                                 #    10/191
+PUSHS int@74                                                                    #    11/191
+POPS LF@a                                                                       #    12/191
+CLEARS                                                                          #    13/191
+DEFVAR LF@b                                                                     #    14/191
+MOVE LF@b float@0.0                                                             #    15/191
+PUSHS float@745.745                                                             #    16/191
+POPS LF@b                                                                       #    17/191
+CLEARS                                                                          #    18/191
+DEFVAR LF@c                                                                     #    19/191
+MOVE LF@c float@0.0                                                             #    20/191
+PUSHS int@0                                                                     #    21/191
+PUSHS int@123456789                                                             #    22/191
+SUBS                                                                            #    23/191
+INT2FLOATS                                                                      #    24/191
+POPS LF@c                                                                       #    25/191
+CLEARS                                                                          #    26/191
+DEFVAR LF@d                                                                     #    27/191
+MOVE LF@d float@0.0                                                             #    28/191
+PUSHS LF@a                                                                      #    29/191
+PUSHS LF@a                                                                      #    30/191
+MULS                                                                            #    31/191
+INT2FLOATS                                                                      #    32/191
+PUSHS LF@b                                                                      #    33/191
+PUSHS LF@b                                                                      #    34/191
+DIVS                                                                            #    35/191
+ADDS                                                                            #    36/191
+PUSHS LF@b                                                                      #    37/191
+PUSHS LF@a                                                                      #    38/191
+INT2FLOATS                                                                      #    39/191
+MULS                                                                            #    40/191
+SUBS                                                                            #    41/191
+PUSHS LF@b                                                                      #    42/191
+PUSHS LF@a                                                                      #    43/191
+PUSHS LF@a                                                                      #    44/191
+MULS                                                                            #    45/191
+INT2FLOATS                                                                      #    46/191
+PUSHS LF@b                                                                      #    47/191
+PUSHS LF@a                                                                      #    48/191
+INT2FLOATS                                                                      #    49/191
+MULS                                                                            #    50/191
+ADDS                                                                            #    51/191
+PUSHS LF@c                                                                      #    52/191
+PUSHS int@7                                                                     #    53/191
+INT2FLOATS                                                                      #    54/191
+MULS                                                                            #    55/191
+ADDS                                                                            #    56/191
+PUSHS int@2                                                                     #    57/191
+PUSHS int@5                                                                     #    58/191
+MULS                                                                            #    59/191
+INT2FLOATS                                                                      #    60/191
+PUSHS LF@b                                                                      #    61/191
+MULS                                                                            #    62/191
+ADDS                                                                            #    63/191
+MULS                                                                            #    64/191
+PUSHS LF@b                                                                      #    65/191
+PUSHS int@78                                                                    #    66/191
+INT2FLOATS                                                                      #    67/191
+MULS                                                                            #    68/191
+PUSHS int@96                                                                    #    69/191
+INT2FLOATS                                                                      #    70/191
+MULS                                                                            #    71/191
+SUBS                                                                            #    72/191
+PUSHS LF@b                                                                      #    73/191
+PUSHS LF@a                                                                      #    74/191
+INT2FLOATS                                                                      #    75/191
+MULS                                                                            #    76/191
+SUBS                                                                            #    77/191
+PUSHS LF@b                                                                      #    78/191
+PUSHS LF@c                                                                      #    79/191
+ADDS                                                                            #    80/191
+PUSHS LF@b                                                                      #    81/191
+ADDS                                                                            #    82/191
+PUSHS LF@c                                                                      #    83/191
+ADDS                                                                            #    84/191
+PUSHS LF@b                                                                      #    85/191
+ADDS                                                                            #    86/191
+PUSHS LF@c                                                                      #    87/191
+ADDS                                                                            #    88/191
+ADDS                                                                            #    89/191
+PUSHS LF@c                                                                      #    90/191
+DIVS                                                                            #    91/191
+ADDS                                                                            #    92/191
+POPS LF@c                                                                       #    93/191
+CLEARS                                                                          #    94/191
+PUSHS LF@c                                                                      #    95/191
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    96/191
+POPS TF@__INTERNAL__VAR_0                                                       #    97/191
+WRITE TF@__INTERNAL__VAR_0                                                      #    98/191
+PUSHS string@\n                                                                 #    99/191
+POPS TF@__INTERNAL__VAR_0                                                       #   100/191
+WRITE TF@__INTERNAL__VAR_0                                                      #   101/191
+PUSHS LF@a                                                                      #   102/191
+INT2FLOATS                                                                      #   103/191
+PUSHS LF@b                                                                      #   104/191
+PUSHS LF@c                                                                      #   105/191
+DIVS                                                                            #   106/191
+ADDS                                                                            #   107/191
+PUSHS int@7                                                                     #   108/191
+INT2FLOATS                                                                      #   109/191
+PUSHS LF@b                                                                      #   110/191
+ADDS                                                                            #   111/191
+PUSHS int@0                                                                     #   112/191
+INT2FLOATS                                                                      #   113/191
+PUSHS int@2                                                                     #   114/191
+INT2FLOATS                                                                      #   115/191
+PUSHS int@4                                                                     #   116/191
+PUSHS LF@a                                                                      #   117/191
+SUBS                                                                            #   118/191
+INT2FLOATS                                                                      #   119/191
+PUSHS int@8                                                                     #   120/191
+PUSHS int@9                                                                     #   121/191
+MULS                                                                            #   122/191
+INT2FLOATS                                                                      #   123/191
+PUSHS LF@c                                                                      #   124/191
+PUSHS int@74                                                                    #   125/191
+INT2FLOATS                                                                      #   126/191
+MULS                                                                            #   127/191
+PUSHS LF@c                                                                      #   128/191
+SUBS                                                                            #   129/191
+PUSHS LF@c                                                                      #   130/191
+PUSHS LF@b                                                                      #   131/191
+PUSHS int@8                                                                     #   132/191
+INT2FLOATS                                                                      #   133/191
+MULS                                                                            #   134/191
+PUSHS int@4                                                                     #   135/191
+INT2FLOATS                                                                      #   136/191
+ADDS                                                                            #   137/191
+MULS                                                                            #   138/191
+ADDS                                                                            #   139/191
+PUSHS LF@b                                                                      #   140/191
+PUSHS LF@a                                                                      #   141/191
+INT2FLOATS                                                                      #   142/191
+MULS                                                                            #   143/191
+PUSHS LF@c                                                                      #   144/191
+DIVS                                                                            #   145/191
+ADDS                                                                            #   146/191
+PUSHS int@7                                                                     #   147/191
+INT2FLOATS                                                                      #   148/191
+ADDS                                                                            #   149/191
+DIVS                                                                            #   150/191
+ADDS                                                                            #   151/191
+PUSHS LF@a                                                                      #   152/191
+INT2FLOATS                                                                      #   153/191
+SUBS                                                                            #   154/191
+PUSHS int@7                                                                     #   155/191
+INT2FLOATS                                                                      #   156/191
+ADDS                                                                            #   157/191
+MULS                                                                            #   158/191
+PUSHS LF@a                                                                      #   159/191
+INT2FLOATS                                                                      #   160/191
+PUSHS LF@b                                                                      #   161/191
+MULS                                                                            #   162/191
+PUSHS LF@b                                                                      #   163/191
+DIVS                                                                            #   164/191
+SUBS                                                                            #   165/191
+DIVS                                                                            #   166/191
+SUBS                                                                            #   167/191
+PUSHS int@1                                                                     #   168/191
+INT2FLOATS                                                                      #   169/191
+ADDS                                                                            #   170/191
+PUSHS int@4                                                                     #   171/191
+INT2FLOATS                                                                      #   172/191
+DIVS                                                                            #   173/191
+SUBS                                                                            #   174/191
+POPS LF@d                                                                       #   175/191
+CLEARS                                                                          #   176/191
+PUSHS LF@d                                                                      #   177/191
+PUSHS int@2                                                                     #   178/191
+INT2FLOATS                                                                      #   179/191
+PUSHS LF@d                                                                      #   180/191
+MULS                                                                            #   181/191
+SUBS                                                                            #   182/191
+POPS LF@d                                                                       #   183/191
+CLEARS                                                                          #   184/191
+PUSHS LF@d                                                                      #   185/191
+POPS TF@__INTERNAL__VAR_0                                                       #   186/191
+WRITE TF@__INTERNAL__VAR_0                                                      #   187/191
+JUMP __INTERNAL__FILE_END                                                       #   188/191
+# PROGRAM END                                                                   #   190/191
+LABEL __INTERNAL__FILE_END                                                      #   191/191

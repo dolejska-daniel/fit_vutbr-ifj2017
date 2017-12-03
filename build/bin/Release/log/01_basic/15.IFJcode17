@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:01.877219
+# 2017-12-03 23:08:58.094991
 # SECTION: 01_basic
 # TEST: 15
 # INFO: Simple double print
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -13,18 +13,19 @@
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 6 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 7 with following arguments:
-# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IPUSHS at line: 9 with following arguments:
 # Arg1: Const@=5876.78(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 9 with following arguments:
-# Dest: LF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 10 with following arguments:
+# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 11 with following arguments:
 # Arg1: Stack@=5876.78(double)
-# Dest: LF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 11 with following arguments:
-# Arg1: LF@__INTERNAL__VAR_0=5876.78(double)
-# Executing instruction: IJUMP at line: 12 with following arguments:
-# Executing instruction: ILABEL at line: 15 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 12 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=5876.78(double)
+# Executing instruction: IJUMP at line: 13 with following arguments:
+# Executing instruction: ILABEL at line: 16 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -36,7 +37,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 28 (15+13)
+# PRICE: 30 (17+13)
 # 
 #   1: scope 
 #   2:  print 5876.78; 
@@ -44,16 +45,17 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/15
-JUMP main                                                                       #     2/15
-# MAIN                                                                          #     4/15
-LABEL main                                                                      #     5/15
-CREATEFRAME                                                                     #     6/15
-PUSHFRAME                                                                       #     7/15
-PUSHS float@5876.78                                                             #     8/15
-DEFVAR LF@__INTERNAL__VAR_0                                                     #     9/15
-POPS LF@__INTERNAL__VAR_0                                                       #    10/15
-WRITE LF@__INTERNAL__VAR_0                                                      #    11/15
-JUMP __INTERNAL__FILE_END                                                       #    12/15
-# PROGRAM END                                                                   #    14/15
-LABEL __INTERNAL__FILE_END                                                      #    15/15
+.IFJcode17                                                                      #     1/16
+JUMP main                                                                       #     2/16
+# MAIN                                                                          #     4/16
+LABEL main                                                                      #     5/16
+CREATEFRAME                                                                     #     6/16
+PUSHFRAME                                                                       #     7/16
+CREATEFRAME                                                                     #     8/16
+PUSHS float@5876.78                                                             #     9/16
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    10/16
+POPS TF@__INTERNAL__VAR_0                                                       #    11/16
+WRITE TF@__INTERNAL__VAR_0                                                      #    12/16
+JUMP __INTERNAL__FILE_END                                                       #    13/16
+# PROGRAM END                                                                   #    15/16
+LABEL __INTERNAL__FILE_END                                                      #    16/16

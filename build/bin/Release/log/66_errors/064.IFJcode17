@@ -1,19 +1,12 @@
-# 2017-12-03 11:37:36.796071
+# 2017-12-03 23:09:39.822448
 # SECTION: 66_errors
 # TEST: 064
 # INFO: Print without semicolon
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  2
-# Error:      Unexpected statement on line 3:1. Expected SEMICOLON got <EOL>.
 # 
 # INTERPRETER STDERR:
 # 
@@ -40,16 +33,17 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/14
-JUMP main                                                                       #     2/14
-# MAIN                                                                          #     4/14
-LABEL main                                                                      #     5/14
-CREATEFRAME                                                                     #     6/14
-PUSHFRAME                                                                       #     7/14
-PUSHS int@42                                                                    #     8/14
-DEFVAR LF@__INTERNAL__VAR_0                                                     #     9/14
-POPS LF@__INTERNAL__VAR_0                                                       #    10/14
-WRITE LF@__INTERNAL__VAR_0                                                      #    11/14
-PUSHS int@42                                                                    #    12/14
-POPS LF@__INTERNAL__VAR_0                                                       #    13/14
-WRITE LF@__INTERNAL__VAR_0                                                      #    14/14
+.IFJcode17                                                                      #     1/15
+JUMP main                                                                       #     2/15
+# MAIN                                                                          #     4/15
+LABEL main                                                                      #     5/15
+CREATEFRAME                                                                     #     6/15
+PUSHFRAME                                                                       #     7/15
+CREATEFRAME                                                                     #     8/15
+PUSHS int@42                                                                    #     9/15
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    10/15
+POPS TF@__INTERNAL__VAR_0                                                       #    11/15
+WRITE TF@__INTERNAL__VAR_0                                                      #    12/15
+PUSHS int@42                                                                    #    13/15
+POPS TF@__INTERNAL__VAR_0                                                       #    14/15
+WRITE TF@__INTERNAL__VAR_0                                                      #    15/15

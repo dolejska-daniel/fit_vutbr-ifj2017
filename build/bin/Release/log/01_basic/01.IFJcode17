@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:01.429027
+# 2017-12-03 23:08:57.464816
 # SECTION: 01_basic
 # TEST: 01
 # INFO: single scope without any statements
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -13,8 +13,9 @@
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 6 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 7 with following arguments:
-# Executing instruction: IJUMP at line: 8 with following arguments:
-# Executing instruction: ILABEL at line: 11 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IJUMP at line: 9 with following arguments:
+# Executing instruction: ILABEL at line: 12 with following arguments:
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -31,7 +32,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 8 (8+0)
+# PRICE: 10 (10+0)
 # 
 #   1: ' single scope without any statements
 #   2: SCOPE
@@ -39,12 +40,13 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/11
-JUMP main                                                                       #     2/11
-# MAIN                                                                          #     4/11
-LABEL main                                                                      #     5/11
-CREATEFRAME                                                                     #     6/11
-PUSHFRAME                                                                       #     7/11
-JUMP __INTERNAL__FILE_END                                                       #     8/11
-# PROGRAM END                                                                   #    10/11
-LABEL __INTERNAL__FILE_END                                                      #    11/11
+.IFJcode17                                                                      #     1/12
+JUMP main                                                                       #     2/12
+# MAIN                                                                          #     4/12
+LABEL main                                                                      #     5/12
+CREATEFRAME                                                                     #     6/12
+PUSHFRAME                                                                       #     7/12
+CREATEFRAME                                                                     #     8/12
+JUMP __INTERNAL__FILE_END                                                       #     9/12
+# PROGRAM END                                                                   #    11/12
+LABEL __INTERNAL__FILE_END                                                      #    12/12

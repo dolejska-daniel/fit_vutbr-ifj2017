@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:19.888110
+# 2017-12-03 23:09:22.592630
 # SECTION: 66_errors
 # TEST: 05
 # INFO: Function have duplicity argument name
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 	function bar(h as string, h as integer, x as string) as string
-# 	                          ^
-# 
-# Exit code:  3
-# Error:      Cannot redeclare/redefine symbol h on line 3:27.
 # 
 # INTERPRETER STDERR:
 # 

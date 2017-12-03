@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:36.814119
+# 2017-12-03 23:09:39.843504
 # SECTION: 99_benchmarks
 # TEST: 01
 # INFO: lots of nested control statements
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 				do while a > -110
-# 	                ^
-# 
-# Exit code:  2
-# Error:      Unexpected statement on line 12:17. Expected OPEN_BRACKET, IDENTIFIER or CONSTANT got MINUS.
 # 
 # INTERPRETER STDERR:
 # 
@@ -954,51 +943,60 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/49
-JUMP main                                                                       #     2/49
-# MAIN                                                                          #     4/49
-LABEL main                                                                      #     5/49
-CREATEFRAME                                                                     #     6/49
-PUSHFRAME                                                                       #     7/49
-DEFVAR LF@c                                                                     #     8/49
-MOVE LF@c float@0.0                                                             #     9/49
-PUSHS float@47.86                                                               #    10/49
-POPS LF@c                                                                       #    11/49
-CLEARS                                                                          #    12/49
-DEFVAR LF@a                                                                     #    13/49
-MOVE LF@a int@0                                                                 #    14/49
-PUSHS int@110                                                                   #    15/49
-POPS LF@a                                                                       #    16/49
-CLEARS                                                                          #    17/49
-DEFVAR LF@b                                                                     #    18/49
-MOVE LF@b int@0                                                                 #    19/49
-PUSHS int@100                                                                   #    20/49
-POPS LF@b                                                                       #    21/49
-CLEARS                                                                          #    22/49
-# IF BLOCK                                                                      #    23/49
-# IF                                                                            #    24/49
-PUSHS int@47                                                                    #    25/49
-PUSHS int@32                                                                    #    26/49
-GTS                                                                             #    27/49
-PUSHS bool@true                                                                 #    28/49
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    29/49
-# THEN                                                                          #    30/49
-LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    31/49
-PUSHS LF@c                                                                      #    32/49
-PUSHS int@44                                                                    #    33/49
-INT2FLOATS                                                                      #    34/49
-GTS                                                                             #    35/49
-PUSHS bool@true                                                                 #    36/49
-JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    37/49
-PUSHS int@110                                                                   #    38/49
-POPS LF@a                                                                       #    39/49
-CLEARS                                                                          #    40/49
-PUSHS int@100                                                                   #    41/49
-POPS LF@b                                                                       #    42/49
-CLEARS                                                                          #    43/49
-LABEL __INTERNAL__LOOP_1_BEGIN                                                  #    44/49
-PUSHS LF@b                                                                      #    45/49
-PUSHS int@7                                                                     #    46/49
-GTS                                                                             #    47/49
-PUSHS bool@true                                                                 #    48/49
-JUMPIFNEQS __INTERNAL__LOOP_1_END                                               #    49/49
+.IFJcode17                                                                      #     1/58
+JUMP main                                                                       #     2/58
+# MAIN                                                                          #     4/58
+LABEL main                                                                      #     5/58
+CREATEFRAME                                                                     #     6/58
+PUSHFRAME                                                                       #     7/58
+CREATEFRAME                                                                     #     8/58
+DEFVAR LF@c                                                                     #     9/58
+MOVE LF@c float@0.0                                                             #    10/58
+PUSHS float@47.86                                                               #    11/58
+POPS LF@c                                                                       #    12/58
+CLEARS                                                                          #    13/58
+DEFVAR LF@a                                                                     #    14/58
+MOVE LF@a int@0                                                                 #    15/58
+PUSHS int@110                                                                   #    16/58
+POPS LF@a                                                                       #    17/58
+CLEARS                                                                          #    18/58
+DEFVAR LF@b                                                                     #    19/58
+MOVE LF@b int@0                                                                 #    20/58
+PUSHS int@100                                                                   #    21/58
+POPS LF@b                                                                       #    22/58
+CLEARS                                                                          #    23/58
+# IF BLOCK                                                                      #    24/58
+CREATEFRAME                                                                     #    25/58
+# IF                                                                            #    26/58
+PUSHS int@47                                                                    #    27/58
+PUSHS int@32                                                                    #    28/58
+GTS                                                                             #    29/58
+PUSHS bool@true                                                                 #    30/58
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    31/58
+# THEN                                                                          #    32/58
+# DO WHILE                                                                      #    33/58
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    34/58
+PUSHS LF@c                                                                      #    35/58
+PUSHS int@44                                                                    #    36/58
+INT2FLOATS                                                                      #    37/58
+GTS                                                                             #    38/58
+PUSHS bool@true                                                                 #    39/58
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    40/58
+# DO WHILE TRUE                                                                 #    41/58
+CREATEFRAME                                                                     #    42/58
+PUSHS int@110                                                                   #    43/58
+POPS LF@a                                                                       #    44/58
+CLEARS                                                                          #    45/58
+PUSHS int@100                                                                   #    46/58
+POPS LF@b                                                                       #    47/58
+CLEARS                                                                          #    48/58
+# DO WHILE                                                                      #    49/58
+LABEL __INTERNAL__LOOP_1_BEGIN                                                  #    50/58
+PUSHS LF@b                                                                      #    51/58
+PUSHS int@7                                                                     #    52/58
+GTS                                                                             #    53/58
+PUSHS bool@true                                                                 #    54/58
+JUMPIFNEQS __INTERNAL__LOOP_1_END                                               #    55/58
+# DO WHILE TRUE                                                                 #    56/58
+CREATEFRAME                                                                     #    57/58
+# DO WHILE                                                                      #    58/58

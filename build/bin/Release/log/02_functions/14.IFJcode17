@@ -1,55 +1,57 @@
-# 2017-12-03 11:37:05.010550
+# 2017-12-03 23:09:01.092963
 # SECTION: 02_functions
 # TEST: 14
 # INFO: Input in function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
 # Executing instruction: IJUMP at line: 2 with following arguments:
-# Executing instruction: ILABEL at line: 17 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 18 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 19 with following arguments:
-# Executing instruction: IDEFVAR at line: 20 with following arguments:
+# Executing instruction: ILABEL at line: 18 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 19 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 20 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 21 with following arguments:
+# Executing instruction: IDEFVAR at line: 22 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 21 with following arguments:
+# Executing instruction: IMOVE at line: 23 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@a()
-# Executing instruction: ICREATEFRAME at line: 22 with following arguments:
-# Executing instruction: ICALL at line: 23 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 24 with following arguments:
+# Executing instruction: ICALL at line: 25 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: IDEFVAR at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 8 with following arguments:
+# Executing instruction: IMOVE at line: 9 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@a()
-# Executing instruction: IREAD at line: 9 with following arguments:
+# Executing instruction: IREAD at line: 10 with following arguments:
 # Dest: LF@a=0(int)
-# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Executing instruction: IPUSHS at line: 11 with following arguments:
 # Arg1: LF@a=42(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 11 with following arguments:
-# Executing instruction: IPOPFRAME at line: 24 with following arguments:
-# Executing instruction: IPOPS at line: 25 with following arguments:
+# Executing instruction: IRETURN at line: 12 with following arguments:
+# Executing instruction: IPOPFRAME at line: 26 with following arguments:
+# Executing instruction: IPOPS at line: 27 with following arguments:
 # Arg1: Stack@=42(int)
 # Dest: LF@a=0(int)
-# Executing instruction: ICLEARS at line: 26 with following arguments:
-# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: IPUSHS at line: 29 with following arguments:
 # Arg1: LF@a=42(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 28 with following arguments:
-# Dest: LF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 29 with following arguments:
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 31 with following arguments:
 # Arg1: Stack@=42(int)
-# Dest: LF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 30 with following arguments:
-# Arg1: LF@__INTERNAL__VAR_0=42(int)
-# Executing instruction: IJUMP at line: 31 with following arguments:
-# Executing instruction: ILABEL at line: 34 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 32 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=42(int)
+# Executing instruction: IJUMP at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 36 with following arguments:
 # 
 # STDOUT DIFF:
 # --- expected
@@ -84,34 +86,36 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/34
-JUMP main                                                                       #     2/34
-# FUNCTION                                                                      #     4/34
-LABEL dsfs_567                                                                  #     5/34
-PUSHFRAME                                                                       #     6/34
-DEFVAR LF@a                                                                     #     7/34
-MOVE LF@a int@0                                                                 #     8/34
-READ LF@a int                                                                   #     9/34
-PUSHS LF@a                                                                      #    10/34
-RETURN                                                                          #    11/34
-PUSHS int@0                                                                     #    12/34
-RETURN                                                                          #    13/34
-# END FUNCTION                                                                  #    14/34
-# MAIN                                                                          #    16/34
-LABEL main                                                                      #    17/34
-CREATEFRAME                                                                     #    18/34
-PUSHFRAME                                                                       #    19/34
-DEFVAR LF@a                                                                     #    20/34
-MOVE LF@a int@0                                                                 #    21/34
-CREATEFRAME                                                                     #    22/34
-CALL dsfs_567                                                                   #    23/34
-POPFRAME                                                                        #    24/34
-POPS LF@a                                                                       #    25/34
-CLEARS                                                                          #    26/34
-PUSHS LF@a                                                                      #    27/34
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    28/34
-POPS LF@__INTERNAL__VAR_0                                                       #    29/34
-WRITE LF@__INTERNAL__VAR_0                                                      #    30/34
-JUMP __INTERNAL__FILE_END                                                       #    31/34
-# PROGRAM END                                                                   #    33/34
-LABEL __INTERNAL__FILE_END                                                      #    34/34
+.IFJcode17                                                                      #     1/36
+JUMP main                                                                       #     2/36
+# FUNCTION                                                                      #     4/36
+LABEL dsfs_567                                                                  #     5/36
+PUSHFRAME                                                                       #     6/36
+CREATEFRAME                                                                     #     7/36
+DEFVAR LF@a                                                                     #     8/36
+MOVE LF@a int@0                                                                 #     9/36
+READ LF@a int                                                                   #    10/36
+PUSHS LF@a                                                                      #    11/36
+RETURN                                                                          #    12/36
+PUSHS int@0                                                                     #    13/36
+RETURN                                                                          #    14/36
+# END FUNCTION                                                                  #    15/36
+# MAIN                                                                          #    17/36
+LABEL main                                                                      #    18/36
+CREATEFRAME                                                                     #    19/36
+PUSHFRAME                                                                       #    20/36
+CREATEFRAME                                                                     #    21/36
+DEFVAR LF@a                                                                     #    22/36
+MOVE LF@a int@0                                                                 #    23/36
+CREATEFRAME                                                                     #    24/36
+CALL dsfs_567                                                                   #    25/36
+POPFRAME                                                                        #    26/36
+POPS LF@a                                                                       #    27/36
+CLEARS                                                                          #    28/36
+PUSHS LF@a                                                                      #    29/36
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    30/36
+POPS TF@__INTERNAL__VAR_0                                                       #    31/36
+WRITE TF@__INTERNAL__VAR_0                                                      #    32/36
+JUMP __INTERNAL__FILE_END                                                       #    33/36
+# PROGRAM END                                                                   #    35/36
+LABEL __INTERNAL__FILE_END                                                      #    36/36

@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:19.986371
+# 2017-12-03 23:09:22.700918
 # SECTION: 66_errors
 # TEST: 12
 # INFO: Undeclared variable inside function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 		input a
-# 	       ^
-# 
-# Exit code:  3
-# Error:      Usage of undefined reference a on line 8:8.
 # 
 # INTERPRETER STDERR:
 # 
@@ -54,16 +43,18 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/15
-JUMP main                                                                       #     2/15
-# FUNCTION                                                                      #     4/15
-LABEL hgk____                                                                   #     5/15
-PUSHFRAME                                                                       #     6/15
-DEFVAR LF@a                                                                     #     7/15
-MOVE LF@a int@0                                                                 #     8/15
-PUSHS int@0                                                                     #     9/15
-RETURN                                                                          #    10/15
-# END FUNCTION                                                                  #    11/15
-# FUNCTION                                                                      #    13/15
-LABEL hgk____7874                                                               #    14/15
-PUSHFRAME                                                                       #    15/15
+.IFJcode17                                                                      #     1/17
+JUMP main                                                                       #     2/17
+# FUNCTION                                                                      #     4/17
+LABEL hgk____                                                                   #     5/17
+PUSHFRAME                                                                       #     6/17
+CREATEFRAME                                                                     #     7/17
+DEFVAR LF@a                                                                     #     8/17
+MOVE LF@a int@0                                                                 #     9/17
+PUSHS int@0                                                                     #    10/17
+RETURN                                                                          #    11/17
+# END FUNCTION                                                                  #    12/17
+# FUNCTION                                                                      #    14/17
+LABEL hgk____7874                                                               #    15/17
+PUSHFRAME                                                                       #    16/17
+CREATEFRAME                                                                     #    17/17

@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:19.781827
+# 2017-12-03 23:09:22.477323
 # SECTION: 12_global
 # TEST: 11
 # INFO: collision of static and shared
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 	dim shared promena as integer = 31
-# 	^~~
-# 
-# Exit code:  2
-# Error:      Unexpected statement on line 3:1. Expected DECLARE, FUNCTION or SCOPE got KEYWORD (DIM).
 # 
 # INTERPRETER STDERR:
 # 

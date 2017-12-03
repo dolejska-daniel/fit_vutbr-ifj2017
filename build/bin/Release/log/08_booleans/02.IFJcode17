@@ -1,10 +1,10 @@
-# 2017-12-03 11:37:12.216712
+# 2017-12-03 23:09:19.518456
 # SECTION: 08_booleans
 # TEST: 02
 # INFO: boolean operations
 # REQUIRED EXTENSIONS: BOOLOP
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
@@ -13,116 +13,170 @@
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 6 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 7 with following arguments:
-# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 9 with following arguments:
+# Executing instruction: IMOVE at line: 10 with following arguments:
 # Arg1: Const@=false(bool)
 # Dest: LF@a()
-# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Executing instruction: IPUSHS at line: 11 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 11 with following arguments:
+# Executing instruction: IPOPS at line: 12 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=false(bool)
-# Executing instruction: ICLEARS at line: 12 with following arguments:
-# Executing instruction: IDEFVAR at line: 13 with following arguments:
+# Executing instruction: ICLEARS at line: 13 with following arguments:
+# Executing instruction: IDEFVAR at line: 14 with following arguments:
 # Dest: LF@b
-# Executing instruction: IMOVE at line: 14 with following arguments:
+# Executing instruction: IMOVE at line: 15 with following arguments:
 # Arg1: Const@=false(bool)
 # Dest: LF@b()
-# Executing instruction: IPUSHS at line: 15 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
 # Arg1: Const@=false(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 16 with following arguments:
+# Executing instruction: IPOPS at line: 17 with following arguments:
 # Arg1: Stack@=false(bool)
 # Dest: LF@b=false(bool)
-# Executing instruction: ICLEARS at line: 17 with following arguments:
-# Executing instruction: IDEFVAR at line: 18 with following arguments:
+# Executing instruction: ICLEARS at line: 18 with following arguments:
+# Executing instruction: IDEFVAR at line: 19 with following arguments:
 # Dest: LF@c
-# Executing instruction: IMOVE at line: 19 with following arguments:
+# Executing instruction: IMOVE at line: 20 with following arguments:
 # Arg1: Const@=false(bool)
 # Dest: LF@c()
-# Executing instruction: IPUSHS at line: 20 with following arguments:
+# Executing instruction: IPUSHS at line: 21 with following arguments:
 # Arg1: Const@=false(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 21 with following arguments:
+# Executing instruction: IPOPS at line: 22 with following arguments:
 # Arg1: Stack@=false(bool)
 # Dest: LF@c=false(bool)
-# Executing instruction: ICLEARS at line: 22 with following arguments:
-# Executing instruction: IPUSHS at line: 25 with following arguments:
+# Executing instruction: ICLEARS at line: 23 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 27 with following arguments:
 # Arg1: LF@b=false(bool)
-# Dest: Stack@()
-# Executing instruction: IPUSHS at line: 26 with following arguments:
-# Arg1: LF@c=false(bool)
-# Dest: Stack@()
-# Executing instruction: IORS at line: 27 with following arguments:
-# Arg1: Stack@=false(bool)
-# Arg2: Stack@=false(bool)
 # Dest: Stack@()
 # Executing instruction: IPUSHS at line: 28 with following arguments:
-# Arg1: LF@a=true(bool)
-# Dest: Stack@()
-# Executing instruction: IANDS at line: 29 with following arguments:
-# Arg1: Stack@=false(bool)
-# Arg2: Stack@=true(bool)
-# Dest: Stack@()
-# Executing instruction: IPUSHS at line: 30 with following arguments:
-# Arg1: Const@=true(bool)
-# Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 31 with following arguments:
-# Arg1: Stack@=false(bool)
-# Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 38 with following arguments:
-# Executing instruction: IPUSHS at line: 40 with following arguments:
-# Arg1: Const@=0(int)
-# Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 41 with following arguments:
-# Dest: LF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 42 with following arguments:
-# Arg1: Stack@=0(int)
-# Dest: LF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 43 with following arguments:
-# Arg1: LF@__INTERNAL__VAR_0=0(int)
-# Executing instruction: ILABEL at line: 45 with following arguments:
-# Executing instruction: IPUSHS at line: 49 with following arguments:
-# Arg1: LF@b=false(bool)
-# Dest: Stack@()
-# Executing instruction: IPUSHS at line: 50 with following arguments:
 # Arg1: LF@c=false(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 51 with following arguments:
-# Arg1: LF@a=true(bool)
-# Dest: Stack@()
-# Executing instruction: IANDS at line: 52 with following arguments:
-# Arg1: Stack@=false(bool)
-# Arg2: Stack@=true(bool)
-# Dest: Stack@()
-# Executing instruction: IORS at line: 53 with following arguments:
+# Executing instruction: IORS at line: 29 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=false(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 54 with following arguments:
-# Arg1: Const@=true(bool)
+# Executing instruction: IPUSHS at line: 30 with following arguments:
+# Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 55 with following arguments:
+# Executing instruction: IANDS at line: 31 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 32 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 33 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 40 with following arguments:
+# Executing instruction: IPUSHS at line: 42 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 43 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 44 with following arguments:
+# Arg1: Stack@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 45 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: ILABEL at line: 47 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 50 with following arguments:
+# Executing instruction: IPUSHS at line: 52 with following arguments:
+# Arg1: LF@b=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 53 with following arguments:
+# Arg1: LF@c=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 54 with following arguments:
+# Arg1: LF@a=true(bool)
+# Dest: Stack@()
+# Executing instruction: IANDS at line: 55 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 56 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 57 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 58 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 67 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 65 with following arguments:
-# Dest: LF@__INTERNAL__VAR_0
-# Error at line: 65
-# Symbol already exists!
+# Executing instruction: IDEFVAR at line: 68 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 70 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=1(int)
+# Executing instruction: ILABEL at line: 72 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 75 with following arguments:
+# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 78 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 79 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 80 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 81 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 82 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 83 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IANDS at line: 84 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 85 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 86 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 87 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 94 with following arguments:
+# Executing instruction: IPUSHS at line: 96 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 97 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 98 with following arguments:
+# Arg1: Stack@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 99 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: ILABEL at line: 101 with following arguments:
+# Executing instruction: IJUMP at line: 103 with following arguments:
+# Executing instruction: ILABEL at line: 106 with following arguments:
 # 
 # STDOUT DIFF:
-# --- expected
-# +++ actual
-# @@ -1 +1 @@
-
-# - 0 1 0
-# + 0
+# 
 
 # INTERPRETER STDIN: 
 # 
@@ -130,8 +184,8 @@
 # EXPECTED COMPILER EXIT CODE: 0
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: 52
-# PRICE: ---
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 285 (96+189)
 # 
 #   1: ' boolean operations
 #   2: scope
@@ -160,103 +214,107 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/102
-JUMP main                                                                       #     2/102
-# MAIN                                                                          #     4/102
-LABEL main                                                                      #     5/102
-CREATEFRAME                                                                     #     6/102
-PUSHFRAME                                                                       #     7/102
-DEFVAR LF@a                                                                     #     8/102
-MOVE LF@a bool@false                                                            #     9/102
-PUSHS bool@true                                                                 #    10/102
-POPS LF@a                                                                       #    11/102
-CLEARS                                                                          #    12/102
-DEFVAR LF@b                                                                     #    13/102
-MOVE LF@b bool@false                                                            #    14/102
-PUSHS bool@false                                                                #    15/102
-POPS LF@b                                                                       #    16/102
-CLEARS                                                                          #    17/102
-DEFVAR LF@c                                                                     #    18/102
-MOVE LF@c bool@false                                                            #    19/102
-PUSHS bool@false                                                                #    20/102
-POPS LF@c                                                                       #    21/102
-CLEARS                                                                          #    22/102
-# IF BLOCK                                                                      #    23/102
-# IF                                                                            #    24/102
-PUSHS LF@b                                                                      #    25/102
-PUSHS LF@c                                                                      #    26/102
-ORS                                                                             #    27/102
-PUSHS LF@a                                                                      #    28/102
-ANDS                                                                            #    29/102
-PUSHS bool@true                                                                 #    30/102
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    31/102
-# THEN                                                                          #    32/102
-PUSHS int@1                                                                     #    33/102
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    34/102
-POPS LF@__INTERNAL__VAR_0                                                       #    35/102
-WRITE LF@__INTERNAL__VAR_0                                                      #    36/102
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    37/102
-LABEL __INTERNAL__COND_0_END                                                    #    38/102
-# ELSE                                                                          #    39/102
-PUSHS int@0                                                                     #    40/102
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    41/102
-POPS LF@__INTERNAL__VAR_0                                                       #    42/102
-WRITE LF@__INTERNAL__VAR_0                                                      #    43/102
-# END IF                                                                        #    44/102
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    45/102
-# END IF BLOCK                                                                  #    46/102
-# IF BLOCK                                                                      #    47/102
-# IF                                                                            #    48/102
-PUSHS LF@b                                                                      #    49/102
-PUSHS LF@c                                                                      #    50/102
-PUSHS LF@a                                                                      #    51/102
-ANDS                                                                            #    52/102
-ORS                                                                             #    53/102
-PUSHS bool@true                                                                 #    54/102
-JUMPIFNEQS __INTERNAL__COND_1_END                                               #    55/102
-# THEN                                                                          #    56/102
-PUSHS int@0                                                                     #    57/102
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    58/102
-POPS LF@__INTERNAL__VAR_0                                                       #    59/102
-WRITE LF@__INTERNAL__VAR_0                                                      #    60/102
-JUMP __INTERNAL__COND_1_BLOCK_END                                               #    61/102
-LABEL __INTERNAL__COND_1_END                                                    #    62/102
-# ELSE                                                                          #    63/102
-PUSHS int@1                                                                     #    64/102
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    65/102
-POPS LF@__INTERNAL__VAR_0                                                       #    66/102
-WRITE LF@__INTERNAL__VAR_0                                                      #    67/102
-# END IF                                                                        #    68/102
-LABEL __INTERNAL__COND_1_BLOCK_END                                              #    69/102
-# END IF BLOCK                                                                  #    70/102
-# IF BLOCK                                                                      #    71/102
-# IF                                                                            #    72/102
-PUSHS bool@false                                                                #    73/102
-PUSHS bool@false                                                                #    74/102
-PUSHS bool@false                                                                #    75/102
-PUSHS bool@true                                                                 #    76/102
-PUSHS bool@true                                                                 #    77/102
-ORS                                                                             #    78/102
-ORS                                                                             #    79/102
-ANDS                                                                            #    80/102
-ORS                                                                             #    81/102
-PUSHS bool@true                                                                 #    82/102
-JUMPIFNEQS __INTERNAL__COND_2_END                                               #    83/102
-# THEN                                                                          #    84/102
-PUSHS int@1                                                                     #    85/102
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    86/102
-POPS LF@__INTERNAL__VAR_0                                                       #    87/102
-WRITE LF@__INTERNAL__VAR_0                                                      #    88/102
-JUMP __INTERNAL__COND_2_BLOCK_END                                               #    89/102
-LABEL __INTERNAL__COND_2_END                                                    #    90/102
-# ELSE                                                                          #    91/102
-PUSHS int@0                                                                     #    92/102
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    93/102
-POPS LF@__INTERNAL__VAR_0                                                       #    94/102
-WRITE LF@__INTERNAL__VAR_0                                                      #    95/102
-# END IF                                                                        #    96/102
-LABEL __INTERNAL__COND_2_BLOCK_END                                              #    97/102
-# END IF BLOCK                                                                  #    98/102
-JUMP __INTERNAL__FILE_END                                                       #    99/102
-# PROGRAM END                                                                   #   101/102
-LABEL __INTERNAL__FILE_END                                                      #   102/102
+.IFJcode17                                                                      #     1/106
+JUMP main                                                                       #     2/106
+# MAIN                                                                          #     4/106
+LABEL main                                                                      #     5/106
+CREATEFRAME                                                                     #     6/106
+PUSHFRAME                                                                       #     7/106
+CREATEFRAME                                                                     #     8/106
+DEFVAR LF@a                                                                     #     9/106
+MOVE LF@a bool@false                                                            #    10/106
+PUSHS bool@true                                                                 #    11/106
+POPS LF@a                                                                       #    12/106
+CLEARS                                                                          #    13/106
+DEFVAR LF@b                                                                     #    14/106
+MOVE LF@b bool@false                                                            #    15/106
+PUSHS bool@false                                                                #    16/106
+POPS LF@b                                                                       #    17/106
+CLEARS                                                                          #    18/106
+DEFVAR LF@c                                                                     #    19/106
+MOVE LF@c bool@false                                                            #    20/106
+PUSHS bool@false                                                                #    21/106
+POPS LF@c                                                                       #    22/106
+CLEARS                                                                          #    23/106
+# IF BLOCK                                                                      #    24/106
+CREATEFRAME                                                                     #    25/106
+# IF                                                                            #    26/106
+PUSHS LF@b                                                                      #    27/106
+PUSHS LF@c                                                                      #    28/106
+ORS                                                                             #    29/106
+PUSHS LF@a                                                                      #    30/106
+ANDS                                                                            #    31/106
+PUSHS bool@true                                                                 #    32/106
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    33/106
+# THEN                                                                          #    34/106
+PUSHS int@1                                                                     #    35/106
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    36/106
+POPS TF@__INTERNAL__VAR_0                                                       #    37/106
+WRITE TF@__INTERNAL__VAR_0                                                      #    38/106
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    39/106
+LABEL __INTERNAL__COND_0_END                                                    #    40/106
+# ELSE                                                                          #    41/106
+PUSHS int@0                                                                     #    42/106
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    43/106
+POPS TF@__INTERNAL__VAR_0                                                       #    44/106
+WRITE TF@__INTERNAL__VAR_0                                                      #    45/106
+# END IF                                                                        #    46/106
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    47/106
+# END IF BLOCK                                                                  #    48/106
+# IF BLOCK                                                                      #    49/106
+CREATEFRAME                                                                     #    50/106
+# IF                                                                            #    51/106
+PUSHS LF@b                                                                      #    52/106
+PUSHS LF@c                                                                      #    53/106
+PUSHS LF@a                                                                      #    54/106
+ANDS                                                                            #    55/106
+ORS                                                                             #    56/106
+PUSHS bool@true                                                                 #    57/106
+JUMPIFNEQS __INTERNAL__COND_1_END                                               #    58/106
+# THEN                                                                          #    59/106
+PUSHS int@0                                                                     #    60/106
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    61/106
+POPS TF@__INTERNAL__VAR_0                                                       #    62/106
+WRITE TF@__INTERNAL__VAR_0                                                      #    63/106
+JUMP __INTERNAL__COND_1_BLOCK_END                                               #    64/106
+LABEL __INTERNAL__COND_1_END                                                    #    65/106
+# ELSE                                                                          #    66/106
+PUSHS int@1                                                                     #    67/106
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    68/106
+POPS TF@__INTERNAL__VAR_0                                                       #    69/106
+WRITE TF@__INTERNAL__VAR_0                                                      #    70/106
+# END IF                                                                        #    71/106
+LABEL __INTERNAL__COND_1_BLOCK_END                                              #    72/106
+# END IF BLOCK                                                                  #    73/106
+# IF BLOCK                                                                      #    74/106
+CREATEFRAME                                                                     #    75/106
+# IF                                                                            #    76/106
+PUSHS bool@false                                                                #    77/106
+PUSHS bool@false                                                                #    78/106
+PUSHS bool@false                                                                #    79/106
+PUSHS bool@true                                                                 #    80/106
+PUSHS bool@true                                                                 #    81/106
+ORS                                                                             #    82/106
+ORS                                                                             #    83/106
+ANDS                                                                            #    84/106
+ORS                                                                             #    85/106
+PUSHS bool@true                                                                 #    86/106
+JUMPIFNEQS __INTERNAL__COND_2_END                                               #    87/106
+# THEN                                                                          #    88/106
+PUSHS int@1                                                                     #    89/106
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    90/106
+POPS TF@__INTERNAL__VAR_0                                                       #    91/106
+WRITE TF@__INTERNAL__VAR_0                                                      #    92/106
+JUMP __INTERNAL__COND_2_BLOCK_END                                               #    93/106
+LABEL __INTERNAL__COND_2_END                                                    #    94/106
+# ELSE                                                                          #    95/106
+PUSHS int@0                                                                     #    96/106
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    97/106
+POPS TF@__INTERNAL__VAR_0                                                       #    98/106
+WRITE TF@__INTERNAL__VAR_0                                                      #    99/106
+# END IF                                                                        #   100/106
+LABEL __INTERNAL__COND_2_BLOCK_END                                              #   101/106
+# END IF BLOCK                                                                  #   102/106
+JUMP __INTERNAL__FILE_END                                                       #   103/106
+# PROGRAM END                                                                   #   105/106
+LABEL __INTERNAL__FILE_END                                                      #   106/106

@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:31.906569
+# 2017-12-03 23:09:35.013657
 # SECTION: 66_errors
 # TEST: 037
 # INFO: wrong operand types
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -33,18 +33,19 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/17
-JUMP main                                                                       #     2/17
-# MAIN                                                                          #     4/17
-LABEL main                                                                      #     5/17
-CREATEFRAME                                                                     #     6/17
-PUSHFRAME                                                                       #     7/17
-PUSHS string@foo                                                                #     8/17
-PUSHS int@6                                                                     #     9/17
-ADDS                                                                            #    10/17
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    11/17
-POPS LF@__INTERNAL__VAR_0                                                       #    12/17
-WRITE LF@__INTERNAL__VAR_0                                                      #    13/17
-JUMP __INTERNAL__FILE_END                                                       #    14/17
-# PROGRAM END                                                                   #    16/17
-LABEL __INTERNAL__FILE_END                                                      #    17/17
+.IFJcode17                                                                      #     1/18
+JUMP main                                                                       #     2/18
+# MAIN                                                                          #     4/18
+LABEL main                                                                      #     5/18
+CREATEFRAME                                                                     #     6/18
+PUSHFRAME                                                                       #     7/18
+CREATEFRAME                                                                     #     8/18
+PUSHS string@foo                                                                #     9/18
+PUSHS int@6                                                                     #    10/18
+ADDS                                                                            #    11/18
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    12/18
+POPS TF@__INTERNAL__VAR_0                                                       #    13/18
+WRITE TF@__INTERNAL__VAR_0                                                      #    14/18
+JUMP __INTERNAL__FILE_END                                                       #    15/18
+# PROGRAM END                                                                   #    17/18
+LABEL __INTERNAL__FILE_END                                                      #    18/18

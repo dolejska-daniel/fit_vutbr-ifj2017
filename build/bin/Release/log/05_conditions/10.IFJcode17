@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:09.589727
+# 2017-12-03 23:09:11.836529
 # SECTION: 05_conditions
 # TEST: 10
 # INFO: variables and functions in condition
 # REQUIRED EXTENSIONS: FUNEXP
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 		if (foo() > a) then
-# 	^
-# 
-# Exit code:  2
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -60,25 +49,28 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/24
-JUMP main                                                                       #     2/24
-# FUNCTION                                                                      #     4/24
-LABEL foo                                                                       #     5/24
-PUSHFRAME                                                                       #     6/24
-PUSHS int@42                                                                    #     7/24
-PUSHS int@42                                                                    #     8/24
-ADDS                                                                            #     9/24
-RETURN                                                                          #    10/24
-PUSHS int@0                                                                     #    11/24
-RETURN                                                                          #    12/24
-# END FUNCTION                                                                  #    13/24
-# MAIN                                                                          #    15/24
-LABEL main                                                                      #    16/24
-CREATEFRAME                                                                     #    17/24
-PUSHFRAME                                                                       #    18/24
-DEFVAR LF@a                                                                     #    19/24
-MOVE LF@a int@0                                                                 #    20/24
-PUSHS int@142                                                                   #    21/24
-POPS LF@a                                                                       #    22/24
-CLEARS                                                                          #    23/24
-# IF BLOCK                                                                      #    24/24
+.IFJcode17                                                                      #     1/27
+JUMP main                                                                       #     2/27
+# FUNCTION                                                                      #     4/27
+LABEL foo                                                                       #     5/27
+PUSHFRAME                                                                       #     6/27
+CREATEFRAME                                                                     #     7/27
+PUSHS int@42                                                                    #     8/27
+PUSHS int@42                                                                    #     9/27
+ADDS                                                                            #    10/27
+RETURN                                                                          #    11/27
+PUSHS int@0                                                                     #    12/27
+RETURN                                                                          #    13/27
+# END FUNCTION                                                                  #    14/27
+# MAIN                                                                          #    16/27
+LABEL main                                                                      #    17/27
+CREATEFRAME                                                                     #    18/27
+PUSHFRAME                                                                       #    19/27
+CREATEFRAME                                                                     #    20/27
+DEFVAR LF@a                                                                     #    21/27
+MOVE LF@a int@0                                                                 #    22/27
+PUSHS int@142                                                                   #    23/27
+POPS LF@a                                                                       #    24/27
+CLEARS                                                                          #    25/27
+# IF BLOCK                                                                      #    26/27
+CREATEFRAME                                                                     #    27/27

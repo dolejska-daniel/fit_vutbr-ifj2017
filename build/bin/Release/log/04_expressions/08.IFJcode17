@@ -1,15 +1,14 @@
-# 2017-12-03 11:37:07.654581
+# 2017-12-03 23:09:04.811350
 # SECTION: 04_expressions
 # TEST: 08
 # INFO: divide integer and doubles
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
-# Wrong escape sequence!
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -25,9 +24,9 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 3221225477
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: 51
+# CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
 # 
 #   1: ' divide integer and doubles
@@ -42,49 +41,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/48
-JUMP main                                                                       #     2/48
-# MAIN                                                                          #     4/48
-LABEL main                                                                      #     5/48
-CREATEFRAME                                                                     #     6/48
-PUSHFRAME                                                                       #     7/48
-DEFVAR LF@a                                                                     #     8/48
-MOVE LF@a int@0                                                                 #     9/48
-PUSHS int@9                                                                     #    10/48
-POPS LF@a                                                                       #    11/48
-CLEARS                                                                          #    12/48
-DEFVAR LF@b                                                                     #    13/48
-MOVE LF@b int@0                                                                 #    14/48
-PUSHS int@2                                                                     #    15/48
-POPS LF@b                                                                       #    16/48
-CLEARS                                                                          #    17/48
-DEFVAR LF@c                                                                     #    18/48
-MOVE LF@c float@0.0                                                             #    19/48
-PUSHS int@8                                                                     #    20/48
-INT2FLOATS                                                                      #    21/48
-POPS LF@c                                                                       #    22/48
-CLEARS                                                                          #    23/48
-DEFVAR LF@d                                                                     #    24/48
-MOVE LF@d float@0.0                                                             #    25/48
-PUSHS int@2                                                                     #    26/48
-INT2FLOATS                                                                      #    27/48
-POPS LF@d                                                                       #    28/48
-CLEARS                                                                          #    29/48
-PUSHS LF@c                                                                      #    30/48
-PUSHS LF@d                                                                      #    31/48
-DIVS                                                                            #    32/48
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    33/48
-POPS LF@__INTERNAL__VAR_0                                                       #    34/48
-WRITE LF@__INTERNAL__VAR_0                                                      #    35/48
-PUSHS string@\n                                                                 #    36/48
-POPS LF@__INTERNAL__VAR_0                                                       #    37/48
-WRITE LF@__INTERNAL__VAR_0                                                      #    38/48
-PUSHS LF@a                                                                      #    39/48
-PUSHS LF@b                                                                      #    40/48
-DIVS                                                                            #    41/48
-FLOAT2INTS                                                                      #    42/48
-POPS LF@__INTERNAL__VAR_0                                                       #    43/48
-WRITE LF@__INTERNAL__VAR_0                                                      #    44/48
-JUMP __INTERNAL__FILE_END                                                       #    45/48
-# PROGRAM END                                                                   #    47/48
-LABEL __INTERNAL__FILE_END                                                      #    48/48
+# ---

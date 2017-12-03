@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:19.860035
+# 2017-12-03 23:09:22.562048
 # SECTION: 66_errors
 # TEST: 03
 # INFO: Try to redefinition function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 	function erzert(aqrqwer as integer)as integer
-# 	^
-# 
-# Exit code:  4
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -51,11 +40,12 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/9
-JUMP main                                                                       #     2/9
-# FUNCTION                                                                      #     4/9
-LABEL erzert                                                                    #     5/9
-PUSHFRAME                                                                       #     6/9
-PUSHS int@0                                                                     #     7/9
-RETURN                                                                          #     8/9
-# END FUNCTION                                                                  #     9/9
+.IFJcode17                                                                      #     1/10
+JUMP main                                                                       #     2/10
+# FUNCTION                                                                      #     4/10
+LABEL erzert                                                                    #     5/10
+PUSHFRAME                                                                       #     6/10
+CREATEFRAME                                                                     #     7/10
+PUSHS int@0                                                                     #     8/10
+RETURN                                                                          #     9/10
+# END FUNCTION                                                                  #    10/10

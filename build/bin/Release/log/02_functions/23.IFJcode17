@@ -1,19 +1,12 @@
-# 2017-12-03 11:37:05.323382
+# 2017-12-03 23:09:01.492024
 # SECTION: 02_functions
 # TEST: 23
 # INFO: invalid types without supported implicit conversion I
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  4
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -48,19 +41,21 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/18
-JUMP main                                                                       #     2/18
-# FUNCTION                                                                      #     4/18
-LABEL get_integer                                                               #     5/18
-PUSHFRAME                                                                       #     6/18
-PUSHS LF@a                                                                      #     7/18
-RETURN                                                                          #     8/18
-PUSHS int@0                                                                     #     9/18
-RETURN                                                                          #    10/18
-# END FUNCTION                                                                  #    11/18
-# MAIN                                                                          #    13/18
-LABEL main                                                                      #    14/18
-CREATEFRAME                                                                     #    15/18
-PUSHFRAME                                                                       #    16/18
-DEFVAR LF@b                                                                     #    17/18
-MOVE LF@b int@0                                                                 #    18/18
+.IFJcode17                                                                      #     1/20
+JUMP main                                                                       #     2/20
+# FUNCTION                                                                      #     4/20
+LABEL get_integer                                                               #     5/20
+PUSHFRAME                                                                       #     6/20
+CREATEFRAME                                                                     #     7/20
+PUSHS LF@a                                                                      #     8/20
+RETURN                                                                          #     9/20
+PUSHS int@0                                                                     #    10/20
+RETURN                                                                          #    11/20
+# END FUNCTION                                                                  #    12/20
+# MAIN                                                                          #    14/20
+LABEL main                                                                      #    15/20
+CREATEFRAME                                                                     #    16/20
+PUSHFRAME                                                                       #    17/20
+CREATEFRAME                                                                     #    18/20
+DEFVAR LF@b                                                                     #    19/20
+MOVE LF@b int@0                                                                 #    20/20

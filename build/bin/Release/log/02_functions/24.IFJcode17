@@ -1,19 +1,12 @@
-# 2017-12-03 11:37:05.337420
+# 2017-12-03 23:09:01.507063
 # SECTION: 02_functions
 # TEST: 24
 # INFO: invalid types without supported implicit conversion II
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  4
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -48,9 +41,10 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/7
-JUMP main                                                                       #     2/7
-# FUNCTION                                                                      #     4/7
-LABEL get_integer                                                               #     5/7
-PUSHFRAME                                                                       #     6/7
-PUSHS string@foo                                                                #     7/7
+.IFJcode17                                                                      #     1/8
+JUMP main                                                                       #     2/8
+# FUNCTION                                                                      #     4/8
+LABEL get_integer                                                               #     5/8
+PUSHFRAME                                                                       #     6/8
+CREATEFRAME                                                                     #     7/8
+PUSHS string@foo                                                                #     8/8

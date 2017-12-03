@@ -1,10 +1,10 @@
-# 2017-12-03 11:37:20.111705
+# 2017-12-03 23:09:22.836779
 # SECTION: 66_errors
 # TEST: 012
 # INFO: wrong double format IV
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
@@ -22,7 +22,7 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 1
-# CURRENT COMPILER EXIT CODE: None
+# CURRENT COMPILER EXIT CODE: 1
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
@@ -31,4 +31,5 @@
 
 ########################################
 
-# ---
+.IFJcode17                                                                      #     1/2
+JUMP main                                                                       #     2/2

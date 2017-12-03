@@ -1,19 +1,12 @@
-# 2017-12-03 11:37:12.244787
+# 2017-12-03 23:09:21.781974
 # SECTION: 08_booleans
 # TEST: 04
 # INFO: boolean functions
 # REQUIRED EXTENSIONS: BOOLOP
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  99
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -30,7 +23,7 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 99
+# CURRENT COMPILER EXIT CODE: 3221225477
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
@@ -108,48 +101,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/50
-JUMP main                                                                       #     2/50
-# FUNCTION                                                                      #     4/50
-LABEL equali                                                                    #     5/50
-PUSHFRAME                                                                       #     6/50
-PUSHS LF@a                                                                      #     7/50
-PUSHS LF@b                                                                      #     8/50
-EQS                                                                             #     9/50
-RETURN                                                                          #    10/50
-PUSHS bool@false                                                                #    11/50
-RETURN                                                                          #    12/50
-# END FUNCTION                                                                  #    13/50
-# FUNCTION                                                                      #    15/50
-LABEL equals                                                                    #    16/50
-PUSHFRAME                                                                       #    17/50
-PUSHS LF@a                                                                      #    18/50
-PUSHS LF@b                                                                      #    19/50
-EQS                                                                             #    20/50
-RETURN                                                                          #    21/50
-PUSHS bool@false                                                                #    22/50
-RETURN                                                                          #    23/50
-# END FUNCTION                                                                  #    24/50
-# FUNCTION                                                                      #    26/50
-LABEL equalb                                                                    #    27/50
-PUSHFRAME                                                                       #    28/50
-PUSHS LF@a                                                                      #    29/50
-PUSHS LF@b                                                                      #    30/50
-EQS                                                                             #    31/50
-RETURN                                                                          #    32/50
-PUSHS bool@false                                                                #    33/50
-RETURN                                                                          #    34/50
-# END FUNCTION                                                                  #    35/50
-# FUNCTION                                                                      #    37/50
-LABEL biggeri                                                                   #    38/50
-PUSHFRAME                                                                       #    39/50
-PUSHS LF@a                                                                      #    40/50
-PUSHS LF@b                                                                      #    41/50
-GTS                                                                             #    42/50
-RETURN                                                                          #    43/50
-PUSHS bool@false                                                                #    44/50
-RETURN                                                                          #    45/50
-# END FUNCTION                                                                  #    46/50
-# FUNCTION                                                                      #    48/50
-LABEL biggerorequald                                                            #    49/50
-PUSHFRAME                                                                       #    50/50
+# ---

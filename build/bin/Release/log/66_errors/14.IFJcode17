@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:20.014446
+# 2017-12-03 23:09:22.730496
 # SECTION: 66_errors
 # TEST: 14
 # INFO: unfinished multi line comment
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -22,7 +22,7 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 1
-# CURRENT COMPILER EXIT CODE: None
+# CURRENT COMPILER EXIT CODE: 2
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
@@ -39,4 +39,10 @@
 
 ########################################
 
-# ---
+.IFJcode17                                                                      #     1/8
+JUMP main                                                                       #     2/8
+# MAIN                                                                          #     4/8
+LABEL main                                                                      #     5/8
+CREATEFRAME                                                                     #     6/8
+PUSHFRAME                                                                       #     7/8
+CREATEFRAME                                                                     #     8/8

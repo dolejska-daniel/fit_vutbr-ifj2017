@@ -1,9 +1,9 @@
-# 2017-12-03 11:37:12.177608
+# 2017-12-03 23:09:19.459800
 # SECTION: 08_booleans
 # TEST: 01
 # INFO: basic declaration with assignment
 # REQUIRED EXTENSIONS: BOOLOP
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -23,7 +23,7 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 3221225477
+# CURRENT COMPILER EXIT CODE: 2
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
@@ -48,4 +48,41 @@
 
 ########################################
 
-# ---
+.IFJcode17                                                                      #     1/39
+JUMP main                                                                       #     2/39
+# MAIN                                                                          #     4/39
+LABEL main                                                                      #     5/39
+CREATEFRAME                                                                     #     6/39
+PUSHFRAME                                                                       #     7/39
+CREATEFRAME                                                                     #     8/39
+DEFVAR LF@a                                                                     #     9/39
+MOVE LF@a bool@false                                                            #    10/39
+PUSHS bool@true                                                                 #    11/39
+POPS LF@a                                                                       #    12/39
+CLEARS                                                                          #    13/39
+# IF BLOCK                                                                      #    14/39
+CREATEFRAME                                                                     #    15/39
+# IF                                                                            #    16/39
+PUSHS LF@a                                                                      #    17/39
+PUSHS bool@true                                                                 #    18/39
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    19/39
+# THEN                                                                          #    20/39
+PUSHS int@1                                                                     #    21/39
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    22/39
+POPS TF@__INTERNAL__VAR_0                                                       #    23/39
+WRITE TF@__INTERNAL__VAR_0                                                      #    24/39
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    25/39
+LABEL __INTERNAL__COND_0_END                                                    #    26/39
+# ELSE                                                                          #    27/39
+PUSHS int@0                                                                     #    28/39
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    29/39
+POPS TF@__INTERNAL__VAR_0                                                       #    30/39
+WRITE TF@__INTERNAL__VAR_0                                                      #    31/39
+# END IF                                                                        #    32/39
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    33/39
+# END IF BLOCK                                                                  #    34/39
+PUSHS bool@false                                                                #    35/39
+POPS LF@a                                                                       #    36/39
+CLEARS                                                                          #    37/39
+# IF BLOCK                                                                      #    38/39
+CREATEFRAME                                                                     #    39/39

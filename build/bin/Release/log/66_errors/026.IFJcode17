@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:31.767199
+# 2017-12-03 23:09:34.854233
 # SECTION: 66_errors
 # TEST: 026
 # INFO: undefined variable in expression
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 	 print a*2; 
-# 	^
-# 
-# Exit code:  3
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -44,9 +33,10 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/7
-JUMP main                                                                       #     2/7
-# MAIN                                                                          #     4/7
-LABEL main                                                                      #     5/7
-CREATEFRAME                                                                     #     6/7
-PUSHFRAME                                                                       #     7/7
+.IFJcode17                                                                      #     1/8
+JUMP main                                                                       #     2/8
+# MAIN                                                                          #     4/8
+LABEL main                                                                      #     5/8
+CREATEFRAME                                                                     #     6/8
+PUSHFRAME                                                                       #     7/8
+CREATEFRAME                                                                     #     8/8

@@ -460,10 +460,12 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
     //  Nastavíme se na začátek seznamu instrukcí
     InstructionList_first(preprocessed_ilist);
     InstructionPtr i = InstructionList_getActive(preprocessed_ilist);
+    InstructionPtr i_end = NULL;
     InstructionPtr iX = NULL;
     InstructionPtr iX_end = NULL;
     InstructionPtr iY = NULL;
     InstructionPtr iY_end = NULL;
+    InstructionPtr newi;
 
     //  Nastavíme se na začátek postfixového výrazu
     PostfixList_first(*postfixList);
@@ -526,6 +528,20 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                         //  Or syntax err?
                         return INTERNAL_ERROR;
                     }
+                }
+            }
+
+            if (i->isBlockBegin)
+            {
+                i_end = i->next;
+                while (i_end != NULL || i_end->isBlockEnd != true)
+                {
+                    i_end = i_end->next;
+                }
+
+                if (i_end == NULL)
+                {
+                    return SYNTAX_ERROR;
                 }
             }
 
@@ -595,7 +611,8 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                             DEBUG_PRINT("\ttarget data type is %s\n", SymbolType_toString(resultDataType));
                             return INTERNAL_ERROR;
                         }
-                        InstructionList_insertAfter(preprocessed_ilist, iX, i_content);
+
+                        newi = InstructionList_insertAfter(preprocessed_ilist, iX_end ? iX_end : iX, i_content);
                         result = SEMANTICAL_DATATYPE_ERROR;
                     }
 
@@ -635,7 +652,8 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                             DEBUG_PRINT("\ttarget data type is %s\n", SymbolType_toString(resultDataType));
                             return INTERNAL_ERROR;
                         }
-                        InstructionList_insertAfter(preprocessed_ilist, iY, i_content);
+
+                        newi = InstructionList_insertAfter(preprocessed_ilist, iY_end ? iY_end : iY, i_content);
                         result = SEMANTICAL_DATATYPE_ERROR;
                     }
 
@@ -650,8 +668,10 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                             break;
                         case EQ:
                         case LT:
+                        case LTEQ:
                         case LTGT:
                         case GT:
+                        case GTEQ:
                         case AND:
                         case OR:
                         case NOT:

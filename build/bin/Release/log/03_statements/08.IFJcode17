@@ -1,19 +1,12 @@
-# 2017-12-03 11:37:06.573707
+# 2017-12-03 23:09:02.060535
 # SECTION: 03_statements
 # TEST: 08
 # INFO: multiple main scopes
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  2
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 
@@ -48,10 +41,11 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/8
-JUMP main                                                                       #     2/8
-# MAIN                                                                          #     4/8
-LABEL main                                                                      #     5/8
-CREATEFRAME                                                                     #     6/8
-PUSHFRAME                                                                       #     7/8
-JUMP __INTERNAL__FILE_END                                                       #     8/8
+.IFJcode17                                                                      #     1/9
+JUMP main                                                                       #     2/9
+# MAIN                                                                          #     4/9
+LABEL main                                                                      #     5/9
+CREATEFRAME                                                                     #     6/9
+PUSHFRAME                                                                       #     7/9
+CREATEFRAME                                                                     #     8/9
+JUMP __INTERNAL__FILE_END                                                       #     9/9

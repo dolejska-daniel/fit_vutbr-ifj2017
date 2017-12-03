@@ -1,19 +1,12 @@
-# 2017-12-03 11:37:41.192260
+# 2017-12-03 23:09:45.637911
 # SECTION: 99_benchmarks
 # TEST: 11
 # INFO: big count of function parameters
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Exit code:  2
-# Error:      Unexpected statement on line 8:0. Expected OPEN_BRACKET got IDENTIFIER.
 # 
 # INTERPRETER STDERR:
 # 
@@ -62,23 +55,25 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/21
-JUMP main                                                                       #     2/21
-# FUNCTION                                                                      #     4/21
-LABEL testing                                                                   #     5/21
-PUSHFRAME                                                                       #     6/21
-DEFVAR LF@res                                                                   #     7/21
-MOVE LF@res int@0                                                               #     8/21
-# IF BLOCK                                                                      #     9/21
-# IF                                                                            #    10/21
-PUSHS LF@n                                                                      #    11/21
-PUSHS int@0                                                                     #    12/21
-GTS                                                                             #    13/21
-PUSHS bool@true                                                                 #    14/21
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    15/21
-# THEN                                                                          #    16/21
-PUSHS LF@n                                                                      #    17/21
-PUSHS int@1                                                                     #    18/21
-SUBS                                                                            #    19/21
-POPS LF@n                                                                       #    20/21
-CLEARS                                                                          #    21/21
+.IFJcode17                                                                      #     1/23
+JUMP main                                                                       #     2/23
+# FUNCTION                                                                      #     4/23
+LABEL testing                                                                   #     5/23
+PUSHFRAME                                                                       #     6/23
+CREATEFRAME                                                                     #     7/23
+DEFVAR LF@res                                                                   #     8/23
+MOVE LF@res int@0                                                               #     9/23
+# IF BLOCK                                                                      #    10/23
+CREATEFRAME                                                                     #    11/23
+# IF                                                                            #    12/23
+PUSHS LF@n                                                                      #    13/23
+PUSHS int@0                                                                     #    14/23
+GTS                                                                             #    15/23
+PUSHS bool@true                                                                 #    16/23
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    17/23
+# THEN                                                                          #    18/23
+PUSHS LF@n                                                                      #    19/23
+PUSHS int@1                                                                     #    20/23
+SUBS                                                                            #    21/23
+POPS LF@n                                                                       #    22/23
+CLEARS                                                                          #    23/23

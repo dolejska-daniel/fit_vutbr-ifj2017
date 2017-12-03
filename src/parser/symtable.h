@@ -178,6 +178,15 @@ SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type
 void SymbolTable_deleteTempVar(SymbolTablePtr st, unsigned id);
 
 /**
+ * Funkce odstraní symbol pro dočasnou proměnnou z tabulky symbolů.
+ *
+ * Při dalším použití je tak program nucen ji znovu inicializovat.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_deleteTempVars(SymbolTablePtr st);
+
+/**
  * Funkce vloží novou položku do dané tabulky s daným klíčem a hodnotou.
  *
  * @param[in,out]	SymbolTablePtr  st		    Ukazatel na existující tabulku symbolů

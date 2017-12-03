@@ -1,23 +1,12 @@
-# 2017-12-03 11:37:04.746849
+# 2017-12-03 23:09:00.752056
 # SECTION: 02_functions
 # TEST: 07
 # INFO: function params with declaration but invalid count
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
-# An error occured during program execution!
-# ==========================================
-# 
-# You will find more detailed information below.
-# 
-# Error line:
-# 	function bar(b as string, c as integer)as string
-# 	^
-# 
-# Exit code:  4
-# Error:      Unknown error occured during parsing.
 # 
 # INTERPRETER STDERR:
 # 

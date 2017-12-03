@@ -1229,6 +1229,13 @@ func_def_newlyDeclared:
         return result;
     }
 
+    result = Instruction_createframe(ilist);
+    if (result != NO_ERROR)
+    {
+        return result;
+    }
+    SymbolTable_deleteTempVars(symtable);
+
     DEBUG_LOG(source, "resorting parameter symbol stack");
     //  Kontrola jmen parametrů (pokud se odlišuje definice od deklarace)
     while (SymbolStack_isEmpty(symbol_stack1) == false)
@@ -1409,6 +1416,7 @@ int Parser_ParseFunctionCall(InputPtr input, InstructionListPtr ilist, SymbolTab
     {
         return result;
     }
+    SymbolTable_deleteTempVars(symtable);
 
     //  PARAMETERS
     DEBUG_LOG(source, "parsing parameters");
@@ -1897,6 +1905,13 @@ int Parser_ParseCondition(InputPtr input, InstructionListPtr ilist, SymbolTableP
     //-----------------------------------------------------
     Instruction_custom(ilist, "# IF BLOCK");
 
+    result = Instruction_createframe(ilist);
+    if (result != NO_ERROR)
+    {
+        return result;
+    }
+    SymbolTable_deleteTempVars(symtable);
+
     //  _EXPRESSION_
     DEBUG_LOG(source, "calling Parser_ParseExpression");
     result = Parser_ParseExpression(input, ilist, symtable, &postfix, false);
@@ -2032,6 +2047,7 @@ int Parser_ParseCondition(InputPtr input, InstructionListPtr ilist, SymbolTableP
     {
         //  Následuje konečný blok else
         Instruction_custom(ilist, "# ELSE");
+        SymbolTable_deleteTempVars(symtable);
 
         //  _CODE_
         DEBUG_LOG(source, "calling Parser_ParseNestedCode");
@@ -2121,6 +2137,13 @@ int Parser_ParseSubCondition(InputPtr input, InstructionListPtr ilist, SymbolTab
     //  Zpracování tokenů
     //-----------------------------------------------------
     Instruction_custom(ilist, "# ELSEIF");
+
+    result = Instruction_createframe(ilist);
+    if (result != NO_ERROR)
+    {
+        return result;
+    }
+    SymbolTable_deleteTempVars(symtable);
 
     //  _EXPRESSION_
     DEBUG_LOG(source, "calling Parser_ParseExpression");
@@ -2293,6 +2316,8 @@ int Parser_ParseLoop_Do(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
         return result;
     }
 
+    Instruction_custom(ilist, "# DO WHILE");
+
     //  _EXPRESSION_
     DEBUG_LOG(source, "calling Parser_ParseExpression");
     result = Parser_ParseExpression(input, ilist, symtable, &postfix, false);
@@ -2373,6 +2398,10 @@ int Parser_ParseLoop_Do(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
         return result;
     }
 
+    Instruction_custom(ilist, "# DO WHILE TRUE");
+    Instruction_createframe(ilist);
+    SymbolTable_deleteTempVars(symtable);
+
     //  _CODE_
     DEBUG_LOG(source, "calling Parser_ParseNestedCode");
     result = Parser_ParseNestedCode(input, ilist, symtable, nlist);
@@ -2396,6 +2425,8 @@ int Parser_ParseLoop_Do(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
         return result;
     }
 
+    Instruction_custom(ilist, "# LOOP");
+
     //  Skok zpět na začátek k znovuporovnání podmínky
     result = Instruction_jump(ilist, loop_info->begin_label);
     if (result != NO_ERROR)
@@ -2403,12 +2434,16 @@ int Parser_ParseLoop_Do(InputPtr input, InstructionListPtr ilist, SymbolTablePtr
         return result;
     }
 
+    Instruction_custom(ilist, "# DO WHILE FALSE");
+
     //  Vytvoření konečného návěstí cyklu
     result = Instruction_label(ilist, loop_info->end_label);
     if (result != NO_ERROR)
     {
         return result;
     }
+
+    Instruction_custom(ilist, "# DO WHILE END");
 
     DEBUG_LOG(source, "leaving current nesting level");
     NestingList_leaveCurrentLevel(nlist);
@@ -2790,6 +2825,7 @@ int Parser_ParseScope(InputPtr input, InstructionListPtr ilist, SymbolTablePtr s
     Instruction_label(ilist, "main");
     Instruction_createframe(ilist);
     Instruction_pushframe(ilist);
+    Instruction_createframe(ilist);
 
     DEBUG_LOG(source, "calling Parser_ParseNestedCode");
     result = Parser_ParseNestedCode(input, ilist, symtable, nlist);

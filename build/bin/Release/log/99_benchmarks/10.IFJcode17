@@ -1,91 +1,14 @@
-# 2017-12-03 11:37:41.070938
+# 2017-12-03 23:09:45.513581
 # SECTION: 99_benchmarks
 # TEST: 10
 # INFO: exp(x) 19 iteration with loop
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
-# Executing instruction: IJUMP at line: 2 with following arguments:
-# Executing instruction: ILABEL at line: 5 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
-# Executing instruction: IDEFVAR at line: 8 with following arguments:
-# Dest: LF@vysledek
-# Executing instruction: IMOVE at line: 9 with following arguments:
-# Arg1: Const@=0(double)
-# Dest: LF@vysledek()
-# Executing instruction: IDEFVAR at line: 10 with following arguments:
-# Dest: LF@citatel
-# Executing instruction: IMOVE at line: 11 with following arguments:
-# Arg1: Const@=0(int)
-# Dest: LF@citatel()
-# Executing instruction: IPUSHS at line: 12 with following arguments:
-# Arg1: Const@=1(int)
-# Dest: Stack@()
-# Executing instruction: IPOPS at line: 13 with following arguments:
-# Arg1: Stack@=1(int)
-# Dest: LF@citatel=0(int)
-# Executing instruction: ICLEARS at line: 14 with following arguments:
-# Executing instruction: IDEFVAR at line: 15 with following arguments:
-# Dest: LF@jmenovatel
-# Executing instruction: IMOVE at line: 16 with following arguments:
-# Arg1: Const@=0(int)
-# Dest: LF@jmenovatel()
-# Executing instruction: IPUSHS at line: 17 with following arguments:
-# Arg1: Const@=1(int)
-# Dest: Stack@()
-# Executing instruction: IPOPS at line: 18 with following arguments:
-# Arg1: Stack@=1(int)
-# Dest: LF@jmenovatel=0(int)
-# Executing instruction: ICLEARS at line: 19 with following arguments:
-# Executing instruction: IDEFVAR at line: 20 with following arguments:
-# Dest: LF@pocitadlo
-# Executing instruction: IMOVE at line: 21 with following arguments:
-# Arg1: Const@=0(int)
-# Dest: LF@pocitadlo()
-# Executing instruction: IPUSHS at line: 22 with following arguments:
-# Arg1: Const@=1(int)
-# Dest: Stack@()
-# Executing instruction: IPOPS at line: 23 with following arguments:
-# Arg1: Stack@=1(int)
-# Dest: LF@pocitadlo=0(int)
-# Executing instruction: ICLEARS at line: 24 with following arguments:
-# Executing instruction: ILABEL at line: 25 with following arguments:
-# Executing instruction: IPUSHS at line: 26 with following arguments:
-# Arg1: LF@pocitadlo=1(int)
-# Dest: Stack@()
-# Executing instruction: IPUSHS at line: 27 with following arguments:
-# Arg1: Const@=20(int)
-# Dest: Stack@()
-# Executing instruction: ILSS at line: 28 with following arguments:
-# Arg1: Stack@=1(int)
-# Arg2: Stack@=20(int)
-# Dest: Stack@()
-# Executing instruction: IPUSHS at line: 29 with following arguments:
-# Arg1: Const@=true(bool)
-# Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 30 with following arguments:
-# Arg1: Stack@=true(bool)
-# Arg2: Stack@=true(bool)
-# Executing instruction: IPUSHS at line: 31 with following arguments:
-# Arg1: LF@vysledek=0(double)
-# Dest: Stack@()
-# Executing instruction: IPUSHS at line: 32 with following arguments:
-# Arg1: LF@citatel=1(int)
-# Dest: Stack@()
-# Executing instruction: IPUSHS at line: 33 with following arguments:
-# Arg1: LF@jmenovatel=1(int)
-# Dest: Stack@()
-# Executing instruction: IDIVS at line: 34 with following arguments:
-# Arg1: Stack@=1(int)
-# Arg2: Stack@=1(int)
-# Dest: Stack@()
-# Error at line: 34
-# Wrong operand type!
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -100,9 +23,9 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 4
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: 53
+# CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
 # 
 #   1: ' exp(x) 19 iteration with loop
@@ -135,63 +58,36 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/62
-JUMP main                                                                       #     2/62
-# MAIN                                                                          #     4/62
-LABEL main                                                                      #     5/62
-CREATEFRAME                                                                     #     6/62
-PUSHFRAME                                                                       #     7/62
-DEFVAR LF@vysledek                                                              #     8/62
-MOVE LF@vysledek float@0.0                                                      #     9/62
-DEFVAR LF@citatel                                                               #    10/62
-MOVE LF@citatel int@0                                                           #    11/62
-PUSHS int@1                                                                     #    12/62
-POPS LF@citatel                                                                 #    13/62
-CLEARS                                                                          #    14/62
-DEFVAR LF@jmenovatel                                                            #    15/62
-MOVE LF@jmenovatel int@0                                                        #    16/62
-PUSHS int@1                                                                     #    17/62
-POPS LF@jmenovatel                                                              #    18/62
-CLEARS                                                                          #    19/62
-DEFVAR LF@pocitadlo                                                             #    20/62
-MOVE LF@pocitadlo int@0                                                         #    21/62
-PUSHS int@1                                                                     #    22/62
-POPS LF@pocitadlo                                                               #    23/62
-CLEARS                                                                          #    24/62
-LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    25/62
-PUSHS LF@pocitadlo                                                              #    26/62
-PUSHS int@20                                                                    #    27/62
-LTS                                                                             #    28/62
-PUSHS bool@true                                                                 #    29/62
-JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    30/62
-PUSHS LF@vysledek                                                               #    31/62
-PUSHS LF@citatel                                                                #    32/62
-PUSHS LF@jmenovatel                                                             #    33/62
-DIVS                                                                            #    34/62
-ADDS                                                                            #    35/62
-POPS LF@vysledek                                                                #    36/62
-CLEARS                                                                          #    37/62
-PUSHS LF@citatel                                                                #    38/62
-PUSHS int@2                                                                     #    39/62
-MULS                                                                            #    40/62
-POPS LF@citatel                                                                 #    41/62
-CLEARS                                                                          #    42/62
-PUSHS LF@jmenovatel                                                             #    43/62
-PUSHS LF@pocitadlo                                                              #    44/62
-MULS                                                                            #    45/62
-POPS LF@jmenovatel                                                              #    46/62
-CLEARS                                                                          #    47/62
-PUSHS LF@pocitadlo                                                              #    48/62
-PUSHS int@1                                                                     #    49/62
-ADDS                                                                            #    50/62
-POPS LF@pocitadlo                                                               #    51/62
-CLEARS                                                                          #    52/62
-JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    53/62
-LABEL __INTERNAL__LOOP_0_END                                                    #    54/62
-PUSHS LF@vysledek                                                               #    55/62
-DEFVAR LF@__INTERNAL__VAR_0                                                     #    56/62
-POPS LF@__INTERNAL__VAR_0                                                       #    57/62
-WRITE LF@__INTERNAL__VAR_0                                                      #    58/62
-JUMP __INTERNAL__FILE_END                                                       #    59/62
-# PROGRAM END                                                                   #    61/62
-LABEL __INTERNAL__FILE_END                                                      #    62/62
+.IFJcode17                                                                      #     1/34
+JUMP main                                                                       #     2/34
+# MAIN                                                                          #     4/34
+LABEL main                                                                      #     5/34
+CREATEFRAME                                                                     #     6/34
+PUSHFRAME                                                                       #     7/34
+CREATEFRAME                                                                     #     8/34
+DEFVAR LF@vysledek                                                              #     9/34
+MOVE LF@vysledek float@0.0                                                      #    10/34
+DEFVAR LF@citatel                                                               #    11/34
+MOVE LF@citatel int@0                                                           #    12/34
+PUSHS int@1                                                                     #    13/34
+POPS LF@citatel                                                                 #    14/34
+CLEARS                                                                          #    15/34
+DEFVAR LF@jmenovatel                                                            #    16/34
+MOVE LF@jmenovatel int@0                                                        #    17/34
+PUSHS int@1                                                                     #    18/34
+POPS LF@jmenovatel                                                              #    19/34
+CLEARS                                                                          #    20/34
+DEFVAR LF@pocitadlo                                                             #    21/34
+MOVE LF@pocitadlo int@0                                                         #    22/34
+PUSHS int@1                                                                     #    23/34
+POPS LF@pocitadlo                                                               #    24/34
+CLEARS                                                                          #    25/34
+# DO WHILE                                                                      #    26/34
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    27/34
+PUSHS LF@pocitadlo                                                              #    28/34
+PUSHS int@20                                                                    #    29/34
+LTS                                                                             #    30/34
+PUSHS bool@true                                                                 #    31/34
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    32/34
+# DO WHILE TRUE                                                                 #    33/34
+CREATEFRAME                                                                     #    34/34
