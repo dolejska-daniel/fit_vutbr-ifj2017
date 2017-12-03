@@ -1,0 +1,104 @@
+# 2017-12-03 11:37:09.380169
+# SECTION: 05_conditions
+# TEST: 03
+# INFO: implicit conversions
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Arg1: Const@=200(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 11 with following arguments:
+# Arg1: Stack@=200(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Arg1: Const@=200(double)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 13 with following arguments:
+# Arg1: Stack@=200(double)
+# Arg2: Stack@=200(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 15 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 17 with following arguments:
+# Arg1: Const@=789(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 18 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 19 with following arguments:
+# Arg1: Stack@=789(int)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 20 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=789(int)
+# Executing instruction: IJUMP at line: 21 with following arguments:
+# Executing instruction: ILABEL at line: 29 with following arguments:
+# Executing instruction: IJUMP at line: 31 with following arguments:
+# Executing instruction: ILABEL at line: 34 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 61 (25+36)
+# 
+#   1: ' implicit conversions
+#   2: scope
+#   3: 	if 200 = 200.0 then
+#   4: 		print 789;
+#   5: 	else
+#   6: 		print 0;
+#   7: 	end if
+#   8: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/34
+JUMP main                                                                       #     2/34
+# MAIN                                                                          #     4/34
+LABEL main                                                                      #     5/34
+CREATEFRAME                                                                     #     6/34
+PUSHFRAME                                                                       #     7/34
+# IF BLOCK                                                                      #     8/34
+# IF                                                                            #     9/34
+PUSHS int@200                                                                   #    10/34
+INT2FLOATS                                                                      #    11/34
+PUSHS float@200.0                                                               #    12/34
+EQS                                                                             #    13/34
+PUSHS bool@true                                                                 #    14/34
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    15/34
+# THEN                                                                          #    16/34
+PUSHS int@789                                                                   #    17/34
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    18/34
+POPS LF@__INTERNAL__VAR_0                                                       #    19/34
+WRITE LF@__INTERNAL__VAR_0                                                      #    20/34
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    21/34
+LABEL __INTERNAL__COND_0_END                                                    #    22/34
+# ELSE                                                                          #    23/34
+PUSHS int@0                                                                     #    24/34
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    25/34
+POPS LF@__INTERNAL__VAR_0                                                       #    26/34
+WRITE LF@__INTERNAL__VAR_0                                                      #    27/34
+# END IF                                                                        #    28/34
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    29/34
+# END IF BLOCK                                                                  #    30/34
+JUMP __INTERNAL__FILE_END                                                       #    31/34
+# PROGRAM END                                                                   #    33/34
+LABEL __INTERNAL__FILE_END                                                      #    34/34

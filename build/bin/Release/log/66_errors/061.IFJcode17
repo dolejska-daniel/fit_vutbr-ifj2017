@@ -1,0 +1,50 @@
+# 2017-12-03 11:37:36.753958
+# SECTION: 66_errors
+# TEST: 061
+# INFO: function arguments without type
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Error line:
+# 	function foo(a,b as integer) as integer 
+# 	              ^
+# 
+# Exit code:  2
+# Error:      Unexpected statement on line 1:15. Expected KEYWORD (AS) got COMMA.
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 2
+# CURRENT COMPILER EXIT CODE: 2
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: function foo(a, b as integer) as integer 
+#   2:  end function 
+#   3:  scope  
+#   4:  loop 
+#   5:  end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/2
+JUMP main                                                                       #     2/2

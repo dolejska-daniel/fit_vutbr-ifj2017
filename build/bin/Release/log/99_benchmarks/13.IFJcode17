@@ -1,0 +1,137 @@
+# 2017-12-03 11:37:41.273977
+# SECTION: 99_benchmarks
+# TEST: 13
+# INFO: Multiplier listing
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Wrong escape sequence!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  1 2 3 4 5 6 7 8 9
+#  2 4 6 8 10 12 14 16 18
+#  3 6 9 12 15 18 21 24 27
+#  4 8 12 16 20 24 28 32 36
+#  5 10 15 20 25 30 35 40 45
+#  6 12 18 24 30 36 42 48 54
+#  7 14 21 28 35 42 49 56 63
+#  8 16 24 32 40 48 56 64 72
+#  9 18 27 36 45 54 63 72 81
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 51
+# PRICE: ---
+# 
+#   1: ' Multiplier listing
+#   2: 
+#   3: function multiply(a as integer, b as integer) as integer
+#   4:     return a * b
+#   5: end function
+#   6: 
+#   7: scope
+#   8:     dim a as integer = 1
+#   9:     
+#  10:     do while a < 10 
+#  11:     
+#  12:         dim b as integer = 1
+#  13:         
+#  14:          do while b < 10 
+#  15:             
+#  16:             print multiply(a, b);
+#  17:             
+#  18:             b = b + 1
+#  19:         loop
+#  20:         print !"\n";
+#  21:         a = a + 1
+#  22:     loop
+#  23:     
+#  24: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/74
+JUMP main                                                                       #     2/74
+# FUNCTION                                                                      #     4/74
+LABEL multiply                                                                  #     5/74
+PUSHFRAME                                                                       #     6/74
+PUSHS LF@a                                                                      #     7/74
+PUSHS LF@b                                                                      #     8/74
+MULS                                                                            #     9/74
+RETURN                                                                          #    10/74
+PUSHS int@0                                                                     #    11/74
+RETURN                                                                          #    12/74
+# END FUNCTION                                                                  #    13/74
+# MAIN                                                                          #    15/74
+LABEL main                                                                      #    16/74
+CREATEFRAME                                                                     #    17/74
+PUSHFRAME                                                                       #    18/74
+DEFVAR LF@a                                                                     #    19/74
+MOVE LF@a int@0                                                                 #    20/74
+PUSHS int@1                                                                     #    21/74
+POPS LF@a                                                                       #    22/74
+CLEARS                                                                          #    23/74
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    24/74
+PUSHS LF@a                                                                      #    25/74
+PUSHS int@10                                                                    #    26/74
+LTS                                                                             #    27/74
+PUSHS bool@true                                                                 #    28/74
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    29/74
+DEFVAR LF@b                                                                     #    30/74
+MOVE LF@b int@0                                                                 #    31/74
+PUSHS int@1                                                                     #    32/74
+POPS LF@b                                                                       #    33/74
+CLEARS                                                                          #    34/74
+LABEL __INTERNAL__LOOP_1_BEGIN                                                  #    35/74
+PUSHS LF@b                                                                      #    36/74
+PUSHS int@10                                                                    #    37/74
+LTS                                                                             #    38/74
+PUSHS bool@true                                                                 #    39/74
+JUMPIFNEQS __INTERNAL__LOOP_1_END                                               #    40/74
+CREATEFRAME                                                                     #    41/74
+PUSHS LF@a                                                                      #    42/74
+DEFVAR TF@a                                                                     #    43/74
+POPS TF@a                                                                       #    44/74
+PUSHS LF@b                                                                      #    45/74
+DEFVAR TF@b                                                                     #    46/74
+POPS TF@b                                                                       #    47/74
+CALL multiply                                                                   #    48/74
+POPFRAME                                                                        #    49/74
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    50/74
+POPS LF@__INTERNAL__VAR_0                                                       #    51/74
+WRITE LF@__INTERNAL__VAR_0                                                      #    52/74
+PUSHS LF@b                                                                      #    53/74
+PUSHS int@1                                                                     #    54/74
+ADDS                                                                            #    55/74
+POPS LF@b                                                                       #    56/74
+CLEARS                                                                          #    57/74
+JUMP __INTERNAL__LOOP_1_BEGIN                                                   #    58/74
+LABEL __INTERNAL__LOOP_1_END                                                    #    59/74
+PUSHS string@\n                                                                 #    60/74
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    61/74
+POPS LF@__INTERNAL__VAR_0                                                       #    62/74
+WRITE LF@__INTERNAL__VAR_0                                                      #    63/74
+PUSHS LF@a                                                                      #    64/74
+PUSHS int@1                                                                     #    65/74
+ADDS                                                                            #    66/74
+POPS LF@a                                                                       #    67/74
+CLEARS                                                                          #    68/74
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    69/74
+LABEL __INTERNAL__LOOP_0_END                                                    #    70/74
+JUMP __INTERNAL__FILE_END                                                       #    71/74
+# PROGRAM END                                                                   #    73/74
+LABEL __INTERNAL__FILE_END                                                      #    74/74

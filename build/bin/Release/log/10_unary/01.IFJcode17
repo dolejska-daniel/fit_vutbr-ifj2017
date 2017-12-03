@@ -1,0 +1,161 @@
+# 2017-12-03 11:37:12.487933
+# SECTION: 10_unary
+# TEST: 01
+# INFO: assignment with operators
+# REQUIRED EXTENSIONS: UNARY
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Arg1: Const@=2(double)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 11 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 12 with following arguments:
+# Arg1: Stack@=2(double)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IADD at line: 13 with following arguments:
+# Arg1: LF@a=0(double)
+# Arg2: LF@__INTERNAL__VAR_0=2(double)
+# Dest: LF@a=0(double)
+# Executing instruction: ICLEARS at line: 14 with following arguments:
+# Executing instruction: IPUSHS at line: 15 with following arguments:
+# Arg1: LF@a=2(double)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 16 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Error at line: 16
+# Symbol already exists!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  2 8 4 2 4bar foo 
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 52
+# PRICE: ---
+# 
+#   1: ' assignment with operators
+#   2: scope
+#   3: 	dim a as double
+#   4: 	a += 2.0e0
+#   5: 	print a;
+#   6: 	a *= 4.00e0
+#   7: 	print a;
+#   8: 	a -= 4
+#   9: 	print a;
+#  10: 	a /= 2
+#  11: 	print a;
+#  12: 	dim b as integer = 48
+#  13: 	b \= 12
+#  14: 	print b;
+#  15: 
+#  16: 	dim c as string = !"bar"
+#  17: 	c += !" foo" + !" "
+#  18: 	print c;
+#  19: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/82
+JUMP main                                                                       #     2/82
+# MAIN                                                                          #     4/82
+LABEL main                                                                      #     5/82
+CREATEFRAME                                                                     #     6/82
+PUSHFRAME                                                                       #     7/82
+DEFVAR LF@a                                                                     #     8/82
+MOVE LF@a float@0.0                                                             #     9/82
+PUSHS float@2.0e0                                                               #    10/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    11/82
+POPS LF@__INTERNAL__VAR_0                                                       #    12/82
+ADD LF@a LF@a LF@__INTERNAL__VAR_0                                              #    13/82
+CLEARS                                                                          #    14/82
+PUSHS LF@a                                                                      #    15/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    16/82
+POPS LF@__INTERNAL__VAR_0                                                       #    17/82
+WRITE LF@__INTERNAL__VAR_0                                                      #    18/82
+PUSHS float@4.00e0                                                              #    19/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    20/82
+POPS LF@__INTERNAL__VAR_0                                                       #    21/82
+MUL LF@a LF@a LF@__INTERNAL__VAR_0                                              #    22/82
+CLEARS                                                                          #    23/82
+PUSHS LF@a                                                                      #    24/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    25/82
+POPS LF@__INTERNAL__VAR_0                                                       #    26/82
+WRITE LF@__INTERNAL__VAR_0                                                      #    27/82
+PUSHS int@4                                                                     #    28/82
+INT2FLOATS                                                                      #    29/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    30/82
+POPS LF@__INTERNAL__VAR_0                                                       #    31/82
+SUB LF@a LF@a LF@__INTERNAL__VAR_0                                              #    32/82
+CLEARS                                                                          #    33/82
+PUSHS LF@a                                                                      #    34/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    35/82
+POPS LF@__INTERNAL__VAR_0                                                       #    36/82
+WRITE LF@__INTERNAL__VAR_0                                                      #    37/82
+PUSHS int@2                                                                     #    38/82
+INT2FLOATS                                                                      #    39/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    40/82
+POPS LF@__INTERNAL__VAR_0                                                       #    41/82
+DIV LF@a LF@a LF@__INTERNAL__VAR_0                                              #    42/82
+CLEARS                                                                          #    43/82
+PUSHS LF@a                                                                      #    44/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    45/82
+POPS LF@__INTERNAL__VAR_0                                                       #    46/82
+WRITE LF@__INTERNAL__VAR_0                                                      #    47/82
+DEFVAR LF@b                                                                     #    48/82
+MOVE LF@b int@0                                                                 #    49/82
+PUSHS int@48                                                                    #    50/82
+POPS LF@b                                                                       #    51/82
+CLEARS                                                                          #    52/82
+PUSHS int@12                                                                    #    53/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    54/82
+POPS LF@__INTERNAL__VAR_0                                                       #    55/82
+DIV LF@b LF@b LF@__INTERNAL__VAR_0                                              #    56/82
+FLOAT2INT LF@b LF@b                                                             #    57/82
+CLEARS                                                                          #    58/82
+PUSHS LF@b                                                                      #    59/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    60/82
+POPS LF@__INTERNAL__VAR_0                                                       #    61/82
+WRITE LF@__INTERNAL__VAR_0                                                      #    62/82
+DEFVAR LF@c                                                                     #    63/82
+MOVE LF@c string@                                                               #    64/82
+PUSHS string@bar                                                                #    65/82
+POPS LF@c                                                                       #    66/82
+CLEARS                                                                          #    67/82
+PUSHS string@\032foo                                                            #    68/82
+PUSHS string@\032                                                               #    69/82
+ADDS                                                                            #    70/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    71/82
+POPS LF@__INTERNAL__VAR_0                                                       #    72/82
+ADD LF@c LF@c LF@__INTERNAL__VAR_0                                              #    73/82
+CLEARS                                                                          #    74/82
+PUSHS LF@c                                                                      #    75/82
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    76/82
+POPS LF@__INTERNAL__VAR_0                                                       #    77/82
+WRITE LF@__INTERNAL__VAR_0                                                      #    78/82
+JUMP __INTERNAL__FILE_END                                                       #    79/82
+# PROGRAM END                                                                   #    81/82
+LABEL __INTERNAL__FILE_END                                                      #    82/82

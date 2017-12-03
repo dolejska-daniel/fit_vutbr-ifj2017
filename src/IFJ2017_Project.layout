@@ -2,184 +2,119 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="scanner\input.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="support\postfix2instructions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1502" topLine="37" />
-		</Cursor>
-	</File>
-	<File name="generator\generator.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6307" topLine="1668" />
-		</Cursor>
-	</File>
-	<File name="parser\nesting_list.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1492" topLine="25" />
-		</Cursor>
-	</File>
-	<File name="support\char_stack.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2204" topLine="68" />
-		</Cursor>
-	</File>
-	<File name="parser\nesting_list.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3893" topLine="120" />
-		</Cursor>
-	</File>
-	<File name="support\symbol_stack.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1076" topLine="20" />
-		</Cursor>
-	</File>
-	<File name="parser\parser.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="27705" topLine="787" />
-		</Cursor>
-	</File>
-	<File name="parser\symtable.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4520" topLine="138" />
-		</Cursor>
-	</File>
-	<File name="support\postfix2instructions.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1911" topLine="42" />
-		</Cursor>
-	</File>
-	<File name="generator\generator.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="23826" topLine="502" />
-		</Cursor>
-	</File>
-	<File name="support\token_stack.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2611" topLine="94" />
-		</Cursor>
-	</File>
-	<File name="support\token_stack.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1053" topLine="22" />
+			<Cursor1 position="1439" topLine="11" />
 		</Cursor>
 	</File>
 	<File name="support\postfix_list.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1856" topLine="45" />
+			<Cursor1 position="0" topLine="23" />
 		</Cursor>
 	</File>
-	<File name="support\strings.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="parser\parser.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2679" topLine="46" />
+			<Cursor1 position="5460" topLine="48" />
 		</Cursor>
 	</File>
-	<File name="support\tokenType_list.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="support\symbol_stack.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2151" topLine="66" />
+			<Cursor1 position="1252" topLine="23" />
 		</Cursor>
 	</File>
-	<File name="support\error_codes.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="parser\symtable.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1476" topLine="0" />
+			<Cursor1 position="23212" topLine="866" />
 		</Cursor>
 	</File>
-	<File name="support\infix2postfix.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="support\token_stack.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1266" topLine="7" />
-		</Cursor>
-	</File>
-	<File name="support\char_stack.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="539" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="support\infix2postfix.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4706" topLine="153" />
-		</Cursor>
-	</File>
-	<File name="support\postfix_list.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2214" topLine="170" />
-		</Cursor>
-	</File>
-	<File name="generator\instruction_list.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="119" topLine="283" />
-		</Cursor>
-	</File>
-	<File name="support\symbol_stack.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="250" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="generator\instruction_list.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="942" topLine="14" />
-		</Cursor>
-	</File>
-	<File name="support\token_list.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3167" topLine="123" />
-		</Cursor>
-	</File>
-	<File name="parser\parser.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="685" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="support\token_list.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1714" topLine="40" />
-		</Cursor>
-	</File>
-	<File name="main\main.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4315" topLine="129" />
+			<Cursor1 position="2503" topLine="96" />
 		</Cursor>
 	</File>
 	<File name="parser\symtable.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6064" topLine="152" />
-		</Cursor>
-	</File>
-	<File name="support\tokenType_list.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1881" topLine="40" />
-		</Cursor>
-	</File>
-	<File name="scanner\input.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="853" topLine="14" />
-		</Cursor>
-	</File>
-	<File name="support\postfix2instructions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="980" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="scanner\scanner.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="22071" topLine="68" />
+			<Cursor1 position="9832" topLine="242" />
 		</Cursor>
 	</File>
 	<File name="scanner\scanner.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="653" topLine="0" />
+			<Cursor1 position="239" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="generator\generator.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="74509" topLine="2149" />
+		</Cursor>
+	</File>
+	<File name="generator\generator.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="223" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="support\strings.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2820" topLine="48" />
+		</Cursor>
+	</File>
+	<File name="generator\instruction_list.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11386" topLine="343" />
+		</Cursor>
+	</File>
+	<File name="generator\instruction_list.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6743" topLine="172" />
+		</Cursor>
+	</File>
+	<File name="support\symbol_stack.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2517" topLine="90" />
+		</Cursor>
+	</File>
+	<File name="scanner\scanner.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8809" topLine="293" />
+		</Cursor>
+	</File>
+	<File name="support\postfix_list.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5434" topLine="204" />
+		</Cursor>
+	</File>
+	<File name="parser\parser.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5302" topLine="153" />
+		</Cursor>
+	</File>
+	<File name="support\token_list.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="408" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main\main.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1404" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="scanner\input.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="762" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="support\postfix2instructions.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7573" topLine="212" />
 		</Cursor>
 	</File>
 	<File name="scanner\token.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2415" topLine="72" />
+			<Cursor1 position="2596" topLine="168" />
 		</Cursor>
 	</File>
-	<File name="support\strings.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="scanner\token.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2682" topLine="71" />
-		</Cursor>
-	</File>
-	<File name="scanner\token.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3142" topLine="79" />
+			<Cursor1 position="2944" topLine="82" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

@@ -1,0 +1,168 @@
+# 2017-12-03 11:37:05.216598
+# SECTION: 02_functions
+# TEST: 20
+# INFO: Argument = var with same name as parametr
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 16 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 17 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 18 with following arguments:
+# Executing instruction: IDEFVAR at line: 19 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 20 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 22 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: LF@a=0(int)
+# Executing instruction: ICLEARS at line: 23 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 24 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 26 with following arguments:
+# Dest: TF@a
+# Executing instruction: IPOPS at line: 27 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: TF@a()
+# Executing instruction: ICALL at line: 28 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHS at line: 7 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 9 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 10 with following arguments:
+# Executing instruction: IPOPFRAME at line: 29 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 30 with following arguments:
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 32 with following arguments:
+# Dest: TF@a
+# Executing instruction: IPOPS at line: 33 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: TF@a()
+# Executing instruction: ICALL at line: 34 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHS at line: 7 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 9 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 10 with following arguments:
+# Executing instruction: IPOPFRAME at line: 35 with following arguments:
+# Executing instruction: IMULTS at line: 36 with following arguments:
+# Arg1: Stack@=4(int)
+# Arg2: Stack@=4(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 37 with following arguments:
+# Arg1: Stack@=16(int)
+# Dest: LF@a=2(int)
+# Executing instruction: ICLEARS at line: 38 with following arguments:
+# Executing instruction: IPUSHS at line: 39 with following arguments:
+# Arg1: LF@a=16(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 40 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 41 with following arguments:
+# Arg1: Stack@=16(int)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 42 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=16(int)
+# Executing instruction: IJUMP at line: 43 with following arguments:
+# Executing instruction: ILABEL at line: 46 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 169 (75+94)
+# 
+#   1: ' Argument = var with same name as parametr
+#   2: 
+#   3: function GHGK6767__T7(a as integer) as integer
+#   4: 	return a * a
+#   5: end function
+#   6: 
+#   7: SCOPE
+#   8: 
+#   9: 	dim a as integer
+#  10: 	a = 2
+#  11: 	a = GHGK6767__T7(a) * GHGK6767__T7(a)
+#  12: 	print a;
+#  13: 
+#  14: END SCOPE
+
+########################################
+
+.IFJcode17                                                                      #     1/46
+JUMP main                                                                       #     2/46
+# FUNCTION                                                                      #     4/46
+LABEL ghgk6767__t7                                                              #     5/46
+PUSHFRAME                                                                       #     6/46
+PUSHS LF@a                                                                      #     7/46
+PUSHS LF@a                                                                      #     8/46
+MULS                                                                            #     9/46
+RETURN                                                                          #    10/46
+PUSHS int@0                                                                     #    11/46
+RETURN                                                                          #    12/46
+# END FUNCTION                                                                  #    13/46
+# MAIN                                                                          #    15/46
+LABEL main                                                                      #    16/46
+CREATEFRAME                                                                     #    17/46
+PUSHFRAME                                                                       #    18/46
+DEFVAR LF@a                                                                     #    19/46
+MOVE LF@a int@0                                                                 #    20/46
+PUSHS int@2                                                                     #    21/46
+POPS LF@a                                                                       #    22/46
+CLEARS                                                                          #    23/46
+CREATEFRAME                                                                     #    24/46
+PUSHS LF@a                                                                      #    25/46
+DEFVAR TF@a                                                                     #    26/46
+POPS TF@a                                                                       #    27/46
+CALL ghgk6767__t7                                                               #    28/46
+POPFRAME                                                                        #    29/46
+CREATEFRAME                                                                     #    30/46
+PUSHS LF@a                                                                      #    31/46
+DEFVAR TF@a                                                                     #    32/46
+POPS TF@a                                                                       #    33/46
+CALL ghgk6767__t7                                                               #    34/46
+POPFRAME                                                                        #    35/46
+MULS                                                                            #    36/46
+POPS LF@a                                                                       #    37/46
+CLEARS                                                                          #    38/46
+PUSHS LF@a                                                                      #    39/46
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    40/46
+POPS LF@__INTERNAL__VAR_0                                                       #    41/46
+WRITE LF@__INTERNAL__VAR_0                                                      #    42/46
+JUMP __INTERNAL__FILE_END                                                       #    43/46
+# PROGRAM END                                                                   #    45/46
+LABEL __INTERNAL__FILE_END                                                      #    46/46

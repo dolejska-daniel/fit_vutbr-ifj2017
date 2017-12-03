@@ -1,0 +1,204 @@
+# 2017-12-03 11:37:10.600414
+# SECTION: 07_strings
+# TEST: 04
+# INFO: asc builtin function
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Wrong escape sequence!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  0 116 1 255 127 10 0 0
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 51
+# PRICE: ---
+# 
+#   1: ' asc builtin function
+#   2: scope
+#   3: 	dim res as integer
+#   4: 	dim tmp as integer
+#   5: 	tmp = 0 - 10
+#   6: 
+#   7: 	res = asc(!"test", 0)
+#   8: 	print res;
+#   9: 	res = asc(!"test", 1)
+#  10: 	print res;
+#  11: 	res = asc(!"\001", 1)
+#  12: 	print res;
+#  13: 	res = asc(!"\255", 1)
+#  14: 	print res;
+#  15: 	res = asc(!"\127", 1)
+#  16: 	print res;
+#  17: 	res = asc(!"\n", 1)
+#  18: 	print res;
+#  19: 	res = asc(!"asdasd", tmp)
+#  20: 	print res;
+#  21: 	res = asc(!"asdasd", 42)
+#  22: 	print res;
+#  23: 	
+#  24: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/149
+JUMP main                                                                       #     2/149
+# MAIN                                                                          #     4/149
+LABEL main                                                                      #     5/149
+CREATEFRAME                                                                     #     6/149
+PUSHFRAME                                                                       #     7/149
+DEFVAR LF@res                                                                   #     8/149
+MOVE LF@res int@0                                                               #     9/149
+DEFVAR LF@tmp                                                                   #    10/149
+MOVE LF@tmp int@0                                                               #    11/149
+PUSHS int@0                                                                     #    12/149
+PUSHS int@10                                                                    #    13/149
+SUBS                                                                            #    14/149
+POPS LF@tmp                                                                     #    15/149
+CLEARS                                                                          #    16/149
+CREATEFRAME                                                                     #    17/149
+PUSHS string@test                                                               #    18/149
+DEFVAR TF@s                                                                     #    19/149
+POPS TF@s                                                                       #    20/149
+PUSHS int@0                                                                     #    21/149
+DEFVAR TF@i                                                                     #    22/149
+POPS TF@i                                                                       #    23/149
+CALL asc                                                                        #    24/149
+POPFRAME                                                                        #    25/149
+POPS LF@res                                                                     #    26/149
+CLEARS                                                                          #    27/149
+PUSHS LF@res                                                                    #    28/149
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    29/149
+POPS LF@__INTERNAL__VAR_0                                                       #    30/149
+WRITE LF@__INTERNAL__VAR_0                                                      #    31/149
+CREATEFRAME                                                                     #    32/149
+PUSHS string@test                                                               #    33/149
+DEFVAR TF@s                                                                     #    34/149
+POPS TF@s                                                                       #    35/149
+PUSHS int@1                                                                     #    36/149
+DEFVAR TF@i                                                                     #    37/149
+POPS TF@i                                                                       #    38/149
+CALL asc                                                                        #    39/149
+POPFRAME                                                                        #    40/149
+POPS LF@res                                                                     #    41/149
+CLEARS                                                                          #    42/149
+PUSHS LF@res                                                                    #    43/149
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    44/149
+POPS LF@__INTERNAL__VAR_0                                                       #    45/149
+WRITE LF@__INTERNAL__VAR_0                                                      #    46/149
+CREATEFRAME                                                                     #    47/149
+PUSHS string@\001                                                               #    48/149
+DEFVAR TF@s                                                                     #    49/149
+POPS TF@s                                                                       #    50/149
+PUSHS int@1                                                                     #    51/149
+DEFVAR TF@i                                                                     #    52/149
+POPS TF@i                                                                       #    53/149
+CALL asc                                                                        #    54/149
+POPFRAME                                                                        #    55/149
+POPS LF@res                                                                     #    56/149
+CLEARS                                                                          #    57/149
+PUSHS LF@res                                                                    #    58/149
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    59/149
+POPS LF@__INTERNAL__VAR_0                                                       #    60/149
+WRITE LF@__INTERNAL__VAR_0                                                      #    61/149
+CREATEFRAME                                                                     #    62/149
+PUSHS string@\255                                                               #    63/149
+DEFVAR TF@s                                                                     #    64/149
+POPS TF@s                                                                       #    65/149
+PUSHS int@1                                                                     #    66/149
+DEFVAR TF@i                                                                     #    67/149
+POPS TF@i                                                                       #    68/149
+CALL asc                                                                        #    69/149
+POPFRAME                                                                        #    70/149
+POPS LF@res                                                                     #    71/149
+CLEARS                                                                          #    72/149
+PUSHS LF@res                                                                    #    73/149
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    74/149
+POPS LF@__INTERNAL__VAR_0                                                       #    75/149
+WRITE LF@__INTERNAL__VAR_0                                                      #    76/149
+CREATEFRAME                                                                     #    77/149
+PUSHS string@\127                                                               #    78/149
+DEFVAR TF@s                                                                     #    79/149
+POPS TF@s                                                                       #    80/149
+PUSHS int@1                                                                     #    81/149
+DEFVAR TF@i                                                                     #    82/149
+POPS TF@i                                                                       #    83/149
+CALL asc                                                                        #    84/149
+POPFRAME                                                                        #    85/149
+POPS LF@res                                                                     #    86/149
+CLEARS                                                                          #    87/149
+PUSHS LF@res                                                                    #    88/149
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    89/149
+POPS LF@__INTERNAL__VAR_0                                                       #    90/149
+WRITE LF@__INTERNAL__VAR_0                                                      #    91/149
+CREATEFRAME                                                                     #    92/149
+PUSHS string@\n                                                                 #    93/149
+DEFVAR TF@s                                                                     #    94/149
+POPS TF@s                                                                       #    95/149
+PUSHS int@1                                                                     #    96/149
+DEFVAR TF@i                                                                     #    97/149
+POPS TF@i                                                                       #    98/149
+CALL asc                                                                        #    99/149
+POPFRAME                                                                        #   100/149
+POPS LF@res                                                                     #   101/149
+CLEARS                                                                          #   102/149
+PUSHS LF@res                                                                    #   103/149
+DEFVAR LF@__INTERNAL__VAR_0                                                     #   104/149
+POPS LF@__INTERNAL__VAR_0                                                       #   105/149
+WRITE LF@__INTERNAL__VAR_0                                                      #   106/149
+CREATEFRAME                                                                     #   107/149
+PUSHS string@asdasd                                                             #   108/149
+DEFVAR TF@s                                                                     #   109/149
+POPS TF@s                                                                       #   110/149
+PUSHS LF@tmp                                                                    #   111/149
+DEFVAR TF@i                                                                     #   112/149
+POPS TF@i                                                                       #   113/149
+CALL asc                                                                        #   114/149
+POPFRAME                                                                        #   115/149
+POPS LF@res                                                                     #   116/149
+CLEARS                                                                          #   117/149
+PUSHS LF@res                                                                    #   118/149
+DEFVAR LF@__INTERNAL__VAR_0                                                     #   119/149
+POPS LF@__INTERNAL__VAR_0                                                       #   120/149
+WRITE LF@__INTERNAL__VAR_0                                                      #   121/149
+CREATEFRAME                                                                     #   122/149
+PUSHS string@asdasd                                                             #   123/149
+DEFVAR TF@s                                                                     #   124/149
+POPS TF@s                                                                       #   125/149
+PUSHS int@42                                                                    #   126/149
+DEFVAR TF@i                                                                     #   127/149
+POPS TF@i                                                                       #   128/149
+CALL asc                                                                        #   129/149
+POPFRAME                                                                        #   130/149
+POPS LF@res                                                                     #   131/149
+CLEARS                                                                          #   132/149
+PUSHS LF@res                                                                    #   133/149
+DEFVAR LF@__INTERNAL__VAR_0                                                     #   134/149
+POPS LF@__INTERNAL__VAR_0                                                       #   135/149
+WRITE LF@__INTERNAL__VAR_0                                                      #   136/149
+JUMP __INTERNAL__FILE_END                                                       #   137/149
+# ASC FUNCTION                                                                  #   139/149
+LABEL asc                                                                       #   140/149
+PUSHFRAME                                                                       #   141/149
+PUSHS LF@s                                                                      #   142/149
+PUSHS LF@i                                                                      #   143/149
+STRI2INTS                                                                       #   144/149
+RETURN                                                                          #   145/149
+# ASC FUNCTION END                                                              #   146/149
+# PROGRAM END                                                                   #   148/149
+LABEL __INTERNAL__FILE_END                                                      #   149/149

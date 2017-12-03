@@ -1,0 +1,119 @@
+# 2017-12-03 11:37:07.693183
+# SECTION: 04_expressions
+# TEST: 09
+# INFO: string concat
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Arg1: Const@=master (string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 11 with following arguments:
+# Arg1: Stack@=master (string)
+# Dest: LF@a=(string)
+# Executing instruction: ICLEARS at line: 12 with following arguments:
+# Executing instruction: IDEFVAR at line: 13 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 14 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@b()
+# Executing instruction: IPUSHS at line: 15 with following arguments:
+# Arg1: Const@= puppets!(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 16 with following arguments:
+# Arg1: Stack@= puppets!(string)
+# Dest: LF@b=(string)
+# Executing instruction: ICLEARS at line: 17 with following arguments:
+# Executing instruction: IPUSHS at line: 18 with following arguments:
+# Arg1: LF@a=master (string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 19 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 20 with following arguments:
+# Arg1: Stack@=master (string)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 21 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=master (string)
+# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Arg1: Const@=of(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 23 with following arguments:
+# Arg1: Stack@=of(string)
+# Dest: LF@__INTERNAL__VAR_0=master (string)
+# Executing instruction: IWRITE at line: 24 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=of(string)
+# Executing instruction: IPUSHS at line: 25 with following arguments:
+# Arg1: LF@b= puppets!(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 26 with following arguments:
+# Arg1: Stack@= puppets!(string)
+# Dest: LF@__INTERNAL__VAR_0=of(string)
+# Executing instruction: IWRITE at line: 27 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0= puppets!(string)
+# Executing instruction: IJUMP at line: 28 with following arguments:
+# Executing instruction: ILABEL at line: 31 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 96 (39+57)
+# 
+#   1: ' string concat
+#   2: scope
+#   3:     dim a as string = !"master "
+#   4:     dim b as string = !" puppets!"
+#   5: 
+#   6:     print a; !"of"; b;
+#   7: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/31
+JUMP main                                                                       #     2/31
+# MAIN                                                                          #     4/31
+LABEL main                                                                      #     5/31
+CREATEFRAME                                                                     #     6/31
+PUSHFRAME                                                                       #     7/31
+DEFVAR LF@a                                                                     #     8/31
+MOVE LF@a string@                                                               #     9/31
+PUSHS string@master\032                                                         #    10/31
+POPS LF@a                                                                       #    11/31
+CLEARS                                                                          #    12/31
+DEFVAR LF@b                                                                     #    13/31
+MOVE LF@b string@                                                               #    14/31
+PUSHS string@\032puppets!                                                       #    15/31
+POPS LF@b                                                                       #    16/31
+CLEARS                                                                          #    17/31
+PUSHS LF@a                                                                      #    18/31
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    19/31
+POPS LF@__INTERNAL__VAR_0                                                       #    20/31
+WRITE LF@__INTERNAL__VAR_0                                                      #    21/31
+PUSHS string@of                                                                 #    22/31
+POPS LF@__INTERNAL__VAR_0                                                       #    23/31
+WRITE LF@__INTERNAL__VAR_0                                                      #    24/31
+PUSHS LF@b                                                                      #    25/31
+POPS LF@__INTERNAL__VAR_0                                                       #    26/31
+WRITE LF@__INTERNAL__VAR_0                                                      #    27/31
+JUMP __INTERNAL__FILE_END                                                       #    28/31
+# PROGRAM END                                                                   #    30/31
+LABEL __INTERNAL__FILE_END                                                      #    31/31

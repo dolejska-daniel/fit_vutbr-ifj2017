@@ -1,0 +1,53 @@
+# 2017-12-03 11:37:06.559670
+# SECTION: 03_statements
+# TEST: 07
+# INFO: print statement without semicolon
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Exit code:  2
+# Error:      Unexpected statement on line 4:1. Expected SEMICOLON got <EOL>.
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 2
+# CURRENT COMPILER EXIT CODE: 2
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' print statement without semicolon
+#   2: scope
+#   3: 	print 85
+#   4: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/11
+JUMP main                                                                       #     2/11
+# MAIN                                                                          #     4/11
+LABEL main                                                                      #     5/11
+CREATEFRAME                                                                     #     6/11
+PUSHFRAME                                                                       #     7/11
+PUSHS int@85                                                                    #     8/11
+DEFVAR LF@__INTERNAL__VAR_0                                                     #     9/11
+POPS LF@__INTERNAL__VAR_0                                                       #    10/11
+WRITE LF@__INTERNAL__VAR_0                                                      #    11/11

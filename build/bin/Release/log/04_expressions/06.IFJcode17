@@ -1,0 +1,134 @@
+# 2017-12-03 11:37:07.578880
+# SECTION: 04_expressions
+# TEST: 06
+# INFO: multiple operations with different priorities I
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 11 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: LF@a=0(int)
+# Executing instruction: ICLEARS at line: 12 with following arguments:
+# Executing instruction: IDEFVAR at line: 13 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 14 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@b()
+# Executing instruction: IPUSHS at line: 15 with following arguments:
+# Arg1: Const@=9(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 16 with following arguments:
+# Arg1: Stack@=9(int)
+# Dest: LF@b=0(int)
+# Executing instruction: ICLEARS at line: 17 with following arguments:
+# Executing instruction: IPUSHS at line: 18 with following arguments:
+# Arg1: LF@b=9(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 19 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 20 with following arguments:
+# Arg1: LF@b=9(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 21 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=9(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 22 with following arguments:
+# Arg1: Stack@=9(int)
+# Arg2: Stack@=18(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Arg1: LF@b=9(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 24 with following arguments:
+# Arg1: Stack@=27(int)
+# Arg2: Stack@=9(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 25 with following arguments:
+# Arg1: Stack@=36(int)
+# Dest: LF@a=2(int)
+# Executing instruction: ICLEARS at line: 26 with following arguments:
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: LF@a=36(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 29 with following arguments:
+# Arg1: Stack@=36(int)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 30 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=36(int)
+# Executing instruction: IJUMP at line: 31 with following arguments:
+# Executing instruction: ILABEL at line: 34 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 123 (43+80)
+# 
+#   1: ' multiple operations with different priorities I
+#   2: scope
+#   3:     dim a as integer = 2
+#   4:     dim b as integer = 9
+#   5:     a = b + a * b + b
+#   6:     print a;
+#   7: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/34
+JUMP main                                                                       #     2/34
+# MAIN                                                                          #     4/34
+LABEL main                                                                      #     5/34
+CREATEFRAME                                                                     #     6/34
+PUSHFRAME                                                                       #     7/34
+DEFVAR LF@a                                                                     #     8/34
+MOVE LF@a int@0                                                                 #     9/34
+PUSHS int@2                                                                     #    10/34
+POPS LF@a                                                                       #    11/34
+CLEARS                                                                          #    12/34
+DEFVAR LF@b                                                                     #    13/34
+MOVE LF@b int@0                                                                 #    14/34
+PUSHS int@9                                                                     #    15/34
+POPS LF@b                                                                       #    16/34
+CLEARS                                                                          #    17/34
+PUSHS LF@b                                                                      #    18/34
+PUSHS LF@a                                                                      #    19/34
+PUSHS LF@b                                                                      #    20/34
+MULS                                                                            #    21/34
+ADDS                                                                            #    22/34
+PUSHS LF@b                                                                      #    23/34
+ADDS                                                                            #    24/34
+POPS LF@a                                                                       #    25/34
+CLEARS                                                                          #    26/34
+PUSHS LF@a                                                                      #    27/34
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    28/34
+POPS LF@__INTERNAL__VAR_0                                                       #    29/34
+WRITE LF@__INTERNAL__VAR_0                                                      #    30/34
+JUMP __INTERNAL__FILE_END                                                       #    31/34
+# PROGRAM END                                                                   #    33/34
+LABEL __INTERNAL__FILE_END                                                      #    34/34

@@ -1,0 +1,68 @@
+# 2017-12-03 11:37:19.902147
+# SECTION: 66_errors
+# TEST: 06
+# INFO: Call function with too little arguments
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 4
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' Call function with too little arguments
+#   2: 
+#   3: function foo(a as integer, b as integer) as integer
+#   4: 
+#   5: end function
+#   6: 
+#   7: scope
+#   8: 	dim a as integer
+#   9: 	a = foo(31)
+#  10: 
+#  11: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/28
+JUMP main                                                                       #     2/28
+# FUNCTION                                                                      #     4/28
+LABEL foo                                                                       #     5/28
+PUSHFRAME                                                                       #     6/28
+PUSHS int@0                                                                     #     7/28
+RETURN                                                                          #     8/28
+# END FUNCTION                                                                  #     9/28
+# MAIN                                                                          #    11/28
+LABEL main                                                                      #    12/28
+CREATEFRAME                                                                     #    13/28
+PUSHFRAME                                                                       #    14/28
+DEFVAR LF@a                                                                     #    15/28
+MOVE LF@a int@0                                                                 #    16/28
+CREATEFRAME                                                                     #    17/28
+PUSHS int@31                                                                    #    18/28
+DEFVAR TF@a                                                                     #    19/28
+POPS TF@a                                                                       #    20/28
+CALL foo                                                                        #    21/28
+POPFRAME                                                                        #    22/28
+POPS LF@a                                                                       #    23/28
+CLEARS                                                                          #    24/28
+JUMP __INTERNAL__FILE_END                                                       #    25/28
+# PROGRAM END                                                                   #    27/28
+LABEL __INTERNAL__FILE_END                                                      #    28/28

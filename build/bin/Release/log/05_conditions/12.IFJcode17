@@ -1,0 +1,112 @@
+# 2017-12-03 11:37:09.617801
+# SECTION: 05_conditions
+# TEST: 12
+# INFO: string compare
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Error line:
+# 		if str1 >= str2 then
+# 	^
+# 
+# Exit code:  99
+# Error:      Unknown error occured during parsing.
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  1 1 1 1
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 99
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' string compare
+#   2: scope
+#   3: 	dim str1 as string
+#   4: 	dim str2 as string
+#   5: 
+#   6: 	if str1 > str2 then
+#   7: 		print 0;
+#   8: 	else
+#   9: 		print 1;
+#  10: 	end if
+#  11: 
+#  12: 	if str1 >= str2 then
+#  13: 		print 1;
+#  14: 	else
+#  15: 		print 0;
+#  16: 	end if
+#  17: 
+#  18: 	str1 = !"a"
+#  19: 	str2 = !"b"
+#  20: 	if str1 < str2 then
+#  21: 		print 1;
+#  22: 	else
+#  23: 		print 0;
+#  24: 	end if
+#  25: 
+#  26: 	str1 = !"aa"
+#  27: 	str2 = !"aac"
+#  28: 	if str2 > str1 then
+#  29: 		print 1;
+#  30: 	else
+#  31: 		print 0;
+#  32: 	end if
+#  33: 
+#  34: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/35
+JUMP main                                                                       #     2/35
+# MAIN                                                                          #     4/35
+LABEL main                                                                      #     5/35
+CREATEFRAME                                                                     #     6/35
+PUSHFRAME                                                                       #     7/35
+DEFVAR LF@str1                                                                  #     8/35
+MOVE LF@str1 string@                                                            #     9/35
+DEFVAR LF@str2                                                                  #    10/35
+MOVE LF@str2 string@                                                            #    11/35
+# IF BLOCK                                                                      #    12/35
+# IF                                                                            #    13/35
+PUSHS LF@str1                                                                   #    14/35
+PUSHS LF@str2                                                                   #    15/35
+GTS                                                                             #    16/35
+PUSHS bool@true                                                                 #    17/35
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    18/35
+# THEN                                                                          #    19/35
+PUSHS int@0                                                                     #    20/35
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    21/35
+POPS LF@__INTERNAL__VAR_0                                                       #    22/35
+WRITE LF@__INTERNAL__VAR_0                                                      #    23/35
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    24/35
+LABEL __INTERNAL__COND_0_END                                                    #    25/35
+# ELSE                                                                          #    26/35
+PUSHS int@1                                                                     #    27/35
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    28/35
+POPS LF@__INTERNAL__VAR_0                                                       #    29/35
+WRITE LF@__INTERNAL__VAR_0                                                      #    30/35
+# END IF                                                                        #    31/35
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    32/35
+# END IF BLOCK                                                                  #    33/35
+# IF BLOCK                                                                      #    34/35
+# IF                                                                            #    35/35

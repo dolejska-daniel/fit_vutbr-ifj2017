@@ -34,20 +34,15 @@ typedef enum E_AutomataState {
     STATE_IDENTIFIER,
     STATE_STRING,
     STATE_DIV,
-    STATE_MUL,
-    STATE_ADD,
-    STATE_SUB,
-    STATE_LINE_END,
-    STATE_OPEN_B,
-    STATE_CLOSE_B,
-    STATE_SEMICOLON,
-    STATE_COMMA,
-    STATE_LESS,
-    STATE_GREATER,
-    STATE_EQUAL,
     STATE_BIN,
     STATE_OCT,
     STATE_HEX,
+    STATE_LESS,
+    STATE_GREATER,
+    STATE_MUL,
+    STATE_SUB,
+    STATE_ADD,
+    STATE_B_SLASH,
     // Final states end
     // States for INT begin
     STATE_INC_EXP,
@@ -81,6 +76,9 @@ typedef enum E_AutomataState {
 /**
  * Hlavní funkce ovládající lexikální analyzátor.
  *
+ * Pokud se na stacku tokenů nachází nějaký vrácený token,
+ * je vrácen dříve, než je započato získávání tokenu nového.
+ *
  * Pokud nebude token z nějakého důvodu získán, v parametru token vrací
  * hodnotu NULL a dále vrací adekvátní stavový kód.
  *
@@ -90,5 +88,17 @@ typedef enum E_AutomataState {
  * @retval int  Kód se kterým bylo získávání nového tokenu ukončeno
  */
 int Scanner_GetToken(InputPtr input, TokenPtr *token);
+
+/**
+ * Tato funkce "vrátí" získaný token. Uloží jej na stack
+ * tokenů a při dalším volání funkce Scanner_GetToken vrátí
+ * tento, ne nový token.
+ *
+ * @param[in,out]   InputPtr    input           Ukazatel na strukturu se vstupními daty
+ * @param[out]      TokenPtr    *token          Ukazatel na získaný token
+ *
+ * @retval int  Kód se kterým bylo získávání nového tokenu ukončeno
+ */
+int Scanner_UngetToken(InputPtr input, TokenPtr *token);
 
 #endif

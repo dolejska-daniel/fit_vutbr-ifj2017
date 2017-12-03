@@ -1,0 +1,266 @@
+# 2017-12-03 11:37:09.815828
+# SECTION: 06_loops
+# TEST: 04
+# INFO: nested and mutliple while loop
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@a()
+# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 11 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@b()
+# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 13 with following arguments:
+# Arg1: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Arg1: Const@=123.789(double)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 15 with following arguments:
+# Arg1: Stack@=0(double)
+# Arg2: Stack@=123.789(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 16 with following arguments:
+# Arg1: Stack@=-123.789(double)
+# Dest: LF@a=0(double)
+# Executing instruction: ICLEARS at line: 17 with following arguments:
+# Executing instruction: ILABEL at line: 18 with following arguments:
+# Executing instruction: IPUSHS at line: 19 with following arguments:
+# Arg1: LF@a=-123.789(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 20 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 21 with following arguments:
+# Arg1: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Arg1: Const@=236.741(double)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 23 with following arguments:
+# Arg1: Stack@=0(double)
+# Arg2: Stack@=236.741(double)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 24 with following arguments:
+# Arg1: Stack@=-123.789(double)
+# Arg2: Stack@=-236.741(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 25 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 26 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=9(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 28 with following arguments:
+# Arg1: Stack@=9(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 29 with following arguments:
+# Arg1: Stack@=9(double)
+# Dest: LF@b=0(double)
+# Executing instruction: ICLEARS at line: 30 with following arguments:
+# Executing instruction: ILABEL at line: 31 with following arguments:
+# Executing instruction: IPUSHS at line: 32 with following arguments:
+# Arg1: LF@b=9(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 33 with following arguments:
+# Arg1: Const@=3.02(double)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 34 with following arguments:
+# Arg1: Stack@=9(double)
+# Arg2: Stack@=3.02(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 36 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 37 with following arguments:
+# Arg1: Const@=63(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 38 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 39 with following arguments:
+# Arg1: Stack@=63(int)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 40 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=63(int)
+# Executing instruction: IPUSHS at line: 41 with following arguments:
+# Arg1: LF@b=9(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 42 with following arguments:
+# Arg1: Const@=1.123(double)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 43 with following arguments:
+# Arg1: Stack@=9(double)
+# Arg2: Stack@=1.123(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 44 with following arguments:
+# Arg1: Stack@=7.877(double)
+# Dest: LF@b=9(double)
+# Executing instruction: ICLEARS at line: 45 with following arguments:
+# Executing instruction: IJUMP at line: 46 with following arguments:
+# Executing instruction: ILABEL at line: 31 with following arguments:
+# Executing instruction: IPUSHS at line: 32 with following arguments:
+# Arg1: LF@b=7.877(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 33 with following arguments:
+# Arg1: Const@=3.02(double)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 34 with following arguments:
+# Arg1: Stack@=7.877(double)
+# Arg2: Stack@=3.02(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 36 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 37 with following arguments:
+# Arg1: Const@=63(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 38 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Error at line: 38
+# Symbol already exists!
+# 
+# STDOUT DIFF:
+# --- expected
+# +++ actual
+# @@ -1 +1 @@
+
+# - 63 63 63 63 63 63 57 57 57 57 57
+# + 63
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 52
+# PRICE: ---
+# 
+#   1: ' nested and mutliple while loop
+#   2: scope
+#   3: 	dim a as double
+#   4: 	dim b as double
+#   5: 	a = 0 - 123.789
+#   6: 	do while a > (0 - 236.741)
+#   7: 		b = 9
+#   8: 		do while b > 3.02
+#   9: 			print 63;
+#  10: 			b = b - 1.123
+#  11: 		loop
+#  12: 		a = a + a * 2
+#  13: 	loop
+#  14: 	a = 78
+#  15: 	do while a > 55
+#  16: 		print 57;
+#  17: 		a = a - 5.38
+#  18: 	loop
+#  19: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/83
+JUMP main                                                                       #     2/83
+# MAIN                                                                          #     4/83
+LABEL main                                                                      #     5/83
+CREATEFRAME                                                                     #     6/83
+PUSHFRAME                                                                       #     7/83
+DEFVAR LF@a                                                                     #     8/83
+MOVE LF@a float@0.0                                                             #     9/83
+DEFVAR LF@b                                                                     #    10/83
+MOVE LF@b float@0.0                                                             #    11/83
+PUSHS int@0                                                                     #    12/83
+INT2FLOATS                                                                      #    13/83
+PUSHS float@123.789                                                             #    14/83
+SUBS                                                                            #    15/83
+POPS LF@a                                                                       #    16/83
+CLEARS                                                                          #    17/83
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    18/83
+PUSHS LF@a                                                                      #    19/83
+PUSHS int@0                                                                     #    20/83
+INT2FLOATS                                                                      #    21/83
+PUSHS float@236.741                                                             #    22/83
+SUBS                                                                            #    23/83
+GTS                                                                             #    24/83
+PUSHS bool@true                                                                 #    25/83
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    26/83
+PUSHS int@9                                                                     #    27/83
+INT2FLOATS                                                                      #    28/83
+POPS LF@b                                                                       #    29/83
+CLEARS                                                                          #    30/83
+LABEL __INTERNAL__LOOP_1_BEGIN                                                  #    31/83
+PUSHS LF@b                                                                      #    32/83
+PUSHS float@3.02                                                                #    33/83
+GTS                                                                             #    34/83
+PUSHS bool@true                                                                 #    35/83
+JUMPIFNEQS __INTERNAL__LOOP_1_END                                               #    36/83
+PUSHS int@63                                                                    #    37/83
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    38/83
+POPS LF@__INTERNAL__VAR_0                                                       #    39/83
+WRITE LF@__INTERNAL__VAR_0                                                      #    40/83
+PUSHS LF@b                                                                      #    41/83
+PUSHS float@1.123                                                               #    42/83
+SUBS                                                                            #    43/83
+POPS LF@b                                                                       #    44/83
+CLEARS                                                                          #    45/83
+JUMP __INTERNAL__LOOP_1_BEGIN                                                   #    46/83
+LABEL __INTERNAL__LOOP_1_END                                                    #    47/83
+PUSHS LF@a                                                                      #    48/83
+PUSHS LF@a                                                                      #    49/83
+PUSHS int@2                                                                     #    50/83
+INT2FLOATS                                                                      #    51/83
+MULS                                                                            #    52/83
+ADDS                                                                            #    53/83
+POPS LF@a                                                                       #    54/83
+CLEARS                                                                          #    55/83
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    56/83
+LABEL __INTERNAL__LOOP_0_END                                                    #    57/83
+PUSHS int@78                                                                    #    58/83
+INT2FLOATS                                                                      #    59/83
+POPS LF@a                                                                       #    60/83
+CLEARS                                                                          #    61/83
+LABEL __INTERNAL__LOOP_2_BEGIN                                                  #    62/83
+PUSHS LF@a                                                                      #    63/83
+PUSHS int@55                                                                    #    64/83
+INT2FLOATS                                                                      #    65/83
+GTS                                                                             #    66/83
+PUSHS bool@true                                                                 #    67/83
+JUMPIFNEQS __INTERNAL__LOOP_2_END                                               #    68/83
+PUSHS int@57                                                                    #    69/83
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    70/83
+POPS LF@__INTERNAL__VAR_0                                                       #    71/83
+WRITE LF@__INTERNAL__VAR_0                                                      #    72/83
+PUSHS LF@a                                                                      #    73/83
+PUSHS float@5.38                                                                #    74/83
+SUBS                                                                            #    75/83
+POPS LF@a                                                                       #    76/83
+CLEARS                                                                          #    77/83
+JUMP __INTERNAL__LOOP_2_BEGIN                                                   #    78/83
+LABEL __INTERNAL__LOOP_2_END                                                    #    79/83
+JUMP __INTERNAL__FILE_END                                                       #    80/83
+# PROGRAM END                                                                   #    82/83
+LABEL __INTERNAL__FILE_END                                                      #    83/83
