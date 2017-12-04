@@ -1,0 +1,159 @@
+# 2017-12-03 11:37:05.177495
+# SECTION: 02_functions
+# TEST: 19
+# INFO: Argument of function is call of function and expr
+# REQUIRED EXTENSIONS: FUNEXP
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 16 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 17 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 18 with following arguments:
+# Executing instruction: IDEFVAR at line: 19 with following arguments:
+# Dest: LF@__hjj677
+# Executing instruction: IMOVE at line: 20 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@__hjj677()
+# Executing instruction: ICREATEFRAME at line: 21 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 22 with following arguments:
+# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 24 with following arguments:
+# Dest: TF@hagd
+# Executing instruction: IPOPS at line: 25 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: TF@hagd()
+# Executing instruction: ICALL at line: 26 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHS at line: 7 with following arguments:
+# Arg1: LF@hagd=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Arg1: LF@hagd=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 9 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 10 with following arguments:
+# Executing instruction: IPOPFRAME at line: 27 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 28 with following arguments:
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@hagd
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: TF@hagd()
+# Executing instruction: ICALL at line: 32 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHS at line: 7 with following arguments:
+# Arg1: LF@hagd=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Arg1: LF@hagd=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 9 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 10 with following arguments:
+# Executing instruction: IPOPFRAME at line: 33 with following arguments:
+# Executing instruction: IMULTS at line: 34 with following arguments:
+# Arg1: Stack@=4(int)
+# Arg2: Stack@=4(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 35 with following arguments:
+# Dest: TF@hagd
+# Error at line: 35
+# Symbol already exists!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  256
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 52
+# PRICE: ---
+# 
+#   1: ' Argument of function is call of function and expr
+#   2: 
+#   3: function HJKLHJKL_(hagd as integer) as integer
+#   4: 	
+#   5: 	return hagd * hagd
+#   6: 
+#   7: end function
+#   8: 
+#   9: SCOPE
+#  10: 
+#  11: 	dim __HJJ677 as integer
+#  12: 	__HJJ677 = HJKLHJKL_(HJKLHJKL_(2) * HJKLHJKL_(2))
+#  13: 	print __HJJ677;
+#  14: 
+#  15: END SCOPE
+
+########################################
+
+.IFJcode17                                                                      #     1/48
+JUMP main                                                                       #     2/48
+# FUNCTION                                                                      #     4/48
+LABEL hjklhjkl_                                                                 #     5/48
+PUSHFRAME                                                                       #     6/48
+PUSHS LF@hagd                                                                   #     7/48
+PUSHS LF@hagd                                                                   #     8/48
+MULS                                                                            #     9/48
+RETURN                                                                          #    10/48
+PUSHS int@0                                                                     #    11/48
+RETURN                                                                          #    12/48
+# END FUNCTION                                                                  #    13/48
+# MAIN                                                                          #    15/48
+LABEL main                                                                      #    16/48
+CREATEFRAME                                                                     #    17/48
+PUSHFRAME                                                                       #    18/48
+DEFVAR LF@__hjj677                                                              #    19/48
+MOVE LF@__hjj677 int@0                                                          #    20/48
+CREATEFRAME                                                                     #    21/48
+CREATEFRAME                                                                     #    22/48
+PUSHS int@2                                                                     #    23/48
+DEFVAR TF@hagd                                                                  #    24/48
+POPS TF@hagd                                                                    #    25/48
+CALL hjklhjkl_                                                                  #    26/48
+POPFRAME                                                                        #    27/48
+CREATEFRAME                                                                     #    28/48
+PUSHS int@2                                                                     #    29/48
+DEFVAR TF@hagd                                                                  #    30/48
+POPS TF@hagd                                                                    #    31/48
+CALL hjklhjkl_                                                                  #    32/48
+POPFRAME                                                                        #    33/48
+MULS                                                                            #    34/48
+DEFVAR TF@hagd                                                                  #    35/48
+POPS TF@hagd                                                                    #    36/48
+CALL hjklhjkl_                                                                  #    37/48
+POPFRAME                                                                        #    38/48
+POPS LF@__hjj677                                                                #    39/48
+CLEARS                                                                          #    40/48
+PUSHS LF@__hjj677                                                               #    41/48
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    42/48
+POPS LF@__INTERNAL__VAR_0                                                       #    43/48
+WRITE LF@__INTERNAL__VAR_0                                                      #    44/48
+JUMP __INTERNAL__FILE_END                                                       #    45/48
+# PROGRAM END                                                                   #    47/48
+LABEL __INTERNAL__FILE_END                                                      #    48/48

@@ -1,0 +1,51 @@
+# 2017-12-03 11:37:02.028622
+# SECTION: 01_basic
+# TEST: 19
+# INFO: comment before EOF
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IJUMP at line: 8 with following arguments:
+# Executing instruction: ILABEL at line: 11 with following arguments:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 8 (8+0)
+# 
+#   1: ' comment before EOF
+#   2: 
+#   3: SCOPE
+#   4: END SCOPE ' comment before eof
+
+########################################
+
+.IFJcode17                                                                      #     1/11
+JUMP main                                                                       #     2/11
+# MAIN                                                                          #     4/11
+LABEL main                                                                      #     5/11
+CREATEFRAME                                                                     #     6/11
+PUSHFRAME                                                                       #     7/11
+JUMP __INTERNAL__FILE_END                                                       #     8/11
+# PROGRAM END                                                                   #    10/11
+LABEL __INTERNAL__FILE_END                                                      #    11/11

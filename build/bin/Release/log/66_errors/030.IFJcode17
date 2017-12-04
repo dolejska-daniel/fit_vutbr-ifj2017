@@ -1,0 +1,76 @@
+# 2017-12-03 11:37:31.849918
+# SECTION: 66_errors
+# TEST: 030
+# INFO: assignment or undefined variable in same variable declaration
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Arg1: LF@a=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 12 with following arguments:
+# Arg1: Stack@=0(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 13 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: LF@a=0(int)
+# Executing instruction: ICLEARS at line: 14 with following arguments:
+# Executing instruction: IJUMP at line: 15 with following arguments:
+# Executing instruction: ILABEL at line: 18 with following arguments:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 40 (18+22)
+# 
+#   1: scope 
+#   2:  dim a as integer = a + 1 
+#   3:  end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/18
+JUMP main                                                                       #     2/18
+# MAIN                                                                          #     4/18
+LABEL main                                                                      #     5/18
+CREATEFRAME                                                                     #     6/18
+PUSHFRAME                                                                       #     7/18
+DEFVAR LF@a                                                                     #     8/18
+MOVE LF@a int@0                                                                 #     9/18
+PUSHS LF@a                                                                      #    10/18
+PUSHS int@1                                                                     #    11/18
+ADDS                                                                            #    12/18
+POPS LF@a                                                                       #    13/18
+CLEARS                                                                          #    14/18
+JUMP __INTERNAL__FILE_END                                                       #    15/18
+# PROGRAM END                                                                   #    17/18
+LABEL __INTERNAL__FILE_END                                                      #    18/18

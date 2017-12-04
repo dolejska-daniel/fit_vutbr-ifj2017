@@ -1,0 +1,112 @@
+# 2017-12-03 11:37:09.694004
+# SECTION: 05_conditions
+# TEST: 14
+# INFO: Correct condition without spaces
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Arg1: Const@=10(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 11 with following arguments:
+# Arg1: Stack@=10(int)
+# Dest: LF@a=0(int)
+# Executing instruction: ICLEARS at line: 12 with following arguments:
+# Executing instruction: IPUSHS at line: 15 with following arguments:
+# Arg1: LF@a=10(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Arg1: Const@=100(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 17 with following arguments:
+# Arg1: Stack@=10(int)
+# Arg2: Stack@=100(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 18 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 19 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Arg1: Const@=ok(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 22 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 23 with following arguments:
+# Arg1: Stack@=ok(string)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 24 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=ok(string)
+# Executing instruction: IJUMP at line: 25 with following arguments:
+# Executing instruction: ILABEL at line: 28 with following arguments:
+# Executing instruction: IJUMP at line: 30 with following arguments:
+# Executing instruction: ILABEL at line: 33 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 75 (30+45)
+# 
+#   1: ' Correct condition without spaces
+#   2: scope
+#   3: dim a as integer=10
+#   4: if a<100then
+#   5:     print!"ok";
+#   6: end if
+#   7: 
+#   8: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/33
+JUMP main                                                                       #     2/33
+# MAIN                                                                          #     4/33
+LABEL main                                                                      #     5/33
+CREATEFRAME                                                                     #     6/33
+PUSHFRAME                                                                       #     7/33
+DEFVAR LF@a                                                                     #     8/33
+MOVE LF@a int@0                                                                 #     9/33
+PUSHS int@10                                                                    #    10/33
+POPS LF@a                                                                       #    11/33
+CLEARS                                                                          #    12/33
+# IF BLOCK                                                                      #    13/33
+# IF                                                                            #    14/33
+PUSHS LF@a                                                                      #    15/33
+PUSHS int@100                                                                   #    16/33
+LTS                                                                             #    17/33
+PUSHS bool@true                                                                 #    18/33
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    19/33
+# THEN                                                                          #    20/33
+PUSHS string@ok                                                                 #    21/33
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    22/33
+POPS LF@__INTERNAL__VAR_0                                                       #    23/33
+WRITE LF@__INTERNAL__VAR_0                                                      #    24/33
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    25/33
+LABEL __INTERNAL__COND_0_END                                                    #    26/33
+# END IF                                                                        #    27/33
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    28/33
+# END IF BLOCK                                                                  #    29/33
+JUMP __INTERNAL__FILE_END                                                       #    30/33
+# PROGRAM END                                                                   #    32/33
+LABEL __INTERNAL__FILE_END                                                      #    33/33

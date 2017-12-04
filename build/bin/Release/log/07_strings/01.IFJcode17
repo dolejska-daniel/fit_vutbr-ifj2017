@@ -1,0 +1,130 @@
+# 2017-12-03 11:37:10.496137
+# SECTION: 07_strings
+# TEST: 01
+# INFO: valid length call
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@len
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@len()
+# Executing instruction: ICREATEFRAME at line: 10 with following arguments:
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 12 with following arguments:
+# Dest: TF@s
+# Executing instruction: IPOPS at line: 13 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: TF@s()
+# Executing instruction: ICALL at line: 14 with following arguments:
+# Error at line: 14
+# Label does not exist!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  0 6 445
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 52
+# PRICE: ---
+# 
+#   1: ' valid length call
+#   2: scope
+#   3: 	dim len as integer
+#   4: 
+#   5: 	len = length(!"")
+#   6: 	print len;
+#   7: 
+#   8: 	len = length(!"foobar")
+#   9: 	print len;
+#  10: 
+#  11: 	dim str as string
+#  12: 	str = !"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+#  13: 	len = length(str)
+#  14: 	print len;
+#  15: 	
+#  16: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/63
+JUMP main                                                                       #     2/63
+# MAIN                                                                          #     4/63
+LABEL main                                                                      #     5/63
+CREATEFRAME                                                                     #     6/63
+PUSHFRAME                                                                       #     7/63
+DEFVAR LF@len                                                                   #     8/63
+MOVE LF@len int@0                                                               #     9/63
+CREATEFRAME                                                                     #    10/63
+PUSHS string@                                                                   #    11/63
+DEFVAR TF@s                                                                     #    12/63
+POPS TF@s                                                                       #    13/63
+CALL length                                                                     #    14/63
+POPFRAME                                                                        #    15/63
+POPS LF@len                                                                     #    16/63
+CLEARS                                                                          #    17/63
+PUSHS LF@len                                                                    #    18/63
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    19/63
+POPS LF@__INTERNAL__VAR_0                                                       #    20/63
+WRITE LF@__INTERNAL__VAR_0                                                      #    21/63
+CREATEFRAME                                                                     #    22/63
+PUSHS string@foobar                                                             #    23/63
+DEFVAR TF@s                                                                     #    24/63
+POPS TF@s                                                                       #    25/63
+CALL length                                                                     #    26/63
+POPFRAME                                                                        #    27/63
+POPS LF@len                                                                     #    28/63
+CLEARS                                                                          #    29/63
+PUSHS LF@len                                                                    #    30/63
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    31/63
+POPS LF@__INTERNAL__VAR_0                                                       #    32/63
+WRITE LF@__INTERNAL__VAR_0                                                      #    33/63
+DEFVAR LF@str                                                                   #    34/63
+MOVE LF@str string@                                                             #    35/63
+PUSHS string@Lorem\032ipsum\032dolor\032sit\032amet,\032consectetur\032adipiscing\032elit,\032sed\032do\032eiusmod\032tempor\032incididunt\032ut\032labore\032et\032dolore\032magna\032aliqua.\032Ut\032enim\032ad\032minim\032veniam,\032quis\032nostrud\032exercitation\032ullamco\032laboris\032nisi\032ut\032aliquip\032ex\032ea\032commodo\032consequat.\032Duis\032aute\032irure\032dolor\032in\032reprehenderit\032in\032voluptate\032velit\032esse\032cillum\032dolore\032eu\032fugiat\032nulla\032pariatur.\032Excepteur\032sint\032occaecat\032cupidatat\032non\032proident,\032sunt\032in\032culpa\032qui\032officia\032deserunt\032mollit\032anim\032id\032est\032laborum.#    36/63
+POPS LF@str                                                                     #    37/63
+CLEARS                                                                          #    38/63
+CREATEFRAME                                                                     #    39/63
+PUSHS LF@str                                                                    #    40/63
+DEFVAR TF@s                                                                     #    41/63
+POPS TF@s                                                                       #    42/63
+CALL length                                                                     #    43/63
+POPFRAME                                                                        #    44/63
+POPS LF@len                                                                     #    45/63
+CLEARS                                                                          #    46/63
+PUSHS LF@len                                                                    #    47/63
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    48/63
+POPS LF@__INTERNAL__VAR_0                                                       #    49/63
+WRITE LF@__INTERNAL__VAR_0                                                      #    50/63
+JUMP __INTERNAL__FILE_END                                                       #    51/63
+# LENGTH FUNCTION                                                               #    53/63
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    54/63
+LABEL chr                                                                       #    55/63
+PUSHFRAME                                                                       #    56/63
+STRLEN LF@__INTERNAL__VAR_0 LF@s                                                #    57/63
+PUSHS LF@__INTERNAL__VAR_0                                                      #    58/63
+RETURN                                                                          #    59/63
+# LENGTH FUNCTION END                                                           #    60/63
+# PROGRAM END                                                                   #    62/63
+LABEL __INTERNAL__FILE_END                                                      #    63/63

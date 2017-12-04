@@ -15,6 +15,8 @@ cp ./main/* $FINAL_DIR -r
 cp ./parser/* $FINAL_DIR -r
 # Scanner
 cp ./scanner/* $FINAL_DIR -r
+# Support
+cp ./support/* $FINAL_DIR -r
 
 ## Komprimace
 cd $FINAL_DIR

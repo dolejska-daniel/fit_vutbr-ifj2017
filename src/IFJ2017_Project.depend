@@ -1,0 +1,647 @@
+# depslib dependency file v1.0
+1511641335 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../generator/generator.h"
+	"../generator/instruction_list.h"
+	"../parser/parser.h"
+	"../scanner/scanner.h"
+	"../scanner/input.h"
+	"../support/strings.h"
+	"../support/error_codes.h"
+	"../generator/instruction_list.h"
+	"generator.h"
+	"instruction_list.h"
+	"parser.h"
+	"scanner.h"
+	"input.h"
+	"strings.h"
+	"error_codes.h"
+	"instruction_list.h"
+
+1511646173 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<malloc.h>
+	"symtable.h"
+	"../support/error_codes.h"
+	"../support/strings.h"
+	"error_codes.h"
+	"strings.h"
+
+1511645848 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.h
+	<stdbool.h>
+	"../scanner/token.h"
+	"token.h"
+
+1511650111 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
+	<stdlib.h>
+	<stdio.h>
+	<stdbool.h>
+	"parser.h"
+	"nesting_list.h"
+	"../generator/generator.h"
+	"../scanner/scanner.h"
+	"../scanner/token.h"
+	"../support/strings.h"
+	"../support/error_codes.h"
+	"../support/infix2postfix.h"
+	"../support/postfix2instructions.h"
+	"../support/token_list.h"
+	"../support/tokenType_list.h"
+	"generator.h"
+	"scanner.h"
+	"token.h"
+	"strings.h"
+	"error_codes.h"
+	"infix2postfix.h"
+	"postfix2instructions.h"
+	"token_list.h"
+	"tokenType_list.h"
+
+1511647406 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.h
+	"symtable.h"
+	"nesting_list.h"
+	"../scanner/input.h"
+	"../scanner/token.h"
+	"../generator/instruction_list.h"
+	"../support/tokenType_list.h"
+	"../support/token_list.h"
+	"../support/token_stack.h"
+	"../support/postfix_list.h"
+	"input.h"
+	"token.h"
+	"instruction_list.h"
+	"tokenType_list.h"
+	"token_list.h"
+	"token_stack.h"
+	"postfix_list.h"
+
+1511023227 source:d:\google drive\private\_vut\2zs\ifj\ifj_project\src\main\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../parser/parser.h"
+	"../scanner/scanner.h"
+	"parser.h"
+	"scanner.h"
+
+1511023209 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.h
+
+1511021897 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.h
+	"token.h"
+	"input.h"
+
+1511021098 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\scanner\token.h
+
+1511023220 source:d:\google drive\private\_vut\2zs\ifj\ifj_project\src\parser\parser.c
+	"parser.h"
+	"parser_errors.h"
+	"../scanner/scanner.h"
+	"../scanner/input.h"
+	"scanner.h"
+	"input.h"
+
+1511021537 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\parser\parser_errors.h
+
+1511018692 source:d:\google drive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.c
+	<string.h>
+	<malloc.h>
+	"symtable.h"
+
+1511020588 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\parser\symtable.h
+
+1511021870 d:\google drive\private\_vut\2zs\ifj\ifj_project\src\scanner\input.h
+	<stdio.h>
+
+1511608592 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.h
+	"token.h"
+	"input.h"
+
+1511538767 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\token.h
+	<stdbool.h>
+
+1511445843 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\input.h
+	<stdio.h>
+
+1511256791 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\parser_errors.h
+
+1511528636 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\generator.h
+	"instruction_list.h"
+	"../parser/symtable.h"
+	"../scanner/token.h"
+	"symtable.h"
+	"token.h"
+
+1511183817 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\instruction_stack.h
+
+1511445843 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\input.c
+	<stdio.h>
+	<malloc.h>
+	"input.h"
+
+1511646858 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\instruction_list.h
+	<stdbool.h>
+	"../parser/symtable.h"
+	"symtable.h"
+
+1511445843 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\strings.h
+	<string.h>
+	<malloc.h>
+
+1511528636 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\strings.c
+	<stdio.h>
+	<string.h>
+	<malloc.h>
+	"error_codes.h"
+	<stdio.h>
+	"strings.h"
+
+1511445843 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\error_codes.h
+
+1512385799 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\main\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../generator/generator.h"
+	"../generator/instruction_list.h"
+	"../parser/parser.h"
+	"../scanner/scanner.h"
+	"../scanner/input.h"
+	"../support/strings.h"
+	"../support/error_codes.h"
+	"../generator/instruction_list.h"
+	"../support/convert2decimal.h"
+	"generator.h"
+	"instruction_list.h"
+	"parser.h"
+	"scanner.h"
+	"input.h"
+	"strings.h"
+	"error_codes.h"
+	"instruction_list.h"
+	"convert2decimal.h"
+
+1512333097 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\generator\generator.h
+	"instruction_list.h"
+	"../parser/symtable.h"
+	"../scanner/token.h"
+	"symtable.h"
+	"token.h"
+
+1512333097 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\generator\instruction_list.h
+	<stdbool.h>
+	"../parser/symtable.h"
+	"symtable.h"
+
+1512333097 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\parser\symtable.h
+	<stdbool.h>
+	"../scanner/token.h"
+	"token.h"
+
+1512333097 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\scanner\token.h
+	<stdbool.h>
+
+1512333097 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\parser\parser.h
+	"symtable.h"
+	"nesting_list.h"
+	"../scanner/input.h"
+	"../scanner/token.h"
+	"../generator/instruction_list.h"
+	"../support/tokentype_list.h"
+	"../support/token_list.h"
+	"../support/token_stack.h"
+	"../support/postfix_list.h"
+	"input.h"
+	"token.h"
+	"instruction_list.h"
+	"tokentype_list.h"
+	"token_list.h"
+	"token_stack.h"
+	"postfix_list.h"
+
+1511292572 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\scanner\input.h
+	<stdio.h>
+
+1512333097 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\scanner\scanner.h
+	"token.h"
+	"input.h"
+
+1511519944 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\strings.h
+	<string.h>
+	<malloc.h>
+
+1511519944 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\error_codes.h
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\parser\parser.c
+	<stdlib.h>
+	<stdio.h>
+	<stdbool.h>
+	"parser.h"
+	"nesting_list.h"
+	"../generator/generator.h"
+	"../scanner/scanner.h"
+	"../scanner/token.h"
+	"../support/strings.h"
+	"../support/error_codes.h"
+	"../support/infix2postfix.h"
+	"../support/postfix2instructions.h"
+	"../support/token_list.h"
+	"../support/symbol_stack.h"
+	"../support/tokentype_list.h"
+	"generator.h"
+	"scanner.h"
+	"token.h"
+	"strings.h"
+	"error_codes.h"
+	"infix2postfix.h"
+	"postfix2instructions.h"
+	"token_list.h"
+	"symbol_stack.h"
+	"tokentype_list.h"
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\parser\symtable.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<malloc.h>
+	"symtable.h"
+	"parser.h"
+	"../generator/generator.h"
+	"../support/error_codes.h"
+	"../support/strings.h"
+	"generator.h"
+	"error_codes.h"
+	"strings.h"
+
+1511292572 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\scanner\input.c
+	<stdio.h>
+	<malloc.h>
+	"input.h"
+
+1511519944 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\strings.c
+	<stdio.h>
+	<string.h>
+	<malloc.h>
+	"error_codes.h"
+	<stdio.h>
+	"strings.h"
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\generator\generator.c
+	<stdio.h>
+	"generator.h"
+	"instruction_list.h"
+	"../parser/symtable.h"
+	"../scanner/token.h"
+	"../support/error_codes.h"
+	"../support/strings.h"
+	"symtable.h"
+	"token.h"
+	"error_codes.h"
+	"strings.h"
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\generator\instruction_list.c
+	<stdio.h>
+	<stdbool.h>
+	"instruction_list.h"
+	"../support/strings.h"
+	"../support/error_codes.h"
+	"strings.h"
+	"error_codes.h"
+
+1511646868 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\instruction_list.c
+	<stdio.h>
+	<stdbool.h>
+	"instruction_list.h"
+	"../support/strings.h"
+	"../support/error_codes.h"
+	"strings.h"
+	"error_codes.h"
+
+1511528636 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\nesting_list.c
+	<stdio.h>
+	<malloc.h>
+	"nesting_list.h"
+	"symtable.h"
+
+1511528636 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\parser\nesting_list.h
+	<stdio.h>
+	"symtable.h"
+
+1511637789 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\scanner.c
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+	<stdlib.h>
+	<stdbool.h>
+	"../support/error_codes.h"
+	"../support/strings.h"
+	"../support/token_stack.h"
+	"error_codes.h"
+	"strings.h"
+	"token_stack.h"
+	"input.h"
+	"scanner.h"
+	"token.h"
+
+1511445843 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\char_stack.c
+	<stdio.h>
+	<stdbool.h>
+	<malloc.h>
+	"char_stack.h"
+	"error_codes.h"
+
+1511445843 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\char_stack.h
+	<stdbool.h>
+	<malloc.h>
+
+1511609303 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\symbol_stack.c
+	<stdio.h>
+	<stdbool.h>
+	<malloc.h>
+	"symbol_stack.h"
+	"error_codes.h"
+	"../parser/symtable.h"
+	"symtable.h"
+
+1511609170 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\symbol_stack.h
+	<stdbool.h>
+	<malloc.h>
+	"../parser/symtable.h"
+	"symtable.h"
+
+1511445843 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\tokentype_list.c
+	<stdio.h>
+	"tokenType_list.h"
+	"error_codes.h"
+	"../scanner/token.h"
+	"token.h"
+
+1511445843 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\tokentype_list.h
+	<stdbool.h>
+	<malloc.h>
+	"../scanner/token.h"
+	"token.h"
+
+1511638173 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\generator\generator.c
+	"instruction_list.h"
+	<stdio.h>
+	"../parser/symtable.h"
+	"../scanner/token.h"
+	"../support/error_codes.h"
+	"../support/strings.h"
+	"symtable.h"
+	"token.h"
+	"error_codes.h"
+	"strings.h"
+
+1511477962 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\token_list.h
+	<stdbool.h>
+	"../scanner/token.h"
+	"token.h"
+
+1511477962 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\token_stack.h
+	<stdbool.h>
+	<malloc.h>
+	"../scanner/token.h"
+	"token.h"
+
+1511528636 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix_list.h
+	<stdbool.h>
+	<malloc.h>
+	"../parser/symtable.h"
+	"../scanner/token.h"
+	"symtable.h"
+	"token.h"
+
+1511562122 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\scanner\token.c
+	<stdio.h>
+	<malloc.h>
+	"token.h"
+	"../parser/symtable.h"
+	"symtable.h"
+
+1511528636 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\infix2postfix.c
+	<stdio.h>
+	<stdbool.h>
+	"infix2postfix.h"
+	"symbol_stack.h"
+	"token_stack.h"
+	"error_codes.h"
+
+1511445843 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\infix2postfix.h
+	"token_stack.h"
+	"postfix_list.h"
+
+1511646479 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix2instructions.c
+	<stdio.h>
+	"postfix2instructions.h"
+	"postfix_list.h"
+	"symbol_stack.h"
+	"error_codes.h"
+	"strings.h"
+	"../generator/generator.h"
+	"../generator/instruction_list.h"
+	"generator.h"
+	"instruction_list.h"
+
+1511641100 g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix2instructions.h
+	"postfix_list.h"
+	"../generator/instruction_list.h"
+	"instruction_list.h"
+
+1511648767 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\postfix_list.c
+	<stdio.h>
+	<stdbool.h>
+	<malloc.h>
+	"postfix_list.h"
+	"error_codes.h"
+	"../parser/symtable.h"
+	"../scanner/token.h"
+	"symtable.h"
+	"token.h"
+
+1511477962 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\token_list.c
+	<stdio.h>
+	<stdbool.h>
+	<malloc.h>
+	"token_list.h"
+	"error_codes.h"
+	"../scanner/token.h"
+	"token.h"
+
+1511528636 source:g:\googledrive\private\_vut\2zs\ifj\ifj_project\src\support\token_stack.c
+	<stdio.h>
+	<stdbool.h>
+	<malloc.h>
+	"token_stack.h"
+	"error_codes.h"
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\parser\nesting_list.c
+	<stdio.h>
+	<malloc.h>
+	"nesting_list.h"
+	"symtable.h"
+
+1512333097 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\parser\nesting_list.h
+	<stdio.h>
+	"symtable.h"
+
+1511519944 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\tokentype_list.h
+	<stdbool.h>
+	<malloc.h>
+	"../scanner/token.h"
+	"token.h"
+
+1511519944 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\token_list.h
+	<stdbool.h>
+	"../scanner/token.h"
+	"token.h"
+
+1511519944 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\token_stack.h
+	<stdbool.h>
+	<malloc.h>
+	"../scanner/token.h"
+	"token.h"
+
+1512333097 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\postfix_list.h
+	<stdbool.h>
+	<malloc.h>
+	"../parser/symtable.h"
+	"../scanner/token.h"
+	"symtable.h"
+	"token.h"
+
+1512333097 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\infix2postfix.h
+	"token_stack.h"
+	"postfix_list.h"
+
+1512333097 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\postfix2instructions.h
+	"postfix_list.h"
+	"../scanner/input.h"
+	"../parser/symtable.h"
+	"../generator/instruction_list.h"
+	"input.h"
+	"symtable.h"
+	"instruction_list.h"
+
+1512333097 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\symbol_stack.h
+	<stdbool.h>
+	<malloc.h>
+	"../parser/symtable.h"
+	"symtable.h"
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\scanner\scanner.c
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+	<stdlib.h>
+	<stdbool.h>
+	"../support/error_codes.h"
+	"../support/strings.h"
+	"../support/token_stack.h"
+	"error_codes.h"
+	"strings.h"
+	"token_stack.h"
+	"input.h"
+	"scanner.h"
+	"token.h"
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\scanner\token.c
+	<stdio.h>
+	<malloc.h>
+	"token.h"
+	"../parser/symtable.h"
+	"symtable.h"
+
+1511519944 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\char_stack.c
+	<stdio.h>
+	<stdbool.h>
+	<malloc.h>
+	"char_stack.h"
+	"error_codes.h"
+
+1511519944 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\char_stack.h
+	<stdbool.h>
+	<malloc.h>
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\infix2postfix.c
+	<stdio.h>
+	<stdbool.h>
+	"infix2postfix.h"
+	"symbol_stack.h"
+	"token_stack.h"
+	"error_codes.h"
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\postfix2instructions.c
+	<stdio.h>
+	"postfix2instructions.h"
+	"postfix_list.h"
+	"symbol_stack.h"
+	"error_codes.h"
+	"strings.h"
+	"../scanner/scanner.h"
+	"../parser/parser.h"
+	"../generator/generator.h"
+	"../generator/instruction_list.h"
+	"scanner.h"
+	"parser.h"
+	"generator.h"
+	"instruction_list.h"
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\postfix_list.c
+	<stdio.h>
+	<stdbool.h>
+	<malloc.h>
+	"postfix_list.h"
+	"error_codes.h"
+	"../parser/symtable.h"
+	"../scanner/token.h"
+	"symtable.h"
+	"token.h"
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\symbol_stack.c
+	<stdio.h>
+	<stdbool.h>
+	<malloc.h>
+	"symbol_stack.h"
+	"error_codes.h"
+	"../parser/symtable.h"
+	"symtable.h"
+
+1511519944 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\token_list.c
+	<stdio.h>
+	<stdbool.h>
+	<malloc.h>
+	"token_list.h"
+	"error_codes.h"
+	"../scanner/token.h"
+	"token.h"
+
+1511519944 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\token_stack.c
+	<stdio.h>
+	<stdbool.h>
+	<malloc.h>
+	"token_stack.h"
+	"error_codes.h"
+
+1512333097 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\tokentype_list.c
+	<stdio.h>
+	"tokentype_list.h"
+	"error_codes.h"
+	"../scanner/token.h"
+	"token.h"
+
+1512384317 c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\convert2decimal.h
+	<string.h>
+	<stdio.h>
+	<math.h>
+	"../support/error_codes.h"
+	"error_codes.h"
+
+1512385933 source:c:\users\legion\documents\fit vut\3rd_semester\ifj\semestral_project\src\support\convert2decimal.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	"../support/error_codes.h"
+	"error_codes.h"
+

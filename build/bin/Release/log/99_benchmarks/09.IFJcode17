@@ -1,0 +1,135 @@
+# 2017-12-03 11:37:41.032334
+# SECTION: 99_benchmarks
+# TEST: 09
+# INFO: multiple string concatenations
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@buffer
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@buffer()
+# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Dest: LF@count
+# Executing instruction: IMOVE at line: 11 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@count()
+# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Arg1: Const@=42(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 13 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: LF@count=0(int)
+# Executing instruction: ICLEARS at line: 14 with following arguments:
+# Executing instruction: ILABEL at line: 15 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Arg1: LF@count=42(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 17 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 18 with following arguments:
+# Arg1: Stack@=42(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 19 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 20 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Arg1: LF@buffer=(string)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 23 with following arguments:
+# Arg1: Stack@=(string)
+# Arg2: Stack@=(string)
+# Dest: Stack@()
+# Error at line: 23
+# Wrong operand type!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman barman
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 53
+# PRICE: ---
+# 
+#   1: ' multiple string concatenations
+#   2: scope
+#   3: 	dim buffer as string
+#   4: 	dim count as integer = 42
+#   5: 	do while count > 0
+#   6:         buffer = !"" + buffer + !" barman" + !"" ' for price and optimalization
+#   7:         count = count - 1
+#   8: 	loop
+#   9: 	print buffer;
+#  10: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/44
+JUMP main                                                                       #     2/44
+# MAIN                                                                          #     4/44
+LABEL main                                                                      #     5/44
+CREATEFRAME                                                                     #     6/44
+PUSHFRAME                                                                       #     7/44
+DEFVAR LF@buffer                                                                #     8/44
+MOVE LF@buffer string@                                                          #     9/44
+DEFVAR LF@count                                                                 #    10/44
+MOVE LF@count int@0                                                             #    11/44
+PUSHS int@42                                                                    #    12/44
+POPS LF@count                                                                   #    13/44
+CLEARS                                                                          #    14/44
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    15/44
+PUSHS LF@count                                                                  #    16/44
+PUSHS int@0                                                                     #    17/44
+GTS                                                                             #    18/44
+PUSHS bool@true                                                                 #    19/44
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    20/44
+PUSHS string@                                                                   #    21/44
+PUSHS LF@buffer                                                                 #    22/44
+ADDS                                                                            #    23/44
+PUSHS string@\032barman                                                         #    24/44
+ADDS                                                                            #    25/44
+PUSHS string@                                                                   #    26/44
+ADDS                                                                            #    27/44
+POPS LF@buffer                                                                  #    28/44
+CLEARS                                                                          #    29/44
+PUSHS LF@count                                                                  #    30/44
+PUSHS int@1                                                                     #    31/44
+SUBS                                                                            #    32/44
+POPS LF@count                                                                   #    33/44
+CLEARS                                                                          #    34/44
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    35/44
+LABEL __INTERNAL__LOOP_0_END                                                    #    36/44
+PUSHS LF@buffer                                                                 #    37/44
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    38/44
+POPS LF@__INTERNAL__VAR_0                                                       #    39/44
+WRITE LF@__INTERNAL__VAR_0                                                      #    40/44
+JUMP __INTERNAL__FILE_END                                                       #    41/44
+# PROGRAM END                                                                   #    43/44
+LABEL __INTERNAL__FILE_END                                                      #    44/44

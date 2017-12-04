@@ -1,0 +1,151 @@
+# 2017-12-03 11:37:09.418772
+# SECTION: 05_conditions
+# TEST: 04
+# INFO: two ifs
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 12 with following arguments:
+# Arg1: Stack@=8(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 13 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 14 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Arg1: Const@=123(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 17 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 18 with following arguments:
+# Arg1: Stack@=123(int)
+# Dest: LF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 19 with following arguments:
+# Arg1: LF@__INTERNAL__VAR_0=123(int)
+# Executing instruction: IJUMP at line: 20 with following arguments:
+# Executing instruction: ILABEL at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=74(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 28 with following arguments:
+# Arg1: Const@=6(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 30 with following arguments:
+# Arg1: Stack@=6(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 31 with following arguments:
+# Arg1: Stack@=74(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 32 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 33 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 35 with following arguments:
+# Arg1: Const@=74(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 36 with following arguments:
+# Dest: LF@__INTERNAL__VAR_0
+# Error at line: 36
+# Symbol already exists!
+# 
+# STDOUT DIFF:
+# --- expected
+# +++ actual
+# @@ -1 +1 @@
+
+# - 123 74
+# + 123
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 52
+# PRICE: ---
+# 
+#   1: ' two ifs
+#   2: scope
+#   3: 	if (8 = 8) then
+#   4: 		print 123;
+#   5: 	end if
+#   6: 	if 74 > (6 + 2) then
+#   7: 		print 74;
+#   8: 	else
+#   9: 
+#  10: 	end if
+#  11: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/48
+JUMP main                                                                       #     2/48
+# MAIN                                                                          #     4/48
+LABEL main                                                                      #     5/48
+CREATEFRAME                                                                     #     6/48
+PUSHFRAME                                                                       #     7/48
+# IF BLOCK                                                                      #     8/48
+# IF                                                                            #     9/48
+PUSHS int@8                                                                     #    10/48
+PUSHS int@8                                                                     #    11/48
+EQS                                                                             #    12/48
+PUSHS bool@true                                                                 #    13/48
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    14/48
+# THEN                                                                          #    15/48
+PUSHS int@123                                                                   #    16/48
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    17/48
+POPS LF@__INTERNAL__VAR_0                                                       #    18/48
+WRITE LF@__INTERNAL__VAR_0                                                      #    19/48
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    20/48
+LABEL __INTERNAL__COND_0_END                                                    #    21/48
+# END IF                                                                        #    22/48
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    23/48
+# END IF BLOCK                                                                  #    24/48
+# IF BLOCK                                                                      #    25/48
+# IF                                                                            #    26/48
+PUSHS int@74                                                                    #    27/48
+PUSHS int@6                                                                     #    28/48
+PUSHS int@2                                                                     #    29/48
+ADDS                                                                            #    30/48
+GTS                                                                             #    31/48
+PUSHS bool@true                                                                 #    32/48
+JUMPIFNEQS __INTERNAL__COND_1_END                                               #    33/48
+# THEN                                                                          #    34/48
+PUSHS int@74                                                                    #    35/48
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    36/48
+POPS LF@__INTERNAL__VAR_0                                                       #    37/48
+WRITE LF@__INTERNAL__VAR_0                                                      #    38/48
+JUMP __INTERNAL__COND_1_BLOCK_END                                               #    39/48
+LABEL __INTERNAL__COND_1_END                                                    #    40/48
+# ELSE                                                                          #    41/48
+# END IF                                                                        #    42/48
+LABEL __INTERNAL__COND_1_BLOCK_END                                              #    43/48
+# END IF BLOCK                                                                  #    44/48
+JUMP __INTERNAL__FILE_END                                                       #    45/48
+# PROGRAM END                                                                   #    47/48
+LABEL __INTERNAL__FILE_END                                                      #    48/48

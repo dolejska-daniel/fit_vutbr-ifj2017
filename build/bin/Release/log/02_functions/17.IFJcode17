@@ -1,0 +1,63 @@
+# 2017-12-03 11:37:05.101794
+# SECTION: 02_functions
+# TEST: 17
+# INFO: return outside function
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Error line:
+# 		return a
+# 	 ^~~~~~
+# 
+# Exit code:  2
+# Error:      Unexpected KEYWORD (RETURN) on line 7:2.
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 2
+# CURRENT COMPILER EXIT CODE: 2
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' return outside function
+#   2: 
+#   3: SCOPE
+#   4: 
+#   5: 	dim a as integer
+#   6: 	a = 10
+#   7: 	return a
+#   8: 
+#   9: END SCOPE
+
+########################################
+
+.IFJcode17                                                                      #     1/12
+JUMP main                                                                       #     2/12
+# MAIN                                                                          #     4/12
+LABEL main                                                                      #     5/12
+CREATEFRAME                                                                     #     6/12
+PUSHFRAME                                                                       #     7/12
+DEFVAR LF@a                                                                     #     8/12
+MOVE LF@a int@0                                                                 #     9/12
+PUSHS int@10                                                                    #    10/12
+POPS LF@a                                                                       #    11/12
+CLEARS                                                                          #    12/12

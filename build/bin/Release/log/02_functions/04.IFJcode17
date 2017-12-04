@@ -1,0 +1,60 @@
+# 2017-12-03 11:37:04.681175
+# SECTION: 02_functions
+# TEST: 04
+# INFO: function params
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 12 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 13 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 14 with following arguments:
+# Executing instruction: IJUMP at line: 15 with following arguments:
+# Executing instruction: ILABEL at line: 18 with following arguments:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 8 (8+0)
+# 
+#   1: ' function params
+#   2: 
+#   3: function bar(b as string, c as integer) as string
+#   4: end function 
+#   5: 
+#   6: scope
+#   7: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/18
+JUMP main                                                                       #     2/18
+# FUNCTION                                                                      #     4/18
+LABEL bar                                                                       #     5/18
+PUSHFRAME                                                                       #     6/18
+PUSHS string@                                                                   #     7/18
+RETURN                                                                          #     8/18
+# END FUNCTION                                                                  #     9/18
+# MAIN                                                                          #    11/18
+LABEL main                                                                      #    12/18
+CREATEFRAME                                                                     #    13/18
+PUSHFRAME                                                                       #    14/18
+JUMP __INTERNAL__FILE_END                                                       #    15/18
+# PROGRAM END                                                                   #    17/18
+LABEL __INTERNAL__FILE_END                                                      #    18/18

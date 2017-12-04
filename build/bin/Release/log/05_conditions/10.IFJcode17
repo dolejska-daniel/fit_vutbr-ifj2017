@@ -1,0 +1,84 @@
+# 2017-12-03 11:37:09.589727
+# SECTION: 05_conditions
+# TEST: 10
+# INFO: variables and functions in condition
+# REQUIRED EXTENSIONS: FUNEXP
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Error line:
+# 		if (foo() > a) then
+# 	^
+# 
+# Exit code:  2
+# Error:      Unknown error occured during parsing.
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  58
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 2
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' variables and functions in condition
+#   2: 
+#   3: function foo() as integer
+#   4: 
+#   5: 	return 42 + 42
+#   6: 
+#   7: end function
+#   8: 
+#   9: scope
+#  10: 	dim a as integer
+#  11: 	a = 142
+#  12: 
+#  13: 	if (foo() > a) then
+#  14: 		print 42;
+#  15: 	else
+#  16: 		print 58;
+#  17: 	end if
+#  18: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/24
+JUMP main                                                                       #     2/24
+# FUNCTION                                                                      #     4/24
+LABEL foo                                                                       #     5/24
+PUSHFRAME                                                                       #     6/24
+PUSHS int@42                                                                    #     7/24
+PUSHS int@42                                                                    #     8/24
+ADDS                                                                            #     9/24
+RETURN                                                                          #    10/24
+PUSHS int@0                                                                     #    11/24
+RETURN                                                                          #    12/24
+# END FUNCTION                                                                  #    13/24
+# MAIN                                                                          #    15/24
+LABEL main                                                                      #    16/24
+CREATEFRAME                                                                     #    17/24
+PUSHFRAME                                                                       #    18/24
+DEFVAR LF@a                                                                     #    19/24
+MOVE LF@a int@0                                                                 #    20/24
+PUSHS int@142                                                                   #    21/24
+POPS LF@a                                                                       #    22/24
+CLEARS                                                                          #    23/24
+# IF BLOCK                                                                      #    24/24

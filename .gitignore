@@ -4,3 +4,4 @@
 /src/*.depend
 /src/*.layout
 *.save-failed
+gmon.*

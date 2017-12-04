@@ -1,0 +1,82 @@
+# 2017-12-03 11:37:06.613312
+# SECTION: 03_statements
+# TEST: 009
+# INFO: Empty condition
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IPUSHS at line: 10 with following arguments:
+# Arg1: Const@=10(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=15(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 12 with following arguments:
+# Arg1: Stack@=10(int)
+# Arg2: Stack@=15(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 13 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 14 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IJUMP at line: 16 with following arguments:
+# Executing instruction: ILABEL at line: 19 with following arguments:
+# Executing instruction: IJUMP at line: 21 with following arguments:
+# Executing instruction: ILABEL at line: 24 with following arguments:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 36 (17+19)
+# 
+#   1: scope 
+#   2:  if 10 < 15 then 
+#   3:  end if 
+#   4:  end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/24
+JUMP main                                                                       #     2/24
+# MAIN                                                                          #     4/24
+LABEL main                                                                      #     5/24
+CREATEFRAME                                                                     #     6/24
+PUSHFRAME                                                                       #     7/24
+# IF BLOCK                                                                      #     8/24
+# IF                                                                            #     9/24
+PUSHS int@10                                                                    #    10/24
+PUSHS int@15                                                                    #    11/24
+LTS                                                                             #    12/24
+PUSHS bool@true                                                                 #    13/24
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    14/24
+# THEN                                                                          #    15/24
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    16/24
+LABEL __INTERNAL__COND_0_END                                                    #    17/24
+# END IF                                                                        #    18/24
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    19/24
+# END IF BLOCK                                                                  #    20/24
+JUMP __INTERNAL__FILE_END                                                       #    21/24
+# PROGRAM END                                                                   #    23/24
+LABEL __INTERNAL__FILE_END                                                      #    24/24

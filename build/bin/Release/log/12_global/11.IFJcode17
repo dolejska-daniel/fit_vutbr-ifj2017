@@ -1,0 +1,60 @@
+# 2017-12-03 11:37:19.781827
+# SECTION: 12_global
+# TEST: 11
+# INFO: collision of static and shared
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Error line:
+# 	dim shared promena as integer = 31
+# 	^~~
+# 
+# Exit code:  2
+# Error:      Unexpected statement on line 3:1. Expected DECLARE, FUNCTION or SCOPE got KEYWORD (DIM).
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  42
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 2
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' collision of static and shared
+#   2: 
+#   3: dim shared promena as integer = 31
+#   4: 
+#   5: function foo() as integer
+#   6: 	static promena as integer = 42
+#   7: 	return promena
+#   8: end function
+#   9: 
+#  10: scope
+#  11: 	dim promena as integer
+#  12: 	promena = foo()
+#  13: 	print promena;
+#  14: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/2
+JUMP main                                                                       #     2/2

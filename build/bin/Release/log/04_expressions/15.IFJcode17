@@ -1,0 +1,238 @@
+# 2017-12-03 11:37:07.846090
+# SECTION: 04_expressions
+# TEST: 15
+# INFO: exp(x) 6 iteration without loop
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: IDEFVAR at line: 8 with following arguments:
+# Dest: LF@vysledek
+# Executing instruction: IMOVE at line: 9 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@vysledek()
+# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Dest: LF@citatel
+# Executing instruction: IMOVE at line: 11 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@citatel()
+# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 13 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: LF@citatel=0(int)
+# Executing instruction: ICLEARS at line: 14 with following arguments:
+# Executing instruction: IDEFVAR at line: 15 with following arguments:
+# Dest: LF@jmenovatel
+# Executing instruction: IMOVE at line: 16 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@jmenovatel()
+# Executing instruction: IPUSHS at line: 17 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 18 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: LF@jmenovatel=0(int)
+# Executing instruction: ICLEARS at line: 19 with following arguments:
+# Executing instruction: IPUSHS at line: 20 with following arguments:
+# Arg1: LF@vysledek=0(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Arg1: LF@citatel=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 22 with following arguments:
+# Arg1: LF@jmenovatel=1(int)
+# Dest: Stack@()
+# Executing instruction: IDIVS at line: 23 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Error at line: 23
+# Wrong operand type!
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  7.26667
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 53
+# PRICE: ---
+# 
+#   1: ' exp(x) 6 iteration without loop
+#   2: 
+#   3: SCOPE
+#   4: 
+#   5: 	dim vysledek as double
+#   6: 	dim citatel as integer
+#   7: 	citatel = 1
+#   8: 	dim jmenovatel as integer
+#   9: 	jmenovatel = 1
+#  10: 
+#  11: 	vysledek = vysledek + citatel / jmenovatel
+#  12: 
+#  13: 	citatel = citatel * 2
+#  14: 	jmenovatel = jmenovatel * 1
+#  15: 
+#  16: 	vysledek = vysledek + citatel / jmenovatel
+#  17: 
+#  18: 	citatel = citatel * 2
+#  19: 	jmenovatel = jmenovatel * 2
+#  20: 
+#  21: 	vysledek = vysledek +  citatel / jmenovatel
+#  22: 
+#  23: 	citatel = citatel * 2
+#  24: 	jmenovatel = jmenovatel * 3
+#  25: 
+#  26: 	vysledek = vysledek + citatel / jmenovatel
+#  27: 
+#  28: 	citatel = citatel * 2
+#  29: 	jmenovatel = jmenovatel * 4
+#  30: 
+#  31: 	vysledek = vysledek + citatel / jmenovatel
+#  32: 
+#  33: 	citatel = citatel * 2
+#  34: 	jmenovatel = jmenovatel * 5
+#  35: 
+#  36: 	vysledek = vysledek + citatel / jmenovatel
+#  37: 
+#  38: 	print vysledek;
+#  39: 
+#  40: END SCOPE
+
+########################################
+
+.IFJcode17                                                                      #     1/119
+JUMP main                                                                       #     2/119
+# MAIN                                                                          #     4/119
+LABEL main                                                                      #     5/119
+CREATEFRAME                                                                     #     6/119
+PUSHFRAME                                                                       #     7/119
+DEFVAR LF@vysledek                                                              #     8/119
+MOVE LF@vysledek float@0.0                                                      #     9/119
+DEFVAR LF@citatel                                                               #    10/119
+MOVE LF@citatel int@0                                                           #    11/119
+PUSHS int@1                                                                     #    12/119
+POPS LF@citatel                                                                 #    13/119
+CLEARS                                                                          #    14/119
+DEFVAR LF@jmenovatel                                                            #    15/119
+MOVE LF@jmenovatel int@0                                                        #    16/119
+PUSHS int@1                                                                     #    17/119
+POPS LF@jmenovatel                                                              #    18/119
+CLEARS                                                                          #    19/119
+PUSHS LF@vysledek                                                               #    20/119
+PUSHS LF@citatel                                                                #    21/119
+PUSHS LF@jmenovatel                                                             #    22/119
+DIVS                                                                            #    23/119
+ADDS                                                                            #    24/119
+POPS LF@vysledek                                                                #    25/119
+CLEARS                                                                          #    26/119
+PUSHS LF@citatel                                                                #    27/119
+PUSHS int@2                                                                     #    28/119
+MULS                                                                            #    29/119
+POPS LF@citatel                                                                 #    30/119
+CLEARS                                                                          #    31/119
+PUSHS LF@jmenovatel                                                             #    32/119
+PUSHS int@1                                                                     #    33/119
+MULS                                                                            #    34/119
+POPS LF@jmenovatel                                                              #    35/119
+CLEARS                                                                          #    36/119
+PUSHS LF@vysledek                                                               #    37/119
+PUSHS LF@citatel                                                                #    38/119
+PUSHS LF@jmenovatel                                                             #    39/119
+DIVS                                                                            #    40/119
+ADDS                                                                            #    41/119
+POPS LF@vysledek                                                                #    42/119
+CLEARS                                                                          #    43/119
+PUSHS LF@citatel                                                                #    44/119
+PUSHS int@2                                                                     #    45/119
+MULS                                                                            #    46/119
+POPS LF@citatel                                                                 #    47/119
+CLEARS                                                                          #    48/119
+PUSHS LF@jmenovatel                                                             #    49/119
+PUSHS int@2                                                                     #    50/119
+MULS                                                                            #    51/119
+POPS LF@jmenovatel                                                              #    52/119
+CLEARS                                                                          #    53/119
+PUSHS LF@vysledek                                                               #    54/119
+PUSHS LF@citatel                                                                #    55/119
+PUSHS LF@jmenovatel                                                             #    56/119
+DIVS                                                                            #    57/119
+ADDS                                                                            #    58/119
+POPS LF@vysledek                                                                #    59/119
+CLEARS                                                                          #    60/119
+PUSHS LF@citatel                                                                #    61/119
+PUSHS int@2                                                                     #    62/119
+MULS                                                                            #    63/119
+POPS LF@citatel                                                                 #    64/119
+CLEARS                                                                          #    65/119
+PUSHS LF@jmenovatel                                                             #    66/119
+PUSHS int@3                                                                     #    67/119
+MULS                                                                            #    68/119
+POPS LF@jmenovatel                                                              #    69/119
+CLEARS                                                                          #    70/119
+PUSHS LF@vysledek                                                               #    71/119
+PUSHS LF@citatel                                                                #    72/119
+PUSHS LF@jmenovatel                                                             #    73/119
+DIVS                                                                            #    74/119
+ADDS                                                                            #    75/119
+POPS LF@vysledek                                                                #    76/119
+CLEARS                                                                          #    77/119
+PUSHS LF@citatel                                                                #    78/119
+PUSHS int@2                                                                     #    79/119
+MULS                                                                            #    80/119
+POPS LF@citatel                                                                 #    81/119
+CLEARS                                                                          #    82/119
+PUSHS LF@jmenovatel                                                             #    83/119
+PUSHS int@4                                                                     #    84/119
+MULS                                                                            #    85/119
+POPS LF@jmenovatel                                                              #    86/119
+CLEARS                                                                          #    87/119
+PUSHS LF@vysledek                                                               #    88/119
+PUSHS LF@citatel                                                                #    89/119
+PUSHS LF@jmenovatel                                                             #    90/119
+DIVS                                                                            #    91/119
+ADDS                                                                            #    92/119
+POPS LF@vysledek                                                                #    93/119
+CLEARS                                                                          #    94/119
+PUSHS LF@citatel                                                                #    95/119
+PUSHS int@2                                                                     #    96/119
+MULS                                                                            #    97/119
+POPS LF@citatel                                                                 #    98/119
+CLEARS                                                                          #    99/119
+PUSHS LF@jmenovatel                                                             #   100/119
+PUSHS int@5                                                                     #   101/119
+MULS                                                                            #   102/119
+POPS LF@jmenovatel                                                              #   103/119
+CLEARS                                                                          #   104/119
+PUSHS LF@vysledek                                                               #   105/119
+PUSHS LF@citatel                                                                #   106/119
+PUSHS LF@jmenovatel                                                             #   107/119
+DIVS                                                                            #   108/119
+ADDS                                                                            #   109/119
+POPS LF@vysledek                                                                #   110/119
+CLEARS                                                                          #   111/119
+PUSHS LF@vysledek                                                               #   112/119
+DEFVAR LF@__INTERNAL__VAR_0                                                     #   113/119
+POPS LF@__INTERNAL__VAR_0                                                       #   114/119
+WRITE LF@__INTERNAL__VAR_0                                                      #   115/119
+JUMP __INTERNAL__FILE_END                                                       #   116/119
+# PROGRAM END                                                                   #   118/119
+LABEL __INTERNAL__FILE_END                                                      #   119/119

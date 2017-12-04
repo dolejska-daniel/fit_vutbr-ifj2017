@@ -1,0 +1,66 @@
+# 2017-12-03 11:37:20.042520
+# SECTION: 66_errors
+# TEST: 16
+# INFO: function declaration after definition
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Error line:
+# 	declare function fce() as integer
+# 	                 ^~~
+# 
+# Exit code:  3
+# Error:      Cannot redeclare/redefine symbol fce on line 7:18.
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 3
+# CURRENT COMPILER EXIT CODE: 3
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' function declaration after definition
+#   2: 
+#   3: function fce() as integer
+#   4: 	return 0
+#   5: end function
+#   6: 
+#   7: declare function fce() as integer
+#   8: 
+#   9: scope
+#  10: 	dim b as integer
+#  11: 	b = fce()
+#  12: 	print b;
+#  13: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/11
+JUMP main                                                                       #     2/11
+# FUNCTION                                                                      #     4/11
+LABEL fce                                                                       #     5/11
+PUSHFRAME                                                                       #     6/11
+PUSHS int@0                                                                     #     7/11
+RETURN                                                                          #     8/11
+PUSHS int@0                                                                     #     9/11
+RETURN                                                                          #    10/11
+# END FUNCTION                                                                  #    11/11

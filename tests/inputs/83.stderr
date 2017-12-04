@@ -1,0 +1,2098 @@
+[main]     Initializing variables
+[main]     Starting parser
+[parser]     Starting initial parsing
+[parser]     Initializing variables
+[parser-init]     Writing initial instructions
+[parser-init]     requesting new token
+[parser-init]     received token
+DEBUG | TOKEN (02c61f18): {
+	type: <EOL>,
+	attr: (null),
+}
+[parser-init]     requesting new token
+[parser-init]     received token
+DEBUG | TOKEN (02c61888): {
+	type: <EOL>,
+	attr: (null),
+}
+[parser-init]     requesting new token
+[parser-init]     received token
+DEBUG | TOKEN (02c61898): {
+	type: KEYWORD (SCOPE),
+	attr: scope,
+}
+[parser-init]     calling Parser_ParseScope
+[parser-scope]     creating new nesting level
+DEBUG | NestingList (02c61e68) {
+	active: 02c618b8
+	first: 02c61e80
+	last: 02c618b8
+	<NONE (02c61e80)> {
+		symbol: 00000000
+		next: 00000000
+		ptev: 02c618b8
+	}
+		<SCOPE (02c618b8)> {
+			symbol: 00000000
+			next: 02c61e80
+			ptev: 00000000
+		}
+}
+[parser-scope]     requesting new token
+[parser-scope]     successfully received correct token
+[parser-scope]     NOT sending it back
+DEBUG | TOKEN: NULL
+[parser-scope]     calling Parser_ParseNestedCode
+[parser-nested]     requesting new token
+[parser-nested]     received token
+DEBUG | TOKEN (02c61990): {
+	type: KEYWORD (DIM),
+	attr: dim,
+}
+[parser-nested]     calling Parser_ParseVariableDeclaration
+[parser-var_dec]     requesting new token
+[parser-var_dec]     successfully received correct token
+DEBUG | TOKEN (02c619a0): {
+	type: IDENTIFIER,
+	attr: s1,
+}
+[parser-var_dec]     requesting new token
+[parser-var_dec]     successfully received correct token
+[parser-var_dec]     NOT sending it back
+DEBUG | TOKEN: NULL
+[parser-var_dec]     requesting new token
+[parser-var_dec]     received token
+DEBUG | TOKEN (02c619e0): {
+	type: KEYWORD (STRING),
+	attr: string,
+}
+[parser-var_dec]     symbol successfully created
+DEBUG | TOKEN: NULL
+DEBUG | SymbolTable (02c61df0): {
+	0:
+	1:
+	2:
+	3:
+	4:
+	5:
+	6:
+	7:
+	8:
+	9:
+	10:
+	11:
+	12:
+	13:
+	14:
+	15:
+	16:
+	17:
+	18:
+	19:
+	20:
+	21:
+	22:
+	23:
+	24:
+	25:
+	26:
+	27:
+	28:
+	29:
+	30:
+	31:
+	32:
+	33:
+	34:
+	35:
+	36:
+	37:
+	38:
+	39:
+	40:
+	41:
+	42:
+	43:
+	44:
+	45:
+	46:
+	47:
+	48:
+	49:
+	50:
+	51:
+	52:
+	53:
+	54:
+	55:
+	56:
+	57:
+	58:
+	59:
+	60:
+	61:
+	62:
+	63:
+	64: <s1@TF (string)>
+	65:
+	66:
+	67:
+	68:
+	69:
+	70:
+	71:
+	72:
+	73:
+	74:
+	75:
+	76:
+	77:
+	78:
+	79:
+	80:
+	81:
+	82:
+	83:
+	84:
+	85:
+	86:
+	87:
+	88:
+	89:
+	90:
+	91:
+	92:
+	93:
+	94:
+	95:
+	96:
+	97:
+	98:
+	99:
+}
+[parser-var_dec]     requesting new token
+[parser-var_dec]     received token
+DEBUG | TOKEN (02c61c60): {
+	type: <EOL>,
+	attr: (null),
+}
+[parser-nested]     requesting new token
+[parser-nested]     received token
+DEBUG | TOKEN (02c61bb0): {
+	type: KEYWORD (DIM),
+	attr: dim,
+}
+[parser-nested]     calling Parser_ParseVariableDeclaration
+[parser-var_dec]     requesting new token
+[parser-var_dec]     successfully received correct token
+DEBUG | TOKEN (02c61b20): {
+	type: IDENTIFIER,
+	attr: s2,
+}
+[parser-var_dec]     requesting new token
+[parser-var_dec]     successfully received correct token
+[parser-var_dec]     NOT sending it back
+DEBUG | TOKEN: NULL
+[parser-var_dec]     requesting new token
+[parser-var_dec]     received token
+DEBUG | TOKEN (02c61c20): {
+	type: KEYWORD (STRING),
+	attr: string,
+}
+[parser-var_dec]     symbol successfully created
+DEBUG | TOKEN: NULL
+DEBUG | SymbolTable (02c61df0): {
+	0:
+	1:
+	2:
+	3:
+	4:
+	5:
+	6:
+	7:
+	8:
+	9:
+	10:
+	11:
+	12:
+	13:
+	14:
+	15:
+	16:
+	17:
+	18:
+	19:
+	20:
+	21:
+	22:
+	23:
+	24:
+	25:
+	26:
+	27:
+	28:
+	29:
+	30:
+	31:
+	32:
+	33:
+	34:
+	35:
+	36:
+	37:
+	38:
+	39:
+	40:
+	41:
+	42:
+	43:
+	44:
+	45:
+	46:
+	47:
+	48:
+	49:
+	50:
+	51:
+	52:
+	53:
+	54:
+	55:
+	56:
+	57:
+	58:
+	59:
+	60:
+	61:
+	62:
+	63:
+	64: <s1@TF (string)>
+	65: <s2@TF (string)>
+	66:
+	67:
+	68:
+	69:
+	70:
+	71:
+	72:
+	73:
+	74:
+	75:
+	76:
+	77:
+	78:
+	79:
+	80:
+	81:
+	82:
+	83:
+	84:
+	85:
+	86:
+	87:
+	88:
+	89:
+	90:
+	91:
+	92:
+	93:
+	94:
+	95:
+	96:
+	97:
+	98:
+	99:
+}
+[parser-var_dec]     requesting new token
+[parser-var_dec]     received token
+DEBUG | TOKEN (02c61ca0): {
+	type: <EOL>,
+	attr: (null),
+}
+[parser-nested]     requesting new token
+[parser-nested]     received token
+DEBUG | TOKEN (02c61b90): {
+	type: KEYWORD (DIM),
+	attr: dim,
+}
+[parser-nested]     calling Parser_ParseVariableDeclaration
+[parser-var_dec]     requesting new token
+[parser-var_dec]     successfully received correct token
+DEBUG | TOKEN (02c61c50): {
+	type: IDENTIFIER,
+	attr: s1len,
+}
+[parser-var_dec]     requesting new token
+[parser-var_dec]     successfully received correct token
+[parser-var_dec]     NOT sending it back
+DEBUG | TOKEN: NULL
+[parser-var_dec]     requesting new token
+[parser-var_dec]     received token
+DEBUG | TOKEN (02c61cb0): {
+	type: KEYWORD (INTEGER),
+	attr: integer,
+}
+[parser-var_dec]     symbol successfully created
+DEBUG | TOKEN: NULL
+DEBUG | SymbolTable (02c61df0): {
+	0:
+	1:
+	2:
+	3:
+	4:
+	5:
+	6:
+	7:
+	8:
+	9:
+	10:
+	11:
+	12:
+	13:
+	14:
+	15:
+	16:
+	17:
+	18:
+	19:
+	20:
+	21:
+	22:
+	23:
+	24:
+	25:
+	26:
+	27:
+	28:
+	29:
+	30:
+	31:
+	32:
+	33:
+	34:
+	35:
+	36:
+	37:
+	38:
+	39:
+	40:
+	41:
+	42:
+	43:
+	44:
+	45:
+	46:
+	47:
+	48:
+	49:
+	50:
+	51:
+	52:
+	53:
+	54:
+	55:
+	56:
+	57:
+	58:
+	59:
+	60:
+	61:
+	62:
+	63:
+	64: <s1@TF (string)>
+	65: <s2@TF (string)>
+	66:
+	67:
+	68:
+	69:
+	70:
+	71:
+	72:
+	73:
+	74:
+	75:
+	76:
+	77:
+	78:
+	79:
+	80:
+	81:
+	82:
+	83: <s1len@TF (int)>
+	84:
+	85:
+	86:
+	87:
+	88:
+	89:
+	90:
+	91:
+	92:
+	93:
+	94:
+	95:
+	96:
+	97:
+	98:
+	99:
+}
+[parser-var_dec]     requesting new token
+[parser-var_dec]     received token
+DEBUG | TOKEN (02c61b40): {
+	type: <EOL>,
+	attr: (null),
+}
+[parser-nested]     requesting new token
+[parser-nested]     received token
+DEBUG | TOKEN (02c61bc0): {
+	type: <EOL>,
+	attr: (null),
+}
+[parser-nested]     received LINE_END, continuing to next token
+[parser-nested]     requesting new token
+[parser-nested]     received token
+DEBUG | TOKEN (02c61ba0): {
+	type: IDENTIFIER,
+	attr: s1,
+}
+[parser-nested]     requesting new token
+[parser-nested]     successfully received correct token
+DEBUG | TOKEN (02c61ba0): {
+	type: EQUALS,
+	attr: =,
+}
+[parser-nested]     calling Parser_ParseVariableDefinition
+[parser-var_def]     calling Parser_ParseExpression
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c61bd0): {
+	type: CONSTANT_STRING,
+	attr: Toto\032je\032nejaky\032text,
+}
+[parser-expr]     sending operand to infix2postfix function
+DEBUG | Symbol (02c67688): {
+	key: Toto\032je\032nejaky\032text,
+	location: @_CONSTANT,
+	type: string,
+	value: 02c67808,
+	value2: 00000000,
+	next: 00000000,
+}
+[inf2post-addOperand]     received
+DEBUG | TOKEN (02c61bd0): {
+	type: CONSTANT_STRING,
+	attr: Toto\032je\032nejaky\032text,
+}
+DEBUG | Symbol (02c67688): {
+	key: Toto\032je\032nejaky\032text,
+	location: @_CONSTANT,
+	type: string,
+	value: 02c67808,
+	value2: 00000000,
+	next: 00000000,
+}
+info: (00000000)
+[inf2post-addOperand]     adding identifier to postfix list
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c61c00): {
+	type: <EOL>,
+	attr: (null),
+}
+[parser-expr]     expression is complete, leaving loop
+[scanner-unget]     ungetting token
+DEBUG | TOKEN (02c61c00): {
+	type: <EOL>,
+	attr: (null),
+}
+[scanner-unget]     ok
+DEBUG | TokenStack (02701f08): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0: <(02c61c00): <EOL> (63), (null)>
+}
+[parser-expr]     calling infix2postfix_process
+DEBUG | TokenStack (02c604a0): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0:
+}
+DEBUG | PostfixList (02c61c30): {
+	<SYMBOL, T: string (1), Toto\032je\032nejaky\032text (02c67808), 00000000>
+}
+[parser-expr]     expression processed, returning to parent
+[parser-var_def]     postfix conversion completed, calling postfix2instructions
+[post2inst]     converting postfix expression to instructions
+DEBUG | PostfixList (02c61c30): {
+	<SYMBOL, T: string (1), Toto\032je\032nejaky\032text (02c67808), 00000000>
+}
+[post2inst]     preprocessing expression
+[post2inst]     preprocessing completed
+DEBUG | InstructionList (02c67220): {
+	PUSHS string@Toto\032je\032nejaky\032text (02c67528): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 00000000
+		prev: 00000000
+	}
+}
+[post2inst]     calling postfix2instructions_process
+[post2inst-process]     starting real expression processing
+[post2inst-process]     real expression processing completed
+DEBUG | InstructionList (02c67220): {
+	PUSHS string@Toto\032je\032nejaky\032text (02c67528): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 00000000
+		prev: 00000000
+	}
+}
+[post2inst-process]     copying instructions to instruction list
+[post2inst]     expression processed successfully
+[parser-var_def]     instruction conversion completed, cleaning up
+[parser-var_def]     requesting new token
+[scanner]     returning token from stack, rather than creating new!
+[parser-var_def]     successfully received correct token
+[parser-var_def]     NOT sending it back
+DEBUG | TOKEN: NULL
+[parser-nested]     requesting new token
+[parser-nested]     received token
+DEBUG | TOKEN (02c67c38): {
+	type: IDENTIFIER,
+	attr: s2,
+}
+[parser-nested]     requesting new token
+[parser-nested]     successfully received correct token
+DEBUG | TOKEN (02c67b78): {
+	type: EQUALS,
+	attr: =,
+}
+[parser-nested]     calling Parser_ParseVariableDefinition
+[parser-var_def]     calling Parser_ParseExpression
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c67bd8): {
+	type: IDENTIFIER,
+	attr: s1,
+}
+[parser-expr]     sending operand to infix2postfix function
+DEBUG | Symbol (02c619e0): {
+	key: s1,
+	location: @TF,
+	type: string,
+	value: 02c619b0,
+	value2: 00000000,
+	next: 00000000,
+}
+[inf2post-addOperand]     received
+DEBUG | TOKEN (02c67bd8): {
+	type: IDENTIFIER,
+	attr: s1,
+}
+DEBUG | Symbol (02c619e0): {
+	key: s1,
+	location: @TF,
+	type: string,
+	value: 02c619b0,
+	value2: 00000000,
+	next: 00000000,
+}
+info: (00000000)
+[inf2post-addOperand]     adding identifier to postfix list
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c67b88): {
+	type: PLUS,
+	attr: +,
+}
+[parser-expr]     sending operand to infix2postfix function
+DEBUG | Symbol: NULL
+[inf2post-addOperand]     received
+DEBUG | TOKEN (02c67b88): {
+	type: PLUS,
+	attr: +,
+}
+DEBUG | Symbol: NULL
+info: (00000000)
+[inf2post-addOperand]     processing operator, calling doOperation
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c67ad8): {
+	type: CONSTANT_STRING,
+	attr: ,\032ktery\032jeste\032trochu\032obohatime,
+}
+[parser-expr]     sending operand to infix2postfix function
+DEBUG | Symbol (02c67628): {
+	key: ,\032ktery\032jeste\032trochu\032obohatime,
+	location: @_CONSTANT,
+	type: string,
+	value: 02c681e8,
+	value2: 00000000,
+	next: 00000000,
+}
+[inf2post-addOperand]     received
+DEBUG | TOKEN (02c67ad8): {
+	type: CONSTANT_STRING,
+	attr: ,\032ktery\032jeste\032trochu\032obohatime,
+}
+DEBUG | Symbol (02c67628): {
+	key: ,\032ktery\032jeste\032trochu\032obohatime,
+	location: @_CONSTANT,
+	type: string,
+	value: 02c681e8,
+	value2: 00000000,
+	next: 00000000,
+}
+info: (00000000)
+[inf2post-addOperand]     adding identifier to postfix list
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c67ae8): {
+	type: <EOL>,
+	attr: (null),
+}
+[parser-expr]     expression is complete, leaving loop
+[scanner-unget]     ungetting token
+DEBUG | TOKEN (02c67ae8): {
+	type: <EOL>,
+	attr: (null),
+}
+[scanner-unget]     ok
+DEBUG | TokenStack (02701f08): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0: <(02c67ae8): <EOL> (63), (null)>
+}
+[parser-expr]     calling infix2postfix_process
+DEBUG | TokenStack (02c67c70): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0: <(02c67b88): PLUS (55), +>
+}
+DEBUG | PostfixList (02c67c38): {
+	<SYMBOL, T: string (1), s1 (02c619b0), 00000000>
+	<SYMBOL, T: string (1), ,\032ktery\032jeste\032trochu\032obohatime (02c681e8), 00000000>
+}
+[parser-expr]     expression processed, returning to parent
+[parser-var_def]     postfix conversion completed, calling postfix2instructions
+[post2inst]     converting postfix expression to instructions
+DEBUG | PostfixList (02c67c38): {
+	<SYMBOL, T: string (1), s1 (02c619b0), 00000000>
+	<SYMBOL, T: string (1), ,\032ktery\032jeste\032trochu\032obohatime (02c681e8), 00000000>
+	<OPERATOR, T: PLUS (55), +>
+}
+[post2inst]     preprocessing expression
+[post2inst]     preprocessing completed
+DEBUG | InstructionList (02c673e8): {
+	PUSHS TF@s1 (02c675a8): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 02c677a8
+		prev: 00000000
+	}
+	PUSHS string@,\032ktery\032jeste\032trochu\032obohatime (02c677a8): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 02c677c8
+		prev: 02c675a8
+	}
+	ADDS (02c677c8): {
+		type: _UNKNOWN_
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 1
+		isVariable: 0
+		next: 00000000
+		prev: 02c677a8
+	}
+}
+[post2inst]     calling postfix2instructions_process
+[post2inst-process]     starting real expression processing
+[post2inst-process] ERR operand is not NULL but instruction is!!
+[post2inst-process] ERR operand is not NULL but instruction is!!
+[post2inst-process]     validating operation
+	operator: PLUS,
+	x = 02c675a8
+	dt x = string,
+	y = 02c677a8
+	dt y = string
+[post2inst-process]     this binary operation is valid, validating implicit datatype conversions for operand 1
+[post2inst-process]     this binary operation is valid, validating implicit datatype conversions for operand 2
+[post2inst-process]     operation processed
+[post2inst-process]     real expression processing completed
+DEBUG | InstructionList (02c673e8): {
+	PUSHS TF@s1 (02c675a8): {
+		type: string
+		isBlockBegin: 1
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 0
+		next: 02c677a8
+		prev: 00000000
+	}
+	PUSHS string@,\032ktery\032jeste\032trochu\032obohatime (02c677a8): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 0
+		next: 02c677c8
+		prev: 02c675a8
+	}
+	ADDS (02c677c8): {
+		type: _UNKNOWN_
+		isBlockBegin: 0
+		isBlockEnd: 1
+		isOperator: 0
+		isVariable: 0
+		next: 00000000
+		prev: 02c677a8
+	}
+}
+[post2inst-process]     copying instructions to instruction list
+[post2inst]     expression processed successfully
+[parser-var_def]     instruction conversion completed, cleaning up
+[parser-var_def]     requesting new token
+[scanner]     returning token from stack, rather than creating new!
+[parser-var_def]     successfully received correct token
+[parser-var_def]     NOT sending it back
+DEBUG | TOKEN: NULL
+[parser-nested]     requesting new token
+[parser-nested]     received token
+DEBUG | TOKEN (02c67b68): {
+	type: KEYWORD (PRINT),
+	attr: print,
+}
+[parser-nested]     calling Parser_ParseStatement_Print
+[parser-print]     calling Parser_ParseExpression
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c67ae8): {
+	type: IDENTIFIER,
+	attr: s1,
+}
+[parser-expr]     sending operand to infix2postfix function
+DEBUG | Symbol (02c619e0): {
+	key: s1,
+	location: @TF,
+	type: string,
+	value: 02c619b0,
+	value2: 00000000,
+	next: 00000000,
+}
+[inf2post-addOperand]     received
+DEBUG | TOKEN (02c67ae8): {
+	type: IDENTIFIER,
+	attr: s1,
+}
+DEBUG | Symbol (02c619e0): {
+	key: s1,
+	location: @TF,
+	type: string,
+	value: 02c619b0,
+	value2: 00000000,
+	next: 00000000,
+}
+info: (00000000)
+[inf2post-addOperand]     adding identifier to postfix list
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c67bf8): {
+	type: SEMICOLON,
+	attr: ;,
+}
+[parser-expr]     expression is complete, leaving loop
+[scanner-unget]     ungetting token
+DEBUG | TOKEN (02c67bf8): {
+	type: SEMICOLON,
+	attr: ;,
+}
+[scanner-unget]     ok
+DEBUG | TokenStack (02701f08): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0: <(02c67bf8): SEMICOLON (44), ;>
+}
+[parser-expr]     calling infix2postfix_process
+DEBUG | TokenStack (02c68260): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0:
+}
+DEBUG | PostfixList (02c67aa8): {
+	<SYMBOL, T: string (1), s1 (02c619b0), 00000000>
+}
+[parser-expr]     expression processed, returning to parent
+[parser-print]     return from Parser_ParseExpression
+[parser-print]     converting postfix to instructions
+[post2inst]     converting postfix expression to instructions
+DEBUG | PostfixList (02c67aa8): {
+	<SYMBOL, T: string (1), s1 (02c619b0), 00000000>
+}
+[post2inst]     preprocessing expression
+[post2inst]     preprocessing completed
+DEBUG | InstructionList (02c67280): {
+	PUSHS TF@s1 (02c67548): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 00000000
+		prev: 00000000
+	}
+}
+[post2inst]     calling postfix2instructions_process
+[post2inst-process]     starting real expression processing
+[post2inst-process]     real expression processing completed
+DEBUG | InstructionList (02c67280): {
+	PUSHS TF@s1 (02c67548): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 00000000
+		prev: 00000000
+	}
+}
+[post2inst-process]     copying instructions to instruction list
+[post2inst]     expression processed successfully
+[parser-print]     getting temporary variable symbol
+[symtable-getTempVar]     creating temp var name
+[symtable-getTempVar]     getting temp var
+[symtable-getTempVar]     creating new temp var
+DEBUG | Symbol (02c67708): {
+	key: __INTERNAL__VAR_0,
+	location: @TF,
+	type: string,
+	value: 02c676e8,
+	value2: 00000000,
+	next: 00000000,
+}
+[parser-print]     saving expression result to temp var
+[parser-print]     requesting new token
+[scanner]     returning token from stack, rather than creating new!
+[parser-print]     successfully received correct token
+[parser-print]     NOT sending it back
+DEBUG | TOKEN: NULL
+[parser-print]     requesting new token
+[parser-print]     received token
+DEBUG | TOKEN (02c67a98): {
+	type: CONSTANT_STRING,
+	attr: \n,
+}
+[parser-print]     received something, ungetting token and continuing by trying to parse expression
+[scanner-unget]     ungetting token
+DEBUG | TOKEN (02c67a98): {
+	type: CONSTANT_STRING,
+	attr: \n,
+}
+[scanner-unget]     ok
+DEBUG | TokenStack (02701f08): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0: <(02c67a98): CONSTANT_STRING (41), \n>
+}
+[parser-print]     calling Parser_ParseExpression
+[parser-expr]     requesting new token
+[scanner]     returning token from stack, rather than creating new!
+[parser-expr]     received token
+DEBUG | TOKEN (02c67a98): {
+	type: CONSTANT_STRING,
+	attr: \n,
+}
+[parser-expr]     sending operand to infix2postfix function
+DEBUG | Symbol (02c67588): {
+	key: \n,
+	location: @_CONSTANT,
+	type: string,
+	value: 02c67bf8,
+	value2: 00000000,
+	next: 00000000,
+}
+[inf2post-addOperand]     received
+DEBUG | TOKEN (02c67a98): {
+	type: CONSTANT_STRING,
+	attr: \n,
+}
+DEBUG | Symbol (02c67588): {
+	key: \n,
+	location: @_CONSTANT,
+	type: string,
+	value: 02c67bf8,
+	value2: 00000000,
+	next: 00000000,
+}
+info: (00000000)
+[inf2post-addOperand]     adding identifier to postfix list
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c67af8): {
+	type: SEMICOLON,
+	attr: ;,
+}
+[parser-expr]     expression is complete, leaving loop
+[scanner-unget]     ungetting token
+DEBUG | TOKEN (02c67af8): {
+	type: SEMICOLON,
+	attr: ;,
+}
+[scanner-unget]     ok
+DEBUG | TokenStack (02701f08): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0: <(02c67af8): SEMICOLON (44), ;>
+}
+[parser-expr]     calling infix2postfix_process
+DEBUG | TokenStack (02c68740): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0:
+}
+DEBUG | PostfixList (02c67b18): {
+	<SYMBOL, T: string (1), \n (02c67bf8), 00000000>
+}
+[parser-expr]     expression processed, returning to parent
+[parser-print]     return from Parser_ParseExpression
+[parser-print]     converting postfix to instructions
+[post2inst]     converting postfix expression to instructions
+DEBUG | PostfixList (02c67b18): {
+	<SYMBOL, T: string (1), \n (02c67bf8), 00000000>
+}
+[post2inst]     preprocessing expression
+[post2inst]     preprocessing completed
+DEBUG | InstructionList (02c67220): {
+	PUSHS string@\n (02c67788): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 00000000
+		prev: 00000000
+	}
+}
+[post2inst]     calling postfix2instructions_process
+[post2inst-process]     starting real expression processing
+[post2inst-process]     real expression processing completed
+DEBUG | InstructionList (02c67220): {
+	PUSHS string@\n (02c67788): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 00000000
+		prev: 00000000
+	}
+}
+[post2inst-process]     copying instructions to instruction list
+[post2inst]     expression processed successfully
+[parser-print]     getting temporary variable symbol
+[symtable-getTempVar]     creating temp var name
+[symtable-getTempVar]     getting temp var
+DEBUG | Symbol (02c67708): {
+	key: __INTERNAL__VAR_0,
+	location: @TF,
+	type: string,
+	value: 02c676e8,
+	value2: 00000000,
+	next: 00000000,
+}
+[parser-print]     saving expression result to temp var
+[parser-print]     requesting new token
+[scanner]     returning token from stack, rather than creating new!
+[parser-print]     successfully received correct token
+[parser-print]     NOT sending it back
+DEBUG | TOKEN: NULL
+[parser-print]     requesting new token
+[parser-print]     received token
+DEBUG | TOKEN (02c67b28): {
+	type: IDENTIFIER,
+	attr: s2,
+}
+[parser-print]     received something, ungetting token and continuing by trying to parse expression
+[scanner-unget]     ungetting token
+DEBUG | TOKEN (02c67b28): {
+	type: IDENTIFIER,
+	attr: s2,
+}
+[scanner-unget]     ok
+DEBUG | TokenStack (02701f08): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0: <(02c67b28): IDENTIFIER (35), s2>
+}
+[parser-print]     calling Parser_ParseExpression
+[parser-expr]     requesting new token
+[scanner]     returning token from stack, rather than creating new!
+[parser-expr]     received token
+DEBUG | TOKEN (02c67b28): {
+	type: IDENTIFIER,
+	attr: s2,
+}
+[parser-expr]     sending operand to infix2postfix function
+DEBUG | Symbol (02c61cd0): {
+	key: s2,
+	location: @TF,
+	type: string,
+	value: 02c61b00,
+	value2: 00000000,
+	next: 00000000,
+}
+[inf2post-addOperand]     received
+DEBUG | TOKEN (02c67b28): {
+	type: IDENTIFIER,
+	attr: s2,
+}
+DEBUG | Symbol (02c61cd0): {
+	key: s2,
+	location: @TF,
+	type: string,
+	value: 02c61b00,
+	value2: 00000000,
+	next: 00000000,
+}
+info: (00000000)
+[inf2post-addOperand]     adding identifier to postfix list
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c679b8): {
+	type: SEMICOLON,
+	attr: ;,
+}
+[parser-expr]     expression is complete, leaving loop
+[scanner-unget]     ungetting token
+DEBUG | TOKEN (02c679b8): {
+	type: SEMICOLON,
+	attr: ;,
+}
+[scanner-unget]     ok
+DEBUG | TokenStack (02701f08): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0: <(02c679b8): SEMICOLON (44), ;>
+}
+[parser-expr]     calling infix2postfix_process
+DEBUG | TokenStack (02c69020): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0:
+}
+DEBUG | PostfixList (02c67b38): {
+	<SYMBOL, T: string (1), s2 (02c61b00), 00000000>
+}
+[parser-expr]     expression processed, returning to parent
+[parser-print]     return from Parser_ParseExpression
+[parser-print]     converting postfix to instructions
+[post2inst]     converting postfix expression to instructions
+DEBUG | PostfixList (02c67b38): {
+	<SYMBOL, T: string (1), s2 (02c61b00), 00000000>
+}
+[post2inst]     preprocessing expression
+[post2inst]     preprocessing completed
+DEBUG | InstructionList (02c67310): {
+	PUSHS TF@s2 (02c68948): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 00000000
+		prev: 00000000
+	}
+}
+[post2inst]     calling postfix2instructions_process
+[post2inst-process]     starting real expression processing
+[post2inst-process]     real expression processing completed
+DEBUG | InstructionList (02c67310): {
+	PUSHS TF@s2 (02c68948): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 00000000
+		prev: 00000000
+	}
+}
+[post2inst-process]     copying instructions to instruction list
+[post2inst]     expression processed successfully
+[parser-print]     getting temporary variable symbol
+[symtable-getTempVar]     creating temp var name
+[symtable-getTempVar]     getting temp var
+DEBUG | Symbol (02c67708): {
+	key: __INTERNAL__VAR_0,
+	location: @TF,
+	type: string,
+	value: 02c676e8,
+	value2: 00000000,
+	next: 00000000,
+}
+[parser-print]     saving expression result to temp var
+[parser-print]     requesting new token
+[scanner]     returning token from stack, rather than creating new!
+[parser-print]     successfully received correct token
+[parser-print]     NOT sending it back
+DEBUG | TOKEN: NULL
+[parser-print]     requesting new token
+[parser-print]     received token
+DEBUG | TOKEN (02c67a88): {
+	type: CONSTANT_STRING,
+	attr: \n,
+}
+[parser-print]     received something, ungetting token and continuing by trying to parse expression
+[scanner-unget]     ungetting token
+DEBUG | TOKEN (02c67a88): {
+	type: CONSTANT_STRING,
+	attr: \n,
+}
+[scanner-unget]     ok
+DEBUG | TokenStack (02701f08): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0: <(02c67a88): CONSTANT_STRING (41), \n>
+}
+[parser-print]     calling Parser_ParseExpression
+[parser-expr]     requesting new token
+[scanner]     returning token from stack, rather than creating new!
+[parser-expr]     received token
+DEBUG | TOKEN (02c67a88): {
+	type: CONSTANT_STRING,
+	attr: \n,
+}
+[parser-expr]     sending operand to infix2postfix function
+DEBUG | Symbol (02c67588): {
+	key: \n,
+	location: @_CONSTANT,
+	type: string,
+	value: 02c67bf8,
+	value2: 00000000,
+	next: 00000000,
+}
+[inf2post-addOperand]     received
+DEBUG | TOKEN (02c67a88): {
+	type: CONSTANT_STRING,
+	attr: \n,
+}
+DEBUG | Symbol (02c67588): {
+	key: \n,
+	location: @_CONSTANT,
+	type: string,
+	value: 02c67bf8,
+	value2: 00000000,
+	next: 00000000,
+}
+info: (00000000)
+[inf2post-addOperand]     adding identifier to postfix list
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c67978): {
+	type: SEMICOLON,
+	attr: ;,
+}
+[parser-expr]     expression is complete, leaving loop
+[scanner-unget]     ungetting token
+DEBUG | TOKEN (02c67978): {
+	type: SEMICOLON,
+	attr: ;,
+}
+[scanner-unget]     ok
+DEBUG | TokenStack (02701f08): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0: <(02c67978): SEMICOLON (44), ;>
+}
+[parser-expr]     calling infix2postfix_process
+DEBUG | TokenStack (02c690f8): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0:
+}
+DEBUG | PostfixList (02c679e8): {
+	<SYMBOL, T: string (1), \n (02c67bf8), 00000000>
+}
+[parser-expr]     expression processed, returning to parent
+[parser-print]     return from Parser_ParseExpression
+[parser-print]     converting postfix to instructions
+[post2inst]     converting postfix expression to instructions
+DEBUG | PostfixList (02c679e8): {
+	<SYMBOL, T: string (1), \n (02c67bf8), 00000000>
+}
+[post2inst]     preprocessing expression
+[post2inst]     preprocessing completed
+DEBUG | InstructionList (02c67310): {
+	PUSHS string@\n (02c689a8): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 00000000
+		prev: 00000000
+	}
+}
+[post2inst]     calling postfix2instructions_process
+[post2inst-process]     starting real expression processing
+[post2inst-process]     real expression processing completed
+DEBUG | InstructionList (02c67310): {
+	PUSHS string@\n (02c689a8): {
+		type: string
+		isBlockBegin: 0
+		isBlockEnd: 0
+		isOperator: 0
+		isVariable: 1
+		next: 00000000
+		prev: 00000000
+	}
+}
+[post2inst-process]     copying instructions to instruction list
+[post2inst]     expression processed successfully
+[parser-print]     getting temporary variable symbol
+[symtable-getTempVar]     creating temp var name
+[symtable-getTempVar]     getting temp var
+DEBUG | Symbol (02c67708): {
+	key: __INTERNAL__VAR_0,
+	location: @TF,
+	type: string,
+	value: 02c676e8,
+	value2: 00000000,
+	next: 00000000,
+}
+[parser-print]     saving expression result to temp var
+[parser-print]     requesting new token
+[scanner]     returning token from stack, rather than creating new!
+[parser-print]     successfully received correct token
+[parser-print]     NOT sending it back
+DEBUG | TOKEN: NULL
+[parser-print]     requesting new token
+[parser-print]     received token
+DEBUG | TOKEN (02c679f8): {
+	type: <EOL>,
+	attr: (null),
+}
+[parser-print]     received LINE_END returning to parent function
+[symtable-deleteTempVar]     creating temp var name
+[parser-nested]     requesting new token
+[parser-nested]     received token
+DEBUG | TOKEN (02c67978): {
+	type: <EOL>,
+	attr: (null),
+}
+[parser-nested]     received LINE_END, continuing to next token
+[parser-nested]     requesting new token
+[parser-nested]     received token
+DEBUG | TOKEN (02c67898): {
+	type: IDENTIFIER,
+	attr: s1len,
+}
+[parser-nested]     requesting new token
+[parser-nested]     successfully received correct token
+DEBUG | TOKEN (02c67958): {
+	type: EQUALS,
+	attr: =,
+}
+[parser-nested]     calling Parser_ParseVariableDefinition
+[parser-var_def]     calling Parser_ParseExpression
+[parser-expr]     requesting new token
+[parser-expr]     received token
+DEBUG | TOKEN (02c67898): {
+	type: KEYWORD (LENGTH),
+	attr: length,
+}
+[parser-expr]     expression is complete, leaving loop
+[scanner-unget]     ungetting token
+DEBUG | TOKEN (02c67898): {
+	type: KEYWORD (LENGTH),
+	attr: length,
+}
+[scanner-unget]     ok
+DEBUG | TokenStack (02701f08): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:
+	32:
+	31:
+	30:
+	29:
+	28:
+	27:
+	26:
+	25:
+	24:
+	23:
+	22:
+	21:
+	20:
+	19:
+	18:
+	17:
+	16:
+	15:
+	14:
+	13:
+	12:
+	11:
+	10:
+	 9:
+	 8:
+	 7:
+	 6:
+	 5:
+	 4:
+	 3:
+	 2:
+	 1:
+	 0: <(02c67898): KEYWORD (LENGTH) (13), length>
+}
+[parser-expr]     calling infix2postfix_process
+DEBUG | TokenStack (02c691d0): {
+	49:
+	48:
+	47:
+	46:
+	45:
+	44:
+	43:
+	42:
+	41:
+	40:
+	39:
+	38:
+	37:
+	36:
+	35:
+	34:
+	33:

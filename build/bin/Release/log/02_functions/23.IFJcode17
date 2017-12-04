@@ -1,0 +1,66 @@
+# 2017-12-03 11:37:05.323382
+# SECTION: 02_functions
+# TEST: 23
+# INFO: invalid types without supported implicit conversion I
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Exit code:  4
+# Error:      Unknown error occured during parsing.
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 4
+# CURRENT COMPILER EXIT CODE: 4
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' invalid types without supported implicit conversion I
+#   2: 
+#   3: function get_integer(a as integer) as integer
+#   4: 	return a
+#   5: end function
+#   6: 
+#   7: scope
+#   8: 	dim b as integer
+#   9: 	b = get_integer(!"foo")
+#  10: 	print b;
+#  11: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/18
+JUMP main                                                                       #     2/18
+# FUNCTION                                                                      #     4/18
+LABEL get_integer                                                               #     5/18
+PUSHFRAME                                                                       #     6/18
+PUSHS LF@a                                                                      #     7/18
+RETURN                                                                          #     8/18
+PUSHS int@0                                                                     #     9/18
+RETURN                                                                          #    10/18
+# END FUNCTION                                                                  #    11/18
+# MAIN                                                                          #    13/18
+LABEL main                                                                      #    14/18
+CREATEFRAME                                                                     #    15/18
+PUSHFRAME                                                                       #    16/18
+DEFVAR LF@b                                                                     #    17/18
+MOVE LF@b int@0                                                                 #    18/18

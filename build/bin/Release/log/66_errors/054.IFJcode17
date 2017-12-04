@@ -1,0 +1,52 @@
+# 2017-12-03 11:37:34.357586
+# SECTION: 66_errors
+# TEST: 054
+# INFO: False print
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Error line:
+# 	 print42; 
+# 	 ^~~~~~~
+# 
+# Exit code:  3
+# Error:      Usage of undefined reference print42 on line 2:2.
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 2
+# CURRENT COMPILER EXIT CODE: 3
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: scope 
+#   2:  print42; 
+#   3:  end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/7
+JUMP main                                                                       #     2/7
+# MAIN                                                                          #     4/7
+LABEL main                                                                      #     5/7
+CREATEFRAME                                                                     #     6/7
+PUSHFRAME                                                                       #     7/7

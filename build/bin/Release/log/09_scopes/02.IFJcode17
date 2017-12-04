@@ -1,0 +1,108 @@
+# 2017-12-03 11:37:12.381149
+# SECTION: 09_scopes
+# TEST: 02
+# INFO: declaration in while block
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# An error occured during program execution!
+# ==========================================
+# 
+# You will find more detailed information below.
+# 
+# Error line:
+# 	        dim a as integer = 1234
+# 	^
+# 
+# Exit code:  3
+# Error:      Unknown error occured during parsing.
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+#  669878 669878 669878 669878 669878
+#  1234 1234 1234 1234 1234 1234
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 3
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' declaration in while block
+#   2: scope
+#   3:     dim counter as integer = 10
+#   4: 
+#   5:     do while counter < 15
+#   6:         dim a as integer = 669878
+#   7:         print a;
+#   8:         counter = counter + 1
+#   9:     loop
+#  10:     print !"\n";
+#  11:     counter = 100
+#  12:     do while counter < 106
+#  13:         dim a as integer = 1234
+#  14:         print a;
+#  15:         counter = counter + 1
+#  16:     loop
+#  17: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/47
+JUMP main                                                                       #     2/47
+# MAIN                                                                          #     4/47
+LABEL main                                                                      #     5/47
+CREATEFRAME                                                                     #     6/47
+PUSHFRAME                                                                       #     7/47
+DEFVAR LF@counter                                                               #     8/47
+MOVE LF@counter int@0                                                           #     9/47
+PUSHS int@10                                                                    #    10/47
+POPS LF@counter                                                                 #    11/47
+CLEARS                                                                          #    12/47
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    13/47
+PUSHS LF@counter                                                                #    14/47
+PUSHS int@15                                                                    #    15/47
+LTS                                                                             #    16/47
+PUSHS bool@true                                                                 #    17/47
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    18/47
+DEFVAR LF@a                                                                     #    19/47
+MOVE LF@a int@0                                                                 #    20/47
+PUSHS int@669878                                                                #    21/47
+POPS LF@a                                                                       #    22/47
+CLEARS                                                                          #    23/47
+PUSHS LF@a                                                                      #    24/47
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    25/47
+POPS LF@__INTERNAL__VAR_0                                                       #    26/47
+WRITE LF@__INTERNAL__VAR_0                                                      #    27/47
+PUSHS LF@counter                                                                #    28/47
+PUSHS int@1                                                                     #    29/47
+ADDS                                                                            #    30/47
+POPS LF@counter                                                                 #    31/47
+CLEARS                                                                          #    32/47
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    33/47
+LABEL __INTERNAL__LOOP_0_END                                                    #    34/47
+PUSHS string@\n                                                                 #    35/47
+DEFVAR LF@__INTERNAL__VAR_0                                                     #    36/47
+POPS LF@__INTERNAL__VAR_0                                                       #    37/47
+WRITE LF@__INTERNAL__VAR_0                                                      #    38/47
+PUSHS int@100                                                                   #    39/47
+POPS LF@counter                                                                 #    40/47
+CLEARS                                                                          #    41/47
+LABEL __INTERNAL__LOOP_1_BEGIN                                                  #    42/47
+PUSHS LF@counter                                                                #    43/47
+PUSHS int@106                                                                   #    44/47
+LTS                                                                             #    45/47
+PUSHS bool@true                                                                 #    46/47
+JUMPIFNEQS __INTERNAL__LOOP_1_END                                               #    47/47
