@@ -460,7 +460,6 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
     //  Nastavíme se na začátek seznamu instrukcí
     InstructionList_first(preprocessed_ilist);
     InstructionPtr i = InstructionList_getActive(preprocessed_ilist);
-    InstructionPtr i_end = NULL;
     InstructionPtr iX = NULL;
     InstructionPtr iX_end = NULL;
     InstructionPtr iY = NULL;
@@ -531,20 +530,6 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                 }
             }
 
-            if (i->isBlockBegin)
-            {
-                i_end = i->next;
-                while (i_end != NULL || i_end->isBlockEnd != true)
-                {
-                    i_end = i_end->next;
-                }
-
-                if (i_end == NULL)
-                {
-                    return SYNTAX_ERROR;
-                }
-            }
-
             #ifdef DEBUG_VERBOSE
             DEBUG_LOG(source, "validating operation");
             DEBUG_PRINT("\toperator: %s,\n\tx = %p\n\tdt x = %s,\n\ty = %p\n\tdt y = %s\n", TokenType_toString(token->type), iX, SymbolType_toString(iX ? (int) iX->dataType : -1), iY, SymbolType_toString(iY ? (int) iY->dataType : -1));
@@ -562,8 +547,10 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                 case BACK_SLASH:
                 case EQ:
                 case LT:
+                case LTEQ:
                 case LTGT:
                 case GT:
+                case GTEQ:
                 case AND:
                 case OR:
                     if (iX == NULL || iY == NULL || SymbolType_isBinaryOperationOk(iX->dataType, iY->dataType, token) == false)

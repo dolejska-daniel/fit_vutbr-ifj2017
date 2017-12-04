@@ -1,25 +1,37 @@
-# 2017-12-03 23:08:57.986202
+# 2017-12-04 10:53:23.573047
 # SECTION: 01_basic
 # TEST: 13
 # INFO: Multi line string
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
-# Wrong escape sequence!
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IPUSHS at line: 9 with following arguments:
+# Arg1: Const@=ahoj
+# svete(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 10 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 11 with following arguments:
+# Arg1: Stack@=ahoj
+# svete(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 12 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=ahoj
+# svete(string)
+# Executing instruction: IJUMP at line: 13 with following arguments:
+# Executing instruction: ILABEL at line: 16 with following arguments:
 # 
-# EXPECTED INTERPRETER STDOUT:
-
-# ahoj
-# svete
-
-
-# CURRENT INTERPRETER STDOUT:
-
-
+# STDOUT DIFF:
+# 
 
 # INTERPRETER STDIN: 
 # 
@@ -27,8 +39,8 @@
 # EXPECTED COMPILER EXIT CODE: 0
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: 51
-# PRICE: ---
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 30 (17+13)
 # 
 #   1: scope 
 #   2:  print !"ahoj\nsvete"; 
@@ -43,7 +55,7 @@ LABEL main                                                                      
 CREATEFRAME                                                                     #     6/16
 PUSHFRAME                                                                       #     7/16
 CREATEFRAME                                                                     #     8/16
-PUSHS string@ahoj\nsvete                                                        #     9/16
+PUSHS string@ahoj\010svete                                                      #     9/16
 DEFVAR TF@__INTERNAL__VAR_0                                                     #    10/16
 POPS TF@__INTERNAL__VAR_0                                                       #    11/16
 WRITE TF@__INTERNAL__VAR_0                                                      #    12/16

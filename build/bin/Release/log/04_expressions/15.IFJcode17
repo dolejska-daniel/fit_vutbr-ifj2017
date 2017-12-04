@@ -1,9 +1,9 @@
-# 2017-12-03 23:09:05.032939
+# 2017-12-04 10:53:30.376637
 # SECTION: 04_expressions
 # TEST: 15
 # INFO: exp(x) 6 iteration without loop
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -71,98 +71,60 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/96
-JUMP main                                                                       #     2/96
-# MAIN                                                                          #     4/96
-LABEL main                                                                      #     5/96
-CREATEFRAME                                                                     #     6/96
-PUSHFRAME                                                                       #     7/96
-CREATEFRAME                                                                     #     8/96
-DEFVAR LF@vysledek                                                              #     9/96
-MOVE LF@vysledek float@0.0                                                      #    10/96
-DEFVAR LF@citatel                                                               #    11/96
-MOVE LF@citatel int@0                                                           #    12/96
-PUSHS int@1                                                                     #    13/96
-POPS LF@citatel                                                                 #    14/96
-CLEARS                                                                          #    15/96
-DEFVAR LF@jmenovatel                                                            #    16/96
-MOVE LF@jmenovatel int@0                                                        #    17/96
-PUSHS int@1                                                                     #    18/96
-POPS LF@jmenovatel                                                              #    19/96
-CLEARS                                                                          #    20/96
-PUSHS LF@vysledek                                                               #    21/96
-PUSHS LF@citatel                                                                #    22/96
-INT2FLOATS                                                                      #    23/96
-PUSHS LF@jmenovatel                                                             #    24/96
-INT2FLOATS                                                                      #    25/96
-DIVS                                                                            #    26/96
-ADDS                                                                            #    27/96
-POPS LF@vysledek                                                                #    28/96
-CLEARS                                                                          #    29/96
-PUSHS LF@citatel                                                                #    30/96
-PUSHS int@2                                                                     #    31/96
-MULS                                                                            #    32/96
-POPS LF@citatel                                                                 #    33/96
-CLEARS                                                                          #    34/96
-PUSHS LF@jmenovatel                                                             #    35/96
-PUSHS int@1                                                                     #    36/96
-MULS                                                                            #    37/96
-POPS LF@jmenovatel                                                              #    38/96
-CLEARS                                                                          #    39/96
-PUSHS LF@vysledek                                                               #    40/96
-PUSHS LF@citatel                                                                #    41/96
-INT2FLOATS                                                                      #    42/96
-PUSHS LF@jmenovatel                                                             #    43/96
-INT2FLOATS                                                                      #    44/96
-DIVS                                                                            #    45/96
-ADDS                                                                            #    46/96
-POPS LF@vysledek                                                                #    47/96
-CLEARS                                                                          #    48/96
-PUSHS LF@citatel                                                                #    49/96
-PUSHS int@2                                                                     #    50/96
-MULS                                                                            #    51/96
-POPS LF@citatel                                                                 #    52/96
-CLEARS                                                                          #    53/96
-PUSHS LF@jmenovatel                                                             #    54/96
-PUSHS int@2                                                                     #    55/96
-MULS                                                                            #    56/96
-POPS LF@jmenovatel                                                              #    57/96
-CLEARS                                                                          #    58/96
-PUSHS LF@vysledek                                                               #    59/96
-PUSHS LF@citatel                                                                #    60/96
-INT2FLOATS                                                                      #    61/96
-PUSHS LF@jmenovatel                                                             #    62/96
-INT2FLOATS                                                                      #    63/96
-DIVS                                                                            #    64/96
-ADDS                                                                            #    65/96
-POPS LF@vysledek                                                                #    66/96
-CLEARS                                                                          #    67/96
-PUSHS LF@citatel                                                                #    68/96
-PUSHS int@2                                                                     #    69/96
-MULS                                                                            #    70/96
-POPS LF@citatel                                                                 #    71/96
-CLEARS                                                                          #    72/96
-PUSHS LF@jmenovatel                                                             #    73/96
-PUSHS int@3                                                                     #    74/96
-MULS                                                                            #    75/96
-POPS LF@jmenovatel                                                              #    76/96
-CLEARS                                                                          #    77/96
-PUSHS LF@vysledek                                                               #    78/96
-PUSHS LF@citatel                                                                #    79/96
-INT2FLOATS                                                                      #    80/96
-PUSHS LF@jmenovatel                                                             #    81/96
-INT2FLOATS                                                                      #    82/96
-DIVS                                                                            #    83/96
-ADDS                                                                            #    84/96
-POPS LF@vysledek                                                                #    85/96
-CLEARS                                                                          #    86/96
-PUSHS LF@citatel                                                                #    87/96
-PUSHS int@2                                                                     #    88/96
-MULS                                                                            #    89/96
-POPS LF@citatel                                                                 #    90/96
-CLEARS                                                                          #    91/96
-PUSHS LF@jmenovatel                                                             #    92/96
-PUSHS int@4                                                                     #    93/96
-MULS                                                                            #    94/96
-POPS LF@jmenovatel                                                              #    95/96
-CLEARS                                                                          #    96/96
+.IFJcode17                                                                      #     1/58
+JUMP main                                                                       #     2/58
+# MAIN                                                                          #     4/58
+LABEL main                                                                      #     5/58
+CREATEFRAME                                                                     #     6/58
+PUSHFRAME                                                                       #     7/58
+CREATEFRAME                                                                     #     8/58
+DEFVAR LF@vysledek                                                              #     9/58
+MOVE LF@vysledek float@0.0                                                      #    10/58
+DEFVAR LF@citatel                                                               #    11/58
+MOVE LF@citatel int@0                                                           #    12/58
+PUSHS int@1                                                                     #    13/58
+POPS LF@citatel                                                                 #    14/58
+CLEARS                                                                          #    15/58
+DEFVAR LF@jmenovatel                                                            #    16/58
+MOVE LF@jmenovatel int@0                                                        #    17/58
+PUSHS int@1                                                                     #    18/58
+POPS LF@jmenovatel                                                              #    19/58
+CLEARS                                                                          #    20/58
+PUSHS LF@vysledek                                                               #    21/58
+PUSHS LF@citatel                                                                #    22/58
+INT2FLOATS                                                                      #    23/58
+PUSHS LF@jmenovatel                                                             #    24/58
+INT2FLOATS                                                                      #    25/58
+DIVS                                                                            #    26/58
+ADDS                                                                            #    27/58
+POPS LF@vysledek                                                                #    28/58
+CLEARS                                                                          #    29/58
+PUSHS LF@citatel                                                                #    30/58
+PUSHS int@2                                                                     #    31/58
+MULS                                                                            #    32/58
+POPS LF@citatel                                                                 #    33/58
+CLEARS                                                                          #    34/58
+PUSHS LF@jmenovatel                                                             #    35/58
+PUSHS int@1                                                                     #    36/58
+MULS                                                                            #    37/58
+POPS LF@jmenovatel                                                              #    38/58
+CLEARS                                                                          #    39/58
+PUSHS LF@vysledek                                                               #    40/58
+PUSHS LF@citatel                                                                #    41/58
+INT2FLOATS                                                                      #    42/58
+PUSHS LF@jmenovatel                                                             #    43/58
+INT2FLOATS                                                                      #    44/58
+DIVS                                                                            #    45/58
+ADDS                                                                            #    46/58
+POPS LF@vysledek                                                                #    47/58
+CLEARS                                                                          #    48/58
+PUSHS LF@citatel                                                                #    49/58
+PUSHS int@2                                                                     #    50/58
+MULS                                                                            #    51/58
+POPS LF@citatel                                                                 #    52/58
+CLEARS                                                                          #    53/58
+PUSHS LF@jmenovatel                                                             #    54/58
+PUSHS int@2                                                                     #    55/58
+MULS                                                                            #    56/58
+POPS LF@jmenovatel                                                              #    57/58
+CLEARS                                                                          #    58/58

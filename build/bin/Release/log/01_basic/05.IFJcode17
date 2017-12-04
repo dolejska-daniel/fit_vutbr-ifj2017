@@ -1,15 +1,14 @@
-# 2017-12-03 23:08:57.655823
+# 2017-12-04 10:53:21.881048
 # SECTION: 01_basic
 # TEST: 05
 # INFO: string escape sequences
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
-# Wrong escape sequence!
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -25,7 +24,7 @@
 # EXPECTED COMPILER EXIT CODE: 0
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: 51
+# CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
 # 
 #   1: ' string escape sequences
@@ -45,12 +44,12 @@ PUSHFRAME                                                                       
 CREATEFRAME                                                                     #     8/22
 DEFVAR LF@str                                                                   #     9/22
 MOVE LF@str string@                                                             #    10/22
-PUSHS string@\"\n\t\\\238                                                       #    11/22
+PUSHS string@\034\010\009\092\238                                               #    11/22
 POPS LF@str                                                                     #    12/22
 CLEARS                                                                          #    13/22
 DEFVAR LF@str0                                                                  #    14/22
 MOVE LF@str0 string@                                                            #    15/22
-PUSHS string@\001\255\\\n                                                       #    16/22
+PUSHS string@\001\255\092\010                                                   #    16/22
 POPS LF@str0                                                                    #    17/22
 CLEARS                                                                          #    18/22
 JUMP __INTERNAL__FILE_END                                                       #    19/22

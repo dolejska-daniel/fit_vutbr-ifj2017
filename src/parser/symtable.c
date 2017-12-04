@@ -1001,7 +1001,7 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
                 return false;
         }
     }
-    else if (o->type == LT)
+    else if (o->type == LT || o->type == LTEQ)
     {
         //  Porovnání (less than)
         switch (type)
@@ -1016,7 +1016,7 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
         }
 
     }
-    else if (o->type == GT)
+    else if (o->type == GT || o->type == GTEQ)
     {
         //  Porovnání (greater than)
         switch (type)
@@ -1030,41 +1030,9 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
                 return false;
         }
     }
-    else if (o->type == AND)
+    else if (o->type == AND || o->type == OR || o->type == NOT)
     {
         //  Konjunkce
-        switch (type)
-        {
-            /*
-            case ST_DOUBLE:
-            case ST_INTEGER:
-            case ST_STRING:
-            */
-            case ST_BOOLEAN:
-                return true;
-            default:
-                return false;
-        }
-    }
-    else if (o->type == OR)
-    {
-        //  Disjunkce
-        switch (type)
-        {
-            /*
-            case ST_DOUBLE:
-            case ST_INTEGER:
-            case ST_STRING:
-            */
-            case ST_BOOLEAN:
-                return true;
-            default:
-                return false;
-        }
-    }
-    else if (o->type == NOT)
-    {
-        //  Negace
         switch (type)
         {
             /*

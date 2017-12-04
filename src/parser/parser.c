@@ -3195,6 +3195,7 @@ int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTa
     bool last_operand_was_operator = false; // Jiný než závorky
 
     TokenPtr  token;
+    TokenPtr  func_token;
     SymbolPtr symbol = NULL;
 
 
@@ -3239,8 +3240,70 @@ int Parser_ParseSubExpression(InputPtr input, InstructionListPtr ilist, SymbolTa
             {
                 if (symbol->type == ST_FUNCTION)
                 {
-                    //parser_result = Parser_ParseFunctionCall();
-                    return SYNTAX_ERROR;
+                    func_token = token;
+                    //  Posledním operandem byl identifikátor funkce, bude se volat funkce
+                    DEBUG_LOG(source, "function identifier in expression");
+
+                    scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
+                    if (token->type != OPEN_BRACKET)
+                    {
+                        DEBUG_LOG(source, "function identifier in expression");
+                        //  TODO: Error message
+                        return SEMANTICAL_DEFINITION_ERROR;
+                    }
+                    DEBUG_LOG(source, "open bracket after function identifier, extracting parameters");
+
+                    TokenStackPtr tStack = TokenStack_create();
+                    int bracketPairs = 0;
+                    do
+                    {
+                        if (token->type == OPEN_BRACKET)
+                        {
+                            //  Je očekávána nová dvojice závorek
+                            bracketPairs++;
+                        }
+                        else if (token->type == CLOSE_BRACKET)
+                        {
+                            //  Ukončení dvojice
+                            bracketPairs--;
+                        }
+                        else if (token->type == LINE_END || token->type == FILE_END)
+                        {
+                            //  TOTO: Error message
+                            return SYNTAX_ERROR;
+                            break;
+                        }
+
+                        TokenStack_push(tStack, token);
+                        if (bracketPairs == 0)
+                        {
+                            //  Všechny závorky byly uzavřeny
+                            break;
+                        }
+                        scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
+                        if (scanner_result != NO_ERROR)
+                        {
+                            return scanner_result;
+                        }
+                    }
+                    while(true);
+
+                    //  Uložení načtených parametrů k symbolu funkce
+                    //symbol->value2 = tStack;
+
+                    DEBUG_LOG(source, "function params successfully extracted");
+                    Symbol_debugPrint(symbol);
+                    TokenStack_debugPrint(tStack);
+
+                    DEBUG_LOG(source, "calling infix2postfix_addOperand");
+                    infix2postfix_addOperand(tokenStack, postfix, func_token, symbol, tStack);
+                    DEBUG_LOG(source, "return from infix2postfix_addOperand");
+
+                    scanner_result = Parser_getToken(source, input, NULL, NO_REQUIRED_TYPE, &token);
+
+                    last_operand_was_variable = true;
+                    last_operand_was_operator = false;
+                    continue;
                 }
                 else
                 {

@@ -1,9 +1,9 @@
-# 2017-12-03 23:09:21.975990
+# 2017-12-04 10:53:32.482738
 # SECTION: 09_scopes
 # TEST: 02
 # INFO: declaration in while block
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -89,7 +89,7 @@ JUMP __INTERNAL__LOOP_0_BEGIN                                                   
 # DO WHILE FALSE                                                                #    39/56
 LABEL __INTERNAL__LOOP_0_END                                                    #    40/56
 # DO WHILE END                                                                  #    41/56
-PUSHS string@\n                                                                 #    42/56
+PUSHS string@\010                                                               #    42/56
 POPS TF@__INTERNAL__VAR_0                                                       #    43/56
 WRITE TF@__INTERNAL__VAR_0                                                      #    44/56
 PUSHS int@100                                                                   #    45/56

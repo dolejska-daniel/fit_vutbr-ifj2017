@@ -1,32 +1,97 @@
-# 2017-12-03 23:09:08.833545
+# 2017-12-04 10:53:30.462365
 # SECTION: 04_expressions
 # TEST: 18
 # INFO: comments inside expressions
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 15 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 16 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 17 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 18 with following arguments:
+# Executing instruction: IDEFVAR at line: 19 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 20 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: ICREATEFRAME at line: 21 with following arguments:
+# Executing instruction: ICALL at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 6 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Arg1: Const@=39(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 9 with following arguments:
+# Executing instruction: IPOPFRAME at line: 23 with following arguments:
+# Executing instruction: IPOPS at line: 24 with following arguments:
+# Arg1: Stack@=39(int)
+# Dest: LF@a=0(int)
+# Executing instruction: ICLEARS at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=39(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=3(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 28 with following arguments:
+# Arg1: Stack@=39(int)
+# Arg2: Stack@=3(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=6(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 30 with following arguments:
+# Arg1: Stack@=42(int)
+# Arg2: Stack@=6(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=48(int)
+# Dest: LF@a=39(int)
+# Executing instruction: ICLEARS at line: 32 with following arguments:
+# Executing instruction: IPUSHS at line: 33 with following arguments:
+# Arg1: LF@a=48(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 35 with following arguments:
+# Arg1: Stack@=48(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 36 with following arguments:
+# Arg1: Stack@=96(int)
+# Dest: LF@a=48(int)
+# Executing instruction: ICLEARS at line: 37 with following arguments:
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: LF@a=96(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 39 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 40 with following arguments:
+# Arg1: Stack@=96(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 41 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=96(int)
+# Executing instruction: IJUMP at line: 42 with following arguments:
+# Executing instruction: ILABEL at line: 45 with following arguments:
 # 
-# EXPECTED INTERPRETER STDOUT:
-
-#  96
-
-
-# CURRENT INTERPRETER STDOUT:
-
-
+# STDOUT DIFF:
+# 
 
 # INTERPRETER STDIN: 
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 3221225477
+# CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: None
-# PRICE: ---
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 130 (61+69)
 # 
 #   1: ' comments inside expressions
 #   2: 
@@ -46,4 +111,45 @@
 
 ########################################
 
-# ---
+.IFJcode17                                                                      #     1/45
+JUMP main                                                                       #     2/45
+# FUNCTION                                                                      #     4/45
+LABEL foo                                                                       #     5/45
+PUSHFRAME                                                                       #     6/45
+CREATEFRAME                                                                     #     7/45
+PUSHS int@39                                                                    #     8/45
+RETURN                                                                          #     9/45
+PUSHS int@0                                                                     #    10/45
+RETURN                                                                          #    11/45
+# END FUNCTION                                                                  #    12/45
+# MAIN                                                                          #    14/45
+LABEL main                                                                      #    15/45
+CREATEFRAME                                                                     #    16/45
+PUSHFRAME                                                                       #    17/45
+CREATEFRAME                                                                     #    18/45
+DEFVAR LF@a                                                                     #    19/45
+MOVE LF@a int@0                                                                 #    20/45
+CREATEFRAME                                                                     #    21/45
+CALL foo                                                                        #    22/45
+POPFRAME                                                                        #    23/45
+POPS LF@a                                                                       #    24/45
+CLEARS                                                                          #    25/45
+PUSHS LF@a                                                                      #    26/45
+PUSHS int@3                                                                     #    27/45
+ADDS                                                                            #    28/45
+PUSHS int@6                                                                     #    29/45
+ADDS                                                                            #    30/45
+POPS LF@a                                                                       #    31/45
+CLEARS                                                                          #    32/45
+PUSHS LF@a                                                                      #    33/45
+PUSHS int@2                                                                     #    34/45
+MULS                                                                            #    35/45
+POPS LF@a                                                                       #    36/45
+CLEARS                                                                          #    37/45
+PUSHS LF@a                                                                      #    38/45
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    39/45
+POPS TF@__INTERNAL__VAR_0                                                       #    40/45
+WRITE TF@__INTERNAL__VAR_0                                                      #    41/45
+JUMP __INTERNAL__FILE_END                                                       #    42/45
+# PROGRAM END                                                                   #    44/45
+LABEL __INTERNAL__FILE_END                                                      #    45/45

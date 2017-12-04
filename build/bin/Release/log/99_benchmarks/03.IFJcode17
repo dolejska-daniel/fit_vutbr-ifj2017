@@ -1,15 +1,14 @@
-# 2017-12-03 23:09:43.918840
+# 2017-12-04 10:53:38.106694
 # SECTION: 99_benchmarks
 # TEST: 03
 # INFO: Tower of Hanoi for 4 rodes
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: BOOLOP, IFTHEN, UNARY, FUNEXP
+# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
-# Wrong escape sequence!
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -38,9 +37,9 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 3221225477
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: 51
+# CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
 # 
 #   1: ' Tower of Hanoi for 4 rodes
@@ -64,133 +63,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/133
-JUMP main                                                                       #     2/133
-# FUNCTION                                                                      #     4/133
-LABEL hanoi                                                                     #     5/133
-PUSHFRAME                                                                       #     6/133
-CREATEFRAME                                                                     #     7/133
-DEFVAR LF@c                                                                     #     8/133
-MOVE LF@c int@0                                                                 #     9/133
-# IF BLOCK                                                                      #    10/133
-CREATEFRAME                                                                     #    11/133
-# IF                                                                            #    12/133
-PUSHS LF@n                                                                      #    13/133
-PUSHS int@1                                                                     #    14/133
-EQS                                                                             #    15/133
-PUSHS bool@true                                                                 #    16/133
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    17/133
-# THEN                                                                          #    18/133
-PUSHS string@Move\032disk\0321\032from\032row\032                               #    19/133
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    20/133
-POPS TF@__INTERNAL__VAR_0                                                       #    21/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    22/133
-PUSHS LF@from                                                                   #    23/133
-POPS TF@__INTERNAL__VAR_0                                                       #    24/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    25/133
-PUSHS string@\032to\032rod\032                                                  #    26/133
-POPS TF@__INTERNAL__VAR_0                                                       #    27/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    28/133
-PUSHS LF@to                                                                     #    29/133
-POPS TF@__INTERNAL__VAR_0                                                       #    30/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    31/133
-PUSHS string@\n                                                                 #    32/133
-POPS TF@__INTERNAL__VAR_0                                                       #    33/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    34/133
-PUSHS int@0                                                                     #    35/133
-RETURN                                                                          #    36/133
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    37/133
-LABEL __INTERNAL__COND_0_END                                                    #    38/133
-# END IF                                                                        #    39/133
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    40/133
-# END IF BLOCK                                                                  #    41/133
-CREATEFRAME                                                                     #    42/133
-PUSHS LF@n                                                                      #    43/133
-PUSHS int@1                                                                     #    44/133
-SUBS                                                                            #    45/133
-DEFVAR TF@n                                                                     #    46/133
-POPS TF@n                                                                       #    47/133
-PUSHS LF@from                                                                   #    48/133
-DEFVAR TF@from                                                                  #    49/133
-POPS TF@from                                                                    #    50/133
-PUSHS LF@middle                                                                 #    51/133
-DEFVAR TF@to                                                                    #    52/133
-POPS TF@to                                                                      #    53/133
-PUSHS LF@to                                                                     #    54/133
-DEFVAR TF@middle                                                                #    55/133
-POPS TF@middle                                                                  #    56/133
-CALL hanoi                                                                      #    57/133
-POPFRAME                                                                        #    58/133
-POPS LF@c                                                                       #    59/133
-CLEARS                                                                          #    60/133
-PUSHS string@Move\032disk                                                       #    61/133
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    62/133
-POPS TF@__INTERNAL__VAR_0                                                       #    63/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    64/133
-PUSHS LF@n                                                                      #    65/133
-POPS TF@__INTERNAL__VAR_0                                                       #    66/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    67/133
-PUSHS string@\032from\032row\032                                                #    68/133
-POPS TF@__INTERNAL__VAR_0                                                       #    69/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    70/133
-PUSHS LF@from                                                                   #    71/133
-POPS TF@__INTERNAL__VAR_0                                                       #    72/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    73/133
-PUSHS string@\032to\032rod\032                                                  #    74/133
-POPS TF@__INTERNAL__VAR_0                                                       #    75/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    76/133
-PUSHS LF@to                                                                     #    77/133
-POPS TF@__INTERNAL__VAR_0                                                       #    78/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    79/133
-PUSHS string@\n                                                                 #    80/133
-POPS TF@__INTERNAL__VAR_0                                                       #    81/133
-WRITE TF@__INTERNAL__VAR_0                                                      #    82/133
-CREATEFRAME                                                                     #    83/133
-PUSHS LF@n                                                                      #    84/133
-PUSHS int@1                                                                     #    85/133
-SUBS                                                                            #    86/133
-DEFVAR TF@n                                                                     #    87/133
-POPS TF@n                                                                       #    88/133
-PUSHS LF@middle                                                                 #    89/133
-DEFVAR TF@from                                                                  #    90/133
-POPS TF@from                                                                    #    91/133
-PUSHS LF@to                                                                     #    92/133
-DEFVAR TF@to                                                                    #    93/133
-POPS TF@to                                                                      #    94/133
-PUSHS LF@from                                                                   #    95/133
-DEFVAR TF@middle                                                                #    96/133
-POPS TF@middle                                                                  #    97/133
-CALL hanoi                                                                      #    98/133
-POPFRAME                                                                        #    99/133
-POPS LF@c                                                                       #   100/133
-CLEARS                                                                          #   101/133
-PUSHS int@0                                                                     #   102/133
-RETURN                                                                          #   103/133
-# END FUNCTION                                                                  #   104/133
-# MAIN                                                                          #   106/133
-LABEL main                                                                      #   107/133
-CREATEFRAME                                                                     #   108/133
-PUSHFRAME                                                                       #   109/133
-CREATEFRAME                                                                     #   110/133
-DEFVAR LF@c                                                                     #   111/133
-MOVE LF@c int@0                                                                 #   112/133
-CREATEFRAME                                                                     #   113/133
-PUSHS int@4                                                                     #   114/133
-DEFVAR TF@n                                                                     #   115/133
-POPS TF@n                                                                       #   116/133
-PUSHS string@A                                                                  #   117/133
-DEFVAR TF@from                                                                  #   118/133
-POPS TF@from                                                                    #   119/133
-PUSHS string@B                                                                  #   120/133
-DEFVAR TF@to                                                                    #   121/133
-POPS TF@to                                                                      #   122/133
-PUSHS string@C                                                                  #   123/133
-DEFVAR TF@middle                                                                #   124/133
-POPS TF@middle                                                                  #   125/133
-CALL hanoi                                                                      #   126/133
-POPFRAME                                                                        #   127/133
-POPS LF@c                                                                       #   128/133
-CLEARS                                                                          #   129/133
-JUMP __INTERNAL__FILE_END                                                       #   130/133
-# PROGRAM END                                                                   #   132/133
-LABEL __INTERNAL__FILE_END                                                      #   133/133
+# ---
