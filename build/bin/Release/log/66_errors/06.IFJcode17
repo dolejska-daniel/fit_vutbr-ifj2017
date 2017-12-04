@@ -1,10 +1,10 @@
-# 2017-12-04 10:53:33.006631
+# 2017-12-04 14:49:26.872946
 # SECTION: 66_errors
 # TEST: 06
 # INFO: Call function with too little arguments
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
@@ -22,7 +22,7 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 4
-# CURRENT COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 4
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: None
 # PRICE: ---
@@ -41,30 +41,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/30
-JUMP main                                                                       #     2/30
-# FUNCTION                                                                      #     4/30
-LABEL foo                                                                       #     5/30
-PUSHFRAME                                                                       #     6/30
-CREATEFRAME                                                                     #     7/30
-PUSHS int@0                                                                     #     8/30
-RETURN                                                                          #     9/30
-# END FUNCTION                                                                  #    10/30
-# MAIN                                                                          #    12/30
-LABEL main                                                                      #    13/30
-CREATEFRAME                                                                     #    14/30
-PUSHFRAME                                                                       #    15/30
-CREATEFRAME                                                                     #    16/30
-DEFVAR LF@a                                                                     #    17/30
-MOVE LF@a int@0                                                                 #    18/30
-CREATEFRAME                                                                     #    19/30
-PUSHS int@31                                                                    #    20/30
-DEFVAR TF@a                                                                     #    21/30
-POPS TF@a                                                                       #    22/30
-CALL foo                                                                        #    23/30
-POPFRAME                                                                        #    24/30
-POPS LF@a                                                                       #    25/30
-CLEARS                                                                          #    26/30
-JUMP __INTERNAL__FILE_END                                                       #    27/30
-# PROGRAM END                                                                   #    29/30
-LABEL __INTERNAL__FILE_END                                                      #    30/30
+# ---

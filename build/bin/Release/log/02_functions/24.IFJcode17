@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:27.792266
+# 2017-12-04 14:49:22.903889
 # SECTION: 02_functions
 # TEST: 24
 # INFO: invalid types without supported implicit conversion II
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -41,10 +41,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/8
-JUMP main                                                                       #     2/8
-# FUNCTION                                                                      #     4/8
-LABEL get_integer                                                               #     5/8
-PUSHFRAME                                                                       #     6/8
-CREATEFRAME                                                                     #     7/8
-PUSHS string@foo                                                                #     8/8
+# ---

@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:32.962513
+# 2017-12-04 14:49:26.831336
 # SECTION: 66_errors
 # TEST: 03
 # INFO: Try to redefinition function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -40,12 +40,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/10
-JUMP main                                                                       #     2/10
-# FUNCTION                                                                      #     4/10
-LABEL erzert                                                                    #     5/10
-PUSHFRAME                                                                       #     6/10
-CREATEFRAME                                                                     #     7/10
-PUSHS int@0                                                                     #     8/10
-RETURN                                                                          #     9/10
-# END FUNCTION                                                                  #    10/10
+# ---

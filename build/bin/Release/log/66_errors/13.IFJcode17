@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:33.111409
+# 2017-12-04 14:49:26.971208
 # SECTION: 66_errors
 # TEST: 13
 # INFO: Input into undeclared variable
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -39,19 +39,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/18
-JUMP main                                                                       #     2/18
-# FUNCTION                                                                      #     4/18
-LABEL foo                                                                       #     5/18
-PUSHFRAME                                                                       #     6/18
-CREATEFRAME                                                                     #     7/18
-DEFVAR LF@a                                                                     #     8/18
-MOVE LF@a int@0                                                                 #     9/18
-PUSHS int@0                                                                     #    10/18
-RETURN                                                                          #    11/18
-# END FUNCTION                                                                  #    12/18
-# MAIN                                                                          #    14/18
-LABEL main                                                                      #    15/18
-CREATEFRAME                                                                     #    16/18
-PUSHFRAME                                                                       #    17/18
-CREATEFRAME                                                                     #    18/18
+# ---

@@ -1,32 +1,1178 @@
-# 2017-12-04 10:53:31.385821
+# 2017-12-04 14:49:25.140837
 # SECTION: 06_loops
 # TEST: 05
 # INFO: while in condition
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 10 with following arguments:
+# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Arg1: Const@=78(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 13 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 14 with following arguments:
+# Arg1: Stack@=78(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 15 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 16 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IDEFVAR at line: 18 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 19 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 20 with following arguments:
+# Arg1: Const@=12(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 21 with following arguments:
+# Arg1: Stack@=12(int)
+# Dest: LF@a=0(int)
+# Executing instruction: ICLEARS at line: 22 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 24 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=12(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=12(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=12(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=12(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=true(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=12(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=12(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 51 with following arguments:
+# Arg1: Const@=69(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 53 with following arguments:
+# Arg1: Stack@=69(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 54 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=69(int)
+# Executing instruction: IJUMP at line: 55 with following arguments:
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=12(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=12(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=11(int)
+# Dest: LF@a=12(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=11(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=11(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=11(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=11(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=true(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=11(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=11(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 51 with following arguments:
+# Arg1: Const@=69(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 53 with following arguments:
+# Arg1: Stack@=69(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 54 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=69(int)
+# Executing instruction: IJUMP at line: 55 with following arguments:
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=11(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=11(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=10(int)
+# Dest: LF@a=11(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=10(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=10(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=10(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=10(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=true(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=10(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=10(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 51 with following arguments:
+# Arg1: Const@=69(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 53 with following arguments:
+# Arg1: Stack@=69(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 54 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=69(int)
+# Executing instruction: IJUMP at line: 55 with following arguments:
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=10(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=10(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=9(int)
+# Dest: LF@a=10(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=9(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=9(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=9(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=9(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=true(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=9(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=9(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 51 with following arguments:
+# Arg1: Const@=69(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 53 with following arguments:
+# Arg1: Stack@=69(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 54 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=69(int)
+# Executing instruction: IJUMP at line: 55 with following arguments:
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=9(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=9(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=8(int)
+# Dest: LF@a=9(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=8(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=8(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=8(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=true(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=8(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
+# Arg1: Const@=11(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 59 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 60 with following arguments:
+# Arg1: Stack@=11(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 61 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=11(int)
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=8(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=7(int)
+# Dest: LF@a=8(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=7(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=7(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=7(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=true(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=7(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
+# Arg1: Const@=11(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 59 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 60 with following arguments:
+# Arg1: Stack@=11(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 61 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=11(int)
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=7(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=6(int)
+# Dest: LF@a=7(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=6(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=6(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=6(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=6(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=true(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=6(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=6(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
+# Arg1: Const@=11(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 59 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 60 with following arguments:
+# Arg1: Stack@=11(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 61 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=11(int)
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=6(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=6(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=5(int)
+# Dest: LF@a=6(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=5(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=5(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=5(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=5(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=true(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=5(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=5(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
+# Arg1: Const@=11(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 59 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 60 with following arguments:
+# Arg1: Stack@=11(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 61 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=11(int)
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=5(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=5(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=4(int)
+# Dest: LF@a=5(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=4(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=4(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=4(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=4(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=true(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=4(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=4(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
+# Arg1: Const@=11(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 59 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 60 with following arguments:
+# Arg1: Stack@=11(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 61 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=11(int)
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=4(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=4(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=3(int)
+# Dest: LF@a=4(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=3(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=3(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=3(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=3(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=true(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=3(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=3(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
+# Arg1: Const@=11(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 59 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 60 with following arguments:
+# Arg1: Stack@=11(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 61 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=11(int)
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=3(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=3(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: LF@a=3(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=2(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=2(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=true(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
+# Arg1: Const@=11(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 59 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 60 with following arguments:
+# Arg1: Stack@=11(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 61 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=11(int)
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: LF@a=2(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=1(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=1(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=false(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=true(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ICREATEFRAME at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: LF@a=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 47 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 49 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 58 with following arguments:
+# Arg1: Const@=11(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 59 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IPOPS at line: 60 with following arguments:
+# Arg1: Stack@=11(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IWRITE at line: 61 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=11(int)
+# Executing instruction: ILABEL at line: 63 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 64 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: LF@a=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 68 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=0(int)
+# Dest: LF@a=1(int)
+# Executing instruction: ICLEARS at line: 70 with following arguments:
+# Executing instruction: IJUMP at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 28 with following arguments:
+# Dest: TF@__INTERNAL__VAR_10
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IDEFVAR at line: 30 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IPOPS at line: 31 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=0(int)
+# Dest: TF@__INTERNAL__VAR_10()
+# Executing instruction: IGT at line: 33 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=0(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IEQ at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_10=0(int)
+# Arg2: TF@__INTERNAL__VAR_11=1(int)
+# Dest: TF@__INTERNAL__VAR_12=false(bool)
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_12=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 39 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 74 with following arguments:
+# Executing instruction: IJUMP at line: 76 with following arguments:
+# Executing instruction: ILABEL at line: 84 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 85 with following arguments:
+# Executing instruction: IJUMP at line: 87 with following arguments:
+# Executing instruction: ILABEL at line: 90 with following arguments:
 # 
-# EXPECTED INTERPRETER STDOUT:
-
-#  69 69 69 69 11 11 11 11 11 11 11 11
-
-
-# CURRENT INTERPRETER STDOUT:
-
-
+# STDOUT DIFF:
+# 
 
 # INTERPRETER STDIN: 
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 3221225477
+# CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: None
-# PRICE: ---
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 2196 (685+1511)
 # 
 #   1: ' while in condition
 #   2: scope
@@ -47,4 +1193,91 @@
 
 ########################################
 
-# ---
+.IFJcode17                                                                      #     1/90
+JUMP main                                                                       #     2/90
+# MAIN                                                                          #     4/90
+LABEL main                                                                      #     5/90
+CREATEFRAME                                                                     #     6/90
+PUSHFRAME                                                                       #     7/90
+CREATEFRAME                                                                     #     8/90
+# IF BLOCK                                                                      #     9/90
+CREATEFRAME                                                                     #    10/90
+# IF                                                                            #    11/90
+PUSHS int@78                                                                    #    12/90
+PUSHS int@2                                                                     #    13/90
+GTS                                                                             #    14/90
+PUSHS bool@true                                                                 #    15/90
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    16/90
+# THEN                                                                          #    17/90
+DEFVAR LF@a                                                                     #    18/90
+MOVE LF@a int@0                                                                 #    19/90
+PUSHS int@12                                                                    #    20/90
+POPS LF@a                                                                       #    21/90
+CLEARS                                                                          #    22/90
+# DO WHILE                                                                      #    23/90
+CREATEFRAME                                                                     #    24/90
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    25/90
+PUSHS LF@a                                                                      #    26/90
+PUSHS int@1                                                                     #    27/90
+DEFVAR TF@__INTERNAL__VAR_10                                                    #    28/90
+DEFVAR TF@__INTERNAL__VAR_11                                                    #    29/90
+DEFVAR TF@__INTERNAL__VAR_12                                                    #    30/90
+POPS TF@__INTERNAL__VAR_11                                                      #    31/90
+POPS TF@__INTERNAL__VAR_10                                                      #    32/90
+GT TF@__INTERNAL__VAR_12 TF@__INTERNAL__VAR_10 TF@__INTERNAL__VAR_11            #    33/90
+PUSHS TF@__INTERNAL__VAR_12                                                     #    34/90
+EQ TF@__INTERNAL__VAR_12 TF@__INTERNAL__VAR_10 TF@__INTERNAL__VAR_11            #    35/90
+PUSHS TF@__INTERNAL__VAR_12                                                     #    36/90
+ORS                                                                             #    37/90
+PUSHS bool@true                                                                 #    38/90
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    39/90
+# DO WHILE TRUE                                                                 #    40/90
+CREATEFRAME                                                                     #    41/90
+# IF BLOCK                                                                      #    42/90
+CREATEFRAME                                                                     #    43/90
+# IF                                                                            #    44/90
+PUSHS LF@a                                                                      #    45/90
+PUSHS int@8                                                                     #    46/90
+GTS                                                                             #    47/90
+PUSHS bool@true                                                                 #    48/90
+JUMPIFNEQS __INTERNAL__COND_1_END                                               #    49/90
+# THEN                                                                          #    50/90
+PUSHS int@69                                                                    #    51/90
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    52/90
+POPS TF@__INTERNAL__VAR_0                                                       #    53/90
+WRITE TF@__INTERNAL__VAR_0                                                      #    54/90
+JUMP __INTERNAL__COND_1_BLOCK_END                                               #    55/90
+LABEL __INTERNAL__COND_1_END                                                    #    56/90
+# ELSE                                                                          #    57/90
+PUSHS int@11                                                                    #    58/90
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    59/90
+POPS TF@__INTERNAL__VAR_0                                                       #    60/90
+WRITE TF@__INTERNAL__VAR_0                                                      #    61/90
+# END IF                                                                        #    62/90
+LABEL __INTERNAL__COND_1_BLOCK_END                                              #    63/90
+CREATEFRAME                                                                     #    64/90
+# END IF BLOCK                                                                  #    65/90
+PUSHS LF@a                                                                      #    66/90
+PUSHS int@1                                                                     #    67/90
+SUBS                                                                            #    68/90
+POPS LF@a                                                                       #    69/90
+CLEARS                                                                          #    70/90
+# LOOP                                                                          #    71/90
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    72/90
+# DO WHILE FALSE                                                                #    73/90
+LABEL __INTERNAL__LOOP_0_END                                                    #    74/90
+# DO WHILE END                                                                  #    75/90
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    76/90
+LABEL __INTERNAL__COND_0_END                                                    #    77/90
+# ELSE                                                                          #    78/90
+PUSHS int@77                                                                    #    79/90
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    80/90
+POPS TF@__INTERNAL__VAR_0                                                       #    81/90
+WRITE TF@__INTERNAL__VAR_0                                                      #    82/90
+# END IF                                                                        #    83/90
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    84/90
+CREATEFRAME                                                                     #    85/90
+# END IF BLOCK                                                                  #    86/90
+JUMP __INTERNAL__FILE_END                                                       #    87/90
+# PROGRAM END                                                                   #    89/90
+LABEL __INTERNAL__FILE_END                                                      #    90/90

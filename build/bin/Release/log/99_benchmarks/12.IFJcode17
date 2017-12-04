@@ -1,42 +1,42 @@
-# 2017-12-04 10:53:38.500739
+# 2017-12-04 14:49:32.269797
 # SECTION: 99_benchmarks
 # TEST: 12
 # INFO: Ackerman function for ackerman(2, 5)
 # REQUIRED EXTENSIONS: FUNEXP
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
 # Executing instruction: IJUMP at line: 2 with following arguments:
-# Executing instruction: ILABEL at line: 81 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 82 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 83 with following arguments:
+# Executing instruction: ILABEL at line: 83 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 84 with following arguments:
-# Executing instruction: IDEFVAR at line: 85 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 85 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 86 with following arguments:
+# Executing instruction: IDEFVAR at line: 87 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 86 with following arguments:
+# Executing instruction: IMOVE at line: 88 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@a()
-# Executing instruction: ICREATEFRAME at line: 87 with following arguments:
-# Executing instruction: IPUSHS at line: 88 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 89 with following arguments:
+# Executing instruction: IPUSHS at line: 90 with following arguments:
 # Arg1: Const@=2(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 89 with following arguments:
+# Executing instruction: IDEFVAR at line: 91 with following arguments:
 # Dest: TF@m
-# Executing instruction: IPOPS at line: 90 with following arguments:
+# Executing instruction: IPOPS at line: 92 with following arguments:
 # Arg1: Stack@=2(int)
 # Dest: TF@m()
-# Executing instruction: IPUSHS at line: 91 with following arguments:
+# Executing instruction: IPUSHS at line: 93 with following arguments:
 # Arg1: Const@=5(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 92 with following arguments:
+# Executing instruction: IDEFVAR at line: 94 with following arguments:
 # Dest: TF@n
-# Executing instruction: IPOPS at line: 93 with following arguments:
+# Executing instruction: IPOPS at line: 95 with following arguments:
 # Arg1: Stack@=5(int)
 # Dest: TF@n()
-# Executing instruction: ICALL at line: 94 with following arguments:
+# Executing instruction: ICALL at line: 96 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 7 with following arguments:
@@ -721,105 +721,107 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/105
-JUMP main                                                                       #     2/105
-# FUNCTION                                                                      #     4/105
-LABEL ackermann                                                                 #     5/105
-PUSHFRAME                                                                       #     6/105
-CREATEFRAME                                                                     #     7/105
-# IF BLOCK                                                                      #     8/105
-CREATEFRAME                                                                     #     9/105
-# IF                                                                            #    10/105
-PUSHS LF@m                                                                      #    11/105
-PUSHS int@0                                                                     #    12/105
-EQS                                                                             #    13/105
-PUSHS bool@true                                                                 #    14/105
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    15/105
-# THEN                                                                          #    16/105
-PUSHS LF@n                                                                      #    17/105
-PUSHS int@1                                                                     #    18/105
-ADDS                                                                            #    19/105
-RETURN                                                                          #    20/105
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    21/105
-LABEL __INTERNAL__COND_0_END                                                    #    22/105
-# ELSE                                                                          #    23/105
-# IF BLOCK                                                                      #    24/105
-CREATEFRAME                                                                     #    25/105
-# IF                                                                            #    26/105
-PUSHS LF@n                                                                      #    27/105
-PUSHS int@0                                                                     #    28/105
-EQS                                                                             #    29/105
-PUSHS bool@true                                                                 #    30/105
-JUMPIFNEQS __INTERNAL__COND_1_END                                               #    31/105
-# THEN                                                                          #    32/105
-CREATEFRAME                                                                     #    33/105
-PUSHS LF@m                                                                      #    34/105
-PUSHS int@1                                                                     #    35/105
-SUBS                                                                            #    36/105
-DEFVAR TF@m                                                                     #    37/105
-POPS TF@m                                                                       #    38/105
-PUSHS int@1                                                                     #    39/105
-DEFVAR TF@n                                                                     #    40/105
-POPS TF@n                                                                       #    41/105
-CALL ackermann                                                                  #    42/105
-POPFRAME                                                                        #    43/105
-RETURN                                                                          #    44/105
-JUMP __INTERNAL__COND_1_BLOCK_END                                               #    45/105
-LABEL __INTERNAL__COND_1_END                                                    #    46/105
-# ELSE                                                                          #    47/105
-CREATEFRAME                                                                     #    48/105
-PUSHS LF@m                                                                      #    49/105
-PUSHS int@1                                                                     #    50/105
-SUBS                                                                            #    51/105
-DEFVAR TF@m                                                                     #    52/105
-POPS TF@m                                                                       #    53/105
-CREATEFRAME                                                                     #    54/105
-PUSHS LF@m                                                                      #    55/105
-DEFVAR TF@m                                                                     #    56/105
-POPS TF@m                                                                       #    57/105
-PUSHS LF@n                                                                      #    58/105
-PUSHS int@1                                                                     #    59/105
-SUBS                                                                            #    60/105
-DEFVAR TF@n                                                                     #    61/105
-POPS TF@n                                                                       #    62/105
-CALL ackermann                                                                  #    63/105
-POPFRAME                                                                        #    64/105
-DEFVAR TF@n                                                                     #    65/105
-POPS TF@n                                                                       #    66/105
-CALL ackermann                                                                  #    67/105
-POPFRAME                                                                        #    68/105
-RETURN                                                                          #    69/105
-# END IF                                                                        #    70/105
-LABEL __INTERNAL__COND_1_BLOCK_END                                              #    71/105
-# END IF BLOCK                                                                  #    72/105
-# END IF                                                                        #    73/105
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    74/105
-# END IF BLOCK                                                                  #    75/105
-PUSHS int@0                                                                     #    76/105
-RETURN                                                                          #    77/105
-# END FUNCTION                                                                  #    78/105
-# MAIN                                                                          #    80/105
-LABEL main                                                                      #    81/105
-CREATEFRAME                                                                     #    82/105
-PUSHFRAME                                                                       #    83/105
-CREATEFRAME                                                                     #    84/105
-DEFVAR LF@a                                                                     #    85/105
-MOVE LF@a int@0                                                                 #    86/105
-CREATEFRAME                                                                     #    87/105
-PUSHS int@2                                                                     #    88/105
-DEFVAR TF@m                                                                     #    89/105
-POPS TF@m                                                                       #    90/105
-PUSHS int@5                                                                     #    91/105
-DEFVAR TF@n                                                                     #    92/105
-POPS TF@n                                                                       #    93/105
-CALL ackermann                                                                  #    94/105
-POPFRAME                                                                        #    95/105
-POPS LF@a                                                                       #    96/105
-CLEARS                                                                          #    97/105
-PUSHS LF@a                                                                      #    98/105
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    99/105
-POPS TF@__INTERNAL__VAR_0                                                       #   100/105
-WRITE TF@__INTERNAL__VAR_0                                                      #   101/105
-JUMP __INTERNAL__FILE_END                                                       #   102/105
-# PROGRAM END                                                                   #   104/105
-LABEL __INTERNAL__FILE_END                                                      #   105/105
+.IFJcode17                                                                      #     1/107
+JUMP main                                                                       #     2/107
+# FUNCTION                                                                      #     4/107
+LABEL ackermann                                                                 #     5/107
+PUSHFRAME                                                                       #     6/107
+CREATEFRAME                                                                     #     7/107
+# IF BLOCK                                                                      #     8/107
+CREATEFRAME                                                                     #     9/107
+# IF                                                                            #    10/107
+PUSHS LF@m                                                                      #    11/107
+PUSHS int@0                                                                     #    12/107
+EQS                                                                             #    13/107
+PUSHS bool@true                                                                 #    14/107
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    15/107
+# THEN                                                                          #    16/107
+PUSHS LF@n                                                                      #    17/107
+PUSHS int@1                                                                     #    18/107
+ADDS                                                                            #    19/107
+RETURN                                                                          #    20/107
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    21/107
+LABEL __INTERNAL__COND_0_END                                                    #    22/107
+# ELSE                                                                          #    23/107
+# IF BLOCK                                                                      #    24/107
+CREATEFRAME                                                                     #    25/107
+# IF                                                                            #    26/107
+PUSHS LF@n                                                                      #    27/107
+PUSHS int@0                                                                     #    28/107
+EQS                                                                             #    29/107
+PUSHS bool@true                                                                 #    30/107
+JUMPIFNEQS __INTERNAL__COND_1_END                                               #    31/107
+# THEN                                                                          #    32/107
+CREATEFRAME                                                                     #    33/107
+PUSHS LF@m                                                                      #    34/107
+PUSHS int@1                                                                     #    35/107
+SUBS                                                                            #    36/107
+DEFVAR TF@m                                                                     #    37/107
+POPS TF@m                                                                       #    38/107
+PUSHS int@1                                                                     #    39/107
+DEFVAR TF@n                                                                     #    40/107
+POPS TF@n                                                                       #    41/107
+CALL ackermann                                                                  #    42/107
+POPFRAME                                                                        #    43/107
+RETURN                                                                          #    44/107
+JUMP __INTERNAL__COND_1_BLOCK_END                                               #    45/107
+LABEL __INTERNAL__COND_1_END                                                    #    46/107
+# ELSE                                                                          #    47/107
+CREATEFRAME                                                                     #    48/107
+PUSHS LF@m                                                                      #    49/107
+PUSHS int@1                                                                     #    50/107
+SUBS                                                                            #    51/107
+DEFVAR TF@m                                                                     #    52/107
+POPS TF@m                                                                       #    53/107
+CREATEFRAME                                                                     #    54/107
+PUSHS LF@m                                                                      #    55/107
+DEFVAR TF@m                                                                     #    56/107
+POPS TF@m                                                                       #    57/107
+PUSHS LF@n                                                                      #    58/107
+PUSHS int@1                                                                     #    59/107
+SUBS                                                                            #    60/107
+DEFVAR TF@n                                                                     #    61/107
+POPS TF@n                                                                       #    62/107
+CALL ackermann                                                                  #    63/107
+POPFRAME                                                                        #    64/107
+DEFVAR TF@n                                                                     #    65/107
+POPS TF@n                                                                       #    66/107
+CALL ackermann                                                                  #    67/107
+POPFRAME                                                                        #    68/107
+RETURN                                                                          #    69/107
+# END IF                                                                        #    70/107
+LABEL __INTERNAL__COND_1_BLOCK_END                                              #    71/107
+CREATEFRAME                                                                     #    72/107
+# END IF BLOCK                                                                  #    73/107
+# END IF                                                                        #    74/107
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    75/107
+CREATEFRAME                                                                     #    76/107
+# END IF BLOCK                                                                  #    77/107
+PUSHS int@0                                                                     #    78/107
+RETURN                                                                          #    79/107
+# END FUNCTION                                                                  #    80/107
+# MAIN                                                                          #    82/107
+LABEL main                                                                      #    83/107
+CREATEFRAME                                                                     #    84/107
+PUSHFRAME                                                                       #    85/107
+CREATEFRAME                                                                     #    86/107
+DEFVAR LF@a                                                                     #    87/107
+MOVE LF@a int@0                                                                 #    88/107
+CREATEFRAME                                                                     #    89/107
+PUSHS int@2                                                                     #    90/107
+DEFVAR TF@m                                                                     #    91/107
+POPS TF@m                                                                       #    92/107
+PUSHS int@5                                                                     #    93/107
+DEFVAR TF@n                                                                     #    94/107
+POPS TF@n                                                                       #    95/107
+CALL ackermann                                                                  #    96/107
+POPFRAME                                                                        #    97/107
+POPS LF@a                                                                       #    98/107
+CLEARS                                                                          #    99/107
+PUSHS LF@a                                                                      #   100/107
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   101/107
+POPS TF@__INTERNAL__VAR_0                                                       #   102/107
+WRITE TF@__INTERNAL__VAR_0                                                      #   103/107
+JUMP __INTERNAL__FILE_END                                                       #   104/107
+# PROGRAM END                                                                   #   106/107
+LABEL __INTERNAL__FILE_END                                                      #   107/107

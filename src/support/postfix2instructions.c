@@ -77,6 +77,12 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
 
     InstructionListPtr preprocess_ilist = InstructionList_create();
 
+    if (operand == NULL)
+    {
+        DEBUG_ERR(source, "postfix expression is empty!");
+        return SYNTAX_ERROR;
+    }
+
     DEBUG_LOG(source, "preprocessing expression");
     //  Preprocess instrukcí do speciálního listu instrukcí
     do
@@ -485,12 +491,8 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
 
             iY = i->prev;
             iY_end = NULL;
-            if (iY == NULL)
-            {
-                return SYNTAX_ERROR;
-            }
 
-            if (iY->isBlockEnd == true)
+            if (iY != NULL && iY->isBlockEnd == true)
             {
                 iY_end = iY;
                 while (iY->isBlockBegin != true)
@@ -511,12 +513,8 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
             //  Operand 2 této operace (předchozí blok předchozího bloku instrukcí)
             iX = iY->prev;
             iX_end = NULL;
-            if (iX == NULL)
-            {
-                return SYNTAX_ERROR;
-            }
 
-            if (iX->isBlockEnd == true)
+            if (iX != NULL && iX->isBlockEnd == true)
             {
                 iX_end = iX;
                 while (iX->isBlockBegin != true)
@@ -553,7 +551,13 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                 case GTEQ:
                 case AND:
                 case OR:
-                    if (iX == NULL || iY == NULL || SymbolType_isBinaryOperationOk(iX->dataType, iY->dataType, token) == false)
+                    if (iX == NULL || iY == NULL)
+                    {
+                        //  TODO: Error message
+                        DEBUG_ERR(source, "missing operands for binary operation");
+                        return SYNTAX_ERROR;
+                    }
+                    else if (SymbolType_isBinaryOperationOk(iX->dataType, iY->dataType, token) == false)
                     {
                         //  TODO: Error message
                         DEBUG_ERR(source, "these operands cannot be used in this binary operation");
@@ -575,6 +579,7 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                             #ifdef DEBUG_VERBOSE
                             DEBUG_LOG(source, "first operand needs to be converted from float to integer");
                             #endif
+                            iX->dataType = resultDataType;
                             i_content = String_create("FLOAT2R2EINTS");
                             if (i_content == NULL)
                             {
@@ -586,6 +591,7 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                             #ifdef DEBUG_VERBOSE
                             DEBUG_LOG(source, "first operand needs to be converted from integer to float");
                             #endif
+                            iX->dataType = resultDataType;
                             i_content = String_create("INT2FLOATS");
                             if (i_content == NULL)
                             {
@@ -616,6 +622,7 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                             #ifdef DEBUG_VERBOSE
                             DEBUG_LOG(source, "second operand needs to be converted from float to integer");
                             #endif
+                            iY->dataType = resultDataType;
                             i_content = String_create("FLOAT2R2EINTS");
                             if (i_content == NULL)
                             {
@@ -627,6 +634,7 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                             #ifdef DEBUG_VERBOSE
                             DEBUG_LOG(source, "second operand needs to be converted from integer to float");
                             #endif
+                            iY->dataType = resultDataType;
                             i_content = String_create("INT2FLOATS");
                             if (i_content == NULL)
                             {
@@ -661,7 +669,6 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                         case GTEQ:
                         case AND:
                         case OR:
-                        case NOT:
                             resultDataType = ST_BOOLEAN;
                             break;
                         default:
@@ -707,7 +714,13 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                 //  Unární operace
                 //
                 case NOT:
-                    if (iY == NULL || SymbolType_isOperationOk(iY->dataType, token) == false)
+                    if (iY == NULL)
+                    {
+                        //  TODO: Error message
+                        DEBUG_ERR(source, "missing operands for unary operation");
+                        return SYNTAX_ERROR;
+                    }
+                    else if (SymbolType_isOperationOk(iY->dataType, token) == false)
                     {
                         //  TODO: Error message
                         DEBUG_ERR(source, "this operand cannot be used in this unary operation");
@@ -717,6 +730,16 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                     #ifdef DEBUG_VERBOSE
                     DEBUG_LOG(source, "this unary operation is valid, validating implicit datatype conversions");
                     #endif
+
+                    //  Opravení výsledného datového typu na základě operace
+                    switch (token->type)
+                    {
+                        case NOT:
+                            resultDataType = ST_BOOLEAN;
+                            break;
+                        default:
+                            break;
+                    }
 
                     iY->isBlockBegin = true;
                     iY->dataType     = resultDataType;

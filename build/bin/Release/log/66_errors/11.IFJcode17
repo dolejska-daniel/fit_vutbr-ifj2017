@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:33.081831
+# 2017-12-04 14:49:26.943133
 # SECTION: 66_errors
 # TEST: 11
 # INFO: Function call undefined function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -43,11 +43,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/9
-JUMP main                                                                       #     2/9
-# FUNCTION                                                                      #     4/9
-LABEL foo                                                                       #     5/9
-PUSHFRAME                                                                       #     6/9
-CREATEFRAME                                                                     #     7/9
-DEFVAR LF@a                                                                     #     8/9
-MOVE LF@a int@0                                                                 #     9/9
+# ---

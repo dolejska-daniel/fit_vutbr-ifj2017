@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:33.588678
+# 2017-12-04 14:49:27.400850
 # SECTION: 66_errors
 # TEST: 033
 # INFO: condition type error with double value
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -34,14 +34,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/12
-JUMP main                                                                       #     2/12
-# MAIN                                                                          #     4/12
-LABEL main                                                                      #     5/12
-CREATEFRAME                                                                     #     6/12
-PUSHFRAME                                                                       #     7/12
-CREATEFRAME                                                                     #     8/12
-# IF BLOCK                                                                      #     9/12
-CREATEFRAME                                                                     #    10/12
-# IF                                                                            #    11/12
-PUSHS float@6789678.6968                                                        #    12/12
+# ---

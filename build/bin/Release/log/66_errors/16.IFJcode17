@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:33.156028
+# 2017-12-04 14:49:27.013821
 # SECTION: 66_errors
 # TEST: 16
 # INFO: function declaration after definition
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -43,14 +43,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/12
-JUMP main                                                                       #     2/12
-# FUNCTION                                                                      #     4/12
-LABEL fce                                                                       #     5/12
-PUSHFRAME                                                                       #     6/12
-CREATEFRAME                                                                     #     7/12
-PUSHS int@0                                                                     #     8/12
-RETURN                                                                          #     9/12
-PUSHS int@0                                                                     #    10/12
-RETURN                                                                          #    11/12
-# END FUNCTION                                                                  #    12/12
+# ---

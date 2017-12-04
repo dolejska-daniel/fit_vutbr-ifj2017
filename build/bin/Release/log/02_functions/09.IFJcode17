@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:25.968416
+# 2017-12-04 14:49:22.388018
 # SECTION: 02_functions
 # TEST: 09
 # INFO: Call built-in feature length
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -41,8 +41,12 @@
 # Arg1: Stack@=ahoj(string)
 # Dest: TF@s()
 # Executing instruction: ICALL at line: 20 with following arguments:
-# Error at line: 20
-# Label does not exist!
+# Executing instruction: ILABEL at line: 31 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 32 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 33 with following arguments:
+# Symbol TF@__INTERNAL__VAR_0 not found!
+# Error at line: 34
+# Symbol is undefined!
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -59,7 +63,7 @@
 # EXPECTED COMPILER EXIT CODE: 0
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: 52
+# CURRENT INTERPRETER EXIT CODE: 54
 # PRICE: ---
 # 
 #   1: ' Call built-in feature length
@@ -73,39 +77,40 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/39
-JUMP main                                                                       #     2/39
-# MAIN                                                                          #     4/39
-LABEL main                                                                      #     5/39
-CREATEFRAME                                                                     #     6/39
-PUSHFRAME                                                                       #     7/39
-CREATEFRAME                                                                     #     8/39
-DEFVAR LF@retezec                                                               #     9/39
-MOVE LF@retezec string@                                                         #    10/39
-PUSHS string@ahoj                                                               #    11/39
-POPS LF@retezec                                                                 #    12/39
-CLEARS                                                                          #    13/39
-DEFVAR LF@a                                                                     #    14/39
-MOVE LF@a int@0                                                                 #    15/39
-CREATEFRAME                                                                     #    16/39
-PUSHS LF@retezec                                                                #    17/39
-DEFVAR TF@s                                                                     #    18/39
-POPS TF@s                                                                       #    19/39
-CALL length                                                                     #    20/39
-POPFRAME                                                                        #    21/39
-POPS LF@a                                                                       #    22/39
-CLEARS                                                                          #    23/39
-PUSHS LF@a                                                                      #    24/39
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    25/39
-POPS TF@__INTERNAL__VAR_0                                                       #    26/39
-WRITE TF@__INTERNAL__VAR_0                                                      #    27/39
-JUMP __INTERNAL__FILE_END                                                       #    28/39
-# LENGTH FUNCTION                                                               #    30/39
-LABEL chr                                                                       #    31/39
-PUSHFRAME                                                                       #    32/39
-STRLEN TF@__INTERNAL__VAR_0 LF@s                                                #    33/39
-PUSHS TF@__INTERNAL__VAR_0                                                      #    34/39
-RETURN                                                                          #    35/39
-# LENGTH FUNCTION END                                                           #    36/39
-# PROGRAM END                                                                   #    38/39
-LABEL __INTERNAL__FILE_END                                                      #    39/39
+.IFJcode17                                                                      #     1/40
+JUMP main                                                                       #     2/40
+# MAIN                                                                          #     4/40
+LABEL main                                                                      #     5/40
+CREATEFRAME                                                                     #     6/40
+PUSHFRAME                                                                       #     7/40
+CREATEFRAME                                                                     #     8/40
+DEFVAR LF@retezec                                                               #     9/40
+MOVE LF@retezec string@                                                         #    10/40
+PUSHS string@ahoj                                                               #    11/40
+POPS LF@retezec                                                                 #    12/40
+CLEARS                                                                          #    13/40
+DEFVAR LF@a                                                                     #    14/40
+MOVE LF@a int@0                                                                 #    15/40
+CREATEFRAME                                                                     #    16/40
+PUSHS LF@retezec                                                                #    17/40
+DEFVAR TF@s                                                                     #    18/40
+POPS TF@s                                                                       #    19/40
+CALL length                                                                     #    20/40
+POPFRAME                                                                        #    21/40
+POPS LF@a                                                                       #    22/40
+CLEARS                                                                          #    23/40
+PUSHS LF@a                                                                      #    24/40
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    25/40
+POPS TF@__INTERNAL__VAR_0                                                       #    26/40
+WRITE TF@__INTERNAL__VAR_0                                                      #    27/40
+JUMP __INTERNAL__FILE_END                                                       #    28/40
+# LENGTH FUNCTION                                                               #    30/40
+LABEL length                                                                    #    31/40
+PUSHFRAME                                                                       #    32/40
+CREATEFRAME                                                                     #    33/40
+STRLEN TF@__INTERNAL__VAR_0 LF@s                                                #    34/40
+PUSHS TF@__INTERNAL__VAR_0                                                      #    35/40
+RETURN                                                                          #    36/40
+# LENGTH FUNCTION END                                                           #    37/40
+# PROGRAM END                                                                   #    39/40
+LABEL __INTERNAL__FILE_END                                                      #    40/40

@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:30.477405
+# 2017-12-04 14:49:24.029382
 # SECTION: 04_expressions
 # TEST: 19
 # INFO: function used as variable
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -41,21 +41,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/20
-JUMP main                                                                       #     2/20
-# FUNCTION                                                                      #     4/20
-LABEL foo                                                                       #     5/20
-PUSHFRAME                                                                       #     6/20
-CREATEFRAME                                                                     #     7/20
-PUSHS int@39                                                                    #     8/20
-RETURN                                                                          #     9/20
-PUSHS int@0                                                                     #    10/20
-RETURN                                                                          #    11/20
-# END FUNCTION                                                                  #    12/20
-# MAIN                                                                          #    14/20
-LABEL main                                                                      #    15/20
-CREATEFRAME                                                                     #    16/20
-PUSHFRAME                                                                       #    17/20
-CREATEFRAME                                                                     #    18/20
-DEFVAR LF@a                                                                     #    19/20
-MOVE LF@a int@0                                                                 #    20/20
+# ---

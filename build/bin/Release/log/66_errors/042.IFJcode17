@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:33.677414
+# 2017-12-04 14:49:27.484573
 # SECTION: 66_errors
 # TEST: 042
 # INFO: unterminated braces group
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -33,10 +33,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/8
-JUMP main                                                                       #     2/8
-# MAIN                                                                          #     4/8
-LABEL main                                                                      #     5/8
-CREATEFRAME                                                                     #     6/8
-PUSHFRAME                                                                       #     7/8
-CREATEFRAME                                                                     #     8/8
+# ---

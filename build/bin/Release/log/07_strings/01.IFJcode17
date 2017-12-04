@@ -1,14 +1,40 @@
-# 2017-12-04 10:53:32.084178
+# 2017-12-04 14:49:25.870277
 # SECTION: 07_strings
 # TEST: 01
 # INFO: valid length call
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@len
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@len()
+# Executing instruction: ICREATEFRAME at line: 11 with following arguments:
+# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 13 with following arguments:
+# Dest: TF@s
+# Executing instruction: IPOPS at line: 14 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: TF@s()
+# Executing instruction: ICALL at line: 15 with following arguments:
+# Executing instruction: ILABEL at line: 55 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 56 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 57 with following arguments:
+# Symbol TF@__INTERNAL__VAR_0 not found!
+# Error at line: 58
+# Symbol is undefined!
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -23,9 +49,9 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 3221225477
+# CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: None
+# CURRENT INTERPRETER EXIT CODE: 54
 # PRICE: ---
 # 
 #   1: ' valid length call
@@ -47,4 +73,64 @@
 
 ########################################
 
-# ---
+.IFJcode17                                                                      #     1/64
+JUMP main                                                                       #     2/64
+# MAIN                                                                          #     4/64
+LABEL main                                                                      #     5/64
+CREATEFRAME                                                                     #     6/64
+PUSHFRAME                                                                       #     7/64
+CREATEFRAME                                                                     #     8/64
+DEFVAR LF@len                                                                   #     9/64
+MOVE LF@len int@0                                                               #    10/64
+CREATEFRAME                                                                     #    11/64
+PUSHS string@                                                                   #    12/64
+DEFVAR TF@s                                                                     #    13/64
+POPS TF@s                                                                       #    14/64
+CALL length                                                                     #    15/64
+POPFRAME                                                                        #    16/64
+POPS LF@len                                                                     #    17/64
+CLEARS                                                                          #    18/64
+PUSHS LF@len                                                                    #    19/64
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    20/64
+POPS TF@__INTERNAL__VAR_0                                                       #    21/64
+WRITE TF@__INTERNAL__VAR_0                                                      #    22/64
+CREATEFRAME                                                                     #    23/64
+PUSHS string@foobar                                                             #    24/64
+DEFVAR TF@s                                                                     #    25/64
+POPS TF@s                                                                       #    26/64
+CALL length                                                                     #    27/64
+POPFRAME                                                                        #    28/64
+POPS LF@len                                                                     #    29/64
+CLEARS                                                                          #    30/64
+PUSHS LF@len                                                                    #    31/64
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    32/64
+POPS TF@__INTERNAL__VAR_0                                                       #    33/64
+WRITE TF@__INTERNAL__VAR_0                                                      #    34/64
+DEFVAR LF@str                                                                   #    35/64
+MOVE LF@str string@                                                             #    36/64
+PUSHS string@Lorem\032ipsum\032dolor\032sit\032amet,\032consectetur\032adipiscing\032elit,\032sed\032do\032eiusmod\032tempor\032incididunt\032ut\032labore\032et\032dolore\032magna\032aliqua.\032Ut\032enim\032ad\032minim\032veniam,\032quis\032nostrud\032exercitation\032ullamco\032laboris\032nisi\032ut\032aliquip\032ex\032ea\032commodo\032consequat.\032Duis\032aute\032irure\032dolor\032in\032reprehenderit\032in\032voluptate\032velit\032esse\032cillum\032dolore\032eu\032fugiat\032nulla\032pariatur.\032Excepteur\032sint\032occaecat\032cupidatat\032non\032proident,\032sunt\032in\032culpa\032qui\032officia\032deserunt\032mollit\032anim\032id\032est\032laborum.#    37/64
+POPS LF@str                                                                     #    38/64
+CLEARS                                                                          #    39/64
+CREATEFRAME                                                                     #    40/64
+PUSHS LF@str                                                                    #    41/64
+DEFVAR TF@s                                                                     #    42/64
+POPS TF@s                                                                       #    43/64
+CALL length                                                                     #    44/64
+POPFRAME                                                                        #    45/64
+POPS LF@len                                                                     #    46/64
+CLEARS                                                                          #    47/64
+PUSHS LF@len                                                                    #    48/64
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    49/64
+POPS TF@__INTERNAL__VAR_0                                                       #    50/64
+WRITE TF@__INTERNAL__VAR_0                                                      #    51/64
+JUMP __INTERNAL__FILE_END                                                       #    52/64
+# LENGTH FUNCTION                                                               #    54/64
+LABEL length                                                                    #    55/64
+PUSHFRAME                                                                       #    56/64
+CREATEFRAME                                                                     #    57/64
+STRLEN TF@__INTERNAL__VAR_0 LF@s                                                #    58/64
+PUSHS TF@__INTERNAL__VAR_0                                                      #    59/64
+RETURN                                                                          #    60/64
+# LENGTH FUNCTION END                                                           #    61/64
+# PROGRAM END                                                                   #    63/64
+LABEL __INTERNAL__FILE_END                                                      #    64/64

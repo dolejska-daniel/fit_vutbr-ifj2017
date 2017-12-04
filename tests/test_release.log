@@ -2,18 +2,17 @@ Welcome to automatic test runner for IFJ17 compiler (https://github.com/thejoeej
 Activated 4 extensions: BOOLOP, FUNEXP, IFTHEN, UNARY.[0m
 01_basic:[0m
 	05  (string escape sequences): [0m\u2713[0m × FAIL TO RUN INTERPRETER (decoding with 'unicode_escape' codec failed (OverflowError: character argument not in range(0x110000)))[0m[0m
-	09  (use all data types): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
 	10  (scope inside scope): [0m skipping, required extension(s) SCOPE is not activated.[0m[0m
 	11  (single scope without any statements): [0m skipping, required extension(s) SCOPE is not activated.[0m[0m
 	12  (print input): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 	16  (simple input and print): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 	17  (add two inputs): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 	21  (sèítaèka): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
-	22  (calculator): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
+	22  (calculator): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 02_functions:[0m
 	01  (asc value): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
-	09  (call built-in feature length): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=52[0m[0m
-	10  (call built-in features - combined): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
+	09  (call built-in feature length): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=54[0m[0m
+	10  (call built-in features - combined): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=54[0m[0m
 	14  (input in function): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 	15  (function call function which have input): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 	18  (argument of function is call of function): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=52[0m[0m
@@ -21,44 +20,31 @@ Activated 4 extensions: BOOLOP, FUNEXP, IFTHEN, UNARY.[0m
 03_statements:[0m
 	05  (input statement): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 04_expressions:[0m
-	08  (divide integer and doubles): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	09  (string concat): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
 	14  (test for implicit conversion): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 	15  (exp(x) 6 iteration without loop): [0m × COMPILER EXIT CODE expected=0, returned=4[0m[0m
 	16  (exp(x) 6 iteration with loop): [0m × COMPILER EXIT CODE expected=0, returned=4[0m[0m
 	003 (unary magic): [0m × COMPILER EXIT CODE expected=0, returned=2[0m[0m
 05_conditions:[0m
-	02  (if recursion): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	08  (smaller or same): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	12  (string compare): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
 	13  (compare equal input strings): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 06_loops:[0m
-	02  (multiple while loop): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	03  (nested while loop): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	05  (while in condition): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	06  (while with elseif in condition): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
 07_strings:[0m
-	01  (valid length call): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	02  (string concat): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	03  (substr builtin function): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
+	01  (valid length call): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=54[0m[0m
+	02  (string concat): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=53[0m[0m
+	03  (substr builtin function): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=54[0m[0m
 	04  (asc builtin function): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=58[0m[0m
-	10  (combined input with builtin functions (todo: stdout)): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
+	10  (combined input with builtin functions (todo: stdout)): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=53[0m[0m
 08_booleans:[0m
-	01  (basic declaration with assignment): [0m × COMPILER EXIT CODE expected=0, returned=2[0m[0m
-	03  (assignment of boolean expressions): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	04  (boolean functions): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	006 (equl in expression (it compare)): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=52[0m[0m
 09_scopes:[0m
 	01  (basic scopes): [0m × COMPILER EXIT CODE expected=0, returned=2[0m[0m
 	02  (declaration in while block): [0m × COMPILER EXIT CODE expected=0, returned=3[0m[0m
-	03  (combined scopes with loops and conditions): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
+	03  (combined scopes with loops and conditions): [0m × COMPILER EXIT CODE expected=0, returned=2[0m[0m
 	04  (declaration in all condition branches): [0m × COMPILER EXIT CODE expected=0, returned=3[0m[0m
 	05  (declaration in nested flow control statements): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=52[0m[0m
 	09  (sequence of scopes): [0m skipping, required extension(s) SCOPE is not activated.[0m[0m
 	10  (scope in if): [0m skipping, required extension(s) SCOPE is not activated.[0m[0m
 	11  (if in while with declare): [0m skipping, required extension(s) SCOPE is not activated.[0m[0m
 10_unary:[0m
-	01  (assignment with operators): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
+	01  (assignment with operators): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=53[0m[0m
 	03  (functions with funexp and unary): [0m × COMPILER EXIT CODE expected=0, returned=2[0m[0m
 	003 (unary minus in expression i): [0m × COMPILER EXIT CODE expected=0, returned=2[0m[0m
 	005 (unary minus in expression iii): [0m × COMPILER EXIT CODE expected=0, returned=2[0m[0m
@@ -89,33 +75,20 @@ Activated 4 extensions: BOOLOP, FUNEXP, IFTHEN, UNARY.[0m
 	01  (basic continue): [0m skipping, required extension(s) CYCLES is not activated.[0m[0m
 66_errors:[0m
 	03  (try to redefinition function): [0m × COMPILER EXIT CODE expected=3, returned=4[0m[0m
-	06  (call function with too little arguments): [0m × COMPILER EXIT CODE expected=4, returned=0[0m[0m
-	07  (call function with too many arguments): [0m × COMPILER EXIT CODE expected=4, returned=2[0m[0m
 	14  (unfinished multi line comment): [0m × COMPILER EXIT CODE expected=1, returned=2[0m[0m
-	15  (unfinished multi line comment): [0m × COMPILER EXIT CODE expected=1, returned=0[0m[0m
 	17  (empty file): [0m × COMPILER EXIT CODE expected=2, returned=0[0m[0m
-	014 (unterminated string): [0m × COMPILER EXIT CODE expected=1, returned=3221225477[0m[0m
 	020 (empty program): [0m × COMPILER EXIT CODE expected=2, returned=0[0m[0m
-	023 (empty expression in condition): [0m × COMPILER EXIT CODE expected=2, returned=3221225477[0m[0m
-	024 (wrong if termination): [0m × COMPILER EXIT CODE expected=2, returned=3[0m[0m
 	037 (wrong operand types): [0m × COMPILER EXIT CODE expected=4, returned=0[0m[0m
 	038 (wrong operand for two strings): [0m × COMPILER EXIT CODE expected=4, returned=0[0m[0m
-	051 (exprected dim): [0m × COMPILER EXIT CODE expected=2, returned=3[0m[0m
-	054 (false print): [0m × COMPILER EXIT CODE expected=2, returned=3[0m[0m
-	055 (false if): [0m × COMPILER EXIT CODE expected=2, returned=3[0m[0m
-	056 (assignment without expr): [0m × COMPILER EXIT CODE expected=2, returned=3221225477[0m[0m
-	057 (assignment without expr 2): [0m × COMPILER EXIT CODE expected=2, returned=3221225477[0m[0m
-	058 (do while without expression): [0m × COMPILER EXIT CODE expected=2, returned=3221225477[0m[0m
-	059 (return expression): [0m × COMPILER EXIT CODE expected=2, returned=3221225477[0m[0m
 99_benchmarks:[0m
 	01  (lots of nested control statements): [0m × COMPILER EXIT CODE expected=0, returned=2[0m[0m
 	02  (fibonacci sequence): [0m\u2713[0m × INTERPRETER TIMEOUT[0m[0m
-	03  (tower of hanoi for 4 rodes): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	07  (reference program working with strings and builtin functions): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	08  (factorial by iteration method): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
-	09  (multiple string concatenations): [0m × COMPILER EXIT CODE expected=0, returned=3221225477[0m[0m
+	07  (reference program working with strings and builtin functions): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=53[0m[0m
+	08  (factorial by iteration method): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
+	09  (multiple string concatenations): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=53[0m[0m
+	10  (exp(x) 19 iteration with loop): [0m × COMPILER EXIT CODE expected=0, returned=4[0m[0m
 	11  (big count of function parameters): [0m × COMPILER EXIT CODE expected=0, returned=2[0m[0m
 	12  (ackerman function for ackerman(2, 5)): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=52[0m[0m
 	13  (multiplier listing): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=52[0m[0m
-RESULTS:[0m 64.13%[0m (143/223)
-	[0m\u2713\u2713\u2713\u2713×\u2713\u2713\u2713×--×\u2713\u2713\u2713××\u2713\u2713\u2713××\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713\u2713\u2713××\u2713\u2713××\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713\u2713×××\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713××\u2713\u2713××\u2713××\u2713××××\u2713××\u2713××\u2713×\u2713×××××---×\u2713×\u2713\u2713×\u2713×××\u2713----------------×××-\u2713\u2713×\u2713\u2713××\u2713\u2713\u2713\u2713\u2713\u2713××\u2713×\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713×\u2713\u2713××\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713××××××\u2713\u2713\u2713\u2713\u2713×××\u2713\u2713×××\u2713×××[0m
+RESULTS:[0m 76.23%[0m (170/223)
+	[0m\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713--×\u2713\u2713\u2713××\u2713\u2713\u2713××\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713\u2713\u2713××\u2713\u2713××\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×××\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713××××\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713×××××---×\u2713×\u2713\u2713×\u2713×××\u2713----------------×××-\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713\u2713\u2713×××××××[0m

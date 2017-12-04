@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:33.096369
+# 2017-12-04 14:49:26.957171
 # SECTION: 66_errors
 # TEST: 12
 # INFO: Undeclared variable inside function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -43,18 +43,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/17
-JUMP main                                                                       #     2/17
-# FUNCTION                                                                      #     4/17
-LABEL hgk____                                                                   #     5/17
-PUSHFRAME                                                                       #     6/17
-CREATEFRAME                                                                     #     7/17
-DEFVAR LF@a                                                                     #     8/17
-MOVE LF@a int@0                                                                 #     9/17
-PUSHS int@0                                                                     #    10/17
-RETURN                                                                          #    11/17
-# END FUNCTION                                                                  #    12/17
-# FUNCTION                                                                      #    14/17
-LABEL hgk____7874                                                               #    15/17
-PUSHFRAME                                                                       #    16/17
-CREATEFRAME                                                                     #    17/17
+# ---

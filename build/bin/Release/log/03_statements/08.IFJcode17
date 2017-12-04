@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:28.245972
+# 2017-12-04 14:49:23.349574
 # SECTION: 03_statements
 # TEST: 08
 # INFO: multiple main scopes
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -41,11 +41,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/9
-JUMP main                                                                       #     2/9
-# MAIN                                                                          #     4/9
-LABEL main                                                                      #     5/9
-CREATEFRAME                                                                     #     6/9
-PUSHFRAME                                                                       #     7/9
-CREATEFRAME                                                                     #     8/9
-JUMP __INTERNAL__FILE_END                                                       #     9/9
+# ---

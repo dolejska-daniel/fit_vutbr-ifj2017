@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:25.789440
+# 2017-12-04 14:49:22.207538
 # SECTION: 02_functions
 # TEST: 03
 # INFO: variable same name like function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -40,17 +40,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/16
-JUMP main                                                                       #     2/16
-# FUNCTION                                                                      #     4/16
-LABEL bar                                                                       #     5/16
-PUSHFRAME                                                                       #     6/16
-CREATEFRAME                                                                     #     7/16
-PUSHS string@                                                                   #     8/16
-RETURN                                                                          #     9/16
-# END FUNCTION                                                                  #    10/16
-# MAIN                                                                          #    12/16
-LABEL main                                                                      #    13/16
-CREATEFRAME                                                                     #    14/16
-PUSHFRAME                                                                       #    15/16
-CREATEFRAME                                                                     #    16/16
+# ---

@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:31.073490
+# 2017-12-04 14:49:24.617947
 # SECTION: 05_conditions
 # TEST: 09
 # INFO: Condition with implicit conversion
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -111,8 +111,9 @@
 # Executing instruction: IWRITE at line: 48 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=58(int)
 # Executing instruction: ILABEL at line: 50 with following arguments:
-# Executing instruction: IJUMP at line: 52 with following arguments:
-# Executing instruction: ILABEL at line: 55 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 51 with following arguments:
+# Executing instruction: IJUMP at line: 53 with following arguments:
+# Executing instruction: ILABEL at line: 56 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -124,7 +125,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 182 (62+120)
+# PRICE: 184 (64+120)
 # 
 #   1: ' Condition with implicit conversion
 #   2: scope
@@ -137,56 +138,57 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/55
-JUMP main                                                                       #     2/55
-# MAIN                                                                          #     4/55
-LABEL main                                                                      #     5/55
-CREATEFRAME                                                                     #     6/55
-PUSHFRAME                                                                       #     7/55
-CREATEFRAME                                                                     #     8/55
-# IF BLOCK                                                                      #     9/55
-CREATEFRAME                                                                     #    10/55
-# IF                                                                            #    11/55
-PUSHS int@8                                                                     #    12/55
-INT2FLOATS                                                                      #    13/55
-PUSHS float@2.0                                                                 #    14/55
-PUSHS int@9                                                                     #    15/55
-INT2FLOATS                                                                      #    16/55
-DIVS                                                                            #    17/55
-MULS                                                                            #    18/55
-PUSHS float@112.3                                                               #    19/55
-ADDS                                                                            #    20/55
-PUSHS float@13.8                                                                #    21/55
-SUBS                                                                            #    22/55
-PUSHS int@8                                                                     #    23/55
-INT2FLOATS                                                                      #    24/55
-PUSHS float@2.0                                                                 #    25/55
-PUSHS int@9                                                                     #    26/55
-INT2FLOATS                                                                      #    27/55
-DIVS                                                                            #    28/55
-MULS                                                                            #    29/55
-PUSHS float@112.3                                                               #    30/55
-ADDS                                                                            #    31/55
-PUSHS float@13.8                                                                #    32/55
-ADDS                                                                            #    33/55
-GTS                                                                             #    34/55
-PUSHS bool@true                                                                 #    35/55
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    36/55
-# THEN                                                                          #    37/55
-PUSHS int@42                                                                    #    38/55
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    39/55
-POPS TF@__INTERNAL__VAR_0                                                       #    40/55
-WRITE TF@__INTERNAL__VAR_0                                                      #    41/55
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    42/55
-LABEL __INTERNAL__COND_0_END                                                    #    43/55
-# ELSE                                                                          #    44/55
-PUSHS int@58                                                                    #    45/55
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    46/55
-POPS TF@__INTERNAL__VAR_0                                                       #    47/55
-WRITE TF@__INTERNAL__VAR_0                                                      #    48/55
-# END IF                                                                        #    49/55
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    50/55
-# END IF BLOCK                                                                  #    51/55
-JUMP __INTERNAL__FILE_END                                                       #    52/55
-# PROGRAM END                                                                   #    54/55
-LABEL __INTERNAL__FILE_END                                                      #    55/55
+.IFJcode17                                                                      #     1/56
+JUMP main                                                                       #     2/56
+# MAIN                                                                          #     4/56
+LABEL main                                                                      #     5/56
+CREATEFRAME                                                                     #     6/56
+PUSHFRAME                                                                       #     7/56
+CREATEFRAME                                                                     #     8/56
+# IF BLOCK                                                                      #     9/56
+CREATEFRAME                                                                     #    10/56
+# IF                                                                            #    11/56
+PUSHS int@8                                                                     #    12/56
+INT2FLOATS                                                                      #    13/56
+PUSHS float@2.0                                                                 #    14/56
+PUSHS int@9                                                                     #    15/56
+INT2FLOATS                                                                      #    16/56
+DIVS                                                                            #    17/56
+MULS                                                                            #    18/56
+PUSHS float@112.3                                                               #    19/56
+ADDS                                                                            #    20/56
+PUSHS float@13.8                                                                #    21/56
+SUBS                                                                            #    22/56
+PUSHS int@8                                                                     #    23/56
+INT2FLOATS                                                                      #    24/56
+PUSHS float@2.0                                                                 #    25/56
+PUSHS int@9                                                                     #    26/56
+INT2FLOATS                                                                      #    27/56
+DIVS                                                                            #    28/56
+MULS                                                                            #    29/56
+PUSHS float@112.3                                                               #    30/56
+ADDS                                                                            #    31/56
+PUSHS float@13.8                                                                #    32/56
+ADDS                                                                            #    33/56
+GTS                                                                             #    34/56
+PUSHS bool@true                                                                 #    35/56
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    36/56
+# THEN                                                                          #    37/56
+PUSHS int@42                                                                    #    38/56
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    39/56
+POPS TF@__INTERNAL__VAR_0                                                       #    40/56
+WRITE TF@__INTERNAL__VAR_0                                                      #    41/56
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    42/56
+LABEL __INTERNAL__COND_0_END                                                    #    43/56
+# ELSE                                                                          #    44/56
+PUSHS int@58                                                                    #    45/56
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    46/56
+POPS TF@__INTERNAL__VAR_0                                                       #    47/56
+WRITE TF@__INTERNAL__VAR_0                                                      #    48/56
+# END IF                                                                        #    49/56
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    50/56
+CREATEFRAME                                                                     #    51/56
+# END IF BLOCK                                                                  #    52/56
+JUMP __INTERNAL__FILE_END                                                       #    53/56
+# PROGRAM END                                                                   #    55/56
+LABEL __INTERNAL__FILE_END                                                      #    56/56

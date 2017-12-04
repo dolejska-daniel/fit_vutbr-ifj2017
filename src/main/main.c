@@ -112,14 +112,17 @@ int main(/*int argc, char **argv*/)
     //-----------------------------------------------------
     DEBUG_LOG("main", "Starting parser");
     int parser_result = Parser_ParseInitial(input, ilist, symtable);
-    if (parser_result != 0)
+    if (parser_result != NO_ERROR)
     {
         DEBUG_PRINT("[%s] ERR Parser returned error code %i\n", "main", parser_result);
         DEBUG_PRINT("\tmessage: %s\n", "main", error_description);
 
         //  TODO: Output errors
         //  TODO: Cleanup & exit
+
+        #ifdef DEBUG_VERBOSE
         Instruction_outputAll(ilist);
+        #endif
     }
     else
     {

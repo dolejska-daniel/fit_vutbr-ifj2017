@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:32.520839
+# 2017-12-04 14:49:26.394170
 # SECTION: 09_scopes
 # TEST: 04
 # INFO: declaration in all condition branches
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -106,57 +106,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/55
-JUMP main                                                                       #     2/55
-# MAIN                                                                          #     4/55
-LABEL main                                                                      #     5/55
-CREATEFRAME                                                                     #     6/55
-PUSHFRAME                                                                       #     7/55
-CREATEFRAME                                                                     #     8/55
-DEFVAR LF@i                                                                     #     9/55
-MOVE LF@i int@0                                                                 #    10/55
-PUSHS int@24                                                                    #    11/55
-PUSHS int@2                                                                     #    12/55
-MULS                                                                            #    13/55
-POPS LF@i                                                                       #    14/55
-CLEARS                                                                          #    15/55
-# DO WHILE                                                                      #    16/55
-LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    17/55
-PUSHS LF@i                                                                      #    18/55
-PUSHS int@0                                                                     #    19/55
-GTS                                                                             #    20/55
-PUSHS bool@true                                                                 #    21/55
-JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    22/55
-# DO WHILE TRUE                                                                 #    23/55
-CREATEFRAME                                                                     #    24/55
-# IF BLOCK                                                                      #    25/55
-CREATEFRAME                                                                     #    26/55
-# IF                                                                            #    27/55
-PUSHS LF@i                                                                      #    28/55
-PUSHS int@38                                                                    #    29/55
-GTS                                                                             #    30/55
-PUSHS bool@true                                                                 #    31/55
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    32/55
-# THEN                                                                          #    33/55
-DEFVAR LF@b                                                                     #    34/55
-MOVE LF@b float@0.0                                                             #    35/55
-PUSHS int@42                                                                    #    36/55
-INT2FLOATS                                                                      #    37/55
-POPS LF@b                                                                       #    38/55
-CLEARS                                                                          #    39/55
-PUSHS LF@b                                                                      #    40/55
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    41/55
-POPS TF@__INTERNAL__VAR_0                                                       #    42/55
-WRITE TF@__INTERNAL__VAR_0                                                      #    43/55
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    44/55
-LABEL __INTERNAL__COND_0_END                                                    #    45/55
-# ELSE                                                                          #    46/55
-# IF BLOCK                                                                      #    47/55
-CREATEFRAME                                                                     #    48/55
-# IF                                                                            #    49/55
-PUSHS LF@i                                                                      #    50/55
-PUSHS int@24                                                                    #    51/55
-GTS                                                                             #    52/55
-PUSHS bool@true                                                                 #    53/55
-JUMPIFNEQS __INTERNAL__COND_1_END                                               #    54/55
-# THEN                                                                          #    55/55
+# ---

@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:30.391677
+# 2017-12-04 14:49:23.937137
 # SECTION: 04_expressions
 # TEST: 16
 # INFO: exp(x) 6 iteration with loop
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -58,36 +58,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/34
-JUMP main                                                                       #     2/34
-# MAIN                                                                          #     4/34
-LABEL main                                                                      #     5/34
-CREATEFRAME                                                                     #     6/34
-PUSHFRAME                                                                       #     7/34
-CREATEFRAME                                                                     #     8/34
-DEFVAR LF@vysledek                                                              #     9/34
-MOVE LF@vysledek float@0.0                                                      #    10/34
-DEFVAR LF@citatel                                                               #    11/34
-MOVE LF@citatel int@0                                                           #    12/34
-PUSHS int@1                                                                     #    13/34
-POPS LF@citatel                                                                 #    14/34
-CLEARS                                                                          #    15/34
-DEFVAR LF@jmenovatel                                                            #    16/34
-MOVE LF@jmenovatel int@0                                                        #    17/34
-PUSHS int@1                                                                     #    18/34
-POPS LF@jmenovatel                                                              #    19/34
-CLEARS                                                                          #    20/34
-DEFVAR LF@pocitadlo                                                             #    21/34
-MOVE LF@pocitadlo int@0                                                         #    22/34
-PUSHS int@1                                                                     #    23/34
-POPS LF@pocitadlo                                                               #    24/34
-CLEARS                                                                          #    25/34
-# DO WHILE                                                                      #    26/34
-LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    27/34
-PUSHS LF@pocitadlo                                                              #    28/34
-PUSHS int@7                                                                     #    29/34
-LTS                                                                             #    30/34
-PUSHS bool@true                                                                 #    31/34
-JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    32/34
-# DO WHILE TRUE                                                                 #    33/34
-CREATEFRAME                                                                     #    34/34
+# ---

@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:33.831825
+# 2017-12-04 14:49:27.624444
 # SECTION: 66_errors
 # TEST: 052
 # INFO: False brackets in expression
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -35,5 +35,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/2
-JUMP main                                                                       #     2/2
+# ---

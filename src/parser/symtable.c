@@ -1077,8 +1077,7 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
     if (operator1 == ST_INTEGER)
     {
         //  První operátor je celé číslo
-        if ((operator2 == ST_DOUBLE && op != BACK_SLASH)
-            || op == SLASH)
+        if (operator2 == ST_DOUBLE || op == BACK_SLASH || op == SLASH)
         {
             //  INT + DOUBLE
             //  =
@@ -1092,13 +1091,6 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
     }
     else if (operator1 == ST_DOUBLE)
     {
-        //  Případ celočíselného dělení
-        if (op == BACK_SLASH)
-        {
-            *dataType = ST_INTEGER;
-            return true;
-        }
-
         //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
         return false;
     }
@@ -1114,16 +1106,14 @@ bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2
     //  Implicitně ponecháme stejný datový typ
     *dataType = operator2;
 
-    if (operator1 == ST_INTEGER)
+    if (operator2 == ST_INTEGER)
     {
-        //  Případ celočíselného dělení
-        if (operator2 == ST_DOUBLE && op == BACK_SLASH)
+        //  První operátor je celé číslo
+        if (operator1 == ST_DOUBLE || op == BACK_SLASH || op == SLASH)
         {
-            *dataType = ST_INTEGER;
-            return true;
-        }
-        else if (operator2 == ST_INTEGER && op == SLASH)
-        {
+            //  INT + DOUBLE
+            //  =
+            //  DOUBLE + DOUBLE
             *dataType = ST_DOUBLE;
             return true;
         }
@@ -1131,22 +1121,10 @@ bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2
         //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
         return false;
     }
-    else if (operator1 == ST_DOUBLE)
+    else if (operator2 == ST_DOUBLE)
     {
-        //  První operátor je celé číslo
-        if (operator2 == ST_INTEGER && op != BACK_SLASH)
-        {
-            //  DOUBLE + INT
-            //  =
-            //  DOUBLE + DOUBLE
-            *dataType = ST_DOUBLE;
-            return true;
-        }
-        else
-        {
-            //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
-            return false;
-        }
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
     }
     else
     {

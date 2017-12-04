@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:27.554132
+# 2017-12-04 14:49:22.675282
 # SECTION: 02_functions
 # TEST: 17
 # INFO: return outside function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -39,15 +39,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/13
-JUMP main                                                                       #     2/13
-# MAIN                                                                          #     4/13
-LABEL main                                                                      #     5/13
-CREATEFRAME                                                                     #     6/13
-PUSHFRAME                                                                       #     7/13
-CREATEFRAME                                                                     #     8/13
-DEFVAR LF@a                                                                     #     9/13
-MOVE LF@a int@0                                                                 #    10/13
-PUSHS int@10                                                                    #    11/13
-POPS LF@a                                                                       #    12/13
-CLEARS                                                                          #    13/13
+# ---

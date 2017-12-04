@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:31.182279
+# 2017-12-04 14:49:24.755312
 # SECTION: 05_conditions
 # TEST: 13
 # INFO: Compare equal input strings
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -57,8 +57,9 @@
 # Arg1: TF@__INTERNAL__VAR_0=42(int)
 # Executing instruction: IJUMP at line: 28 with following arguments:
 # Executing instruction: ILABEL at line: 36 with following arguments:
-# Executing instruction: IJUMP at line: 38 with following arguments:
-# Executing instruction: ILABEL at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 37 with following arguments:
+# Executing instruction: IJUMP at line: 39 with following arguments:
+# Executing instruction: ILABEL at line: 42 with following arguments:
 # 
 # STDOUT DIFF:
 # --- expected
@@ -94,42 +95,43 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/41
-JUMP main                                                                       #     2/41
-# MAIN                                                                          #     4/41
-LABEL main                                                                      #     5/41
-CREATEFRAME                                                                     #     6/41
-PUSHFRAME                                                                       #     7/41
-CREATEFRAME                                                                     #     8/41
-DEFVAR LF@a                                                                     #     9/41
-MOVE LF@a string@                                                               #    10/41
-DEFVAR LF@b                                                                     #    11/41
-MOVE LF@b string@                                                               #    12/41
-READ LF@a string                                                                #    13/41
-READ LF@b string                                                                #    14/41
-# IF BLOCK                                                                      #    15/41
-CREATEFRAME                                                                     #    16/41
-# IF                                                                            #    17/41
-PUSHS LF@a                                                                      #    18/41
-PUSHS LF@b                                                                      #    19/41
-EQS                                                                             #    20/41
-PUSHS bool@true                                                                 #    21/41
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    22/41
-# THEN                                                                          #    23/41
-PUSHS int@42                                                                    #    24/41
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    25/41
-POPS TF@__INTERNAL__VAR_0                                                       #    26/41
-WRITE TF@__INTERNAL__VAR_0                                                      #    27/41
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    28/41
-LABEL __INTERNAL__COND_0_END                                                    #    29/41
-# ELSE                                                                          #    30/41
-PUSHS int@43                                                                    #    31/41
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    32/41
-POPS TF@__INTERNAL__VAR_0                                                       #    33/41
-WRITE TF@__INTERNAL__VAR_0                                                      #    34/41
-# END IF                                                                        #    35/41
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    36/41
-# END IF BLOCK                                                                  #    37/41
-JUMP __INTERNAL__FILE_END                                                       #    38/41
-# PROGRAM END                                                                   #    40/41
-LABEL __INTERNAL__FILE_END                                                      #    41/41
+.IFJcode17                                                                      #     1/42
+JUMP main                                                                       #     2/42
+# MAIN                                                                          #     4/42
+LABEL main                                                                      #     5/42
+CREATEFRAME                                                                     #     6/42
+PUSHFRAME                                                                       #     7/42
+CREATEFRAME                                                                     #     8/42
+DEFVAR LF@a                                                                     #     9/42
+MOVE LF@a string@                                                               #    10/42
+DEFVAR LF@b                                                                     #    11/42
+MOVE LF@b string@                                                               #    12/42
+READ LF@a string                                                                #    13/42
+READ LF@b string                                                                #    14/42
+# IF BLOCK                                                                      #    15/42
+CREATEFRAME                                                                     #    16/42
+# IF                                                                            #    17/42
+PUSHS LF@a                                                                      #    18/42
+PUSHS LF@b                                                                      #    19/42
+EQS                                                                             #    20/42
+PUSHS bool@true                                                                 #    21/42
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    22/42
+# THEN                                                                          #    23/42
+PUSHS int@42                                                                    #    24/42
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    25/42
+POPS TF@__INTERNAL__VAR_0                                                       #    26/42
+WRITE TF@__INTERNAL__VAR_0                                                      #    27/42
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    28/42
+LABEL __INTERNAL__COND_0_END                                                    #    29/42
+# ELSE                                                                          #    30/42
+PUSHS int@43                                                                    #    31/42
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    32/42
+POPS TF@__INTERNAL__VAR_0                                                       #    33/42
+WRITE TF@__INTERNAL__VAR_0                                                      #    34/42
+# END IF                                                                        #    35/42
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    36/42
+CREATEFRAME                                                                     #    37/42
+# END IF BLOCK                                                                  #    38/42
+JUMP __INTERNAL__FILE_END                                                       #    39/42
+# PROGRAM END                                                                   #    41/42
+LABEL __INTERNAL__FILE_END                                                      #    42/42

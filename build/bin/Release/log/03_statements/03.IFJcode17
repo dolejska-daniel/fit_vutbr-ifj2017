@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:28.129162
+# 2017-12-04 14:49:23.231260
 # SECTION: 03_statements
 # TEST: 03
 # INFO: basic constant assigment with invalid types I
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -37,13 +37,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/11
-JUMP main                                                                       #     2/11
-# MAIN                                                                          #     4/11
-LABEL main                                                                      #     5/11
-CREATEFRAME                                                                     #     6/11
-PUSHFRAME                                                                       #     7/11
-CREATEFRAME                                                                     #     8/11
-DEFVAR LF@b                                                                     #     9/11
-MOVE LF@b int@0                                                                 #    10/11
-PUSHS string@foo                                                                #    11/11
+# ---

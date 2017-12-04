@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:32.482738
+# 2017-12-04 14:49:26.366597
 # SECTION: 09_scopes
 # TEST: 02
 # INFO: declaration in while block
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -49,58 +49,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/56
-JUMP main                                                                       #     2/56
-# MAIN                                                                          #     4/56
-LABEL main                                                                      #     5/56
-CREATEFRAME                                                                     #     6/56
-PUSHFRAME                                                                       #     7/56
-CREATEFRAME                                                                     #     8/56
-DEFVAR LF@counter                                                               #     9/56
-MOVE LF@counter int@0                                                           #    10/56
-PUSHS int@10                                                                    #    11/56
-POPS LF@counter                                                                 #    12/56
-CLEARS                                                                          #    13/56
-# DO WHILE                                                                      #    14/56
-LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    15/56
-PUSHS LF@counter                                                                #    16/56
-PUSHS int@15                                                                    #    17/56
-LTS                                                                             #    18/56
-PUSHS bool@true                                                                 #    19/56
-JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    20/56
-# DO WHILE TRUE                                                                 #    21/56
-CREATEFRAME                                                                     #    22/56
-DEFVAR LF@a                                                                     #    23/56
-MOVE LF@a int@0                                                                 #    24/56
-PUSHS int@669878                                                                #    25/56
-POPS LF@a                                                                       #    26/56
-CLEARS                                                                          #    27/56
-PUSHS LF@a                                                                      #    28/56
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    29/56
-POPS TF@__INTERNAL__VAR_0                                                       #    30/56
-WRITE TF@__INTERNAL__VAR_0                                                      #    31/56
-PUSHS LF@counter                                                                #    32/56
-PUSHS int@1                                                                     #    33/56
-ADDS                                                                            #    34/56
-POPS LF@counter                                                                 #    35/56
-CLEARS                                                                          #    36/56
-# LOOP                                                                          #    37/56
-JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    38/56
-# DO WHILE FALSE                                                                #    39/56
-LABEL __INTERNAL__LOOP_0_END                                                    #    40/56
-# DO WHILE END                                                                  #    41/56
-PUSHS string@\010                                                               #    42/56
-POPS TF@__INTERNAL__VAR_0                                                       #    43/56
-WRITE TF@__INTERNAL__VAR_0                                                      #    44/56
-PUSHS int@100                                                                   #    45/56
-POPS LF@counter                                                                 #    46/56
-CLEARS                                                                          #    47/56
-# DO WHILE                                                                      #    48/56
-LABEL __INTERNAL__LOOP_1_BEGIN                                                  #    49/56
-PUSHS LF@counter                                                                #    50/56
-PUSHS int@106                                                                   #    51/56
-LTS                                                                             #    52/56
-PUSHS bool@true                                                                 #    53/56
-JUMPIFNEQS __INTERNAL__LOOP_1_END                                               #    54/56
-# DO WHILE TRUE                                                                 #    55/56
-CREATEFRAME                                                                     #    56/56
+# ---

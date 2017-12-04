@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:33.801745
+# 2017-12-04 14:49:27.596370
 # SECTION: 66_errors
 # TEST: 050
 # INFO: No then after if
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -35,18 +35,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/16
-JUMP main                                                                       #     2/16
-# MAIN                                                                          #     4/16
-LABEL main                                                                      #     5/16
-CREATEFRAME                                                                     #     6/16
-PUSHFRAME                                                                       #     7/16
-CREATEFRAME                                                                     #     8/16
-DEFVAR LF@a                                                                     #     9/16
-MOVE LF@a int@0                                                                 #    10/16
-# IF BLOCK                                                                      #    11/16
-CREATEFRAME                                                                     #    12/16
-# IF                                                                            #    13/16
-PUSHS LF@a                                                                      #    14/16
-PUSHS int@10                                                                    #    15/16
-GTS                                                                             #    16/16
+# ---

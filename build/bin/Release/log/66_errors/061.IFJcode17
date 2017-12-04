@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:33.999270
+# 2017-12-04 14:49:27.748775
 # SECTION: 66_errors
 # TEST: 061
 # INFO: function arguments without type
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -35,5 +35,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/2
-JUMP main                                                                       #     2/2
+# ---

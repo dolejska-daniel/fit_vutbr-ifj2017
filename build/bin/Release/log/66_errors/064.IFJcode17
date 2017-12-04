@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:34.042886
+# 2017-12-04 14:49:27.789885
 # SECTION: 66_errors
 # TEST: 064
 # INFO: Print without semicolon
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -33,17 +33,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/15
-JUMP main                                                                       #     2/15
-# MAIN                                                                          #     4/15
-LABEL main                                                                      #     5/15
-CREATEFRAME                                                                     #     6/15
-PUSHFRAME                                                                       #     7/15
-CREATEFRAME                                                                     #     8/15
-PUSHS int@42                                                                    #     9/15
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    10/15
-POPS TF@__INTERNAL__VAR_0                                                       #    11/15
-WRITE TF@__INTERNAL__VAR_0                                                      #    12/15
-PUSHS int@42                                                                    #    13/15
-POPS TF@__INTERNAL__VAR_0                                                       #    14/15
-WRITE TF@__INTERNAL__VAR_0                                                      #    15/15
+# ---

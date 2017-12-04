@@ -1,14 +1,95 @@
-# 2017-12-04 10:53:23.487319
+# 2017-12-04 14:49:21.292103
 # SECTION: 01_basic
 # TEST: 09
 # INFO: Use all data types
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@_a669
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@_a669()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=445655454(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 12 with following arguments:
+# Arg1: Stack@=445655454(int)
+# Dest: LF@_a669=0(int)
+# Executing instruction: ICLEARS at line: 13 with following arguments:
+# Executing instruction: IDEFVAR at line: 14 with following arguments:
+# Dest: LF@b__67678
+# Executing instruction: IMOVE at line: 15 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@b__67678()
+# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Arg1: Const@=FGGHGHHghjhhjhj 8 	 ahoj 
+#  iloilailaeiii(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 17 with following arguments:
+# Arg1: Stack@=FGGHGHHghjhhjhj 8 	 ahoj 
+#  iloilailaeiii(string)
+# Dest: LF@b__67678=(string)
+# Executing instruction: ICLEARS at line: 18 with following arguments:
+# Executing instruction: IDEFVAR at line: 19 with following arguments:
+# Dest: LF@___ced65689
+# Executing instruction: IMOVE at line: 20 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@___ced65689()
+# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Arg1: Const@=56758.6(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 22 with following arguments:
+# Arg1: Stack@=56758.6(double)
+# Dest: LF@___ced65689=0(double)
+# Executing instruction: ICLEARS at line: 23 with following arguments:
+# Executing instruction: IDEFVAR at line: 24 with following arguments:
+# Dest: LF@___d___6778ghgkjhhj
+# Executing instruction: IMOVE at line: 25 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@___d___6778ghgkjhhj()
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: Const@=5.66679e+15(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 27 with following arguments:
+# Arg1: Stack@=5.66679e+15(double)
+# Dest: LF@___d___6778ghgkjhhj=0(double)
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: LF@ghg__e__676767
+# Executing instruction: IMOVE at line: 30 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@ghg__e__676767()
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: Const@=5.66679e-05(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=5.66679e-05(double)
+# Dest: LF@ghg__e__676767=0(double)
+# Executing instruction: ICLEARS at line: 33 with following arguments:
+# Executing instruction: IDEFVAR at line: 34 with following arguments:
+# Dest: LF@__6767hjhjghhjkh
+# Executing instruction: IMOVE at line: 35 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@__6767hjhjghhjkh()
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: Const@=5.66679e+15(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 37 with following arguments:
+# Arg1: Stack@=5.66679e+15(double)
+# Dest: LF@__6767hjhjghhjkh=0(double)
+# Executing instruction: ICLEARS at line: 38 with following arguments:
+# Executing instruction: IJUMP at line: 39 with following arguments:
+# Executing instruction: ILABEL at line: 42 with following arguments:
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -22,10 +103,10 @@
 # 
 #
 # EXPECTED COMPILER EXIT CODE: 0
-# CURRENT COMPILER EXIT CODE: 3221225477
+# CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: None
-# PRICE: ---
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 106 (46+60)
 # 
 #   1: ' Use all data types
 #   2: scope
@@ -41,4 +122,43 @@
 
 ########################################
 
-# ---
+.IFJcode17                                                                      #     1/42
+JUMP main                                                                       #     2/42
+# MAIN                                                                          #     4/42
+LABEL main                                                                      #     5/42
+CREATEFRAME                                                                     #     6/42
+PUSHFRAME                                                                       #     7/42
+CREATEFRAME                                                                     #     8/42
+DEFVAR LF@_a669                                                                 #     9/42
+MOVE LF@_a669 int@0                                                             #    10/42
+PUSHS int@445655454                                                             #    11/42
+POPS LF@_a669                                                                   #    12/42
+CLEARS                                                                          #    13/42
+DEFVAR LF@b__67678                                                              #    14/42
+MOVE LF@b__67678 string@                                                        #    15/42
+PUSHS string@FGGHGHHghjhhjhj\032\056\032\009\032ahoj\032\010\032iloilailaeiii   #    16/42
+POPS LF@b__67678                                                                #    17/42
+CLEARS                                                                          #    18/42
+DEFVAR LF@___ced65689                                                           #    19/42
+MOVE LF@___ced65689 float@0.0                                                   #    20/42
+PUSHS float@56758.56686                                                         #    21/42
+POPS LF@___ced65689                                                             #    22/42
+CLEARS                                                                          #    23/42
+DEFVAR LF@___d___6778ghgkjhhj                                                   #    24/42
+MOVE LF@___d___6778ghgkjhhj float@0.0                                           #    25/42
+PUSHS float@566678.658678e+10                                                   #    26/42
+POPS LF@___d___6778ghgkjhhj                                                     #    27/42
+CLEARS                                                                          #    28/42
+DEFVAR LF@ghg__e__676767                                                        #    29/42
+MOVE LF@ghg__e__676767 float@0.0                                                #    30/42
+PUSHS float@566678.658678e-10                                                   #    31/42
+POPS LF@ghg__e__676767                                                          #    32/42
+CLEARS                                                                          #    33/42
+DEFVAR LF@__6767hjhjghhjkh                                                      #    34/42
+MOVE LF@__6767hjhjghhjkh float@0.0                                              #    35/42
+PUSHS float@566678.658678e10                                                    #    36/42
+POPS LF@__6767hjhjghhjkh                                                        #    37/42
+CLEARS                                                                          #    38/42
+JUMP __INTERNAL__FILE_END                                                       #    39/42
+# PROGRAM END                                                                   #    41/42
+LABEL __INTERNAL__FILE_END                                                      #    42/42

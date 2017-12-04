@@ -1,9 +1,9 @@
-# 2017-12-04 10:53:33.216188
+# 2017-12-04 14:49:27.070973
 # SECTION: 66_errors
 # TEST: 011
 # INFO: wrong double format III
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: FUNEXP, UNARY, IFTHEN, BOOLOP
+# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -31,5 +31,4 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/2
-JUMP main                                                                       #     2/2
+# ---
