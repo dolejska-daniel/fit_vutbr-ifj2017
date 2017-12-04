@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:24.617947
+# 2017-12-04 17:23:12.078444
 # SECTION: 05_conditions
 # TEST: 09
 # INFO: Condition with implicit conversion
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -99,21 +99,24 @@
 # Executing instruction: IJUMPIFNEQS at line: 36 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: ILABEL at line: 43 with following arguments:
-# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Executing instruction: ILABEL at line: 44 with following arguments:
+# Executing instruction: IPUSHS at line: 46 with following arguments:
 # Arg1: Const@=58(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 46 with following arguments:
+# Executing instruction: IDEFVAR at line: 47 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 47 with following arguments:
-# Arg1: Stack@=58(int)
+# Executing instruction: IMOVE at line: 48 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 48 with following arguments:
+# Executing instruction: IPOPS at line: 49 with following arguments:
+# Arg1: Stack@=58(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 50 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=58(int)
-# Executing instruction: ILABEL at line: 50 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 51 with following arguments:
-# Executing instruction: IJUMP at line: 53 with following arguments:
-# Executing instruction: ILABEL at line: 56 with following arguments:
+# Executing instruction: ILABEL at line: 52 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 53 with following arguments:
+# Executing instruction: IJUMP at line: 55 with following arguments:
+# Executing instruction: ILABEL at line: 60 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -125,7 +128,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 184 (64+120)
+# PRICE: 186 (65+121)
 # 
 #   1: ' Condition with implicit conversion
 #   2: scope
@@ -138,57 +141,60 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/56
-JUMP main                                                                       #     2/56
-# MAIN                                                                          #     4/56
-LABEL main                                                                      #     5/56
-CREATEFRAME                                                                     #     6/56
-PUSHFRAME                                                                       #     7/56
-CREATEFRAME                                                                     #     8/56
-# IF BLOCK                                                                      #     9/56
-CREATEFRAME                                                                     #    10/56
-# IF                                                                            #    11/56
-PUSHS int@8                                                                     #    12/56
-INT2FLOATS                                                                      #    13/56
-PUSHS float@2.0                                                                 #    14/56
-PUSHS int@9                                                                     #    15/56
-INT2FLOATS                                                                      #    16/56
-DIVS                                                                            #    17/56
-MULS                                                                            #    18/56
-PUSHS float@112.3                                                               #    19/56
-ADDS                                                                            #    20/56
-PUSHS float@13.8                                                                #    21/56
-SUBS                                                                            #    22/56
-PUSHS int@8                                                                     #    23/56
-INT2FLOATS                                                                      #    24/56
-PUSHS float@2.0                                                                 #    25/56
-PUSHS int@9                                                                     #    26/56
-INT2FLOATS                                                                      #    27/56
-DIVS                                                                            #    28/56
-MULS                                                                            #    29/56
-PUSHS float@112.3                                                               #    30/56
-ADDS                                                                            #    31/56
-PUSHS float@13.8                                                                #    32/56
-ADDS                                                                            #    33/56
-GTS                                                                             #    34/56
-PUSHS bool@true                                                                 #    35/56
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    36/56
-# THEN                                                                          #    37/56
-PUSHS int@42                                                                    #    38/56
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    39/56
-POPS TF@__INTERNAL__VAR_0                                                       #    40/56
-WRITE TF@__INTERNAL__VAR_0                                                      #    41/56
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    42/56
-LABEL __INTERNAL__COND_0_END                                                    #    43/56
-# ELSE                                                                          #    44/56
-PUSHS int@58                                                                    #    45/56
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    46/56
-POPS TF@__INTERNAL__VAR_0                                                       #    47/56
-WRITE TF@__INTERNAL__VAR_0                                                      #    48/56
-# END IF                                                                        #    49/56
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    50/56
-CREATEFRAME                                                                     #    51/56
-# END IF BLOCK                                                                  #    52/56
-JUMP __INTERNAL__FILE_END                                                       #    53/56
-# PROGRAM END                                                                   #    55/56
-LABEL __INTERNAL__FILE_END                                                      #    56/56
+.IFJcode17                                                                      #     1/60
+JUMP main                                                                       #     2/60
+# MAIN                                                                          #     4/60
+LABEL main                                                                      #     5/60
+CREATEFRAME                                                                     #     6/60
+PUSHFRAME                                                                       #     7/60
+CREATEFRAME                                                                     #     8/60
+# IF BLOCK                                                                      #     9/60
+CREATEFRAME                                                                     #    10/60
+# IF                                                                            #    11/60
+PUSHS int@8                                                                     #    12/60
+INT2FLOATS                                                                      #    13/60
+PUSHS float@2.0                                                                 #    14/60
+PUSHS int@9                                                                     #    15/60
+INT2FLOATS                                                                      #    16/60
+DIVS                                                                            #    17/60
+MULS                                                                            #    18/60
+PUSHS float@112.3                                                               #    19/60
+ADDS                                                                            #    20/60
+PUSHS float@13.8                                                                #    21/60
+SUBS                                                                            #    22/60
+PUSHS int@8                                                                     #    23/60
+INT2FLOATS                                                                      #    24/60
+PUSHS float@2.0                                                                 #    25/60
+PUSHS int@9                                                                     #    26/60
+INT2FLOATS                                                                      #    27/60
+DIVS                                                                            #    28/60
+MULS                                                                            #    29/60
+PUSHS float@112.3                                                               #    30/60
+ADDS                                                                            #    31/60
+PUSHS float@13.8                                                                #    32/60
+ADDS                                                                            #    33/60
+GTS                                                                             #    34/60
+PUSHS bool@true                                                                 #    35/60
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    36/60
+# THEN                                                                          #    37/60
+PUSHS int@42                                                                    #    38/60
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    39/60
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    40/60
+POPS TF@__INTERNAL__VAR_0                                                       #    41/60
+WRITE TF@__INTERNAL__VAR_0                                                      #    42/60
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    43/60
+LABEL __INTERNAL__COND_0_END                                                    #    44/60
+# ELSE                                                                          #    45/60
+PUSHS int@58                                                                    #    46/60
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    47/60
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    48/60
+POPS TF@__INTERNAL__VAR_0                                                       #    49/60
+WRITE TF@__INTERNAL__VAR_0                                                      #    50/60
+# END IF                                                                        #    51/60
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    52/60
+CREATEFRAME                                                                     #    53/60
+# END IF BLOCK                                                                  #    54/60
+JUMP __INTERNAL__FILE_END                                                       #    55/60
+# MAIN END                                                                      #    57/60
+# PROGRAM END                                                                   #    59/60
+LABEL __INTERNAL__FILE_END                                                      #    60/60

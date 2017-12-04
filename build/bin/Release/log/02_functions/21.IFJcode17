@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:22.846236
+# 2017-12-04 17:23:10.244568
 # SECTION: 02_functions
 # TEST: 21
 # INFO: Recursion of three functions
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -1342,13 +1342,16 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 154 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 155 with following arguments:
-# Arg1: Stack@=20(int)
+# Executing instruction: IMOVE at line: 155 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 156 with following arguments:
+# Executing instruction: IPOPS at line: 156 with following arguments:
+# Arg1: Stack@=20(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 157 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=20(int)
-# Executing instruction: IJUMP at line: 157 with following arguments:
-# Executing instruction: ILABEL at line: 160 with following arguments:
+# Executing instruction: IJUMP at line: 158 with following arguments:
+# Executing instruction: ILABEL at line: 163 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -1360,7 +1363,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 2460 (991+1469)
+# PRICE: 2462 (992+1470)
 # 
 #   1: ' Recursion of three functions
 #   2: 
@@ -1414,158 +1417,160 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/160
-JUMP main                                                                       #     2/160
-# FUNCTION                                                                      #     4/160
-LABEL foo                                                                       #     5/160
-PUSHFRAME                                                                       #     6/160
-CREATEFRAME                                                                     #     7/160
-DEFVAR LF@b                                                                     #     8/160
-MOVE LF@b int@0                                                                 #     9/160
-# IF BLOCK                                                                      #    10/160
-CREATEFRAME                                                                     #    11/160
-# IF                                                                            #    12/160
-PUSHS LF@a                                                                      #    13/160
-PUSHS int@0                                                                     #    14/160
-EQS                                                                             #    15/160
-PUSHS bool@true                                                                 #    16/160
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    17/160
-# THEN                                                                          #    18/160
-PUSHS int@20                                                                    #    19/160
-RETURN                                                                          #    20/160
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    21/160
-LABEL __INTERNAL__COND_0_END                                                    #    22/160
-# ELSE                                                                          #    23/160
-PUSHS LF@a                                                                      #    24/160
-PUSHS int@1                                                                     #    25/160
-SUBS                                                                            #    26/160
-POPS LF@b                                                                       #    27/160
-CLEARS                                                                          #    28/160
-CREATEFRAME                                                                     #    29/160
-PUSHS LF@b                                                                      #    30/160
-DEFVAR TF@nn                                                                    #    31/160
-POPS TF@nn                                                                      #    32/160
-CALL bar                                                                        #    33/160
-POPFRAME                                                                        #    34/160
-POPS LF@b                                                                       #    35/160
-CLEARS                                                                          #    36/160
-PUSHS LF@b                                                                      #    37/160
-RETURN                                                                          #    38/160
-# END IF                                                                        #    39/160
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    40/160
-CREATEFRAME                                                                     #    41/160
-# END IF BLOCK                                                                  #    42/160
-PUSHS int@0                                                                     #    43/160
-RETURN                                                                          #    44/160
-# END FUNCTION                                                                  #    45/160
-# FUNCTION                                                                      #    47/160
-LABEL bar                                                                       #    48/160
-PUSHFRAME                                                                       #    49/160
-CREATEFRAME                                                                     #    50/160
-DEFVAR LF@a                                                                     #    51/160
-MOVE LF@a LF@nn                                                                 #    52/160
-DEFVAR LF@b                                                                     #    53/160
-MOVE LF@b int@0                                                                 #    54/160
-# IF BLOCK                                                                      #    55/160
-CREATEFRAME                                                                     #    56/160
-# IF                                                                            #    57/160
-PUSHS LF@a                                                                      #    58/160
-PUSHS int@0                                                                     #    59/160
-EQS                                                                             #    60/160
-PUSHS bool@true                                                                 #    61/160
-JUMPIFNEQS __INTERNAL__COND_1_END                                               #    62/160
-# THEN                                                                          #    63/160
-PUSHS int@20                                                                    #    64/160
-RETURN                                                                          #    65/160
-JUMP __INTERNAL__COND_1_BLOCK_END                                               #    66/160
-LABEL __INTERNAL__COND_1_END                                                    #    67/160
-# ELSE                                                                          #    68/160
-PUSHS LF@a                                                                      #    69/160
-PUSHS int@1                                                                     #    70/160
-SUBS                                                                            #    71/160
-POPS LF@b                                                                       #    72/160
-CLEARS                                                                          #    73/160
-CREATEFRAME                                                                     #    74/160
-PUSHS LF@b                                                                      #    75/160
-DEFVAR TF@a                                                                     #    76/160
-POPS TF@a                                                                       #    77/160
-CALL foo                                                                        #    78/160
-POPFRAME                                                                        #    79/160
-POPS LF@b                                                                       #    80/160
-CLEARS                                                                          #    81/160
-PUSHS LF@b                                                                      #    82/160
-RETURN                                                                          #    83/160
-# END IF                                                                        #    84/160
-LABEL __INTERNAL__COND_1_BLOCK_END                                              #    85/160
-CREATEFRAME                                                                     #    86/160
-# END IF BLOCK                                                                  #    87/160
-PUSHS int@0                                                                     #    88/160
-RETURN                                                                          #    89/160
-# END FUNCTION                                                                  #    90/160
-# FUNCTION                                                                      #    92/160
-LABEL start                                                                     #    93/160
-PUSHFRAME                                                                       #    94/160
-CREATEFRAME                                                                     #    95/160
-DEFVAR LF@b                                                                     #    96/160
-MOVE LF@b int@0                                                                 #    97/160
-# IF BLOCK                                                                      #    98/160
-CREATEFRAME                                                                     #    99/160
-# IF                                                                            #   100/160
-PUSHS LF@a                                                                      #   101/160
-PUSHS int@10                                                                    #   102/160
-GTS                                                                             #   103/160
-PUSHS bool@true                                                                 #   104/160
-JUMPIFNEQS __INTERNAL__COND_2_END                                               #   105/160
-# THEN                                                                          #   106/160
-CREATEFRAME                                                                     #   107/160
-PUSHS LF@a                                                                      #   108/160
-DEFVAR TF@a                                                                     #   109/160
-POPS TF@a                                                                       #   110/160
-CALL foo                                                                        #   111/160
-POPFRAME                                                                        #   112/160
-POPS LF@b                                                                       #   113/160
-CLEARS                                                                          #   114/160
-PUSHS LF@b                                                                      #   115/160
-RETURN                                                                          #   116/160
-JUMP __INTERNAL__COND_2_BLOCK_END                                               #   117/160
-LABEL __INTERNAL__COND_2_END                                                    #   118/160
-# ELSE                                                                          #   119/160
-CREATEFRAME                                                                     #   120/160
-PUSHS LF@a                                                                      #   121/160
-DEFVAR TF@nn                                                                    #   122/160
-POPS TF@nn                                                                      #   123/160
-CALL bar                                                                        #   124/160
-POPFRAME                                                                        #   125/160
-POPS LF@b                                                                       #   126/160
-CLEARS                                                                          #   127/160
-PUSHS LF@b                                                                      #   128/160
-RETURN                                                                          #   129/160
-# END IF                                                                        #   130/160
-LABEL __INTERNAL__COND_2_BLOCK_END                                              #   131/160
-CREATEFRAME                                                                     #   132/160
-# END IF BLOCK                                                                  #   133/160
-PUSHS int@0                                                                     #   134/160
-RETURN                                                                          #   135/160
-# END FUNCTION                                                                  #   136/160
-# MAIN                                                                          #   138/160
-LABEL main                                                                      #   139/160
-CREATEFRAME                                                                     #   140/160
-PUSHFRAME                                                                       #   141/160
-CREATEFRAME                                                                     #   142/160
-DEFVAR LF@a                                                                     #   143/160
-MOVE LF@a int@0                                                                 #   144/160
-CREATEFRAME                                                                     #   145/160
-PUSHS int@20                                                                    #   146/160
-DEFVAR TF@a                                                                     #   147/160
-POPS TF@a                                                                       #   148/160
-CALL start                                                                      #   149/160
-POPFRAME                                                                        #   150/160
-POPS LF@a                                                                       #   151/160
-CLEARS                                                                          #   152/160
-PUSHS LF@a                                                                      #   153/160
-DEFVAR TF@__INTERNAL__VAR_0                                                     #   154/160
-POPS TF@__INTERNAL__VAR_0                                                       #   155/160
-WRITE TF@__INTERNAL__VAR_0                                                      #   156/160
-JUMP __INTERNAL__FILE_END                                                       #   157/160
-# PROGRAM END                                                                   #   159/160
-LABEL __INTERNAL__FILE_END                                                      #   160/160
+.IFJcode17                                                                      #     1/163
+JUMP main                                                                       #     2/163
+# FUNCTION                                                                      #     4/163
+LABEL foo                                                                       #     5/163
+PUSHFRAME                                                                       #     6/163
+CREATEFRAME                                                                     #     7/163
+DEFVAR LF@b                                                                     #     8/163
+MOVE LF@b int@0                                                                 #     9/163
+# IF BLOCK                                                                      #    10/163
+CREATEFRAME                                                                     #    11/163
+# IF                                                                            #    12/163
+PUSHS LF@a                                                                      #    13/163
+PUSHS int@0                                                                     #    14/163
+EQS                                                                             #    15/163
+PUSHS bool@true                                                                 #    16/163
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    17/163
+# THEN                                                                          #    18/163
+PUSHS int@20                                                                    #    19/163
+RETURN                                                                          #    20/163
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    21/163
+LABEL __INTERNAL__COND_0_END                                                    #    22/163
+# ELSE                                                                          #    23/163
+PUSHS LF@a                                                                      #    24/163
+PUSHS int@1                                                                     #    25/163
+SUBS                                                                            #    26/163
+POPS LF@b                                                                       #    27/163
+CLEARS                                                                          #    28/163
+CREATEFRAME                                                                     #    29/163
+PUSHS LF@b                                                                      #    30/163
+DEFVAR TF@nn                                                                    #    31/163
+POPS TF@nn                                                                      #    32/163
+CALL bar                                                                        #    33/163
+POPFRAME                                                                        #    34/163
+POPS LF@b                                                                       #    35/163
+CLEARS                                                                          #    36/163
+PUSHS LF@b                                                                      #    37/163
+RETURN                                                                          #    38/163
+# END IF                                                                        #    39/163
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    40/163
+CREATEFRAME                                                                     #    41/163
+# END IF BLOCK                                                                  #    42/163
+PUSHS int@0                                                                     #    43/163
+RETURN                                                                          #    44/163
+# END FUNCTION                                                                  #    45/163
+# FUNCTION                                                                      #    47/163
+LABEL bar                                                                       #    48/163
+PUSHFRAME                                                                       #    49/163
+CREATEFRAME                                                                     #    50/163
+DEFVAR LF@a                                                                     #    51/163
+MOVE LF@a LF@nn                                                                 #    52/163
+DEFVAR LF@b                                                                     #    53/163
+MOVE LF@b int@0                                                                 #    54/163
+# IF BLOCK                                                                      #    55/163
+CREATEFRAME                                                                     #    56/163
+# IF                                                                            #    57/163
+PUSHS LF@a                                                                      #    58/163
+PUSHS int@0                                                                     #    59/163
+EQS                                                                             #    60/163
+PUSHS bool@true                                                                 #    61/163
+JUMPIFNEQS __INTERNAL__COND_1_END                                               #    62/163
+# THEN                                                                          #    63/163
+PUSHS int@20                                                                    #    64/163
+RETURN                                                                          #    65/163
+JUMP __INTERNAL__COND_1_BLOCK_END                                               #    66/163
+LABEL __INTERNAL__COND_1_END                                                    #    67/163
+# ELSE                                                                          #    68/163
+PUSHS LF@a                                                                      #    69/163
+PUSHS int@1                                                                     #    70/163
+SUBS                                                                            #    71/163
+POPS LF@b                                                                       #    72/163
+CLEARS                                                                          #    73/163
+CREATEFRAME                                                                     #    74/163
+PUSHS LF@b                                                                      #    75/163
+DEFVAR TF@a                                                                     #    76/163
+POPS TF@a                                                                       #    77/163
+CALL foo                                                                        #    78/163
+POPFRAME                                                                        #    79/163
+POPS LF@b                                                                       #    80/163
+CLEARS                                                                          #    81/163
+PUSHS LF@b                                                                      #    82/163
+RETURN                                                                          #    83/163
+# END IF                                                                        #    84/163
+LABEL __INTERNAL__COND_1_BLOCK_END                                              #    85/163
+CREATEFRAME                                                                     #    86/163
+# END IF BLOCK                                                                  #    87/163
+PUSHS int@0                                                                     #    88/163
+RETURN                                                                          #    89/163
+# END FUNCTION                                                                  #    90/163
+# FUNCTION                                                                      #    92/163
+LABEL start                                                                     #    93/163
+PUSHFRAME                                                                       #    94/163
+CREATEFRAME                                                                     #    95/163
+DEFVAR LF@b                                                                     #    96/163
+MOVE LF@b int@0                                                                 #    97/163
+# IF BLOCK                                                                      #    98/163
+CREATEFRAME                                                                     #    99/163
+# IF                                                                            #   100/163
+PUSHS LF@a                                                                      #   101/163
+PUSHS int@10                                                                    #   102/163
+GTS                                                                             #   103/163
+PUSHS bool@true                                                                 #   104/163
+JUMPIFNEQS __INTERNAL__COND_2_END                                               #   105/163
+# THEN                                                                          #   106/163
+CREATEFRAME                                                                     #   107/163
+PUSHS LF@a                                                                      #   108/163
+DEFVAR TF@a                                                                     #   109/163
+POPS TF@a                                                                       #   110/163
+CALL foo                                                                        #   111/163
+POPFRAME                                                                        #   112/163
+POPS LF@b                                                                       #   113/163
+CLEARS                                                                          #   114/163
+PUSHS LF@b                                                                      #   115/163
+RETURN                                                                          #   116/163
+JUMP __INTERNAL__COND_2_BLOCK_END                                               #   117/163
+LABEL __INTERNAL__COND_2_END                                                    #   118/163
+# ELSE                                                                          #   119/163
+CREATEFRAME                                                                     #   120/163
+PUSHS LF@a                                                                      #   121/163
+DEFVAR TF@nn                                                                    #   122/163
+POPS TF@nn                                                                      #   123/163
+CALL bar                                                                        #   124/163
+POPFRAME                                                                        #   125/163
+POPS LF@b                                                                       #   126/163
+CLEARS                                                                          #   127/163
+PUSHS LF@b                                                                      #   128/163
+RETURN                                                                          #   129/163
+# END IF                                                                        #   130/163
+LABEL __INTERNAL__COND_2_BLOCK_END                                              #   131/163
+CREATEFRAME                                                                     #   132/163
+# END IF BLOCK                                                                  #   133/163
+PUSHS int@0                                                                     #   134/163
+RETURN                                                                          #   135/163
+# END FUNCTION                                                                  #   136/163
+# MAIN                                                                          #   138/163
+LABEL main                                                                      #   139/163
+CREATEFRAME                                                                     #   140/163
+PUSHFRAME                                                                       #   141/163
+CREATEFRAME                                                                     #   142/163
+DEFVAR LF@a                                                                     #   143/163
+MOVE LF@a int@0                                                                 #   144/163
+CREATEFRAME                                                                     #   145/163
+PUSHS int@20                                                                    #   146/163
+DEFVAR TF@a                                                                     #   147/163
+POPS TF@a                                                                       #   148/163
+CALL start                                                                      #   149/163
+POPFRAME                                                                        #   150/163
+POPS LF@a                                                                       #   151/163
+CLEARS                                                                          #   152/163
+PUSHS LF@a                                                                      #   153/163
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   154/163
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #   155/163
+POPS TF@__INTERNAL__VAR_0                                                       #   156/163
+WRITE TF@__INTERNAL__VAR_0                                                      #   157/163
+JUMP __INTERNAL__FILE_END                                                       #   158/163
+# MAIN END                                                                      #   160/163
+# PROGRAM END                                                                   #   162/163
+LABEL __INTERNAL__FILE_END                                                      #   163/163

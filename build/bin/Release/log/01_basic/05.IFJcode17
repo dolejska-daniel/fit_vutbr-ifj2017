@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:21.136189
+# 2017-12-04 17:23:08.533519
 # SECTION: 01_basic
 # TEST: 05
 # INFO: string escape sequences
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -35,23 +35,24 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/22
-JUMP main                                                                       #     2/22
-# MAIN                                                                          #     4/22
-LABEL main                                                                      #     5/22
-CREATEFRAME                                                                     #     6/22
-PUSHFRAME                                                                       #     7/22
-CREATEFRAME                                                                     #     8/22
-DEFVAR LF@str                                                                   #     9/22
-MOVE LF@str string@                                                             #    10/22
-PUSHS string@\034\010\009\092\238                                               #    11/22
-POPS LF@str                                                                     #    12/22
-CLEARS                                                                          #    13/22
-DEFVAR LF@str0                                                                  #    14/22
-MOVE LF@str0 string@                                                            #    15/22
-PUSHS string@\001\255\092\010                                                   #    16/22
-POPS LF@str0                                                                    #    17/22
-CLEARS                                                                          #    18/22
-JUMP __INTERNAL__FILE_END                                                       #    19/22
-# PROGRAM END                                                                   #    21/22
-LABEL __INTERNAL__FILE_END                                                      #    22/22
+.IFJcode17                                                                      #     1/24
+JUMP main                                                                       #     2/24
+# MAIN                                                                          #     4/24
+LABEL main                                                                      #     5/24
+CREATEFRAME                                                                     #     6/24
+PUSHFRAME                                                                       #     7/24
+CREATEFRAME                                                                     #     8/24
+DEFVAR LF@str                                                                   #     9/24
+MOVE LF@str string@                                                             #    10/24
+PUSHS string@\034\010\009\092\238                                               #    11/24
+POPS LF@str                                                                     #    12/24
+CLEARS                                                                          #    13/24
+DEFVAR LF@str0                                                                  #    14/24
+MOVE LF@str0 string@                                                            #    15/24
+PUSHS string@\001\255\092\010                                                   #    16/24
+POPS LF@str0                                                                    #    17/24
+CLEARS                                                                          #    18/24
+JUMP __INTERNAL__FILE_END                                                       #    19/24
+# MAIN END                                                                      #    21/24
+# PROGRAM END                                                                   #    23/24
+LABEL __INTERNAL__FILE_END                                                      #    24/24

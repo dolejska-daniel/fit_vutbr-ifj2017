@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:21.174792
+# 2017-12-04 17:23:08.572623
 # SECTION: 01_basic
 # TEST: 06
 # INFO: block comments
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -25,7 +25,7 @@
 # Arg1: Const@=(string)
 # Dest: LF@a()
 # Executing instruction: IJUMP at line: 13 with following arguments:
-# Executing instruction: ILABEL at line: 16 with following arguments:
+# Executing instruction: ILABEL at line: 18 with following arguments:
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -55,17 +55,18 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/16
-JUMP main                                                                       #     2/16
-# MAIN                                                                          #     4/16
-LABEL main                                                                      #     5/16
-CREATEFRAME                                                                     #     6/16
-PUSHFRAME                                                                       #     7/16
-CREATEFRAME                                                                     #     8/16
-DEFVAR LF@b                                                                     #     9/16
-MOVE LF@b string@                                                               #    10/16
-DEFVAR LF@a                                                                     #    11/16
-MOVE LF@a string@                                                               #    12/16
-JUMP __INTERNAL__FILE_END                                                       #    13/16
-# PROGRAM END                                                                   #    15/16
-LABEL __INTERNAL__FILE_END                                                      #    16/16
+.IFJcode17                                                                      #     1/18
+JUMP main                                                                       #     2/18
+# MAIN                                                                          #     4/18
+LABEL main                                                                      #     5/18
+CREATEFRAME                                                                     #     6/18
+PUSHFRAME                                                                       #     7/18
+CREATEFRAME                                                                     #     8/18
+DEFVAR LF@b                                                                     #     9/18
+MOVE LF@b string@                                                               #    10/18
+DEFVAR LF@a                                                                     #    11/18
+MOVE LF@a string@                                                               #    12/18
+JUMP __INTERNAL__FILE_END                                                       #    13/18
+# MAIN END                                                                      #    15/18
+# PROGRAM END                                                                   #    17/18
+LABEL __INTERNAL__FILE_END                                                      #    18/18

@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:23.577681
+# 2017-12-04 17:23:10.993560
 # SECTION: 04_expressions
 # TEST: 03
 # INFO: simple adding with inner variable
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -59,13 +59,16 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 23 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 24 with following arguments:
-# Arg1: Stack@=96(int)
+# Executing instruction: IMOVE at line: 24 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 25 with following arguments:
+# Executing instruction: IPOPS at line: 25 with following arguments:
+# Arg1: Stack@=96(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 26 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=96(int)
-# Executing instruction: IJUMP at line: 26 with following arguments:
-# Executing instruction: ILABEL at line: 29 with following arguments:
+# Executing instruction: IJUMP at line: 27 with following arguments:
+# Executing instruction: ILABEL at line: 32 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -77,7 +80,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 104 (39+65)
+# PRICE: 106 (40+66)
 # 
 #   1: ' simple adding with inner variable
 #   2: scope
@@ -87,30 +90,32 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/29
-JUMP main                                                                       #     2/29
-# MAIN                                                                          #     4/29
-LABEL main                                                                      #     5/29
-CREATEFRAME                                                                     #     6/29
-PUSHFRAME                                                                       #     7/29
-CREATEFRAME                                                                     #     8/29
-DEFVAR LF@a                                                                     #     9/29
-MOVE LF@a int@0                                                                 #    10/29
-PUSHS int@0                                                                     #    11/29
-PUSHS int@21                                                                    #    12/29
-SUBS                                                                            #    13/29
-POPS LF@a                                                                       #    14/29
-CLEARS                                                                          #    15/29
-PUSHS int@42                                                                    #    16/29
-PUSHS int@96                                                                    #    17/29
-ADDS                                                                            #    18/29
-PUSHS LF@a                                                                      #    19/29
-ADDS                                                                            #    20/29
-PUSHS LF@a                                                                      #    21/29
-ADDS                                                                            #    22/29
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    23/29
-POPS TF@__INTERNAL__VAR_0                                                       #    24/29
-WRITE TF@__INTERNAL__VAR_0                                                      #    25/29
-JUMP __INTERNAL__FILE_END                                                       #    26/29
-# PROGRAM END                                                                   #    28/29
-LABEL __INTERNAL__FILE_END                                                      #    29/29
+.IFJcode17                                                                      #     1/32
+JUMP main                                                                       #     2/32
+# MAIN                                                                          #     4/32
+LABEL main                                                                      #     5/32
+CREATEFRAME                                                                     #     6/32
+PUSHFRAME                                                                       #     7/32
+CREATEFRAME                                                                     #     8/32
+DEFVAR LF@a                                                                     #     9/32
+MOVE LF@a int@0                                                                 #    10/32
+PUSHS int@0                                                                     #    11/32
+PUSHS int@21                                                                    #    12/32
+SUBS                                                                            #    13/32
+POPS LF@a                                                                       #    14/32
+CLEARS                                                                          #    15/32
+PUSHS int@42                                                                    #    16/32
+PUSHS int@96                                                                    #    17/32
+ADDS                                                                            #    18/32
+PUSHS LF@a                                                                      #    19/32
+ADDS                                                                            #    20/32
+PUSHS LF@a                                                                      #    21/32
+ADDS                                                                            #    22/32
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    23/32
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    24/32
+POPS TF@__INTERNAL__VAR_0                                                       #    25/32
+WRITE TF@__INTERNAL__VAR_0                                                      #    26/32
+JUMP __INTERNAL__FILE_END                                                       #    27/32
+# MAIN END                                                                      #    29/32
+# PROGRAM END                                                                   #    31/32
+LABEL __INTERNAL__FILE_END                                                      #    32/32

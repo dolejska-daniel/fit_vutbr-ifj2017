@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:27.428925
+# 2017-12-04 17:23:15.093963
 # SECTION: 66_errors
 # TEST: 038
 # INFO: wrong operand for two strings
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -33,16 +33,17 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/15
-JUMP main                                                                       #     2/15
-# MAIN                                                                          #     4/15
-LABEL main                                                                      #     5/15
-CREATEFRAME                                                                     #     6/15
-PUSHFRAME                                                                       #     7/15
-CREATEFRAME                                                                     #     8/15
-DEFVAR TF@__INTERNAL__VAR_0                                                     #     9/15
-POPS TF@__INTERNAL__VAR_0                                                       #    10/15
-WRITE TF@__INTERNAL__VAR_0                                                      #    11/15
-JUMP __INTERNAL__FILE_END                                                       #    12/15
-# PROGRAM END                                                                   #    14/15
-LABEL __INTERNAL__FILE_END                                                      #    15/15
+.IFJcode17                                                                      #     1/18
+JUMP main                                                                       #     2/18
+# MAIN                                                                          #     4/18
+LABEL main                                                                      #     5/18
+CREATEFRAME                                                                     #     6/18
+PUSHFRAME                                                                       #     7/18
+CREATEFRAME                                                                     #     8/18
+DEFVAR TF@__INTERNAL__VAR_0                                                     #     9/18
+POPS TF@__INTERNAL__VAR_0                                                       #    11/18
+WRITE TF@__INTERNAL__VAR_0                                                      #    12/18
+JUMP __INTERNAL__FILE_END                                                       #    13/18
+# MAIN END                                                                      #    15/18
+# PROGRAM END                                                                   #    17/18
+LABEL __INTERNAL__FILE_END                                                      #    18/18

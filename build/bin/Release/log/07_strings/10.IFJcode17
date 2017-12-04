@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:26.059279
+# 2017-12-04 17:23:13.588961
 # SECTION: 07_strings
 # TEST: 10
 # INFO: combined input with builtin functions (TODO: stdout)
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -100,150 +100,178 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/151
-JUMP main                                                                       #     2/151
-# MAIN                                                                          #     4/151
-LABEL main                                                                      #     5/151
-CREATEFRAME                                                                     #     6/151
-PUSHFRAME                                                                       #     7/151
-CREATEFRAME                                                                     #     8/151
-DEFVAR LF@s1                                                                    #     9/151
-MOVE LF@s1 string@                                                              #    10/151
-DEFVAR LF@s2                                                                    #    11/151
-MOVE LF@s2 string@                                                              #    12/151
-DEFVAR LF@s1len                                                                 #    13/151
-MOVE LF@s1len int@0                                                             #    14/151
-PUSHS string@Toto\032je\032nejaky\032text                                       #    15/151
-POPS LF@s1                                                                      #    16/151
-CLEARS                                                                          #    17/151
-PUSHS LF@s1                                                                     #    18/151
-PUSHS string@,\032ktery\032jeste\032trochu\032obohatime                         #    19/151
-ADDS                                                                            #    20/151
-POPS LF@s2                                                                      #    21/151
-CLEARS                                                                          #    22/151
-PUSHS LF@s1                                                                     #    23/151
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    24/151
-POPS TF@__INTERNAL__VAR_0                                                       #    25/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    26/151
-PUSHS string@\010                                                               #    27/151
-POPS TF@__INTERNAL__VAR_0                                                       #    28/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    29/151
-PUSHS LF@s2                                                                     #    30/151
-POPS TF@__INTERNAL__VAR_0                                                       #    31/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    32/151
-PUSHS string@\010                                                               #    33/151
-POPS TF@__INTERNAL__VAR_0                                                       #    34/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    35/151
-CREATEFRAME                                                                     #    36/151
-PUSHS LF@s1                                                                     #    37/151
-DEFVAR TF@s                                                                     #    38/151
-POPS TF@s                                                                       #    39/151
-CALL length                                                                     #    40/151
-POPFRAME                                                                        #    41/151
-POPS LF@s1len                                                                   #    42/151
-CLEARS                                                                          #    43/151
-PUSHS LF@s1len                                                                  #    44/151
-PUSHS int@4                                                                     #    45/151
-SUBS                                                                            #    46/151
-PUSHS int@1                                                                     #    47/151
-ADDS                                                                            #    48/151
-POPS LF@s1len                                                                   #    49/151
-CLEARS                                                                          #    50/151
-CREATEFRAME                                                                     #    51/151
-PUSHS LF@s2                                                                     #    52/151
-DEFVAR TF@s                                                                     #    53/151
-POPS TF@s                                                                       #    54/151
-PUSHS LF@s1len                                                                  #    55/151
-DEFVAR TF@i                                                                     #    56/151
-POPS TF@i                                                                       #    57/151
-PUSHS int@4                                                                     #    58/151
-DEFVAR TF@n                                                                     #    59/151
-POPS TF@n                                                                       #    60/151
-CALL substr                                                                     #    61/151
-POPFRAME                                                                        #    62/151
-POPS LF@s1                                                                      #    63/151
-CLEARS                                                                          #    64/151
-PUSHS string@4\032znaky\032od\032                                               #    65/151
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    66/151
-POPS TF@__INTERNAL__VAR_0                                                       #    67/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    68/151
-PUSHS LF@s1len                                                                  #    69/151
-POPS TF@__INTERNAL__VAR_0                                                       #    70/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    71/151
-PUSHS string@.\032znaku\032v\032\034                                            #    72/151
-POPS TF@__INTERNAL__VAR_0                                                       #    73/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    74/151
-PUSHS LF@s2                                                                     #    75/151
-POPS TF@__INTERNAL__VAR_0                                                       #    76/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    77/151
-PUSHS string@\034:                                                              #    78/151
-POPS TF@__INTERNAL__VAR_0                                                       #    79/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    80/151
-PUSHS LF@s1                                                                     #    81/151
-POPS TF@__INTERNAL__VAR_0                                                       #    82/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    83/151
-PUSHS string@\010                                                               #    84/151
-POPS TF@__INTERNAL__VAR_0                                                       #    85/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    86/151
-PUSHS string@Zadejte\032serazenou\032posloupnost\032vsech\032malych\032pismen\032a-h,\032#    87/151
-POPS TF@__INTERNAL__VAR_0                                                       #    88/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    89/151
-PUSHS string@pricemz\032se\032pismena\032nesmeji\032v\032posloupnosti\032opakovat#    90/151
-POPS TF@__INTERNAL__VAR_0                                                       #    91/151
-WRITE TF@__INTERNAL__VAR_0                                                      #    92/151
-READ LF@s1 string                                                               #    93/151
-# DO WHILE                                                                      #    94/151
-CREATEFRAME                                                                     #    95/151
-LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    96/151
-PUSHS LF@s1                                                                     #    97/151
-PUSHS string@abcdefgh                                                           #    98/151
-EQS                                                                             #    99/151
-NOTS                                                                            #   100/151
-PUSHS bool@true                                                                 #   101/151
-JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #   102/151
-# DO WHILE TRUE                                                                 #   103/151
-CREATEFRAME                                                                     #   104/151
-PUSHS string@\010Spatne\032zadana\032posloupnost,\032zkuste\032znovu            #   105/151
-DEFVAR TF@__INTERNAL__VAR_0                                                     #   106/151
-POPS TF@__INTERNAL__VAR_0                                                       #   107/151
-WRITE TF@__INTERNAL__VAR_0                                                      #   108/151
-READ LF@s1 string                                                               #   109/151
-# LOOP                                                                          #   110/151
-JUMP __INTERNAL__LOOP_0_BEGIN                                                   #   111/151
-# DO WHILE FALSE                                                                #   112/151
-LABEL __INTERNAL__LOOP_0_END                                                    #   113/151
-# DO WHILE END                                                                  #   114/151
-JUMP __INTERNAL__FILE_END                                                       #   115/151
-# LENGTH FUNCTION                                                               #   117/151
-LABEL length                                                                    #   118/151
-PUSHFRAME                                                                       #   119/151
-CREATEFRAME                                                                     #   120/151
-STRLEN TF@__INTERNAL__VAR_0 LF@s                                                #   121/151
-PUSHS TF@__INTERNAL__VAR_0                                                      #   122/151
-RETURN                                                                          #   123/151
-# LENGTH FUNCTION END                                                           #   124/151
-# SUBSTR FUNCTION                                                               #   126/151
-DEFVAR TF@__INTERNAL__VAR_0                                                     #   127/151
-DEFVAR TF@__INTERNAL__VAR_1                                                     #   128/151
-LABEL substr                                                                    #   129/151
-PUSHFRAME                                                                       #   130/151
-CREATEFRAME                                                                     #   131/151
-SUB LF@i LF@i int@1                                                             #   132/151
-LABEL begin                                                                     #   133/151
-PUSHS LF@n                                                                      #   134/151
-PUSHS int@0                                                                     #   135/151
-GTS                                                                             #   136/151
-PUSHS bool@true                                                                 #   137/151
-JUMPIFNEQS end                                                                  #   138/151
-GETCHAR TF@__INTERNAL__VAR_0 LF@s LF@i                                          #   139/151
-CONCAT TF@__INTERNAL__VAR_1 TF@__INTERNAL__VAR_1 TF@__INTERNAL__VAR_0           #   140/151
-ADD LF@i LF@i int@1                                                             #   141/151
-SUB LF@n LF@n int@1                                                             #   142/151
-JUMP begin                                                                      #   143/151
-LABEL end                                                                       #   144/151
-CLEARS                                                                          #   145/151
-PUSHS TF@__INTERNAL__VAR_1                                                      #   146/151
-RETURN                                                                          #   147/151
-# SUBSTR FUNCTION END                                                           #   148/151
-# PROGRAM END                                                                   #   150/151
-LABEL __INTERNAL__FILE_END                                                      #   151/151
+.IFJcode17                                                                      #     1/180
+JUMP main                                                                       #     2/180
+# MAIN                                                                          #     4/180
+LABEL main                                                                      #     5/180
+CREATEFRAME                                                                     #     6/180
+PUSHFRAME                                                                       #     7/180
+CREATEFRAME                                                                     #     8/180
+DEFVAR LF@s1                                                                    #     9/180
+MOVE LF@s1 string@                                                              #    10/180
+DEFVAR LF@s2                                                                    #    11/180
+MOVE LF@s2 string@                                                              #    12/180
+DEFVAR LF@s1len                                                                 #    13/180
+MOVE LF@s1len int@0                                                             #    14/180
+PUSHS string@Toto\032je\032nejaky\032text                                       #    15/180
+POPS LF@s1                                                                      #    16/180
+CLEARS                                                                          #    17/180
+PUSHS LF@s1                                                                     #    18/180
+PUSHS string@,\032ktery\032jeste\032trochu\032obohatime                         #    19/180
+ADDS                                                                            #    20/180
+POPS LF@s2                                                                      #    21/180
+CLEARS                                                                          #    22/180
+PUSHS LF@s1                                                                     #    23/180
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    24/180
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    25/180
+POPS TF@__INTERNAL__VAR_0                                                       #    26/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    27/180
+PUSHS string@\010                                                               #    28/180
+POPS TF@__INTERNAL__VAR_0                                                       #    29/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    30/180
+PUSHS LF@s2                                                                     #    31/180
+POPS TF@__INTERNAL__VAR_0                                                       #    32/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    33/180
+PUSHS string@\010                                                               #    34/180
+POPS TF@__INTERNAL__VAR_0                                                       #    35/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    36/180
+CREATEFRAME                                                                     #    37/180
+PUSHS LF@s1                                                                     #    38/180
+DEFVAR TF@s                                                                     #    39/180
+POPS TF@s                                                                       #    40/180
+CALL length                                                                     #    41/180
+POPFRAME                                                                        #    42/180
+POPS LF@s1len                                                                   #    43/180
+CLEARS                                                                          #    44/180
+PUSHS LF@s1len                                                                  #    45/180
+PUSHS int@4                                                                     #    46/180
+SUBS                                                                            #    47/180
+PUSHS int@1                                                                     #    48/180
+ADDS                                                                            #    49/180
+POPS LF@s1len                                                                   #    50/180
+CLEARS                                                                          #    51/180
+CREATEFRAME                                                                     #    52/180
+PUSHS LF@s2                                                                     #    53/180
+DEFVAR TF@s                                                                     #    54/180
+POPS TF@s                                                                       #    55/180
+PUSHS LF@s1len                                                                  #    56/180
+DEFVAR TF@i                                                                     #    57/180
+POPS TF@i                                                                       #    58/180
+PUSHS int@4                                                                     #    59/180
+DEFVAR TF@n                                                                     #    60/180
+POPS TF@n                                                                       #    61/180
+CALL substr                                                                     #    62/180
+POPFRAME                                                                        #    63/180
+POPS LF@s1                                                                      #    64/180
+CLEARS                                                                          #    65/180
+PUSHS string@4\032znaky\032od\032                                               #    66/180
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    67/180
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    68/180
+POPS TF@__INTERNAL__VAR_0                                                       #    69/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    70/180
+PUSHS LF@s1len                                                                  #    71/180
+POPS TF@__INTERNAL__VAR_0                                                       #    72/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    73/180
+PUSHS string@.\032znaku\032v\032\034                                            #    74/180
+POPS TF@__INTERNAL__VAR_0                                                       #    75/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    76/180
+PUSHS LF@s2                                                                     #    77/180
+POPS TF@__INTERNAL__VAR_0                                                       #    78/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    79/180
+PUSHS string@\034:                                                              #    80/180
+POPS TF@__INTERNAL__VAR_0                                                       #    81/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    82/180
+PUSHS LF@s1                                                                     #    83/180
+POPS TF@__INTERNAL__VAR_0                                                       #    84/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    85/180
+PUSHS string@\010                                                               #    86/180
+POPS TF@__INTERNAL__VAR_0                                                       #    87/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    88/180
+PUSHS string@Zadejte\032serazenou\032posloupnost\032vsech\032malych\032pismen\032a-h,\032#    89/180
+POPS TF@__INTERNAL__VAR_0                                                       #    90/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    91/180
+PUSHS string@pricemz\032se\032pismena\032nesmeji\032v\032posloupnosti\032opakovat#    92/180
+POPS TF@__INTERNAL__VAR_0                                                       #    93/180
+WRITE TF@__INTERNAL__VAR_0                                                      #    94/180
+READ LF@s1 string                                                               #    95/180
+# DO WHILE                                                                      #    96/180
+CREATEFRAME                                                                     #    97/180
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    98/180
+PUSHS LF@s1                                                                     #    99/180
+PUSHS string@abcdefgh                                                           #   100/180
+EQS                                                                             #   101/180
+NOTS                                                                            #   102/180
+PUSHS bool@true                                                                 #   103/180
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #   104/180
+# DO WHILE TRUE                                                                 #   105/180
+CREATEFRAME                                                                     #   106/180
+PUSHS string@\010Spatne\032zadana\032posloupnost,\032zkuste\032znovu            #   107/180
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   108/180
+MOVE TF@__INTERNAL__VAR_0 string@                                               #   109/180
+POPS TF@__INTERNAL__VAR_0                                                       #   110/180
+WRITE TF@__INTERNAL__VAR_0                                                      #   111/180
+READ LF@s1 string                                                               #   112/180
+# LOOP                                                                          #   113/180
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #   114/180
+# DO WHILE FALSE                                                                #   115/180
+LABEL __INTERNAL__LOOP_0_END                                                    #   116/180
+# DO WHILE END                                                                  #   117/180
+JUMP __INTERNAL__FILE_END                                                       #   118/180
+# MAIN END                                                                      #   120/180
+# LENGTH FUNCTION                                                               #   122/180
+LABEL length                                                                    #   123/180
+PUSHFRAME                                                                       #   124/180
+CREATEFRAME                                                                     #   125/180
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   126/180
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #   127/180
+STRLEN TF@__INTERNAL__VAR_0 LF@s                                                #   128/180
+PUSHS TF@__INTERNAL__VAR_0                                                      #   129/180
+RETURN                                                                          #   130/180
+# LENGTH FUNCTION END                                                           #   131/180
+# SUBSTR FUNCTION                                                               #   133/180
+LABEL substr                                                                    #   134/180
+PUSHFRAME                                                                       #   135/180
+CREATEFRAME                                                                     #   136/180
+PUSHS LF@s                                                                      #   137/180
+PUSHS string@                                                                   #   138/180
+EQS                                                                             #   139/180
+PUSHS LF@i                                                                      #   140/180
+PUSHS int@1                                                                     #   141/180
+LTS                                                                             #   142/180
+ORS                                                                             #   143/180
+PUSHS bool@true                                                                 #   144/180
+JUMPIFNEQS ok                                                                   #   145/180
+PUSHS string@                                                                   #   146/180
+RETURN                                                                          #   147/180
+LABEL ok                                                                        #   148/180
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   149/180
+MOVE TF@__INTERNAL__VAR_0 string@                                               #   150/180
+DEFVAR TF@__INTERNAL__VAR_1                                                     #   151/180
+MOVE TF@__INTERNAL__VAR_1 string@                                               #   152/180
+DEFVAR TF@__INTERNAL__VAR_2                                                     #   153/180
+MOVE TF@__INTERNAL__VAR_2 int@0                                                 #   154/180
+STRLEN TF@__INTERNAL__VAR_2 LF@s                                                #   155/180
+SUB LF@i LF@i int@1                                                             #   156/180
+LABEL begin                                                                     #   157/180
+PUSHS LF@n                                                                      #   158/180
+PUSHS int@0                                                                     #   159/180
+GTS                                                                             #   160/180
+PUSHS bool@true                                                                 #   161/180
+JUMPIFNEQS end                                                                  #   162/180
+GETCHAR TF@__INTERNAL__VAR_0 LF@s LF@i                                          #   163/180
+CONCAT TF@__INTERNAL__VAR_1 TF@__INTERNAL__VAR_1 TF@__INTERNAL__VAR_0           #   164/180
+ADD LF@i LF@i int@1                                                             #   165/180
+SUB LF@n LF@n int@1                                                             #   166/180
+PUSHS LF@i                                                                      #   167/180
+PUSHS TF@__INTERNAL__VAR_2                                                      #   168/180
+LTS                                                                             #   169/180
+PUSHS bool@true                                                                 #   170/180
+JUMPIFNEQS end                                                                  #   171/180
+JUMP begin                                                                      #   172/180
+LABEL end                                                                       #   173/180
+CLEARS                                                                          #   174/180
+PUSHS TF@__INTERNAL__VAR_1                                                      #   175/180
+RETURN                                                                          #   176/180
+# SUBSTR FUNCTION END                                                           #   177/180
+# PROGRAM END                                                                   #   179/180
+LABEL __INTERNAL__FILE_END                                                      #   180/180

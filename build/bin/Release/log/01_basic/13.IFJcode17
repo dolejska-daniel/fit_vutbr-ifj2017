@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:21.368306
+# 2017-12-04 17:23:08.749593
 # SECTION: 01_basic
 # TEST: 13
 # INFO: Multi line string
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -20,15 +20,18 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 10 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 11 with following arguments:
+# Executing instruction: IMOVE at line: 11 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 12 with following arguments:
 # Arg1: Stack@=ahoj
 # svete(string)
-# Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 12 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 13 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=ahoj
 # svete(string)
-# Executing instruction: IJUMP at line: 13 with following arguments:
-# Executing instruction: ILABEL at line: 16 with following arguments:
+# Executing instruction: IJUMP at line: 14 with following arguments:
+# Executing instruction: ILABEL at line: 19 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -40,7 +43,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 30 (17+13)
+# PRICE: 32 (18+14)
 # 
 #   1: scope 
 #   2:  print !"ahoj\nsvete"; 
@@ -48,17 +51,19 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/16
-JUMP main                                                                       #     2/16
-# MAIN                                                                          #     4/16
-LABEL main                                                                      #     5/16
-CREATEFRAME                                                                     #     6/16
-PUSHFRAME                                                                       #     7/16
-CREATEFRAME                                                                     #     8/16
-PUSHS string@ahoj\010svete                                                      #     9/16
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    10/16
-POPS TF@__INTERNAL__VAR_0                                                       #    11/16
-WRITE TF@__INTERNAL__VAR_0                                                      #    12/16
-JUMP __INTERNAL__FILE_END                                                       #    13/16
-# PROGRAM END                                                                   #    15/16
-LABEL __INTERNAL__FILE_END                                                      #    16/16
+.IFJcode17                                                                      #     1/19
+JUMP main                                                                       #     2/19
+# MAIN                                                                          #     4/19
+LABEL main                                                                      #     5/19
+CREATEFRAME                                                                     #     6/19
+PUSHFRAME                                                                       #     7/19
+CREATEFRAME                                                                     #     8/19
+PUSHS string@ahoj\010svete                                                      #     9/19
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    10/19
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    11/19
+POPS TF@__INTERNAL__VAR_0                                                       #    12/19
+WRITE TF@__INTERNAL__VAR_0                                                      #    13/19
+JUMP __INTERNAL__FILE_END                                                       #    14/19
+# MAIN END                                                                      #    16/19
+# PROGRAM END                                                                   #    18/19
+LABEL __INTERNAL__FILE_END                                                      #    19/19

@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:32.098842
+# 2017-12-04 17:23:19.764381
 # SECTION: 99_benchmarks
 # TEST: 09
 # INFO: multiple string concatenations
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -94,53 +94,55 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/52
-JUMP main                                                                       #     2/52
-# MAIN                                                                          #     4/52
-LABEL main                                                                      #     5/52
-CREATEFRAME                                                                     #     6/52
-PUSHFRAME                                                                       #     7/52
-CREATEFRAME                                                                     #     8/52
-DEFVAR LF@buffer                                                                #     9/52
-MOVE LF@buffer string@                                                          #    10/52
-DEFVAR LF@count                                                                 #    11/52
-MOVE LF@count int@0                                                             #    12/52
-PUSHS int@42                                                                    #    13/52
-POPS LF@count                                                                   #    14/52
-CLEARS                                                                          #    15/52
-# DO WHILE                                                                      #    16/52
-CREATEFRAME                                                                     #    17/52
-LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    18/52
-PUSHS LF@count                                                                  #    19/52
-PUSHS int@0                                                                     #    20/52
-GTS                                                                             #    21/52
-PUSHS bool@true                                                                 #    22/52
-JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    23/52
-# DO WHILE TRUE                                                                 #    24/52
-CREATEFRAME                                                                     #    25/52
-PUSHS string@                                                                   #    26/52
-PUSHS LF@buffer                                                                 #    27/52
-ADDS                                                                            #    28/52
-PUSHS string@\032barman                                                         #    29/52
-ADDS                                                                            #    30/52
-PUSHS string@                                                                   #    31/52
-ADDS                                                                            #    32/52
-POPS LF@buffer                                                                  #    33/52
-CLEARS                                                                          #    34/52
-PUSHS LF@count                                                                  #    35/52
-PUSHS int@1                                                                     #    36/52
-SUBS                                                                            #    37/52
-POPS LF@count                                                                   #    38/52
-CLEARS                                                                          #    39/52
-# LOOP                                                                          #    40/52
-JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    41/52
-# DO WHILE FALSE                                                                #    42/52
-LABEL __INTERNAL__LOOP_0_END                                                    #    43/52
-# DO WHILE END                                                                  #    44/52
-PUSHS LF@buffer                                                                 #    45/52
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    46/52
-POPS TF@__INTERNAL__VAR_0                                                       #    47/52
-WRITE TF@__INTERNAL__VAR_0                                                      #    48/52
-JUMP __INTERNAL__FILE_END                                                       #    49/52
-# PROGRAM END                                                                   #    51/52
-LABEL __INTERNAL__FILE_END                                                      #    52/52
+.IFJcode17                                                                      #     1/55
+JUMP main                                                                       #     2/55
+# MAIN                                                                          #     4/55
+LABEL main                                                                      #     5/55
+CREATEFRAME                                                                     #     6/55
+PUSHFRAME                                                                       #     7/55
+CREATEFRAME                                                                     #     8/55
+DEFVAR LF@buffer                                                                #     9/55
+MOVE LF@buffer string@                                                          #    10/55
+DEFVAR LF@count                                                                 #    11/55
+MOVE LF@count int@0                                                             #    12/55
+PUSHS int@42                                                                    #    13/55
+POPS LF@count                                                                   #    14/55
+CLEARS                                                                          #    15/55
+# DO WHILE                                                                      #    16/55
+CREATEFRAME                                                                     #    17/55
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    18/55
+PUSHS LF@count                                                                  #    19/55
+PUSHS int@0                                                                     #    20/55
+GTS                                                                             #    21/55
+PUSHS bool@true                                                                 #    22/55
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    23/55
+# DO WHILE TRUE                                                                 #    24/55
+CREATEFRAME                                                                     #    25/55
+PUSHS string@                                                                   #    26/55
+PUSHS LF@buffer                                                                 #    27/55
+ADDS                                                                            #    28/55
+PUSHS string@\032barman                                                         #    29/55
+ADDS                                                                            #    30/55
+PUSHS string@                                                                   #    31/55
+ADDS                                                                            #    32/55
+POPS LF@buffer                                                                  #    33/55
+CLEARS                                                                          #    34/55
+PUSHS LF@count                                                                  #    35/55
+PUSHS int@1                                                                     #    36/55
+SUBS                                                                            #    37/55
+POPS LF@count                                                                   #    38/55
+CLEARS                                                                          #    39/55
+# LOOP                                                                          #    40/55
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    41/55
+# DO WHILE FALSE                                                                #    42/55
+LABEL __INTERNAL__LOOP_0_END                                                    #    43/55
+# DO WHILE END                                                                  #    44/55
+PUSHS LF@buffer                                                                 #    45/55
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    46/55
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    47/55
+POPS TF@__INTERNAL__VAR_0                                                       #    48/55
+WRITE TF@__INTERNAL__VAR_0                                                      #    49/55
+JUMP __INTERNAL__FILE_END                                                       #    50/55
+# MAIN END                                                                      #    52/55
+# PROGRAM END                                                                   #    54/55
+LABEL __INTERNAL__FILE_END                                                      #    55/55

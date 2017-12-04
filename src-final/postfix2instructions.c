@@ -77,6 +77,12 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
 
     InstructionListPtr preprocess_ilist = InstructionList_create();
 
+    if (operand == NULL)
+    {
+        DEBUG_ERR(source, "postfix expression is empty!");
+        return SYNTAX_ERROR;
+    }
+
     DEBUG_LOG(source, "preprocessing expression");
     //  Preprocess instrukcí do speciálního listu instrukcí
     do
@@ -85,6 +91,8 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
         {
             //  Operand je operátorem
             TokenPtr token = operand->token;
+            InstructionPtr i;
+
             //
             //  MATEMATIKA:
             //
@@ -97,7 +105,7 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                     return instruction_result;
                 }
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i = InstructionList_getLast(preprocess_ilist);
                 i->isOperator = true;
             }
             else if (token->type == MINUS)
@@ -109,7 +117,7 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                     return instruction_result;
                 }
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i = InstructionList_getLast(preprocess_ilist);
                 i->isOperator = true;
             }
             else if (token->type == STAR)
@@ -121,7 +129,7 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                     return instruction_result;
                 }
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i = InstructionList_getLast(preprocess_ilist);
                 i->isOperator = true;
             }
             else if (token->type == SLASH)
@@ -133,7 +141,7 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                     return instruction_result;
                 }
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i = InstructionList_getLast(preprocess_ilist);
                 i->isOperator = true;
             }
             else if (token->type == BACK_SLASH)
@@ -145,8 +153,19 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                     return instruction_result;
                 }
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i = InstructionList_getLast(preprocess_ilist);
                 i->isOperator = true;
+                i->isBlockBegin = true;
+
+                //  Odstranění desetinné části
+                instruction_result = Instruction_float2int_stack(preprocess_ilist);
+                if (instruction_result != NO_ERROR)
+                {
+                    return instruction_result;
+                }
+
+                i = InstructionList_getLast(preprocess_ilist);
+                i->isBlockEnd = true;
             }
             //
             //  LOGIKA:
@@ -156,40 +175,108 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                 //  Porovnání (equals)
                 Instruction_logic_eq_stack(preprocess_ilist);
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i = InstructionList_getLast(preprocess_ilist);
                 i->isOperator = true;
             }
             else if (token->type == LTGT)
             {
                 //  Porovnání (not equals)
                 Instruction_logic_eq_stack(preprocess_ilist);
+
+                i = InstructionList_getLast(preprocess_ilist);
+                i->isOperator = true;
+                i->isBlockBegin = true;
+
                 Instruction_logic_not_stack(preprocess_ilist);
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
-                i->isOperator = true;
+                i = InstructionList_getLast(preprocess_ilist);
+                i->isBlockEnd = true;
             }
             else if (token->type == LT)
             {
                 //  Porovnání (less than)
                 Instruction_logic_lt_stack(preprocess_ilist);
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i = InstructionList_getLast(preprocess_ilist);
                 i->isOperator = true;
+            }
+            else if (token->type == LTEQ)
+            {
+                //  Provnání (less than or equals)
+                i = InstructionList_getLast(preprocess_ilist);
+
+                SymbolPtr tempvar1 = SymbolTable_getTempVar(symtable, preprocess_ilist, ST_INTEGER, 10);
+                SymbolPtr tempvar2 = SymbolTable_getTempVar(symtable, preprocess_ilist, ST_INTEGER, 11);
+                SymbolPtr tempvar_result = SymbolTable_getTempVar(symtable, preprocess_ilist, ST_INTEGER, 12);
+
+                i = i->next;
+                i->isOperator = true;
+                i->isBlockBegin = true;
+
+                Instruction_stack_pop(preprocess_ilist, tempvar2);
+                Instruction_stack_pop(preprocess_ilist, tempvar1);
+
+                Instruction_logic_lt(preprocess_ilist, tempvar_result, tempvar1, tempvar2);
+                Instruction_stack_push(preprocess_ilist, tempvar_result);
+
+                Instruction_logic_eq(preprocess_ilist, tempvar_result, tempvar1, tempvar2);
+                Instruction_stack_push(preprocess_ilist, tempvar_result);
+
+                Instruction_logic_or_stack(preprocess_ilist);
+
+                SymbolTable_deleteTempVar(symtable, 10);
+                SymbolTable_deleteTempVar(symtable, 11);
+                SymbolTable_deleteTempVar(symtable, 12);
+
+                i = InstructionList_getLast(preprocess_ilist);
+                i->isBlockEnd = true;
             }
             else if (token->type == GT)
             {
                 //  Porovnání (greater than)
                 Instruction_logic_gt_stack(preprocess_ilist);
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i = InstructionList_getLast(preprocess_ilist);
                 i->isOperator = true;
+            }
+            else if (token->type == GTEQ)
+            {
+                //  Porovnání (greater than or equals)
+                i = InstructionList_getLast(preprocess_ilist);
+
+                SymbolPtr tempvar1 = SymbolTable_getTempVar(symtable, preprocess_ilist, ST_INTEGER, 10);
+                SymbolPtr tempvar2 = SymbolTable_getTempVar(symtable, preprocess_ilist, ST_INTEGER, 11);
+                SymbolPtr tempvar_result = SymbolTable_getTempVar(symtable, preprocess_ilist, ST_INTEGER, 12);
+
+                i = i->next;
+                i->isOperator = true;
+                i->isBlockBegin = true;
+
+                Instruction_stack_pop(preprocess_ilist, tempvar2);
+                Instruction_stack_pop(preprocess_ilist, tempvar1);
+
+                Instruction_logic_gt(preprocess_ilist, tempvar_result, tempvar1, tempvar2);
+                Instruction_stack_push(preprocess_ilist, tempvar_result);
+
+                Instruction_logic_eq(preprocess_ilist, tempvar_result, tempvar1, tempvar2);
+                Instruction_stack_push(preprocess_ilist, tempvar_result);
+
+                Instruction_logic_or_stack(preprocess_ilist);
+
+                SymbolTable_deleteTempVar(symtable, 10);
+                SymbolTable_deleteTempVar(symtable, 11);
+                SymbolTable_deleteTempVar(symtable, 12);
+
+                i = InstructionList_getLast(preprocess_ilist);
+                i->isBlockEnd = true;
+
             }
             else if (token->type == AND)
             {
                 //  Konjunkce
                 Instruction_logic_and_stack(preprocess_ilist);
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i = InstructionList_getLast(preprocess_ilist);
                 i->isOperator = true;
             }
             else if (token->type == OR)
@@ -197,7 +284,7 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                 //  Disjunkce
                 Instruction_logic_or_stack(preprocess_ilist);
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i = InstructionList_getLast(preprocess_ilist);
                 i->isOperator = true;
             }
             else if (token->type == NOT)
@@ -205,7 +292,7 @@ int postfix2instructions(InputPtr input, InstructionListPtr ilist, SymbolTablePt
                 //  Negace
                 Instruction_logic_not_stack(preprocess_ilist);
 
-                InstructionPtr i = InstructionList_getLast(preprocess_ilist);
+                i = InstructionList_getLast(preprocess_ilist);
                 i->isOperator = true;
             }
             else
@@ -383,6 +470,7 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
     InstructionPtr iX_end = NULL;
     InstructionPtr iY = NULL;
     InstructionPtr iY_end = NULL;
+    InstructionPtr newi;
 
     //  Nastavíme se na začátek postfixového výrazu
     PostfixList_first(*postfixList);
@@ -403,7 +491,8 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
 
             iY = i->prev;
             iY_end = NULL;
-            if (iY->isBlockEnd == true)
+
+            if (iY != NULL && iY->isBlockEnd == true)
             {
                 iY_end = iY;
                 while (iY->isBlockBegin != true)
@@ -424,7 +513,8 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
             //  Operand 2 této operace (předchozí blok předchozího bloku instrukcí)
             iX = iY->prev;
             iX_end = NULL;
-            if (iX->isBlockEnd == true)
+
+            if (iX != NULL && iX->isBlockEnd == true)
             {
                 iX_end = iX;
                 while (iX->isBlockBegin != true)
@@ -455,11 +545,19 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                 case BACK_SLASH:
                 case EQ:
                 case LT:
+                case LTEQ:
                 case LTGT:
                 case GT:
+                case GTEQ:
                 case AND:
                 case OR:
-                    if (iX == NULL || iY == NULL || SymbolType_isBinaryOperationOk(iX->dataType, iY->dataType, token) == false)
+                    if (iX == NULL || iY == NULL)
+                    {
+                        //  TODO: Error message
+                        DEBUG_ERR(source, "missing operands for binary operation");
+                        return SYNTAX_ERROR;
+                    }
+                    else if (SymbolType_isBinaryOperationOk(iX->dataType, iY->dataType, token) == false)
                     {
                         //  TODO: Error message
                         DEBUG_ERR(source, "these operands cannot be used in this binary operation");
@@ -474,14 +572,15 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                     char *i_content;
 
                     //  Kontrola datového typu prvního operandu
-                    if (SymbolType_hasToConvertOperator1(iX->dataType, iY->dataType, &resultDataType) == true)
+                    if (SymbolType_hasToConvertOperator1(iX->dataType, iY->dataType, token->type, &resultDataType) == true)
                     {
                         if (iX->dataType == ST_DOUBLE && resultDataType == ST_INTEGER)
                         {
                             #ifdef DEBUG_VERBOSE
                             DEBUG_LOG(source, "first operand needs to be converted from float to integer");
                             #endif
-                            i_content = String_create("FLOAT2INTS");
+                            iX->dataType = resultDataType;
+                            i_content = String_create("FLOAT2R2EINTS");
                             if (i_content == NULL)
                             {
                                 return INTERNAL_ERROR;
@@ -492,6 +591,7 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                             #ifdef DEBUG_VERBOSE
                             DEBUG_LOG(source, "first operand needs to be converted from integer to float");
                             #endif
+                            iX->dataType = resultDataType;
                             i_content = String_create("INT2FLOATS");
                             if (i_content == NULL)
                             {
@@ -504,7 +604,8 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                             DEBUG_PRINT("\ttarget data type is %s\n", SymbolType_toString(resultDataType));
                             return INTERNAL_ERROR;
                         }
-                        InstructionList_insertAfter(preprocessed_ilist, iX, i_content);
+
+                        newi = InstructionList_insertAfter(preprocessed_ilist, iX_end ? iX_end : iX, i_content);
                         result = SEMANTICAL_DATATYPE_ERROR;
                     }
 
@@ -514,14 +615,15 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
 
                     //  Kontrola datového typu druhého operandu
                     resultDataType = -1;
-                    if (SymbolType_hasToConvertOperator2(iX->dataType, iY->dataType, &resultDataType) == true)
+                    if (SymbolType_hasToConvertOperator2(iX->dataType, iY->dataType, token->type, &resultDataType) == true)
                     {
                         if (iY->dataType == ST_DOUBLE && resultDataType == ST_INTEGER)
                         {
                             #ifdef DEBUG_VERBOSE
                             DEBUG_LOG(source, "second operand needs to be converted from float to integer");
                             #endif
-                            i_content = String_create("FLOAT2INTS");
+                            iY->dataType = resultDataType;
+                            i_content = String_create("FLOAT2R2EINTS");
                             if (i_content == NULL)
                             {
                                 return INTERNAL_ERROR;
@@ -532,6 +634,7 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                             #ifdef DEBUG_VERBOSE
                             DEBUG_LOG(source, "second operand needs to be converted from integer to float");
                             #endif
+                            iY->dataType = resultDataType;
                             i_content = String_create("INT2FLOATS");
                             if (i_content == NULL)
                             {
@@ -544,7 +647,8 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                             DEBUG_PRINT("\ttarget data type is %s\n", SymbolType_toString(resultDataType));
                             return INTERNAL_ERROR;
                         }
-                        InstructionList_insertAfter(preprocessed_ilist, iY, i_content);
+
+                        newi = InstructionList_insertAfter(preprocessed_ilist, iY_end ? iY_end : iY, i_content);
                         result = SEMANTICAL_DATATYPE_ERROR;
                     }
 
@@ -554,13 +658,17 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                         case SLASH:
                             resultDataType = ST_DOUBLE;
                             break;
+                        case BACK_SLASH:
+                            resultDataType = ST_INTEGER;
+                            break;
                         case EQ:
                         case LT:
+                        case LTEQ:
                         case LTGT:
                         case GT:
+                        case GTEQ:
                         case AND:
                         case OR:
-                        case NOT:
                             resultDataType = ST_BOOLEAN;
                             break;
                         default:
@@ -580,7 +688,25 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                         iY_end->isBlockEnd = false;
 
                     i->isOperator = false;
-                    i->isBlockEnd = true;
+                    if (i->isBlockBegin == true)
+                    {
+                        //  Existuje celý blok instrukcí
+                        i->isBlockBegin = false;
+                        while (i != NULL && i->isBlockEnd != true)
+                        {
+                            i = i->next;
+                            if (i == NULL)
+                            {
+                                //  Syntax?
+                                return INTERNAL_ERROR;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //  Instrukce operace je pouze jedna
+                        i->isBlockEnd = true;
+                    }
 
                     DEBUG_LOG(source, "operation processed");
                     break;
@@ -588,7 +714,13 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                 //  Unární operace
                 //
                 case NOT:
-                    if (iY == NULL || SymbolType_isOperationOk(iY->dataType, token) == false)
+                    if (iY == NULL)
+                    {
+                        //  TODO: Error message
+                        DEBUG_ERR(source, "missing operands for unary operation");
+                        return SYNTAX_ERROR;
+                    }
+                    else if (SymbolType_isOperationOk(iY->dataType, token) == false)
                     {
                         //  TODO: Error message
                         DEBUG_ERR(source, "this operand cannot be used in this unary operation");
@@ -598,6 +730,16 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
                     #ifdef DEBUG_VERBOSE
                     DEBUG_LOG(source, "this unary operation is valid, validating implicit datatype conversions");
                     #endif
+
+                    //  Opravení výsledného datového typu na základě operace
+                    switch (token->type)
+                    {
+                        case NOT:
+                            resultDataType = ST_BOOLEAN;
+                            break;
+                        default:
+                            break;
+                    }
 
                     iY->isBlockBegin = true;
                     iY->dataType     = resultDataType;
@@ -623,10 +765,10 @@ int postfix2instructions_process(InstructionListPtr ilist, InstructionListPtr pr
         //  Načtení další instrukce
         i = i->next;
         while (i != NULL && i->isOperator == false && i->isVariable == false && i->isBlockBegin == false)
-            //  Instrukce není ani operátor andi proměnná ani začátek bloku zpracovaného operandu
+            //  Instrukce není ani operátor ani proměnná ani začátek bloku zpracovaného operandu
             i = i->next;
 
-        if (operand != NULL)
+        if (operand != NULL && i == NULL)
         {
             DEBUG_ERR(source, "operand is not NULL but instruction is!!");
         }

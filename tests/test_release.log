@@ -11,8 +11,6 @@ Activated 4 extensions: BOOLOP, FUNEXP, IFTHEN, UNARY.[0m
 	22  (calculator): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 02_functions:[0m
 	01  (asc value): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
-	09  (call built-in feature length): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=54[0m[0m
-	10  (call built-in features - combined): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=54[0m[0m
 	14  (input in function): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 	15  (function call function which have input): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 	18  (argument of function is call of function): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=52[0m[0m
@@ -28,9 +26,8 @@ Activated 4 extensions: BOOLOP, FUNEXP, IFTHEN, UNARY.[0m
 	13  (compare equal input strings): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 06_loops:[0m
 07_strings:[0m
-	01  (valid length call): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=54[0m[0m
 	02  (string concat): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=53[0m[0m
-	03  (substr builtin function): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=54[0m[0m
+	03  (substr builtin function): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 	04  (asc builtin function): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=58[0m[0m
 	10  (combined input with builtin functions (todo: stdout)): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=53[0m[0m
 08_booleans:[0m
@@ -83,6 +80,7 @@ Activated 4 extensions: BOOLOP, FUNEXP, IFTHEN, UNARY.[0m
 99_benchmarks:[0m
 	01  (lots of nested control statements): [0m × COMPILER EXIT CODE expected=0, returned=2[0m[0m
 	02  (fibonacci sequence): [0m\u2713[0m × INTERPRETER TIMEOUT[0m[0m
+	04  (complex expression): [0m × COMPILER EXIT CODE expected=0, returned=4[0m[0m
 	07  (reference program working with strings and builtin functions): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=53[0m[0m
 	08  (factorial by iteration method): [0m\u2713[0m\u2713[0m × STDOUT[0m[0m
 	09  (multiple string concatenations): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=53[0m[0m
@@ -90,5 +88,5 @@ Activated 4 extensions: BOOLOP, FUNEXP, IFTHEN, UNARY.[0m
 	11  (big count of function parameters): [0m × COMPILER EXIT CODE expected=0, returned=2[0m[0m
 	12  (ackerman function for ackerman(2, 5)): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=52[0m[0m
 	13  (multiplier listing): [0m\u2713[0m × INTERPRETER EXIT CODE expected=0, returned=52[0m[0m
-RESULTS:[0m 76.23%[0m (170/223)
-	[0m\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713--×\u2713\u2713\u2713××\u2713\u2713\u2713××\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713\u2713\u2713××\u2713\u2713××\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×××\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713××××\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713×××××---×\u2713×\u2713\u2713×\u2713×××\u2713----------------×××-\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713\u2713\u2713×××××××[0m
+RESULTS:[0m 77.13%[0m (172/223)
+	[0m\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713--×\u2713\u2713\u2713××\u2713\u2713\u2713××\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713\u2713××\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×××\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×××\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713×××××---×\u2713×\u2713\u2713×\u2713×××\u2713----------------×××-\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713×\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713\u2713××\u2713×\u2713×××××××[0m

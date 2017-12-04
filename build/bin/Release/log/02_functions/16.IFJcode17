@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:22.660743
+# 2017-12-04 17:23:10.069603
 # SECTION: 02_functions
 # TEST: 16
 # INFO: Function call function which have input
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -76,13 +76,16 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 61 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 62 with following arguments:
-# Arg1: Stack@=42(int)
+# Executing instruction: IMOVE at line: 62 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 63 with following arguments:
+# Executing instruction: IPOPS at line: 63 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 64 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=42(int)
-# Executing instruction: IJUMP at line: 64 with following arguments:
-# Executing instruction: ILABEL at line: 67 with following arguments:
+# Executing instruction: IJUMP at line: 65 with following arguments:
+# Executing instruction: ILABEL at line: 70 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -94,7 +97,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 141 (89+52)
+# PRICE: 143 (90+53)
 # 
 #   1: ' Function call function which have input
 #   2: 
@@ -122,65 +125,67 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/67
-JUMP main                                                                       #     2/67
-# FUNCTION                                                                      #     4/67
-LABEL gk6767__                                                                  #     5/67
-PUSHFRAME                                                                       #     6/67
-CREATEFRAME                                                                     #     7/67
-PUSHS int@42                                                                    #     8/67
-RETURN                                                                          #     9/67
-PUSHS int@0                                                                     #    10/67
-RETURN                                                                          #    11/67
-# END FUNCTION                                                                  #    12/67
-# FUNCTION                                                                      #    14/67
-LABEL gkj5___ggk                                                                #    15/67
-PUSHFRAME                                                                       #    16/67
-CREATEFRAME                                                                     #    17/67
-DEFVAR LF@a                                                                     #    18/67
-MOVE LF@a int@0                                                                 #    19/67
-CREATEFRAME                                                                     #    20/67
-CALL gk6767__                                                                   #    21/67
-POPFRAME                                                                        #    22/67
-POPS LF@a                                                                       #    23/67
-CLEARS                                                                          #    24/67
-PUSHS LF@a                                                                      #    25/67
-RETURN                                                                          #    26/67
-PUSHS int@0                                                                     #    27/67
-RETURN                                                                          #    28/67
-# END FUNCTION                                                                  #    29/67
-# FUNCTION                                                                      #    31/67
-LABEL foo                                                                       #    32/67
-PUSHFRAME                                                                       #    33/67
-CREATEFRAME                                                                     #    34/67
-DEFVAR LF@a                                                                     #    35/67
-MOVE LF@a int@0                                                                 #    36/67
-CREATEFRAME                                                                     #    37/67
-CALL gkj5___ggk                                                                 #    38/67
-POPFRAME                                                                        #    39/67
-POPS LF@a                                                                       #    40/67
-CLEARS                                                                          #    41/67
-PUSHS LF@a                                                                      #    42/67
-RETURN                                                                          #    43/67
-PUSHS int@0                                                                     #    44/67
-RETURN                                                                          #    45/67
-# END FUNCTION                                                                  #    46/67
-# MAIN                                                                          #    48/67
-LABEL main                                                                      #    49/67
-CREATEFRAME                                                                     #    50/67
-PUSHFRAME                                                                       #    51/67
-CREATEFRAME                                                                     #    52/67
-DEFVAR LF@a                                                                     #    53/67
-MOVE LF@a int@0                                                                 #    54/67
-CREATEFRAME                                                                     #    55/67
-CALL foo                                                                        #    56/67
-POPFRAME                                                                        #    57/67
-POPS LF@a                                                                       #    58/67
-CLEARS                                                                          #    59/67
-PUSHS LF@a                                                                      #    60/67
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    61/67
-POPS TF@__INTERNAL__VAR_0                                                       #    62/67
-WRITE TF@__INTERNAL__VAR_0                                                      #    63/67
-JUMP __INTERNAL__FILE_END                                                       #    64/67
-# PROGRAM END                                                                   #    66/67
-LABEL __INTERNAL__FILE_END                                                      #    67/67
+.IFJcode17                                                                      #     1/70
+JUMP main                                                                       #     2/70
+# FUNCTION                                                                      #     4/70
+LABEL gk6767__                                                                  #     5/70
+PUSHFRAME                                                                       #     6/70
+CREATEFRAME                                                                     #     7/70
+PUSHS int@42                                                                    #     8/70
+RETURN                                                                          #     9/70
+PUSHS int@0                                                                     #    10/70
+RETURN                                                                          #    11/70
+# END FUNCTION                                                                  #    12/70
+# FUNCTION                                                                      #    14/70
+LABEL gkj5___ggk                                                                #    15/70
+PUSHFRAME                                                                       #    16/70
+CREATEFRAME                                                                     #    17/70
+DEFVAR LF@a                                                                     #    18/70
+MOVE LF@a int@0                                                                 #    19/70
+CREATEFRAME                                                                     #    20/70
+CALL gk6767__                                                                   #    21/70
+POPFRAME                                                                        #    22/70
+POPS LF@a                                                                       #    23/70
+CLEARS                                                                          #    24/70
+PUSHS LF@a                                                                      #    25/70
+RETURN                                                                          #    26/70
+PUSHS int@0                                                                     #    27/70
+RETURN                                                                          #    28/70
+# END FUNCTION                                                                  #    29/70
+# FUNCTION                                                                      #    31/70
+LABEL foo                                                                       #    32/70
+PUSHFRAME                                                                       #    33/70
+CREATEFRAME                                                                     #    34/70
+DEFVAR LF@a                                                                     #    35/70
+MOVE LF@a int@0                                                                 #    36/70
+CREATEFRAME                                                                     #    37/70
+CALL gkj5___ggk                                                                 #    38/70
+POPFRAME                                                                        #    39/70
+POPS LF@a                                                                       #    40/70
+CLEARS                                                                          #    41/70
+PUSHS LF@a                                                                      #    42/70
+RETURN                                                                          #    43/70
+PUSHS int@0                                                                     #    44/70
+RETURN                                                                          #    45/70
+# END FUNCTION                                                                  #    46/70
+# MAIN                                                                          #    48/70
+LABEL main                                                                      #    49/70
+CREATEFRAME                                                                     #    50/70
+PUSHFRAME                                                                       #    51/70
+CREATEFRAME                                                                     #    52/70
+DEFVAR LF@a                                                                     #    53/70
+MOVE LF@a int@0                                                                 #    54/70
+CREATEFRAME                                                                     #    55/70
+CALL foo                                                                        #    56/70
+POPFRAME                                                                        #    57/70
+POPS LF@a                                                                       #    58/70
+CLEARS                                                                          #    59/70
+PUSHS LF@a                                                                      #    60/70
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    61/70
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    62/70
+POPS TF@__INTERNAL__VAR_0                                                       #    63/70
+WRITE TF@__INTERNAL__VAR_0                                                      #    64/70
+JUMP __INTERNAL__FILE_END                                                       #    65/70
+# MAIN END                                                                      #    67/70
+# PROGRAM END                                                                   #    69/70
+LABEL __INTERNAL__FILE_END                                                      #    70/70

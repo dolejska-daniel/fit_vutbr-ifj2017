@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:23.909062
+# 2017-12-04 17:23:11.359032
 # SECTION: 04_expressions
 # TEST: 14
 # INFO: Test for implicit conversion
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -95,13 +95,16 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 37 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 38 with following arguments:
-# Arg1: Stack@=123.456(double)
+# Executing instruction: IMOVE at line: 38 with following arguments:
+# Arg1: Const@=0(double)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 39 with following arguments:
+# Executing instruction: IPOPS at line: 39 with following arguments:
+# Arg1: Stack@=123.456(double)
+# Dest: TF@__INTERNAL__VAR_0=0(double)
+# Executing instruction: IWRITE at line: 40 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=123.456(double)
-# Executing instruction: IJUMP at line: 40 with following arguments:
-# Executing instruction: ILABEL at line: 43 with following arguments:
+# Executing instruction: IJUMP at line: 41 with following arguments:
+# Executing instruction: ILABEL at line: 46 with following arguments:
 # 
 # STDOUT DIFF:
 # --- expected
@@ -138,44 +141,46 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/43
-JUMP main                                                                       #     2/43
-# MAIN                                                                          #     4/43
-LABEL main                                                                      #     5/43
-CREATEFRAME                                                                     #     6/43
-PUSHFRAME                                                                       #     7/43
-CREATEFRAME                                                                     #     8/43
-DEFVAR LF@a                                                                     #     9/43
-MOVE LF@a float@0.0                                                             #    10/43
-PUSHS float@123.4565                                                            #    11/43
-POPS LF@a                                                                       #    12/43
-CLEARS                                                                          #    13/43
-DEFVAR LF@b                                                                     #    14/43
-MOVE LF@b int@0                                                                 #    15/43
-PUSHS int@456465                                                                #    16/43
-POPS LF@b                                                                       #    17/43
-CLEARS                                                                          #    18/43
-DEFVAR LF@c                                                                     #    19/43
-MOVE LF@c float@0.0                                                             #    20/43
-PUSHS LF@a                                                                      #    21/43
-PUSHS LF@b                                                                      #    22/43
-INT2FLOATS                                                                      #    23/43
-MULS                                                                            #    24/43
-PUSHS LF@b                                                                      #    25/43
-INT2FLOATS                                                                      #    26/43
-DIVS                                                                            #    27/43
-PUSHS LF@b                                                                      #    28/43
-INT2FLOATS                                                                      #    29/43
-MULS                                                                            #    30/43
-PUSHS LF@b                                                                      #    31/43
-INT2FLOATS                                                                      #    32/43
-DIVS                                                                            #    33/43
-POPS LF@c                                                                       #    34/43
-CLEARS                                                                          #    35/43
-PUSHS LF@c                                                                      #    36/43
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    37/43
-POPS TF@__INTERNAL__VAR_0                                                       #    38/43
-WRITE TF@__INTERNAL__VAR_0                                                      #    39/43
-JUMP __INTERNAL__FILE_END                                                       #    40/43
-# PROGRAM END                                                                   #    42/43
-LABEL __INTERNAL__FILE_END                                                      #    43/43
+.IFJcode17                                                                      #     1/46
+JUMP main                                                                       #     2/46
+# MAIN                                                                          #     4/46
+LABEL main                                                                      #     5/46
+CREATEFRAME                                                                     #     6/46
+PUSHFRAME                                                                       #     7/46
+CREATEFRAME                                                                     #     8/46
+DEFVAR LF@a                                                                     #     9/46
+MOVE LF@a float@0.0                                                             #    10/46
+PUSHS float@123.4565                                                            #    11/46
+POPS LF@a                                                                       #    12/46
+CLEARS                                                                          #    13/46
+DEFVAR LF@b                                                                     #    14/46
+MOVE LF@b int@0                                                                 #    15/46
+PUSHS int@456465                                                                #    16/46
+POPS LF@b                                                                       #    17/46
+CLEARS                                                                          #    18/46
+DEFVAR LF@c                                                                     #    19/46
+MOVE LF@c float@0.0                                                             #    20/46
+PUSHS LF@a                                                                      #    21/46
+PUSHS LF@b                                                                      #    22/46
+INT2FLOATS                                                                      #    23/46
+MULS                                                                            #    24/46
+PUSHS LF@b                                                                      #    25/46
+INT2FLOATS                                                                      #    26/46
+DIVS                                                                            #    27/46
+PUSHS LF@b                                                                      #    28/46
+INT2FLOATS                                                                      #    29/46
+MULS                                                                            #    30/46
+PUSHS LF@b                                                                      #    31/46
+INT2FLOATS                                                                      #    32/46
+DIVS                                                                            #    33/46
+POPS LF@c                                                                       #    34/46
+CLEARS                                                                          #    35/46
+PUSHS LF@c                                                                      #    36/46
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    37/46
+MOVE TF@__INTERNAL__VAR_0 float@0.0                                             #    38/46
+POPS TF@__INTERNAL__VAR_0                                                       #    39/46
+WRITE TF@__INTERNAL__VAR_0                                                      #    40/46
+JUMP __INTERNAL__FILE_END                                                       #    41/46
+# MAIN END                                                                      #    43/46
+# PROGRAM END                                                                   #    45/46
+LABEL __INTERNAL__FILE_END                                                      #    46/46

@@ -165,11 +165,11 @@ int getTokenPriority(TokenPtr token)
             return 8;
 
         case BACK_SLASH:
-            return 6;
+            return 7;
 
         case PLUS:
         case MINUS:
-            return 4;
+            return 6;
 
         //-------------------------------------------------d-d-
         //  Logické
@@ -180,11 +180,14 @@ int getTokenPriority(TokenPtr token)
         case GT:    //  greater than
         case GTEQ:  //  greater than or equal
         case EQ:    //  equal
+            return 4;
+
+        case NOT:
             return 2;
 
         case AND:
         case OR:
-        case NOT: //    TODO: NOT bude pravděpodobně potřebovat vyšší prioritu
+        //case NOT:
             return 1;
 
         //-------------------------------------------------d-d-
@@ -223,7 +226,7 @@ int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, Toke
     DEBUG_LOG("inf2post-addOperand", "received");
     Token_debugPrint(token);
     Symbol_debugPrint(symbol);
-    fprintf(stderr, "info: (%p)\n", info);
+    DEBUG_PRINT("info: (%p)\n", info);
 
     if (token == NULL)
     {

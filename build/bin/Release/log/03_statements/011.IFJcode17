@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:23.463878
+# 2017-12-04 17:23:10.868227
 # SECTION: 03_statements
 # TEST: 011
 # INFO: Empty condition
 # REQUIRED EXTENSIONS: IFTHEN
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -35,7 +35,7 @@
 # Executing instruction: ILABEL at line: 21 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 22 with following arguments:
 # Executing instruction: IJUMP at line: 24 with following arguments:
-# Executing instruction: ILABEL at line: 27 with following arguments:
+# Executing instruction: ILABEL at line: 29 with following arguments:
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -61,28 +61,29 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/27
-JUMP main                                                                       #     2/27
-# MAIN                                                                          #     4/27
-LABEL main                                                                      #     5/27
-CREATEFRAME                                                                     #     6/27
-PUSHFRAME                                                                       #     7/27
-CREATEFRAME                                                                     #     8/27
-# IF BLOCK                                                                      #     9/27
-CREATEFRAME                                                                     #    10/27
-# IF                                                                            #    11/27
-PUSHS int@10                                                                    #    12/27
-PUSHS int@15                                                                    #    13/27
-LTS                                                                             #    14/27
-PUSHS bool@true                                                                 #    15/27
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    16/27
-# THEN                                                                          #    17/27
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    18/27
-LABEL __INTERNAL__COND_0_END                                                    #    19/27
-# END IF                                                                        #    20/27
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    21/27
-CREATEFRAME                                                                     #    22/27
-# END IF BLOCK                                                                  #    23/27
-JUMP __INTERNAL__FILE_END                                                       #    24/27
-# PROGRAM END                                                                   #    26/27
-LABEL __INTERNAL__FILE_END                                                      #    27/27
+.IFJcode17                                                                      #     1/29
+JUMP main                                                                       #     2/29
+# MAIN                                                                          #     4/29
+LABEL main                                                                      #     5/29
+CREATEFRAME                                                                     #     6/29
+PUSHFRAME                                                                       #     7/29
+CREATEFRAME                                                                     #     8/29
+# IF BLOCK                                                                      #     9/29
+CREATEFRAME                                                                     #    10/29
+# IF                                                                            #    11/29
+PUSHS int@10                                                                    #    12/29
+PUSHS int@15                                                                    #    13/29
+LTS                                                                             #    14/29
+PUSHS bool@true                                                                 #    15/29
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    16/29
+# THEN                                                                          #    17/29
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    18/29
+LABEL __INTERNAL__COND_0_END                                                    #    19/29
+# END IF                                                                        #    20/29
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    21/29
+CREATEFRAME                                                                     #    22/29
+# END IF BLOCK                                                                  #    23/29
+JUMP __INTERNAL__FILE_END                                                       #    24/29
+# MAIN END                                                                      #    26/29
+# PROGRAM END                                                                   #    28/29
+LABEL __INTERNAL__FILE_END                                                      #    29/29

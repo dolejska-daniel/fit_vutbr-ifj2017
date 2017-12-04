@@ -1,127 +1,127 @@
-# 2017-12-04 14:49:26.228730
+# 2017-12-04 17:23:13.762923
 # SECTION: 08_booleans
 # TEST: 04
 # INFO: boolean functions
 # REQUIRED EXTENSIONS: BOOLOP
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
 # INTERPRETER STDERR:
 # Executing instruction: IJUMP at line: 2 with following arguments:
-# Executing instruction: ILABEL at line: 74 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 75 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 76 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 77 with following arguments:
-# Executing instruction: IDEFVAR at line: 78 with following arguments:
+# Executing instruction: ILABEL at line: 77 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 78 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 79 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 80 with following arguments:
+# Executing instruction: IDEFVAR at line: 81 with following arguments:
 # Dest: LF@a
-# Executing instruction: IMOVE at line: 79 with following arguments:
+# Executing instruction: IMOVE at line: 82 with following arguments:
 # Arg1: Const@=false(bool)
 # Dest: LF@a()
-# Executing instruction: IPUSHS at line: 80 with following arguments:
+# Executing instruction: IPUSHS at line: 83 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 81 with following arguments:
+# Executing instruction: IPOPS at line: 84 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=false(bool)
-# Executing instruction: ICLEARS at line: 82 with following arguments:
-# Executing instruction: IDEFVAR at line: 83 with following arguments:
+# Executing instruction: ICLEARS at line: 85 with following arguments:
+# Executing instruction: IDEFVAR at line: 86 with following arguments:
 # Dest: LF@res
-# Executing instruction: IMOVE at line: 84 with following arguments:
+# Executing instruction: IMOVE at line: 87 with following arguments:
 # Arg1: Const@=false(bool)
 # Dest: LF@res()
-# Executing instruction: IDEFVAR at line: 85 with following arguments:
+# Executing instruction: IDEFVAR at line: 88 with following arguments:
 # Dest: LF@minus
-# Executing instruction: IMOVE at line: 86 with following arguments:
+# Executing instruction: IMOVE at line: 89 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: LF@minus()
-# Executing instruction: IPUSHS at line: 87 with following arguments:
+# Executing instruction: IPUSHS at line: 90 with following arguments:
 # Arg1: LF@minus=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 88 with following arguments:
+# Executing instruction: IPUSHS at line: 91 with following arguments:
 # Arg1: Const@=10(int)
 # Dest: Stack@()
-# Executing instruction: ISUBS at line: 89 with following arguments:
+# Executing instruction: ISUBS at line: 92 with following arguments:
 # Arg1: Stack@=0(int)
 # Arg2: Stack@=10(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 90 with following arguments:
+# Executing instruction: IPOPS at line: 93 with following arguments:
 # Arg1: Stack@=-10(int)
 # Dest: LF@minus=0(int)
-# Executing instruction: ICLEARS at line: 91 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 92 with following arguments:
-# Executing instruction: IPUSHS at line: 93 with following arguments:
-# Arg1: Const@=1(int)
-# Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 94 with following arguments:
-# Dest: TF@a
-# Executing instruction: IPOPS at line: 95 with following arguments:
-# Arg1: Stack@=1(int)
-# Dest: TF@a()
+# Executing instruction: ICLEARS at line: 94 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 95 with following arguments:
 # Executing instruction: IPUSHS at line: 96 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 97 with following arguments:
-# Dest: TF@b
+# Dest: TF@a
 # Executing instruction: IPOPS at line: 98 with following arguments:
 # Arg1: Stack@=1(int)
-# Dest: TF@b()
-# Executing instruction: ICALL at line: 99 with following arguments:
-# Executing instruction: ILABEL at line: 5 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 6 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
-# Executing instruction: IPUSHS at line: 8 with following arguments:
-# Arg1: LF@a=1(int)
-# Dest: Stack@()
-# Executing instruction: IPUSHS at line: 9 with following arguments:
-# Arg1: LF@b=1(int)
-# Dest: Stack@()
-# Executing instruction: IEQS at line: 10 with following arguments:
-# Arg1: Stack@=1(int)
-# Arg2: Stack@=1(int)
-# Dest: Stack@()
-# Executing instruction: IRETURN at line: 11 with following arguments:
-# Executing instruction: IPOPFRAME at line: 100 with following arguments:
-# Executing instruction: IPOPS at line: 101 with following arguments:
-# Arg1: Stack@=true(bool)
-# Dest: LF@res=false(bool)
-# Executing instruction: ICLEARS at line: 102 with following arguments:
-# Executing instruction: IPUSHS at line: 103 with following arguments:
-# Arg1: LF@a=true(bool)
-# Dest: Stack@()
-# Executing instruction: IPUSHS at line: 104 with following arguments:
-# Arg1: LF@res=true(bool)
-# Dest: Stack@()
-# Executing instruction: IANDS at line: 105 with following arguments:
-# Arg1: Stack@=true(bool)
-# Arg2: Stack@=true(bool)
-# Dest: Stack@()
-# Executing instruction: IPOPS at line: 106 with following arguments:
-# Arg1: Stack@=true(bool)
-# Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 107 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 108 with following arguments:
-# Executing instruction: IPUSHS at line: 109 with following arguments:
+# Dest: TF@a()
+# Executing instruction: IPUSHS at line: 99 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 110 with following arguments:
+# Executing instruction: IDEFVAR at line: 100 with following arguments:
+# Dest: TF@b
+# Executing instruction: IPOPS at line: 101 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@b()
+# Executing instruction: ICALL at line: 102 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 6 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Arg1: LF@a=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 9 with following arguments:
+# Arg1: LF@b=1(int)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 10 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 11 with following arguments:
+# Executing instruction: IPOPFRAME at line: 103 with following arguments:
+# Executing instruction: IPOPS at line: 104 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: LF@res=false(bool)
+# Executing instruction: ICLEARS at line: 105 with following arguments:
+# Executing instruction: IPUSHS at line: 106 with following arguments:
+# Arg1: LF@a=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 107 with following arguments:
+# Arg1: LF@res=true(bool)
+# Dest: Stack@()
+# Executing instruction: IANDS at line: 108 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 109 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: LF@a=true(bool)
+# Executing instruction: ICLEARS at line: 110 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 111 with following arguments:
+# Executing instruction: IPUSHS at line: 112 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 113 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 111 with following arguments:
+# Executing instruction: IPOPS at line: 114 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: TF@a()
-# Executing instruction: IPUSHS at line: 112 with following arguments:
+# Executing instruction: IPUSHS at line: 115 with following arguments:
 # Arg1: Const@=1.1(double)
 # Dest: Stack@()
-# Executing instruction: IFLOAT2INTS at line: 113 with following arguments:
+# Executing instruction: IFLOAT2INTS at line: 116 with following arguments:
 # Arg1: Stack@=1.1(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 114 with following arguments:
+# Executing instruction: IDEFVAR at line: 117 with following arguments:
 # Dest: TF@b
-# Executing instruction: IPOPS at line: 115 with following arguments:
+# Executing instruction: IPOPS at line: 118 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: TF@b()
-# Executing instruction: ICALL at line: 116 with following arguments:
+# Executing instruction: ICALL at line: 119 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 7 with following arguments:
@@ -136,49 +136,49 @@
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
 # Executing instruction: IRETURN at line: 11 with following arguments:
-# Executing instruction: IPOPFRAME at line: 117 with following arguments:
-# Executing instruction: IPOPS at line: 118 with following arguments:
+# Executing instruction: IPOPFRAME at line: 120 with following arguments:
+# Executing instruction: IPOPS at line: 121 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@res=true(bool)
-# Executing instruction: ICLEARS at line: 119 with following arguments:
-# Executing instruction: IPUSHS at line: 120 with following arguments:
+# Executing instruction: ICLEARS at line: 122 with following arguments:
+# Executing instruction: IPUSHS at line: 123 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 121 with following arguments:
+# Executing instruction: IPUSHS at line: 124 with following arguments:
 # Arg1: LF@res=true(bool)
 # Dest: Stack@()
-# Executing instruction: IANDS at line: 122 with following arguments:
+# Executing instruction: IANDS at line: 125 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 123 with following arguments:
+# Executing instruction: IPOPS at line: 126 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 124 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 125 with following arguments:
-# Executing instruction: IPUSHS at line: 126 with following arguments:
+# Executing instruction: ICLEARS at line: 127 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 128 with following arguments:
+# Executing instruction: IPUSHS at line: 129 with following arguments:
 # Arg1: Const@=1.7(double)
 # Dest: Stack@()
-# Executing instruction: IFLOAT2INTS at line: 127 with following arguments:
+# Executing instruction: IFLOAT2INTS at line: 130 with following arguments:
 # Arg1: Stack@=1.7(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 128 with following arguments:
+# Executing instruction: IDEFVAR at line: 131 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 129 with following arguments:
+# Executing instruction: IPOPS at line: 132 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: TF@a()
-# Executing instruction: IPUSHS at line: 130 with following arguments:
+# Executing instruction: IPUSHS at line: 133 with following arguments:
 # Arg1: Const@=1.6(double)
 # Dest: Stack@()
-# Executing instruction: IFLOAT2INTS at line: 131 with following arguments:
+# Executing instruction: IFLOAT2INTS at line: 134 with following arguments:
 # Arg1: Stack@=1.6(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 132 with following arguments:
+# Executing instruction: IDEFVAR at line: 135 with following arguments:
 # Dest: TF@b
-# Executing instruction: IPOPS at line: 133 with following arguments:
+# Executing instruction: IPOPS at line: 136 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: TF@b()
-# Executing instruction: ICALL at line: 134 with following arguments:
+# Executing instruction: ICALL at line: 137 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 7 with following arguments:
@@ -193,49 +193,49 @@
 # Arg2: Stack@=1(int)
 # Dest: Stack@()
 # Executing instruction: IRETURN at line: 11 with following arguments:
-# Executing instruction: IPOPFRAME at line: 135 with following arguments:
-# Executing instruction: IPOPS at line: 136 with following arguments:
+# Executing instruction: IPOPFRAME at line: 138 with following arguments:
+# Executing instruction: IPOPS at line: 139 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@res=true(bool)
-# Executing instruction: ICLEARS at line: 137 with following arguments:
-# Executing instruction: IPUSHS at line: 138 with following arguments:
+# Executing instruction: ICLEARS at line: 140 with following arguments:
+# Executing instruction: IPUSHS at line: 141 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 139 with following arguments:
+# Executing instruction: IPUSHS at line: 142 with following arguments:
 # Arg1: LF@res=true(bool)
 # Dest: Stack@()
-# Executing instruction: IANDS at line: 140 with following arguments:
+# Executing instruction: IANDS at line: 143 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 141 with following arguments:
+# Executing instruction: IPOPS at line: 144 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 142 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 143 with following arguments:
-# Executing instruction: IPUSHS at line: 144 with following arguments:
+# Executing instruction: ICLEARS at line: 145 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 146 with following arguments:
+# Executing instruction: IPUSHS at line: 147 with following arguments:
 # Arg1: Const@=1.8(double)
 # Dest: Stack@()
-# Executing instruction: IFLOAT2INTS at line: 145 with following arguments:
+# Executing instruction: IFLOAT2INTS at line: 148 with following arguments:
 # Arg1: Stack@=1.8(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 146 with following arguments:
+# Executing instruction: IDEFVAR at line: 149 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 147 with following arguments:
+# Executing instruction: IPOPS at line: 150 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: TF@a()
-# Executing instruction: IPUSHS at line: 148 with following arguments:
+# Executing instruction: IPUSHS at line: 151 with following arguments:
 # Arg1: Const@=0.1(double)
 # Dest: Stack@()
-# Executing instruction: IFLOAT2INTS at line: 149 with following arguments:
+# Executing instruction: IFLOAT2INTS at line: 152 with following arguments:
 # Arg1: Stack@=0.1(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 150 with following arguments:
+# Executing instruction: IDEFVAR at line: 153 with following arguments:
 # Dest: TF@b
-# Executing instruction: IPOPS at line: 151 with following arguments:
+# Executing instruction: IPOPS at line: 154 with following arguments:
 # Arg1: Stack@=0(int)
 # Dest: TF@b()
-# Executing instruction: ICALL at line: 152 with following arguments:
+# Executing instruction: ICALL at line: 155 with following arguments:
 # Executing instruction: ILABEL at line: 5 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 6 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 7 with following arguments:
@@ -250,46 +250,46 @@
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
 # Executing instruction: IRETURN at line: 11 with following arguments:
-# Executing instruction: IPOPFRAME at line: 153 with following arguments:
-# Executing instruction: IPOPS at line: 154 with following arguments:
+# Executing instruction: IPOPFRAME at line: 156 with following arguments:
+# Executing instruction: IPOPS at line: 157 with following arguments:
 # Arg1: Stack@=false(bool)
 # Dest: LF@res=true(bool)
-# Executing instruction: ICLEARS at line: 155 with following arguments:
-# Executing instruction: IPUSHS at line: 156 with following arguments:
+# Executing instruction: ICLEARS at line: 158 with following arguments:
+# Executing instruction: IPUSHS at line: 159 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 157 with following arguments:
+# Executing instruction: IPUSHS at line: 160 with following arguments:
 # Arg1: LF@res=false(bool)
 # Dest: Stack@()
-# Executing instruction: INOTS at line: 158 with following arguments:
+# Executing instruction: INOTS at line: 161 with following arguments:
 # Arg1: Stack@=false(bool)
 # Dest: Stack@()
-# Executing instruction: IANDS at line: 159 with following arguments:
+# Executing instruction: IANDS at line: 162 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 160 with following arguments:
+# Executing instruction: IPOPS at line: 163 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 161 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 162 with following arguments:
-# Executing instruction: IPUSHS at line: 163 with following arguments:
-# Arg1: Const@=(string)
-# Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 164 with following arguments:
-# Dest: TF@a
-# Executing instruction: IPOPS at line: 165 with following arguments:
-# Arg1: Stack@=(string)
-# Dest: TF@a()
+# Executing instruction: ICLEARS at line: 164 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 165 with following arguments:
 # Executing instruction: IPUSHS at line: 166 with following arguments:
 # Arg1: Const@=(string)
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 167 with following arguments:
-# Dest: TF@b
+# Dest: TF@a
 # Executing instruction: IPOPS at line: 168 with following arguments:
 # Arg1: Stack@=(string)
+# Dest: TF@a()
+# Executing instruction: IPUSHS at line: 169 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 170 with following arguments:
+# Dest: TF@b
+# Executing instruction: IPOPS at line: 171 with following arguments:
+# Arg1: Stack@=(string)
 # Dest: TF@b()
-# Executing instruction: ICALL at line: 169 with following arguments:
+# Executing instruction: ICALL at line: 172 with following arguments:
 # Executing instruction: ILABEL at line: 17 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 18 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 19 with following arguments:
@@ -304,47 +304,47 @@
 # Arg2: Stack@=(string)
 # Dest: Stack@()
 # Executing instruction: IRETURN at line: 23 with following arguments:
-# Executing instruction: IPOPFRAME at line: 170 with following arguments:
-# Executing instruction: IPOPS at line: 171 with following arguments:
+# Executing instruction: IPOPFRAME at line: 173 with following arguments:
+# Executing instruction: IPOPS at line: 174 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@res=false(bool)
-# Executing instruction: ICLEARS at line: 172 with following arguments:
-# Executing instruction: IPUSHS at line: 173 with following arguments:
+# Executing instruction: ICLEARS at line: 175 with following arguments:
+# Executing instruction: IPUSHS at line: 176 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 174 with following arguments:
+# Executing instruction: IPUSHS at line: 177 with following arguments:
 # Arg1: LF@res=true(bool)
 # Dest: Stack@()
-# Executing instruction: IANDS at line: 175 with following arguments:
+# Executing instruction: IANDS at line: 178 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 176 with following arguments:
+# Executing instruction: IPOPS at line: 179 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 177 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 178 with following arguments:
-# Executing instruction: IPUSHS at line: 179 with following arguments:
-# Arg1: Const@=         
-#          (string)
-# Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 180 with following arguments:
-# Dest: TF@a
-# Executing instruction: IPOPS at line: 181 with following arguments:
-# Arg1: Stack@=         
-#          (string)
-# Dest: TF@a()
+# Executing instruction: ICLEARS at line: 180 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 181 with following arguments:
 # Executing instruction: IPUSHS at line: 182 with following arguments:
 # Arg1: Const@=         
 #          (string)
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 183 with following arguments:
-# Dest: TF@b
+# Dest: TF@a
 # Executing instruction: IPOPS at line: 184 with following arguments:
 # Arg1: Stack@=         
 #          (string)
+# Dest: TF@a()
+# Executing instruction: IPUSHS at line: 185 with following arguments:
+# Arg1: Const@=         
+#          (string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 186 with following arguments:
+# Dest: TF@b
+# Executing instruction: IPOPS at line: 187 with following arguments:
+# Arg1: Stack@=         
+#          (string)
 # Dest: TF@b()
-# Executing instruction: ICALL at line: 185 with following arguments:
+# Executing instruction: ICALL at line: 188 with following arguments:
 # Executing instruction: ILABEL at line: 17 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 18 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 19 with following arguments:
@@ -363,43 +363,43 @@
 #          (string)
 # Dest: Stack@()
 # Executing instruction: IRETURN at line: 23 with following arguments:
-# Executing instruction: IPOPFRAME at line: 186 with following arguments:
-# Executing instruction: IPOPS at line: 187 with following arguments:
+# Executing instruction: IPOPFRAME at line: 189 with following arguments:
+# Executing instruction: IPOPS at line: 190 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@res=true(bool)
-# Executing instruction: ICLEARS at line: 188 with following arguments:
-# Executing instruction: IPUSHS at line: 189 with following arguments:
+# Executing instruction: ICLEARS at line: 191 with following arguments:
+# Executing instruction: IPUSHS at line: 192 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 190 with following arguments:
+# Executing instruction: IPUSHS at line: 193 with following arguments:
 # Arg1: LF@res=true(bool)
 # Dest: Stack@()
-# Executing instruction: IANDS at line: 191 with following arguments:
+# Executing instruction: IANDS at line: 194 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 192 with following arguments:
+# Executing instruction: IPOPS at line: 195 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 193 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 194 with following arguments:
-# Executing instruction: IPUSHS at line: 195 with following arguments:
-# Arg1: Const@=true(bool)
-# Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 196 with following arguments:
-# Dest: TF@a
-# Executing instruction: IPOPS at line: 197 with following arguments:
-# Arg1: Stack@=true(bool)
-# Dest: TF@a()
+# Executing instruction: ICLEARS at line: 196 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 197 with following arguments:
 # Executing instruction: IPUSHS at line: 198 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 199 with following arguments:
-# Dest: TF@b
+# Dest: TF@a
 # Executing instruction: IPOPS at line: 200 with following arguments:
 # Arg1: Stack@=true(bool)
+# Dest: TF@a()
+# Executing instruction: IPUSHS at line: 201 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 202 with following arguments:
+# Dest: TF@b
+# Executing instruction: IPOPS at line: 203 with following arguments:
+# Arg1: Stack@=true(bool)
 # Dest: TF@b()
-# Executing instruction: ICALL at line: 201 with following arguments:
+# Executing instruction: ICALL at line: 204 with following arguments:
 # Executing instruction: ILABEL at line: 29 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 30 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 31 with following arguments:
@@ -414,43 +414,43 @@
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
 # Executing instruction: IRETURN at line: 35 with following arguments:
-# Executing instruction: IPOPFRAME at line: 202 with following arguments:
-# Executing instruction: IPOPS at line: 203 with following arguments:
+# Executing instruction: IPOPFRAME at line: 205 with following arguments:
+# Executing instruction: IPOPS at line: 206 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@res=true(bool)
-# Executing instruction: ICLEARS at line: 204 with following arguments:
-# Executing instruction: IPUSHS at line: 205 with following arguments:
+# Executing instruction: ICLEARS at line: 207 with following arguments:
+# Executing instruction: IPUSHS at line: 208 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 206 with following arguments:
+# Executing instruction: IPUSHS at line: 209 with following arguments:
 # Arg1: LF@res=true(bool)
 # Dest: Stack@()
-# Executing instruction: IANDS at line: 207 with following arguments:
+# Executing instruction: IANDS at line: 210 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 208 with following arguments:
+# Executing instruction: IPOPS at line: 211 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 209 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 210 with following arguments:
-# Executing instruction: IPUSHS at line: 211 with following arguments:
-# Arg1: Const@=false(bool)
-# Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 212 with following arguments:
-# Dest: TF@a
-# Executing instruction: IPOPS at line: 213 with following arguments:
-# Arg1: Stack@=false(bool)
-# Dest: TF@a()
+# Executing instruction: ICLEARS at line: 212 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 213 with following arguments:
 # Executing instruction: IPUSHS at line: 214 with following arguments:
 # Arg1: Const@=false(bool)
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 215 with following arguments:
-# Dest: TF@b
+# Dest: TF@a
 # Executing instruction: IPOPS at line: 216 with following arguments:
 # Arg1: Stack@=false(bool)
+# Dest: TF@a()
+# Executing instruction: IPUSHS at line: 217 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 218 with following arguments:
+# Dest: TF@b
+# Executing instruction: IPOPS at line: 219 with following arguments:
+# Arg1: Stack@=false(bool)
 # Dest: TF@b()
-# Executing instruction: ICALL at line: 217 with following arguments:
+# Executing instruction: ICALL at line: 220 with following arguments:
 # Executing instruction: ILABEL at line: 29 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 30 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 31 with following arguments:
@@ -465,43 +465,43 @@
 # Arg2: Stack@=false(bool)
 # Dest: Stack@()
 # Executing instruction: IRETURN at line: 35 with following arguments:
-# Executing instruction: IPOPFRAME at line: 218 with following arguments:
-# Executing instruction: IPOPS at line: 219 with following arguments:
+# Executing instruction: IPOPFRAME at line: 221 with following arguments:
+# Executing instruction: IPOPS at line: 222 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@res=true(bool)
-# Executing instruction: ICLEARS at line: 220 with following arguments:
-# Executing instruction: IPUSHS at line: 221 with following arguments:
+# Executing instruction: ICLEARS at line: 223 with following arguments:
+# Executing instruction: IPUSHS at line: 224 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 222 with following arguments:
+# Executing instruction: IPUSHS at line: 225 with following arguments:
 # Arg1: LF@res=true(bool)
 # Dest: Stack@()
-# Executing instruction: IANDS at line: 223 with following arguments:
+# Executing instruction: IANDS at line: 226 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 224 with following arguments:
+# Executing instruction: IPOPS at line: 227 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 225 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 226 with following arguments:
-# Executing instruction: IPUSHS at line: 227 with following arguments:
+# Executing instruction: ICLEARS at line: 228 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 229 with following arguments:
+# Executing instruction: IPUSHS at line: 230 with following arguments:
 # Arg1: Const@=42(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 228 with following arguments:
+# Executing instruction: IDEFVAR at line: 231 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 229 with following arguments:
+# Executing instruction: IPOPS at line: 232 with following arguments:
 # Arg1: Stack@=42(int)
 # Dest: TF@a()
-# Executing instruction: IPUSHS at line: 230 with following arguments:
+# Executing instruction: IPUSHS at line: 233 with following arguments:
 # Arg1: LF@minus=-10(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 231 with following arguments:
+# Executing instruction: IDEFVAR at line: 234 with following arguments:
 # Dest: TF@b
-# Executing instruction: IPOPS at line: 232 with following arguments:
+# Executing instruction: IPOPS at line: 235 with following arguments:
 # Arg1: Stack@=-10(int)
 # Dest: TF@b()
-# Executing instruction: ICALL at line: 233 with following arguments:
+# Executing instruction: ICALL at line: 236 with following arguments:
 # Executing instruction: ILABEL at line: 41 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 42 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 43 with following arguments:
@@ -516,49 +516,49 @@
 # Arg2: Stack@=-10(int)
 # Dest: Stack@()
 # Executing instruction: IRETURN at line: 47 with following arguments:
-# Executing instruction: IPOPFRAME at line: 234 with following arguments:
-# Executing instruction: IPOPS at line: 235 with following arguments:
+# Executing instruction: IPOPFRAME at line: 237 with following arguments:
+# Executing instruction: IPOPS at line: 238 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@res=true(bool)
-# Executing instruction: ICLEARS at line: 236 with following arguments:
-# Executing instruction: IPUSHS at line: 237 with following arguments:
+# Executing instruction: ICLEARS at line: 239 with following arguments:
+# Executing instruction: IPUSHS at line: 240 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 238 with following arguments:
+# Executing instruction: IPUSHS at line: 241 with following arguments:
 # Arg1: LF@res=true(bool)
 # Dest: Stack@()
-# Executing instruction: IANDS at line: 239 with following arguments:
+# Executing instruction: IANDS at line: 242 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 240 with following arguments:
+# Executing instruction: IPOPS at line: 243 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 241 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 242 with following arguments:
-# Executing instruction: IPUSHS at line: 243 with following arguments:
+# Executing instruction: ICLEARS at line: 244 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 245 with following arguments:
+# Executing instruction: IPUSHS at line: 246 with following arguments:
 # Arg1: Const@=42.78(double)
 # Dest: Stack@()
-# Executing instruction: IFLOAT2INTS at line: 244 with following arguments:
+# Executing instruction: IFLOAT2INTS at line: 247 with following arguments:
 # Arg1: Stack@=42.78(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 245 with following arguments:
+# Executing instruction: IDEFVAR at line: 248 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 246 with following arguments:
+# Executing instruction: IPOPS at line: 249 with following arguments:
 # Arg1: Stack@=42(int)
 # Dest: TF@a()
-# Executing instruction: IPUSHS at line: 247 with following arguments:
+# Executing instruction: IPUSHS at line: 250 with following arguments:
 # Arg1: Const@=41.78(double)
 # Dest: Stack@()
-# Executing instruction: IFLOAT2INTS at line: 248 with following arguments:
+# Executing instruction: IFLOAT2INTS at line: 251 with following arguments:
 # Arg1: Stack@=41.78(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 249 with following arguments:
+# Executing instruction: IDEFVAR at line: 252 with following arguments:
 # Dest: TF@b
-# Executing instruction: IPOPS at line: 250 with following arguments:
+# Executing instruction: IPOPS at line: 253 with following arguments:
 # Arg1: Stack@=41(int)
 # Dest: TF@b()
-# Executing instruction: ICALL at line: 251 with following arguments:
+# Executing instruction: ICALL at line: 254 with following arguments:
 # Executing instruction: ILABEL at line: 41 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 42 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 43 with following arguments:
@@ -573,43 +573,43 @@
 # Arg2: Stack@=41(int)
 # Dest: Stack@()
 # Executing instruction: IRETURN at line: 47 with following arguments:
-# Executing instruction: IPOPFRAME at line: 252 with following arguments:
-# Executing instruction: IPOPS at line: 253 with following arguments:
+# Executing instruction: IPOPFRAME at line: 255 with following arguments:
+# Executing instruction: IPOPS at line: 256 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@res=true(bool)
-# Executing instruction: ICLEARS at line: 254 with following arguments:
-# Executing instruction: IPUSHS at line: 255 with following arguments:
+# Executing instruction: ICLEARS at line: 257 with following arguments:
+# Executing instruction: IPUSHS at line: 258 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 256 with following arguments:
+# Executing instruction: IPUSHS at line: 259 with following arguments:
 # Arg1: LF@res=true(bool)
 # Dest: Stack@()
-# Executing instruction: IANDS at line: 257 with following arguments:
+# Executing instruction: IANDS at line: 260 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 258 with following arguments:
+# Executing instruction: IPOPS at line: 261 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 259 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 260 with following arguments:
-# Executing instruction: IPUSHS at line: 261 with following arguments:
-# Arg1: Const@=42.78(double)
-# Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 262 with following arguments:
-# Dest: TF@a
-# Executing instruction: IPOPS at line: 263 with following arguments:
-# Arg1: Stack@=42.78(double)
-# Dest: TF@a()
+# Executing instruction: ICLEARS at line: 262 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 263 with following arguments:
 # Executing instruction: IPUSHS at line: 264 with following arguments:
 # Arg1: Const@=42.78(double)
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 265 with following arguments:
-# Dest: TF@b
+# Dest: TF@a
 # Executing instruction: IPOPS at line: 266 with following arguments:
 # Arg1: Stack@=42.78(double)
+# Dest: TF@a()
+# Executing instruction: IPUSHS at line: 267 with following arguments:
+# Arg1: Const@=42.78(double)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 268 with following arguments:
+# Dest: TF@b
+# Executing instruction: IPOPS at line: 269 with following arguments:
+# Arg1: Stack@=42.78(double)
 # Dest: TF@b()
-# Executing instruction: ICALL at line: 267 with following arguments:
+# Executing instruction: ICALL at line: 270 with following arguments:
 # Executing instruction: ILABEL at line: 53 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 54 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 55 with following arguments:
@@ -621,75 +621,84 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 58 with following arguments:
 # Dest: TF@__INTERNAL__VAR_10
-# Executing instruction: IDEFVAR at line: 59 with following arguments:
-# Dest: TF@__INTERNAL__VAR_11
-# Executing instruction: IDEFVAR at line: 60 with following arguments:
-# Dest: TF@__INTERNAL__VAR_12
-# Executing instruction: IPOPS at line: 61 with following arguments:
-# Arg1: Stack@=42.78(double)
-# Dest: TF@__INTERNAL__VAR_11()
-# Executing instruction: IPOPS at line: 62 with following arguments:
-# Arg1: Stack@=42.78(double)
+# Executing instruction: IMOVE at line: 59 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_10()
-# Executing instruction: IGT at line: 63 with following arguments:
+# Executing instruction: IDEFVAR at line: 60 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IMOVE at line: 61 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IDEFVAR at line: 62 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IMOVE at line: 63 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPOPS at line: 64 with following arguments:
+# Arg1: Stack@=42.78(double)
+# Dest: TF@__INTERNAL__VAR_11=0(int)
+# Executing instruction: IPOPS at line: 65 with following arguments:
+# Arg1: Stack@=42.78(double)
+# Dest: TF@__INTERNAL__VAR_10=0(int)
+# Executing instruction: IGT at line: 66 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_10=42.78(double)
 # Arg2: TF@__INTERNAL__VAR_11=42.78(double)
-# Dest: TF@__INTERNAL__VAR_12()
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12=0(int)
+# Executing instruction: IPUSHS at line: 67 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_12=false(bool)
 # Dest: Stack@()
-# Executing instruction: IEQ at line: 65 with following arguments:
+# Executing instruction: IEQ at line: 68 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_10=42.78(double)
 # Arg2: TF@__INTERNAL__VAR_11=42.78(double)
 # Dest: TF@__INTERNAL__VAR_12=false(bool)
-# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_12=true(bool)
 # Dest: Stack@()
-# Executing instruction: IORS at line: 67 with following arguments:
+# Executing instruction: IORS at line: 70 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 68 with following arguments:
-# Executing instruction: IPOPFRAME at line: 268 with following arguments:
-# Executing instruction: IPOPS at line: 269 with following arguments:
+# Executing instruction: IRETURN at line: 71 with following arguments:
+# Executing instruction: IPOPFRAME at line: 271 with following arguments:
+# Executing instruction: IPOPS at line: 272 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@res=true(bool)
-# Executing instruction: ICLEARS at line: 270 with following arguments:
-# Executing instruction: IPUSHS at line: 271 with following arguments:
+# Executing instruction: ICLEARS at line: 273 with following arguments:
+# Executing instruction: IPUSHS at line: 274 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 272 with following arguments:
+# Executing instruction: IPUSHS at line: 275 with following arguments:
 # Arg1: LF@res=true(bool)
 # Dest: Stack@()
-# Executing instruction: IANDS at line: 273 with following arguments:
+# Executing instruction: IANDS at line: 276 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 274 with following arguments:
+# Executing instruction: IPOPS at line: 277 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 275 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 276 with following arguments:
-# Executing instruction: IPUSHS at line: 277 with following arguments:
+# Executing instruction: ICLEARS at line: 278 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 279 with following arguments:
+# Executing instruction: IPUSHS at line: 280 with following arguments:
 # Arg1: LF@minus=-10(int)
 # Dest: Stack@()
-# Executing instruction: IINT2FLOATS at line: 278 with following arguments:
+# Executing instruction: IINT2FLOATS at line: 281 with following arguments:
 # Arg1: Stack@=-10(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 279 with following arguments:
+# Executing instruction: IDEFVAR at line: 282 with following arguments:
 # Dest: TF@a
-# Executing instruction: IPOPS at line: 280 with following arguments:
+# Executing instruction: IPOPS at line: 283 with following arguments:
 # Arg1: Stack@=-10(double)
 # Dest: TF@a()
-# Executing instruction: IPUSHS at line: 281 with following arguments:
+# Executing instruction: IPUSHS at line: 284 with following arguments:
 # Arg1: Const@=42.78(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 282 with following arguments:
+# Executing instruction: IDEFVAR at line: 285 with following arguments:
 # Dest: TF@b
-# Executing instruction: IPOPS at line: 283 with following arguments:
+# Executing instruction: IPOPS at line: 286 with following arguments:
 # Arg1: Stack@=42.78(double)
 # Dest: TF@b()
-# Executing instruction: ICALL at line: 284 with following arguments:
+# Executing instruction: ICALL at line: 287 with following arguments:
 # Executing instruction: ILABEL at line: 53 with following arguments:
 # Executing instruction: IPUSHFRAME at line: 54 with following arguments:
 # Executing instruction: ICREATEFRAME at line: 55 with following arguments:
@@ -701,82 +710,94 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 58 with following arguments:
 # Dest: TF@__INTERNAL__VAR_10
-# Executing instruction: IDEFVAR at line: 59 with following arguments:
-# Dest: TF@__INTERNAL__VAR_11
-# Executing instruction: IDEFVAR at line: 60 with following arguments:
-# Dest: TF@__INTERNAL__VAR_12
-# Executing instruction: IPOPS at line: 61 with following arguments:
-# Arg1: Stack@=42.78(double)
-# Dest: TF@__INTERNAL__VAR_11()
-# Executing instruction: IPOPS at line: 62 with following arguments:
-# Arg1: Stack@=-10(double)
+# Executing instruction: IMOVE at line: 59 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_10()
-# Executing instruction: IGT at line: 63 with following arguments:
+# Executing instruction: IDEFVAR at line: 60 with following arguments:
+# Dest: TF@__INTERNAL__VAR_11
+# Executing instruction: IMOVE at line: 61 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_11()
+# Executing instruction: IDEFVAR at line: 62 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12
+# Executing instruction: IMOVE at line: 63 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_12()
+# Executing instruction: IPOPS at line: 64 with following arguments:
+# Arg1: Stack@=42.78(double)
+# Dest: TF@__INTERNAL__VAR_11=0(int)
+# Executing instruction: IPOPS at line: 65 with following arguments:
+# Arg1: Stack@=-10(double)
+# Dest: TF@__INTERNAL__VAR_10=0(int)
+# Executing instruction: IGT at line: 66 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_10=-10(double)
 # Arg2: TF@__INTERNAL__VAR_11=42.78(double)
-# Dest: TF@__INTERNAL__VAR_12()
-# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Dest: TF@__INTERNAL__VAR_12=0(int)
+# Executing instruction: IPUSHS at line: 67 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_12=false(bool)
 # Dest: Stack@()
-# Executing instruction: IEQ at line: 65 with following arguments:
+# Executing instruction: IEQ at line: 68 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_10=-10(double)
 # Arg2: TF@__INTERNAL__VAR_11=42.78(double)
 # Dest: TF@__INTERNAL__VAR_12=false(bool)
-# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Executing instruction: IPUSHS at line: 69 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_12=false(bool)
 # Dest: Stack@()
-# Executing instruction: IORS at line: 67 with following arguments:
+# Executing instruction: IORS at line: 70 with following arguments:
 # Arg1: Stack@=false(bool)
 # Arg2: Stack@=false(bool)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 68 with following arguments:
-# Executing instruction: IPOPFRAME at line: 285 with following arguments:
-# Executing instruction: IPOPS at line: 286 with following arguments:
+# Executing instruction: IRETURN at line: 71 with following arguments:
+# Executing instruction: IPOPFRAME at line: 288 with following arguments:
+# Executing instruction: IPOPS at line: 289 with following arguments:
 # Arg1: Stack@=false(bool)
 # Dest: LF@res=true(bool)
-# Executing instruction: ICLEARS at line: 287 with following arguments:
-# Executing instruction: IPUSHS at line: 288 with following arguments:
+# Executing instruction: ICLEARS at line: 290 with following arguments:
+# Executing instruction: IPUSHS at line: 291 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 289 with following arguments:
+# Executing instruction: IPUSHS at line: 292 with following arguments:
 # Arg1: LF@res=false(bool)
 # Dest: Stack@()
-# Executing instruction: INOTS at line: 290 with following arguments:
+# Executing instruction: INOTS at line: 293 with following arguments:
 # Arg1: Stack@=false(bool)
 # Dest: Stack@()
-# Executing instruction: IANDS at line: 291 with following arguments:
+# Executing instruction: IANDS at line: 294 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 292 with following arguments:
+# Executing instruction: IPOPS at line: 295 with following arguments:
 # Arg1: Stack@=true(bool)
 # Dest: LF@a=true(bool)
-# Executing instruction: ICLEARS at line: 293 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 295 with following arguments:
-# Executing instruction: IPUSHS at line: 297 with following arguments:
+# Executing instruction: ICLEARS at line: 296 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 298 with following arguments:
+# Executing instruction: IPUSHS at line: 300 with following arguments:
 # Arg1: LF@a=true(bool)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 298 with following arguments:
+# Executing instruction: IPUSHS at line: 301 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 299 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 302 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: IPUSHS at line: 301 with following arguments:
+# Executing instruction: IPUSHS at line: 304 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 302 with following arguments:
+# Executing instruction: IDEFVAR at line: 305 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 303 with following arguments:
-# Arg1: Stack@=1(int)
+# Executing instruction: IMOVE at line: 306 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 304 with following arguments:
+# Executing instruction: IPOPS at line: 307 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 308 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=1(int)
-# Executing instruction: IJUMP at line: 305 with following arguments:
-# Executing instruction: ILABEL at line: 313 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 314 with following arguments:
-# Executing instruction: IJUMP at line: 316 with following arguments:
-# Executing instruction: ILABEL at line: 319 with following arguments:
+# Executing instruction: IJUMP at line: 309 with following arguments:
+# Executing instruction: ILABEL at line: 318 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 319 with following arguments:
+# Executing instruction: IJUMP at line: 321 with following arguments:
+# Executing instruction: ILABEL at line: 326 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -788,7 +809,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 1461 (568+893)
+# PRICE: 1475 (575+900)
 # 
 #   1: ' boolean functions
 #   2: 
@@ -863,315 +884,321 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/319
-JUMP main                                                                       #     2/319
-# FUNCTION                                                                      #     4/319
-LABEL equali                                                                    #     5/319
-PUSHFRAME                                                                       #     6/319
-CREATEFRAME                                                                     #     7/319
-PUSHS LF@a                                                                      #     8/319
-PUSHS LF@b                                                                      #     9/319
-EQS                                                                             #    10/319
-RETURN                                                                          #    11/319
-PUSHS bool@false                                                                #    12/319
-RETURN                                                                          #    13/319
-# END FUNCTION                                                                  #    14/319
-# FUNCTION                                                                      #    16/319
-LABEL equals                                                                    #    17/319
-PUSHFRAME                                                                       #    18/319
-CREATEFRAME                                                                     #    19/319
-PUSHS LF@a                                                                      #    20/319
-PUSHS LF@b                                                                      #    21/319
-EQS                                                                             #    22/319
-RETURN                                                                          #    23/319
-PUSHS bool@false                                                                #    24/319
-RETURN                                                                          #    25/319
-# END FUNCTION                                                                  #    26/319
-# FUNCTION                                                                      #    28/319
-LABEL equalb                                                                    #    29/319
-PUSHFRAME                                                                       #    30/319
-CREATEFRAME                                                                     #    31/319
-PUSHS LF@a                                                                      #    32/319
-PUSHS LF@b                                                                      #    33/319
-EQS                                                                             #    34/319
-RETURN                                                                          #    35/319
-PUSHS bool@false                                                                #    36/319
-RETURN                                                                          #    37/319
-# END FUNCTION                                                                  #    38/319
-# FUNCTION                                                                      #    40/319
-LABEL biggeri                                                                   #    41/319
-PUSHFRAME                                                                       #    42/319
-CREATEFRAME                                                                     #    43/319
-PUSHS LF@a                                                                      #    44/319
-PUSHS LF@b                                                                      #    45/319
-GTS                                                                             #    46/319
-RETURN                                                                          #    47/319
-PUSHS bool@false                                                                #    48/319
-RETURN                                                                          #    49/319
-# END FUNCTION                                                                  #    50/319
-# FUNCTION                                                                      #    52/319
-LABEL biggerorequald                                                            #    53/319
-PUSHFRAME                                                                       #    54/319
-CREATEFRAME                                                                     #    55/319
-PUSHS LF@a                                                                      #    56/319
-PUSHS LF@b                                                                      #    57/319
-DEFVAR TF@__INTERNAL__VAR_10                                                    #    58/319
-DEFVAR TF@__INTERNAL__VAR_11                                                    #    59/319
-DEFVAR TF@__INTERNAL__VAR_12                                                    #    60/319
-POPS TF@__INTERNAL__VAR_11                                                      #    61/319
-POPS TF@__INTERNAL__VAR_10                                                      #    62/319
-GT TF@__INTERNAL__VAR_12 TF@__INTERNAL__VAR_10 TF@__INTERNAL__VAR_11            #    63/319
-PUSHS TF@__INTERNAL__VAR_12                                                     #    64/319
-EQ TF@__INTERNAL__VAR_12 TF@__INTERNAL__VAR_10 TF@__INTERNAL__VAR_11            #    65/319
-PUSHS TF@__INTERNAL__VAR_12                                                     #    66/319
-ORS                                                                             #    67/319
-RETURN                                                                          #    68/319
-PUSHS bool@false                                                                #    69/319
-RETURN                                                                          #    70/319
-# END FUNCTION                                                                  #    71/319
-# MAIN                                                                          #    73/319
-LABEL main                                                                      #    74/319
-CREATEFRAME                                                                     #    75/319
-PUSHFRAME                                                                       #    76/319
-CREATEFRAME                                                                     #    77/319
-DEFVAR LF@a                                                                     #    78/319
-MOVE LF@a bool@false                                                            #    79/319
-PUSHS bool@true                                                                 #    80/319
-POPS LF@a                                                                       #    81/319
-CLEARS                                                                          #    82/319
-DEFVAR LF@res                                                                   #    83/319
-MOVE LF@res bool@false                                                          #    84/319
-DEFVAR LF@minus                                                                 #    85/319
-MOVE LF@minus int@0                                                             #    86/319
-PUSHS LF@minus                                                                  #    87/319
-PUSHS int@10                                                                    #    88/319
-SUBS                                                                            #    89/319
-POPS LF@minus                                                                   #    90/319
-CLEARS                                                                          #    91/319
-CREATEFRAME                                                                     #    92/319
-PUSHS int@1                                                                     #    93/319
-DEFVAR TF@a                                                                     #    94/319
-POPS TF@a                                                                       #    95/319
-PUSHS int@1                                                                     #    96/319
-DEFVAR TF@b                                                                     #    97/319
-POPS TF@b                                                                       #    98/319
-CALL equali                                                                     #    99/319
-POPFRAME                                                                        #   100/319
-POPS LF@res                                                                     #   101/319
-CLEARS                                                                          #   102/319
-PUSHS LF@a                                                                      #   103/319
-PUSHS LF@res                                                                    #   104/319
-ANDS                                                                            #   105/319
-POPS LF@a                                                                       #   106/319
-CLEARS                                                                          #   107/319
-CREATEFRAME                                                                     #   108/319
-PUSHS int@1                                                                     #   109/319
-DEFVAR TF@a                                                                     #   110/319
-POPS TF@a                                                                       #   111/319
-PUSHS float@1.1                                                                 #   112/319
-FLOAT2INTS                                                                      #   113/319
-DEFVAR TF@b                                                                     #   114/319
-POPS TF@b                                                                       #   115/319
-CALL equali                                                                     #   116/319
-POPFRAME                                                                        #   117/319
-POPS LF@res                                                                     #   118/319
-CLEARS                                                                          #   119/319
-PUSHS LF@a                                                                      #   120/319
-PUSHS LF@res                                                                    #   121/319
-ANDS                                                                            #   122/319
-POPS LF@a                                                                       #   123/319
-CLEARS                                                                          #   124/319
-CREATEFRAME                                                                     #   125/319
-PUSHS float@1.7                                                                 #   126/319
-FLOAT2INTS                                                                      #   127/319
-DEFVAR TF@a                                                                     #   128/319
-POPS TF@a                                                                       #   129/319
-PUSHS float@1.6                                                                 #   130/319
-FLOAT2INTS                                                                      #   131/319
-DEFVAR TF@b                                                                     #   132/319
-POPS TF@b                                                                       #   133/319
-CALL equali                                                                     #   134/319
-POPFRAME                                                                        #   135/319
-POPS LF@res                                                                     #   136/319
-CLEARS                                                                          #   137/319
-PUSHS LF@a                                                                      #   138/319
-PUSHS LF@res                                                                    #   139/319
-ANDS                                                                            #   140/319
-POPS LF@a                                                                       #   141/319
-CLEARS                                                                          #   142/319
-CREATEFRAME                                                                     #   143/319
-PUSHS float@1.8                                                                 #   144/319
-FLOAT2INTS                                                                      #   145/319
-DEFVAR TF@a                                                                     #   146/319
-POPS TF@a                                                                       #   147/319
-PUSHS float@0.1                                                                 #   148/319
-FLOAT2INTS                                                                      #   149/319
-DEFVAR TF@b                                                                     #   150/319
-POPS TF@b                                                                       #   151/319
-CALL equali                                                                     #   152/319
-POPFRAME                                                                        #   153/319
-POPS LF@res                                                                     #   154/319
-CLEARS                                                                          #   155/319
-PUSHS LF@a                                                                      #   156/319
-PUSHS LF@res                                                                    #   157/319
-NOTS                                                                            #   158/319
-ANDS                                                                            #   159/319
-POPS LF@a                                                                       #   160/319
-CLEARS                                                                          #   161/319
-CREATEFRAME                                                                     #   162/319
-PUSHS string@                                                                   #   163/319
-DEFVAR TF@a                                                                     #   164/319
-POPS TF@a                                                                       #   165/319
-PUSHS string@                                                                   #   166/319
-DEFVAR TF@b                                                                     #   167/319
-POPS TF@b                                                                       #   168/319
-CALL equals                                                                     #   169/319
-POPFRAME                                                                        #   170/319
-POPS LF@res                                                                     #   171/319
-CLEARS                                                                          #   172/319
-PUSHS LF@a                                                                      #   173/319
-PUSHS LF@res                                                                    #   174/319
-ANDS                                                                            #   175/319
-POPS LF@a                                                                       #   176/319
-CLEARS                                                                          #   177/319
-CREATEFRAME                                                                     #   178/319
-PUSHS string@\032\032\032\032\032\032\032\032\032\010\032\032\032\032\032\032\032\032\032#   179/319
-DEFVAR TF@a                                                                     #   180/319
-POPS TF@a                                                                       #   181/319
-PUSHS string@\032\032\032\032\032\032\032\032\032\010\032\032\032\032\032\032\032\032\032#   182/319
-DEFVAR TF@b                                                                     #   183/319
-POPS TF@b                                                                       #   184/319
-CALL equals                                                                     #   185/319
-POPFRAME                                                                        #   186/319
-POPS LF@res                                                                     #   187/319
-CLEARS                                                                          #   188/319
-PUSHS LF@a                                                                      #   189/319
-PUSHS LF@res                                                                    #   190/319
-ANDS                                                                            #   191/319
-POPS LF@a                                                                       #   192/319
-CLEARS                                                                          #   193/319
-CREATEFRAME                                                                     #   194/319
-PUSHS bool@true                                                                 #   195/319
-DEFVAR TF@a                                                                     #   196/319
-POPS TF@a                                                                       #   197/319
-PUSHS bool@true                                                                 #   198/319
-DEFVAR TF@b                                                                     #   199/319
-POPS TF@b                                                                       #   200/319
-CALL equalb                                                                     #   201/319
-POPFRAME                                                                        #   202/319
-POPS LF@res                                                                     #   203/319
-CLEARS                                                                          #   204/319
-PUSHS LF@a                                                                      #   205/319
-PUSHS LF@res                                                                    #   206/319
-ANDS                                                                            #   207/319
-POPS LF@a                                                                       #   208/319
-CLEARS                                                                          #   209/319
-CREATEFRAME                                                                     #   210/319
-PUSHS bool@false                                                                #   211/319
-DEFVAR TF@a                                                                     #   212/319
-POPS TF@a                                                                       #   213/319
-PUSHS bool@false                                                                #   214/319
-DEFVAR TF@b                                                                     #   215/319
-POPS TF@b                                                                       #   216/319
-CALL equalb                                                                     #   217/319
-POPFRAME                                                                        #   218/319
-POPS LF@res                                                                     #   219/319
-CLEARS                                                                          #   220/319
-PUSHS LF@a                                                                      #   221/319
-PUSHS LF@res                                                                    #   222/319
-ANDS                                                                            #   223/319
-POPS LF@a                                                                       #   224/319
-CLEARS                                                                          #   225/319
-CREATEFRAME                                                                     #   226/319
-PUSHS int@42                                                                    #   227/319
-DEFVAR TF@a                                                                     #   228/319
-POPS TF@a                                                                       #   229/319
-PUSHS LF@minus                                                                  #   230/319
-DEFVAR TF@b                                                                     #   231/319
-POPS TF@b                                                                       #   232/319
-CALL biggeri                                                                    #   233/319
-POPFRAME                                                                        #   234/319
-POPS LF@res                                                                     #   235/319
-CLEARS                                                                          #   236/319
-PUSHS LF@a                                                                      #   237/319
-PUSHS LF@res                                                                    #   238/319
-ANDS                                                                            #   239/319
-POPS LF@a                                                                       #   240/319
-CLEARS                                                                          #   241/319
-CREATEFRAME                                                                     #   242/319
-PUSHS float@42.78                                                               #   243/319
-FLOAT2INTS                                                                      #   244/319
-DEFVAR TF@a                                                                     #   245/319
-POPS TF@a                                                                       #   246/319
-PUSHS float@41.78                                                               #   247/319
-FLOAT2INTS                                                                      #   248/319
-DEFVAR TF@b                                                                     #   249/319
-POPS TF@b                                                                       #   250/319
-CALL biggeri                                                                    #   251/319
-POPFRAME                                                                        #   252/319
-POPS LF@res                                                                     #   253/319
-CLEARS                                                                          #   254/319
-PUSHS LF@a                                                                      #   255/319
-PUSHS LF@res                                                                    #   256/319
-ANDS                                                                            #   257/319
-POPS LF@a                                                                       #   258/319
-CLEARS                                                                          #   259/319
-CREATEFRAME                                                                     #   260/319
-PUSHS float@42.78                                                               #   261/319
-DEFVAR TF@a                                                                     #   262/319
-POPS TF@a                                                                       #   263/319
-PUSHS float@42.78                                                               #   264/319
-DEFVAR TF@b                                                                     #   265/319
-POPS TF@b                                                                       #   266/319
-CALL biggerorequald                                                             #   267/319
-POPFRAME                                                                        #   268/319
-POPS LF@res                                                                     #   269/319
-CLEARS                                                                          #   270/319
-PUSHS LF@a                                                                      #   271/319
-PUSHS LF@res                                                                    #   272/319
-ANDS                                                                            #   273/319
-POPS LF@a                                                                       #   274/319
-CLEARS                                                                          #   275/319
-CREATEFRAME                                                                     #   276/319
-PUSHS LF@minus                                                                  #   277/319
-INT2FLOATS                                                                      #   278/319
-DEFVAR TF@a                                                                     #   279/319
-POPS TF@a                                                                       #   280/319
-PUSHS float@42.78                                                               #   281/319
-DEFVAR TF@b                                                                     #   282/319
-POPS TF@b                                                                       #   283/319
-CALL biggerorequald                                                             #   284/319
-POPFRAME                                                                        #   285/319
-POPS LF@res                                                                     #   286/319
-CLEARS                                                                          #   287/319
-PUSHS LF@a                                                                      #   288/319
-PUSHS LF@res                                                                    #   289/319
-NOTS                                                                            #   290/319
-ANDS                                                                            #   291/319
-POPS LF@a                                                                       #   292/319
-CLEARS                                                                          #   293/319
-# IF BLOCK                                                                      #   294/319
-CREATEFRAME                                                                     #   295/319
-# IF                                                                            #   296/319
-PUSHS LF@a                                                                      #   297/319
-PUSHS bool@true                                                                 #   298/319
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #   299/319
-# THEN                                                                          #   300/319
-PUSHS int@1                                                                     #   301/319
-DEFVAR TF@__INTERNAL__VAR_0                                                     #   302/319
-POPS TF@__INTERNAL__VAR_0                                                       #   303/319
-WRITE TF@__INTERNAL__VAR_0                                                      #   304/319
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #   305/319
-LABEL __INTERNAL__COND_0_END                                                    #   306/319
-# ELSE                                                                          #   307/319
-PUSHS int@0                                                                     #   308/319
-DEFVAR TF@__INTERNAL__VAR_0                                                     #   309/319
-POPS TF@__INTERNAL__VAR_0                                                       #   310/319
-WRITE TF@__INTERNAL__VAR_0                                                      #   311/319
-# END IF                                                                        #   312/319
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #   313/319
-CREATEFRAME                                                                     #   314/319
-# END IF BLOCK                                                                  #   315/319
-JUMP __INTERNAL__FILE_END                                                       #   316/319
-# PROGRAM END                                                                   #   318/319
-LABEL __INTERNAL__FILE_END                                                      #   319/319
+.IFJcode17                                                                      #     1/326
+JUMP main                                                                       #     2/326
+# FUNCTION                                                                      #     4/326
+LABEL equali                                                                    #     5/326
+PUSHFRAME                                                                       #     6/326
+CREATEFRAME                                                                     #     7/326
+PUSHS LF@a                                                                      #     8/326
+PUSHS LF@b                                                                      #     9/326
+EQS                                                                             #    10/326
+RETURN                                                                          #    11/326
+PUSHS bool@false                                                                #    12/326
+RETURN                                                                          #    13/326
+# END FUNCTION                                                                  #    14/326
+# FUNCTION                                                                      #    16/326
+LABEL equals                                                                    #    17/326
+PUSHFRAME                                                                       #    18/326
+CREATEFRAME                                                                     #    19/326
+PUSHS LF@a                                                                      #    20/326
+PUSHS LF@b                                                                      #    21/326
+EQS                                                                             #    22/326
+RETURN                                                                          #    23/326
+PUSHS bool@false                                                                #    24/326
+RETURN                                                                          #    25/326
+# END FUNCTION                                                                  #    26/326
+# FUNCTION                                                                      #    28/326
+LABEL equalb                                                                    #    29/326
+PUSHFRAME                                                                       #    30/326
+CREATEFRAME                                                                     #    31/326
+PUSHS LF@a                                                                      #    32/326
+PUSHS LF@b                                                                      #    33/326
+EQS                                                                             #    34/326
+RETURN                                                                          #    35/326
+PUSHS bool@false                                                                #    36/326
+RETURN                                                                          #    37/326
+# END FUNCTION                                                                  #    38/326
+# FUNCTION                                                                      #    40/326
+LABEL biggeri                                                                   #    41/326
+PUSHFRAME                                                                       #    42/326
+CREATEFRAME                                                                     #    43/326
+PUSHS LF@a                                                                      #    44/326
+PUSHS LF@b                                                                      #    45/326
+GTS                                                                             #    46/326
+RETURN                                                                          #    47/326
+PUSHS bool@false                                                                #    48/326
+RETURN                                                                          #    49/326
+# END FUNCTION                                                                  #    50/326
+# FUNCTION                                                                      #    52/326
+LABEL biggerorequald                                                            #    53/326
+PUSHFRAME                                                                       #    54/326
+CREATEFRAME                                                                     #    55/326
+PUSHS LF@a                                                                      #    56/326
+PUSHS LF@b                                                                      #    57/326
+DEFVAR TF@__INTERNAL__VAR_10                                                    #    58/326
+MOVE TF@__INTERNAL__VAR_10 int@0                                                #    59/326
+DEFVAR TF@__INTERNAL__VAR_11                                                    #    60/326
+MOVE TF@__INTERNAL__VAR_11 int@0                                                #    61/326
+DEFVAR TF@__INTERNAL__VAR_12                                                    #    62/326
+MOVE TF@__INTERNAL__VAR_12 int@0                                                #    63/326
+POPS TF@__INTERNAL__VAR_11                                                      #    64/326
+POPS TF@__INTERNAL__VAR_10                                                      #    65/326
+GT TF@__INTERNAL__VAR_12 TF@__INTERNAL__VAR_10 TF@__INTERNAL__VAR_11            #    66/326
+PUSHS TF@__INTERNAL__VAR_12                                                     #    67/326
+EQ TF@__INTERNAL__VAR_12 TF@__INTERNAL__VAR_10 TF@__INTERNAL__VAR_11            #    68/326
+PUSHS TF@__INTERNAL__VAR_12                                                     #    69/326
+ORS                                                                             #    70/326
+RETURN                                                                          #    71/326
+PUSHS bool@false                                                                #    72/326
+RETURN                                                                          #    73/326
+# END FUNCTION                                                                  #    74/326
+# MAIN                                                                          #    76/326
+LABEL main                                                                      #    77/326
+CREATEFRAME                                                                     #    78/326
+PUSHFRAME                                                                       #    79/326
+CREATEFRAME                                                                     #    80/326
+DEFVAR LF@a                                                                     #    81/326
+MOVE LF@a bool@false                                                            #    82/326
+PUSHS bool@true                                                                 #    83/326
+POPS LF@a                                                                       #    84/326
+CLEARS                                                                          #    85/326
+DEFVAR LF@res                                                                   #    86/326
+MOVE LF@res bool@false                                                          #    87/326
+DEFVAR LF@minus                                                                 #    88/326
+MOVE LF@minus int@0                                                             #    89/326
+PUSHS LF@minus                                                                  #    90/326
+PUSHS int@10                                                                    #    91/326
+SUBS                                                                            #    92/326
+POPS LF@minus                                                                   #    93/326
+CLEARS                                                                          #    94/326
+CREATEFRAME                                                                     #    95/326
+PUSHS int@1                                                                     #    96/326
+DEFVAR TF@a                                                                     #    97/326
+POPS TF@a                                                                       #    98/326
+PUSHS int@1                                                                     #    99/326
+DEFVAR TF@b                                                                     #   100/326
+POPS TF@b                                                                       #   101/326
+CALL equali                                                                     #   102/326
+POPFRAME                                                                        #   103/326
+POPS LF@res                                                                     #   104/326
+CLEARS                                                                          #   105/326
+PUSHS LF@a                                                                      #   106/326
+PUSHS LF@res                                                                    #   107/326
+ANDS                                                                            #   108/326
+POPS LF@a                                                                       #   109/326
+CLEARS                                                                          #   110/326
+CREATEFRAME                                                                     #   111/326
+PUSHS int@1                                                                     #   112/326
+DEFVAR TF@a                                                                     #   113/326
+POPS TF@a                                                                       #   114/326
+PUSHS float@1.1                                                                 #   115/326
+FLOAT2INTS                                                                      #   116/326
+DEFVAR TF@b                                                                     #   117/326
+POPS TF@b                                                                       #   118/326
+CALL equali                                                                     #   119/326
+POPFRAME                                                                        #   120/326
+POPS LF@res                                                                     #   121/326
+CLEARS                                                                          #   122/326
+PUSHS LF@a                                                                      #   123/326
+PUSHS LF@res                                                                    #   124/326
+ANDS                                                                            #   125/326
+POPS LF@a                                                                       #   126/326
+CLEARS                                                                          #   127/326
+CREATEFRAME                                                                     #   128/326
+PUSHS float@1.7                                                                 #   129/326
+FLOAT2INTS                                                                      #   130/326
+DEFVAR TF@a                                                                     #   131/326
+POPS TF@a                                                                       #   132/326
+PUSHS float@1.6                                                                 #   133/326
+FLOAT2INTS                                                                      #   134/326
+DEFVAR TF@b                                                                     #   135/326
+POPS TF@b                                                                       #   136/326
+CALL equali                                                                     #   137/326
+POPFRAME                                                                        #   138/326
+POPS LF@res                                                                     #   139/326
+CLEARS                                                                          #   140/326
+PUSHS LF@a                                                                      #   141/326
+PUSHS LF@res                                                                    #   142/326
+ANDS                                                                            #   143/326
+POPS LF@a                                                                       #   144/326
+CLEARS                                                                          #   145/326
+CREATEFRAME                                                                     #   146/326
+PUSHS float@1.8                                                                 #   147/326
+FLOAT2INTS                                                                      #   148/326
+DEFVAR TF@a                                                                     #   149/326
+POPS TF@a                                                                       #   150/326
+PUSHS float@0.1                                                                 #   151/326
+FLOAT2INTS                                                                      #   152/326
+DEFVAR TF@b                                                                     #   153/326
+POPS TF@b                                                                       #   154/326
+CALL equali                                                                     #   155/326
+POPFRAME                                                                        #   156/326
+POPS LF@res                                                                     #   157/326
+CLEARS                                                                          #   158/326
+PUSHS LF@a                                                                      #   159/326
+PUSHS LF@res                                                                    #   160/326
+NOTS                                                                            #   161/326
+ANDS                                                                            #   162/326
+POPS LF@a                                                                       #   163/326
+CLEARS                                                                          #   164/326
+CREATEFRAME                                                                     #   165/326
+PUSHS string@                                                                   #   166/326
+DEFVAR TF@a                                                                     #   167/326
+POPS TF@a                                                                       #   168/326
+PUSHS string@                                                                   #   169/326
+DEFVAR TF@b                                                                     #   170/326
+POPS TF@b                                                                       #   171/326
+CALL equals                                                                     #   172/326
+POPFRAME                                                                        #   173/326
+POPS LF@res                                                                     #   174/326
+CLEARS                                                                          #   175/326
+PUSHS LF@a                                                                      #   176/326
+PUSHS LF@res                                                                    #   177/326
+ANDS                                                                            #   178/326
+POPS LF@a                                                                       #   179/326
+CLEARS                                                                          #   180/326
+CREATEFRAME                                                                     #   181/326
+PUSHS string@\032\032\032\032\032\032\032\032\032\010\032\032\032\032\032\032\032\032\032#   182/326
+DEFVAR TF@a                                                                     #   183/326
+POPS TF@a                                                                       #   184/326
+PUSHS string@\032\032\032\032\032\032\032\032\032\010\032\032\032\032\032\032\032\032\032#   185/326
+DEFVAR TF@b                                                                     #   186/326
+POPS TF@b                                                                       #   187/326
+CALL equals                                                                     #   188/326
+POPFRAME                                                                        #   189/326
+POPS LF@res                                                                     #   190/326
+CLEARS                                                                          #   191/326
+PUSHS LF@a                                                                      #   192/326
+PUSHS LF@res                                                                    #   193/326
+ANDS                                                                            #   194/326
+POPS LF@a                                                                       #   195/326
+CLEARS                                                                          #   196/326
+CREATEFRAME                                                                     #   197/326
+PUSHS bool@true                                                                 #   198/326
+DEFVAR TF@a                                                                     #   199/326
+POPS TF@a                                                                       #   200/326
+PUSHS bool@true                                                                 #   201/326
+DEFVAR TF@b                                                                     #   202/326
+POPS TF@b                                                                       #   203/326
+CALL equalb                                                                     #   204/326
+POPFRAME                                                                        #   205/326
+POPS LF@res                                                                     #   206/326
+CLEARS                                                                          #   207/326
+PUSHS LF@a                                                                      #   208/326
+PUSHS LF@res                                                                    #   209/326
+ANDS                                                                            #   210/326
+POPS LF@a                                                                       #   211/326
+CLEARS                                                                          #   212/326
+CREATEFRAME                                                                     #   213/326
+PUSHS bool@false                                                                #   214/326
+DEFVAR TF@a                                                                     #   215/326
+POPS TF@a                                                                       #   216/326
+PUSHS bool@false                                                                #   217/326
+DEFVAR TF@b                                                                     #   218/326
+POPS TF@b                                                                       #   219/326
+CALL equalb                                                                     #   220/326
+POPFRAME                                                                        #   221/326
+POPS LF@res                                                                     #   222/326
+CLEARS                                                                          #   223/326
+PUSHS LF@a                                                                      #   224/326
+PUSHS LF@res                                                                    #   225/326
+ANDS                                                                            #   226/326
+POPS LF@a                                                                       #   227/326
+CLEARS                                                                          #   228/326
+CREATEFRAME                                                                     #   229/326
+PUSHS int@42                                                                    #   230/326
+DEFVAR TF@a                                                                     #   231/326
+POPS TF@a                                                                       #   232/326
+PUSHS LF@minus                                                                  #   233/326
+DEFVAR TF@b                                                                     #   234/326
+POPS TF@b                                                                       #   235/326
+CALL biggeri                                                                    #   236/326
+POPFRAME                                                                        #   237/326
+POPS LF@res                                                                     #   238/326
+CLEARS                                                                          #   239/326
+PUSHS LF@a                                                                      #   240/326
+PUSHS LF@res                                                                    #   241/326
+ANDS                                                                            #   242/326
+POPS LF@a                                                                       #   243/326
+CLEARS                                                                          #   244/326
+CREATEFRAME                                                                     #   245/326
+PUSHS float@42.78                                                               #   246/326
+FLOAT2INTS                                                                      #   247/326
+DEFVAR TF@a                                                                     #   248/326
+POPS TF@a                                                                       #   249/326
+PUSHS float@41.78                                                               #   250/326
+FLOAT2INTS                                                                      #   251/326
+DEFVAR TF@b                                                                     #   252/326
+POPS TF@b                                                                       #   253/326
+CALL biggeri                                                                    #   254/326
+POPFRAME                                                                        #   255/326
+POPS LF@res                                                                     #   256/326
+CLEARS                                                                          #   257/326
+PUSHS LF@a                                                                      #   258/326
+PUSHS LF@res                                                                    #   259/326
+ANDS                                                                            #   260/326
+POPS LF@a                                                                       #   261/326
+CLEARS                                                                          #   262/326
+CREATEFRAME                                                                     #   263/326
+PUSHS float@42.78                                                               #   264/326
+DEFVAR TF@a                                                                     #   265/326
+POPS TF@a                                                                       #   266/326
+PUSHS float@42.78                                                               #   267/326
+DEFVAR TF@b                                                                     #   268/326
+POPS TF@b                                                                       #   269/326
+CALL biggerorequald                                                             #   270/326
+POPFRAME                                                                        #   271/326
+POPS LF@res                                                                     #   272/326
+CLEARS                                                                          #   273/326
+PUSHS LF@a                                                                      #   274/326
+PUSHS LF@res                                                                    #   275/326
+ANDS                                                                            #   276/326
+POPS LF@a                                                                       #   277/326
+CLEARS                                                                          #   278/326
+CREATEFRAME                                                                     #   279/326
+PUSHS LF@minus                                                                  #   280/326
+INT2FLOATS                                                                      #   281/326
+DEFVAR TF@a                                                                     #   282/326
+POPS TF@a                                                                       #   283/326
+PUSHS float@42.78                                                               #   284/326
+DEFVAR TF@b                                                                     #   285/326
+POPS TF@b                                                                       #   286/326
+CALL biggerorequald                                                             #   287/326
+POPFRAME                                                                        #   288/326
+POPS LF@res                                                                     #   289/326
+CLEARS                                                                          #   290/326
+PUSHS LF@a                                                                      #   291/326
+PUSHS LF@res                                                                    #   292/326
+NOTS                                                                            #   293/326
+ANDS                                                                            #   294/326
+POPS LF@a                                                                       #   295/326
+CLEARS                                                                          #   296/326
+# IF BLOCK                                                                      #   297/326
+CREATEFRAME                                                                     #   298/326
+# IF                                                                            #   299/326
+PUSHS LF@a                                                                      #   300/326
+PUSHS bool@true                                                                 #   301/326
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #   302/326
+# THEN                                                                          #   303/326
+PUSHS int@1                                                                     #   304/326
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   305/326
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #   306/326
+POPS TF@__INTERNAL__VAR_0                                                       #   307/326
+WRITE TF@__INTERNAL__VAR_0                                                      #   308/326
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #   309/326
+LABEL __INTERNAL__COND_0_END                                                    #   310/326
+# ELSE                                                                          #   311/326
+PUSHS int@0                                                                     #   312/326
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   313/326
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #   314/326
+POPS TF@__INTERNAL__VAR_0                                                       #   315/326
+WRITE TF@__INTERNAL__VAR_0                                                      #   316/326
+# END IF                                                                        #   317/326
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #   318/326
+CREATEFRAME                                                                     #   319/326
+# END IF BLOCK                                                                  #   320/326
+JUMP __INTERNAL__FILE_END                                                       #   321/326
+# MAIN END                                                                      #   323/326
+# PROGRAM END                                                                   #   325/326
+LABEL __INTERNAL__FILE_END                                                      #   326/326

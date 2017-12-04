@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:25.937456
+# 2017-12-04 17:23:13.462124
 # SECTION: 07_strings
 # TEST: 03
 # INFO: substr builtin function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -64,44 +64,1053 @@
 # Arg1: Stack@=3(int)
 # Dest: TF@n()
 # Executing instruction: ICALL at line: 28 with following arguments:
-# Executing instruction: ILABEL at line: 133 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 134 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 135 with following arguments:
-# Executing instruction: ISUB at line: 136 with following arguments:
+# Executing instruction: ILABEL at line: 140 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 141 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 142 with following arguments:
+# Executing instruction: IPUSHS at line: 143 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 144 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 145 with following arguments:
+# Arg1: Stack@=son hai nguyen(string)
+# Arg2: Stack@=(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 146 with following arguments:
+# Arg1: LF@i=5(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 147 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 148 with following arguments:
+# Arg1: Stack@=5(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 149 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 150 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 151 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 154 with following arguments:
+# Executing instruction: IDEFVAR at line: 155 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 156 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IDEFVAR at line: 157 with following arguments:
+# Dest: TF@__INTERNAL__VAR_1
+# Executing instruction: IMOVE at line: 158 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_1()
+# Executing instruction: IDEFVAR at line: 159 with following arguments:
+# Dest: TF@__INTERNAL__VAR_2
+# Executing instruction: IMOVE at line: 160 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_2()
+# Executing instruction: ISTRLEN at line: 161 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Dest: TF@__INTERNAL__VAR_2=0(int)
+# Executing instruction: ISUB at line: 162 with following arguments:
 # Arg1: LF@i=5(int)
 # Arg2: Const@=1(int)
 # Dest: LF@i=5(int)
-# Executing instruction: ILABEL at line: 137 with following arguments:
-# Executing instruction: IPUSHS at line: 138 with following arguments:
+# Executing instruction: ILABEL at line: 163 with following arguments:
+# Executing instruction: IPUSHS at line: 164 with following arguments:
 # Arg1: LF@n=3(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 139 with following arguments:
+# Executing instruction: IPUSHS at line: 165 with following arguments:
 # Arg1: Const@=0(int)
 # Dest: Stack@()
-# Executing instruction: IGTS at line: 140 with following arguments:
+# Executing instruction: IGTS at line: 166 with following arguments:
 # Arg1: Stack@=3(int)
 # Arg2: Stack@=0(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 141 with following arguments:
+# Executing instruction: IPUSHS at line: 167 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 142 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 168 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
-# Symbol TF@__INTERNAL__VAR_0 not found!
-# Error at line: 143
-# Symbol is undefined!
+# Executing instruction: IGETCHAR at line: 169 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Arg2: LF@i=4(int)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: ICONCAT at line: 170 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=(string)
+# Arg2: TF@__INTERNAL__VAR_0=h(string)
+# Dest: TF@__INTERNAL__VAR_1=(string)
+# Executing instruction: IADD at line: 171 with following arguments:
+# Arg1: LF@i=4(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=4(int)
+# Executing instruction: ISUB at line: 172 with following arguments:
+# Arg1: LF@n=3(int)
+# Arg2: Const@=1(int)
+# Dest: LF@n=3(int)
+# Executing instruction: IPUSHS at line: 173 with following arguments:
+# Arg1: LF@i=5(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 174 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_2=14(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 175 with following arguments:
+# Arg1: Stack@=5(int)
+# Arg2: Stack@=14(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 176 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 177 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IJUMP at line: 178 with following arguments:
+# Executing instruction: ILABEL at line: 163 with following arguments:
+# Executing instruction: IPUSHS at line: 164 with following arguments:
+# Arg1: LF@n=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 165 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 166 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 167 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 168 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IGETCHAR at line: 169 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Arg2: LF@i=5(int)
+# Dest: TF@__INTERNAL__VAR_0=h(string)
+# Executing instruction: ICONCAT at line: 170 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=h(string)
+# Arg2: TF@__INTERNAL__VAR_0=a(string)
+# Dest: TF@__INTERNAL__VAR_1=h(string)
+# Executing instruction: IADD at line: 171 with following arguments:
+# Arg1: LF@i=5(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=5(int)
+# Executing instruction: ISUB at line: 172 with following arguments:
+# Arg1: LF@n=2(int)
+# Arg2: Const@=1(int)
+# Dest: LF@n=2(int)
+# Executing instruction: IPUSHS at line: 173 with following arguments:
+# Arg1: LF@i=6(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 174 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_2=14(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 175 with following arguments:
+# Arg1: Stack@=6(int)
+# Arg2: Stack@=14(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 176 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 177 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IJUMP at line: 178 with following arguments:
+# Executing instruction: ILABEL at line: 163 with following arguments:
+# Executing instruction: IPUSHS at line: 164 with following arguments:
+# Arg1: LF@n=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 165 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 166 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 167 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 168 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IGETCHAR at line: 169 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Arg2: LF@i=6(int)
+# Dest: TF@__INTERNAL__VAR_0=a(string)
+# Executing instruction: ICONCAT at line: 170 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=ha(string)
+# Arg2: TF@__INTERNAL__VAR_0=i(string)
+# Dest: TF@__INTERNAL__VAR_1=ha(string)
+# Executing instruction: IADD at line: 171 with following arguments:
+# Arg1: LF@i=6(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=6(int)
+# Executing instruction: ISUB at line: 172 with following arguments:
+# Arg1: LF@n=1(int)
+# Arg2: Const@=1(int)
+# Dest: LF@n=1(int)
+# Executing instruction: IPUSHS at line: 173 with following arguments:
+# Arg1: LF@i=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 174 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_2=14(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 175 with following arguments:
+# Arg1: Stack@=7(int)
+# Arg2: Stack@=14(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 176 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 177 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IJUMP at line: 178 with following arguments:
+# Executing instruction: ILABEL at line: 163 with following arguments:
+# Executing instruction: IPUSHS at line: 164 with following arguments:
+# Arg1: LF@n=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 165 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 166 with following arguments:
+# Arg1: Stack@=0(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 167 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 168 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 179 with following arguments:
+# Executing instruction: ICLEARS at line: 180 with following arguments:
+# Executing instruction: IPUSHS at line: 181 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=hai(string)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 182 with following arguments:
+# Executing instruction: IPOPFRAME at line: 29 with following arguments:
+# Executing instruction: IPOPS at line: 30 with following arguments:
+# Arg1: Stack@=hai(string)
+# Dest: LF@res=(string)
+# Executing instruction: ICLEARS at line: 31 with following arguments:
+# Executing instruction: IPUSHS at line: 32 with following arguments:
+# Arg1: LF@res=hai(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 33 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 34 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 35 with following arguments:
+# Arg1: Stack@=hai(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=hai(string)
+# Executing instruction: ICREATEFRAME at line: 37 with following arguments:
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=son hai nguyen(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 39 with following arguments:
+# Dest: TF@s
+# Executing instruction: IPOPS at line: 40 with following arguments:
+# Arg1: Stack@=son hai nguyen(string)
+# Dest: TF@s()
+# Executing instruction: IPUSHS at line: 41 with following arguments:
+# Arg1: Const@=9(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 42 with following arguments:
+# Dest: TF@i
+# Executing instruction: IPOPS at line: 43 with following arguments:
+# Arg1: Stack@=9(int)
+# Dest: TF@i()
+# Executing instruction: IPUSHS at line: 44 with following arguments:
+# Arg1: Const@=120(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 45 with following arguments:
+# Dest: TF@n
+# Executing instruction: IPOPS at line: 46 with following arguments:
+# Arg1: Stack@=120(int)
+# Dest: TF@n()
+# Executing instruction: ICALL at line: 47 with following arguments:
+# Executing instruction: ILABEL at line: 140 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 141 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 142 with following arguments:
+# Executing instruction: IPUSHS at line: 143 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 144 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 145 with following arguments:
+# Arg1: Stack@=son hai nguyen(string)
+# Arg2: Stack@=(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 146 with following arguments:
+# Arg1: LF@i=9(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 147 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 148 with following arguments:
+# Arg1: Stack@=9(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 149 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 150 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 151 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 154 with following arguments:
+# Executing instruction: IDEFVAR at line: 155 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 156 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IDEFVAR at line: 157 with following arguments:
+# Dest: TF@__INTERNAL__VAR_1
+# Executing instruction: IMOVE at line: 158 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_1()
+# Executing instruction: IDEFVAR at line: 159 with following arguments:
+# Dest: TF@__INTERNAL__VAR_2
+# Executing instruction: IMOVE at line: 160 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_2()
+# Executing instruction: ISTRLEN at line: 161 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Dest: TF@__INTERNAL__VAR_2=0(int)
+# Executing instruction: ISUB at line: 162 with following arguments:
+# Arg1: LF@i=9(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=9(int)
+# Executing instruction: ILABEL at line: 163 with following arguments:
+# Executing instruction: IPUSHS at line: 164 with following arguments:
+# Arg1: LF@n=120(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 165 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 166 with following arguments:
+# Arg1: Stack@=120(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 167 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 168 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IGETCHAR at line: 169 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Arg2: LF@i=8(int)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: ICONCAT at line: 170 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=(string)
+# Arg2: TF@__INTERNAL__VAR_0=n(string)
+# Dest: TF@__INTERNAL__VAR_1=(string)
+# Executing instruction: IADD at line: 171 with following arguments:
+# Arg1: LF@i=8(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=8(int)
+# Executing instruction: ISUB at line: 172 with following arguments:
+# Arg1: LF@n=120(int)
+# Arg2: Const@=1(int)
+# Dest: LF@n=120(int)
+# Executing instruction: IPUSHS at line: 173 with following arguments:
+# Arg1: LF@i=9(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 174 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_2=14(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 175 with following arguments:
+# Arg1: Stack@=9(int)
+# Arg2: Stack@=14(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 176 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 177 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IJUMP at line: 178 with following arguments:
+# Executing instruction: ILABEL at line: 163 with following arguments:
+# Executing instruction: IPUSHS at line: 164 with following arguments:
+# Arg1: LF@n=119(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 165 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 166 with following arguments:
+# Arg1: Stack@=119(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 167 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 168 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IGETCHAR at line: 169 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Arg2: LF@i=9(int)
+# Dest: TF@__INTERNAL__VAR_0=n(string)
+# Executing instruction: ICONCAT at line: 170 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=n(string)
+# Arg2: TF@__INTERNAL__VAR_0=g(string)
+# Dest: TF@__INTERNAL__VAR_1=n(string)
+# Executing instruction: IADD at line: 171 with following arguments:
+# Arg1: LF@i=9(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=9(int)
+# Executing instruction: ISUB at line: 172 with following arguments:
+# Arg1: LF@n=119(int)
+# Arg2: Const@=1(int)
+# Dest: LF@n=119(int)
+# Executing instruction: IPUSHS at line: 173 with following arguments:
+# Arg1: LF@i=10(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 174 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_2=14(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 175 with following arguments:
+# Arg1: Stack@=10(int)
+# Arg2: Stack@=14(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 176 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 177 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IJUMP at line: 178 with following arguments:
+# Executing instruction: ILABEL at line: 163 with following arguments:
+# Executing instruction: IPUSHS at line: 164 with following arguments:
+# Arg1: LF@n=118(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 165 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 166 with following arguments:
+# Arg1: Stack@=118(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 167 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 168 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IGETCHAR at line: 169 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Arg2: LF@i=10(int)
+# Dest: TF@__INTERNAL__VAR_0=g(string)
+# Executing instruction: ICONCAT at line: 170 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=ng(string)
+# Arg2: TF@__INTERNAL__VAR_0=u(string)
+# Dest: TF@__INTERNAL__VAR_1=ng(string)
+# Executing instruction: IADD at line: 171 with following arguments:
+# Arg1: LF@i=10(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=10(int)
+# Executing instruction: ISUB at line: 172 with following arguments:
+# Arg1: LF@n=118(int)
+# Arg2: Const@=1(int)
+# Dest: LF@n=118(int)
+# Executing instruction: IPUSHS at line: 173 with following arguments:
+# Arg1: LF@i=11(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 174 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_2=14(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 175 with following arguments:
+# Arg1: Stack@=11(int)
+# Arg2: Stack@=14(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 176 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 177 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IJUMP at line: 178 with following arguments:
+# Executing instruction: ILABEL at line: 163 with following arguments:
+# Executing instruction: IPUSHS at line: 164 with following arguments:
+# Arg1: LF@n=117(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 165 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 166 with following arguments:
+# Arg1: Stack@=117(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 167 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 168 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IGETCHAR at line: 169 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Arg2: LF@i=11(int)
+# Dest: TF@__INTERNAL__VAR_0=u(string)
+# Executing instruction: ICONCAT at line: 170 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=ngu(string)
+# Arg2: TF@__INTERNAL__VAR_0=y(string)
+# Dest: TF@__INTERNAL__VAR_1=ngu(string)
+# Executing instruction: IADD at line: 171 with following arguments:
+# Arg1: LF@i=11(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=11(int)
+# Executing instruction: ISUB at line: 172 with following arguments:
+# Arg1: LF@n=117(int)
+# Arg2: Const@=1(int)
+# Dest: LF@n=117(int)
+# Executing instruction: IPUSHS at line: 173 with following arguments:
+# Arg1: LF@i=12(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 174 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_2=14(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 175 with following arguments:
+# Arg1: Stack@=12(int)
+# Arg2: Stack@=14(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 176 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 177 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IJUMP at line: 178 with following arguments:
+# Executing instruction: ILABEL at line: 163 with following arguments:
+# Executing instruction: IPUSHS at line: 164 with following arguments:
+# Arg1: LF@n=116(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 165 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 166 with following arguments:
+# Arg1: Stack@=116(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 167 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 168 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IGETCHAR at line: 169 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Arg2: LF@i=12(int)
+# Dest: TF@__INTERNAL__VAR_0=y(string)
+# Executing instruction: ICONCAT at line: 170 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=nguy(string)
+# Arg2: TF@__INTERNAL__VAR_0=e(string)
+# Dest: TF@__INTERNAL__VAR_1=nguy(string)
+# Executing instruction: IADD at line: 171 with following arguments:
+# Arg1: LF@i=12(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=12(int)
+# Executing instruction: ISUB at line: 172 with following arguments:
+# Arg1: LF@n=116(int)
+# Arg2: Const@=1(int)
+# Dest: LF@n=116(int)
+# Executing instruction: IPUSHS at line: 173 with following arguments:
+# Arg1: LF@i=13(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 174 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_2=14(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 175 with following arguments:
+# Arg1: Stack@=13(int)
+# Arg2: Stack@=14(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 176 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 177 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IJUMP at line: 178 with following arguments:
+# Executing instruction: ILABEL at line: 163 with following arguments:
+# Executing instruction: IPUSHS at line: 164 with following arguments:
+# Arg1: LF@n=115(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 165 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 166 with following arguments:
+# Arg1: Stack@=115(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 167 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 168 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IGETCHAR at line: 169 with following arguments:
+# Arg1: LF@s=son hai nguyen(string)
+# Arg2: LF@i=13(int)
+# Dest: TF@__INTERNAL__VAR_0=e(string)
+# Executing instruction: ICONCAT at line: 170 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=nguye(string)
+# Arg2: TF@__INTERNAL__VAR_0=n(string)
+# Dest: TF@__INTERNAL__VAR_1=nguye(string)
+# Executing instruction: IADD at line: 171 with following arguments:
+# Arg1: LF@i=13(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=13(int)
+# Executing instruction: ISUB at line: 172 with following arguments:
+# Arg1: LF@n=115(int)
+# Arg2: Const@=1(int)
+# Dest: LF@n=115(int)
+# Executing instruction: IPUSHS at line: 173 with following arguments:
+# Arg1: LF@i=14(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 174 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_2=14(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 175 with following arguments:
+# Arg1: Stack@=14(int)
+# Arg2: Stack@=14(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 176 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 177 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 179 with following arguments:
+# Executing instruction: ICLEARS at line: 180 with following arguments:
+# Executing instruction: IPUSHS at line: 181 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=nguyen(string)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 182 with following arguments:
+# Executing instruction: IPOPFRAME at line: 48 with following arguments:
+# Executing instruction: IPOPS at line: 49 with following arguments:
+# Arg1: Stack@=nguyen(string)
+# Dest: LF@res=hai(string)
+# Executing instruction: ICLEARS at line: 50 with following arguments:
+# Executing instruction: IPUSHS at line: 51 with following arguments:
+# Arg1: LF@res=nguyen(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 52 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 53 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 54 with following arguments:
+# Arg1: Stack@=nguyen(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 55 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=nguyen(string)
+# Executing instruction: ICREATEFRAME at line: 56 with following arguments:
+# Executing instruction: IPUSHS at line: 57 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 58 with following arguments:
+# Dest: TF@s
+# Executing instruction: IPOPS at line: 59 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: TF@s()
+# Executing instruction: IPUSHS at line: 60 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 61 with following arguments:
+# Dest: TF@i
+# Executing instruction: IPOPS at line: 62 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@i()
+# Executing instruction: IPUSHS at line: 63 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 64 with following arguments:
+# Dest: TF@n
+# Executing instruction: IPOPS at line: 65 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@n()
+# Executing instruction: ICALL at line: 66 with following arguments:
+# Executing instruction: ILABEL at line: 140 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 141 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 142 with following arguments:
+# Executing instruction: IPUSHS at line: 143 with following arguments:
+# Arg1: LF@s=(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 144 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 145 with following arguments:
+# Arg1: Stack@=(string)
+# Arg2: Stack@=(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 146 with following arguments:
+# Arg1: LF@i=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 147 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 148 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 149 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 150 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 151 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 152 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 153 with following arguments:
+# Executing instruction: IPOPFRAME at line: 67 with following arguments:
+# Executing instruction: IPOPS at line: 68 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: LF@res=nguyen(string)
+# Executing instruction: ICLEARS at line: 69 with following arguments:
+# Executing instruction: IPUSHS at line: 70 with following arguments:
+# Arg1: LF@res=(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 71 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 72 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 73 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 74 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: ICREATEFRAME at line: 75 with following arguments:
+# Executing instruction: IPUSHS at line: 76 with following arguments:
+# Arg1: Const@=nothing(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 77 with following arguments:
+# Dest: TF@s
+# Executing instruction: IPOPS at line: 78 with following arguments:
+# Arg1: Stack@=nothing(string)
+# Dest: TF@s()
+# Executing instruction: IPUSHS at line: 79 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 80 with following arguments:
+# Dest: TF@i
+# Executing instruction: IPOPS at line: 81 with following arguments:
+# Arg1: Stack@=0(int)
+# Dest: TF@i()
+# Executing instruction: IPUSHS at line: 82 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 83 with following arguments:
+# Dest: TF@n
+# Executing instruction: IPOPS at line: 84 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@n()
+# Executing instruction: ICALL at line: 85 with following arguments:
+# Executing instruction: ILABEL at line: 140 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 141 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 142 with following arguments:
+# Executing instruction: IPUSHS at line: 143 with following arguments:
+# Arg1: LF@s=nothing(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 144 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 145 with following arguments:
+# Arg1: Stack@=nothing(string)
+# Arg2: Stack@=(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 146 with following arguments:
+# Arg1: LF@i=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 147 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 148 with following arguments:
+# Arg1: Stack@=0(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 149 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 150 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 151 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 152 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 153 with following arguments:
+# Executing instruction: IPOPFRAME at line: 86 with following arguments:
+# Executing instruction: IPOPS at line: 87 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: LF@res=(string)
+# Executing instruction: ICLEARS at line: 88 with following arguments:
+# Executing instruction: IPUSHS at line: 89 with following arguments:
+# Arg1: LF@res=(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 90 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 91 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 92 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 93 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: ICREATEFRAME at line: 94 with following arguments:
+# Executing instruction: IPUSHS at line: 95 with following arguments:
+# Arg1: Const@=nothing(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 96 with following arguments:
+# Dest: TF@s
+# Executing instruction: IPOPS at line: 97 with following arguments:
+# Arg1: Stack@=nothing(string)
+# Dest: TF@s()
+# Executing instruction: IPUSHS at line: 98 with following arguments:
+# Arg1: LF@tmp=-1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 99 with following arguments:
+# Dest: TF@i
+# Executing instruction: IPOPS at line: 100 with following arguments:
+# Arg1: Stack@=-1(int)
+# Dest: TF@i()
+# Executing instruction: IPUSHS at line: 101 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 102 with following arguments:
+# Dest: TF@n
+# Executing instruction: IPOPS at line: 103 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@n()
+# Executing instruction: ICALL at line: 104 with following arguments:
+# Executing instruction: ILABEL at line: 140 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 141 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 142 with following arguments:
+# Executing instruction: IPUSHS at line: 143 with following arguments:
+# Arg1: LF@s=nothing(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 144 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 145 with following arguments:
+# Arg1: Stack@=nothing(string)
+# Arg2: Stack@=(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 146 with following arguments:
+# Arg1: LF@i=-1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 147 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 148 with following arguments:
+# Arg1: Stack@=-1(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 149 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 150 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 151 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 152 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 153 with following arguments:
+# Executing instruction: IPOPFRAME at line: 105 with following arguments:
+# Executing instruction: IPOPS at line: 106 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: LF@res=(string)
+# Executing instruction: ICLEARS at line: 107 with following arguments:
+# Executing instruction: IPUSHS at line: 108 with following arguments:
+# Arg1: LF@res=(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 109 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 110 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 111 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 112 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: ICREATEFRAME at line: 113 with following arguments:
+# Executing instruction: IPUSHS at line: 114 with following arguments:
+# Arg1: Const@=
+# son hai nguyen(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 115 with following arguments:
+# Dest: TF@s
+# Executing instruction: IPOPS at line: 116 with following arguments:
+# Arg1: Stack@=
+# son hai nguyen(string)
+# Dest: TF@s()
+# Executing instruction: IPUSHS at line: 117 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 118 with following arguments:
+# Dest: TF@i
+# Executing instruction: IPOPS at line: 119 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@i()
+# Executing instruction: IPUSHS at line: 120 with following arguments:
+# Arg1: LF@tmp=-1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 121 with following arguments:
+# Dest: TF@n
+# Executing instruction: IPOPS at line: 122 with following arguments:
+# Arg1: Stack@=-1(int)
+# Dest: TF@n()
+# Executing instruction: ICALL at line: 123 with following arguments:
+# Executing instruction: ILABEL at line: 140 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 141 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 142 with following arguments:
+# Executing instruction: IPUSHS at line: 143 with following arguments:
+# Arg1: LF@s=
+# son hai nguyen(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 144 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 145 with following arguments:
+# Arg1: Stack@=
+# son hai nguyen(string)
+# Arg2: Stack@=(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 146 with following arguments:
+# Arg1: LF@i=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 147 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 148 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 149 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 150 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 151 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 154 with following arguments:
+# Executing instruction: IDEFVAR at line: 155 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 156 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IDEFVAR at line: 157 with following arguments:
+# Dest: TF@__INTERNAL__VAR_1
+# Executing instruction: IMOVE at line: 158 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_1()
+# Executing instruction: IDEFVAR at line: 159 with following arguments:
+# Dest: TF@__INTERNAL__VAR_2
+# Executing instruction: IMOVE at line: 160 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_2()
+# Executing instruction: ISTRLEN at line: 161 with following arguments:
+# Arg1: LF@s=
+# son hai nguyen(string)
+# Dest: TF@__INTERNAL__VAR_2=0(int)
+# Executing instruction: ISUB at line: 162 with following arguments:
+# Arg1: LF@i=1(int)
+# Arg2: Const@=1(int)
+# Dest: LF@i=1(int)
+# Executing instruction: ILABEL at line: 163 with following arguments:
+# Executing instruction: IPUSHS at line: 164 with following arguments:
+# Arg1: LF@n=-1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 165 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 166 with following arguments:
+# Arg1: Stack@=-1(int)
+# Arg2: Stack@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 167 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 168 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: ILABEL at line: 179 with following arguments:
+# Executing instruction: ICLEARS at line: 180 with following arguments:
+# Executing instruction: IPUSHS at line: 181 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_1=(string)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 182 with following arguments:
+# Executing instruction: IPOPFRAME at line: 124 with following arguments:
+# Executing instruction: IPOPS at line: 125 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: LF@res=(string)
+# Executing instruction: ICLEARS at line: 126 with following arguments:
+# Executing instruction: IPUSHS at line: 127 with following arguments:
+# Arg1: LF@res=(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 128 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 129 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 130 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 131 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IPUSHS at line: 132 with following arguments:
+# Arg1: Const@=
+# END(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 133 with following arguments:
+# Arg1: Stack@=
+# END(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 134 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=
+# END(string)
+# Executing instruction: IJUMP at line: 135 with following arguments:
+# Executing instruction: ILABEL at line: 186 with following arguments:
 # 
-# EXPECTED INTERPRETER STDOUT:
+# STDOUT DIFF:
+# --- expected
+# +++ actual
+# @@ -1,3 +1,2 @@
 
-# hainguyen
-# son hai nguyen
-# END
+#  hainguyen
 
+# -son hai nguyen
 
-# CURRENT INTERPRETER STDOUT:
-
-
+#  END
 
 # INTERPRETER STDIN: 
 # 
@@ -109,7 +1118,7 @@
 # EXPECTED COMPILER EXIT CODE: 0
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: 54
+# CURRENT INTERPRETER EXIT CODE: 0
 # PRICE: ---
 # 
 #   1: ' substr builtin function
@@ -142,155 +1151,185 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/155
-JUMP main                                                                       #     2/155
-# MAIN                                                                          #     4/155
-LABEL main                                                                      #     5/155
-CREATEFRAME                                                                     #     6/155
-PUSHFRAME                                                                       #     7/155
-CREATEFRAME                                                                     #     8/155
-DEFVAR LF@res                                                                   #     9/155
-MOVE LF@res string@                                                             #    10/155
-DEFVAR LF@tmp                                                                   #    11/155
-MOVE LF@tmp int@0                                                               #    12/155
-PUSHS int@0                                                                     #    13/155
-PUSHS int@1                                                                     #    14/155
-SUBS                                                                            #    15/155
-POPS LF@tmp                                                                     #    16/155
-CLEARS                                                                          #    17/155
-CREATEFRAME                                                                     #    18/155
-PUSHS string@son\032hai\032nguyen                                               #    19/155
-DEFVAR TF@s                                                                     #    20/155
-POPS TF@s                                                                       #    21/155
-PUSHS int@5                                                                     #    22/155
-DEFVAR TF@i                                                                     #    23/155
-POPS TF@i                                                                       #    24/155
-PUSHS int@3                                                                     #    25/155
-DEFVAR TF@n                                                                     #    26/155
-POPS TF@n                                                                       #    27/155
-CALL substr                                                                     #    28/155
-POPFRAME                                                                        #    29/155
-POPS LF@res                                                                     #    30/155
-CLEARS                                                                          #    31/155
-PUSHS LF@res                                                                    #    32/155
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    33/155
-POPS TF@__INTERNAL__VAR_0                                                       #    34/155
-WRITE TF@__INTERNAL__VAR_0                                                      #    35/155
-CREATEFRAME                                                                     #    36/155
-PUSHS string@son\032hai\032nguyen                                               #    37/155
-DEFVAR TF@s                                                                     #    38/155
-POPS TF@s                                                                       #    39/155
-PUSHS int@9                                                                     #    40/155
-DEFVAR TF@i                                                                     #    41/155
-POPS TF@i                                                                       #    42/155
-PUSHS int@120                                                                   #    43/155
-DEFVAR TF@n                                                                     #    44/155
-POPS TF@n                                                                       #    45/155
-CALL substr                                                                     #    46/155
-POPFRAME                                                                        #    47/155
-POPS LF@res                                                                     #    48/155
-CLEARS                                                                          #    49/155
-PUSHS LF@res                                                                    #    50/155
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    51/155
-POPS TF@__INTERNAL__VAR_0                                                       #    52/155
-WRITE TF@__INTERNAL__VAR_0                                                      #    53/155
-CREATEFRAME                                                                     #    54/155
-PUSHS string@                                                                   #    55/155
-DEFVAR TF@s                                                                     #    56/155
-POPS TF@s                                                                       #    57/155
-PUSHS int@1                                                                     #    58/155
-DEFVAR TF@i                                                                     #    59/155
-POPS TF@i                                                                       #    60/155
-PUSHS int@1                                                                     #    61/155
-DEFVAR TF@n                                                                     #    62/155
-POPS TF@n                                                                       #    63/155
-CALL substr                                                                     #    64/155
-POPFRAME                                                                        #    65/155
-POPS LF@res                                                                     #    66/155
-CLEARS                                                                          #    67/155
-PUSHS LF@res                                                                    #    68/155
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    69/155
-POPS TF@__INTERNAL__VAR_0                                                       #    70/155
-WRITE TF@__INTERNAL__VAR_0                                                      #    71/155
-CREATEFRAME                                                                     #    72/155
-PUSHS string@nothing                                                            #    73/155
-DEFVAR TF@s                                                                     #    74/155
-POPS TF@s                                                                       #    75/155
-PUSHS int@0                                                                     #    76/155
-DEFVAR TF@i                                                                     #    77/155
-POPS TF@i                                                                       #    78/155
-PUSHS int@1                                                                     #    79/155
-DEFVAR TF@n                                                                     #    80/155
-POPS TF@n                                                                       #    81/155
-CALL substr                                                                     #    82/155
-POPFRAME                                                                        #    83/155
-POPS LF@res                                                                     #    84/155
-CLEARS                                                                          #    85/155
-PUSHS LF@res                                                                    #    86/155
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    87/155
-POPS TF@__INTERNAL__VAR_0                                                       #    88/155
-WRITE TF@__INTERNAL__VAR_0                                                      #    89/155
-CREATEFRAME                                                                     #    90/155
-PUSHS string@nothing                                                            #    91/155
-DEFVAR TF@s                                                                     #    92/155
-POPS TF@s                                                                       #    93/155
-PUSHS LF@tmp                                                                    #    94/155
-DEFVAR TF@i                                                                     #    95/155
-POPS TF@i                                                                       #    96/155
-PUSHS int@1                                                                     #    97/155
-DEFVAR TF@n                                                                     #    98/155
-POPS TF@n                                                                       #    99/155
-CALL substr                                                                     #   100/155
-POPFRAME                                                                        #   101/155
-POPS LF@res                                                                     #   102/155
-CLEARS                                                                          #   103/155
-PUSHS LF@res                                                                    #   104/155
-DEFVAR TF@__INTERNAL__VAR_0                                                     #   105/155
-POPS TF@__INTERNAL__VAR_0                                                       #   106/155
-WRITE TF@__INTERNAL__VAR_0                                                      #   107/155
-CREATEFRAME                                                                     #   108/155
-PUSHS string@\010son\032hai\032nguyen                                           #   109/155
-DEFVAR TF@s                                                                     #   110/155
-POPS TF@s                                                                       #   111/155
-PUSHS int@1                                                                     #   112/155
-DEFVAR TF@i                                                                     #   113/155
-POPS TF@i                                                                       #   114/155
-PUSHS LF@tmp                                                                    #   115/155
-DEFVAR TF@n                                                                     #   116/155
-POPS TF@n                                                                       #   117/155
-CALL substr                                                                     #   118/155
-POPFRAME                                                                        #   119/155
-POPS LF@res                                                                     #   120/155
-CLEARS                                                                          #   121/155
-PUSHS LF@res                                                                    #   122/155
-DEFVAR TF@__INTERNAL__VAR_0                                                     #   123/155
-POPS TF@__INTERNAL__VAR_0                                                       #   124/155
-WRITE TF@__INTERNAL__VAR_0                                                      #   125/155
-PUSHS string@\010END                                                            #   126/155
-POPS TF@__INTERNAL__VAR_0                                                       #   127/155
-WRITE TF@__INTERNAL__VAR_0                                                      #   128/155
-JUMP __INTERNAL__FILE_END                                                       #   129/155
-# SUBSTR FUNCTION                                                               #   131/155
-DEFVAR TF@__INTERNAL__VAR_1                                                     #   132/155
-LABEL substr                                                                    #   133/155
-PUSHFRAME                                                                       #   134/155
-CREATEFRAME                                                                     #   135/155
-SUB LF@i LF@i int@1                                                             #   136/155
-LABEL begin                                                                     #   137/155
-PUSHS LF@n                                                                      #   138/155
-PUSHS int@0                                                                     #   139/155
-GTS                                                                             #   140/155
-PUSHS bool@true                                                                 #   141/155
-JUMPIFNEQS end                                                                  #   142/155
-GETCHAR TF@__INTERNAL__VAR_0 LF@s LF@i                                          #   143/155
-CONCAT TF@__INTERNAL__VAR_1 TF@__INTERNAL__VAR_1 TF@__INTERNAL__VAR_0           #   144/155
-ADD LF@i LF@i int@1                                                             #   145/155
-SUB LF@n LF@n int@1                                                             #   146/155
-JUMP begin                                                                      #   147/155
-LABEL end                                                                       #   148/155
-CLEARS                                                                          #   149/155
-PUSHS TF@__INTERNAL__VAR_1                                                      #   150/155
-RETURN                                                                          #   151/155
-# SUBSTR FUNCTION END                                                           #   152/155
-# PROGRAM END                                                                   #   154/155
-LABEL __INTERNAL__FILE_END                                                      #   155/155
+.IFJcode17                                                                      #     1/186
+JUMP main                                                                       #     2/186
+# MAIN                                                                          #     4/186
+LABEL main                                                                      #     5/186
+CREATEFRAME                                                                     #     6/186
+PUSHFRAME                                                                       #     7/186
+CREATEFRAME                                                                     #     8/186
+DEFVAR LF@res                                                                   #     9/186
+MOVE LF@res string@                                                             #    10/186
+DEFVAR LF@tmp                                                                   #    11/186
+MOVE LF@tmp int@0                                                               #    12/186
+PUSHS int@0                                                                     #    13/186
+PUSHS int@1                                                                     #    14/186
+SUBS                                                                            #    15/186
+POPS LF@tmp                                                                     #    16/186
+CLEARS                                                                          #    17/186
+CREATEFRAME                                                                     #    18/186
+PUSHS string@son\032hai\032nguyen                                               #    19/186
+DEFVAR TF@s                                                                     #    20/186
+POPS TF@s                                                                       #    21/186
+PUSHS int@5                                                                     #    22/186
+DEFVAR TF@i                                                                     #    23/186
+POPS TF@i                                                                       #    24/186
+PUSHS int@3                                                                     #    25/186
+DEFVAR TF@n                                                                     #    26/186
+POPS TF@n                                                                       #    27/186
+CALL substr                                                                     #    28/186
+POPFRAME                                                                        #    29/186
+POPS LF@res                                                                     #    30/186
+CLEARS                                                                          #    31/186
+PUSHS LF@res                                                                    #    32/186
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    33/186
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    34/186
+POPS TF@__INTERNAL__VAR_0                                                       #    35/186
+WRITE TF@__INTERNAL__VAR_0                                                      #    36/186
+CREATEFRAME                                                                     #    37/186
+PUSHS string@son\032hai\032nguyen                                               #    38/186
+DEFVAR TF@s                                                                     #    39/186
+POPS TF@s                                                                       #    40/186
+PUSHS int@9                                                                     #    41/186
+DEFVAR TF@i                                                                     #    42/186
+POPS TF@i                                                                       #    43/186
+PUSHS int@120                                                                   #    44/186
+DEFVAR TF@n                                                                     #    45/186
+POPS TF@n                                                                       #    46/186
+CALL substr                                                                     #    47/186
+POPFRAME                                                                        #    48/186
+POPS LF@res                                                                     #    49/186
+CLEARS                                                                          #    50/186
+PUSHS LF@res                                                                    #    51/186
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    52/186
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    53/186
+POPS TF@__INTERNAL__VAR_0                                                       #    54/186
+WRITE TF@__INTERNAL__VAR_0                                                      #    55/186
+CREATEFRAME                                                                     #    56/186
+PUSHS string@                                                                   #    57/186
+DEFVAR TF@s                                                                     #    58/186
+POPS TF@s                                                                       #    59/186
+PUSHS int@1                                                                     #    60/186
+DEFVAR TF@i                                                                     #    61/186
+POPS TF@i                                                                       #    62/186
+PUSHS int@1                                                                     #    63/186
+DEFVAR TF@n                                                                     #    64/186
+POPS TF@n                                                                       #    65/186
+CALL substr                                                                     #    66/186
+POPFRAME                                                                        #    67/186
+POPS LF@res                                                                     #    68/186
+CLEARS                                                                          #    69/186
+PUSHS LF@res                                                                    #    70/186
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    71/186
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    72/186
+POPS TF@__INTERNAL__VAR_0                                                       #    73/186
+WRITE TF@__INTERNAL__VAR_0                                                      #    74/186
+CREATEFRAME                                                                     #    75/186
+PUSHS string@nothing                                                            #    76/186
+DEFVAR TF@s                                                                     #    77/186
+POPS TF@s                                                                       #    78/186
+PUSHS int@0                                                                     #    79/186
+DEFVAR TF@i                                                                     #    80/186
+POPS TF@i                                                                       #    81/186
+PUSHS int@1                                                                     #    82/186
+DEFVAR TF@n                                                                     #    83/186
+POPS TF@n                                                                       #    84/186
+CALL substr                                                                     #    85/186
+POPFRAME                                                                        #    86/186
+POPS LF@res                                                                     #    87/186
+CLEARS                                                                          #    88/186
+PUSHS LF@res                                                                    #    89/186
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    90/186
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    91/186
+POPS TF@__INTERNAL__VAR_0                                                       #    92/186
+WRITE TF@__INTERNAL__VAR_0                                                      #    93/186
+CREATEFRAME                                                                     #    94/186
+PUSHS string@nothing                                                            #    95/186
+DEFVAR TF@s                                                                     #    96/186
+POPS TF@s                                                                       #    97/186
+PUSHS LF@tmp                                                                    #    98/186
+DEFVAR TF@i                                                                     #    99/186
+POPS TF@i                                                                       #   100/186
+PUSHS int@1                                                                     #   101/186
+DEFVAR TF@n                                                                     #   102/186
+POPS TF@n                                                                       #   103/186
+CALL substr                                                                     #   104/186
+POPFRAME                                                                        #   105/186
+POPS LF@res                                                                     #   106/186
+CLEARS                                                                          #   107/186
+PUSHS LF@res                                                                    #   108/186
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   109/186
+MOVE TF@__INTERNAL__VAR_0 string@                                               #   110/186
+POPS TF@__INTERNAL__VAR_0                                                       #   111/186
+WRITE TF@__INTERNAL__VAR_0                                                      #   112/186
+CREATEFRAME                                                                     #   113/186
+PUSHS string@\010son\032hai\032nguyen                                           #   114/186
+DEFVAR TF@s                                                                     #   115/186
+POPS TF@s                                                                       #   116/186
+PUSHS int@1                                                                     #   117/186
+DEFVAR TF@i                                                                     #   118/186
+POPS TF@i                                                                       #   119/186
+PUSHS LF@tmp                                                                    #   120/186
+DEFVAR TF@n                                                                     #   121/186
+POPS TF@n                                                                       #   122/186
+CALL substr                                                                     #   123/186
+POPFRAME                                                                        #   124/186
+POPS LF@res                                                                     #   125/186
+CLEARS                                                                          #   126/186
+PUSHS LF@res                                                                    #   127/186
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   128/186
+MOVE TF@__INTERNAL__VAR_0 string@                                               #   129/186
+POPS TF@__INTERNAL__VAR_0                                                       #   130/186
+WRITE TF@__INTERNAL__VAR_0                                                      #   131/186
+PUSHS string@\010END                                                            #   132/186
+POPS TF@__INTERNAL__VAR_0                                                       #   133/186
+WRITE TF@__INTERNAL__VAR_0                                                      #   134/186
+JUMP __INTERNAL__FILE_END                                                       #   135/186
+# MAIN END                                                                      #   137/186
+# SUBSTR FUNCTION                                                               #   139/186
+LABEL substr                                                                    #   140/186
+PUSHFRAME                                                                       #   141/186
+CREATEFRAME                                                                     #   142/186
+PUSHS LF@s                                                                      #   143/186
+PUSHS string@                                                                   #   144/186
+EQS                                                                             #   145/186
+PUSHS LF@i                                                                      #   146/186
+PUSHS int@1                                                                     #   147/186
+LTS                                                                             #   148/186
+ORS                                                                             #   149/186
+PUSHS bool@true                                                                 #   150/186
+JUMPIFNEQS ok                                                                   #   151/186
+PUSHS string@                                                                   #   152/186
+RETURN                                                                          #   153/186
+LABEL ok                                                                        #   154/186
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   155/186
+MOVE TF@__INTERNAL__VAR_0 string@                                               #   156/186
+DEFVAR TF@__INTERNAL__VAR_1                                                     #   157/186
+MOVE TF@__INTERNAL__VAR_1 string@                                               #   158/186
+DEFVAR TF@__INTERNAL__VAR_2                                                     #   159/186
+MOVE TF@__INTERNAL__VAR_2 int@0                                                 #   160/186
+STRLEN TF@__INTERNAL__VAR_2 LF@s                                                #   161/186
+SUB LF@i LF@i int@1                                                             #   162/186
+LABEL begin                                                                     #   163/186
+PUSHS LF@n                                                                      #   164/186
+PUSHS int@0                                                                     #   165/186
+GTS                                                                             #   166/186
+PUSHS bool@true                                                                 #   167/186
+JUMPIFNEQS end                                                                  #   168/186
+GETCHAR TF@__INTERNAL__VAR_0 LF@s LF@i                                          #   169/186
+CONCAT TF@__INTERNAL__VAR_1 TF@__INTERNAL__VAR_1 TF@__INTERNAL__VAR_0           #   170/186
+ADD LF@i LF@i int@1                                                             #   171/186
+SUB LF@n LF@n int@1                                                             #   172/186
+PUSHS LF@i                                                                      #   173/186
+PUSHS TF@__INTERNAL__VAR_2                                                      #   174/186
+LTS                                                                             #   175/186
+PUSHS bool@true                                                                 #   176/186
+JUMPIFNEQS end                                                                  #   177/186
+JUMP begin                                                                      #   178/186
+LABEL end                                                                       #   179/186
+CLEARS                                                                          #   180/186
+PUSHS TF@__INTERNAL__VAR_1                                                      #   181/186
+RETURN                                                                          #   182/186
+# SUBSTR FUNCTION END                                                           #   183/186
+# PROGRAM END                                                                   #   185/186
+LABEL __INTERNAL__FILE_END                                                      #   186/186

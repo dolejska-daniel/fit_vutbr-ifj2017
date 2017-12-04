@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:23.616284
+# 2017-12-04 17:23:11.034669
 # SECTION: 04_expressions
 # TEST: 04
 # INFO: mixed operations with same priority
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -40,13 +40,16 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 16 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 17 with following arguments:
-# Arg1: Stack@=42(int)
+# Executing instruction: IMOVE at line: 17 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 18 with following arguments:
+# Executing instruction: IPOPS at line: 18 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 19 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=42(int)
-# Executing instruction: IJUMP at line: 19 with following arguments:
-# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IJUMP at line: 20 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -58,7 +61,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 69 (29+40)
+# PRICE: 71 (30+41)
 # 
 #   1: ' mixed operations with same priority
 #   2: scope
@@ -67,23 +70,25 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/22
-JUMP main                                                                       #     2/22
-# MAIN                                                                          #     4/22
-LABEL main                                                                      #     5/22
-CREATEFRAME                                                                     #     6/22
-PUSHFRAME                                                                       #     7/22
-CREATEFRAME                                                                     #     8/22
-PUSHS int@42                                                                    #     9/22
-PUSHS int@21                                                                    #    10/22
-ADDS                                                                            #    11/22
-PUSHS int@0                                                                     #    12/22
-ADDS                                                                            #    13/22
-PUSHS int@21                                                                    #    14/22
-SUBS                                                                            #    15/22
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    16/22
-POPS TF@__INTERNAL__VAR_0                                                       #    17/22
-WRITE TF@__INTERNAL__VAR_0                                                      #    18/22
-JUMP __INTERNAL__FILE_END                                                       #    19/22
-# PROGRAM END                                                                   #    21/22
-LABEL __INTERNAL__FILE_END                                                      #    22/22
+.IFJcode17                                                                      #     1/25
+JUMP main                                                                       #     2/25
+# MAIN                                                                          #     4/25
+LABEL main                                                                      #     5/25
+CREATEFRAME                                                                     #     6/25
+PUSHFRAME                                                                       #     7/25
+CREATEFRAME                                                                     #     8/25
+PUSHS int@42                                                                    #     9/25
+PUSHS int@21                                                                    #    10/25
+ADDS                                                                            #    11/25
+PUSHS int@0                                                                     #    12/25
+ADDS                                                                            #    13/25
+PUSHS int@21                                                                    #    14/25
+SUBS                                                                            #    15/25
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    16/25
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    17/25
+POPS TF@__INTERNAL__VAR_0                                                       #    18/25
+WRITE TF@__INTERNAL__VAR_0                                                      #    19/25
+JUMP __INTERNAL__FILE_END                                                       #    20/25
+# MAIN END                                                                      #    22/25
+# PROGRAM END                                                                   #    24/25
+LABEL __INTERNAL__FILE_END                                                      #    25/25

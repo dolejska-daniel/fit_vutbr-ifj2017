@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:22.554961
+# 2017-12-04 17:23:09.951790
 # SECTION: 02_functions
 # TEST: 13
 # INFO: calling multiple functions
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -169,13 +169,16 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 104 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 105 with following arguments:
-# Arg1: Stack@=151(double)
+# Executing instruction: IMOVE at line: 105 with following arguments:
+# Arg1: Const@=0(double)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 106 with following arguments:
+# Executing instruction: IPOPS at line: 106 with following arguments:
+# Arg1: Stack@=151(double)
+# Dest: TF@__INTERNAL__VAR_0=0(double)
+# Executing instruction: IWRITE at line: 107 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=151(double)
-# Executing instruction: IJUMP at line: 107 with following arguments:
-# Executing instruction: ILABEL at line: 110 with following arguments:
+# Executing instruction: IJUMP at line: 108 with following arguments:
+# Executing instruction: ILABEL at line: 113 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -187,7 +190,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 317 (146+171)
+# PRICE: 319 (147+172)
 # 
 #   1: ' calling multiple functions
 #   2: 
@@ -226,107 +229,109 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/110
-JUMP main                                                                       #     2/110
-# FUNCTION                                                                      #     4/110
-LABEL _add_two                                                                  #     5/110
-PUSHFRAME                                                                       #     6/110
-CREATEFRAME                                                                     #     7/110
-DEFVAR LF@res                                                                   #     8/110
-MOVE LF@res int@0                                                               #     9/110
-PUSHS LF@_                                                                      #    10/110
-PUSHS int@2                                                                     #    11/110
-ADDS                                                                            #    12/110
-POPS LF@res                                                                     #    13/110
-CLEARS                                                                          #    14/110
-PUSHS LF@res                                                                    #    15/110
-RETURN                                                                          #    16/110
-PUSHS int@0                                                                     #    17/110
-RETURN                                                                          #    18/110
-# END FUNCTION                                                                  #    19/110
-# FUNCTION                                                                      #    21/110
-LABEL _multiply                                                                 #    22/110
-PUSHFRAME                                                                       #    23/110
-CREATEFRAME                                                                     #    24/110
-DEFVAR LF@_                                                                     #    25/110
-MOVE LF@_ LF@__acv                                                              #    26/110
-DEFVAR LF@__                                                                    #    27/110
-MOVE LF@__ LF@__foo__                                                           #    28/110
-PUSHS LF@_                                                                      #    29/110
-PUSHS LF@__                                                                     #    30/110
-MULS                                                                            #    31/110
-RETURN                                                                          #    32/110
-PUSHS int@0                                                                     #    33/110
-RETURN                                                                          #    34/110
-# END FUNCTION                                                                  #    35/110
-# FUNCTION                                                                      #    37/110
-LABEL ____                                                                      #    38/110
-PUSHFRAME                                                                       #    39/110
-CREATEFRAME                                                                     #    40/110
-PUSHS LF@_______                                                                #    41/110
-INT2FLOATS                                                                      #    42/110
-PUSHS float@0.5                                                                 #    43/110
-MULS                                                                            #    44/110
-RETURN                                                                          #    45/110
-PUSHS float@0.0                                                                 #    46/110
-RETURN                                                                          #    47/110
-# END FUNCTION                                                                  #    48/110
-# FUNCTION                                                                      #    50/110
-LABEL __compute                                                                 #    51/110
-PUSHFRAME                                                                       #    52/110
-CREATEFRAME                                                                     #    53/110
-DEFVAR LF@res                                                                   #    54/110
-MOVE LF@res int@0                                                               #    55/110
-CREATEFRAME                                                                     #    56/110
-PUSHS int@30                                                                    #    57/110
-DEFVAR TF@__acv                                                                 #    58/110
-POPS TF@__acv                                                                   #    59/110
-PUSHS int@10                                                                    #    60/110
-DEFVAR TF@__foo__                                                               #    61/110
-POPS TF@__foo__                                                                 #    62/110
-CALL _multiply                                                                  #    63/110
-POPFRAME                                                                        #    64/110
-POPS LF@res                                                                     #    65/110
-CLEARS                                                                          #    66/110
-CREATEFRAME                                                                     #    67/110
-PUSHS LF@res                                                                    #    68/110
-DEFVAR TF@_                                                                     #    69/110
-POPS TF@_                                                                       #    70/110
-CALL _add_two                                                                   #    71/110
-POPFRAME                                                                        #    72/110
-POPS LF@res                                                                     #    73/110
-CLEARS                                                                          #    74/110
-CREATEFRAME                                                                     #    75/110
-PUSHS LF@res                                                                    #    76/110
-DEFVAR TF@_______                                                               #    77/110
-POPS TF@_______                                                                 #    78/110
-CALL ____                                                                       #    79/110
-POPFRAME                                                                        #    80/110
-FLOAT2INTS                                                                      #    81/110
-POPS LF@res                                                                     #    82/110
-CLEARS                                                                          #    83/110
-PUSHS LF@res                                                                    #    84/110
-INT2FLOATS                                                                      #    85/110
-RETURN                                                                          #    86/110
-PUSHS float@0.0                                                                 #    87/110
-RETURN                                                                          #    88/110
-# END FUNCTION                                                                  #    89/110
-# MAIN                                                                          #    91/110
-LABEL main                                                                      #    92/110
-CREATEFRAME                                                                     #    93/110
-PUSHFRAME                                                                       #    94/110
-CREATEFRAME                                                                     #    95/110
-DEFVAR LF@a                                                                     #    96/110
-MOVE LF@a float@0.0                                                             #    97/110
-CREATEFRAME                                                                     #    98/110
-CALL __compute                                                                  #    99/110
-POPFRAME                                                                        #   100/110
-POPS LF@a                                                                       #   101/110
-CLEARS                                                                          #   102/110
-PUSHS LF@a                                                                      #   103/110
-DEFVAR TF@__INTERNAL__VAR_0                                                     #   104/110
-POPS TF@__INTERNAL__VAR_0                                                       #   105/110
-WRITE TF@__INTERNAL__VAR_0                                                      #   106/110
-JUMP __INTERNAL__FILE_END                                                       #   107/110
-# PROGRAM END                                                                   #   109/110
-LABEL __INTERNAL__FILE_END                                                      #   110/110
+.IFJcode17                                                                      #     1/113
+JUMP main                                                                       #     2/113
+# FUNCTION                                                                      #     4/113
+LABEL _add_two                                                                  #     5/113
+PUSHFRAME                                                                       #     6/113
+CREATEFRAME                                                                     #     7/113
+DEFVAR LF@res                                                                   #     8/113
+MOVE LF@res int@0                                                               #     9/113
+PUSHS LF@_                                                                      #    10/113
+PUSHS int@2                                                                     #    11/113
+ADDS                                                                            #    12/113
+POPS LF@res                                                                     #    13/113
+CLEARS                                                                          #    14/113
+PUSHS LF@res                                                                    #    15/113
+RETURN                                                                          #    16/113
+PUSHS int@0                                                                     #    17/113
+RETURN                                                                          #    18/113
+# END FUNCTION                                                                  #    19/113
+# FUNCTION                                                                      #    21/113
+LABEL _multiply                                                                 #    22/113
+PUSHFRAME                                                                       #    23/113
+CREATEFRAME                                                                     #    24/113
+DEFVAR LF@_                                                                     #    25/113
+MOVE LF@_ LF@__acv                                                              #    26/113
+DEFVAR LF@__                                                                    #    27/113
+MOVE LF@__ LF@__foo__                                                           #    28/113
+PUSHS LF@_                                                                      #    29/113
+PUSHS LF@__                                                                     #    30/113
+MULS                                                                            #    31/113
+RETURN                                                                          #    32/113
+PUSHS int@0                                                                     #    33/113
+RETURN                                                                          #    34/113
+# END FUNCTION                                                                  #    35/113
+# FUNCTION                                                                      #    37/113
+LABEL ____                                                                      #    38/113
+PUSHFRAME                                                                       #    39/113
+CREATEFRAME                                                                     #    40/113
+PUSHS LF@_______                                                                #    41/113
+INT2FLOATS                                                                      #    42/113
+PUSHS float@0.5                                                                 #    43/113
+MULS                                                                            #    44/113
+RETURN                                                                          #    45/113
+PUSHS float@0.0                                                                 #    46/113
+RETURN                                                                          #    47/113
+# END FUNCTION                                                                  #    48/113
+# FUNCTION                                                                      #    50/113
+LABEL __compute                                                                 #    51/113
+PUSHFRAME                                                                       #    52/113
+CREATEFRAME                                                                     #    53/113
+DEFVAR LF@res                                                                   #    54/113
+MOVE LF@res int@0                                                               #    55/113
+CREATEFRAME                                                                     #    56/113
+PUSHS int@30                                                                    #    57/113
+DEFVAR TF@__acv                                                                 #    58/113
+POPS TF@__acv                                                                   #    59/113
+PUSHS int@10                                                                    #    60/113
+DEFVAR TF@__foo__                                                               #    61/113
+POPS TF@__foo__                                                                 #    62/113
+CALL _multiply                                                                  #    63/113
+POPFRAME                                                                        #    64/113
+POPS LF@res                                                                     #    65/113
+CLEARS                                                                          #    66/113
+CREATEFRAME                                                                     #    67/113
+PUSHS LF@res                                                                    #    68/113
+DEFVAR TF@_                                                                     #    69/113
+POPS TF@_                                                                       #    70/113
+CALL _add_two                                                                   #    71/113
+POPFRAME                                                                        #    72/113
+POPS LF@res                                                                     #    73/113
+CLEARS                                                                          #    74/113
+CREATEFRAME                                                                     #    75/113
+PUSHS LF@res                                                                    #    76/113
+DEFVAR TF@_______                                                               #    77/113
+POPS TF@_______                                                                 #    78/113
+CALL ____                                                                       #    79/113
+POPFRAME                                                                        #    80/113
+FLOAT2INTS                                                                      #    81/113
+POPS LF@res                                                                     #    82/113
+CLEARS                                                                          #    83/113
+PUSHS LF@res                                                                    #    84/113
+INT2FLOATS                                                                      #    85/113
+RETURN                                                                          #    86/113
+PUSHS float@0.0                                                                 #    87/113
+RETURN                                                                          #    88/113
+# END FUNCTION                                                                  #    89/113
+# MAIN                                                                          #    91/113
+LABEL main                                                                      #    92/113
+CREATEFRAME                                                                     #    93/113
+PUSHFRAME                                                                       #    94/113
+CREATEFRAME                                                                     #    95/113
+DEFVAR LF@a                                                                     #    96/113
+MOVE LF@a float@0.0                                                             #    97/113
+CREATEFRAME                                                                     #    98/113
+CALL __compute                                                                  #    99/113
+POPFRAME                                                                        #   100/113
+POPS LF@a                                                                       #   101/113
+CLEARS                                                                          #   102/113
+PUSHS LF@a                                                                      #   103/113
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   104/113
+MOVE TF@__INTERNAL__VAR_0 float@0.0                                             #   105/113
+POPS TF@__INTERNAL__VAR_0                                                       #   106/113
+WRITE TF@__INTERNAL__VAR_0                                                      #   107/113
+JUMP __INTERNAL__FILE_END                                                       #   108/113
+# MAIN END                                                                      #   110/113
+# PROGRAM END                                                                   #   112/113
+LABEL __INTERNAL__FILE_END                                                      #   113/113

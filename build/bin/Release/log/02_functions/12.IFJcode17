@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:22.507836
+# 2017-12-04 17:23:09.906168
 # SECTION: 02_functions
 # TEST: 12
 # INFO: Recursive function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -290,13 +290,16 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 60 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 61 with following arguments:
-# Arg1: Stack@=42(int)
+# Executing instruction: IMOVE at line: 61 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 62 with following arguments:
+# Executing instruction: IPOPS at line: 62 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 63 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=42(int)
-# Executing instruction: IJUMP at line: 63 with following arguments:
-# Executing instruction: ILABEL at line: 66 with following arguments:
+# Executing instruction: IJUMP at line: 64 with following arguments:
+# Executing instruction: ILABEL at line: 69 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -308,7 +311,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 526 (223+303)
+# PRICE: 528 (224+304)
 # 
 #   1: ' Recursive function
 #   2: 
@@ -331,66 +334,68 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/66
-JUMP main                                                                       #     2/66
-# FUNCTION                                                                      #     4/66
-LABEL recursive                                                                 #     5/66
-PUSHFRAME                                                                       #     6/66
-CREATEFRAME                                                                     #     7/66
-DEFVAR LF@param0                                                                #     8/66
-MOVE LF@param0 int@0                                                            #     9/66
-PUSHS LF@param                                                                  #    10/66
-PUSHS int@1                                                                     #    11/66
-SUBS                                                                            #    12/66
-POPS LF@param0                                                                  #    13/66
-CLEARS                                                                          #    14/66
-# IF BLOCK                                                                      #    15/66
-CREATEFRAME                                                                     #    16/66
-# IF                                                                            #    17/66
-PUSHS LF@param                                                                  #    18/66
-PUSHS int@0                                                                     #    19/66
-EQS                                                                             #    20/66
-PUSHS bool@true                                                                 #    21/66
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    22/66
-# THEN                                                                          #    23/66
-PUSHS int@42                                                                    #    24/66
-RETURN                                                                          #    25/66
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    26/66
-LABEL __INTERNAL__COND_0_END                                                    #    27/66
-# ELSE                                                                          #    28/66
-CREATEFRAME                                                                     #    29/66
-PUSHS LF@param0                                                                 #    30/66
-DEFVAR TF@param                                                                 #    31/66
-POPS TF@param                                                                   #    32/66
-CALL recursive                                                                  #    33/66
-POPFRAME                                                                        #    34/66
-RETURN                                                                          #    35/66
-# END IF                                                                        #    36/66
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    37/66
-CREATEFRAME                                                                     #    38/66
-# END IF BLOCK                                                                  #    39/66
-PUSHS int@0                                                                     #    40/66
-RETURN                                                                          #    41/66
-# END FUNCTION                                                                  #    42/66
-# MAIN                                                                          #    44/66
-LABEL main                                                                      #    45/66
-CREATEFRAME                                                                     #    46/66
-PUSHFRAME                                                                       #    47/66
-CREATEFRAME                                                                     #    48/66
-DEFVAR LF@a                                                                     #    49/66
-MOVE LF@a int@0                                                                 #    50/66
-CREATEFRAME                                                                     #    51/66
-PUSHS int@4                                                                     #    52/66
-DEFVAR TF@param                                                                 #    53/66
-POPS TF@param                                                                   #    54/66
-CALL recursive                                                                  #    55/66
-POPFRAME                                                                        #    56/66
-POPS LF@a                                                                       #    57/66
-CLEARS                                                                          #    58/66
-PUSHS LF@a                                                                      #    59/66
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    60/66
-POPS TF@__INTERNAL__VAR_0                                                       #    61/66
-WRITE TF@__INTERNAL__VAR_0                                                      #    62/66
-JUMP __INTERNAL__FILE_END                                                       #    63/66
-# PROGRAM END                                                                   #    65/66
-LABEL __INTERNAL__FILE_END                                                      #    66/66
+.IFJcode17                                                                      #     1/69
+JUMP main                                                                       #     2/69
+# FUNCTION                                                                      #     4/69
+LABEL recursive                                                                 #     5/69
+PUSHFRAME                                                                       #     6/69
+CREATEFRAME                                                                     #     7/69
+DEFVAR LF@param0                                                                #     8/69
+MOVE LF@param0 int@0                                                            #     9/69
+PUSHS LF@param                                                                  #    10/69
+PUSHS int@1                                                                     #    11/69
+SUBS                                                                            #    12/69
+POPS LF@param0                                                                  #    13/69
+CLEARS                                                                          #    14/69
+# IF BLOCK                                                                      #    15/69
+CREATEFRAME                                                                     #    16/69
+# IF                                                                            #    17/69
+PUSHS LF@param                                                                  #    18/69
+PUSHS int@0                                                                     #    19/69
+EQS                                                                             #    20/69
+PUSHS bool@true                                                                 #    21/69
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    22/69
+# THEN                                                                          #    23/69
+PUSHS int@42                                                                    #    24/69
+RETURN                                                                          #    25/69
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    26/69
+LABEL __INTERNAL__COND_0_END                                                    #    27/69
+# ELSE                                                                          #    28/69
+CREATEFRAME                                                                     #    29/69
+PUSHS LF@param0                                                                 #    30/69
+DEFVAR TF@param                                                                 #    31/69
+POPS TF@param                                                                   #    32/69
+CALL recursive                                                                  #    33/69
+POPFRAME                                                                        #    34/69
+RETURN                                                                          #    35/69
+# END IF                                                                        #    36/69
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    37/69
+CREATEFRAME                                                                     #    38/69
+# END IF BLOCK                                                                  #    39/69
+PUSHS int@0                                                                     #    40/69
+RETURN                                                                          #    41/69
+# END FUNCTION                                                                  #    42/69
+# MAIN                                                                          #    44/69
+LABEL main                                                                      #    45/69
+CREATEFRAME                                                                     #    46/69
+PUSHFRAME                                                                       #    47/69
+CREATEFRAME                                                                     #    48/69
+DEFVAR LF@a                                                                     #    49/69
+MOVE LF@a int@0                                                                 #    50/69
+CREATEFRAME                                                                     #    51/69
+PUSHS int@4                                                                     #    52/69
+DEFVAR TF@param                                                                 #    53/69
+POPS TF@param                                                                   #    54/69
+CALL recursive                                                                  #    55/69
+POPFRAME                                                                        #    56/69
+POPS LF@a                                                                       #    57/69
+CLEARS                                                                          #    58/69
+PUSHS LF@a                                                                      #    59/69
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    60/69
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    61/69
+POPS TF@__INTERNAL__VAR_0                                                       #    62/69
+WRITE TF@__INTERNAL__VAR_0                                                      #    63/69
+JUMP __INTERNAL__FILE_END                                                       #    64/69
+# MAIN END                                                                      #    66/69
+# PROGRAM END                                                                   #    68/69
+LABEL __INTERNAL__FILE_END                                                      #    69/69

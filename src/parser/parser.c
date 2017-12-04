@@ -2846,6 +2846,8 @@ int Parser_ParseScope(InputPtr input, InstructionListPtr ilist, SymbolTablePtr s
         return result;
     }
 
+    Instruction_custom(ilist, "\n# MAIN END");
+
     DEBUG_LOG(source, "leaving current nesting level");
     NestingList_leaveCurrentLevel(nlist);
     NestingList_debugPrint(nlist);
@@ -3532,6 +3534,7 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
     SymbolPtr symbol;
     SymbolPtr tempvar;
     SymbolPtr tempvar2;
+    SymbolPtr tempvar3;
     SymbolPtr param_s;
     SymbolPtr param_i;
     SymbolPtr param_n;
@@ -3644,12 +3647,6 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
 
         Instruction_custom(ilist, "\n# LENGTH FUNCTION");
 
-        tempvar = SymbolTable_getTempVar(symtable, ilist, ST_INTEGER, 0);
-        if (tempvar == NULL)
-        {
-            return INTERNAL_ERROR;
-        }
-
         result = Instruction_label(ilist, symbol->key);
         if (result != NO_ERROR)
         {
@@ -3664,6 +3661,13 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
 
         result = Instruction_createframe(ilist);
         if (result != NO_ERROR)
+        {
+            return INTERNAL_ERROR;
+        }
+        SymbolTable_deleteTempVars(symtable);
+
+        tempvar = SymbolTable_getTempVar(symtable, ilist, ST_INTEGER, 0);
+        if (tempvar == NULL)
         {
             return INTERNAL_ERROR;
         }
@@ -3687,7 +3691,6 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
         }
 
         SymbolTable_deleteTempVar(symtable, 0);
-        SymbolTable_deleteTempVars(symtable);
 
         Instruction_custom(ilist, "# LENGTH FUNCTION END");
     }
@@ -3703,18 +3706,6 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
         }
 
         Instruction_custom(ilist, "\n# SUBSTR FUNCTION");
-
-        tempvar = SymbolTable_getTempVar(symtable, ilist, ST_STRING, 0);
-        if (tempvar == NULL)
-        {
-            return INTERNAL_ERROR;
-        }
-
-        tempvar2 = SymbolTable_getTempVar(symtable, ilist, ST_STRING, 1);
-        if (tempvar == NULL)
-        {
-            return INTERNAL_ERROR;
-        }
 
         result = Instruction_label(ilist, symbol->key);
         if (result != NO_ERROR)
@@ -3733,6 +3724,49 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
         {
             return INTERNAL_ERROR;
         }
+        SymbolTable_deleteTempVars(symtable);
+
+        //  IF s == ""
+        result = Instruction_custom(ilist, "PUSHS LF@s");
+        result = Instruction_custom(ilist, "PUSHS string@");
+        result = Instruction_logic_eq_stack(ilist);
+
+        //  IF i < 1
+        result = Instruction_custom(ilist, "PUSHS LF@i");
+        result = Instruction_custom(ilist, "PUSHS int@1");
+        result = Instruction_logic_lt_stack(ilist);
+
+        //  IF s == "" OR i < 1
+        result = Instruction_logic_or_stack(ilist);
+        result = Instruction_custom(ilist, "PUSHS bool@true");
+        result = Instruction_jumpifneq_stack(ilist, "ok");
+
+        //  RETURN ""
+        result = Instruction_custom(ilist, "PUSHS string@");
+        result = Instruction_return(ilist);
+
+        result = Instruction_label(ilist, "ok");
+
+        tempvar = SymbolTable_getTempVar(symtable, ilist, ST_STRING, 0);
+        if (tempvar == NULL)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        tempvar2 = SymbolTable_getTempVar(symtable, ilist, ST_STRING, 1);
+        if (tempvar == NULL)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        tempvar3 = SymbolTable_getTempVar(symtable, ilist, ST_INTEGER, 2);
+        if (tempvar == NULL)
+        {
+            return INTERNAL_ERROR;
+        }
+
+        //  STRLEN(s)
+        result = Instruction_strlen(ilist, tempvar3, param_s);
 
         result = Instruction_custom(ilist, "SUB LF@i LF@i int@1");
         if (result != NO_ERROR)
@@ -3800,6 +3834,12 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
             return INTERNAL_ERROR;
         }
 
+        result = Instruction_custom(ilist, "PUSHS LF@i");
+        result = Instruction_stack_push(ilist, tempvar3);
+        result = Instruction_logic_lt_stack(ilist);
+        result = Instruction_custom(ilist, "PUSHS bool@true");
+        result = Instruction_jumpifneq_stack(ilist, "end");
+
         result = Instruction_jump(ilist, "begin");
         if (result != NO_ERROR)
         {
@@ -3832,7 +3872,6 @@ int Parser_DefineBuiltinFunctions(/*InputPtr input, */InstructionListPtr ilist, 
 
         SymbolTable_deleteTempVar(symtable, 0);
         SymbolTable_deleteTempVar(symtable, 1);
-        SymbolTable_deleteTempVars(symtable);
 
         Instruction_custom(ilist, "# SUBSTR FUNCTION END");
     }

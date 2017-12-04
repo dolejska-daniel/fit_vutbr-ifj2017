@@ -1,10 +1,10 @@
-# 2017-12-04 14:49:25.870277
+# 2017-12-04 17:23:13.385420
 # SECTION: 07_strings
 # TEST: 01
 # INFO: valid length call
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
-# STATE: FAIL
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
 # 
 # COMPILER STDERR:
 # 
@@ -29,21 +29,142 @@
 # Arg1: Stack@=(string)
 # Dest: TF@s()
 # Executing instruction: ICALL at line: 15 with following arguments:
-# Executing instruction: ILABEL at line: 55 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 56 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 57 with following arguments:
-# Symbol TF@__INTERNAL__VAR_0 not found!
-# Error at line: 58
-# Symbol is undefined!
+# Executing instruction: ILABEL at line: 60 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 61 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 62 with following arguments:
+# Executing instruction: IDEFVAR at line: 63 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 64 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: ISTRLEN at line: 65 with following arguments:
+# Arg1: LF@s=(string)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=0(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 67 with following arguments:
+# Executing instruction: IPOPFRAME at line: 16 with following arguments:
+# Executing instruction: IPOPS at line: 17 with following arguments:
+# Arg1: Stack@=0(int)
+# Dest: LF@len=0(int)
+# Executing instruction: ICLEARS at line: 18 with following arguments:
+# Executing instruction: IPUSHS at line: 19 with following arguments:
+# Arg1: LF@len=0(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 20 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 21 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 22 with following arguments:
+# Arg1: Stack@=0(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 23 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: ICREATEFRAME at line: 24 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
+# Arg1: Const@=foobar(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 26 with following arguments:
+# Dest: TF@s
+# Executing instruction: IPOPS at line: 27 with following arguments:
+# Arg1: Stack@=foobar(string)
+# Dest: TF@s()
+# Executing instruction: ICALL at line: 28 with following arguments:
+# Executing instruction: ILABEL at line: 60 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 61 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 62 with following arguments:
+# Executing instruction: IDEFVAR at line: 63 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 64 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: ISTRLEN at line: 65 with following arguments:
+# Arg1: LF@s=foobar(string)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=6(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 67 with following arguments:
+# Executing instruction: IPOPFRAME at line: 29 with following arguments:
+# Executing instruction: IPOPS at line: 30 with following arguments:
+# Arg1: Stack@=6(int)
+# Dest: LF@len=0(int)
+# Executing instruction: ICLEARS at line: 31 with following arguments:
+# Executing instruction: IPUSHS at line: 32 with following arguments:
+# Arg1: LF@len=6(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 33 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 34 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 35 with following arguments:
+# Arg1: Stack@=6(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 36 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=6(int)
+# Executing instruction: IDEFVAR at line: 37 with following arguments:
+# Dest: LF@str
+# Executing instruction: IMOVE at line: 38 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@str()
+# Executing instruction: IPUSHS at line: 39 with following arguments:
+# Arg1: Const@=Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 40 with following arguments:
+# Arg1: Stack@=Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.(string)
+# Dest: LF@str=(string)
+# Executing instruction: ICLEARS at line: 41 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 42 with following arguments:
+# Executing instruction: IPUSHS at line: 43 with following arguments:
+# Arg1: LF@str=Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 44 with following arguments:
+# Dest: TF@s
+# Executing instruction: IPOPS at line: 45 with following arguments:
+# Arg1: Stack@=Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.(string)
+# Dest: TF@s()
+# Executing instruction: ICALL at line: 46 with following arguments:
+# Executing instruction: ILABEL at line: 60 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 61 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 62 with following arguments:
+# Executing instruction: IDEFVAR at line: 63 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 64 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: ISTRLEN at line: 65 with following arguments:
+# Arg1: LF@s=Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.(string)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IPUSHS at line: 66 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=445(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 67 with following arguments:
+# Executing instruction: IPOPFRAME at line: 47 with following arguments:
+# Executing instruction: IPOPS at line: 48 with following arguments:
+# Arg1: Stack@=445(int)
+# Dest: LF@len=6(int)
+# Executing instruction: ICLEARS at line: 49 with following arguments:
+# Executing instruction: IPUSHS at line: 50 with following arguments:
+# Arg1: LF@len=445(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 51 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 52 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 53 with following arguments:
+# Arg1: Stack@=445(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 54 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=445(int)
+# Executing instruction: IJUMP at line: 55 with following arguments:
+# Executing instruction: ILABEL at line: 71 with following arguments:
 # 
-# EXPECTED INTERPRETER STDOUT:
-
-#  0 6 445
-
-
-# CURRENT INTERPRETER STDOUT:
-
-
+# STDOUT DIFF:
+# 
 
 # INTERPRETER STDIN: 
 # 
@@ -51,8 +172,8 @@
 # EXPECTED COMPILER EXIT CODE: 0
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
-# CURRENT INTERPRETER EXIT CODE: 54
-# PRICE: ---
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 282 (135+147)
 # 
 #   1: ' valid length call
 #   2: scope
@@ -73,64 +194,70 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/64
-JUMP main                                                                       #     2/64
-# MAIN                                                                          #     4/64
-LABEL main                                                                      #     5/64
-CREATEFRAME                                                                     #     6/64
-PUSHFRAME                                                                       #     7/64
-CREATEFRAME                                                                     #     8/64
-DEFVAR LF@len                                                                   #     9/64
-MOVE LF@len int@0                                                               #    10/64
-CREATEFRAME                                                                     #    11/64
-PUSHS string@                                                                   #    12/64
-DEFVAR TF@s                                                                     #    13/64
-POPS TF@s                                                                       #    14/64
-CALL length                                                                     #    15/64
-POPFRAME                                                                        #    16/64
-POPS LF@len                                                                     #    17/64
-CLEARS                                                                          #    18/64
-PUSHS LF@len                                                                    #    19/64
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    20/64
-POPS TF@__INTERNAL__VAR_0                                                       #    21/64
-WRITE TF@__INTERNAL__VAR_0                                                      #    22/64
-CREATEFRAME                                                                     #    23/64
-PUSHS string@foobar                                                             #    24/64
-DEFVAR TF@s                                                                     #    25/64
-POPS TF@s                                                                       #    26/64
-CALL length                                                                     #    27/64
-POPFRAME                                                                        #    28/64
-POPS LF@len                                                                     #    29/64
-CLEARS                                                                          #    30/64
-PUSHS LF@len                                                                    #    31/64
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    32/64
-POPS TF@__INTERNAL__VAR_0                                                       #    33/64
-WRITE TF@__INTERNAL__VAR_0                                                      #    34/64
-DEFVAR LF@str                                                                   #    35/64
-MOVE LF@str string@                                                             #    36/64
-PUSHS string@Lorem\032ipsum\032dolor\032sit\032amet,\032consectetur\032adipiscing\032elit,\032sed\032do\032eiusmod\032tempor\032incididunt\032ut\032labore\032et\032dolore\032magna\032aliqua.\032Ut\032enim\032ad\032minim\032veniam,\032quis\032nostrud\032exercitation\032ullamco\032laboris\032nisi\032ut\032aliquip\032ex\032ea\032commodo\032consequat.\032Duis\032aute\032irure\032dolor\032in\032reprehenderit\032in\032voluptate\032velit\032esse\032cillum\032dolore\032eu\032fugiat\032nulla\032pariatur.\032Excepteur\032sint\032occaecat\032cupidatat\032non\032proident,\032sunt\032in\032culpa\032qui\032officia\032deserunt\032mollit\032anim\032id\032est\032laborum.#    37/64
-POPS LF@str                                                                     #    38/64
-CLEARS                                                                          #    39/64
-CREATEFRAME                                                                     #    40/64
-PUSHS LF@str                                                                    #    41/64
-DEFVAR TF@s                                                                     #    42/64
-POPS TF@s                                                                       #    43/64
-CALL length                                                                     #    44/64
-POPFRAME                                                                        #    45/64
-POPS LF@len                                                                     #    46/64
-CLEARS                                                                          #    47/64
-PUSHS LF@len                                                                    #    48/64
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    49/64
-POPS TF@__INTERNAL__VAR_0                                                       #    50/64
-WRITE TF@__INTERNAL__VAR_0                                                      #    51/64
-JUMP __INTERNAL__FILE_END                                                       #    52/64
-# LENGTH FUNCTION                                                               #    54/64
-LABEL length                                                                    #    55/64
-PUSHFRAME                                                                       #    56/64
-CREATEFRAME                                                                     #    57/64
-STRLEN TF@__INTERNAL__VAR_0 LF@s                                                #    58/64
-PUSHS TF@__INTERNAL__VAR_0                                                      #    59/64
-RETURN                                                                          #    60/64
-# LENGTH FUNCTION END                                                           #    61/64
-# PROGRAM END                                                                   #    63/64
-LABEL __INTERNAL__FILE_END                                                      #    64/64
+.IFJcode17                                                                      #     1/71
+JUMP main                                                                       #     2/71
+# MAIN                                                                          #     4/71
+LABEL main                                                                      #     5/71
+CREATEFRAME                                                                     #     6/71
+PUSHFRAME                                                                       #     7/71
+CREATEFRAME                                                                     #     8/71
+DEFVAR LF@len                                                                   #     9/71
+MOVE LF@len int@0                                                               #    10/71
+CREATEFRAME                                                                     #    11/71
+PUSHS string@                                                                   #    12/71
+DEFVAR TF@s                                                                     #    13/71
+POPS TF@s                                                                       #    14/71
+CALL length                                                                     #    15/71
+POPFRAME                                                                        #    16/71
+POPS LF@len                                                                     #    17/71
+CLEARS                                                                          #    18/71
+PUSHS LF@len                                                                    #    19/71
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    20/71
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    21/71
+POPS TF@__INTERNAL__VAR_0                                                       #    22/71
+WRITE TF@__INTERNAL__VAR_0                                                      #    23/71
+CREATEFRAME                                                                     #    24/71
+PUSHS string@foobar                                                             #    25/71
+DEFVAR TF@s                                                                     #    26/71
+POPS TF@s                                                                       #    27/71
+CALL length                                                                     #    28/71
+POPFRAME                                                                        #    29/71
+POPS LF@len                                                                     #    30/71
+CLEARS                                                                          #    31/71
+PUSHS LF@len                                                                    #    32/71
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    33/71
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    34/71
+POPS TF@__INTERNAL__VAR_0                                                       #    35/71
+WRITE TF@__INTERNAL__VAR_0                                                      #    36/71
+DEFVAR LF@str                                                                   #    37/71
+MOVE LF@str string@                                                             #    38/71
+PUSHS string@Lorem\032ipsum\032dolor\032sit\032amet,\032consectetur\032adipiscing\032elit,\032sed\032do\032eiusmod\032tempor\032incididunt\032ut\032labore\032et\032dolore\032magna\032aliqua.\032Ut\032enim\032ad\032minim\032veniam,\032quis\032nostrud\032exercitation\032ullamco\032laboris\032nisi\032ut\032aliquip\032ex\032ea\032commodo\032consequat.\032Duis\032aute\032irure\032dolor\032in\032reprehenderit\032in\032voluptate\032velit\032esse\032cillum\032dolore\032eu\032fugiat\032nulla\032pariatur.\032Excepteur\032sint\032occaecat\032cupidatat\032non\032proident,\032sunt\032in\032culpa\032qui\032officia\032deserunt\032mollit\032anim\032id\032est\032laborum.#    39/71
+POPS LF@str                                                                     #    40/71
+CLEARS                                                                          #    41/71
+CREATEFRAME                                                                     #    42/71
+PUSHS LF@str                                                                    #    43/71
+DEFVAR TF@s                                                                     #    44/71
+POPS TF@s                                                                       #    45/71
+CALL length                                                                     #    46/71
+POPFRAME                                                                        #    47/71
+POPS LF@len                                                                     #    48/71
+CLEARS                                                                          #    49/71
+PUSHS LF@len                                                                    #    50/71
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    51/71
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    52/71
+POPS TF@__INTERNAL__VAR_0                                                       #    53/71
+WRITE TF@__INTERNAL__VAR_0                                                      #    54/71
+JUMP __INTERNAL__FILE_END                                                       #    55/71
+# MAIN END                                                                      #    57/71
+# LENGTH FUNCTION                                                               #    59/71
+LABEL length                                                                    #    60/71
+PUSHFRAME                                                                       #    61/71
+CREATEFRAME                                                                     #    62/71
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    63/71
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    64/71
+STRLEN TF@__INTERNAL__VAR_0 LF@s                                                #    65/71
+PUSHS TF@__INTERNAL__VAR_0                                                      #    66/71
+RETURN                                                                          #    67/71
+# LENGTH FUNCTION END                                                           #    68/71
+# PROGRAM END                                                                   #    70/71
+LABEL __INTERNAL__FILE_END                                                      #    71/71

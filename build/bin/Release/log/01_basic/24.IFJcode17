@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:22.003997
+# 2017-12-04 17:23:09.408846
 # SECTION: 01_basic
 # TEST: 24
 # INFO: Exotic print format
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -19,29 +19,32 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 10 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 11 with following arguments:
-# Arg1: Stack@=42(int)
+# Executing instruction: IMOVE at line: 11 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 12 with following arguments:
+# Executing instruction: IPOPS at line: 12 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 13 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=42(int)
-# Executing instruction: IPUSHS at line: 13 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
 # Arg1: Const@=42(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 14 with following arguments:
+# Executing instruction: IPOPS at line: 15 with following arguments:
 # Arg1: Stack@=42(int)
 # Dest: TF@__INTERNAL__VAR_0=42(int)
-# Executing instruction: IWRITE at line: 15 with following arguments:
+# Executing instruction: IWRITE at line: 16 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=42(int)
-# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Executing instruction: IPUSHS at line: 17 with following arguments:
 # Arg1: Const@=42(int)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 17 with following arguments:
+# Executing instruction: IPOPS at line: 18 with following arguments:
 # Arg1: Stack@=42(int)
 # Dest: TF@__INTERNAL__VAR_0=42(int)
-# Executing instruction: IWRITE at line: 18 with following arguments:
+# Executing instruction: IWRITE at line: 19 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=42(int)
-# Executing instruction: IJUMP at line: 19 with following arguments:
-# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: IJUMP at line: 20 with following arguments:
+# Executing instruction: ILABEL at line: 25 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -53,7 +56,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 60 (29+31)
+# PRICE: 62 (30+32)
 # 
 #   1: ' Exotic print format
 #   2: scope
@@ -64,23 +67,25 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/22
-JUMP main                                                                       #     2/22
-# MAIN                                                                          #     4/22
-LABEL main                                                                      #     5/22
-CREATEFRAME                                                                     #     6/22
-PUSHFRAME                                                                       #     7/22
-CREATEFRAME                                                                     #     8/22
-PUSHS int@42                                                                    #     9/22
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    10/22
-POPS TF@__INTERNAL__VAR_0                                                       #    11/22
-WRITE TF@__INTERNAL__VAR_0                                                      #    12/22
-PUSHS int@42                                                                    #    13/22
-POPS TF@__INTERNAL__VAR_0                                                       #    14/22
-WRITE TF@__INTERNAL__VAR_0                                                      #    15/22
-PUSHS int@42                                                                    #    16/22
-POPS TF@__INTERNAL__VAR_0                                                       #    17/22
-WRITE TF@__INTERNAL__VAR_0                                                      #    18/22
-JUMP __INTERNAL__FILE_END                                                       #    19/22
-# PROGRAM END                                                                   #    21/22
-LABEL __INTERNAL__FILE_END                                                      #    22/22
+.IFJcode17                                                                      #     1/25
+JUMP main                                                                       #     2/25
+# MAIN                                                                          #     4/25
+LABEL main                                                                      #     5/25
+CREATEFRAME                                                                     #     6/25
+PUSHFRAME                                                                       #     7/25
+CREATEFRAME                                                                     #     8/25
+PUSHS int@42                                                                    #     9/25
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    10/25
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    11/25
+POPS TF@__INTERNAL__VAR_0                                                       #    12/25
+WRITE TF@__INTERNAL__VAR_0                                                      #    13/25
+PUSHS int@42                                                                    #    14/25
+POPS TF@__INTERNAL__VAR_0                                                       #    15/25
+WRITE TF@__INTERNAL__VAR_0                                                      #    16/25
+PUSHS int@42                                                                    #    17/25
+POPS TF@__INTERNAL__VAR_0                                                       #    18/25
+WRITE TF@__INTERNAL__VAR_0                                                      #    19/25
+JUMP __INTERNAL__FILE_END                                                       #    20/25
+# MAIN END                                                                      #    22/25
+# PROGRAM END                                                                   #    24/25
+LABEL __INTERNAL__FILE_END                                                      #    25/25

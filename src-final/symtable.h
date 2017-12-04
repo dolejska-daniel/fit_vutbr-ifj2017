@@ -178,6 +178,15 @@ SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type
 void SymbolTable_deleteTempVar(SymbolTablePtr st, unsigned id);
 
 /**
+ * Funkce odstraní symbol pro dočasnou proměnnou z tabulky symbolů.
+ *
+ * Při dalším použití je tak program nucen ji znovu inicializovat.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_deleteTempVars(SymbolTablePtr st);
+
+/**
  * Funkce vloží novou položku do dané tabulky s daným klíčem a hodnotou.
  *
  * @param[in,out]	SymbolTablePtr  st		    Ukazatel na existující tabulku symbolů
@@ -323,9 +332,9 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o);
 
 bool SymbolType_canBeConvertedTo(SymbolType source, SymbolType target);
 
-bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, SymbolType *dataType);
+bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, TokenType op, SymbolType *dataType);
 
-bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, SymbolType *dataType);
+bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, TokenType op, SymbolType *dataType);
 
 char *SymbolLocation_toString(SymbolLocation location);
 

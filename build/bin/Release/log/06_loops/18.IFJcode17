@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:25.823151
+# 2017-12-04 17:23:13.333281
 # SECTION: 06_loops
 # TEST: 18
 # INFO: loop from one to 1250
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -58758,13 +58758,16 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 42 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 43 with following arguments:
-# Arg1: Stack@=1249(int)
+# Executing instruction: IMOVE at line: 43 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 44 with following arguments:
+# Executing instruction: IPOPS at line: 44 with following arguments:
+# Arg1: Stack@=1249(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 45 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=1249(int)
-# Executing instruction: IJUMP at line: 45 with following arguments:
-# Executing instruction: ILABEL at line: 48 with following arguments:
+# Executing instruction: IJUMP at line: 46 with following arguments:
+# Executing instruction: ILABEL at line: 51 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -58776,7 +58779,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 103754 (33757+69997)
+# PRICE: 103756 (33758+69998)
 # 
 #   1: ' loop from one to 1250
 #   2: SCOPE
@@ -58801,49 +58804,51 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/48
-JUMP main                                                                       #     2/48
-# MAIN                                                                          #     4/48
-LABEL main                                                                      #     5/48
-CREATEFRAME                                                                     #     6/48
-PUSHFRAME                                                                       #     7/48
-CREATEFRAME                                                                     #     8/48
-DEFVAR LF@iterace                                                               #     9/48
-MOVE LF@iterace int@0                                                           #    10/48
-PUSHS int@1                                                                     #    11/48
-POPS LF@iterace                                                                 #    12/48
-CLEARS                                                                          #    13/48
-DEFVAR LF@expx                                                                  #    14/48
-MOVE LF@expx int@0                                                              #    15/48
-# DO WHILE                                                                      #    16/48
-CREATEFRAME                                                                     #    17/48
-LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    18/48
-PUSHS LF@iterace                                                                #    19/48
-PUSHS int@1250                                                                  #    20/48
-LTS                                                                             #    21/48
-PUSHS bool@true                                                                 #    22/48
-JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    23/48
-# DO WHILE TRUE                                                                 #    24/48
-CREATEFRAME                                                                     #    25/48
-PUSHS LF@expx                                                                   #    26/48
-PUSHS int@1                                                                     #    27/48
-ADDS                                                                            #    28/48
-POPS LF@expx                                                                    #    29/48
-CLEARS                                                                          #    30/48
-PUSHS LF@iterace                                                                #    31/48
-PUSHS int@1                                                                     #    32/48
-ADDS                                                                            #    33/48
-POPS LF@iterace                                                                 #    34/48
-CLEARS                                                                          #    35/48
-# LOOP                                                                          #    36/48
-JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    37/48
-# DO WHILE FALSE                                                                #    38/48
-LABEL __INTERNAL__LOOP_0_END                                                    #    39/48
-# DO WHILE END                                                                  #    40/48
-PUSHS LF@expx                                                                   #    41/48
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    42/48
-POPS TF@__INTERNAL__VAR_0                                                       #    43/48
-WRITE TF@__INTERNAL__VAR_0                                                      #    44/48
-JUMP __INTERNAL__FILE_END                                                       #    45/48
-# PROGRAM END                                                                   #    47/48
-LABEL __INTERNAL__FILE_END                                                      #    48/48
+.IFJcode17                                                                      #     1/51
+JUMP main                                                                       #     2/51
+# MAIN                                                                          #     4/51
+LABEL main                                                                      #     5/51
+CREATEFRAME                                                                     #     6/51
+PUSHFRAME                                                                       #     7/51
+CREATEFRAME                                                                     #     8/51
+DEFVAR LF@iterace                                                               #     9/51
+MOVE LF@iterace int@0                                                           #    10/51
+PUSHS int@1                                                                     #    11/51
+POPS LF@iterace                                                                 #    12/51
+CLEARS                                                                          #    13/51
+DEFVAR LF@expx                                                                  #    14/51
+MOVE LF@expx int@0                                                              #    15/51
+# DO WHILE                                                                      #    16/51
+CREATEFRAME                                                                     #    17/51
+LABEL __INTERNAL__LOOP_0_BEGIN                                                  #    18/51
+PUSHS LF@iterace                                                                #    19/51
+PUSHS int@1250                                                                  #    20/51
+LTS                                                                             #    21/51
+PUSHS bool@true                                                                 #    22/51
+JUMPIFNEQS __INTERNAL__LOOP_0_END                                               #    23/51
+# DO WHILE TRUE                                                                 #    24/51
+CREATEFRAME                                                                     #    25/51
+PUSHS LF@expx                                                                   #    26/51
+PUSHS int@1                                                                     #    27/51
+ADDS                                                                            #    28/51
+POPS LF@expx                                                                    #    29/51
+CLEARS                                                                          #    30/51
+PUSHS LF@iterace                                                                #    31/51
+PUSHS int@1                                                                     #    32/51
+ADDS                                                                            #    33/51
+POPS LF@iterace                                                                 #    34/51
+CLEARS                                                                          #    35/51
+# LOOP                                                                          #    36/51
+JUMP __INTERNAL__LOOP_0_BEGIN                                                   #    37/51
+# DO WHILE FALSE                                                                #    38/51
+LABEL __INTERNAL__LOOP_0_END                                                    #    39/51
+# DO WHILE END                                                                  #    40/51
+PUSHS LF@expx                                                                   #    41/51
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    42/51
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    43/51
+POPS TF@__INTERNAL__VAR_0                                                       #    44/51
+WRITE TF@__INTERNAL__VAR_0                                                      #    45/51
+JUMP __INTERNAL__FILE_END                                                       #    46/51
+# MAIN END                                                                      #    48/51
+# PROGRAM END                                                                   #    50/51
+LABEL __INTERNAL__FILE_END                                                      #    51/51

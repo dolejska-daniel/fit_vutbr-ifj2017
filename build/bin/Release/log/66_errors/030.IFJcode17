@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:27.359239
+# 2017-12-04 17:23:15.018762
 # SECTION: 66_errors
 # TEST: 030
 # INFO: assignment or undefined variable in same variable declaration
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -34,7 +34,7 @@
 # Dest: LF@a=0(int)
 # Executing instruction: ICLEARS at line: 15 with following arguments:
 # Executing instruction: IJUMP at line: 16 with following arguments:
-# Executing instruction: ILABEL at line: 19 with following arguments:
+# Executing instruction: ILABEL at line: 21 with following arguments:
 # 
 # EXPECTED INTERPRETER STDOUT:
 
@@ -59,20 +59,21 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/19
-JUMP main                                                                       #     2/19
-# MAIN                                                                          #     4/19
-LABEL main                                                                      #     5/19
-CREATEFRAME                                                                     #     6/19
-PUSHFRAME                                                                       #     7/19
-CREATEFRAME                                                                     #     8/19
-DEFVAR LF@a                                                                     #     9/19
-MOVE LF@a int@0                                                                 #    10/19
-PUSHS LF@a                                                                      #    11/19
-PUSHS int@1                                                                     #    12/19
-ADDS                                                                            #    13/19
-POPS LF@a                                                                       #    14/19
-CLEARS                                                                          #    15/19
-JUMP __INTERNAL__FILE_END                                                       #    16/19
-# PROGRAM END                                                                   #    18/19
-LABEL __INTERNAL__FILE_END                                                      #    19/19
+.IFJcode17                                                                      #     1/21
+JUMP main                                                                       #     2/21
+# MAIN                                                                          #     4/21
+LABEL main                                                                      #     5/21
+CREATEFRAME                                                                     #     6/21
+PUSHFRAME                                                                       #     7/21
+CREATEFRAME                                                                     #     8/21
+DEFVAR LF@a                                                                     #     9/21
+MOVE LF@a int@0                                                                 #    10/21
+PUSHS LF@a                                                                      #    11/21
+PUSHS int@1                                                                     #    12/21
+ADDS                                                                            #    13/21
+POPS LF@a                                                                       #    14/21
+CLEARS                                                                          #    15/21
+JUMP __INTERNAL__FILE_END                                                       #    16/21
+# MAIN END                                                                      #    18/21
+# PROGRAM END                                                                   #    20/21
+LABEL __INTERNAL__FILE_END                                                      #    21/21

@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:22.712881
+# 2017-12-04 17:23:10.112216
 # SECTION: 02_functions
 # TEST: 18
 # INFO: argument of function is call of function
 # REQUIRED EXTENSIONS: FUNEXP
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -89,48 +89,50 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/48
-JUMP main                                                                       #     2/48
-# FUNCTION                                                                      #     4/48
-LABEL __hjhlh                                                                   #     5/48
-PUSHFRAME                                                                       #     6/48
-CREATEFRAME                                                                     #     7/48
-PUSHS LF@a                                                                      #     8/48
-PUSHS int@2                                                                     #     9/48
-MULS                                                                            #    10/48
-RETURN                                                                          #    11/48
-PUSHS int@0                                                                     #    12/48
-RETURN                                                                          #    13/48
-# END FUNCTION                                                                  #    14/48
-# MAIN                                                                          #    16/48
-LABEL main                                                                      #    17/48
-CREATEFRAME                                                                     #    18/48
-PUSHFRAME                                                                       #    19/48
-CREATEFRAME                                                                     #    20/48
-DEFVAR LF@a                                                                     #    21/48
-MOVE LF@a int@0                                                                 #    22/48
-CREATEFRAME                                                                     #    23/48
-CREATEFRAME                                                                     #    24/48
-CREATEFRAME                                                                     #    25/48
-PUSHS int@2                                                                     #    26/48
-DEFVAR TF@a                                                                     #    27/48
-POPS TF@a                                                                       #    28/48
-CALL __hjhlh                                                                    #    29/48
-POPFRAME                                                                        #    30/48
-DEFVAR TF@a                                                                     #    31/48
-POPS TF@a                                                                       #    32/48
-CALL __hjhlh                                                                    #    33/48
-POPFRAME                                                                        #    34/48
-DEFVAR TF@a                                                                     #    35/48
-POPS TF@a                                                                       #    36/48
-CALL __hjhlh                                                                    #    37/48
-POPFRAME                                                                        #    38/48
-POPS LF@a                                                                       #    39/48
-CLEARS                                                                          #    40/48
-PUSHS LF@a                                                                      #    41/48
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    42/48
-POPS TF@__INTERNAL__VAR_0                                                       #    43/48
-WRITE TF@__INTERNAL__VAR_0                                                      #    44/48
-JUMP __INTERNAL__FILE_END                                                       #    45/48
-# PROGRAM END                                                                   #    47/48
-LABEL __INTERNAL__FILE_END                                                      #    48/48
+.IFJcode17                                                                      #     1/51
+JUMP main                                                                       #     2/51
+# FUNCTION                                                                      #     4/51
+LABEL __hjhlh                                                                   #     5/51
+PUSHFRAME                                                                       #     6/51
+CREATEFRAME                                                                     #     7/51
+PUSHS LF@a                                                                      #     8/51
+PUSHS int@2                                                                     #     9/51
+MULS                                                                            #    10/51
+RETURN                                                                          #    11/51
+PUSHS int@0                                                                     #    12/51
+RETURN                                                                          #    13/51
+# END FUNCTION                                                                  #    14/51
+# MAIN                                                                          #    16/51
+LABEL main                                                                      #    17/51
+CREATEFRAME                                                                     #    18/51
+PUSHFRAME                                                                       #    19/51
+CREATEFRAME                                                                     #    20/51
+DEFVAR LF@a                                                                     #    21/51
+MOVE LF@a int@0                                                                 #    22/51
+CREATEFRAME                                                                     #    23/51
+CREATEFRAME                                                                     #    24/51
+CREATEFRAME                                                                     #    25/51
+PUSHS int@2                                                                     #    26/51
+DEFVAR TF@a                                                                     #    27/51
+POPS TF@a                                                                       #    28/51
+CALL __hjhlh                                                                    #    29/51
+POPFRAME                                                                        #    30/51
+DEFVAR TF@a                                                                     #    31/51
+POPS TF@a                                                                       #    32/51
+CALL __hjhlh                                                                    #    33/51
+POPFRAME                                                                        #    34/51
+DEFVAR TF@a                                                                     #    35/51
+POPS TF@a                                                                       #    36/51
+CALL __hjhlh                                                                    #    37/51
+POPFRAME                                                                        #    38/51
+POPS LF@a                                                                       #    39/51
+CLEARS                                                                          #    40/51
+PUSHS LF@a                                                                      #    41/51
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    42/51
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    43/51
+POPS TF@__INTERNAL__VAR_0                                                       #    44/51
+WRITE TF@__INTERNAL__VAR_0                                                      #    45/51
+JUMP __INTERNAL__FILE_END                                                       #    46/51
+# MAIN END                                                                      #    48/51
+# PROGRAM END                                                                   #    50/51
+LABEL __INTERNAL__FILE_END                                                      #    51/51

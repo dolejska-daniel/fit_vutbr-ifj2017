@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:22.751985
+# 2017-12-04 17:23:10.150318
 # SECTION: 02_functions
 # TEST: 19
 # INFO: Argument of function is call of function and expr
 # REQUIRED EXTENSIONS: FUNEXP
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: FAIL
 # 
 # COMPILER STDERR:
@@ -115,50 +115,52 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/50
-JUMP main                                                                       #     2/50
-# FUNCTION                                                                      #     4/50
-LABEL hjklhjkl_                                                                 #     5/50
-PUSHFRAME                                                                       #     6/50
-CREATEFRAME                                                                     #     7/50
-PUSHS LF@hagd                                                                   #     8/50
-PUSHS LF@hagd                                                                   #     9/50
-MULS                                                                            #    10/50
-RETURN                                                                          #    11/50
-PUSHS int@0                                                                     #    12/50
-RETURN                                                                          #    13/50
-# END FUNCTION                                                                  #    14/50
-# MAIN                                                                          #    16/50
-LABEL main                                                                      #    17/50
-CREATEFRAME                                                                     #    18/50
-PUSHFRAME                                                                       #    19/50
-CREATEFRAME                                                                     #    20/50
-DEFVAR LF@__hjj677                                                              #    21/50
-MOVE LF@__hjj677 int@0                                                          #    22/50
-CREATEFRAME                                                                     #    23/50
-CREATEFRAME                                                                     #    24/50
-PUSHS int@2                                                                     #    25/50
-DEFVAR TF@hagd                                                                  #    26/50
-POPS TF@hagd                                                                    #    27/50
-CALL hjklhjkl_                                                                  #    28/50
-POPFRAME                                                                        #    29/50
-CREATEFRAME                                                                     #    30/50
-PUSHS int@2                                                                     #    31/50
-DEFVAR TF@hagd                                                                  #    32/50
-POPS TF@hagd                                                                    #    33/50
-CALL hjklhjkl_                                                                  #    34/50
-POPFRAME                                                                        #    35/50
-MULS                                                                            #    36/50
-DEFVAR TF@hagd                                                                  #    37/50
-POPS TF@hagd                                                                    #    38/50
-CALL hjklhjkl_                                                                  #    39/50
-POPFRAME                                                                        #    40/50
-POPS LF@__hjj677                                                                #    41/50
-CLEARS                                                                          #    42/50
-PUSHS LF@__hjj677                                                               #    43/50
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    44/50
-POPS TF@__INTERNAL__VAR_0                                                       #    45/50
-WRITE TF@__INTERNAL__VAR_0                                                      #    46/50
-JUMP __INTERNAL__FILE_END                                                       #    47/50
-# PROGRAM END                                                                   #    49/50
-LABEL __INTERNAL__FILE_END                                                      #    50/50
+.IFJcode17                                                                      #     1/53
+JUMP main                                                                       #     2/53
+# FUNCTION                                                                      #     4/53
+LABEL hjklhjkl_                                                                 #     5/53
+PUSHFRAME                                                                       #     6/53
+CREATEFRAME                                                                     #     7/53
+PUSHS LF@hagd                                                                   #     8/53
+PUSHS LF@hagd                                                                   #     9/53
+MULS                                                                            #    10/53
+RETURN                                                                          #    11/53
+PUSHS int@0                                                                     #    12/53
+RETURN                                                                          #    13/53
+# END FUNCTION                                                                  #    14/53
+# MAIN                                                                          #    16/53
+LABEL main                                                                      #    17/53
+CREATEFRAME                                                                     #    18/53
+PUSHFRAME                                                                       #    19/53
+CREATEFRAME                                                                     #    20/53
+DEFVAR LF@__hjj677                                                              #    21/53
+MOVE LF@__hjj677 int@0                                                          #    22/53
+CREATEFRAME                                                                     #    23/53
+CREATEFRAME                                                                     #    24/53
+PUSHS int@2                                                                     #    25/53
+DEFVAR TF@hagd                                                                  #    26/53
+POPS TF@hagd                                                                    #    27/53
+CALL hjklhjkl_                                                                  #    28/53
+POPFRAME                                                                        #    29/53
+CREATEFRAME                                                                     #    30/53
+PUSHS int@2                                                                     #    31/53
+DEFVAR TF@hagd                                                                  #    32/53
+POPS TF@hagd                                                                    #    33/53
+CALL hjklhjkl_                                                                  #    34/53
+POPFRAME                                                                        #    35/53
+MULS                                                                            #    36/53
+DEFVAR TF@hagd                                                                  #    37/53
+POPS TF@hagd                                                                    #    38/53
+CALL hjklhjkl_                                                                  #    39/53
+POPFRAME                                                                        #    40/53
+POPS LF@__hjj677                                                                #    41/53
+CLEARS                                                                          #    42/53
+PUSHS LF@__hjj677                                                               #    43/53
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    44/53
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    45/53
+POPS TF@__INTERNAL__VAR_0                                                       #    46/53
+WRITE TF@__INTERNAL__VAR_0                                                      #    47/53
+JUMP __INTERNAL__FILE_END                                                       #    48/53
+# MAIN END                                                                      #    50/53
+# PROGRAM END                                                                   #    52/53
+LABEL __INTERNAL__FILE_END                                                      #    53/53

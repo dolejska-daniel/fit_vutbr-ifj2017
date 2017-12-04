@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:26.175589
+# 2017-12-04 17:23:13.720310
 # SECTION: 08_booleans
 # TEST: 03
 # INFO: assignment of boolean expressions
 # REQUIRED EXTENSIONS: BOOLOP
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -273,16 +273,19 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 93 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 94 with following arguments:
-# Arg1: Stack@=1(int)
+# Executing instruction: IMOVE at line: 94 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 95 with following arguments:
+# Executing instruction: IPOPS at line: 95 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 96 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=1(int)
-# Executing instruction: IJUMP at line: 96 with following arguments:
-# Executing instruction: ILABEL at line: 104 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 105 with following arguments:
-# Executing instruction: IJUMP at line: 107 with following arguments:
-# Executing instruction: ILABEL at line: 110 with following arguments:
+# Executing instruction: IJUMP at line: 97 with following arguments:
+# Executing instruction: ILABEL at line: 106 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 107 with following arguments:
+# Executing instruction: IJUMP at line: 109 with following arguments:
+# Executing instruction: ILABEL at line: 114 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -294,7 +297,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 503 (168+335)
+# PRICE: 505 (169+336)
 # 
 #   1: ' assignment of boolean expressions
 #   2: scope
@@ -313,111 +316,114 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/110
-JUMP main                                                                       #     2/110
-# MAIN                                                                          #     4/110
-LABEL main                                                                      #     5/110
-CREATEFRAME                                                                     #     6/110
-PUSHFRAME                                                                       #     7/110
-CREATEFRAME                                                                     #     8/110
-DEFVAR LF@a                                                                     #     9/110
-MOVE LF@a bool@false                                                            #    10/110
-PUSHS int@42                                                                    #    11/110
-PUSHS int@1                                                                     #    12/110
-PUSHS int@2                                                                     #    13/110
-PUSHS int@3                                                                     #    14/110
-MULS                                                                            #    15/110
-ADDS                                                                            #    16/110
-GTS                                                                             #    17/110
-PUSHS bool@true                                                                 #    18/110
-ANDS                                                                            #    19/110
-POPS LF@a                                                                       #    20/110
-CLEARS                                                                          #    21/110
-DEFVAR LF@b                                                                     #    22/110
-MOVE LF@b bool@false                                                            #    23/110
-DEFVAR LF@c                                                                     #    24/110
-MOVE LF@c bool@false                                                            #    25/110
-PUSHS int@1                                                                     #    26/110
-PUSHS int@2                                                                     #    27/110
-EQS                                                                             #    28/110
-PUSHS bool@true                                                                 #    29/110
-PUSHS bool@false                                                                #    30/110
-EQS                                                                             #    31/110
-ORS                                                                             #    32/110
-PUSHS int@1                                                                     #    33/110
-PUSHS int@1                                                                     #    34/110
-EQS                                                                             #    35/110
-NOTS                                                                            #    36/110
-ORS                                                                             #    37/110
-PUSHS bool@false                                                                #    38/110
-ORS                                                                             #    39/110
-POPS LF@c                                                                       #    40/110
-CLEARS                                                                          #    41/110
-PUSHS LF@a                                                                      #    42/110
-PUSHS bool@true                                                                 #    43/110
-EQS                                                                             #    44/110
-PUSHS int@36                                                                    #    45/110
-PUSHS int@4                                                                     #    46/110
-PUSHS int@3                                                                     #    47/110
-PUSHS int@12                                                                    #    48/110
-MULS                                                                            #    49/110
-ADDS                                                                            #    50/110
-PUSHS int@4                                                                     #    51/110
-SUBS                                                                            #    52/110
-EQS                                                                             #    53/110
-ANDS                                                                            #    54/110
-PUSHS int@2                                                                     #    55/110
-PUSHS int@2                                                                     #    56/110
-ADDS                                                                            #    57/110
-PUSHS int@4                                                                     #    58/110
-EQS                                                                             #    59/110
-ANDS                                                                            #    60/110
-PUSHS LF@c                                                                      #    61/110
-PUSHS int@4                                                                     #    62/110
-PUSHS int@8                                                                     #    63/110
-MULS                                                                            #    64/110
-PUSHS int@13                                                                    #    65/110
-EQS                                                                             #    66/110
-EQS                                                                             #    67/110
-NOTS                                                                            #    68/110
-NOTS                                                                            #    69/110
-ANDS                                                                            #    70/110
-POPS LF@a                                                                       #    71/110
-CLEARS                                                                          #    72/110
-PUSHS LF@c                                                                      #    73/110
-PUSHS bool@true                                                                 #    74/110
-EQS                                                                             #    75/110
-PUSHS LF@c                                                                      #    76/110
-PUSHS bool@true                                                                 #    77/110
-EQS                                                                             #    78/110
-NOTS                                                                            #    79/110
-ORS                                                                             #    80/110
-POPS LF@b                                                                       #    81/110
-CLEARS                                                                          #    82/110
-# IF BLOCK                                                                      #    83/110
-CREATEFRAME                                                                     #    84/110
-# IF                                                                            #    85/110
-PUSHS LF@a                                                                      #    86/110
-PUSHS LF@b                                                                      #    87/110
-ANDS                                                                            #    88/110
-PUSHS bool@true                                                                 #    89/110
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    90/110
-# THEN                                                                          #    91/110
-PUSHS int@1                                                                     #    92/110
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    93/110
-POPS TF@__INTERNAL__VAR_0                                                       #    94/110
-WRITE TF@__INTERNAL__VAR_0                                                      #    95/110
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    96/110
-LABEL __INTERNAL__COND_0_END                                                    #    97/110
-# ELSE                                                                          #    98/110
-PUSHS int@0                                                                     #    99/110
-DEFVAR TF@__INTERNAL__VAR_0                                                     #   100/110
-POPS TF@__INTERNAL__VAR_0                                                       #   101/110
-WRITE TF@__INTERNAL__VAR_0                                                      #   102/110
-# END IF                                                                        #   103/110
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #   104/110
-CREATEFRAME                                                                     #   105/110
-# END IF BLOCK                                                                  #   106/110
-JUMP __INTERNAL__FILE_END                                                       #   107/110
-# PROGRAM END                                                                   #   109/110
-LABEL __INTERNAL__FILE_END                                                      #   110/110
+.IFJcode17                                                                      #     1/114
+JUMP main                                                                       #     2/114
+# MAIN                                                                          #     4/114
+LABEL main                                                                      #     5/114
+CREATEFRAME                                                                     #     6/114
+PUSHFRAME                                                                       #     7/114
+CREATEFRAME                                                                     #     8/114
+DEFVAR LF@a                                                                     #     9/114
+MOVE LF@a bool@false                                                            #    10/114
+PUSHS int@42                                                                    #    11/114
+PUSHS int@1                                                                     #    12/114
+PUSHS int@2                                                                     #    13/114
+PUSHS int@3                                                                     #    14/114
+MULS                                                                            #    15/114
+ADDS                                                                            #    16/114
+GTS                                                                             #    17/114
+PUSHS bool@true                                                                 #    18/114
+ANDS                                                                            #    19/114
+POPS LF@a                                                                       #    20/114
+CLEARS                                                                          #    21/114
+DEFVAR LF@b                                                                     #    22/114
+MOVE LF@b bool@false                                                            #    23/114
+DEFVAR LF@c                                                                     #    24/114
+MOVE LF@c bool@false                                                            #    25/114
+PUSHS int@1                                                                     #    26/114
+PUSHS int@2                                                                     #    27/114
+EQS                                                                             #    28/114
+PUSHS bool@true                                                                 #    29/114
+PUSHS bool@false                                                                #    30/114
+EQS                                                                             #    31/114
+ORS                                                                             #    32/114
+PUSHS int@1                                                                     #    33/114
+PUSHS int@1                                                                     #    34/114
+EQS                                                                             #    35/114
+NOTS                                                                            #    36/114
+ORS                                                                             #    37/114
+PUSHS bool@false                                                                #    38/114
+ORS                                                                             #    39/114
+POPS LF@c                                                                       #    40/114
+CLEARS                                                                          #    41/114
+PUSHS LF@a                                                                      #    42/114
+PUSHS bool@true                                                                 #    43/114
+EQS                                                                             #    44/114
+PUSHS int@36                                                                    #    45/114
+PUSHS int@4                                                                     #    46/114
+PUSHS int@3                                                                     #    47/114
+PUSHS int@12                                                                    #    48/114
+MULS                                                                            #    49/114
+ADDS                                                                            #    50/114
+PUSHS int@4                                                                     #    51/114
+SUBS                                                                            #    52/114
+EQS                                                                             #    53/114
+ANDS                                                                            #    54/114
+PUSHS int@2                                                                     #    55/114
+PUSHS int@2                                                                     #    56/114
+ADDS                                                                            #    57/114
+PUSHS int@4                                                                     #    58/114
+EQS                                                                             #    59/114
+ANDS                                                                            #    60/114
+PUSHS LF@c                                                                      #    61/114
+PUSHS int@4                                                                     #    62/114
+PUSHS int@8                                                                     #    63/114
+MULS                                                                            #    64/114
+PUSHS int@13                                                                    #    65/114
+EQS                                                                             #    66/114
+EQS                                                                             #    67/114
+NOTS                                                                            #    68/114
+NOTS                                                                            #    69/114
+ANDS                                                                            #    70/114
+POPS LF@a                                                                       #    71/114
+CLEARS                                                                          #    72/114
+PUSHS LF@c                                                                      #    73/114
+PUSHS bool@true                                                                 #    74/114
+EQS                                                                             #    75/114
+PUSHS LF@c                                                                      #    76/114
+PUSHS bool@true                                                                 #    77/114
+EQS                                                                             #    78/114
+NOTS                                                                            #    79/114
+ORS                                                                             #    80/114
+POPS LF@b                                                                       #    81/114
+CLEARS                                                                          #    82/114
+# IF BLOCK                                                                      #    83/114
+CREATEFRAME                                                                     #    84/114
+# IF                                                                            #    85/114
+PUSHS LF@a                                                                      #    86/114
+PUSHS LF@b                                                                      #    87/114
+ANDS                                                                            #    88/114
+PUSHS bool@true                                                                 #    89/114
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    90/114
+# THEN                                                                          #    91/114
+PUSHS int@1                                                                     #    92/114
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    93/114
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    94/114
+POPS TF@__INTERNAL__VAR_0                                                       #    95/114
+WRITE TF@__INTERNAL__VAR_0                                                      #    96/114
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    97/114
+LABEL __INTERNAL__COND_0_END                                                    #    98/114
+# ELSE                                                                          #    99/114
+PUSHS int@0                                                                     #   100/114
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   101/114
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #   102/114
+POPS TF@__INTERNAL__VAR_0                                                       #   103/114
+WRITE TF@__INTERNAL__VAR_0                                                      #   104/114
+# END IF                                                                        #   105/114
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #   106/114
+CREATEFRAME                                                                     #   107/114
+# END IF BLOCK                                                                  #   108/114
+JUMP __INTERNAL__FILE_END                                                       #   109/114
+# MAIN END                                                                      #   111/114
+# PROGRAM END                                                                   #   113/114
+LABEL __INTERNAL__FILE_END                                                      #   114/114

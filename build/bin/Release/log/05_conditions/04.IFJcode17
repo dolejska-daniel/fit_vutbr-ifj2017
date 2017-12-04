@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:24.416912
+# 2017-12-04 17:23:11.874402
 # SECTION: 05_conditions
 # TEST: 04
 # INFO: two ifs
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -36,53 +36,59 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 19 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 20 with following arguments:
-# Arg1: Stack@=123(int)
+# Executing instruction: IMOVE at line: 20 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 21 with following arguments:
+# Executing instruction: IPOPS at line: 21 with following arguments:
+# Arg1: Stack@=123(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 22 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=123(int)
-# Executing instruction: IJUMP at line: 22 with following arguments:
-# Executing instruction: ILABEL at line: 25 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 26 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 29 with following arguments:
-# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Executing instruction: IJUMP at line: 23 with following arguments:
+# Executing instruction: ILABEL at line: 26 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 27 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 30 with following arguments:
+# Executing instruction: IPUSHS at line: 32 with following arguments:
 # Arg1: Const@=74(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 32 with following arguments:
+# Executing instruction: IPUSHS at line: 33 with following arguments:
 # Arg1: Const@=6(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 33 with following arguments:
+# Executing instruction: IPUSHS at line: 34 with following arguments:
 # Arg1: Const@=2(int)
 # Dest: Stack@()
-# Executing instruction: IADDS at line: 34 with following arguments:
+# Executing instruction: IADDS at line: 35 with following arguments:
 # Arg1: Stack@=6(int)
 # Arg2: Stack@=2(int)
 # Dest: Stack@()
-# Executing instruction: IGTS at line: 35 with following arguments:
+# Executing instruction: IGTS at line: 36 with following arguments:
 # Arg1: Stack@=74(int)
 # Arg2: Stack@=8(int)
 # Dest: Stack@()
-# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Executing instruction: IPUSHS at line: 37 with following arguments:
 # Arg1: Const@=true(bool)
 # Dest: Stack@()
-# Executing instruction: IJUMPIFNEQS at line: 37 with following arguments:
+# Executing instruction: IJUMPIFNEQS at line: 38 with following arguments:
 # Arg1: Stack@=true(bool)
 # Arg2: Stack@=true(bool)
-# Executing instruction: IPUSHS at line: 39 with following arguments:
+# Executing instruction: IPUSHS at line: 40 with following arguments:
 # Arg1: Const@=74(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 40 with following arguments:
+# Executing instruction: IDEFVAR at line: 41 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 41 with following arguments:
-# Arg1: Stack@=74(int)
+# Executing instruction: IMOVE at line: 42 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 42 with following arguments:
+# Executing instruction: IPOPS at line: 43 with following arguments:
+# Arg1: Stack@=74(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 44 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=74(int)
-# Executing instruction: IJUMP at line: 43 with following arguments:
-# Executing instruction: ILABEL at line: 47 with following arguments:
-# Executing instruction: ICREATEFRAME at line: 48 with following arguments:
-# Executing instruction: IJUMP at line: 50 with following arguments:
-# Executing instruction: ILABEL at line: 53 with following arguments:
+# Executing instruction: IJUMP at line: 45 with following arguments:
+# Executing instruction: ILABEL at line: 49 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 50 with following arguments:
+# Executing instruction: IJUMP at line: 52 with following arguments:
+# Executing instruction: ILABEL at line: 57 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -94,7 +100,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 127 (54+73)
+# PRICE: 131 (56+75)
 # 
 #   1: ' two ifs
 #   2: scope
@@ -110,54 +116,57 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/53
-JUMP main                                                                       #     2/53
-# MAIN                                                                          #     4/53
-LABEL main                                                                      #     5/53
-CREATEFRAME                                                                     #     6/53
-PUSHFRAME                                                                       #     7/53
-CREATEFRAME                                                                     #     8/53
-# IF BLOCK                                                                      #     9/53
-CREATEFRAME                                                                     #    10/53
-# IF                                                                            #    11/53
-PUSHS int@8                                                                     #    12/53
-PUSHS int@8                                                                     #    13/53
-EQS                                                                             #    14/53
-PUSHS bool@true                                                                 #    15/53
-JUMPIFNEQS __INTERNAL__COND_0_END                                               #    16/53
-# THEN                                                                          #    17/53
-PUSHS int@123                                                                   #    18/53
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    19/53
-POPS TF@__INTERNAL__VAR_0                                                       #    20/53
-WRITE TF@__INTERNAL__VAR_0                                                      #    21/53
-JUMP __INTERNAL__COND_0_BLOCK_END                                               #    22/53
-LABEL __INTERNAL__COND_0_END                                                    #    23/53
-# END IF                                                                        #    24/53
-LABEL __INTERNAL__COND_0_BLOCK_END                                              #    25/53
-CREATEFRAME                                                                     #    26/53
-# END IF BLOCK                                                                  #    27/53
-# IF BLOCK                                                                      #    28/53
-CREATEFRAME                                                                     #    29/53
-# IF                                                                            #    30/53
-PUSHS int@74                                                                    #    31/53
-PUSHS int@6                                                                     #    32/53
-PUSHS int@2                                                                     #    33/53
-ADDS                                                                            #    34/53
-GTS                                                                             #    35/53
-PUSHS bool@true                                                                 #    36/53
-JUMPIFNEQS __INTERNAL__COND_1_END                                               #    37/53
-# THEN                                                                          #    38/53
-PUSHS int@74                                                                    #    39/53
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    40/53
-POPS TF@__INTERNAL__VAR_0                                                       #    41/53
-WRITE TF@__INTERNAL__VAR_0                                                      #    42/53
-JUMP __INTERNAL__COND_1_BLOCK_END                                               #    43/53
-LABEL __INTERNAL__COND_1_END                                                    #    44/53
-# ELSE                                                                          #    45/53
-# END IF                                                                        #    46/53
-LABEL __INTERNAL__COND_1_BLOCK_END                                              #    47/53
-CREATEFRAME                                                                     #    48/53
-# END IF BLOCK                                                                  #    49/53
-JUMP __INTERNAL__FILE_END                                                       #    50/53
-# PROGRAM END                                                                   #    52/53
-LABEL __INTERNAL__FILE_END                                                      #    53/53
+.IFJcode17                                                                      #     1/57
+JUMP main                                                                       #     2/57
+# MAIN                                                                          #     4/57
+LABEL main                                                                      #     5/57
+CREATEFRAME                                                                     #     6/57
+PUSHFRAME                                                                       #     7/57
+CREATEFRAME                                                                     #     8/57
+# IF BLOCK                                                                      #     9/57
+CREATEFRAME                                                                     #    10/57
+# IF                                                                            #    11/57
+PUSHS int@8                                                                     #    12/57
+PUSHS int@8                                                                     #    13/57
+EQS                                                                             #    14/57
+PUSHS bool@true                                                                 #    15/57
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    16/57
+# THEN                                                                          #    17/57
+PUSHS int@123                                                                   #    18/57
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    19/57
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    20/57
+POPS TF@__INTERNAL__VAR_0                                                       #    21/57
+WRITE TF@__INTERNAL__VAR_0                                                      #    22/57
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    23/57
+LABEL __INTERNAL__COND_0_END                                                    #    24/57
+# END IF                                                                        #    25/57
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    26/57
+CREATEFRAME                                                                     #    27/57
+# END IF BLOCK                                                                  #    28/57
+# IF BLOCK                                                                      #    29/57
+CREATEFRAME                                                                     #    30/57
+# IF                                                                            #    31/57
+PUSHS int@74                                                                    #    32/57
+PUSHS int@6                                                                     #    33/57
+PUSHS int@2                                                                     #    34/57
+ADDS                                                                            #    35/57
+GTS                                                                             #    36/57
+PUSHS bool@true                                                                 #    37/57
+JUMPIFNEQS __INTERNAL__COND_1_END                                               #    38/57
+# THEN                                                                          #    39/57
+PUSHS int@74                                                                    #    40/57
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    41/57
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    42/57
+POPS TF@__INTERNAL__VAR_0                                                       #    43/57
+WRITE TF@__INTERNAL__VAR_0                                                      #    44/57
+JUMP __INTERNAL__COND_1_BLOCK_END                                               #    45/57
+LABEL __INTERNAL__COND_1_END                                                    #    46/57
+# ELSE                                                                          #    47/57
+# END IF                                                                        #    48/57
+LABEL __INTERNAL__COND_1_BLOCK_END                                              #    49/57
+CREATEFRAME                                                                     #    50/57
+# END IF BLOCK                                                                  #    51/57
+JUMP __INTERNAL__FILE_END                                                       #    52/57
+# MAIN END                                                                      #    54/57
+# PROGRAM END                                                                   #    56/57
+LABEL __INTERNAL__FILE_END                                                      #    57/57

@@ -234,6 +234,31 @@ SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type
             return NULL;
         }
 
+        char *instr;
+        if (type == ST_INTEGER)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "int@0", NULL, NULL);
+        }
+        else if (type == ST_DOUBLE)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "float@0.0", NULL, NULL);
+        }
+        else if (type == ST_BOOLEAN)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "bool@false", NULL, NULL);
+        }
+        else if (type == ST_STRING)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "string@", NULL, NULL);
+        }
+        result = Instruction_custom(ilist, instr);
+        if (result != NO_ERROR)
+        {
+            String_destroy(&instr);
+            return NULL;
+        }
+        String_destroy(&instr);
+
         return s;
     }
     else
@@ -298,6 +323,8 @@ int SymbolTable_insert(SymbolTablePtr st, char *key, SymbolType type, SymbolLoca
 	SymbolPtr s = SymbolTable_get(st, key);
 	if (s != NULL)
     {
+        *symbol = s;
+
         //  Symbol s daným klíčem byl v tabulce již nalezen
         DEBUG_ERR("symtable-insert", "symbol with given name already exists");
         return SEMANTICAL_DEFINITION_ERROR;

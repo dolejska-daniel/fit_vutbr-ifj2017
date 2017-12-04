@@ -234,6 +234,31 @@ SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type
             return NULL;
         }
 
+        char *instr;
+        if (type == ST_INTEGER)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "int@0", NULL, NULL);
+        }
+        else if (type == ST_DOUBLE)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "float@0.0", NULL, NULL);
+        }
+        else if (type == ST_BOOLEAN)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "bool@false", NULL, NULL);
+        }
+        else if (type == ST_STRING)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "string@", NULL, NULL);
+        }
+        result = Instruction_custom(ilist, instr);
+        if (result != NO_ERROR)
+        {
+            String_destroy(&instr);
+            return NULL;
+        }
+        String_destroy(&instr);
+
         return s;
     }
     else
@@ -250,12 +275,11 @@ SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type
  * Při dalším použití je tak program nucen ji znovu inicializovat.
  *
  * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
- * @param[in]		InstructionListPtr	ilist   Ukazatel na existující list instrukcí
- * @param[in]		SymbolType	        type    Typ symbolu
  * @param[in]		unsigned	        id      Identifikátor symbolu
  */
 void SymbolTable_deleteTempVar(SymbolTablePtr st, unsigned id)
 {
+    /*
     char *source = "symtable-deleteTempVar";
 
     //  Vytvoření názvu proměnné
@@ -265,6 +289,20 @@ void SymbolTable_deleteTempVar(SymbolTablePtr st, unsigned id)
 
     char *name = String_concat(TEMPVAR_INTERNAL_NAME, tempvar_symbol_id, "_");
     SymbolTable_delete(st, name);
+    */
+}
+
+/**
+ * Funkce odstraní symbol pro dočasnou proměnnou z tabulky symbolů.
+ *
+ * Při dalším použití je tak program nucen ji znovu inicializovat.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_deleteTempVars(SymbolTablePtr st)
+{
+    SymbolTable_popFrame(st);
+    SymbolTable_pushFrame(st);
 }
 
 /**
@@ -285,6 +323,8 @@ int SymbolTable_insert(SymbolTablePtr st, char *key, SymbolType type, SymbolLoca
 	SymbolPtr s = SymbolTable_get(st, key);
 	if (s != NULL)
     {
+        *symbol = s;
+
         //  Symbol s daným klíčem byl v tabulce již nalezen
         DEBUG_ERR("symtable-insert", "symbol with given name already exists");
         return SEMANTICAL_DEFINITION_ERROR;
@@ -951,6 +991,7 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
         switch (type)
         {
             case ST_INTEGER:
+            case ST_DOUBLE:
                 return true;
             default:
                 return false;
@@ -987,7 +1028,7 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
                 return false;
         }
     }
-    else if (o->type == LT)
+    else if (o->type == LT || o->type == LTEQ)
     {
         //  Porovnání (less than)
         switch (type)
@@ -1002,7 +1043,7 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
         }
 
     }
-    else if (o->type == GT)
+    else if (o->type == GT || o->type == GTEQ)
     {
         //  Porovnání (greater than)
         switch (type)
@@ -1016,42 +1057,16 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
                 return false;
         }
     }
-    else if (o->type == AND)
+    else if (o->type == AND || o->type == OR || o->type == NOT)
     {
         //  Konjunkce
         switch (type)
         {
+            /*
             case ST_DOUBLE:
             case ST_INTEGER:
             case ST_STRING:
-            case ST_BOOLEAN:
-                return true;
-            default:
-                return false;
-        }
-    }
-    else if (o->type == OR)
-    {
-        //  Disjunkce
-        switch (type)
-        {
-            case ST_DOUBLE:
-            case ST_INTEGER:
-            case ST_STRING:
-            case ST_BOOLEAN:
-                return true;
-            default:
-                return false;
-        }
-    }
-    else if (o->type == NOT)
-    {
-        //  Negace
-        switch (type)
-        {
-            case ST_DOUBLE:
-            case ST_INTEGER:
-            case ST_STRING:
+            */
             case ST_BOOLEAN:
                 return true;
             default:
@@ -1081,7 +1096,7 @@ bool SymbolType_canBeConvertedTo(SymbolType source, SymbolType target)
     }
 }
 
-bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, SymbolType *dataType)
+bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, TokenType op, SymbolType *dataType)
 {
     //  Implicitně ponecháme stejný datový typ
     *dataType = operator1;
@@ -1089,7 +1104,7 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
     if (operator1 == ST_INTEGER)
     {
         //  První operátor je celé číslo
-        if (operator2 == ST_DOUBLE)
+        if (operator2 == ST_DOUBLE || op == BACK_SLASH || op == SLASH)
         {
             //  INT + DOUBLE
             //  =
@@ -1097,11 +1112,9 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
             *dataType = ST_DOUBLE;
             return true;
         }
-        else
-        {
-            //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
-            return false;
-        }
+
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
     }
     else if (operator1 == ST_DOUBLE)
     {
@@ -1115,32 +1128,30 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
     }
 }
 
-bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, SymbolType *dataType)
+bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, TokenType op, SymbolType *dataType)
 {
     //  Implicitně ponecháme stejný datový typ
     *dataType = operator2;
 
-    if (operator1 == ST_INTEGER)
-    {
-        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
-        return false;
-    }
-    else if (operator1 == ST_DOUBLE)
+    if (operator2 == ST_INTEGER)
     {
         //  První operátor je celé číslo
-        if (operator2 == ST_INTEGER)
+        if (operator1 == ST_DOUBLE || op == BACK_SLASH || op == SLASH)
         {
-            //  DOUBLE + INT
+            //  INT + DOUBLE
             //  =
             //  DOUBLE + DOUBLE
             *dataType = ST_DOUBLE;
             return true;
         }
-        else
-        {
-            //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
-            return false;
-        }
+
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
+    }
+    else if (operator2 == ST_DOUBLE)
+    {
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
     }
     else
     {

@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:23.803782
+# 2017-12-04 17:23:11.218658
 # SECTION: 04_expressions
 # TEST: 09
 # INFO: string concat
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -43,29 +43,32 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 20 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 21 with following arguments:
-# Arg1: Stack@=master (string)
+# Executing instruction: IMOVE at line: 21 with following arguments:
+# Arg1: Const@=(string)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 22 with following arguments:
+# Executing instruction: IPOPS at line: 22 with following arguments:
+# Arg1: Stack@=master (string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 23 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=master (string)
-# Executing instruction: IPUSHS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
 # Arg1: Const@=of(string)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 24 with following arguments:
+# Executing instruction: IPOPS at line: 25 with following arguments:
 # Arg1: Stack@=of(string)
 # Dest: TF@__INTERNAL__VAR_0=master (string)
-# Executing instruction: IWRITE at line: 25 with following arguments:
+# Executing instruction: IWRITE at line: 26 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=of(string)
-# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Executing instruction: IPUSHS at line: 27 with following arguments:
 # Arg1: LF@b= puppets!(string)
 # Dest: Stack@()
-# Executing instruction: IPOPS at line: 27 with following arguments:
+# Executing instruction: IPOPS at line: 28 with following arguments:
 # Arg1: Stack@= puppets!(string)
 # Dest: TF@__INTERNAL__VAR_0=of(string)
-# Executing instruction: IWRITE at line: 28 with following arguments:
+# Executing instruction: IWRITE at line: 29 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0= puppets!(string)
-# Executing instruction: IJUMP at line: 29 with following arguments:
-# Executing instruction: ILABEL at line: 32 with following arguments:
+# Executing instruction: IJUMP at line: 30 with following arguments:
+# Executing instruction: ILABEL at line: 35 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -77,7 +80,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 98 (41+57)
+# PRICE: 100 (42+58)
 # 
 #   1: ' string concat
 #   2: scope
@@ -89,33 +92,35 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/32
-JUMP main                                                                       #     2/32
-# MAIN                                                                          #     4/32
-LABEL main                                                                      #     5/32
-CREATEFRAME                                                                     #     6/32
-PUSHFRAME                                                                       #     7/32
-CREATEFRAME                                                                     #     8/32
-DEFVAR LF@a                                                                     #     9/32
-MOVE LF@a string@                                                               #    10/32
-PUSHS string@master\032                                                         #    11/32
-POPS LF@a                                                                       #    12/32
-CLEARS                                                                          #    13/32
-DEFVAR LF@b                                                                     #    14/32
-MOVE LF@b string@                                                               #    15/32
-PUSHS string@\032puppets!                                                       #    16/32
-POPS LF@b                                                                       #    17/32
-CLEARS                                                                          #    18/32
-PUSHS LF@a                                                                      #    19/32
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    20/32
-POPS TF@__INTERNAL__VAR_0                                                       #    21/32
-WRITE TF@__INTERNAL__VAR_0                                                      #    22/32
-PUSHS string@of                                                                 #    23/32
-POPS TF@__INTERNAL__VAR_0                                                       #    24/32
-WRITE TF@__INTERNAL__VAR_0                                                      #    25/32
-PUSHS LF@b                                                                      #    26/32
-POPS TF@__INTERNAL__VAR_0                                                       #    27/32
-WRITE TF@__INTERNAL__VAR_0                                                      #    28/32
-JUMP __INTERNAL__FILE_END                                                       #    29/32
-# PROGRAM END                                                                   #    31/32
-LABEL __INTERNAL__FILE_END                                                      #    32/32
+.IFJcode17                                                                      #     1/35
+JUMP main                                                                       #     2/35
+# MAIN                                                                          #     4/35
+LABEL main                                                                      #     5/35
+CREATEFRAME                                                                     #     6/35
+PUSHFRAME                                                                       #     7/35
+CREATEFRAME                                                                     #     8/35
+DEFVAR LF@a                                                                     #     9/35
+MOVE LF@a string@                                                               #    10/35
+PUSHS string@master\032                                                         #    11/35
+POPS LF@a                                                                       #    12/35
+CLEARS                                                                          #    13/35
+DEFVAR LF@b                                                                     #    14/35
+MOVE LF@b string@                                                               #    15/35
+PUSHS string@\032puppets!                                                       #    16/35
+POPS LF@b                                                                       #    17/35
+CLEARS                                                                          #    18/35
+PUSHS LF@a                                                                      #    19/35
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    20/35
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    21/35
+POPS TF@__INTERNAL__VAR_0                                                       #    22/35
+WRITE TF@__INTERNAL__VAR_0                                                      #    23/35
+PUSHS string@of                                                                 #    24/35
+POPS TF@__INTERNAL__VAR_0                                                       #    25/35
+WRITE TF@__INTERNAL__VAR_0                                                      #    26/35
+PUSHS LF@b                                                                      #    27/35
+POPS TF@__INTERNAL__VAR_0                                                       #    28/35
+WRITE TF@__INTERNAL__VAR_0                                                      #    29/35
+JUMP __INTERNAL__FILE_END                                                       #    30/35
+# MAIN END                                                                      #    32/35
+# PROGRAM END                                                                   #    34/35
+LABEL __INTERNAL__FILE_END                                                      #    35/35

@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:24.015344
+# 2017-12-04 17:23:11.477847
 # SECTION: 04_expressions
 # TEST: 18
 # INFO: comments inside expressions
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -73,13 +73,16 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 39 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 40 with following arguments:
-# Arg1: Stack@=96(int)
+# Executing instruction: IMOVE at line: 40 with following arguments:
+# Arg1: Const@=0(int)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 41 with following arguments:
+# Executing instruction: IPOPS at line: 41 with following arguments:
+# Arg1: Stack@=96(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 42 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=96(int)
-# Executing instruction: IJUMP at line: 42 with following arguments:
-# Executing instruction: ILABEL at line: 45 with following arguments:
+# Executing instruction: IJUMP at line: 43 with following arguments:
+# Executing instruction: ILABEL at line: 48 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -91,7 +94,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 130 (61+69)
+# PRICE: 132 (62+70)
 # 
 #   1: ' comments inside expressions
 #   2: 
@@ -111,45 +114,47 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/45
-JUMP main                                                                       #     2/45
-# FUNCTION                                                                      #     4/45
-LABEL foo                                                                       #     5/45
-PUSHFRAME                                                                       #     6/45
-CREATEFRAME                                                                     #     7/45
-PUSHS int@39                                                                    #     8/45
-RETURN                                                                          #     9/45
-PUSHS int@0                                                                     #    10/45
-RETURN                                                                          #    11/45
-# END FUNCTION                                                                  #    12/45
-# MAIN                                                                          #    14/45
-LABEL main                                                                      #    15/45
-CREATEFRAME                                                                     #    16/45
-PUSHFRAME                                                                       #    17/45
-CREATEFRAME                                                                     #    18/45
-DEFVAR LF@a                                                                     #    19/45
-MOVE LF@a int@0                                                                 #    20/45
-CREATEFRAME                                                                     #    21/45
-CALL foo                                                                        #    22/45
-POPFRAME                                                                        #    23/45
-POPS LF@a                                                                       #    24/45
-CLEARS                                                                          #    25/45
-PUSHS LF@a                                                                      #    26/45
-PUSHS int@3                                                                     #    27/45
-ADDS                                                                            #    28/45
-PUSHS int@6                                                                     #    29/45
-ADDS                                                                            #    30/45
-POPS LF@a                                                                       #    31/45
-CLEARS                                                                          #    32/45
-PUSHS LF@a                                                                      #    33/45
-PUSHS int@2                                                                     #    34/45
-MULS                                                                            #    35/45
-POPS LF@a                                                                       #    36/45
-CLEARS                                                                          #    37/45
-PUSHS LF@a                                                                      #    38/45
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    39/45
-POPS TF@__INTERNAL__VAR_0                                                       #    40/45
-WRITE TF@__INTERNAL__VAR_0                                                      #    41/45
-JUMP __INTERNAL__FILE_END                                                       #    42/45
-# PROGRAM END                                                                   #    44/45
-LABEL __INTERNAL__FILE_END                                                      #    45/45
+.IFJcode17                                                                      #     1/48
+JUMP main                                                                       #     2/48
+# FUNCTION                                                                      #     4/48
+LABEL foo                                                                       #     5/48
+PUSHFRAME                                                                       #     6/48
+CREATEFRAME                                                                     #     7/48
+PUSHS int@39                                                                    #     8/48
+RETURN                                                                          #     9/48
+PUSHS int@0                                                                     #    10/48
+RETURN                                                                          #    11/48
+# END FUNCTION                                                                  #    12/48
+# MAIN                                                                          #    14/48
+LABEL main                                                                      #    15/48
+CREATEFRAME                                                                     #    16/48
+PUSHFRAME                                                                       #    17/48
+CREATEFRAME                                                                     #    18/48
+DEFVAR LF@a                                                                     #    19/48
+MOVE LF@a int@0                                                                 #    20/48
+CREATEFRAME                                                                     #    21/48
+CALL foo                                                                        #    22/48
+POPFRAME                                                                        #    23/48
+POPS LF@a                                                                       #    24/48
+CLEARS                                                                          #    25/48
+PUSHS LF@a                                                                      #    26/48
+PUSHS int@3                                                                     #    27/48
+ADDS                                                                            #    28/48
+PUSHS int@6                                                                     #    29/48
+ADDS                                                                            #    30/48
+POPS LF@a                                                                       #    31/48
+CLEARS                                                                          #    32/48
+PUSHS LF@a                                                                      #    33/48
+PUSHS int@2                                                                     #    34/48
+MULS                                                                            #    35/48
+POPS LF@a                                                                       #    36/48
+CLEARS                                                                          #    37/48
+PUSHS LF@a                                                                      #    38/48
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    39/48
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    40/48
+POPS TF@__INTERNAL__VAR_0                                                       #    41/48
+WRITE TF@__INTERNAL__VAR_0                                                      #    42/48
+JUMP __INTERNAL__FILE_END                                                       #    43/48
+# MAIN END                                                                      #    45/48
+# PROGRAM END                                                                   #    47/48
+LABEL __INTERNAL__FILE_END                                                      #    48/48

@@ -1,9 +1,9 @@
-# 2017-12-04 14:49:26.020175
+# 2017-12-04 17:23:13.547350
 # SECTION: 07_strings
 # TEST: 05
 # INFO: chr builtin function
 # REQUIRED EXTENSIONS: 
-# ACTIVATED EXTENSIONS: UNARY, IFTHEN, FUNEXP, BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
 # STATE: SUCCESS
 # 
 # COMPILER STDERR:
@@ -48,15 +48,15 @@
 # Arg1: Stack@=119(int)
 # Dest: TF@i()
 # Executing instruction: ICALL at line: 22 with following arguments:
-# Executing instruction: ILABEL at line: 70 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 71 with following arguments:
-# Executing instruction: IPUSHS at line: 72 with following arguments:
+# Executing instruction: ILABEL at line: 76 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 77 with following arguments:
+# Executing instruction: IPUSHS at line: 78 with following arguments:
 # Arg1: LF@i=119(int)
 # Dest: Stack@()
-# Executing instruction: IINT2CHARS at line: 73 with following arguments:
+# Executing instruction: IINT2CHARS at line: 79 with following arguments:
 # Arg1: Stack@=119(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 74 with following arguments:
+# Executing instruction: IRETURN at line: 80 with following arguments:
 # Executing instruction: IPOPFRAME at line: 23 with following arguments:
 # Executing instruction: IPOPS at line: 24 with following arguments:
 # Arg1: Stack@=w(string)
@@ -67,118 +67,130 @@
 # Dest: Stack@()
 # Executing instruction: IDEFVAR at line: 27 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 28 with following arguments:
-# Arg1: Stack@=w(string)
+# Executing instruction: IMOVE at line: 28 with following arguments:
+# Arg1: Const@=(string)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 29 with following arguments:
+# Executing instruction: IPOPS at line: 29 with following arguments:
+# Arg1: Stack@=w(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 30 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=w(string)
-# Executing instruction: ICREATEFRAME at line: 30 with following arguments:
-# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 31 with following arguments:
+# Executing instruction: IPUSHS at line: 32 with following arguments:
 # Arg1: Const@=40(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 32 with following arguments:
+# Executing instruction: IDEFVAR at line: 33 with following arguments:
 # Dest: TF@i
-# Executing instruction: IPOPS at line: 33 with following arguments:
+# Executing instruction: IPOPS at line: 34 with following arguments:
 # Arg1: Stack@=40(int)
 # Dest: TF@i()
-# Executing instruction: ICALL at line: 34 with following arguments:
-# Executing instruction: ILABEL at line: 70 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 71 with following arguments:
-# Executing instruction: IPUSHS at line: 72 with following arguments:
+# Executing instruction: ICALL at line: 35 with following arguments:
+# Executing instruction: ILABEL at line: 76 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 77 with following arguments:
+# Executing instruction: IPUSHS at line: 78 with following arguments:
 # Arg1: LF@i=40(int)
 # Dest: Stack@()
-# Executing instruction: IINT2CHARS at line: 73 with following arguments:
+# Executing instruction: IINT2CHARS at line: 79 with following arguments:
 # Arg1: Stack@=40(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 74 with following arguments:
-# Executing instruction: IPOPFRAME at line: 35 with following arguments:
-# Executing instruction: IPOPS at line: 36 with following arguments:
+# Executing instruction: IRETURN at line: 80 with following arguments:
+# Executing instruction: IPOPFRAME at line: 36 with following arguments:
+# Executing instruction: IPOPS at line: 37 with following arguments:
 # Arg1: Stack@=((string)
 # Dest: LF@res=w(string)
-# Executing instruction: ICLEARS at line: 37 with following arguments:
-# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Executing instruction: ICLEARS at line: 38 with following arguments:
+# Executing instruction: IPUSHS at line: 39 with following arguments:
 # Arg1: LF@res=((string)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 39 with following arguments:
+# Executing instruction: IDEFVAR at line: 40 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 40 with following arguments:
-# Arg1: Stack@=((string)
+# Executing instruction: IMOVE at line: 41 with following arguments:
+# Arg1: Const@=(string)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 41 with following arguments:
+# Executing instruction: IPOPS at line: 42 with following arguments:
+# Arg1: Stack@=((string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 43 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=((string)
-# Executing instruction: ICREATEFRAME at line: 42 with following arguments:
-# Executing instruction: IPUSHS at line: 43 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 44 with following arguments:
+# Executing instruction: IPUSHS at line: 45 with following arguments:
 # Arg1: Const@=41.25(double)
 # Dest: Stack@()
-# Executing instruction: IFLOAT2INTS at line: 44 with following arguments:
+# Executing instruction: IFLOAT2INTS at line: 46 with following arguments:
 # Arg1: Stack@=41.25(double)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 45 with following arguments:
+# Executing instruction: IDEFVAR at line: 47 with following arguments:
 # Dest: TF@i
-# Executing instruction: IPOPS at line: 46 with following arguments:
+# Executing instruction: IPOPS at line: 48 with following arguments:
 # Arg1: Stack@=41(int)
 # Dest: TF@i()
-# Executing instruction: ICALL at line: 47 with following arguments:
-# Executing instruction: ILABEL at line: 70 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 71 with following arguments:
-# Executing instruction: IPUSHS at line: 72 with following arguments:
+# Executing instruction: ICALL at line: 49 with following arguments:
+# Executing instruction: ILABEL at line: 76 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 77 with following arguments:
+# Executing instruction: IPUSHS at line: 78 with following arguments:
 # Arg1: LF@i=41(int)
 # Dest: Stack@()
-# Executing instruction: IINT2CHARS at line: 73 with following arguments:
+# Executing instruction: IINT2CHARS at line: 79 with following arguments:
 # Arg1: Stack@=41(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 74 with following arguments:
-# Executing instruction: IPOPFRAME at line: 48 with following arguments:
-# Executing instruction: IPOPS at line: 49 with following arguments:
+# Executing instruction: IRETURN at line: 80 with following arguments:
+# Executing instruction: IPOPFRAME at line: 50 with following arguments:
+# Executing instruction: IPOPS at line: 51 with following arguments:
 # Arg1: Stack@=)(string)
 # Dest: LF@res=((string)
-# Executing instruction: ICLEARS at line: 50 with following arguments:
-# Executing instruction: IPUSHS at line: 51 with following arguments:
+# Executing instruction: ICLEARS at line: 52 with following arguments:
+# Executing instruction: IPUSHS at line: 53 with following arguments:
 # Arg1: LF@res=)(string)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 52 with following arguments:
+# Executing instruction: IDEFVAR at line: 54 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 53 with following arguments:
-# Arg1: Stack@=)(string)
+# Executing instruction: IMOVE at line: 55 with following arguments:
+# Arg1: Const@=(string)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 54 with following arguments:
+# Executing instruction: IPOPS at line: 56 with following arguments:
+# Arg1: Stack@=)(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 57 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=)(string)
-# Executing instruction: ICREATEFRAME at line: 55 with following arguments:
-# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 58 with following arguments:
+# Executing instruction: IPUSHS at line: 59 with following arguments:
 # Arg1: Const@=1(int)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 57 with following arguments:
+# Executing instruction: IDEFVAR at line: 60 with following arguments:
 # Dest: TF@i
-# Executing instruction: IPOPS at line: 58 with following arguments:
+# Executing instruction: IPOPS at line: 61 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: TF@i()
-# Executing instruction: ICALL at line: 59 with following arguments:
-# Executing instruction: ILABEL at line: 70 with following arguments:
-# Executing instruction: IPUSHFRAME at line: 71 with following arguments:
-# Executing instruction: IPUSHS at line: 72 with following arguments:
+# Executing instruction: ICALL at line: 62 with following arguments:
+# Executing instruction: ILABEL at line: 76 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 77 with following arguments:
+# Executing instruction: IPUSHS at line: 78 with following arguments:
 # Arg1: LF@i=1(int)
 # Dest: Stack@()
-# Executing instruction: IINT2CHARS at line: 73 with following arguments:
+# Executing instruction: IINT2CHARS at line: 79 with following arguments:
 # Arg1: Stack@=1(int)
 # Dest: Stack@()
-# Executing instruction: IRETURN at line: 74 with following arguments:
-# Executing instruction: IPOPFRAME at line: 60 with following arguments:
-# Executing instruction: IPOPS at line: 61 with following arguments:
+# Executing instruction: IRETURN at line: 80 with following arguments:
+# Executing instruction: IPOPFRAME at line: 63 with following arguments:
+# Executing instruction: IPOPS at line: 64 with following arguments:
 # Arg1: Stack@=(string)
 # Dest: LF@res=)(string)
-# Executing instruction: ICLEARS at line: 62 with following arguments:
-# Executing instruction: IPUSHS at line: 63 with following arguments:
+# Executing instruction: ICLEARS at line: 65 with following arguments:
+# Executing instruction: IPUSHS at line: 66 with following arguments:
 # Arg1: LF@res=(string)
 # Dest: Stack@()
-# Executing instruction: IDEFVAR at line: 64 with following arguments:
+# Executing instruction: IDEFVAR at line: 67 with following arguments:
 # Dest: TF@__INTERNAL__VAR_0
-# Executing instruction: IPOPS at line: 65 with following arguments:
-# Arg1: Stack@=(string)
+# Executing instruction: IMOVE at line: 68 with following arguments:
+# Arg1: Const@=(string)
 # Dest: TF@__INTERNAL__VAR_0()
-# Executing instruction: IWRITE at line: 66 with following arguments:
+# Executing instruction: IPOPS at line: 69 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 70 with following arguments:
 # Arg1: TF@__INTERNAL__VAR_0=(string)
-# Executing instruction: IJUMP at line: 67 with following arguments:
-# Executing instruction: ILABEL at line: 78 with following arguments:
+# Executing instruction: IJUMP at line: 71 with following arguments:
+# Executing instruction: ILABEL at line: 84 with following arguments:
 # 
 # STDOUT DIFF:
 # 
@@ -190,7 +202,7 @@
 # CURRENT COMPILER EXIT CODE: 0
 # EXPECTED INTERPRETER EXIT CODE: 0
 # CURRENT INTERPRETER EXIT CODE: 0
-# PRICE: 323 (147+176)
+# PRICE: 331 (151+180)
 # 
 #   1: ' chr builtin function
 #   2: scope
@@ -211,78 +223,83 @@
 
 ########################################
 
-.IFJcode17                                                                      #     1/78
-JUMP main                                                                       #     2/78
-# MAIN                                                                          #     4/78
-LABEL main                                                                      #     5/78
-CREATEFRAME                                                                     #     6/78
-PUSHFRAME                                                                       #     7/78
-CREATEFRAME                                                                     #     8/78
-DEFVAR LF@res                                                                   #     9/78
-MOVE LF@res string@                                                             #    10/78
-DEFVAR LF@tmp                                                                   #    11/78
-MOVE LF@tmp int@0                                                               #    12/78
-PUSHS int@0                                                                     #    13/78
-PUSHS int@10                                                                    #    14/78
-SUBS                                                                            #    15/78
-POPS LF@tmp                                                                     #    16/78
-CLEARS                                                                          #    17/78
-CREATEFRAME                                                                     #    18/78
-PUSHS int@119                                                                   #    19/78
-DEFVAR TF@i                                                                     #    20/78
-POPS TF@i                                                                       #    21/78
-CALL chr                                                                        #    22/78
-POPFRAME                                                                        #    23/78
-POPS LF@res                                                                     #    24/78
-CLEARS                                                                          #    25/78
-PUSHS LF@res                                                                    #    26/78
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    27/78
-POPS TF@__INTERNAL__VAR_0                                                       #    28/78
-WRITE TF@__INTERNAL__VAR_0                                                      #    29/78
-CREATEFRAME                                                                     #    30/78
-PUSHS int@40                                                                    #    31/78
-DEFVAR TF@i                                                                     #    32/78
-POPS TF@i                                                                       #    33/78
-CALL chr                                                                        #    34/78
-POPFRAME                                                                        #    35/78
-POPS LF@res                                                                     #    36/78
-CLEARS                                                                          #    37/78
-PUSHS LF@res                                                                    #    38/78
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    39/78
-POPS TF@__INTERNAL__VAR_0                                                       #    40/78
-WRITE TF@__INTERNAL__VAR_0                                                      #    41/78
-CREATEFRAME                                                                     #    42/78
-PUSHS float@41.25                                                               #    43/78
-FLOAT2INTS                                                                      #    44/78
-DEFVAR TF@i                                                                     #    45/78
-POPS TF@i                                                                       #    46/78
-CALL chr                                                                        #    47/78
-POPFRAME                                                                        #    48/78
-POPS LF@res                                                                     #    49/78
-CLEARS                                                                          #    50/78
-PUSHS LF@res                                                                    #    51/78
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    52/78
-POPS TF@__INTERNAL__VAR_0                                                       #    53/78
-WRITE TF@__INTERNAL__VAR_0                                                      #    54/78
-CREATEFRAME                                                                     #    55/78
-PUSHS int@1                                                                     #    56/78
-DEFVAR TF@i                                                                     #    57/78
-POPS TF@i                                                                       #    58/78
-CALL chr                                                                        #    59/78
-POPFRAME                                                                        #    60/78
-POPS LF@res                                                                     #    61/78
-CLEARS                                                                          #    62/78
-PUSHS LF@res                                                                    #    63/78
-DEFVAR TF@__INTERNAL__VAR_0                                                     #    64/78
-POPS TF@__INTERNAL__VAR_0                                                       #    65/78
-WRITE TF@__INTERNAL__VAR_0                                                      #    66/78
-JUMP __INTERNAL__FILE_END                                                       #    67/78
-# CHR FUNCTION                                                                  #    69/78
-LABEL chr                                                                       #    70/78
-PUSHFRAME                                                                       #    71/78
-PUSHS LF@i                                                                      #    72/78
-INT2CHARS                                                                       #    73/78
-RETURN                                                                          #    74/78
-# CHR FUNCTION END                                                              #    75/78
-# PROGRAM END                                                                   #    77/78
-LABEL __INTERNAL__FILE_END                                                      #    78/78
+.IFJcode17                                                                      #     1/84
+JUMP main                                                                       #     2/84
+# MAIN                                                                          #     4/84
+LABEL main                                                                      #     5/84
+CREATEFRAME                                                                     #     6/84
+PUSHFRAME                                                                       #     7/84
+CREATEFRAME                                                                     #     8/84
+DEFVAR LF@res                                                                   #     9/84
+MOVE LF@res string@                                                             #    10/84
+DEFVAR LF@tmp                                                                   #    11/84
+MOVE LF@tmp int@0                                                               #    12/84
+PUSHS int@0                                                                     #    13/84
+PUSHS int@10                                                                    #    14/84
+SUBS                                                                            #    15/84
+POPS LF@tmp                                                                     #    16/84
+CLEARS                                                                          #    17/84
+CREATEFRAME                                                                     #    18/84
+PUSHS int@119                                                                   #    19/84
+DEFVAR TF@i                                                                     #    20/84
+POPS TF@i                                                                       #    21/84
+CALL chr                                                                        #    22/84
+POPFRAME                                                                        #    23/84
+POPS LF@res                                                                     #    24/84
+CLEARS                                                                          #    25/84
+PUSHS LF@res                                                                    #    26/84
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    27/84
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    28/84
+POPS TF@__INTERNAL__VAR_0                                                       #    29/84
+WRITE TF@__INTERNAL__VAR_0                                                      #    30/84
+CREATEFRAME                                                                     #    31/84
+PUSHS int@40                                                                    #    32/84
+DEFVAR TF@i                                                                     #    33/84
+POPS TF@i                                                                       #    34/84
+CALL chr                                                                        #    35/84
+POPFRAME                                                                        #    36/84
+POPS LF@res                                                                     #    37/84
+CLEARS                                                                          #    38/84
+PUSHS LF@res                                                                    #    39/84
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    40/84
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    41/84
+POPS TF@__INTERNAL__VAR_0                                                       #    42/84
+WRITE TF@__INTERNAL__VAR_0                                                      #    43/84
+CREATEFRAME                                                                     #    44/84
+PUSHS float@41.25                                                               #    45/84
+FLOAT2INTS                                                                      #    46/84
+DEFVAR TF@i                                                                     #    47/84
+POPS TF@i                                                                       #    48/84
+CALL chr                                                                        #    49/84
+POPFRAME                                                                        #    50/84
+POPS LF@res                                                                     #    51/84
+CLEARS                                                                          #    52/84
+PUSHS LF@res                                                                    #    53/84
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    54/84
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    55/84
+POPS TF@__INTERNAL__VAR_0                                                       #    56/84
+WRITE TF@__INTERNAL__VAR_0                                                      #    57/84
+CREATEFRAME                                                                     #    58/84
+PUSHS int@1                                                                     #    59/84
+DEFVAR TF@i                                                                     #    60/84
+POPS TF@i                                                                       #    61/84
+CALL chr                                                                        #    62/84
+POPFRAME                                                                        #    63/84
+POPS LF@res                                                                     #    64/84
+CLEARS                                                                          #    65/84
+PUSHS LF@res                                                                    #    66/84
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    67/84
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    68/84
+POPS TF@__INTERNAL__VAR_0                                                       #    69/84
+WRITE TF@__INTERNAL__VAR_0                                                      #    70/84
+JUMP __INTERNAL__FILE_END                                                       #    71/84
+# MAIN END                                                                      #    73/84
+# CHR FUNCTION                                                                  #    75/84
+LABEL chr                                                                       #    76/84
+PUSHFRAME                                                                       #    77/84
+PUSHS LF@i                                                                      #    78/84
+INT2CHARS                                                                       #    79/84
+RETURN                                                                          #    80/84
+# CHR FUNCTION END                                                              #    81/84
+# PROGRAM END                                                                   #    83/84
+LABEL __INTERNAL__FILE_END                                                      #    84/84
