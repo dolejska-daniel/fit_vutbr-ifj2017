@@ -679,13 +679,16 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             {
                 if(ch <= 32)
                 {
+                    char str_num[2];
+                    snprintf(str_num, 2, "%i", ch);
+
                     if (ch < 10)
                     {
-                        final_string = String_concat(final_string, (char *) ((int) ch), "\\00");
+                        final_string = String_concat(final_string, str_num, "\\00");
                     }
                     else
                     {
-                        final_string = String_concat(final_string, (char *) ((int) ch), "\\0");
+                        final_string = String_concat(final_string, str_num, "\\0");
                     }
                 }
                 else
@@ -1120,12 +1123,15 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else if(ch == EOF)
             {
-                *token = Token_create(FILE_END, NULL);
+                String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
+                char* reason = String_printf("Unexpected EOF on line %i:%i.", NULL, (char *) input->line, (char *) input->character, NULL);
+
+                *token = Token_create(INVALID, reason);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
                 }
-                return NO_ERROR;
+                return LEXICAL_ERROR;
             }
             break;
         // Cases for DIV/BLOCK COMMENT end
