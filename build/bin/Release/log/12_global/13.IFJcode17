@@ -1,0 +1,57 @@
+# 2017-12-04 17:23:14.371542
+# SECTION: 12_global
+# TEST: 13
+# INFO: input into shared
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+# ?  0 42
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 42
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 2
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' input into shared
+#   2: 
+#   3: dim shared promena as integer
+#   4: 
+#   5: function foo() as integer
+#   6: 	static poprve as integer = 0
+#   7: 	static promena as integer
+#   8: 	if poprve = 0 then
+#   9: 	    promena = 42
+#  10: 		poprve = 1
+#  11: 	else
+#  12: 		return promena	
+#  13: 	end if
+#  14: end function
+#  15: 
+#  16: scope
+#  17: 	input promena
+#  18: 	dim a as integer
+#  19: 	a = foo()
+#  20: 	print a;
+#  21: 	a = foo()
+#  22: 	print a;
+#  23: end scope
+
+########################################
+
+# ---

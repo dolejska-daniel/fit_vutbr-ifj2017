@@ -1,0 +1,114 @@
+# 2017-12-04 17:23:11.524471
+# SECTION: 04_expressions
+# TEST: 20
+# INFO: Add doubles with dot format
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@ahoj
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@ahoj()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=10.8(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 12 with following arguments:
+# Arg1: Stack@=10.8(double)
+# Dest: LF@ahoj=0(double)
+# Executing instruction: ICLEARS at line: 13 with following arguments:
+# Executing instruction: IDEFVAR at line: 14 with following arguments:
+# Dest: LF@neboj
+# Executing instruction: IMOVE at line: 15 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@neboj()
+# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Arg1: Const@=67.4(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 17 with following arguments:
+# Arg1: Stack@=67.4(double)
+# Dest: LF@neboj=0(double)
+# Executing instruction: ICLEARS at line: 18 with following arguments:
+# Executing instruction: IPUSHS at line: 19 with following arguments:
+# Arg1: LF@ahoj=10.8(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 20 with following arguments:
+# Arg1: LF@neboj=67.4(double)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 21 with following arguments:
+# Arg1: Stack@=10.8(double)
+# Arg2: Stack@=67.4(double)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 22 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 23 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 24 with following arguments:
+# Arg1: Stack@=78.2(double)
+# Dest: TF@__INTERNAL__VAR_0=0(double)
+# Executing instruction: IWRITE at line: 25 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=78.2(double)
+# Executing instruction: IJUMP at line: 26 with following arguments:
+# Executing instruction: ILABEL at line: 31 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 83 (34+49)
+# 
+#   1: ' Add doubles with dot format
+#   2: scope
+#   3: dim ahoj as double = 10.8
+#   4: dim neboj as double = 67.4
+#   5: 
+#   6: print ahoj + neboj;
+#   7: 
+#   8: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/31
+JUMP main                                                                       #     2/31
+# MAIN                                                                          #     4/31
+LABEL main                                                                      #     5/31
+CREATEFRAME                                                                     #     6/31
+PUSHFRAME                                                                       #     7/31
+CREATEFRAME                                                                     #     8/31
+DEFVAR LF@ahoj                                                                  #     9/31
+MOVE LF@ahoj float@0.0                                                          #    10/31
+PUSHS float@10.8                                                                #    11/31
+POPS LF@ahoj                                                                    #    12/31
+CLEARS                                                                          #    13/31
+DEFVAR LF@neboj                                                                 #    14/31
+MOVE LF@neboj float@0.0                                                         #    15/31
+PUSHS float@67.4                                                                #    16/31
+POPS LF@neboj                                                                   #    17/31
+CLEARS                                                                          #    18/31
+PUSHS LF@ahoj                                                                   #    19/31
+PUSHS LF@neboj                                                                  #    20/31
+ADDS                                                                            #    21/31
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    22/31
+MOVE TF@__INTERNAL__VAR_0 float@0.0                                             #    23/31
+POPS TF@__INTERNAL__VAR_0                                                       #    24/31
+WRITE TF@__INTERNAL__VAR_0                                                      #    25/31
+JUMP __INTERNAL__FILE_END                                                       #    26/31
+# MAIN END                                                                      #    28/31
+# PROGRAM END                                                                   #    30/31
+LABEL __INTERNAL__FILE_END                                                      #    31/31

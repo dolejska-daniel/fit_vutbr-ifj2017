@@ -1,0 +1,91 @@
+# 2017-12-04 17:23:10.838648
+# SECTION: 03_statements
+# TEST: 010
+# INFO: Empty condition
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 10 with following arguments:
+# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Arg1: Const@=10(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 13 with following arguments:
+# Arg1: Const@=15(int)
+# Dest: Stack@()
+# Executing instruction: ILSS at line: 14 with following arguments:
+# Arg1: Stack@=10(int)
+# Arg2: Stack@=15(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 15 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 16 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IJUMP at line: 18 with following arguments:
+# Executing instruction: ILABEL at line: 22 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 23 with following arguments:
+# Executing instruction: IJUMP at line: 25 with following arguments:
+# Executing instruction: ILABEL at line: 30 with following arguments:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 42 (23+19)
+# 
+#   1: scope 
+#   2:  if 10 < 15 then 
+#   3:  else 
+#   4:  end if 
+#   5:  end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/30
+JUMP main                                                                       #     2/30
+# MAIN                                                                          #     4/30
+LABEL main                                                                      #     5/30
+CREATEFRAME                                                                     #     6/30
+PUSHFRAME                                                                       #     7/30
+CREATEFRAME                                                                     #     8/30
+# IF BLOCK                                                                      #     9/30
+CREATEFRAME                                                                     #    10/30
+# IF                                                                            #    11/30
+PUSHS int@10                                                                    #    12/30
+PUSHS int@15                                                                    #    13/30
+LTS                                                                             #    14/30
+PUSHS bool@true                                                                 #    15/30
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    16/30
+# THEN                                                                          #    17/30
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    18/30
+LABEL __INTERNAL__COND_0_END                                                    #    19/30
+# ELSE                                                                          #    20/30
+# END IF                                                                        #    21/30
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    22/30
+CREATEFRAME                                                                     #    23/30
+# END IF BLOCK                                                                  #    24/30
+JUMP __INTERNAL__FILE_END                                                       #    25/30
+# MAIN END                                                                      #    27/30
+# PROGRAM END                                                                   #    29/30
+LABEL __INTERNAL__FILE_END                                                      #    30/30

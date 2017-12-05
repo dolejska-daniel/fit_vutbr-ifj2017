@@ -1,0 +1,69 @@
+# 2017-12-04 17:23:09.690595
+# SECTION: 02_functions
+# TEST: 05
+# INFO: function params with declaration
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 17 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 18 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 19 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 20 with following arguments:
+# Executing instruction: IJUMP at line: 21 with following arguments:
+# Executing instruction: ILABEL at line: 26 with following arguments:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 10 (10+0)
+# 
+#   1: ' function params with declaration
+#   2: declare function bar(h as string, t as integer) as string
+#   3: 
+#   4: function bar(b as string, c as integer) as string
+#   5: end function 
+#   6: 
+#   7: scope
+#   8: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/26
+JUMP main                                                                       #     2/26
+# FUNCTION                                                                      #     4/26
+LABEL bar                                                                       #     5/26
+PUSHFRAME                                                                       #     6/26
+CREATEFRAME                                                                     #     7/26
+DEFVAR LF@b                                                                     #     8/26
+MOVE LF@b LF@h                                                                  #     9/26
+DEFVAR LF@c                                                                     #    10/26
+MOVE LF@c LF@t                                                                  #    11/26
+PUSHS string@                                                                   #    12/26
+RETURN                                                                          #    13/26
+# END FUNCTION                                                                  #    14/26
+# MAIN                                                                          #    16/26
+LABEL main                                                                      #    17/26
+CREATEFRAME                                                                     #    18/26
+PUSHFRAME                                                                       #    19/26
+CREATEFRAME                                                                     #    20/26
+JUMP __INTERNAL__FILE_END                                                       #    21/26
+# MAIN END                                                                      #    23/26
+# PROGRAM END                                                                   #    25/26
+LABEL __INTERNAL__FILE_END                                                      #    26/26

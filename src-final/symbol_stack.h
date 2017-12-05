@@ -49,6 +49,8 @@ int SymbolStack_pop(SymbolStackPtr s);
 
 SymbolPtr SymbolStack_top(SymbolStackPtr s);
 
+SymbolPtr SymbolStack_afterTop(SymbolStackPtr s);
+
 bool SymbolStack_isEmpty(SymbolStackPtr s);
 
 bool SymbolStack_isFull(SymbolStackPtr s);

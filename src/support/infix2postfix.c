@@ -165,11 +165,11 @@ int getTokenPriority(TokenPtr token)
             return 8;
 
         case BACK_SLASH:
-            return 6;
+            return 7;
 
         case PLUS:
         case MINUS:
-            return 4;
+            return 6;
 
         //-------------------------------------------------d-d-
         //  Logické
@@ -180,11 +180,14 @@ int getTokenPriority(TokenPtr token)
         case GT:    //  greater than
         case GTEQ:  //  greater than or equal
         case EQ:    //  equal
+            return 4;
+
+        case NOT:
             return 2;
 
         case AND:
         case OR:
-        case NOT: //    TODO: NOT bude pravděpodobně potřebovat vyšší prioritu
+        //case NOT:
             return 1;
 
         //-------------------------------------------------d-d-
@@ -218,8 +221,13 @@ int infix2postfix_init(TokenStackPtr *s, PostfixListPtr *postfixList)
     return NO_ERROR;
 }
 
-int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, TokenPtr token, SymbolPtr symbol)
+int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, TokenPtr token, SymbolPtr symbol, void *info)
 {
+    DEBUG_LOG("inf2post-addOperand", "received");
+    Token_debugPrint(token);
+    Symbol_debugPrint(symbol);
+    DEBUG_PRINT("info: (%p)\n", info);
+
     if (token == NULL)
     {
         DEBUG_ERR("inf2post-addOperand", "token is NULL!");
@@ -228,20 +236,23 @@ int infix2postfix_addOperand(TokenStackPtr *s, PostfixListPtr *postfixList, Toke
 
     if (token->type == IDENTIFIER || Token_isConstant(token))
     {
+        DEBUG_LOG("inf2post-addOperand", "adding identifier or constant to postfix list");
         //  Operand je proměnnou
         if (symbol == NULL)
         {
             DEBUG_ERR("inf2post-addOperand", "token type is IDENTIFIER or CONSTANT, but symbol is NULL!");
             return INTERNAL_ERROR;
         }
-        return PostfixList_insertSymbol(*postfixList, symbol);
+        return PostfixList_insertSymbol(*postfixList, symbol, info);
     }
     else
     {
         if (Token_isOperator(token))
         {
+            DEBUG_LOG("inf2post-addOperand", "processing operator, calling doOperation");
             //	Znak je operátorem
             return doOperation(*s, *postfixList, token);
+            DEBUG_LOG("inf2post-addOperand", "return from doOperation");
         }
         else
         {

@@ -1,0 +1,174 @@
+# 2017-12-04 17:23:11.140450
+# SECTION: 04_expressions
+# TEST: 07
+# INFO: multiple operations with different priorities II
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 12 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: LF@a=0(int)
+# Executing instruction: ICLEARS at line: 13 with following arguments:
+# Executing instruction: IDEFVAR at line: 14 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 15 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@b()
+# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Arg1: Const@=16(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 17 with following arguments:
+# Arg1: Stack@=16(int)
+# Dest: LF@b=0(int)
+# Executing instruction: ICLEARS at line: 18 with following arguments:
+# Executing instruction: IPUSHS at line: 19 with following arguments:
+# Arg1: LF@b=16(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 20 with following arguments:
+# Arg1: Stack@=16(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 22 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IDIVS at line: 23 with following arguments:
+# Arg1: Stack@=16(double)
+# Arg2: Stack@=2(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 24 with following arguments:
+# Arg1: LF@a=2(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 25 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 26 with following arguments:
+# Arg1: Stack@=8(double)
+# Arg2: Stack@=2(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: LF@b=16(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 28 with following arguments:
+# Arg1: Stack@=16(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 29 with following arguments:
+# Arg1: Stack@=10(double)
+# Arg2: Stack@=16(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 30 with following arguments:
+# Arg1: Const@=100(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 31 with following arguments:
+# Arg1: Stack@=100(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 32 with following arguments:
+# Arg1: Stack@=-6(double)
+# Arg2: Stack@=100(double)
+# Dest: Stack@()
+# Executing instruction: IFLOAT2INTS at line: 33 with following arguments:
+# Arg1: Stack@=94(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 34 with following arguments:
+# Arg1: Stack@=94(int)
+# Dest: LF@a=2(int)
+# Executing instruction: ICLEARS at line: 35 with following arguments:
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: LF@a=94(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 37 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 38 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 39 with following arguments:
+# Arg1: Stack@=94(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 40 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=94(int)
+# Executing instruction: IJUMP at line: 41 with following arguments:
+# Executing instruction: ILABEL at line: 46 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 170 (56+114)
+# 
+#   1: ' multiple operations with different priorities II
+#   2: scope
+#   3:     dim a as integer = 2
+#   4:     dim b as integer = 16
+#   5:     a = b / a + a - b + 100
+#   6:     print a;
+#   7: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/46
+JUMP main                                                                       #     2/46
+# MAIN                                                                          #     4/46
+LABEL main                                                                      #     5/46
+CREATEFRAME                                                                     #     6/46
+PUSHFRAME                                                                       #     7/46
+CREATEFRAME                                                                     #     8/46
+DEFVAR LF@a                                                                     #     9/46
+MOVE LF@a int@0                                                                 #    10/46
+PUSHS int@2                                                                     #    11/46
+POPS LF@a                                                                       #    12/46
+CLEARS                                                                          #    13/46
+DEFVAR LF@b                                                                     #    14/46
+MOVE LF@b int@0                                                                 #    15/46
+PUSHS int@16                                                                    #    16/46
+POPS LF@b                                                                       #    17/46
+CLEARS                                                                          #    18/46
+PUSHS LF@b                                                                      #    19/46
+INT2FLOATS                                                                      #    20/46
+PUSHS LF@a                                                                      #    21/46
+INT2FLOATS                                                                      #    22/46
+DIVS                                                                            #    23/46
+PUSHS LF@a                                                                      #    24/46
+INT2FLOATS                                                                      #    25/46
+ADDS                                                                            #    26/46
+PUSHS LF@b                                                                      #    27/46
+INT2FLOATS                                                                      #    28/46
+SUBS                                                                            #    29/46
+PUSHS int@100                                                                   #    30/46
+INT2FLOATS                                                                      #    31/46
+ADDS                                                                            #    32/46
+FLOAT2INTS                                                                      #    33/46
+POPS LF@a                                                                       #    34/46
+CLEARS                                                                          #    35/46
+PUSHS LF@a                                                                      #    36/46
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    37/46
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    38/46
+POPS TF@__INTERNAL__VAR_0                                                       #    39/46
+WRITE TF@__INTERNAL__VAR_0                                                      #    40/46
+JUMP __INTERNAL__FILE_END                                                       #    41/46
+# MAIN END                                                                      #    43/46
+# PROGRAM END                                                                   #    45/46
+LABEL __INTERNAL__FILE_END                                                      #    46/46

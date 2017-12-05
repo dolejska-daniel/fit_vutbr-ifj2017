@@ -1,0 +1,44 @@
+# 2017-12-04 17:23:10.761944
+# SECTION: 03_statements
+# TEST: 08
+# INFO: multiple main scopes
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 2
+# CURRENT COMPILER EXIT CODE: 2
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' multiple main scopes
+#   2: 
+#   3: scope
+#   4: 
+#   5: end scope
+#   6: 
+#   7: 
+#   8: scope
+#   9: 
+#  10: end scope
+#  11: 
+
+########################################
+
+# ---

@@ -1,0 +1,105 @@
+# 2017-12-04 17:23:08.894479
+# SECTION: 01_basic
+# TEST: 17
+# INFO: Add two inputs
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: IDEFVAR at line: 11 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 12 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@b()
+# Executing instruction: IREAD at line: 13 with following arguments:
+# Dest: LF@a=0(int)
+# Executing instruction: IREAD at line: 14 with following arguments:
+# Dest: LF@b=0(int)
+# Executing instruction: IPUSHS at line: 15 with following arguments:
+# Arg1: LF@a=42(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Arg1: LF@b=24(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 17 with following arguments:
+# Arg1: Stack@=42(int)
+# Arg2: Stack@=24(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 18 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 19 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 20 with following arguments:
+# Arg1: Stack@=66(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 21 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=66(int)
+# Executing instruction: IJUMP at line: 22 with following arguments:
+# Executing instruction: ILABEL at line: 27 with following arguments:
+# 
+# STDOUT DIFF:
+# --- expected
+# +++ actual
+# @@ -1 +1 @@
+
+# -? ?  66
+# + 66
+
+# INTERPRETER STDIN: 
+# 42
+# 24
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: ---
+# 
+#   1: scope 
+#   2:  dim a as integer 
+#   3:  dim b as integer 
+#   4:  input a 
+#   5:  input b 
+#   6:  print a + b; 
+#   7: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/27
+JUMP main                                                                       #     2/27
+# MAIN                                                                          #     4/27
+LABEL main                                                                      #     5/27
+CREATEFRAME                                                                     #     6/27
+PUSHFRAME                                                                       #     7/27
+CREATEFRAME                                                                     #     8/27
+DEFVAR LF@a                                                                     #     9/27
+MOVE LF@a int@0                                                                 #    10/27
+DEFVAR LF@b                                                                     #    11/27
+MOVE LF@b int@0                                                                 #    12/27
+READ LF@a int                                                                   #    13/27
+READ LF@b int                                                                   #    14/27
+PUSHS LF@a                                                                      #    15/27
+PUSHS LF@b                                                                      #    16/27
+ADDS                                                                            #    17/27
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    18/27
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    19/27
+POPS TF@__INTERNAL__VAR_0                                                       #    20/27
+WRITE TF@__INTERNAL__VAR_0                                                      #    21/27
+JUMP __INTERNAL__FILE_END                                                       #    22/27
+# MAIN END                                                                      #    24/27
+# PROGRAM END                                                                   #    26/27
+LABEL __INTERNAL__FILE_END                                                      #    27/27

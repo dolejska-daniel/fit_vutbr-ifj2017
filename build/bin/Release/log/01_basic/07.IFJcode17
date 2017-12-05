@@ -1,0 +1,74 @@
+# 2017-12-04 17:23:08.601198
+# SECTION: 01_basic
+# TEST: 07
+# INFO: Empty string
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 12 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: LF@a=(string)
+# Executing instruction: ICLEARS at line: 13 with following arguments:
+# Executing instruction: IJUMP at line: 14 with following arguments:
+# Executing instruction: ILABEL at line: 19 with following arguments:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 26 (16+10)
+# 
+#   1: ' Empty string
+#   2: 
+#   3: scope
+#   4: 
+#   5: 	dim a as string = !""
+#   6: 
+#   7: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/19
+JUMP main                                                                       #     2/19
+# MAIN                                                                          #     4/19
+LABEL main                                                                      #     5/19
+CREATEFRAME                                                                     #     6/19
+PUSHFRAME                                                                       #     7/19
+CREATEFRAME                                                                     #     8/19
+DEFVAR LF@a                                                                     #     9/19
+MOVE LF@a string@                                                               #    10/19
+PUSHS string@                                                                   #    11/19
+POPS LF@a                                                                       #    12/19
+CLEARS                                                                          #    13/19
+JUMP __INTERNAL__FILE_END                                                       #    14/19
+# MAIN END                                                                      #    16/19
+# PROGRAM END                                                                   #    18/19
+LABEL __INTERNAL__FILE_END                                                      #    19/19

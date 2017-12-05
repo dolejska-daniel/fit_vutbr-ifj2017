@@ -1,0 +1,40 @@
+# 2017-12-04 17:23:10.652152
+# SECTION: 03_statements
+# TEST: 03
+# INFO: basic constant assigment with invalid types I
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 4
+# CURRENT COMPILER EXIT CODE: 4
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' basic constant assigment with invalid types I
+#   2: scope
+#   3: 
+#   4: dim b as integer
+#   5: b = !"foo"
+#   6: 
+#   7: end scope
+
+########################################
+
+# ---

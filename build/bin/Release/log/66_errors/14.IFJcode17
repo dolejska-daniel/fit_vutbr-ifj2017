@@ -1,0 +1,42 @@
+# 2017-12-04 17:23:14.596139
+# SECTION: 66_errors
+# TEST: 14
+# INFO: unfinished multi line comment
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 1
+# CURRENT COMPILER EXIT CODE: 2
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' unfinished multi line comment
+#   2: 
+#   3: SCOPE
+#   4: 
+#   5: /' Toto je komentář
+#   6: 
+#   7: print 42;
+#   8: 
+#   9: END SCOPE
+
+########################################
+
+# ---

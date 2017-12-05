@@ -1,0 +1,429 @@
+# 2017-12-04 17:23:13.720310
+# SECTION: 08_booleans
+# TEST: 03
+# INFO: assignment of boolean expressions
+# REQUIRED EXTENSIONS: BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=42(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 12 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 13 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Arg1: Const@=3(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 15 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=3(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 16 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=6(int)
+# Dest: Stack@()
+# Executing instruction: IGTS at line: 17 with following arguments:
+# Arg1: Stack@=42(int)
+# Arg2: Stack@=7(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 18 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IANDS at line: 19 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 20 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: LF@a=false(bool)
+# Executing instruction: ICLEARS at line: 21 with following arguments:
+# Executing instruction: IDEFVAR at line: 22 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 23 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: LF@b()
+# Executing instruction: IDEFVAR at line: 24 with following arguments:
+# Dest: LF@c
+# Executing instruction: IMOVE at line: 25 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: LF@c()
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 27 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 28 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 30 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 31 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 32 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 33 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 35 with following arguments:
+# Arg1: Stack@=1(int)
+# Arg2: Stack@=1(int)
+# Dest: Stack@()
+# Executing instruction: INOTS at line: 36 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 37 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 38 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 39 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 40 with following arguments:
+# Arg1: Stack@=false(bool)
+# Dest: LF@c=false(bool)
+# Executing instruction: ICLEARS at line: 41 with following arguments:
+# Executing instruction: IPUSHS at line: 42 with following arguments:
+# Arg1: LF@a=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 43 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 44 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 45 with following arguments:
+# Arg1: Const@=36(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 46 with following arguments:
+# Arg1: Const@=4(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 47 with following arguments:
+# Arg1: Const@=3(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: Const@=12(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 49 with following arguments:
+# Arg1: Stack@=3(int)
+# Arg2: Stack@=12(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 50 with following arguments:
+# Arg1: Stack@=4(int)
+# Arg2: Stack@=36(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 51 with following arguments:
+# Arg1: Const@=4(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 52 with following arguments:
+# Arg1: Stack@=40(int)
+# Arg2: Stack@=4(int)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 53 with following arguments:
+# Arg1: Stack@=36(int)
+# Arg2: Stack@=36(int)
+# Dest: Stack@()
+# Executing instruction: IANDS at line: 54 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 55 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 56 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 57 with following arguments:
+# Arg1: Stack@=2(int)
+# Arg2: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 58 with following arguments:
+# Arg1: Const@=4(int)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 59 with following arguments:
+# Arg1: Stack@=4(int)
+# Arg2: Stack@=4(int)
+# Dest: Stack@()
+# Executing instruction: IANDS at line: 60 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 61 with following arguments:
+# Arg1: LF@c=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 62 with following arguments:
+# Arg1: Const@=4(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 63 with following arguments:
+# Arg1: Const@=8(int)
+# Dest: Stack@()
+# Executing instruction: IMULTS at line: 64 with following arguments:
+# Arg1: Stack@=4(int)
+# Arg2: Stack@=8(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 65 with following arguments:
+# Arg1: Const@=13(int)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 66 with following arguments:
+# Arg1: Stack@=32(int)
+# Arg2: Stack@=13(int)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 67 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: INOTS at line: 68 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: INOTS at line: 69 with following arguments:
+# Arg1: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IANDS at line: 70 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 71 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: LF@a=true(bool)
+# Executing instruction: ICLEARS at line: 72 with following arguments:
+# Executing instruction: IPUSHS at line: 73 with following arguments:
+# Arg1: LF@c=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 74 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 75 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 76 with following arguments:
+# Arg1: LF@c=false(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 77 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IEQS at line: 78 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: INOTS at line: 79 with following arguments:
+# Arg1: Stack@=false(bool)
+# Dest: Stack@()
+# Executing instruction: IORS at line: 80 with following arguments:
+# Arg1: Stack@=false(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 81 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: LF@b=false(bool)
+# Executing instruction: ICLEARS at line: 82 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 84 with following arguments:
+# Executing instruction: IPUSHS at line: 86 with following arguments:
+# Arg1: LF@a=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 87 with following arguments:
+# Arg1: LF@b=true(bool)
+# Dest: Stack@()
+# Executing instruction: IANDS at line: 88 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 89 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 90 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 92 with following arguments:
+# Arg1: Const@=1(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 93 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 94 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 95 with following arguments:
+# Arg1: Stack@=1(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 96 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=1(int)
+# Executing instruction: IJUMP at line: 97 with following arguments:
+# Executing instruction: ILABEL at line: 106 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 107 with following arguments:
+# Executing instruction: IJUMP at line: 109 with following arguments:
+# Executing instruction: ILABEL at line: 114 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 505 (169+336)
+# 
+#   1: ' assignment of boolean expressions
+#   2: scope
+#   3: 	dim a as boolean = 42 > (1 + 2 * 3) and true
+#   4: 	dim b as boolean 
+#   5: 	dim c as boolean = 1 = 2 or True = False or 1 <> 1 or False
+#   6: 
+#   7: 	a = a = True and 36 = (4 + 3 * 12 - 4) and 2 + 2 = 4 and not (c <> (4 * 8 = 13))
+#   8: 	b = c = True or c <> True
+#   9: 	if a and b then
+#  10: 		print 1;
+#  11: 	else
+#  12: 		print 0;
+#  13: 	end if
+#  14: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/114
+JUMP main                                                                       #     2/114
+# MAIN                                                                          #     4/114
+LABEL main                                                                      #     5/114
+CREATEFRAME                                                                     #     6/114
+PUSHFRAME                                                                       #     7/114
+CREATEFRAME                                                                     #     8/114
+DEFVAR LF@a                                                                     #     9/114
+MOVE LF@a bool@false                                                            #    10/114
+PUSHS int@42                                                                    #    11/114
+PUSHS int@1                                                                     #    12/114
+PUSHS int@2                                                                     #    13/114
+PUSHS int@3                                                                     #    14/114
+MULS                                                                            #    15/114
+ADDS                                                                            #    16/114
+GTS                                                                             #    17/114
+PUSHS bool@true                                                                 #    18/114
+ANDS                                                                            #    19/114
+POPS LF@a                                                                       #    20/114
+CLEARS                                                                          #    21/114
+DEFVAR LF@b                                                                     #    22/114
+MOVE LF@b bool@false                                                            #    23/114
+DEFVAR LF@c                                                                     #    24/114
+MOVE LF@c bool@false                                                            #    25/114
+PUSHS int@1                                                                     #    26/114
+PUSHS int@2                                                                     #    27/114
+EQS                                                                             #    28/114
+PUSHS bool@true                                                                 #    29/114
+PUSHS bool@false                                                                #    30/114
+EQS                                                                             #    31/114
+ORS                                                                             #    32/114
+PUSHS int@1                                                                     #    33/114
+PUSHS int@1                                                                     #    34/114
+EQS                                                                             #    35/114
+NOTS                                                                            #    36/114
+ORS                                                                             #    37/114
+PUSHS bool@false                                                                #    38/114
+ORS                                                                             #    39/114
+POPS LF@c                                                                       #    40/114
+CLEARS                                                                          #    41/114
+PUSHS LF@a                                                                      #    42/114
+PUSHS bool@true                                                                 #    43/114
+EQS                                                                             #    44/114
+PUSHS int@36                                                                    #    45/114
+PUSHS int@4                                                                     #    46/114
+PUSHS int@3                                                                     #    47/114
+PUSHS int@12                                                                    #    48/114
+MULS                                                                            #    49/114
+ADDS                                                                            #    50/114
+PUSHS int@4                                                                     #    51/114
+SUBS                                                                            #    52/114
+EQS                                                                             #    53/114
+ANDS                                                                            #    54/114
+PUSHS int@2                                                                     #    55/114
+PUSHS int@2                                                                     #    56/114
+ADDS                                                                            #    57/114
+PUSHS int@4                                                                     #    58/114
+EQS                                                                             #    59/114
+ANDS                                                                            #    60/114
+PUSHS LF@c                                                                      #    61/114
+PUSHS int@4                                                                     #    62/114
+PUSHS int@8                                                                     #    63/114
+MULS                                                                            #    64/114
+PUSHS int@13                                                                    #    65/114
+EQS                                                                             #    66/114
+EQS                                                                             #    67/114
+NOTS                                                                            #    68/114
+NOTS                                                                            #    69/114
+ANDS                                                                            #    70/114
+POPS LF@a                                                                       #    71/114
+CLEARS                                                                          #    72/114
+PUSHS LF@c                                                                      #    73/114
+PUSHS bool@true                                                                 #    74/114
+EQS                                                                             #    75/114
+PUSHS LF@c                                                                      #    76/114
+PUSHS bool@true                                                                 #    77/114
+EQS                                                                             #    78/114
+NOTS                                                                            #    79/114
+ORS                                                                             #    80/114
+POPS LF@b                                                                       #    81/114
+CLEARS                                                                          #    82/114
+# IF BLOCK                                                                      #    83/114
+CREATEFRAME                                                                     #    84/114
+# IF                                                                            #    85/114
+PUSHS LF@a                                                                      #    86/114
+PUSHS LF@b                                                                      #    87/114
+ANDS                                                                            #    88/114
+PUSHS bool@true                                                                 #    89/114
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    90/114
+# THEN                                                                          #    91/114
+PUSHS int@1                                                                     #    92/114
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    93/114
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    94/114
+POPS TF@__INTERNAL__VAR_0                                                       #    95/114
+WRITE TF@__INTERNAL__VAR_0                                                      #    96/114
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    97/114
+LABEL __INTERNAL__COND_0_END                                                    #    98/114
+# ELSE                                                                          #    99/114
+PUSHS int@0                                                                     #   100/114
+DEFVAR TF@__INTERNAL__VAR_0                                                     #   101/114
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #   102/114
+POPS TF@__INTERNAL__VAR_0                                                       #   103/114
+WRITE TF@__INTERNAL__VAR_0                                                      #   104/114
+# END IF                                                                        #   105/114
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #   106/114
+CREATEFRAME                                                                     #   107/114
+# END IF BLOCK                                                                  #   108/114
+JUMP __INTERNAL__FILE_END                                                       #   109/114
+# MAIN END                                                                      #   111/114
+# PROGRAM END                                                                   #   113/114
+LABEL __INTERNAL__FILE_END                                                      #   114/114

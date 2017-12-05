@@ -1,0 +1,170 @@
+# 2017-12-04 17:23:09.874083
+# SECTION: 02_functions
+# TEST: 11
+# INFO: Function call function
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 37 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 38 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 39 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 40 with following arguments:
+# Executing instruction: IDEFVAR at line: 41 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 42 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@b()
+# Executing instruction: ICREATEFRAME at line: 43 with following arguments:
+# Executing instruction: ICALL at line: 44 with following arguments:
+# Executing instruction: ILABEL at line: 15 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 16 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 17 with following arguments:
+# Executing instruction: IDEFVAR at line: 18 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 19 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: ICREATEFRAME at line: 20 with following arguments:
+# Executing instruction: ICALL at line: 21 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 6 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Arg1: Const@=42(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 9 with following arguments:
+# Executing instruction: IPOPFRAME at line: 22 with following arguments:
+# Executing instruction: IPOPS at line: 23 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: LF@a=0(int)
+# Executing instruction: ICLEARS at line: 24 with following arguments:
+# Executing instruction: IPUSHS at line: 25 with following arguments:
+# Arg1: LF@a=42(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: LF@a=42(int)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 27 with following arguments:
+# Arg1: Stack@=42(int)
+# Arg2: Stack@=42(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 28 with following arguments:
+# Arg1: Stack@=84(int)
+# Dest: LF@a=42(int)
+# Executing instruction: ICLEARS at line: 29 with following arguments:
+# Executing instruction: IPUSHS at line: 30 with following arguments:
+# Arg1: LF@a=84(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 31 with following arguments:
+# Executing instruction: IPOPFRAME at line: 45 with following arguments:
+# Executing instruction: IPOPS at line: 46 with following arguments:
+# Arg1: Stack@=84(int)
+# Dest: LF@b=0(int)
+# Executing instruction: ICLEARS at line: 47 with following arguments:
+# Executing instruction: IPUSHS at line: 48 with following arguments:
+# Arg1: LF@b=84(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 49 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 50 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 51 with following arguments:
+# Arg1: Stack@=84(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 52 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=84(int)
+# Executing instruction: IJUMP at line: 53 with following arguments:
+# Executing instruction: ILABEL at line: 58 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 134 (74+60)
+# 
+#   1: ' Function call function
+#   2: 
+#   3: function GHGKghgk55() as integer
+#   4: 	return 42
+#   5: end function
+#   6: 
+#   7: function GHGKghgk67() as integer
+#   8: 	dim a as integer
+#   9: 	a = GHGKghgk55()
+#  10: 	a = a + a
+#  11: 	return a
+#  12: end function
+#  13: 
+#  14: scope
+#  15: 	dim b as integer
+#  16: 	b = GHGKghgk67()
+#  17: 	print b;
+#  18: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/58
+JUMP main                                                                       #     2/58
+# FUNCTION                                                                      #     4/58
+LABEL ghgkghgk55                                                                #     5/58
+PUSHFRAME                                                                       #     6/58
+CREATEFRAME                                                                     #     7/58
+PUSHS int@42                                                                    #     8/58
+RETURN                                                                          #     9/58
+PUSHS int@0                                                                     #    10/58
+RETURN                                                                          #    11/58
+# END FUNCTION                                                                  #    12/58
+# FUNCTION                                                                      #    14/58
+LABEL ghgkghgk67                                                                #    15/58
+PUSHFRAME                                                                       #    16/58
+CREATEFRAME                                                                     #    17/58
+DEFVAR LF@a                                                                     #    18/58
+MOVE LF@a int@0                                                                 #    19/58
+CREATEFRAME                                                                     #    20/58
+CALL ghgkghgk55                                                                 #    21/58
+POPFRAME                                                                        #    22/58
+POPS LF@a                                                                       #    23/58
+CLEARS                                                                          #    24/58
+PUSHS LF@a                                                                      #    25/58
+PUSHS LF@a                                                                      #    26/58
+ADDS                                                                            #    27/58
+POPS LF@a                                                                       #    28/58
+CLEARS                                                                          #    29/58
+PUSHS LF@a                                                                      #    30/58
+RETURN                                                                          #    31/58
+PUSHS int@0                                                                     #    32/58
+RETURN                                                                          #    33/58
+# END FUNCTION                                                                  #    34/58
+# MAIN                                                                          #    36/58
+LABEL main                                                                      #    37/58
+CREATEFRAME                                                                     #    38/58
+PUSHFRAME                                                                       #    39/58
+CREATEFRAME                                                                     #    40/58
+DEFVAR LF@b                                                                     #    41/58
+MOVE LF@b int@0                                                                 #    42/58
+CREATEFRAME                                                                     #    43/58
+CALL ghgkghgk67                                                                 #    44/58
+POPFRAME                                                                        #    45/58
+POPS LF@b                                                                       #    46/58
+CLEARS                                                                          #    47/58
+PUSHS LF@b                                                                      #    48/58
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    49/58
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    50/58
+POPS TF@__INTERNAL__VAR_0                                                       #    51/58
+WRITE TF@__INTERNAL__VAR_0                                                      #    52/58
+JUMP __INTERNAL__FILE_END                                                       #    53/58
+# MAIN END                                                                      #    55/58
+# PROGRAM END                                                                   #    57/58
+LABEL __INTERNAL__FILE_END                                                      #    58/58

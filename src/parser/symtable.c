@@ -13,15 +13,20 @@
 #include <string.h>
 #include <malloc.h>
 
-#include "symtable.h"
-
 #ifndef _symtable_c
 #define _symtable_c
 
+#include "symtable.h"
+#include "parser.h"
+
 #ifdef DEBUG_INCLUDE
+#include "../generator/generator.h"
+//#include "../generator/instruction_list.h"
 #include "../support/error_codes.h"
 #include "../support/strings.h"
 #else
+#include "generator.h"
+//#include "instruction_list.h"
 #include "error_codes.h"
 #include "strings.h"
 #endif
@@ -45,6 +50,7 @@
 #endif
 
 #define SYMBOL_TABLE_SIZE 100
+#define TEMPVAR_INTERNAL_NAME "__INTERNAL__VAR"
 
 //==================================================================d=d=
 //  DEKLARACE A DEFINICE ENUMERÁTORÙ A STRUKTUR
@@ -182,6 +188,124 @@ SymbolPtr SymbolTable_getByToken(SymbolTablePtr st, TokenPtr token)
 }
 
 /**
+ * Funkce získá symbol pro dočasnou proměnnou zvoleného typu. Pokud
+ * daná proměnná v tabulce symbolů ještě není, bude vytvořena.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ * @param[in]		InstructionListPtr	ilist   Ukazatel na existující list instrukcí
+ * @param[in]		SymbolType	        type    Typ symbolu
+ * @param[in]		unsigned	        id      Identifikátor symbolu
+ *
+ * @retval	SymbolPtr|NULL	Ukazatel na vyhledanou položku v tabulce
+ */
+SymbolPtr SymbolTable_getTempVar(SymbolTablePtr st, void *ilist, SymbolType type, unsigned id)
+{
+    char *source = "symtable-getTempVar";
+
+    //  Vytvoření názvu proměnné
+    DEBUG_LOG(source, "creating temp var name");
+    char tempvar_symbol_id[5];
+    snprintf(tempvar_symbol_id, 5, "%i", id);
+
+    char *name = String_concat(TEMPVAR_INTERNAL_NAME, tempvar_symbol_id, "_");
+    if (name == NULL)
+    {
+        DEBUG_ERR(source, "failed to create variable name");
+        return NULL;
+    }
+
+    DEBUG_LOG(source, "getting temp var");
+    SymbolPtr s = SymbolTable_get(st, name);
+    if (s == NULL)
+    {
+        //  Symbol nebyl v tabulce nalezen, bude vytvořen
+        DEBUG_LOG(source, "creating new temp var");
+        int result = SymbolTable_insert(st, name, type, TEMPORARY_FRAME, name, &s);
+        if (result != NO_ERROR)
+        {
+            DEBUG_ERR(source, "failed to insert symbol to table");
+            return NULL;
+        }
+
+        result = Instruction_defvar(ilist, s);
+        if (result != NO_ERROR)
+        {
+            DEBUG_ERR(source, "failed to create instruction");
+            return NULL;
+        }
+
+        char *instr;
+        if (type == ST_INTEGER)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "int@0", NULL, NULL);
+        }
+        else if (type == ST_DOUBLE)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "float@0.0", NULL, NULL);
+        }
+        else if (type == ST_BOOLEAN)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "bool@false", NULL, NULL);
+        }
+        else if (type == ST_STRING)
+        {
+            instr = String_printf("MOVE TF@%s %s", name, "string@", NULL, NULL);
+        }
+        result = Instruction_custom(ilist, instr);
+        if (result != NO_ERROR)
+        {
+            String_destroy(&instr);
+            return NULL;
+        }
+        String_destroy(&instr);
+
+        return s;
+    }
+    else
+    {
+        //  Symbol byl nalezen
+        s->type = type;
+        return s;
+    }
+}
+
+/**
+ * Funkce odstraní symbol pro dočasnou proměnnou z tabulky symbolů.
+ *
+ * Při dalším použití je tak program nucen ji znovu inicializovat.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ * @param[in]		unsigned	        id      Identifikátor symbolu
+ */
+void SymbolTable_deleteTempVar(SymbolTablePtr st, unsigned id)
+{
+    /*
+    char *source = "symtable-deleteTempVar";
+
+    //  Vytvoření názvu proměnné
+    DEBUG_LOG(source, "creating temp var name");
+    char tempvar_symbol_id[5];
+    snprintf(tempvar_symbol_id, 5, "%i", id);
+
+    char *name = String_concat(TEMPVAR_INTERNAL_NAME, tempvar_symbol_id, "_");
+    SymbolTable_delete(st, name);
+    */
+}
+
+/**
+ * Funkce odstraní symbol pro dočasnou proměnnou z tabulky symbolů.
+ *
+ * Při dalším použití je tak program nucen ji znovu inicializovat.
+ *
+ * @param[in,out]	SymbolTablePtr      st		Ukazatel na existující tabulku symbolů
+ */
+void SymbolTable_deleteTempVars(SymbolTablePtr st)
+{
+    SymbolTable_popFrame(st);
+    SymbolTable_pushFrame(st);
+}
+
+/**
  * Funkce vloží novou položku do dané tabulky s daným klíčem a hodnotou.
  *
  * @param[in,out]	SymbolTablePtr  st		    Ukazatel na existující tabulku symbolů
@@ -199,6 +323,8 @@ int SymbolTable_insert(SymbolTablePtr st, char *key, SymbolType type, SymbolLoca
 	SymbolPtr s = SymbolTable_get(st, key);
 	if (s != NULL)
     {
+        *symbol = s;
+
         //  Symbol s daným klíčem byl v tabulce již nalezen
         DEBUG_ERR("symtable-insert", "symbol with given name already exists");
         return SEMANTICAL_DEFINITION_ERROR;
@@ -231,13 +357,16 @@ int SymbolTable_insert(SymbolTablePtr st, char *key, SymbolType type, SymbolLoca
  */
 void SymbolTable_pushFrame(SymbolTablePtr st)
 {
+    DEBUG_LOG("symtable-pushFrame", "preparing to push frame");
+    SymbolTable_debugPrint(st);
+
     SymbolPtr s;
     for (int i = 0; i < SYMBOL_TABLE_SIZE; i++)
     {
         s = st->array[i];
         while (s != NULL)
         {
-            if (s->location == LOCAL_FRAME || s->location == TEMPORARY_FRAME)
+            if (s->location >= TEMPORARY_FRAME)
                 s->location++;
             s = s->next;
         }
@@ -438,8 +567,13 @@ void Symbol_destroy(SymbolPtr *s)
     if (symbol == NULL)
         return;
 
+        /*
     if (symbol->value != NULL)
         free(symbol->value);
+
+    if (symbol->value2 != NULL)
+        free(symbol->value2);*/
+        //  TODO: FIXME
 
     free(symbol);
     *s = NULL;
@@ -526,11 +660,18 @@ void SymbolInfo_Function_destroy(SymbolInfo_FunctionPtr *s)
 void SymbolInfo_Function_debugPrint(SymbolInfo_FunctionPtr s)
 {
     #ifdef DEBUG_PRINT_SYMBOLINFO
-    fprintf(stderr, "DEBUG | SymbolInfo_Function (%p): {\n", s);
-    fprintf(stderr, "\tdataType: %s,\n", SymbolType_toString(s->dataType));
-    fprintf(stderr, "\tisDef: %i,\n", s->isDefined);
-    SymbolInfo_Function_ParameterList_debugPrint(s->params);
-    fprintf(stderr, "}\n", s);
+    if (s == NULL)
+    {
+        fprintf(stderr, "DEBUG | SymbolInfo_Function (%p): NULL\n", s);
+    }
+    else
+    {
+        fprintf(stderr, "DEBUG | SymbolInfo_Function (%p): {\n", s);
+        fprintf(stderr, "\tdataType: %s,\n", SymbolType_toString(s->dataType));
+        fprintf(stderr, "\tisDef: %i,\n", s->isDefined);
+        SymbolInfo_Function_ParameterList_debugPrint(s->params);
+        fprintf(stderr, "}\n", s);
+    }
     #endif
 }
 
@@ -569,10 +710,17 @@ void SymbolInfo_Function_Parameter_destroy(SymbolInfo_Function_ParameterPtr *s)
 void SymbolInfo_Function_Parameter_debugPrint(SymbolInfo_Function_ParameterPtr s)
 {
     #ifdef DEBUG_PRINT_SYMBOLINFO
-    fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameter (%p): {\n", s);
-    fprintf(stderr, "\tdataType: %s (%i)\n", SymbolType_toString(s->dataType), s->dataType);
-    fprintf(stderr, "\tname: %s\n", s->name);
-    fprintf(stderr, "}\n");
+    if (s == NULL)
+    {
+        fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameter (%p): NULL\n", s);
+    }
+    else
+    {
+        fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameter (%p): {\n", s);
+        fprintf(stderr, "\tdataType: %s (%i)\n", SymbolType_toString(s->dataType), s->dataType);
+        fprintf(stderr, "\tname: %s\n", s->name);
+        fprintf(stderr, "}\n");
+    }
     #endif
 }
 
@@ -699,18 +847,25 @@ void SymbolInfo_Function_ParameterList_deleteFirst(SymbolInfo_Function_Parameter
 void SymbolInfo_Function_ParameterList_debugPrint(SymbolInfo_Function_ParameterListPtr l)
 {
     #ifdef DEBUG_PRINT_SYMBOLINFO
-    SymbolInfo_Function_ParameterPtr active = l->active;
-    SymbolInfo_Function_ParameterList_first(l);
-    fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameterList (%p): {\n", l);
-    fprintf(stderr, "\tactive: %p\n", l->active);
-    fprintf(stderr, "\tfirst: %p\n", l->first);
-    while (l->active != NULL)
+    if (l == NULL)
     {
-        SymbolInfo_Function_Parameter_debugPrint(SymbolInfo_Function_ParameterList_get(l));
-        SymbolInfo_Function_ParameterList_next(l);
+        fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameterList (%p): NULL\n", l);
     }
-    fprintf(stderr, "}\n");
-    l->active = active;
+    else
+    {
+        SymbolInfo_Function_ParameterPtr active = l->active;
+        SymbolInfo_Function_ParameterList_first(l);
+        fprintf(stderr, "DEBUG | SymbolInfo_FunctionParameterList (%p): {\n", l);
+        fprintf(stderr, "\tactive: %p\n", l->active);
+        fprintf(stderr, "\tfirst: %p\n", l->first);
+        while (l->active != NULL)
+        {
+            SymbolInfo_Function_Parameter_debugPrint(SymbolInfo_Function_ParameterList_get(l));
+            SymbolInfo_Function_ParameterList_next(l);
+        }
+        fprintf(stderr, "}\n");
+        l->active = active;
+    }
     #endif
 }
 
@@ -836,6 +991,7 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
         switch (type)
         {
             case ST_INTEGER:
+            case ST_DOUBLE:
                 return true;
             default:
                 return false;
@@ -872,7 +1028,7 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
                 return false;
         }
     }
-    else if (o->type == LT)
+    else if (o->type == LT || o->type == LTEQ)
     {
         //  Porovnání (less than)
         switch (type)
@@ -887,7 +1043,7 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
         }
 
     }
-    else if (o->type == GT)
+    else if (o->type == GT || o->type == GTEQ)
     {
         //  Porovnání (greater than)
         switch (type)
@@ -901,42 +1057,16 @@ bool SymbolType_isOperationOk(SymbolType type, TokenPtr o)
                 return false;
         }
     }
-    else if (o->type == AND)
+    else if (o->type == AND || o->type == OR || o->type == NOT)
     {
         //  Konjunkce
         switch (type)
         {
+            /*
             case ST_DOUBLE:
             case ST_INTEGER:
             case ST_STRING:
-            case ST_BOOLEAN:
-                return true;
-            default:
-                return false;
-        }
-    }
-    else if (o->type == OR)
-    {
-        //  Disjunkce
-        switch (type)
-        {
-            case ST_DOUBLE:
-            case ST_INTEGER:
-            case ST_STRING:
-            case ST_BOOLEAN:
-                return true;
-            default:
-                return false;
-        }
-    }
-    else if (o->type == NOT)
-    {
-        //  Negace
-        switch (type)
-        {
-            case ST_DOUBLE:
-            case ST_INTEGER:
-            case ST_STRING:
+            */
             case ST_BOOLEAN:
                 return true;
             default:
@@ -966,7 +1096,7 @@ bool SymbolType_canBeConvertedTo(SymbolType source, SymbolType target)
     }
 }
 
-bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, SymbolType *dataType)
+bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2, TokenType op, SymbolType *dataType)
 {
     //  Implicitně ponecháme stejný datový typ
     *dataType = operator1;
@@ -974,7 +1104,7 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
     if (operator1 == ST_INTEGER)
     {
         //  První operátor je celé číslo
-        if (operator2 == ST_DOUBLE)
+        if (operator2 == ST_DOUBLE || op == BACK_SLASH || op == SLASH)
         {
             //  INT + DOUBLE
             //  =
@@ -982,11 +1112,9 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
             *dataType = ST_DOUBLE;
             return true;
         }
-        else
-        {
-            //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
-            return false;
-        }
+
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
     }
     else if (operator1 == ST_DOUBLE)
     {
@@ -1000,32 +1128,30 @@ bool SymbolType_hasToConvertOperator1(SymbolType operator1, SymbolType operator2
     }
 }
 
-bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, SymbolType *dataType)
+bool SymbolType_hasToConvertOperator2(SymbolType operator1, SymbolType operator2, TokenType op, SymbolType *dataType)
 {
     //  Implicitně ponecháme stejný datový typ
     *dataType = operator2;
 
-    if (operator1 == ST_INTEGER)
-    {
-        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
-        return false;
-    }
-    else if (operator1 == ST_DOUBLE)
+    if (operator2 == ST_INTEGER)
     {
         //  První operátor je celé číslo
-        if (operator2 == ST_INTEGER)
+        if (operator1 == ST_DOUBLE || op == BACK_SLASH || op == SLASH)
         {
-            //  DOUBLE + INT
+            //  INT + DOUBLE
             //  =
             //  DOUBLE + DOUBLE
             *dataType = ST_DOUBLE;
             return true;
         }
-        else
-        {
-            //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
-            return false;
-        }
+
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
+    }
+    else if (operator2 == ST_DOUBLE)
+    {
+        //  Jedná se buď o neplatnou kombinaci datových typů, nebo není třeba konverze
+        return false;
     }
     else
     {

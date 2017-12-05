@@ -1,0 +1,100 @@
+# 2017-12-04 17:23:08.934585
+# SECTION: 01_basic
+# TEST: 18
+# INFO: too many fuck off whitespaces
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=4(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 12 with following arguments:
+# Arg1: Stack@=4(int)
+# Dest: LF@a=0(int)
+# Executing instruction: ICLEARS at line: 13 with following arguments:
+# Executing instruction: IPUSHS at line: 14 with following arguments:
+# Arg1: LF@a=4(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 15 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 16 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 17 with following arguments:
+# Arg1: Stack@=4(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 18 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=4(int)
+# Executing instruction: IJUMP at line: 19 with following arguments:
+# Executing instruction: ILABEL at line: 24 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 51 (24+27)
+# 
+#   1: ' too many fuck off whitespaces
+#   2: 
+#   3: 		  SCOPE
+#   4: 
+#   5: 
+#   6: 
+#   7: 
+#   8: 		      dim 		a as            integer
+#   9: 
+#  10: 
+#  11: 
+#  12: 		  a =                                                    4
+#  13: 
+#  14: 
+#  15: 
+#  16: 
+#  17: 
+#  18: 		  print a;
+#  19: 
+#  20:   	END  SCOPE
+
+########################################
+
+.IFJcode17                                                                      #     1/24
+JUMP main                                                                       #     2/24
+# MAIN                                                                          #     4/24
+LABEL main                                                                      #     5/24
+CREATEFRAME                                                                     #     6/24
+PUSHFRAME                                                                       #     7/24
+CREATEFRAME                                                                     #     8/24
+DEFVAR LF@a                                                                     #     9/24
+MOVE LF@a int@0                                                                 #    10/24
+PUSHS int@4                                                                     #    11/24
+POPS LF@a                                                                       #    12/24
+CLEARS                                                                          #    13/24
+PUSHS LF@a                                                                      #    14/24
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    15/24
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    16/24
+POPS TF@__INTERNAL__VAR_0                                                       #    17/24
+WRITE TF@__INTERNAL__VAR_0                                                      #    18/24
+JUMP __INTERNAL__FILE_END                                                       #    19/24
+# MAIN END                                                                      #    21/24
+# PROGRAM END                                                                   #    23/24
+LABEL __INTERNAL__FILE_END                                                      #    24/24

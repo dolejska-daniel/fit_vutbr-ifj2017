@@ -1,0 +1,196 @@
+01_basic:
+OK      05  (string escape sequences):  ▒ COMPILER EXIT CODE expected=0, returned=1
+OK      09  (use all data types):  ▒ COMPILER EXIT CODE expected=0, returned=1
+SKIP    10  (scope inside scope):  skipping, required extension(s) SCOPE is not activated.
+SKIP    11  (single scope without any statements):  skipping, required extension(s) SCOPE is not activated.
+OK      12  (print input): \u2713\u2713 ▒ STDOUT
+OK      13  (multi line string): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=51
+OK      16  (simple input and print): \u2713\u2713 ▒ STDOUT
+OK      17  (add two inputs): \u2713\u2713 ▒ STDOUT
+OK      21  (s▒▒ta▒ka): \u2713\u2713 ▒ STDOUT
+OK      22  (calculator):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK?     23  (big number of dims):  ▒ COMPILER TIMEOUT
+OK      26  (multilite print (from documentation)): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=51
+OK      27  (all data types):  ▒ COMPILER EXIT CODE expected=0, returned=1
+02_functions:
+        01  (asc value):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+        02  (chr function):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      04  (function params):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      05  (function params with declaration):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      06  (function params with declaration but invalid types):  ▒ COMPILER EXIT CODE expected=3, returned=2
+OK      07  (function params with declaration but invalid count):  ▒ COMPILER EXIT CODE expected=4, returned=2
+OK      08  (simple call function):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xbf in position 17193: ordinal not in range(128))
+        09  (call built-in feature length):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+        10  (call built-in features - combined):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      11  (function call function):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      12  (recursive function):  ▒ COMPILER EXIT CODE expected=0, returned=2
+        13  (calling multiple functions):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      14  (input in function):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      15  (function call function which have input):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xaa in position 24308: ordinal not in range(128))
+OK      16  (function call function which have input):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xad in position 21991: ordinal not in range(128))
+OK      18  (argument of function is call of function):  skipping, required extension(s) FUNEXP is not activated.
+OK      19  (argument of function is call of function and expr):  skipping, required extension(s) FUNEXP is not activated.
+OK      20  (argument = var with same name as parametr):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      21  (recursion of three functions):  ▒ COMPILER EXIT CODE expected=0, returned=2
+        22  (try to modify an argument passed by the value):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      23  (invalid types without supported implicit conversion i):  ▒ COMPILER EXIT CODE expected=4, returned=2
+OK      24  (invalid types without supported implicit conversion ii):  ▒ COMPILER EXIT CODE expected=4, returned=2
+OK?     25  (too many functions (test for symboltable)):  ▒ COMPILER TIMEOUT
+        006 (function integer implicit return):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+        007 (function double implicit return):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+        008 (function string implicit return):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+03_statements:
+OK?     05  (input statement): \u2713\u2713 ▒ STDOUT
+LEX     06  (print statement):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      07  (print statement without semicolon):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        08  (multiple main scopes):  ▒ COMPILER EXIT CODE expected=2, returned=0
+        011 (empty condition):  skipping, required extension(s) IFTHEN is not activated.
+04_expressions:
+OK      01  (simple adding):  skipping, required extension(s) UNARY is not activated.
+LEX     03  (simple adding with inner variable):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      07  (multiple operations with different priorities ii): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=53
+OK      08  (divide integer and doubles): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=51
+OK      10  (convert integer into double):  ▒ COMPILER EXIT CODE expected=0, returned=2
+        14  (test for implicit conversion):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      15  (exp(x) 6 iteration without loop): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=53
+OK      16  (exp(x) 6 iteration with loop): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=53
+OK      17  (comment inside expression):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      18  (comments inside expressions):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+OK      19  (function used as variable):  ▒ COMPILER EXIT CODE expected=3, returned=3221225477
+SKIP    003 (unary magic):  skipping, required extension(s) UNARY is not activated.
+05_conditions:
+LEX     02  (if recursion):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      05  (if with else if):  skipping, required extension(s) IFTHEN is not activated.
+OK      06  (if with else if and else block):  skipping, required extension(s) IFTHEN is not activated.
+OK      07  (multiple surrounded ifs):  skipping, required extension(s) IFTHEN is not activated.
+LEX     08  (smaller or same):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      09  (condition with implicit conversion):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      10  (variables and functions in condition):  skipping, required extension(s) FUNEXP is not activated.
+SKIP    11  (call undefined function in expr):  skipping, required extension(s) FUNEXP is not activated.
+LEX     12  (string compare):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      13  (compare equal input strings): \u2713\u2713 ▒ STDOUT
+06_loops:
+OK      01  (basic while loop): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=53
+LEX     02  (multiple while loop):  ▒ COMPILER EXIT CODE expected=0, returned=2
+LEX     03  (nested while loop):  ▒ COMPILER EXIT CODE expected=0, returned=2
+OK      04  (nested and mutliple while loop): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=52
+LEX     05  (while in condition):  ▒ COMPILER EXIT CODE expected=0, returned=2
+SKIP    06  (while with elseif in condition):  skipping, required extension(s) IFTHEN is not activated.
+07_strings:
+        01  (valid length call):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+        02  (string concat): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=51
+        03  (substr builtin function):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+        04  (asc builtin function):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+        05  (chr builtin function):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+        10  (combined input with builtin functions (todo: stdout)):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+08_booleans:
+SKIP    01  (basic declaration with assignment):  skipping, required extension(s) BOOLOP is not activated.
+SKIP    02  (boolean operations):  skipping, required extension(s) BOOLOP is not activated.
+SKIP    03  (assignment of boolean expressions):  skipping, required extension(s) BOOLOP is not activated.
+SKIP    04  (boolean functions):  skipping, required extension(s) BOOLOP is not activated.
+SKIP    005 (single dim in expression):  skipping, required extension(s) BOOLOP is not activated.
+SKIP    006 (equl in expression (it compare)):  skipping, required extension(s) BOOLOP is not activated.
+SKIP    007 (print boolean):  skipping, required extension(s) BOOLOP is not activated.
+09_scopes:
+        01  (basic scopes):  ▒ COMPILER EXIT CODE expected=0, returned=2
+        02  (declaration in while block):  ▒ COMPILER EXIT CODE expected=0, returned=3
+        03  (combined scopes with loops and conditions):  ▒ COMPILER EXIT CODE expected=0, returned=2
+        04  (declaration in all condition branches):  ▒ COMPILER EXIT CODE expected=0, returned=3
+        05  (declaration in nested flow control statements): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=51
+SKIP    09  (sequence of scopes):  skipping, required extension(s) SCOPE is not activated.
+SKIP    10  (scope in if):  skipping, required extension(s) SCOPE is not activated.
+SKIP    11  (if in while with declare):  skipping, required extension(s) SCOPE is not activated.
+10_unary:
+SKIP    01  (assignment with operators):  skipping, required extension(s) UNARY is not activated.
+SKIP    02  (functions with unary minus):  skipping, required extension(s) UNARY is not activated.
+SKIP    03  (functions with funexp and unary):  skipping, required extension(s) UNARY, FUNEXP is not activated.
+SKIP    001 (base unary minus):  skipping, required extension(s) UNARY is not activated.
+SKIP    002 (unary minus for double):  skipping, required extension(s) UNARY is not activated.
+SKIP    003 (unary minus in expression i):  skipping, required extension(s) UNARY is not activated.
+SKIP    004 (unary minus in expression ii):  skipping, required extension(s) UNARY is not activated.
+SKIP    005 (unary minus in expression iii):  skipping, required extension(s) UNARY is not activated.
+SKIP    006 (unary minus in expression iv):  skipping, required extension(s) UNARY is not activated.
+SKIP    007 (unary magic):  skipping, required extension(s) UNARY is not activated.
+SKIP    008 (unary minus for variable):  skipping, required extension(s) UNARY is not activated.
+11_base:
+SKIP    01  (binary integer):  skipping, required extension(s) BASE is not activated.
+SKIP    02  (octa integer):  skipping, required extension(s) BASE is not activated.
+SKIP    03  (hexa integer):  skipping, required extension(s) BASE is not activated.
+SKIP    04  (hexa integer 2):  skipping, required extension(s) BASE is not activated.
+SKIP    05  (binary * binary):  skipping, required extension(s) BASE is not activated.
+SKIP    06  (function binary * hexa with function):  skipping, required extension(s) BASE is not activated.
+12_global:
+SKIP    01  (global variable reading):  skipping, required extension(s) GLOBAL is not activated.
+SKIP    02  (global variable writing):  skipping, required extension(s) GLOBAL is not activated.
+SKIP    03  (override global variable in main scope):  skipping, required extension(s) GLOBAL is not activated.
+SKIP    04  (global variable initialized from other global variable):  skipping, required extension(s) GLOBAL is not activated.
+SKIP    05  (duplicted global variable name):  skipping, required extension(s) GLOBAL is not activated.
+SKIP    06  (global variable initialized from other global variable):  skipping, required extension(s) GLOBAL is not activated.
+SKIP    07  (global variable initialization by function call):  skipping, required extension(s) FUNEXP, GLOBAL is not activated.
+SKIP    08  (global variable with same name as function):  skipping, required extension(s) GLOBAL is not activated.
+SKIP    09  (static variable):  skipping, required extension(s) GLOBAL is not activated.
+SKIP    10  (multiple static variables):  skipping, required extension(s) GLOBAL is not activated.
+SKIP    11  (collision of static and shared):  ▒ COMPILER EXIT CODE expected=0, returned=2
+SKIP    12  (collision normal, shared and shared):  ▒ COMPILER EXIT CODE expected=0, returned=2
+SKIP    13  (input into shared):  ▒ COMPILER EXIT CODE expected=0, returned=2
+13_cycles:
+SKIP    01  (basic continue):  skipping, required extension(s) CYCLES is not activated.
+66_errors:
+        01  (lexical error):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 811: ordinal not in range(128))
+        03  (try to redefinition function):  ▒ COMPILER EXIT CODE expected=3, returned=2
+        04  (function declaration ad definition have different params):  ▒ COMPILER EXIT CODE expected=4, returned=2
+        05  (function have duplicity argument name):  ▒ COMPILER EXIT CODE expected=3, returned=2
+        06  (call function with too little arguments):  ▒ COMPILER EXIT CODE expected=4, returned=2
+        07  (call function with too many arguments):  ▒ COMPILER EXIT CODE expected=4, returned=2
+        08  (assign string into integer):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xc1 in position 14613: ordinal not in range(128))
+        14  (unfinished multi line comment):  ▒ COMPILER EXIT CODE expected=1, returned=3221225477
+        15  (unfinished multi line comment):  ▒ COMPILER EXIT CODE expected=1, returned=0
+        17  (empty file):  ▒ COMPILER EXIT CODE expected=2, returned=0
+        009 (wrong double format i):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 713: ordinal not in range(128))
+        010 (wrong double format ii):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 327: ordinal not in range(128))
+        011 (wrong double format iii):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 675: ordinal not in range(128))
+        012 (wrong double format iv):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 676: ordinal not in range(128))
+        014 (unterminated string):  ▒ COMPILER TIMEOUT
+        015 (wrong string escape sequence i):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 719: ordinal not in range(128))
+        016 (wrong string escape sequence ii):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 705: ordinal not in range(128))
+        017 (wrong string escape sequence iii):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 706: ordinal not in range(128))
+        018 (wrong string escape sequence iv):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 718: ordinal not in range(128))
+        019 (scope without end):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        020 (empty program):  ▒ COMPILER EXIT CODE expected=2, returned=0
+        021 (missing end scope):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        022 (missing end):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 1458: ordinal not in range(128))
+        023 (empty expression in condition):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        024 (wrong if termination):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 5676: ordinal not in range(128))
+        037 (wrong operand types):  ▒ COMPILER EXIT CODE expected=4, returned=0
+        038 (wrong operand for two strings):  ▒ COMPILER EXIT CODE expected=4, returned=0
+        040 (missing operand in expression i):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        041 (missing operand in expression ii):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 2811: ordinal not in range(128))
+        042 (unterminated braces group):  ▒ FAIL TO RUN COMPILER ('ascii' codec can't decode byte 0xff in position 2811: ordinal not in range(128))
+        043 (missing operator):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        044 (missing content of braces group):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        045 (missing operand in braces group):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        048 (missing return data type i):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        049 (missing return data type ii):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        050 (no then after if):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        051 (exprected dim):  ▒ COMPILER EXIT CODE expected=2, returned=3
+        054 (false print):  ▒ COMPILER EXIT CODE expected=2, returned=3
+        055 (false if):  ▒ COMPILER EXIT CODE expected=2, returned=3
+        056 (assignment without expr):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        057 (assignment without expr 2):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        058 (do while without expression):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        059 (return expression):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+        064 (print without semicolon):  ▒ COMPILER EXIT CODE expected=2, returned=3221225477
+99_benchmarks:
+SKIP    01  (lots of nested control statements):  ▒ COMPILER EXIT CODE expected=0, returned=2
+SKIP    02  (fibonacci sequence):  ▒ COMPILER EXIT CODE expected=0, returned=2
+SKIP    03  (tower of hanoi for 4 rodes):  ▒ COMPILER EXIT CODE expected=0, returned=2
+SKIP    04  (complex expression):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+SKIP    05  (factorial by recursion):  ▒ COMPILER EXIT CODE expected=0, returned=2
+SKIP    07  (reference program working with strings and builtin functions):  ▒ COMPILER EXIT CODE expected=0, returned=3221225477
+SKIP    08  (factorial by iteration method): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=51
+SKIP    09  (multiple string concatenations): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=53
+SKIP    10  (exp(x) 19 iteration with loop): \u2713 ▒ INTERPRETER EXIT CODE expected=0, returned=53
+SKIP    11  (big count of function parameters):  ▒ COMPILER EXIT CODE expected=0, returned=2
+SKIP    12  (ackerman function for ackerman(2, 5)):  skipping, required extension(s) FUNEXP is not activated.
+SKIP    13  (multiplier listing):  ▒ COMPILER EXIT CODE expected=0, returned=2
+RESULTS: 33.68% (65/193)

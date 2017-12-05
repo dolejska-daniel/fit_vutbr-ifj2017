@@ -1,0 +1,58 @@
+# 2017-12-04 17:23:08.533519
+# SECTION: 01_basic
+# TEST: 05
+# INFO: string escape sequences
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: None
+# PRICE: ---
+# 
+#   1: ' string escape sequences
+#   2: scope
+#   3: 	dim str as string = !"\"\n\t\\\238"
+#   4: 	dim str0 as string = !"\001\255\\\n"
+#   5: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/24
+JUMP main                                                                       #     2/24
+# MAIN                                                                          #     4/24
+LABEL main                                                                      #     5/24
+CREATEFRAME                                                                     #     6/24
+PUSHFRAME                                                                       #     7/24
+CREATEFRAME                                                                     #     8/24
+DEFVAR LF@str                                                                   #     9/24
+MOVE LF@str string@                                                             #    10/24
+PUSHS string@\034\010\009\092\238                                               #    11/24
+POPS LF@str                                                                     #    12/24
+CLEARS                                                                          #    13/24
+DEFVAR LF@str0                                                                  #    14/24
+MOVE LF@str0 string@                                                            #    15/24
+PUSHS string@\001\255\092\010                                                   #    16/24
+POPS LF@str0                                                                    #    17/24
+CLEARS                                                                          #    18/24
+JUMP __INTERNAL__FILE_END                                                       #    19/24
+# MAIN END                                                                      #    21/24
+# PROGRAM END                                                                   #    23/24
+LABEL __INTERNAL__FILE_END                                                      #    24/24

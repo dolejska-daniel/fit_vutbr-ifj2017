@@ -658,7 +658,7 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 state = STATE_INC_BACKSLASH;
                 String_addChar(&final_string, ch);
             }
-            else if(ch == '\n')
+            else if(ch == '\n' || ch == EOF)
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
 
@@ -677,12 +677,12 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
             }
             else
             {
-                if(ch <= 32)
+                if(ch <= 32 || ch == 35)
                 {
-                    char str_num[2];
-                    snprintf(str_num, 2, "%i", ch);
+                    char str_num[3];
+                    snprintf(str_num, 3, "%d", ch);
 
-                    if (ch < 10)
+                    if (strlen(str_num) == 1)
                     {
                         final_string = String_concat(final_string, str_num, "\\00");
                     }
@@ -1549,6 +1549,9 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
  */
 int Scanner_UngetToken(InputPtr input, TokenPtr *token)
 {
+    if (input && input->source == NULL)
+        return INTERNAL_ERROR;
+
     DEBUG_LOG("scanner-unget", "ungetting token");
     Token_debugPrint(*token);
 

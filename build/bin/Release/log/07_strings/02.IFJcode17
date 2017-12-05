@@ -1,0 +1,213 @@
+# 2017-12-04 17:23:13.424022
+# SECTION: 07_strings
+# TEST: 02
+# INFO: string concat
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: FAIL
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@a()
+# Executing instruction: IDEFVAR at line: 11 with following arguments:
+# Dest: LF@content
+# Executing instruction: IMOVE at line: 12 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@content()
+# Executing instruction: IPUSHS at line: 13 with following arguments:
+# Arg1: Const@= my content (string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 14 with following arguments:
+# Arg1: Stack@= my content (string)
+# Dest: LF@content=(string)
+# Executing instruction: ICLEARS at line: 15 with following arguments:
+# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Arg1: LF@a=(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 17 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 18 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 19 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 20 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Arg1: LF@content= my content (string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 22 with following arguments:
+# Arg1: Stack@= my content (string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 23 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0= my content (string)
+# Executing instruction: IPUSHS at line: 24 with following arguments:
+# Arg1: Const@=
+# (string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 25 with following arguments:
+# Arg1: Stack@=
+# (string)
+# Dest: TF@__INTERNAL__VAR_0= my content (string)
+# Executing instruction: IWRITE at line: 26 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=
+# (string)
+# Executing instruction: IDEFVAR at line: 27 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 28 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@b()
+# Executing instruction: IPUSHS at line: 29 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 30 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: LF@b=(string)
+# Executing instruction: ICLEARS at line: 31 with following arguments:
+# Executing instruction: IDEFVAR at line: 32 with following arguments:
+# Dest: LF@c
+# Executing instruction: IMOVE at line: 33 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@c()
+# Executing instruction: IPUSHS at line: 34 with following arguments:
+# Arg1: Const@=foo bar(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 35 with following arguments:
+# Arg1: Stack@=foo bar(string)
+# Dest: LF@c=(string)
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IDEFVAR at line: 37 with following arguments:
+# Dest: LF@foo
+# Executing instruction: IMOVE at line: 38 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@foo()
+# Executing instruction: IPUSHS at line: 39 with following arguments:
+# Arg1: LF@c=foo bar(string)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 40 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IADDS at line: 41 with following arguments:
+# Arg1: Stack@=foo bar(string)
+# Arg2: Stack@=(string)
+# Dest: Stack@()
+# Error at line: 41
+# Wrong operand type!
+# 
+# STDOUT DIFF:
+# --- expected
+# +++ actual
+# @@ -1,4 +1 @@
+
+#   my content 
+
+# -foo barfoo barfoo bar
+
+# -foo barfoo barfoo bar
+
+# - my content 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 53
+# PRICE: ---
+# 
+#   1: ' string concat
+#   2: 
+#   3: scope
+#   4: 	dim a as string
+#   5: 	dim content as string = !" my content "
+#   6: 
+#   7: 	print a; content; !"\n";
+#   8: 
+#   9: 	dim b as string = !""
+#  10: 	dim c as string = !"foo bar"
+#  11: 	dim foo as string
+#  12: 	foo = c + !"" + c + !"" + c + !"\n"
+#  13: 
+#  14: 	print b; foo; foo; content; 
+#  15: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/69
+JUMP main                                                                       #     2/69
+# MAIN                                                                          #     4/69
+LABEL main                                                                      #     5/69
+CREATEFRAME                                                                     #     6/69
+PUSHFRAME                                                                       #     7/69
+CREATEFRAME                                                                     #     8/69
+DEFVAR LF@a                                                                     #     9/69
+MOVE LF@a string@                                                               #    10/69
+DEFVAR LF@content                                                               #    11/69
+MOVE LF@content string@                                                         #    12/69
+PUSHS string@\032my\032content\032                                              #    13/69
+POPS LF@content                                                                 #    14/69
+CLEARS                                                                          #    15/69
+PUSHS LF@a                                                                      #    16/69
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    17/69
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    18/69
+POPS TF@__INTERNAL__VAR_0                                                       #    19/69
+WRITE TF@__INTERNAL__VAR_0                                                      #    20/69
+PUSHS LF@content                                                                #    21/69
+POPS TF@__INTERNAL__VAR_0                                                       #    22/69
+WRITE TF@__INTERNAL__VAR_0                                                      #    23/69
+PUSHS string@\010                                                               #    24/69
+POPS TF@__INTERNAL__VAR_0                                                       #    25/69
+WRITE TF@__INTERNAL__VAR_0                                                      #    26/69
+DEFVAR LF@b                                                                     #    27/69
+MOVE LF@b string@                                                               #    28/69
+PUSHS string@                                                                   #    29/69
+POPS LF@b                                                                       #    30/69
+CLEARS                                                                          #    31/69
+DEFVAR LF@c                                                                     #    32/69
+MOVE LF@c string@                                                               #    33/69
+PUSHS string@foo\032bar                                                         #    34/69
+POPS LF@c                                                                       #    35/69
+CLEARS                                                                          #    36/69
+DEFVAR LF@foo                                                                   #    37/69
+MOVE LF@foo string@                                                             #    38/69
+PUSHS LF@c                                                                      #    39/69
+PUSHS string@                                                                   #    40/69
+ADDS                                                                            #    41/69
+PUSHS LF@c                                                                      #    42/69
+ADDS                                                                            #    43/69
+PUSHS string@                                                                   #    44/69
+ADDS                                                                            #    45/69
+PUSHS LF@c                                                                      #    46/69
+ADDS                                                                            #    47/69
+PUSHS string@\010                                                               #    48/69
+ADDS                                                                            #    49/69
+POPS LF@foo                                                                     #    50/69
+CLEARS                                                                          #    51/69
+PUSHS LF@b                                                                      #    52/69
+POPS TF@__INTERNAL__VAR_0                                                       #    53/69
+WRITE TF@__INTERNAL__VAR_0                                                      #    54/69
+PUSHS LF@foo                                                                    #    55/69
+POPS TF@__INTERNAL__VAR_0                                                       #    56/69
+WRITE TF@__INTERNAL__VAR_0                                                      #    57/69
+PUSHS LF@foo                                                                    #    58/69
+POPS TF@__INTERNAL__VAR_0                                                       #    59/69
+WRITE TF@__INTERNAL__VAR_0                                                      #    60/69
+PUSHS LF@content                                                                #    61/69
+POPS TF@__INTERNAL__VAR_0                                                       #    62/69
+WRITE TF@__INTERNAL__VAR_0                                                      #    63/69
+JUMP __INTERNAL__FILE_END                                                       #    64/69
+# MAIN END                                                                      #    66/69
+# PROGRAM END                                                                   #    68/69
+LABEL __INTERNAL__FILE_END                                                      #    69/69

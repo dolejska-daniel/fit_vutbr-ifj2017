@@ -1,0 +1,114 @@
+# 2017-12-04 17:23:13.805537
+# SECTION: 08_booleans
+# TEST: 005
+# INFO: Single dim in expression
+# REQUIRED EXTENSIONS: BOOLOP
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 12 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: LF@a=false(bool)
+# Executing instruction: ICLEARS at line: 13 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 15 with following arguments:
+# Executing instruction: IPUSHS at line: 17 with following arguments:
+# Arg1: LF@a=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 18 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IJUMPIFNEQS at line: 19 with following arguments:
+# Arg1: Stack@=true(bool)
+# Arg2: Stack@=true(bool)
+# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Arg1: Const@=42(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 22 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 23 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 24 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 25 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=42(int)
+# Executing instruction: IJUMP at line: 26 with following arguments:
+# Executing instruction: ILABEL at line: 30 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 31 with following arguments:
+# Executing instruction: IJUMP at line: 33 with following arguments:
+# Executing instruction: ILABEL at line: 38 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 70 (33+37)
+# 
+#   1: scope 
+#   2:  dim a as boolean = true
+#   3:  if a then 
+#   4:  print 42; 
+#   5:  else 
+#   6:  end if
+#   7:  end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/38
+JUMP main                                                                       #     2/38
+# MAIN                                                                          #     4/38
+LABEL main                                                                      #     5/38
+CREATEFRAME                                                                     #     6/38
+PUSHFRAME                                                                       #     7/38
+CREATEFRAME                                                                     #     8/38
+DEFVAR LF@a                                                                     #     9/38
+MOVE LF@a bool@false                                                            #    10/38
+PUSHS bool@true                                                                 #    11/38
+POPS LF@a                                                                       #    12/38
+CLEARS                                                                          #    13/38
+# IF BLOCK                                                                      #    14/38
+CREATEFRAME                                                                     #    15/38
+# IF                                                                            #    16/38
+PUSHS LF@a                                                                      #    17/38
+PUSHS bool@true                                                                 #    18/38
+JUMPIFNEQS __INTERNAL__COND_0_END                                               #    19/38
+# THEN                                                                          #    20/38
+PUSHS int@42                                                                    #    21/38
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    22/38
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    23/38
+POPS TF@__INTERNAL__VAR_0                                                       #    24/38
+WRITE TF@__INTERNAL__VAR_0                                                      #    25/38
+JUMP __INTERNAL__COND_0_BLOCK_END                                               #    26/38
+LABEL __INTERNAL__COND_0_END                                                    #    27/38
+# ELSE                                                                          #    28/38
+# END IF                                                                        #    29/38
+LABEL __INTERNAL__COND_0_BLOCK_END                                              #    30/38
+CREATEFRAME                                                                     #    31/38
+# END IF BLOCK                                                                  #    32/38
+JUMP __INTERNAL__FILE_END                                                       #    33/38
+# MAIN END                                                                      #    35/38
+# PROGRAM END                                                                   #    37/38
+LABEL __INTERNAL__FILE_END                                                      #    38/38

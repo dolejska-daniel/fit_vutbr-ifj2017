@@ -53,6 +53,8 @@ int  error_instruction_length;
 char *error_description;
 char *last_line;
 
+//  TODO: Warnings
+
 
 //==================================================================d=d=
 //  DEKLARACE FUNKCÍ
@@ -110,14 +112,17 @@ int main(/*int argc, char **argv*/)
     //-----------------------------------------------------
     DEBUG_LOG("main", "Starting parser");
     int parser_result = Parser_ParseInitial(input, ilist, symtable);
-    if (parser_result != 0)
+    if (parser_result != NO_ERROR)
     {
         DEBUG_PRINT("[%s] ERR Parser returned error code %i\n", "main", parser_result);
-        DEBUG_PRINT("[%s]   | Message: %s\n", "main", error_description);
+        DEBUG_PRINT("\tmessage: %s\n", "main", error_description);
 
         //  TODO: Output errors
         //  TODO: Cleanup & exit
+
+        #ifdef DEBUG_VERBOSE
         Instruction_outputAll(ilist);
+        #endif
     }
     else
     {
@@ -143,10 +148,10 @@ program_exit:
 
 
     DEBUG_LOG("main", "Exiting program");
-    if (result != NO_ERROR)
+    if (result != NO_ERROR && false)
     {
         //  Došlo k ukončení s chybami
-        fprintf(stderr, "\nAn error occured during program execution!\n==========================================\n\nYou will find more detailed information below.\n\n");
+        fprintf(stderr, "An error occured during program execution!\n==========================================\n\nYou will find more detailed information below.\n\n");
         if (last_line != NULL && strlen(last_line) > 0)
         {
             //  Máme k dispozici obsah posledního řádku

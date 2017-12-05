@@ -1,0 +1,179 @@
+# 2017-12-04 17:23:08.455812
+# SECTION: 01_basic
+# TEST: 03
+# INFO: variable definitions
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=foo(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 12 with following arguments:
+# Arg1: Stack@=foo(string)
+# Dest: LF@a=(string)
+# Executing instruction: ICLEARS at line: 13 with following arguments:
+# Executing instruction: IDEFVAR at line: 14 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 15 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@b()
+# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Arg1: Const@=4500(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 17 with following arguments:
+# Arg1: Stack@=4500(int)
+# Dest: LF@b=0(int)
+# Executing instruction: ICLEARS at line: 18 with following arguments:
+# Executing instruction: IDEFVAR at line: 19 with following arguments:
+# Dest: LF@b0_
+# Executing instruction: IMOVE at line: 20 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@b0_()
+# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Arg1: Const@=45(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 22 with following arguments:
+# Arg1: Stack@=45(int)
+# Dest: LF@b0_=0(int)
+# Executing instruction: ICLEARS at line: 23 with following arguments:
+# Executing instruction: IDEFVAR at line: 24 with following arguments:
+# Dest: LF@c
+# Executing instruction: IMOVE at line: 25 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@c()
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: Const@=78.4(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 27 with following arguments:
+# Arg1: Stack@=78.4(double)
+# Dest: LF@c=0(double)
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: LF@d
+# Executing instruction: IMOVE at line: 30 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@d()
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: Const@=780000(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 32 with following arguments:
+# Arg1: Stack@=780000(double)
+# Dest: LF@d=0(double)
+# Executing instruction: ICLEARS at line: 33 with following arguments:
+# Executing instruction: IDEFVAR at line: 34 with following arguments:
+# Dest: LF@e
+# Executing instruction: IMOVE at line: 35 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@e()
+# Executing instruction: IPUSHS at line: 36 with following arguments:
+# Arg1: Const@=0.0008(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 37 with following arguments:
+# Arg1: Stack@=0.0008(double)
+# Dest: LF@e=0(double)
+# Executing instruction: ICLEARS at line: 38 with following arguments:
+# Executing instruction: IDEFVAR at line: 39 with following arguments:
+# Dest: LF@f
+# Executing instruction: IMOVE at line: 40 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@f()
+# Executing instruction: IPUSHS at line: 41 with following arguments:
+# Arg1: Const@=870000(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 42 with following arguments:
+# Arg1: Stack@=870000(double)
+# Dest: LF@f=0(double)
+# Executing instruction: ICLEARS at line: 43 with following arguments:
+# Executing instruction: IJUMP at line: 44 with following arguments:
+# Executing instruction: ILABEL at line: 49 with following arguments:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 122 (52+70)
+# 
+#   1: ' variable definitions
+#   2: scope
+#   3:     Dim a as     string = !"foo"
+#   4: 	Dim   b as integer = 4500
+#   5: 	Dim b0_ as integer =   0045
+#   6: 	Dim c   as double = 78.4
+#   7: 	Dim d as double = 78e4
+#   8: 	Dim   e as double =     8e-4
+#   9:     Dim f   as double   = 87E4
+#  10: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/49
+JUMP main                                                                       #     2/49
+# MAIN                                                                          #     4/49
+LABEL main                                                                      #     5/49
+CREATEFRAME                                                                     #     6/49
+PUSHFRAME                                                                       #     7/49
+CREATEFRAME                                                                     #     8/49
+DEFVAR LF@a                                                                     #     9/49
+MOVE LF@a string@                                                               #    10/49
+PUSHS string@foo                                                                #    11/49
+POPS LF@a                                                                       #    12/49
+CLEARS                                                                          #    13/49
+DEFVAR LF@b                                                                     #    14/49
+MOVE LF@b int@0                                                                 #    15/49
+PUSHS int@4500                                                                  #    16/49
+POPS LF@b                                                                       #    17/49
+CLEARS                                                                          #    18/49
+DEFVAR LF@b0_                                                                   #    19/49
+MOVE LF@b0_ int@0                                                               #    20/49
+PUSHS int@45                                                                    #    21/49
+POPS LF@b0_                                                                     #    22/49
+CLEARS                                                                          #    23/49
+DEFVAR LF@c                                                                     #    24/49
+MOVE LF@c float@0.0                                                             #    25/49
+PUSHS float@78.4                                                                #    26/49
+POPS LF@c                                                                       #    27/49
+CLEARS                                                                          #    28/49
+DEFVAR LF@d                                                                     #    29/49
+MOVE LF@d float@0.0                                                             #    30/49
+PUSHS float@78e4                                                                #    31/49
+POPS LF@d                                                                       #    32/49
+CLEARS                                                                          #    33/49
+DEFVAR LF@e                                                                     #    34/49
+MOVE LF@e float@0.0                                                             #    35/49
+PUSHS float@8e-4                                                                #    36/49
+POPS LF@e                                                                       #    37/49
+CLEARS                                                                          #    38/49
+DEFVAR LF@f                                                                     #    39/49
+MOVE LF@f float@0.0                                                             #    40/49
+PUSHS float@87E4                                                                #    41/49
+POPS LF@f                                                                       #    42/49
+CLEARS                                                                          #    43/49
+JUMP __INTERNAL__FILE_END                                                       #    44/49
+# MAIN END                                                                      #    46/49
+# PROGRAM END                                                                   #    48/49
+LABEL __INTERNAL__FILE_END                                                      #    49/49

@@ -1,0 +1,129 @@
+# 2017-12-04 17:23:14.079265
+# SECTION: 10_unary
+# TEST: 02
+# INFO: functions with unary minus
+# REQUIRED EXTENSIONS: UNARY
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 17 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 18 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 19 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 20 with following arguments:
+# Executing instruction: IDEFVAR at line: 21 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 22 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@b()
+# Executing instruction: ICREATEFRAME at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
+# Arg1: Const@=42(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 25 with following arguments:
+# Dest: TF@a
+# Executing instruction: IPOPS at line: 26 with following arguments:
+# Arg1: Stack@=42(int)
+# Dest: TF@a()
+# Executing instruction: ICALL at line: 27 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 6 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 9 with following arguments:
+# Arg1: LF@a=42(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 10 with following arguments:
+# Arg1: Stack@=0(int)
+# Arg2: Stack@=42(int)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 11 with following arguments:
+# Executing instruction: IPOPFRAME at line: 28 with following arguments:
+# Executing instruction: IPOPS at line: 29 with following arguments:
+# Arg1: Stack@=-42(int)
+# Dest: LF@b=0(int)
+# Executing instruction: ICLEARS at line: 30 with following arguments:
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: LF@b=-42(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 32 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 33 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 34 with following arguments:
+# Arg1: Stack@=-42(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 35 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=-42(int)
+# Executing instruction: IJUMP at line: 36 with following arguments:
+# Executing instruction: ILABEL at line: 41 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 97 (49+48)
+# 
+#   1: ' functions with unary minus
+#   2: 
+#   3: function fce(a as integer) as integer
+#   4: 	return -a
+#   5: end function
+#   6: 
+#   7: scope
+#   8: 	dim b as integer
+#   9: 	b = fce(42)
+#  10: 	print b;
+#  11: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/41
+JUMP main                                                                       #     2/41
+# FUNCTION                                                                      #     4/41
+LABEL fce                                                                       #     5/41
+PUSHFRAME                                                                       #     6/41
+CREATEFRAME                                                                     #     7/41
+PUSHS int@0                                                                     #     8/41
+PUSHS LF@a                                                                      #     9/41
+SUBS                                                                            #    10/41
+RETURN                                                                          #    11/41
+PUSHS int@0                                                                     #    12/41
+RETURN                                                                          #    13/41
+# END FUNCTION                                                                  #    14/41
+# MAIN                                                                          #    16/41
+LABEL main                                                                      #    17/41
+CREATEFRAME                                                                     #    18/41
+PUSHFRAME                                                                       #    19/41
+CREATEFRAME                                                                     #    20/41
+DEFVAR LF@b                                                                     #    21/41
+MOVE LF@b int@0                                                                 #    22/41
+CREATEFRAME                                                                     #    23/41
+PUSHS int@42                                                                    #    24/41
+DEFVAR TF@a                                                                     #    25/41
+POPS TF@a                                                                       #    26/41
+CALL fce                                                                        #    27/41
+POPFRAME                                                                        #    28/41
+POPS LF@b                                                                       #    29/41
+CLEARS                                                                          #    30/41
+PUSHS LF@b                                                                      #    31/41
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    32/41
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    33/41
+POPS TF@__INTERNAL__VAR_0                                                       #    34/41
+WRITE TF@__INTERNAL__VAR_0                                                      #    35/41
+JUMP __INTERNAL__FILE_END                                                       #    36/41
+# MAIN END                                                                      #    38/41
+# PROGRAM END                                                                   #    40/41
+LABEL __INTERNAL__FILE_END                                                      #    41/41

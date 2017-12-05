@@ -1,0 +1,287 @@
+# 2017-12-04 17:23:09.508110
+# SECTION: 01_basic
+# TEST: 27
+# INFO: All data types
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 6 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 7 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 8 with following arguments:
+# Executing instruction: IDEFVAR at line: 9 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 10 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: LF@a()
+# Executing instruction: IPUSHS at line: 11 with following arguments:
+# Arg1: Const@=10(int)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 12 with following arguments:
+# Arg1: Stack@=10(int)
+# Dest: LF@a=0(int)
+# Executing instruction: ICLEARS at line: 13 with following arguments:
+# Executing instruction: IDEFVAR at line: 14 with following arguments:
+# Dest: LF@b
+# Executing instruction: IMOVE at line: 15 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@b()
+# Executing instruction: IPUSHS at line: 16 with following arguments:
+# Arg1: Const@=ahojy
+# 7(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 17 with following arguments:
+# Arg1: Stack@=ahojy
+# 7(string)
+# Dest: LF@b=(string)
+# Executing instruction: ICLEARS at line: 18 with following arguments:
+# Executing instruction: IDEFVAR at line: 19 with following arguments:
+# Dest: LF@c
+# Executing instruction: IMOVE at line: 20 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@c()
+# Executing instruction: IPUSHS at line: 21 with following arguments:
+# Arg1: Const@=30.42(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 22 with following arguments:
+# Arg1: Stack@=30.42(double)
+# Dest: LF@c=0(double)
+# Executing instruction: ICLEARS at line: 23 with following arguments:
+# Executing instruction: IDEFVAR at line: 24 with following arguments:
+# Dest: LF@d
+# Executing instruction: IMOVE at line: 25 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@d()
+# Executing instruction: IPUSHS at line: 26 with following arguments:
+# Arg1: Const@=3030(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 27 with following arguments:
+# Arg1: Stack@=3030(double)
+# Dest: LF@d=0(double)
+# Executing instruction: ICLEARS at line: 28 with following arguments:
+# Executing instruction: IDEFVAR at line: 29 with following arguments:
+# Dest: LF@e
+# Executing instruction: IMOVE at line: 30 with following arguments:
+# Arg1: Const@=0(double)
+# Dest: LF@e()
+# Executing instruction: IPUSHS at line: 31 with following arguments:
+# Arg1: Const@=30(double)
+# Dest: Stack@()
+# Executing instruction: IPUSHS at line: 32 with following arguments:
+# Arg1: Const@=2(int)
+# Dest: Stack@()
+# Executing instruction: IINT2FLOATS at line: 33 with following arguments:
+# Arg1: Stack@=2(int)
+# Dest: Stack@()
+# Executing instruction: ISUBS at line: 34 with following arguments:
+# Arg1: Stack@=30(double)
+# Arg2: Stack@=2(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 35 with following arguments:
+# Arg1: Stack@=28(double)
+# Dest: LF@e=0(double)
+# Executing instruction: ICLEARS at line: 36 with following arguments:
+# Executing instruction: IDEFVAR at line: 37 with following arguments:
+# Dest: LF@f
+# Executing instruction: IMOVE at line: 38 with following arguments:
+# Arg1: Const@=false(bool)
+# Dest: LF@f()
+# Executing instruction: IPUSHS at line: 39 with following arguments:
+# Arg1: Const@=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 40 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: LF@f=false(bool)
+# Executing instruction: ICLEARS at line: 41 with following arguments:
+# Executing instruction: IDEFVAR at line: 42 with following arguments:
+# Dest: LF@g
+# Executing instruction: IMOVE at line: 43 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@g()
+# Executing instruction: IPUSHS at line: 44 with following arguments:
+# Arg1: Const@=retezec s lomitkem \ a
+# novym#radkem(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 45 with following arguments:
+# Arg1: Stack@=retezec s lomitkem \ a
+# novym#radkem(string)
+# Dest: LF@g=(string)
+# Executing instruction: ICLEARS at line: 46 with following arguments:
+# Executing instruction: IPUSHS at line: 47 with following arguments:
+# Arg1: LF@a=10(int)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 48 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 49 with following arguments:
+# Arg1: Const@=0(int)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 50 with following arguments:
+# Arg1: Stack@=10(int)
+# Dest: TF@__INTERNAL__VAR_0=0(int)
+# Executing instruction: IWRITE at line: 51 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=10(int)
+# Executing instruction: IPUSHS at line: 52 with following arguments:
+# Arg1: LF@b=ahojy
+# 7(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 53 with following arguments:
+# Arg1: Stack@=ahojy
+# 7(string)
+# Dest: TF@__INTERNAL__VAR_0=10(int)
+# Executing instruction: IWRITE at line: 54 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=ahojy
+# 7(string)
+# Executing instruction: IPUSHS at line: 55 with following arguments:
+# Arg1: LF@c=30.42(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 56 with following arguments:
+# Arg1: Stack@=30.42(double)
+# Dest: TF@__INTERNAL__VAR_0=ahojy
+# 7(string)
+# Executing instruction: IWRITE at line: 57 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=30.42(double)
+# Executing instruction: IPUSHS at line: 58 with following arguments:
+# Arg1: LF@d=3030(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 59 with following arguments:
+# Arg1: Stack@=3030(double)
+# Dest: TF@__INTERNAL__VAR_0=30.42(double)
+# Executing instruction: IWRITE at line: 60 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=3030(double)
+# Executing instruction: IPUSHS at line: 61 with following arguments:
+# Arg1: LF@e=28(double)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 62 with following arguments:
+# Arg1: Stack@=28(double)
+# Dest: TF@__INTERNAL__VAR_0=3030(double)
+# Executing instruction: IWRITE at line: 63 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=28(double)
+# Executing instruction: IPUSHS at line: 64 with following arguments:
+# Arg1: LF@f=true(bool)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 65 with following arguments:
+# Arg1: Stack@=true(bool)
+# Dest: TF@__INTERNAL__VAR_0=28(double)
+# Executing instruction: IWRITE at line: 66 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=true(bool)
+# Executing instruction: IPUSHS at line: 67 with following arguments:
+# Arg1: LF@g=retezec s lomitkem \ a
+# novym#radkem(string)
+# Dest: Stack@()
+# Executing instruction: IPOPS at line: 68 with following arguments:
+# Arg1: Stack@=retezec s lomitkem \ a
+# novym#radkem(string)
+# Dest: TF@__INTERNAL__VAR_0=true(bool)
+# Executing instruction: IWRITE at line: 69 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=retezec s lomitkem \ a
+# novym#radkem(string)
+# Executing instruction: IJUMP at line: 70 with following arguments:
+# Executing instruction: ILABEL at line: 75 with following arguments:
+# 
+# STDOUT DIFF:
+# 
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 273 (101+172)
+# 
+#   1: ' All data types
+#   2: 
+#   3: scope
+#   4: 
+#   5: 	dim a as integer = 10
+#   6: 	dim b as string = !"ahojy\n\055"
+#   7: 	dim c as double = 30.42
+#   8: 	dim d as double = 30.3e2
+#   9: 	dim e as double = 30.0-2
+#  10: 	dim f as boolean = true
+#  11: 	dim g as string = !"retezec\032s\032lomitkem\032\092\032a\010novym\035radkem"
+#  12: 
+#  13: 	print a; b; c; d; e; f; g;
+#  14: 
+#  15: end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/75
+JUMP main                                                                       #     2/75
+# MAIN                                                                          #     4/75
+LABEL main                                                                      #     5/75
+CREATEFRAME                                                                     #     6/75
+PUSHFRAME                                                                       #     7/75
+CREATEFRAME                                                                     #     8/75
+DEFVAR LF@a                                                                     #     9/75
+MOVE LF@a int@0                                                                 #    10/75
+PUSHS int@10                                                                    #    11/75
+POPS LF@a                                                                       #    12/75
+CLEARS                                                                          #    13/75
+DEFVAR LF@b                                                                     #    14/75
+MOVE LF@b string@                                                               #    15/75
+PUSHS string@ahojy\010\055                                                      #    16/75
+POPS LF@b                                                                       #    17/75
+CLEARS                                                                          #    18/75
+DEFVAR LF@c                                                                     #    19/75
+MOVE LF@c float@0.0                                                             #    20/75
+PUSHS float@30.42                                                               #    21/75
+POPS LF@c                                                                       #    22/75
+CLEARS                                                                          #    23/75
+DEFVAR LF@d                                                                     #    24/75
+MOVE LF@d float@0.0                                                             #    25/75
+PUSHS float@30.3e2                                                              #    26/75
+POPS LF@d                                                                       #    27/75
+CLEARS                                                                          #    28/75
+DEFVAR LF@e                                                                     #    29/75
+MOVE LF@e float@0.0                                                             #    30/75
+PUSHS float@30.0                                                                #    31/75
+PUSHS int@2                                                                     #    32/75
+INT2FLOATS                                                                      #    33/75
+SUBS                                                                            #    34/75
+POPS LF@e                                                                       #    35/75
+CLEARS                                                                          #    36/75
+DEFVAR LF@f                                                                     #    37/75
+MOVE LF@f bool@false                                                            #    38/75
+PUSHS bool@true                                                                 #    39/75
+POPS LF@f                                                                       #    40/75
+CLEARS                                                                          #    41/75
+DEFVAR LF@g                                                                     #    42/75
+MOVE LF@g string@                                                               #    43/75
+PUSHS string@retezec\032s\032lomitkem\032\092\032a\010novym\035radkem           #    44/75
+POPS LF@g                                                                       #    45/75
+CLEARS                                                                          #    46/75
+PUSHS LF@a                                                                      #    47/75
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    48/75
+MOVE TF@__INTERNAL__VAR_0 int@0                                                 #    49/75
+POPS TF@__INTERNAL__VAR_0                                                       #    50/75
+WRITE TF@__INTERNAL__VAR_0                                                      #    51/75
+PUSHS LF@b                                                                      #    52/75
+POPS TF@__INTERNAL__VAR_0                                                       #    53/75
+WRITE TF@__INTERNAL__VAR_0                                                      #    54/75
+PUSHS LF@c                                                                      #    55/75
+POPS TF@__INTERNAL__VAR_0                                                       #    56/75
+WRITE TF@__INTERNAL__VAR_0                                                      #    57/75
+PUSHS LF@d                                                                      #    58/75
+POPS TF@__INTERNAL__VAR_0                                                       #    59/75
+WRITE TF@__INTERNAL__VAR_0                                                      #    60/75
+PUSHS LF@e                                                                      #    61/75
+POPS TF@__INTERNAL__VAR_0                                                       #    62/75
+WRITE TF@__INTERNAL__VAR_0                                                      #    63/75
+PUSHS LF@f                                                                      #    64/75
+POPS TF@__INTERNAL__VAR_0                                                       #    65/75
+WRITE TF@__INTERNAL__VAR_0                                                      #    66/75
+PUSHS LF@g                                                                      #    67/75
+POPS TF@__INTERNAL__VAR_0                                                       #    68/75
+WRITE TF@__INTERNAL__VAR_0                                                      #    69/75
+JUMP __INTERNAL__FILE_END                                                       #    70/75
+# MAIN END                                                                      #    72/75
+# PROGRAM END                                                                   #    74/75
+LABEL __INTERNAL__FILE_END                                                      #    75/75

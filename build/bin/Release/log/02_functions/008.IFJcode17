@@ -1,0 +1,108 @@
+# 2017-12-04 17:23:10.556397
+# SECTION: 02_functions
+# TEST: 008
+# INFO: function string implicit return
+# REQUIRED EXTENSIONS: 
+# ACTIVATED EXTENSIONS: BOOLOP, UNARY, IFTHEN, FUNEXP
+# STATE: SUCCESS
+# 
+# COMPILER STDERR:
+# 
+# INTERPRETER STDERR:
+# Executing instruction: IJUMP at line: 2 with following arguments:
+# Executing instruction: ILABEL at line: 13 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 14 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 15 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 16 with following arguments:
+# Executing instruction: IDEFVAR at line: 17 with following arguments:
+# Dest: LF@a
+# Executing instruction: IMOVE at line: 18 with following arguments:
+# Arg1: Const@=(string)
+# Dest: LF@a()
+# Executing instruction: ICREATEFRAME at line: 19 with following arguments:
+# Executing instruction: ICALL at line: 20 with following arguments:
+# Executing instruction: ILABEL at line: 5 with following arguments:
+# Executing instruction: IPUSHFRAME at line: 6 with following arguments:
+# Executing instruction: ICREATEFRAME at line: 7 with following arguments:
+# Executing instruction: IPUSHS at line: 8 with following arguments:
+# Arg1: Const@=(string)
+# Dest: Stack@()
+# Executing instruction: IRETURN at line: 9 with following arguments:
+# Executing instruction: IPOPFRAME at line: 21 with following arguments:
+# Executing instruction: IPOPS at line: 22 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: LF@a=(string)
+# Executing instruction: ICLEARS at line: 23 with following arguments:
+# Executing instruction: IPUSHS at line: 24 with following arguments:
+# Arg1: LF@a=(string)
+# Dest: Stack@()
+# Executing instruction: IDEFVAR at line: 25 with following arguments:
+# Dest: TF@__INTERNAL__VAR_0
+# Executing instruction: IMOVE at line: 26 with following arguments:
+# Arg1: Const@=(string)
+# Dest: TF@__INTERNAL__VAR_0()
+# Executing instruction: IPOPS at line: 27 with following arguments:
+# Arg1: Stack@=(string)
+# Dest: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IWRITE at line: 28 with following arguments:
+# Arg1: TF@__INTERNAL__VAR_0=(string)
+# Executing instruction: IJUMP at line: 29 with following arguments:
+# Executing instruction: ILABEL at line: 34 with following arguments:
+# 
+# EXPECTED INTERPRETER STDOUT:
+
+
+
+# CURRENT INTERPRETER STDOUT:
+
+
+
+# INTERPRETER STDIN: 
+# 
+#
+# EXPECTED COMPILER EXIT CODE: 0
+# CURRENT COMPILER EXIT CODE: 0
+# EXPECTED INTERPRETER EXIT CODE: 0
+# CURRENT INTERPRETER EXIT CODE: 0
+# PRICE: 69 (42+27)
+# 
+#   1: function foo() as string 
+#   2:  end function 
+#   3:  scope 
+#   4:  dim a as string 
+#   5:  a = foo() 
+#   6:  print a; 
+#   7:  end scope
+
+########################################
+
+.IFJcode17                                                                      #     1/34
+JUMP main                                                                       #     2/34
+# FUNCTION                                                                      #     4/34
+LABEL foo                                                                       #     5/34
+PUSHFRAME                                                                       #     6/34
+CREATEFRAME                                                                     #     7/34
+PUSHS string@                                                                   #     8/34
+RETURN                                                                          #     9/34
+# END FUNCTION                                                                  #    10/34
+# MAIN                                                                          #    12/34
+LABEL main                                                                      #    13/34
+CREATEFRAME                                                                     #    14/34
+PUSHFRAME                                                                       #    15/34
+CREATEFRAME                                                                     #    16/34
+DEFVAR LF@a                                                                     #    17/34
+MOVE LF@a string@                                                               #    18/34
+CREATEFRAME                                                                     #    19/34
+CALL foo                                                                        #    20/34
+POPFRAME                                                                        #    21/34
+POPS LF@a                                                                       #    22/34
+CLEARS                                                                          #    23/34
+PUSHS LF@a                                                                      #    24/34
+DEFVAR TF@__INTERNAL__VAR_0                                                     #    25/34
+MOVE TF@__INTERNAL__VAR_0 string@                                               #    26/34
+POPS TF@__INTERNAL__VAR_0                                                       #    27/34
+WRITE TF@__INTERNAL__VAR_0                                                      #    28/34
+JUMP __INTERNAL__FILE_END                                                       #    29/34
+# MAIN END                                                                      #    31/34
+# PROGRAM END                                                                   #    33/34
+LABEL __INTERNAL__FILE_END                                                      #    34/34
