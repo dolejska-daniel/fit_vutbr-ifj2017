@@ -1294,12 +1294,12 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
 
                 //prevedeni na desitkove cislo
                 int final_int = atoi(final_string);
-                final_int = octa2decimal(final_int);
+                final_int = binary2decimal(final_int);
                 int digits_number = (int) log10(final_int) + 1;
-                char final_string_bin[digits_number + 1];
-                snprintf(final_string_bin, digits_number, "%d", final_int);
+                char *final_string_bin = (char *) malloc(sizeof(char) * (digits_number + 1));
+                snprintf(final_string_bin, digits_number + 1, "%i", final_int);
 
-                *token = Token_create(CONSTANT_BINARY, final_string_bin);
+                *token = Token_create(CONSTANT_INTEGER, final_string_bin);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
@@ -1339,8 +1339,8 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 int final_int = atoi(final_string);
                 final_int = octa2decimal(final_int);
                 int digits_number = (int) log10(final_int) + 1;
-                char final_string_octa[digits_number + 1];
-                snprintf(final_string_octa, digits_number, "%d", final_int);
+                char *final_string_octa = (char *) malloc(sizeof(char) * (digits_number + 1));
+                snprintf(final_string_octa, digits_number + 1, "%i", final_int);
 
                 *token = Token_create(CONSTANT_OCTAL, final_string_octa);
                 if(*token == NULL)
@@ -1379,10 +1379,10 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 }
 
                 //prevedeni na desitkove cislo
-                int final_int = octa2decimal(final_int);
+                int final_int = hexa2decimal(final_string);
                 int digits_number = (int) log10(final_int) + 1;
-                char final_string_hex[digits_number + 1];
-                snprintf(final_string_hex, digits_number, "%d", final_int);
+                char *final_string_hex = (char *) malloc(sizeof(char) * (digits_number + 1));
+                snprintf(final_string_hex, digits_number + 1, "%i", final_int);
 
                 *token = Token_create(CONSTANT_HEXA, final_string_hex);
                 if(*token == NULL)

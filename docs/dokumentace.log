@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.6)  6 DEC 2017 12:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.6)  6 DEC 2017 16:28
 entering extended mode
 **./dokumentace.tex
 (dokumentace.tex
@@ -421,34 +421,50 @@ File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 ))
 ("O:\MiKTeX 2.9\tex\latex\tools\indentfirst.sty"
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+("O:\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+("O:\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen106
+\captionmargin@=\dimen107
+\captionwidth=\dimen108
+\caption@tempdima=\dimen109
+\caption@indent=\dimen110
+\caption@parindent=\dimen111
+\caption@hangindent=\dimen112
+)
+\c@ContinuedFloat=\count88
 ) (dokumentace.aux)
 \openout1 = `dokumentace.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
 
 ("O:\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count88
-\scratchdimen=\dimen106
+\scratchcounter=\count89
+\scratchdimen=\dimen113
 \scratchbox=\box26
-\nofMPsegments=\count89
-\nofMParguments=\count90
+\nofMPsegments=\count90
+\nofMParguments=\count91
 \everyMPshowfont=\toks17
-\MPscratchCnt=\count91
-\MPscratchDim=\dimen107
-\MPnumerator=\count92
-\makeMPintoPDFobject=\count93
+\MPscratchCnt=\count92
+\MPscratchDim=\dimen114
+\MPnumerator=\count93
+\makeMPintoPDFobject=\count94
 \everyMPtoPDFconversion=\toks18
 ) ("O:\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -501,23 +517,147 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-) [1
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 76.
 
-{C:/Users/TheKronnY/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (dokume
-ntace.aux) ) 
+("O:\MiKTeX 2.9\tex\latex\base\t1cmss.fd"
+File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 89.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 89.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 89.
+<images/VUT-FIT-logo.pdf, id=1, pagebox=cropbox, 483.2454pt x 99.58405pt>
+File: images/VUT-FIT-logo.pdf Graphic file (type pdf)
+<use images/VUT-FIT-logo.pdf>
+Package pdftex.def Info: images/VUT-FIT-logo.pdf  used on input line 99. on inp
+ut line 99.
+Package pdftex.def Info: Requested size: 284.52756pt x 58.63554pt on input line
+ 99.
+ [1
+
+{C:/Users/TheKronnY/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./image
+s/VUT-FIT-logo.pdf>]
+(dokumentace.toc)
+\tf@toc=\write3
+\openout3 = `dokumentace.toc'.
+
+ (dokumentace.lof)
+\tf@lof=\write4
+\openout4 = `dokumentace.lof'.
+
+ [1]
+Overfull \hbox (63.99348pt too wide) in paragraph at lines 122--131
+ [] 
+ []
+
+[2]
+Overfull \hbox (2.89325pt too wide) in paragraph at lines 152--153
+[]\T1/cmr/m/n/10.95 Implementace lexikální analýzy je za-loºena na kone£ném au-
+tomatu, který
+ []
+
+<images/ka.pdf, id=32, pagebox=cropbox, 480.62662pt x 386.36647pt>
+File: images/ka.pdf Graphic file (type pdf)
+<use images/ka.pdf>
+Package pdftex.def Info: images/ka.pdf  used on input line 159. on input line 1
+59.
+Package pdftex.def Info: Requested size: 483.69684pt x 388.82982pt on input lin
+e 159.
+
+Overfull \hbox (69.21295pt too wide) in paragraph at lines 158--160
+[]|  [] 
+ []
+
+[3] [4 <./images/ka.pdf>]
+Overfull \hbox (41.19194pt too wide) in paragraph at lines 185--186
+[]\T1/cmr/m/n/10.95 Funkce pro zpra-cov-ání obec-ného vno°eného kódu (\T1/cmr/b
+x/n/10.95 Parser_ParseNestedCode\T1/cmr/m/n/10.95 )
+ []
+
+
+Overfull \hbox (5.69537pt too wide) in paragraph at lines 185--186
+\T1/cmr/m/n/10.95 slouºí jako k°iºo-vatka, která na zák-lad¥ prvního p°í-chozíh
+o to-kenu volá odpoví-
+ []
+
+[5]
+Overfull \hbox (71.27039pt too wide) in paragraph at lines 194--195
+\T1/cmr/m/n/10.95 konkrétní ú£el  jedna funkce pro deklaraci funkce (\T1/cmr/b
+x/n/10.95 Parser_ParseFunctionDeclaration\T1/cmr/m/n/10.95 ),
+ []
+
+
+Overfull \hbox (2.11589pt too wide) in paragraph at lines 200--201
+[]\T1/cmr/m/n/10.95 Podmínky zpra-cov-á-vají dv¥ funkce  první \T1/cmr/bx/n/10
+.95 (Parser_ParseCondition\T1/cmr/m/n/10.95 ),
+ []
+
+
+Overfull \hbox (6.65485pt too wide) in paragraph at lines 209--210
+\T1/cmr/m/n/10.95 funkcí pro zpra-cov-ání prav-di-vost-ních výraz· a funkci pro
+ zpra-cov-ání vno°eného
+ []
+
+
+Overfull \hbox (2.82785pt too wide) in paragraph at lines 212--213
+[]\T1/cmr/m/n/10.95 Cyklus je sloºen z dvou náv¥stí, po£áte£ního a kone£ného. P
+o po£áte£ním
+ []
+
+
+Overfull \hbox (52.24072pt too wide) in paragraph at lines 215--216
+[]\T1/cmr/m/n/10.95 Pro zpra-cov-ání funkcí slouºí dv¥ funkce, první funkce (\T
+1/cmr/bx/n/10.95 Parser_ParseExpression\T1/cmr/m/n/10.95 )
+ []
+
+
+Overfull \hbox (17.28052pt too wide) in paragraph at lines 215--216
+\T1/cmr/m/n/10.95 ke zpra-cov-ání hlavního výrazu a druhá funkce (\T1/cmr/bx/n/
+10.95 Parser_ParseSubExpression\T1/cmr/m/n/10.95 )
+ []
+
+[6] [7]
+Overfull \hbox (6.10355pt too wide) in paragraph at lines 253--254
+[]\T1/cmr/m/n/10.95 Tato struk-tura byla pouºita p°i im-ple-mentaci tab-ulky sy
+m-bol· p°eklada£e
+ []
+
+[8]
+Overfull \hbox (12.44272pt too wide) in paragraph at lines 267--268
+[]\T1/cmr/m/n/10.95 Tento modul vyuºívá dvous-m¥rn¥ vázaný sez-nam pro uk-ládán
+í vytvo°ených
+ []
+
+[9] (dokumentace.aux) ) 
 Here is how much of TeX's memory you used:
- 2965 strings out of 493312
- 36350 string characters out of 3144935
- 105753 words of memory out of 3000000
- 6479 multiletter control sequences out of 15000+200000
- 6259 words of font info for 18 fonts, out of 3000000 for 9000
+ 4127 strings out of 493312
+ 57468 string characters out of 3144935
+ 132081 words of memory out of 3000000
+ 7608 multiletter control sequences out of 15000+200000
+ 15472 words of font info for 35 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,5n,35p,280b,177s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\TheKronnY\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
-pen\ec\dpi600\ecbx2074.pk>
-Output written on dokumentace.pdf (1 page, 12097 bytes).
+ 41i,8n,39p,748b,316s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\TheKronnY\AppData\Local\MiKTeX\2.9\fonts\pk\l
+jfour\jknappen\ec\dpi600\eccc1095.pk> <C:\Users\TheKronnY\AppData\Local\MiKTeX\
+2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1095.pk> <C:\Users\TheKronnY\AppData
+\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\The
+KronnY\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk>
+ <C:\Users\TheKronnY\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
+0\ecss1095.pk> <C:\Users\TheKronnY\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
+appen\ec\dpi600\ecrm1200.pk> <C:\Users\TheKronnY\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecss1200.pk> <C:\Users\TheKronnY\AppData\Local\Mi
+KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\TheKronnY\Ap
+pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\User
+s\TheKronnY\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx207
+4.pk>
+Output written on dokumentace.pdf (10 pages, 593302 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
+ 421 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
