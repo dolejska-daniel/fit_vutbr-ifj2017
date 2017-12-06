@@ -981,6 +981,7 @@ int Parser_ParseFunctionDefinition(InputPtr input, InstructionListPtr ilist, Sym
     func_info = (SymbolInfo_FunctionPtr) func_symbol->value;
     if (func_info->isDefined == true)
     {
+        DEBUG_ERR(source, "function with this name is already defined");
         if (Parser_setError_alreadyDefined(func_token, input) != NO_ERROR)
         {
             Token_destroy(&func_token);
@@ -1308,6 +1309,8 @@ func_def_newlyDeclared:
     SymbolTable_popFrame(symtable);
     //  Vrátí proměnné z TF na LF, kam patří
     SymbolTable_pushFrame(symtable);
+
+    func_info->isDefined = true;
 
     Instruction_custom(ilist, "# END FUNCTION");
 
