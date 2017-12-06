@@ -65,8 +65,6 @@
 #define COND_INTERNAL_NAME "__INTERNAL__COND"
 #define TEMPVAR_INTERNAL_NAME "__INTERNAL__VAR"
 
-#include "../support/convert2decimal.h"
-
 extern int  error_char_index;
 extern int  error_instruction_length;
 extern char *error_description;

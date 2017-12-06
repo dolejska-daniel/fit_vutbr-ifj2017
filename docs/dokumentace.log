@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.6)  6 DEC 2017 16:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.6)  6 DEC 2017 18:56
 entering extended mode
 **./dokumentace.tex
 (dokumentace.tex
@@ -556,79 +556,79 @@ Overfull \hbox (63.99348pt too wide) in paragraph at lines 122--131
  []
 
 [2]
-Overfull \hbox (2.89325pt too wide) in paragraph at lines 152--153
-[]\T1/cmr/m/n/10.95 Implementace lexikální analýzy je za-loºena na kone£ném au-
-tomatu, který
+Overfull \hbox (6.58047pt too wide) in paragraph at lines 158--159
+[]\T1/cmr/m/n/10.95 Implementace lexikál-ního an-a-lyzá-toru je za-loºena na ko
+ne£ném au-tomatu,
  []
 
 <images/ka.pdf, id=32, pagebox=cropbox, 480.62662pt x 386.36647pt>
 File: images/ka.pdf Graphic file (type pdf)
 <use images/ka.pdf>
-Package pdftex.def Info: images/ka.pdf  used on input line 159. on input line 1
-59.
+Package pdftex.def Info: images/ka.pdf  used on input line 165. on input line 1
+65.
 Package pdftex.def Info: Requested size: 483.69684pt x 388.82982pt on input lin
-e 159.
+e 165.
 
-Overfull \hbox (69.21295pt too wide) in paragraph at lines 158--160
+Overfull \hbox (69.21295pt too wide) in paragraph at lines 164--166
 []|  [] 
  []
 
 [3] [4 <./images/ka.pdf>]
-Overfull \hbox (41.19194pt too wide) in paragraph at lines 185--186
+Overfull \hbox (41.19194pt too wide) in paragraph at lines 191--192
 []\T1/cmr/m/n/10.95 Funkce pro zpra-cov-ání obec-ného vno°eného kódu (\T1/cmr/b
 x/n/10.95 Parser_ParseNestedCode\T1/cmr/m/n/10.95 )
  []
 
 
-Overfull \hbox (5.69537pt too wide) in paragraph at lines 185--186
+Overfull \hbox (5.69537pt too wide) in paragraph at lines 191--192
 \T1/cmr/m/n/10.95 slouºí jako k°iºo-vatka, která na zák-lad¥ prvního p°í-chozíh
 o to-kenu volá odpoví-
  []
 
 [5]
-Overfull \hbox (71.27039pt too wide) in paragraph at lines 194--195
+Overfull \hbox (71.27039pt too wide) in paragraph at lines 200--201
 \T1/cmr/m/n/10.95 konkrétní ú£el  jedna funkce pro deklaraci funkce (\T1/cmr/b
 x/n/10.95 Parser_ParseFunctionDeclaration\T1/cmr/m/n/10.95 ),
  []
 
 
-Overfull \hbox (2.11589pt too wide) in paragraph at lines 200--201
+Overfull \hbox (2.11589pt too wide) in paragraph at lines 206--207
 []\T1/cmr/m/n/10.95 Podmínky zpra-cov-á-vají dv¥ funkce  první \T1/cmr/bx/n/10
 .95 (Parser_ParseCondition\T1/cmr/m/n/10.95 ),
  []
 
 
-Overfull \hbox (6.65485pt too wide) in paragraph at lines 209--210
+Overfull \hbox (6.65485pt too wide) in paragraph at lines 215--216
 \T1/cmr/m/n/10.95 funkcí pro zpra-cov-ání prav-di-vost-ních výraz· a funkci pro
  zpra-cov-ání vno°eného
  []
 
 
-Overfull \hbox (2.82785pt too wide) in paragraph at lines 212--213
+Overfull \hbox (2.82785pt too wide) in paragraph at lines 218--219
 []\T1/cmr/m/n/10.95 Cyklus je sloºen z dvou náv¥stí, po£áte£ního a kone£ného. P
 o po£áte£ním
  []
 
 
-Overfull \hbox (52.24072pt too wide) in paragraph at lines 215--216
+Overfull \hbox (52.24072pt too wide) in paragraph at lines 221--222
 []\T1/cmr/m/n/10.95 Pro zpra-cov-ání funkcí slouºí dv¥ funkce, první funkce (\T
 1/cmr/bx/n/10.95 Parser_ParseExpression\T1/cmr/m/n/10.95 )
  []
 
 
-Overfull \hbox (17.28052pt too wide) in paragraph at lines 215--216
+Overfull \hbox (17.28052pt too wide) in paragraph at lines 221--222
 \T1/cmr/m/n/10.95 ke zpra-cov-ání hlavního výrazu a druhá funkce (\T1/cmr/bx/n/
 10.95 Parser_ParseSubExpression\T1/cmr/m/n/10.95 )
  []
 
 [6] [7]
-Overfull \hbox (6.10355pt too wide) in paragraph at lines 253--254
+Overfull \hbox (6.10355pt too wide) in paragraph at lines 259--260
 []\T1/cmr/m/n/10.95 Tato struk-tura byla pouºita p°i im-ple-mentaci tab-ulky sy
 m-bol· p°eklada£e
  []
 
 [8]
-Overfull \hbox (12.44272pt too wide) in paragraph at lines 267--268
+Overfull \hbox (12.44272pt too wide) in paragraph at lines 276--277
 []\T1/cmr/m/n/10.95 Tento modul vyuºívá dvous-m¥rn¥ vázaný sez-nam pro uk-ládán
 í vytvo°ených
  []
@@ -641,7 +641,7 @@ Here is how much of TeX's memory you used:
  7608 multiletter control sequences out of 15000+200000
  15472 words of font info for 35 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,8n,39p,748b,316s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,8n,39p,544b,316s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\TheKronnY\AppData\Local\MiKTeX\2.9\fonts\pk\l
 jfour\jknappen\ec\dpi600\eccc1095.pk> <C:\Users\TheKronnY\AppData\Local\MiKTeX\
 2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1095.pk> <C:\Users\TheKronnY\AppData
@@ -655,9 +655,9 @@ KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\TheKronnY\Ap
 pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\User
 s\TheKronnY\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx207
 4.pk>
-Output written on dokumentace.pdf (10 pages, 593302 bytes).
+Output written on dokumentace.pdf (10 pages, 592854 bytes).
 PDF statistics:
- 421 PDF objects out of 1000 (max. 8388607)
+ 419 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

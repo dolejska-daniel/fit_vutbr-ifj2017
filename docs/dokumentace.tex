@@ -143,16 +143,22 @@ Komunikace probíhala osobně a pomocí GitLabu, kde měl každý člen týmu vl
 Úlohou lexikálního analyzátoru je rozpoznat jednotlivé vstupní znaky a vytvořit z nich příslušné tokeny.
 
 \subsection{Řešení} \label{lex-reseni}
-Hlavní funkcí ovládající lexikální analyzátor je \textbf{Scanner\_GetToken}. Prvním parametrem této funkce je ukazatel na strukturu se vstupními daty, druhým pak ukazatel na strukturu token, který je použit k vrácení získaného tokenu. Po ukončení volání funkce se vrací číselná hodnota (zastoupena enumerátorem \textsf{ErrorCodes}), značící druh chyby. Token obsahuje informaci o typu daného tokenu a příslušnou hodnotu, která je reprezentována řetězcem znaků, a je použita v další části překladače.
+Hlavní funkcí ovládající lexikální analyzátor je \textbf{Scanner\_GetToken}. Ta cyklicky načítá jednotlivé znaky se standartního vstupu a na základě jejich obsahu mění svůj stav a postupně vytváří token a jeho obsah.
 
 \vspace{2mm}
-Další implementovanou funkcí je \textbf{Scanner\_UngetToken}. Tato funkce slouží k vrácení již vytořeného tokenu. Tato funkce předaný token uloží na zásobník tokenů a při dalším volání funkce \textbf{Scaneer\_GetToken} se vrátí již vytvořený token uložený na vrcholu zásobníku namísto vytváření nového.
+Cyklus načítání je ukončen v případě, kdy obsah načteného znaku nevyhovuje pravidlům aktuálního stavu automatu. Pokud se automat nachází v konečném stavu nově načtený znak již není součástí aktuálního tokenu a je vrácen tak, aby mohl být načten při dalším volání této funkce, vzniklý token je přes ukazatel v parametru vrácen volající funkci. V případě, kdy se automat v konečném stavu nenachází jedná se o lexikální chybu.
+
+\vspace{2mm}
+Po ukončení funkce se vrací číselná hodnota značící zda bylo zpracování úspěšně dokončeno či ne (zastoupena enumerátorem \textsf{ErrorCodes}). Token obsahuje informaci o svém typu a příslušnou hodnotu, která je reprezentována řetězcem znaků a je použita v dalších částech překladače.
+
+\vspace{2mm}
+Další implementovanou funkcí je \textbf{Scanner\_UngetToken}, která slouží k vrácení již vytořeného tokenu. Tato funkce předaný token uloží na zásobník tokenů a při dalším volání funkce \textbf{Scaneer\_GetToken} se vrátí již vytvořený token uložený na vrcholu zásobníku, namísto vytváření nového.
 
 \subsection{Konečný automat} \label{lex-fa}
-Implementace lexikální analýzy je založena na konečném automatu, který čte jednotlivé vstupní znaky a skládá je do příslušných tokenů. Dojde-li k lexikální chybě, typ tokenu je nastaven jako \textsf{INVALID} a hodnota zde upřesňuje danou chybu. Veškeré komentáře automat ignoruje a nevytváří pro ně token.
+Implementace lexikálního analyzátoru je založena na konečném automatu, který čte jednotlivé vstupní znaky a skládá je do příslušných tokenů. Diagram implementovaného KA je obrázek \ref{fig:automata} na straně \pageref{fig:automata}.
 
 \vspace{2mm}
-Diagram implementovaného KA je obrázek \ref{fig:automata} na straně \pageref{fig:automata}.
+Dojde-li k lexikální chybě, typ tokenu je nastaven na \textsf{INVALID} a jeho hodnota upřesňuje danou chybu.
 
 \begin{figure}[!htbp]
 	\hspace*{-2cm}
@@ -258,10 +264,13 @@ Tato struktura byla použita při implementaci tabulky symbolů překladače na 
 %------------------
 \newpage
 \section{Generátor} \label{gen}
-Vytváří instrukce cílového jazyka IFJcode17.
+Vytváří, ukládá a dále pracuje s instrukcemi mezikódu IFJcode17.
 
 \subsection{Řešení} \label{gen-reseni}
-Pomocí implementovaných funkcí pro skládání řetězců vytvoří instrukci jako jeden řetězec z názvu instrukce a případně jednoho či více symbolů obsahujících informace o jednotlivých argumentech, který následně uloží jako poslední prvek do dvojsměrného seznamu. Tyto funkce sice umožňují snazší složení řetězců, ale vytváří tak alokovaný řetězec, který je potřeba po jeho používání uvolnit. Každý operační kód má svojí vlastní funkci pro vytvoření instrukce. Při výpisu instrukcí jsou všechny instrukce uložené v seznamu vypsány funkcí \textbf{Instruction\_outputAll(InstructionListPtr l)} postupně na nový řádek, tak jak byly vkládány.
+Pomocí implementovaných funkcí pro skládání řetězců vytvoří instrukci jako jeden řetězec z názvu instrukce a případně jednoho či více symbolů obsahujících informace o jednotlivých argumentech, který následně uloží jako poslední prvek do dvousměrně vázaného seznamu. Tyto funkce sice umožňují snazší složení řetězců, ale vytváří tak alokované textové řetězce, které je potřeba následně uvolnit.
+
+\vspace{2mm}
+Každá instrukce mezikódu má svou vlastní funkci, která přijímá pouze argumenty, které daná instrukce vyžaduje. Při výpisu tiskne jednotlivé instrukce na standartní výstup, každou na nový řádek tak, jak jsou v seznamu uloženy.
 
 \subsection{Pomocné datové struktury} \label{gen-struktury}
 Tento modul využívá dvousměrně vázaný seznam pro ukládání vytvořených instrukcí a jejich následný výpis.

@@ -110,19 +110,6 @@ int Parser_ParseStatement_Return(InputPtr input, InstructionListPtr ilist, Symbo
 
 
 //-------------------------------------------------d-d-
-//  Vestavěné funkce
-//-----------------------------------------------------
-
-int Parser_ParseBuiltinFunction_Asc(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable);
-
-int Parser_ParseBuiltinFunction_Chr(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable);
-
-int Parser_ParseBuiltinFunction_Length(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable);
-
-int Parser_ParseBuiltinFunction_Substr(InputPtr input, InstructionListPtr ilist, SymbolTablePtr symtable);
-
-
-//-------------------------------------------------d-d-
 //  Další
 //-----------------------------------------------------
 

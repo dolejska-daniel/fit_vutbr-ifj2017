@@ -10,15 +10,18 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 
 #ifdef DEBUG_INCLUDE
 #include "../support/error_codes.h"
 #include "../support/strings.h"
 #include "../support/token_stack.h"
+#include "../support/convert2decimal.h"
 #else
 #include "error_codes.h"
 #include "strings.h"
 #include "token_stack.h"
+#include "convert2decimal.h"
 #endif // DEBUG_INCLUDE
 
 
@@ -1121,6 +1124,10 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 last_line = String_create(NULL);
                 input->line++;
             }
+            else if(ch == '\'')
+            {
+                state = STATE_INC_BLOCK_COMMENT_APOS;
+            }
             else if(ch == EOF)
             {
                 String_destroy(&final_string); //neposilame final_string v tokenu -> musime uvolnit
@@ -1284,7 +1291,15 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 {
                     String_addChar(&final_string, '0');
                 }
-                *token = Token_create(CONSTANT_BINARY, final_string);
+
+                //prevedeni na desitkove cislo
+                int final_int = atoi(final_string);
+                final_int = binary2decimal(final_int);
+                int digits_number = (int) log10(final_int) + 1;
+                char *final_string_bin = (char *) malloc(sizeof(char) * (digits_number + 1));
+                snprintf(final_string_bin, digits_number + 1, "%i", final_int);
+
+                *token = Token_create(CONSTANT_INTEGER, final_string_bin);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
@@ -1319,7 +1334,15 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 {
                     String_addChar(&final_string, '0');
                 }
-                *token = Token_create(CONSTANT_OCTAL, final_string);
+
+                //prevedeni na desitkove cislo
+                int final_int = atoi(final_string);
+                final_int = octa2decimal(final_int);
+                int digits_number = (int) log10(final_int) + 1;
+                char *final_string_octa = (char *) malloc(sizeof(char) * (digits_number + 1));
+                snprintf(final_string_octa, digits_number + 1, "%i", final_int);
+
+                *token = Token_create(CONSTANT_OCTAL, final_string_octa);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
@@ -1354,7 +1377,14 @@ int Scanner_GetToken(InputPtr input, TokenPtr *token)
                 {
                     String_addChar(&final_string, '0');
                 }
-                *token = Token_create(CONSTANT_HEXA, final_string);
+
+                //prevedeni na desitkove cislo
+                int final_int = hexa2decimal(final_string);
+                int digits_number = (int) log10(final_int) + 1;
+                char *final_string_hex = (char *) malloc(sizeof(char) * (digits_number + 1));
+                snprintf(final_string_hex, digits_number + 1, "%i", final_int);
+
+                *token = Token_create(CONSTANT_HEXA, final_string_hex);
                 if(*token == NULL)
                 {
                     return INTERNAL_ERROR;
